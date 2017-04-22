@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+
+	<data name="NotesLabel" xml:space="preserve">
+    <value>Notitie:</value>
+    <comment>Notitie label</comment>
+    </data>
+    <data name="SettingsPageTitle" xml:space="preserve">
+        <value>Instellingen</value>
+        <comment>Label for the SettingsPage</comment>
+	</data>
+    <data name="ActivityOverviewPageTitle" xml:space="preserve">
+        <value>Overzicht</value>
+        <comment>Label for the ActivityOverviewPage</comment>
+	</data>
+    <data name="DayMapPageTitle" xml:space="preserve">
+		<value>Kaart</value>
+        <comment>Label for the DayMapPage</comment>
+    </data>
+    <data name="TrackingSectionLabel" xml:space="preserve">
+        <value>Dataverzameling</value>
+        <comment>Title label for the section/card regarding data collection</comment>
+    </data>
+	<data name="TrackingSwitchLabel" xml:space="preserve">
+        <value>Verplaatsingen bepalen</value>
+        <comment>Label for the switch that allows the user to enable/disable tracking</comment>
+    </data>
+	<data name="GeneralLabel" xml:space="preserve">
+        <value>Algemeen</value>
+        <comment>Label for General items, used in settings.</comment>
+    </data>
+	<data name="AboutSectionLabel" xml:space="preserve">
+    <value>Over</value>
+    <comment>Label used in the About section/card.</comment>
+    </data>
+    
+    <data name="InfoLabel" xml:space="preserve">
+        <value>Info</value>
+        <comment>Info label, used in settings</comment>
+    </data>
+	<data name="VersionLabel" xml:space="preserve">
+        <value>Versie</value>
+        <comment>Version</comment>
+    </data>
+    <data name="ServiceTitle" xml:space="preserve">
+        <value>Tabi</value>
+        <comment>Title used in the notification for the foreground service</comment>
+    </data>
+    <data name="ServiceText" xml:space="preserve">
+        <value>Draait op de achtergrond om verplaatsingen te meten.</value>
+        <comment>Text used (below title and smaller in text) in the notification for the foreground service</comment>
+    </data>
+    <data name="Today" xml:space="preserve">
+    <value>Vandaag</value>
+  </data>
+</root>

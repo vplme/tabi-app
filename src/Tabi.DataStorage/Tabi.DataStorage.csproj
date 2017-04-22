@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.6</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.3.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.3" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.3.3" />
+  </ItemGroup>
+  <Import Project="..\Tabi.DataObjects\Tabi.DataObjects.projitems" Label="Shared" Condition="Exists('..\Tabi.DataObjects\Tabi.DataObjects.projitems')" />
+</Project>

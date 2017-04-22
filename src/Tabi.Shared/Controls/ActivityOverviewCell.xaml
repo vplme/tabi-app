@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" xmlns:local="clr-namespace:Tabi;assembly=Tabi.Shared" xmlns:i18n="clr-namespace:Tabi.Shared.Localization;assembly=Tabi.Shared" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Tabi.ActivityOverviewCell">
+    <StackLayout Padding="0" Spacing="0" >
+        <local:StopView IsVisible="{Binding ShowStop}" Text="{Binding Name}" DetailText="{Binding Time}" Padding="0, 10, 0, 10" Command="{Binding StopCommand}" />
+         <StackLayout IsVisible="{Binding ShowTrack}" VerticalOptions="FillAndExpand" Orientation="Horizontal" Spacing="0" Padding="15,0,0,0">
+            <BoxView Color="{Binding Track.Color}" WidthRequest="20" HeightRequest="{Binding Track.Height}" />
+            <Label VerticalOptions="Center" Text="{Binding Track.Text}" />
+        </StackLayout>
+    </StackLayout>
+</ViewCell>

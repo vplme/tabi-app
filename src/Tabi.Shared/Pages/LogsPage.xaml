@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Tabi.LogsPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Bottom" Clicked="ToBottom" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView x:Name="logsScrollView">
+            <Label FontSize="10" Text="{Binding Text}" x:Name="TextLabel">
+            </Label>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

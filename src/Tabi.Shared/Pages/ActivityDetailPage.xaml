@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Tabi.ActivityDetailPage">
+	<ContentPage.Content>
+		<TableView Intent="Menu">
+			<TableView.Root>
+				<TableSection Title="Deel 1">
+					<TextCell Text="Lopen"/>
+					<TextCell Text="07:14 - 07:22"/>
+					<TextCell Text="Route"  StyleId="disclosure"/>
+				</TableSection>
+
+				<TableSection Title="Deel 2">
+					<TextCell Text="Bus"/>
+					<TextCell Text="07:23 - 08:10"/>
+					<TextCell Text="Route"  StyleId="disclosure"/>
+				</TableSection>
+
+				<TableSection Title="Deel 3">
+					<TextCell Text="Trein"/>
+					<TextCell Text="08:20 - 9:20"/>
+					<TextCell Text="Route" StyleId="disclosure"/>
+				</TableSection>
+
+				<TableSection Title="Deel 4">
+					<TextCell Text="Lopen"/>
+					<TextCell Text="9:20 - 09:30"/>
+					<TextCell Text="Route" StyleId="disclosure"/>
+				</TableSection>
+			</TableView.Root>
+		</TableView>
+	</ContentPage.Content>
+</ContentPage>

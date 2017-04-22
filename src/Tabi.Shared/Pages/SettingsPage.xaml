@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:i18n="clr-namespace:Tabi.Shared.Localization;assembly=Tabi.Shared" xmlns:control="clr-namespace:Tabi.Shared.Controls;assembly=Tabi.Shared" xmlns:local="clr-namespace:Tabi;assembly=Tabi.Shared" x:Class="Tabi.SettingsPage" Title="{i18n:Translate SettingsPageTitle}" BackgroundColor="{StaticResource WindowBackgroundTable}">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="0">
+                <StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}" Spacing="{DynamicResource CardSpacing}" Padding="{DynamicResource CardPadding}">
+                    <control:CardView>
+                        <control:CardView.IsVisible>
+                            <OnPlatform x:TypeArguments="x:Boolean" Android="true" iOS="true" WinPhone="true" />
+                        </control:CardView.IsVisible>
+                        <StackLayout Spacing="0">
+                            <control:LabelSection Text="{i18n:Translate TrackingSectionLabel}" />
+                            <control:HeaderDivider />
+                            <StackLayout BackgroundColor="White" Padding="{DynamicResource NormalPadding}">
+                                <Label Text="{i18n:Translate TrackingExplanation}" HorizontalOptions="Center" Style="{DynamicResource EvolveListItemDetailTextStyle}" />
+                            </StackLayout>
+                            <control:SettingsSectionDivider />
+                            <Grid Padding="{DynamicResource NormalPadding}" ColumnSpacing="0" BackgroundColor="White">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Style="{DynamicResource EvolveListItemTextStyle}" VerticalOptions="Center" Text="{i18n:Translate TrackingSwitchLabel}" />
+                                <Switch Grid.Column="1" HorizontalOptions="Fill" IsToggled="{Binding Settings.Tracking}" />
+                            </Grid>
+                            <control:FooterDivider />
+                        </StackLayout>
+                    </control:CardView>
+                    <control:CardView>
+                        <StackLayout Spacing="0">
+                            <control:LabelSection Text="{i18n:Translate AboutSectionLabel}" />
+                            <control:HeaderDivider />
+                            <Grid Padding="{DynamicResource NormalPadding}" ColumnSpacing="0" BackgroundColor="White">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding InfoCommand}" />
+                                </Grid.GestureRecognizers>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{i18n:Translate VersionLabel}" x:Name="VersionInfo" />
+                                <Label Grid.Column="1" x:Name="VersionLabel" />
+                            </Grid>
+                            <control:FooterDivider />
+                            <StackLayout>
+                                <StackLayout.Padding>
+                                    <OnPlatform x:TypeArguments="Thickness" iOS="16,8,16,0" Android="16,8" WinPhone="16,8" />
+                                </StackLayout.Padding>
+                                <Label Text="Developer app version" Style="{DynamicResource EvolveListItemDetailTextStyle}" />
+                            </StackLayout>
+                        </StackLayout>
+                    </control:CardView>
+                    <control:CardView x:Name="DeveloperSection">
+                        <StackLayout Spacing="0">
+                            <control:LabelSection Text="Developer" />
+                            <Button Command="{Binding OpenLogsCommand}" Text="Logs"/>
+                            <control:HeaderDivider />
+                            <!--                  <ListView x:Name="ListViewTechnology" ItemsSource="{Binding TechnologyItems}" RowHeight="44">
+                                <ListView.Effects>
+                                    <local:NoScrollListViewEffect />
+                                </ListView.Effects>
+                                <ListView.SeparatorColor>
+                                    <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}" />
+                                </ListView.SeparatorColor>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextCell Text="{Binding Name}" Detail="{Binding Subtitle}" Command="{Binding Command}" CommandParameter="{Binding Parameter}" StyleId="disclosure" />
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>-->
+                            <local:DynamicHeightTableView>
+                                <local:DynamicHeightTableView.Effects>
+                                    <local:NoScrollListViewEffect />
+<!--                                    <local:NoSelectionListViewEffect />-->
+                                </local:DynamicHeightTableView.Effects>
+                                <TableSection>
+                                    <SwitchCell x:Name="one" Text="Developer" On="{Binding Settings.Developer}" />
+                                    <TextCell x:Name="two" Text="Export SQLite database" Command="{Binding ExportDatabaseCommand}" />
+                                    <TextCell Text="Clear SQLite database" Command="{Binding DropDatabaseCommand}" />
+                                    <TextCell Text="List latest positions" Command="{Binding ListPositionsCommand}" />
+                                    <TextCell Text="Export KML" Command="{Binding ExportKMLCommand}" />
+                                    <TextCell Text="Export CSV" Command="{Binding ExportCSVCommand}" />
+                                    <TextCell Text="Show mockup" Command="{Binding ShowMockupCommand}" />
+                                    <TextCell Text="Load Sample Database" Command="{Binding LoadSampleCommand}" />
+                                    <TextCell Text="Generate stops" Command="{Binding GenerateStopsCommand}" />
+                                    <TextCell Text="List stops" Command="{Binding ListStopsCommand}" />
+                                    <TextCell Text="Show page" Command="{Binding ShowPageCommand}" />
+                                    <TextCell Text="Clear stops" Command="{Binding ClearStopsCommand}" />
+                                    <TextCell Text="Logs" Command="{Binding OpenLogsCommand}" />
+                                </TableSection>
+                            </local:DynamicHeightTableView>
+                            <control:FooterDivider />
+                            <StackLayout>
+                                <StackLayout.Padding>
+                                    <OnPlatform x:TypeArguments="Thickness" iOS="16,8,16,0" Android="16,8" WinPhone="16,8" />
+                                </StackLayout.Padding>
+                                <Label Text="A: 42" Style="{DynamicResource EvolveListItemDetailTextStyle}">
+                                </Label>
+                            </StackLayout>
+                        </StackLayout>
+                    </control:CardView>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+        <!-- <TableView Intent="Settings">
+                <TableRoot x:Name="SettingsTable">
+                    <TableSection Title="{i18n:Translate GeneralLabel}">
+                        <SwitchCell Text="{i18n:Translate TrackingSwitchLabel}" On="{Binding Settings.Tracking}" />
+                    </TableSection>
+                    <TableSection Title="{i18n:Translate InfoLabel}">
+                        <TextCell Text="{i18n:Translate VersionLabel}" x:Name="VersionInfo" Command="{Binding InfoCommand}" />
+                    </TableSection>
+                    <TableSection x:Name="DeveloperSection" Title="Developer">
+                        <SwitchCell Text="Developer" On="{Binding Settings.Developer}" />
+                        <TextCell Text="Export SQLite database" Command="{Binding ExportDatabaseCommand}" />
+                        <TextCell Text="Clear SQLite database" Command="{Binding DropDatabaseCommand}" />
+                        <TextCell Text="Export KML" Command="{Binding ExportKMLCommand}" />
+                        <TextCell Text="Export CSV" Command="{Binding ExportCSVCommand}" />
+                        <TextCell Text="Show mockup" Command="{Binding ShowMockupCommand}" />
+                        <TextCell Text="Load Sample Database" Command="{Binding LoadSampleCommand}" />
+                        <TextCell Text="Generate stops" Command="{Binding GenerateStopsCommand}" />
+                        <TextCell Text="List stops" Command="{Binding ListStopsCommand}" />
+                        <TextCell Text="List latest positions" Command="{Binding ListPositionsCommand}" />
+                        <TextCell Text="Show page" Command="{Binding ShowPageCommand}" />
+                        <TextCell Text="Clear stops" Command="{Binding ClearStopsCommand}" />
+                        <TextCell Text="Logs" Command="{Binding OpenLogsCommand}" />
+                    </TableSection>
+                </TableRoot>
+            </TableView>-->
+    </ContentPage.Content>
+</ContentPage>
