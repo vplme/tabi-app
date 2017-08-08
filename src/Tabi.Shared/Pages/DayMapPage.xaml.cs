@@ -5,9 +5,11 @@ using Tabi.DataStorage;
 using Tabi.Logging;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
+using Xamarin.Forms.Xaml;
 
 namespace Tabi
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DayMapPage : ContentPage
     {
         public DayMapPage()

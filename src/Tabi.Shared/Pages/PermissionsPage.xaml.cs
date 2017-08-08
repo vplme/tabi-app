@@ -15,7 +15,7 @@ namespace Tabi
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PermissionsPage : ContentPage
     {
-        IPermissions permissionsPlugin = Plugin.Permissions.CrossPermissions.Current;
+        readonly IPermissions permissionsPlugin = Plugin.Permissions.CrossPermissions.Current;
 
         async void Grant_Clicked(object sender, System.EventArgs e)
         {
@@ -40,13 +40,6 @@ namespace Tabi
                     Settings.Current.PermissionsGranted = true;
                     await Navigation.PopModalAsync();
                 }
-
-                //            foreach (KeyValuePair<Permission, PermissionStatus> entry in result)
-                //{
-                //                Debug.WriteLine(entry.Key + " " + entry.Value);
-
-                //}
-
             }
 
         }
@@ -62,13 +55,6 @@ namespace Tabi
 
         }
 
-        protected async override void OnAppearing()
-        {
-            base.OnAppearing();
-
-
-        }
-
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
@@ -78,13 +64,6 @@ namespace Tabi
         private void Settings_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
 
-        }
-
-        async void SqliteOpen(object sender, EventArgs e)
-        {
-            IFolder rootFolder = FileSystem.Current.LocalStorage;
-            var t = await rootFolder.GetFileAsync("tabi");
-            DependencyService.Get<IShareFile>().ShareFile(t.Path);
         }
     }
 }
