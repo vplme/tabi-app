@@ -357,30 +357,9 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Small-40%402x.png">
       <InProject>false</InProject>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\TabiIcon.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\TabiIcon.imageset\TabiIcon-76%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\TabiIcon.imageset\TabiIcon-83.5%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\TabiIcon.imageset\TabiIcon-iTunesArtwork%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\TabiIcon.imageset\TabiIcon%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\TabiIcon.imageset\TabiIcon%403x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\TabiIcon%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\TabiIcon%403x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\TabiIcon-60%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\TabiIcon-60%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\TabiIcon-83.5%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Localization\" />

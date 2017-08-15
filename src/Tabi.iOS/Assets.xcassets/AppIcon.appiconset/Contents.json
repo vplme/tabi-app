@@ -39,13 +39,13 @@
       "idiom": "iphone"
     },
     {
-      "filename": "TabiIcon@2x.png",
+      "filename": "TabiIcon-60@2x.png",
       "size": "60x60",
       "scale": "2x",
       "idiom": "iphone"
     },
     {
-      "filename": "TabiIcon@3x.png",
+      "filename": "TabiIcon-60@3x.png",
       "size": "60x60",
       "scale": "3x",
       "idiom": "iphone"
@@ -85,6 +85,7 @@
       "idiom": "ipad"
     },
     {
+      "filename": "TabiIcon-83.5@3x.png",
       "size": "83.5x83.5",
       "scale": "2x",
       "idiom": "ipad"
