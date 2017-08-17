@@ -1,4 +1,5 @@
-﻿﻿using System;
+﻿using System;
+using System.Text;
 using System.Threading.Tasks;
 using Tabi.Helpers;
 using Tabi.Logging;
@@ -20,23 +21,13 @@ namespace Tabi
             BindingContext = new LogsViewModel();
             logAccess = new LogFileAccess();
 
-
-            Task.Run(async () =>
-            {
-                await ReadLogFile();
-            });
+            Task.Run(async () => { await ReadLogFile(); });
         }
 
-        void ToBottom(object sender, EventArgs e)
+        void Refresh(object sender, EventArgs e)
         {
-            ScrollToBottom();
+            Task.Run(async () => { await ReadLogFile(); });
         }
-        private void ScrollToBottom()
-        {
-            double toY = logsScrollView.Content.Height - logsScrollView.Height;
-            logsScrollView.ScrollToAsync(0, toY, false);
-        }
-
         protected override void OnAppearing()
         {
             base.OnAppearing();
@@ -49,12 +40,13 @@ namespace Tabi
             FileLogWriter.LogWriteEvent -= FileLogger_LogWriteEvent;
         }
 
+        
         private void FileLogger_LogWriteEvent(object sender, EventArgs e)
         {
-            //Task.Run(async () =>
-            //{
-            //    await ReadLogFile();
-            //});
+//            Task.Run(async () =>
+//            {
+//                await ReadLogFile();
+//            });
         }
 
         private async Task ReadLogFile()

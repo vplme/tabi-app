@@ -30,6 +30,7 @@ namespace Tabi.Logging
             while (await Source.OutputAvailableAsync())
             {
                 await WriteToFile($"{DateTime.Now} {Source.Receive()}\n");
+                LogWriteEvent?.Invoke(this, EventArgs.Empty);
             }
         }
     }
