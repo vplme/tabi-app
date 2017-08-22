@@ -61,23 +61,20 @@ namespace Tabi
             InitializeComponent();
 
 
-
             SetupLocationManager();
 
 
-
-
             string apiKey = Configuration["mobilecenter:apikey"];
+            bool mobileCenterEnabled = Convert.ToBoolean(Configuration["mobilecenter:enabled"]);
+
             if (!apiKey.Equals(""))
             {
                 MobileCenter.Start(apiKey,
-                         typeof(Analytics), typeof(Crashes), typeof(Distribute));
+                    typeof(Analytics), typeof(Crashes), typeof(Distribute));
                 Log.Debug("MobileCenter started with apikey");
+                MobileCenter.SetEnabledAsync(mobileCenterEnabled);
+                Log.Debug($"MobileCenter enabled: {mobileCenterEnabled}");
             }
-
-            bool mobileCenterEnabled = Convert.ToBoolean(Configuration["mobilecenter:enabled"]);
-            MobileCenter.SetEnabledAsync(mobileCenterEnabled);
-            Log.Debug($"MobileCenter enabled: {mobileCenterEnabled}");
 
 
             MainPage = new TabiTabbedPage();
