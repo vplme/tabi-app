@@ -9,6 +9,7 @@ namespace Tabi.DataStorage
         IMotionEntryRepository MotionEntryRepository { get; }
         IStopRepository StopRepository { get; }
         IStopVisitRepository StopVisitRepository { get; }
+        IBatteryEntryRepository BatteryEntryRepository { get; }
 
         void SaveChanges();
     }

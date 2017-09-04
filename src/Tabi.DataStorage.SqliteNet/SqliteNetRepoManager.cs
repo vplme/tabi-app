@@ -22,11 +22,13 @@ namespace Tabi.DataStorage.SqliteNet
             conn.CreateTable<PositionEntry>();
             conn.CreateTable<Stop>();
             conn.CreateTable<StopVisit>();
+            conn.CreateTable<BatteryEntry>();
 
             PositionEntryRepository = new SqliteNetPositionEntryRepository(conn);
             DeviceRepository = new SqliteNetDeviceRepository(conn);
             StopRepository = new SqliteNetStopRepository(conn);
             StopVisitRepository = new SqliteNetStopVisitRepository(conn);
+            BatteryEntryRepository = new SqliteNetBatteryEntryRepository(conn);
         }
 
         public IUserRepository UserRepository { get; private set; }
@@ -35,6 +37,7 @@ namespace Tabi.DataStorage.SqliteNet
         public IMotionEntryRepository MotionEntryRepository { get; private set; }
         public IStopRepository StopRepository { get; private set; }
         public IStopVisitRepository StopVisitRepository { get; private set; }
+        public IBatteryEntryRepository BatteryEntryRepository { get; private set; }
 
         public void SaveChanges()
         {

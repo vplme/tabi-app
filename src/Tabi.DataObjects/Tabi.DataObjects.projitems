@@ -19,5 +19,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Util.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
     <Compile Include="$(MSBuildThisFileDirectory)Stop.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)StopVisit.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BatteryEntry.cs" />
   </ItemGroup>
 </Project>
