@@ -21,64 +21,55 @@ namespace Tabi
         }
         public Settings() { }
 
-        private const string trackingKey = "tracking_key";
-        private readonly bool trackingDefault = false;
-
         public bool Tracking
         {
-            get { return AppSettings.GetValueOrDefault<bool>(trackingKey, trackingDefault); }
+            get => AppSettings.GetValueOrDefault(nameof(Tracking), false);
             set
             {
-                if (AppSettings.AddOrUpdateValue<bool>(trackingKey, value))
-                {
-                    OnPropertyChanged();
-                }
+                if (value == Tracking)
+                    return;
+
+                AppSettings.AddOrUpdateValue(nameof(Tracking), value);
+                OnPropertyChanged();
             }
         }
 
-		private const string permissionsGrantedKey = "permissions_granted_key";
-		private readonly bool permissionsGrantedDefault = false;
+        public bool PermissionsGranted
+        {
+            get => AppSettings.GetValueOrDefault(nameof(PermissionsGranted), false);
+            set
+            {
+                if (value == PermissionsGranted)
+                    return;
 
-		public bool PermissionsGranted
-		{
-			get { return AppSettings.GetValueOrDefault<bool>(permissionsGrantedKey, permissionsGrantedDefault); }
-			set
-			{
-				if (AppSettings.AddOrUpdateValue<bool>(permissionsGrantedKey, value))
-				{
-					OnPropertyChanged();
-				}
-			}
-		}
-
-
-        private const string developerKey = "developer_key";
-        private readonly bool developerDefault = false;
+                AppSettings.AddOrUpdateValue(nameof(PermissionsGranted), value);
+                OnPropertyChanged();
+            }
+        }
 
         public bool Developer
         {
-            get { return AppSettings.GetValueOrDefault<bool>(developerKey, developerDefault); }
+            get => AppSettings.GetValueOrDefault(nameof(Developer), false);
             set
             {
-                if (AppSettings.AddOrUpdateValue<bool>(developerKey, value))
-                {
-                    OnPropertyChanged();
-                }
+                if (value == Developer)
+                    return;
+
+                AppSettings.AddOrUpdateValue(nameof(Developer), value);
+                OnPropertyChanged();
             }
         }
 
-        private const string deviceKey = "device_guid";
-        private readonly string deviceDefault = "";
-
         public string Device
         {
-            get { return AppSettings.GetValueOrDefault<string>(deviceKey, deviceDefault); }
+            get => AppSettings.GetValueOrDefault(nameof(Device), string.Empty);
             set
             {
-                if (AppSettings.AddOrUpdateValue<string>(deviceKey, value))
-                {
-                    OnPropertyChanged();
-                }
+                if (value == Device)
+                    return;
+
+                AppSettings.AddOrUpdateValue(nameof(Device), value);
+                OnPropertyChanged();
             }
         }
 
