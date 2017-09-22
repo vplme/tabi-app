@@ -11,6 +11,11 @@ namespace Tabi.DataStorage.SqliteNet
         {
         }
 
+        public void ClearAll()
+        {
+            connection.DeleteAll<TrackEntry>();
+        }
+
         public TrackEntry LastTrackEntry()
         {
             return connection.Table<TrackEntry>().LastOrDefault();

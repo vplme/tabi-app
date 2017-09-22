@@ -25,7 +25,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>Tabi</string>
 	<key>CFBundleVersion</key>
-	<string>1.2</string>
+	<string>1.2.1</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
@@ -34,6 +34,7 @@
 	<array>
 		<string>audio</string>
 		<string>location</string>
+		<string>bluetooth-central</string>
 	</array>
 	<key>CFBundleIdentifier</key>
 	<string>com.tabiapp.tabi</string>
@@ -53,6 +54,8 @@
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Tabi requires location access</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Tabi requires location access</string>
+	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Tabi requires location access</string>
 </dict>
 </plist>

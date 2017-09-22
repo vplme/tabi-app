@@ -6,12 +6,6 @@ namespace Tabi.DataObjects
     public class BatteryEntry
     {
         [PrimaryKey]
-        public int Id { get; set; }
-
-        public Guid DeviceId { get; set; }
-        [Ignore]
-        public Device Device { get; set; }
-
         public DateTimeOffset Timestamp { get; set; }
 
         public int BatteryLevel { get; set; }

@@ -8,6 +8,7 @@ using Tabi.DataStorage;
 using Tabi.iOS.Helpers;
 using Tabi.iOS.PlatformImplementations;
 using Tabi.Shared.Collection;
+using Tabi.Shared.Helpers;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(LocationManagerImplementation))]
@@ -57,6 +58,8 @@ namespace Tabi.iOS.PlatformImplementations
 
         private void ClManager_LocationsUpdated(object sender, CLLocationsUpdatedEventArgs e)
         {
+            BatteryHelper.CheckStoreBatteryLevel(TimeSpan.FromMinutes(10));
+
             if (!locationsDeferred && currentCoreLocationProfile.AllowDeferredLocationUpdates)
             {
                 clManager.AllowDeferredLocationUpdatesUntil(currentCoreLocationProfile.DeferredLocationUpdatesDistance,

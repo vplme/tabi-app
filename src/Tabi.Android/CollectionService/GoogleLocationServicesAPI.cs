@@ -10,6 +10,7 @@ using Tabi.DataObjects;
 using Tabi.DataStorage;
 using Tabi.Droid.CollectionService;
 using Tabi.Shared.Collection;
+using Tabi.Shared.Helpers;
 using Debug = System.Diagnostics.Debug;
 using ILocationListener = Android.Gms.Location.ILocationListener;
 using Object = Java.Lang.Object;
@@ -65,6 +66,7 @@ namespace Tabi.Droid
 
         public void OnLocationChanged(Location location)
         {
+            BatteryHelper.CheckStoreBatteryLevel(TimeSpan.FromMinutes(10));
 
             positionCache.Distance = currentProfile.DistanceDeltaLowTracking;
             PositionEntry positionEntry = location.ToPositionEntry();

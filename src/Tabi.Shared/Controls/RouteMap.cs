@@ -7,12 +7,13 @@ namespace Tabi
 {
     public class RouteMap : Map
     {
-        public List<Position> RouteCoordinates { get; set; }
+        public List<Line> Lines { get; set; } = new List<Line>();
+
         public string Message = "";
 
         public RouteMap()
         {
-            RouteCoordinates = new List<Position>();
+            Lines = new List<Line>();
 
         }
 
@@ -23,8 +24,15 @@ namespace Tabi
 
         public void DrawRoute()
         {
-            Message = "Hello!";
             MessagingCenter.Send<RouteMap>(this, "DrawRoute");
         }
+    }
+
+    public class Line {
+        
+        public List<Position> Positions { get; set; } = new List<Position>();
+
+        public Color Color { get; set; } = Color.Red;
+
     }
 }

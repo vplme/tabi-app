@@ -65,20 +65,24 @@ namespace Tabi.ViewModels
 
                 sv.Stop = stopRepository.Get(sv.StopId);
                 sv.Stop.Name = string.IsNullOrEmpty(sv.Stop.Name) ? "Stop" : sv.Stop.Name;
-                ae.Time = $"{sv.Id} {sv.BeginTimestamp.ToLocalTime():HH:mm} - {sv.EndTimestamp.ToLocalTime():HH:mm}";
+                ae.Time = $"{sv.BeginTimestamp.ToLocalTime():HH:mm} - {sv.EndTimestamp.ToLocalTime():HH:mm}";
                 ae.StopVisit = sv;
                 newActivityEntries.Add(ae);
 
                 if (sv.NextTrackId != 0)
                 {
                     TrackEntry te = trackEntryRepository.Get(sv.NextTrackId);
+
+                    double minutes = te.TimeTravelled.TotalMinutes < 200 ? te.TimeTravelled.TotalMinutes : 200;
+         
                     ActivityEntry tAe = new ActivityEntry()
                     {
                         Track = new Track()
                         {
                             TrackEntry = te,
-                            Height = (te.TimeTravelled.TotalMinutes + 1) * 5,
+                            Height = minutes,
                             Color = Color.Blue,
+                            //Text = $"{te.StartTime} {te.EndTime} {te.DistanceTravelled}",
                         },
                     };
                     newActivityEntries.Add(tAe);

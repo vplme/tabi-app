@@ -28,17 +28,17 @@ namespace Tabi.Pages
                 routeMap.MoveToRegion(MapSpan.FromCenterAndRadius(pos, Distance.FromMiles(1.0)));
                 routeMap.Pins.Add(new Pin() { Label = "Stop", Position = pos, Type = PinType.SearchResult });
             }
-            if (Route != null && Route.Count > 0)
-            {
-                PositionEntry avg = Util.AveragePosition(Route);
-                foreach (PositionEntry p in Route)
-                {
-                    routeMap.RouteCoordinates.Add(new Xamarin.Forms.Maps.Position(p.Latitude, p.Longitude));
-                }
+            //if (Route != null && Route.Count > 0)
+            //{
+            //    PositionEntry avg = Util.AveragePosition(Route);
+            //    foreach (PositionEntry p in Route)
+            //    {
+            //        routeMap..Add(new Xamarin.Forms.Maps.Position(p.Latitude, p.Longitude));
+            //    }
 
-                routeMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Xamarin.Forms.Maps.Position(avg.Latitude, avg.Longitude), Distance.FromMeters(2500)));
+            //    routeMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Xamarin.Forms.Maps.Position(avg.Latitude, avg.Longitude), Distance.FromMeters(2500)));
 
-            }
+            //}
 
 
         }

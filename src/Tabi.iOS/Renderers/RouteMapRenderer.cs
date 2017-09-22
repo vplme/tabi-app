@@ -8,6 +8,7 @@ using Xamarin.Forms.Platform.iOS;
 using CoreLocation;
 using UIKit;
 using Tabi.Logging;
+using System.Collections.Generic;
 
 [assembly: ExportRenderer(typeof(RouteMap), typeof(RouteMapRenderer))]
 namespace Tabi.iOS
@@ -24,34 +25,41 @@ namespace Tabi.iOS
         {
             var nativeMap = Control as MKMapView;
 
-            nativeMap.OverlayRenderer = GetOverlayRenderer;
 
-            CLLocationCoordinate2D[] coords = new CLLocationCoordinate2D[formsMap.RouteCoordinates.Count];
-
-            int index = 0;
-            foreach (var position in formsMap.RouteCoordinates)
+            List<MKPolyline> polylines = new List<MKPolyline>();
+            foreach (Line line in formsMap.Lines)
             {
-                coords[index] = new CLLocationCoordinate2D(position.Latitude, position.Longitude);
-                index++;
-            }
+                if(line.Color.Equals(Color.Red))
+                {
+                    nativeMap.OverlayRenderer = GetOverlayRendererRed;
 
-            routeOverlay = MKPolyline.FromCoordinates(coords);
-            routeOverlay.Title = "Route";
-            nativeMap.AddOverlay(routeOverlay);
+                }
+                else{
+                    nativeMap.OverlayRenderer = GetOverlayRendererBlue;
+
+                }
+
+                CLLocationCoordinate2D[] cds = new CLLocationCoordinate2D[line.Positions.Count];
+
+                int index = 0;
+                foreach (var position in line.Positions)
+                {
+                    cds[index] = new CLLocationCoordinate2D(position.Latitude, position.Longitude);
+                    index++;
+                }
+
+                MKPolyline overlay = MKPolyline.FromCoordinates(cds);
+                polylines.Add(overlay);
+            }
+            nativeMap.AddOverlays(polylines.ToArray());
         }
 
         private void ClearMap(RouteMap obj)
         {
             var nativeMap = Control as MKMapView;
 
-            foreach (IMKOverlay ov in nativeMap.Overlays)
-            {
-                nativeMap.RemoveOverlay(ov);
-            }
+            nativeMap.RemoveOverlays(nativeMap.Overlays);
         }
-
-        MKPolylineRenderer polylineRenderer;
-        private MKPolyline routeOverlay;
 
         protected override void OnElementChanged(ElementChangedEventArgs<View> e)
         {
@@ -70,20 +78,30 @@ namespace Tabi.iOS
             }
         }
 
-        MKOverlayRenderer GetOverlayRenderer(MKMapView mapView, IMKOverlay overlay)
+        MKOverlayRenderer GetOverlayRendererRed(MKMapView mapView, IMKOverlay overlay)
         {
-            if (polylineRenderer == null)
-            {
-                polylineRenderer = new MKPolylineRenderer(overlay as MKPolyline)
+                var polylineRenderer = new MKPolylineRenderer(overlay as MKPolyline)
                 {
                     FillColor = UIColor.Blue,
                     StrokeColor = UIColor.Red,
                     LineWidth = 3,
                     Alpha = 0.4f
                 };
-            }
             return polylineRenderer;
         }
+
+        MKOverlayRenderer GetOverlayRendererBlue(MKMapView mapView, IMKOverlay overlay)
+        {
+            var polylineRenderer = new MKPolylineRenderer(overlay as MKPolyline)
+            {
+                FillColor = UIColor.Blue,
+                StrokeColor = UIColor.Blue,
+                LineWidth = 3,
+                Alpha = 0.4f
+            };
+            return polylineRenderer;
+        }
+
     }
 }
 

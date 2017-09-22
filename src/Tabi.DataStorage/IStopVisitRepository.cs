@@ -10,5 +10,6 @@ namespace Tabi.DataStorage
         IEnumerable<StopVisit> AllSortedByTime();
         StopVisit LastStopVisit();
         void Update(StopVisit sv);
+        void ClearAll();
     }
 }

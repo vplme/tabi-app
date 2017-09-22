@@ -7,11 +7,13 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Windows.Input;
+using CsvHelper;
 using PCLStorage;
 using Tabi.Core;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
 using Tabi.Model;
+using Tabi.Shared.Csv;
 using Xamarin.Forms;
 using FileAccess = PCLStorage.FileAccess;
 
@@ -95,6 +97,32 @@ namespace Tabi
                 DependencyService.Get<IShareFile>().ShareFile(path, "text/csv");
             });
 
+            ExportBatteryCSVCommand = new Command(async key =>
+
+            {
+                Log.Info("Command: Export Battery CSV");
+
+                IFolder rootFolder = FileSystem.Current.LocalStorage;
+
+                string fileName = "Tabi-Export-Battery.txt";
+                string path = PortablePath.Combine(rootFolder.Path, fileName);
+                IFile file = await rootFolder.CreateFileAsync(path, CreationCollisionOption.ReplaceExisting);
+
+                var batteryEntryRepo = App.RepoManager.BatteryEntryRepository;
+                var result = batteryEntryRepo.GetAll().ToList();
+
+                Stream stream = await file.OpenAsync(FileAccess.ReadAndWrite);
+
+                using (TextWriter tw = new StreamWriter(stream))
+                {
+                    var csv = new CsvWriter(tw);
+                    csv.Configuration.RegisterClassMap<BatteryEntryMap>();
+                    csv.WriteRecords(result);
+                }
+
+                DependencyService.Get<IShareFile>().ShareFile(path, "text/csv");
+            });
+
             ListStopsCommand = new Command((obj) =>
             {
                 StopsDebugPage page = new StopsDebugPage();
@@ -109,8 +137,8 @@ namespace Tabi
 
             ClearStopsCommand = new Command((obj) =>
             {
-                Application.Current.Properties["latestProcessedDate"] = DateTimeOffset.MinValue.Ticks;
-                //SQLiteHelper.Instance.ClearStops();
+                App.RepoManager.StopVisitRepository.ClearAll();
+                App.RepoManager.TrackEntryRepository.ClearAll();
             });
 
             OpenLogsCommand = new Command((obj) =>
@@ -159,6 +187,8 @@ namespace Tabi
         public ICommand ExportKMLCommand { protected set; get; }
 
         public ICommand ExportCSVCommand { protected set; get; }
+
+        public ICommand ExportBatteryCSVCommand { protected set; get; }
 
         public ICommand GenerateStopsCommand { protected set; get; }
 

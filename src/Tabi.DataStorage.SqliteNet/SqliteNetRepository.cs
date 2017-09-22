@@ -31,7 +31,7 @@ namespace Tabi.DataStorage.SqliteNet
 
         public TEntity Get(object id)
         {
-            return connection.Get<TEntity>(id);
+            return connection.Find<TEntity>(id);
         }
 
         public IEnumerable<TEntity> GetAll()

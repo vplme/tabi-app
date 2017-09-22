@@ -53,7 +53,7 @@
                     <control:CardView x:Name="DeveloperSection">
                         <StackLayout Spacing="0">
                             <control:LabelSection Text="Developer" />
-                            <Button Command="{Binding OpenLogsCommand}" Text="Logs"/>
+                            <Button Command="{Binding OpenLogsCommand}" Text="Logs" />
                             <control:HeaderDivider />
                             <!--                  <ListView x:Name="ListViewTechnology" ItemsSource="{Binding TechnologyItems}" RowHeight="44">
                                 <ListView.Effects>
@@ -71,7 +71,7 @@
                             <local:DynamicHeightTableView>
                                 <local:DynamicHeightTableView.Effects>
                                     <local:NoScrollListViewEffect />
-<!--                                    <local:NoSelectionListViewEffect />-->
+                                    <!--                                    <local:NoSelectionListViewEffect />-->
                                 </local:DynamicHeightTableView.Effects>
                                 <TableSection>
                                     <SwitchCell x:Name="one" Text="Developer" On="{Binding Settings.Developer}" />
@@ -80,6 +80,7 @@
                                     <TextCell Text="List latest positions" Command="{Binding ListPositionsCommand}" />
                                     <TextCell Text="Export KML" Command="{Binding ExportKMLCommand}" />
                                     <TextCell Text="Export CSV" Command="{Binding ExportCSVCommand}" />
+                                    <TextCell Text="Export Battery CSV" Command="{Binding ExportBatteryCSVCommand}" />
                                     <TextCell Text="Show mockup" Command="{Binding ShowMockupCommand}" />
                                     <TextCell Text="Load Sample Database" Command="{Binding LoadSampleCommand}" />
                                     <TextCell Text="Generate stops" Command="{Binding GenerateStopsCommand}" />

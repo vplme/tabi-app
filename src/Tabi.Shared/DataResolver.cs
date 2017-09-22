@@ -28,9 +28,8 @@ namespace Tabi.Core
 
             // Fetch Positions starting from beginning
             List<PositionEntry> fetchedPositions = positionEntryRepository.FilterPeriodAccuracy(newBeginTime, end, 100);
-
             // Group Positions
-            IList<PositionGroup> positionGroups = GroupPositions(fetchedPositions, 30);
+            IList<PositionGroup> positionGroups = GroupPositions(fetchedPositions, 50);
 
             // fetch existing stops
             IList<Stop> existingStops = stopRepository.GetAll().ToList();
@@ -49,12 +48,11 @@ namespace Tabi.Core
             if (first != null && first.BeginTimestamp == lastStopVisit?.BeginTimestamp)
             {
                 lastStopVisit.EndTimestamp = first.EndTimestamp;
-                lastStopVisit.NextTrack = first.NextTrack;
-                // Add trackEntry to DB!
-                // Double track entries?
-                trackEntryRepository.Add(lastStopVisit.NextTrack);
-                lastStopVisit.NextTrackId = lastStopVisit.NextTrack.Id;
-
+                if (first.NextTrack.TimeTravelled != TimeSpan.Zero){
+                    lastStopVisit.NextTrack = first.NextTrack;
+                    trackEntryRepository.Add(lastStopVisit.NextTrack);
+                    lastStopVisit.NextTrackId = lastStopVisit.NextTrack.Id;
+                }
 
                 stopVisitRepository.Update(lastStopVisit);
                 stopVisits.Remove(first);
@@ -62,7 +60,7 @@ namespace Tabi.Core
 
 
             // Store new StopVisits, Tracks
-            if(stopVisits.Count() > 0)
+            if (stopVisits.Count() > 0)
             {
                 SaveStopVisitChain(stopVisits.First());
 
@@ -129,32 +127,74 @@ namespace Tabi.Core
         {
             IList<StopVisit> stopVisits = new List<StopVisit>();
 
+            int stopVisitPositionGroup = -1;
+            StopVisit previousStopVisit = null;
+
             TrackEntry previousTrack = new TrackEntry();
             TrackEntry firstLooseTrack = previousTrack;
 
-            foreach (PositionGroup grp in groupedPositionEntries)
+            for (int i = 0; i < groupedPositionEntries.Count; i++)
             {
+                PositionGroup grp = groupedPositionEntries[i];
+
                 if (grp.TimeSpent > TimeSpan.FromMinutes(5))
                 {
-                    StopVisit sv = DetermineStopVisitFromGroup(grp, existingStops, 30);
 
-                    if (previousTrack != null)
+                    StopVisit sv = DetermineStopVisitFromGroup(grp, existingStops, 80);
+                    // If new stopvisit was near the previous stopvisit AND distance travelled < d then
+                    // update previous stopvisit.
+                    if (previousStopVisit?.Stop != null &&
+                        sv.Stop.Equals(previousStopVisit.Stop) &&
+                        previousTrack?.DistanceTravelled < 200)
+
                     {
-                        previousTrack.NextStop = sv;
+                        Log.Debug("Fix previousstop");
+                        previousStopVisit.EndTimestamp = sv.EndTimestamp;
+                        previousStopVisit.NextTrack = new TrackEntry();
+                        previousTrack = previousStopVisit.NextTrack;
                     }
 
-                    sv.NextTrack = new TrackEntry();
-                    previousTrack = sv.NextTrack;
+                    else
+                    {
+                        // TODO If new StopVisit:
+                        if (previousTrack != null)
+                        {
+                            previousTrack.NextStop = sv;
+                        }
 
-                    stopVisits.Add(sv);
+                        sv.NextTrack = new TrackEntry();
+                        previousTrack = sv.NextTrack;
+
+                        stopVisits.Add(sv);
+
+                        previousStopVisit = sv;
+                        stopVisitPositionGroup = i;
+                    }
                 }
                 else if (previousTrack != null)
                 {
                     if (previousTrack.StartTime == default(DateTimeOffset))
                     {
-                        previousTrack.StartTime = grp.Positions.First().Timestamp;
+                        PositionEntry first = grp.Positions.First();
+
+                        previousTrack.StartTime = first.Timestamp;
+                        previousTrack.FirstLatitude = first.Latitude;
+                        previousTrack.FirstLongitude = first.Longitude;
                     }
-                    previousTrack.EndTime = grp.Positions.Last().Timestamp;
+                    PositionEntry last = grp.Positions.Last();
+
+
+                    // TODO wrong 0 default val
+                    double lat = previousTrack.LastLatitude > 0 ? previousTrack.LastLatitude : previousTrack.FirstLatitude;
+                    double lon = previousTrack.LastLongitude > 0 ? previousTrack.LastLongitude : previousTrack.FirstLongitude;
+
+                    previousTrack.DistanceTravelled += Util.DistanceBetween(lat,
+                                                                            lon,
+                                                                            last.Latitude, 
+                                                                            last.Longitude);
+                    previousTrack.EndTime = last.Timestamp;
+                    previousTrack.LastLatitude = last.Latitude;
+                    previousTrack.LastLongitude = last.Longitude;
 
                 }
 
