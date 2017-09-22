@@ -3,15 +3,15 @@ namespace Tabi.Shared.Collection
 {
     public class CoreLocationProfile
     {
-        public bool AllowBackgroundLocationUpdates { get; set; }
-        public bool PauseLocationUpdatesAutomatically { get; set; }
-        public bool MonitorSignificantChanges { get; set; }
+        public bool AllowBackgroundLocationUpdates { get; set; } = false;
+        public bool PauseLocationUpdatesAutomatically { get; set; } = false;
+        public bool MonitorSignificantChanges { get; set; } = false;
+        
+        public double DesiredAccuracy { get; set; } = -1;
 
-        public double DesiredAccuracy { get; set; }
+        public double DistanceFilter { get; set; } = -1;
 
-        public double DistanceFilter { get; set; }
-
-        public bool AllowDeferredLocationUpdates { get; set; }
+        public bool AllowDeferredLocationUpdates { get; set; } = false;
         public double DeferredLocationUpdatesDistance { get; set; }
         public double DeferredLocationUpdatesTimeout { get; set; }
     }

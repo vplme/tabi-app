@@ -16,5 +16,10 @@ namespace Tabi.Droid.CollectionService
         {
             throw new NotImplementedException();
         }
+
+        public void RequestUpdateNow()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

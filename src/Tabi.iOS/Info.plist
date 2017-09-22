@@ -25,9 +25,9 @@
 	<key>CFBundleDisplayName</key>
 	<string>Tabi</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.1</string>
 	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen.storyboard</string>
+	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
 	<string>Tabi</string>
 	<key>UIBackgroundModes</key>
@@ -50,5 +50,7 @@
 			</array>
 		</dict>
 	</array>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Tabi uses Calendar access</string>
 </dict>
 </plist>

@@ -6,7 +6,7 @@ namespace Tabi
 {
     public static class Util
     {
-        public static PositionEntry AveragePosition(List<PositionEntry> positions)
+        public static PositionEntry AveragePosition(IList<PositionEntry> positions)
         {
             if (positions.Count == 1)
             {
@@ -57,5 +57,7 @@ namespace Tabi
 
             return 6376500.0 * (2.0 * Math.Atan2(Math.Sqrt(d3), Math.Sqrt(1.0 - d3)));
         }
+
+        
     }
 }

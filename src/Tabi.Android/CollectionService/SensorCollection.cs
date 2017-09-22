@@ -13,7 +13,7 @@ namespace Tabi.Droid.CollectionService
         private Sensor linearAccSensor;
         private Sensor significantMotionSensor;
 
-        public SensorCollection()
+        public SensorCollection(Action triggerAction)
         {
             mSensorManager = (SensorManager)Android.App.Application.Context.GetSystemService(Context.SensorService);
             linearAccSensor = mSensorManager.GetDefaultSensor(SensorType.LinearAcceleration);
@@ -21,7 +21,7 @@ namespace Tabi.Droid.CollectionService
             significantMotionSensor = mSensorManager.GetDefaultSensor(SensorType.SignificantMotion);
             if (significantMotionSensor != null)
             {
-                mSensorManager.RequestTriggerSensor(new SignificantMotionTriggerListener(mSensorManager, significantMotionSensor), significantMotionSensor);
+                mSensorManager.RequestTriggerSensor(new SignificantMotionTriggerListener(mSensorManager, significantMotionSensor, triggerAction), significantMotionSensor);
             }
             //mSensorManager.RegisterListener(this, linearAccSensor, SensorDelay.Normal);
         }

@@ -34,8 +34,6 @@ namespace Tabi.Droid
             App.ScreenHeight = (height - 0.5f) / density;
 
             LoadApplication(new App());
-
-            SensorCollection sc = new SensorCollection();
 		}
     }
 }

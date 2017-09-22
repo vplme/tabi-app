@@ -170,7 +170,7 @@
     <comment>Text instruction used when sharing data with another app</comment>
   </data>
   <data name="TrackingExplanation" xml:space="preserve">
-    <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rhoncus, risus in dapibus bibendum, est nibh laoreet neque, vitae vehicula eros diam quis ante. Phasellus consequat velit iaculis eros feugiat, at accumsan mauris blandit. Donec consectetur consequat augue ac venenatis.</value>
+    <value>It's possible to disable the collection of data by disabling the tracking below.</value>
   </data>
   <data name="Today" xml:space="preserve">
     <value>Today</value>

@@ -1,44 +1,54 @@
 ﻿using System;
+using System.IO;
+using System.Security.Permissions;
+using System.Threading.Tasks;
 using Android.Content;
 using Android.Content.PM;
 using Android.Support.V4.Content;
+using Android.Widget;
+using PCLStorage;
+using Plugin.Permissions;
+using Plugin.Permissions.Abstractions;
 using Tabi.Droid;
 using Tabi.Shared.Resx;
 using Xamarin.Forms;
+using FileAccess = PCLStorage.FileAccess;
+using Permission = Plugin.Permissions.Abstractions.Permission;
 
 [assembly: Xamarin.Forms.Dependency(typeof(ShareFileImplementation))]
 namespace Tabi.Droid
 {
     public class ShareFileImplementation : IShareFile
     {
+        private const string externalStorageFolder = "Tabi/";
+        
+        // On Android this implementation saves the file to external storage (world readable)
+        // instead of sharing it with apps.
         public void ShareFile(string path, string mime = "text/plain")
         {
-            var context = Xamarin.Forms.Forms.Context;
-
-
             Log.Info($"Sharing file with path: {path}");
-            //var uri = Android.Net.Uri.Parse("file://" + path);
-            var intent = new Intent(Intent.ActionView);
-            intent.SetFlags(ActivityFlags.GrantReadUriPermission);
-            Java.IO.File file = new Java.IO.File(path);
-            var urlFP = FileProvider.GetUriForFile(context, "com.tabiapp.fileprovider", file);
-            intent.SetDataAndType(urlFP, mime);
+        
+            IFile toBeSharedFile = FileSystem.Current.GetFileFromPathAsync(path).Result;
 
-            //intent.SetFlags(ActivityFlags.ClearWhenTaskReset | ActivityFlags.NewTask);
+            var externalPath = Android.OS.Environment.ExternalStorageDirectory.ToString();
+            var filePath = System.IO.Path.Combine(externalPath, toBeSharedFile.Name);
 
-            try
+
+            if (PermissionStatus.Granted != CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Storage).Result)
             {
-                //PackageManager pm = context.PackageManager;
-                //if (intent.ResolveActivity(pm) != null)
-                //{
-                //    context.StartActivity(intent);
-                //}
-                context.StartActivity(Intent.CreateChooser(intent, AppResources.OpenFileInApp));
+                CrossPermissions.Current.RequestPermissionsAsync(Permission.Storage).Wait();
             }
-            catch (Exception ex)
+            Stream stream = toBeSharedFile.OpenAsync(FileAccess.ReadAndWrite).Result;
+            
+            using (StreamReader streamReader = new StreamReader(stream))
             {
-                Log.Error($"Exception occured while sharing a file: {ex}");
+                using (var streamWriter = new StreamWriter(filePath, false))
+                {
+                    streamWriter.Write(streamReader.ReadToEnd());
+                }
+
             }
+            
         }
     }
 }

@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Tabi.Model;
-
 using SharpKml.Dom;
 using SharpKml.Base;
 using SharpKml.Dom.GX;
 using System.Text;
 using System.Globalization;
+using System.IO;
+using CsvHelper;
+using Tabi.Csv;
 using Tabi.DataObjects;
 
 namespace Tabi.Core
@@ -33,10 +36,6 @@ namespace Tabi.Core
                 tr.AddCoordinate(v);
             }
 
-            //MultipleGeometry multiGeometry = new MultipleGeometry();
-            //multiGeometry.AddGeometry(new LineString() { Coordinates = cl, });
-            //multiGeometry.AddGeometry(tr);
-
             pMark.Geometry = tr;
 
             kml.Feature = pMark;
@@ -47,20 +46,26 @@ namespace Tabi.Core
             return serializer.Xml;
         }
 
-        public static string PositionsToCsv(List<PositionEntry> positions)
+        public static void PositionsToCsv(List<PositionEntry> positions, Stream stream)
         {
-            StringBuilder csvBuilder = new StringBuilder();
-            NumberFormatInfo nfi = new NumberFormatInfo();
-            nfi.NumberDecimalSeparator = ".";
-
-            csvBuilder.AppendFormat("\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\",\"{5}\"{6}", "Timestamp", "Latitude", "Longitude", "Accuracy", "DesiredAccuracy", "DistanceBetween", Environment.NewLine);
-            foreach (PositionEntry p in positions)
+            using (TextWriter tw = new StreamWriter(stream))
             {
-                csvBuilder.AppendFormat(nfi, "\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\",\"{5}\"{6}", p.Timestamp.ToUniversalTime(), p.Latitude, p.Longitude, p.Accuracy, p.DesiredAccuracy, p.DistanceBetweenPreviousPosition, Environment.NewLine);
+                var csv = new CsvWriter(tw);
+                csv.Configuration.RegisterClassMap<PositionEntryMap>();
+                csv.WriteRecords(positions);
             }
+        }
 
-            return csvBuilder.ToString();
+        public static IEnumerable<PositionEntry> CsvToPositions(Stream stream)
+        {
+            IEnumerable<PositionEntry> entries;
+            TextReader tr = new StreamReader(stream);
 
+            var csv = new CsvReader(tr);
+            csv.Configuration.RegisterClassMap<PositionEntryMap>();
+            entries = csv.GetRecords<PositionEntry>();
+
+            return entries;
         }
     }
 }

@@ -17,13 +17,19 @@ namespace Tabi.Shared.Collection
         {
             CollectionProfile cProfile = new CollectionProfile()
             {
+
+
                 iOSProfile = new ProfileiOS()
                 {
+                    DistanceDeltaLimitLowTracking = 40,
+                    DistanceDeltaLowTracking = 100,
+                    TimePeriodLowTracking = 60,
                     LowTrackingProfile = new CoreLocationProfile()
                     {
-                        DesiredAccuracy = 300,
+                        DesiredAccuracy = 200,
                         MonitorSignificantChanges = true,
                         AllowDeferredLocationUpdates = false,
+                        AllowBackgroundLocationUpdates = true
                     },
                     HighTrackingProfile = new CoreLocationProfile()
                     {
@@ -31,11 +37,15 @@ namespace Tabi.Shared.Collection
                         MonitorSignificantChanges = true,
                         AllowDeferredLocationUpdates = true,
                         DeferredLocationUpdatesDistance = 1000,
-                        DeferredLocationUpdatesTimeout = 600,
+                        DeferredLocationUpdatesTimeout = 60,
+                        AllowBackgroundLocationUpdates = true,
                     }
                 },
                 AndroidProfile = new ProfileAndroid()
                 {
+                    DistanceDeltaLimitLowTracking = 40,
+                    DistanceDeltaLowTracking = 100,
+                    TimePeriodLowTracking = 60,
                     HighTrackingProfile = new LocationRequestProfile()
                     {
                         Interval = 1000,
@@ -43,7 +53,7 @@ namespace Tabi.Shared.Collection
                     },
                     LowTrackingProfile = new LocationRequestProfile()
                      {
-                         Interval = 60 * 5 * 1000,
+                         Interval = 60 * 1000,
                          Priority = 102,
                      }
                 }
@@ -56,17 +66,8 @@ namespace Tabi.Shared.Collection
 
     }
 
-    public class ProfileAndroid
+    public abstract class AbstractProfile
     {
-        public LocationRequestProfile HighTrackingProfile { get; set; }
-        public LocationRequestProfile LowTrackingProfile { get; set; }
-    }
-
-    public class ProfileiOS
-    {
-        public CoreLocationProfile LowTrackingProfile { get; set; }
-        public CoreLocationProfile HighTrackingProfile { get; set; }
-
         /// <summary>
         /// Gets or sets the distance delta limit low tracking.
         /// </summary>
@@ -88,6 +89,20 @@ namespace Tabi.Shared.Collection
         /// the distance between location updates is under the specified 
         /// value in DistanceDeltaLowTracking.</value>
         public double TimePeriodLowTracking { get; set; }
+    }
+
+    public class ProfileAndroid : AbstractProfile
+    {
+        public LocationRequestProfile HighTrackingProfile { get; set; }
+        public LocationRequestProfile LowTrackingProfile { get; set; }
+    }
+
+    public class ProfileiOS : AbstractProfile
+    {
+        public CoreLocationProfile LowTrackingProfile { get; set; }
+        public CoreLocationProfile HighTrackingProfile { get; set; }
+
+        
     }
 
 }

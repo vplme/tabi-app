@@ -15,7 +15,7 @@ namespace Tabi
     {
         ObservableCollection<Stop> stops;
         //StopResolver resolve;
-        Repository<Stop> stopRepo;
+//        Repository<Stop> stopRepo;
 
         public StopsDebugPage()
         {
@@ -51,18 +51,18 @@ namespace Tabi
 
         void OnSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            if (e.SelectedItem != null)
-            {
-                Debug.WriteLine("StopsDebugPage OnSelected");
-                ListView view = (ListView)sender;
-                Stop stop = (Stop)e.SelectedItem;
+            //if (e.SelectedItem != null)
+            //{
+            //    Debug.WriteLine("StopsDebugPage OnSelected");
+            //    ListView view = (ListView)sender;
+            //    Stop stop = (Stop)e.SelectedItem;
 
-                view.SelectedItem = null;
+            //    view.SelectedItem = null;
 
-                //Stop stop = e.SelectedItem as Stop;
-                StopDetailPage page = new StopDetailPage(stop);
-                Navigation.PushAsync(page);
-            }
+            //    //Stop stop = e.SelectedItem as Stop;
+            //    StopDetailPage page = new StopDetailPage(stop);
+            //    Navigation.PushAsync(page);
+            //}
         }
     }
 }

@@ -14,14 +14,14 @@ namespace Tabi
         StopDetailViewModel ViewModel => vm ?? (vm = BindingContext as StopDetailViewModel);
         StopDetailViewModel vm;
 
-
         IStopRepository stopRepository = App.RepoManager.StopRepository;
 
-        public StopDetailPage(Stop s)
+        public StopDetailPage(StopVisit sv)
         {
             InitializeComponent();
             routeMap.HeightRequest = App.ScreenHeight * 0.30;
-            SetupPage(s);
+            routeMap.ClearMap();
+            SetupPage(sv);
         }
 
         protected override void OnAppearing()
@@ -30,28 +30,17 @@ namespace Tabi
 
         }
 
-        public string StopName
-        {
-            get
-            {
-                return ViewModel.Stop.Name;
-            }
-        }
-
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
             SaveStop();
         }
 
-        private void SetupPage(Stop s)
+        private void SetupPage(StopVisit sv)
         {
-            //Retrieve latest version from db
-            Stop stop = stopRepository.Get(s.Id);
-            Debug.WriteLine("After:" + stop);
 
-            SetMapLocation(stop);
-            BindingContext = new StopDetailViewModel(stop);
+            SetMapLocation(sv.Stop);
+            BindingContext = new StopDetailViewModel(sv);
         }
 
 
@@ -76,7 +65,7 @@ namespace Tabi
 
         private void SaveStop()
         {
-            stopRepository.Add(ViewModel.Stop);
+            stopRepository.Update(ViewModel.Stop);
         }
 
         protected override void OnBindingContextChanged()

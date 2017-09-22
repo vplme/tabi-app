@@ -51,7 +51,7 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Developer: Victor Verstappen (WA95C6J86T)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>None</MtouchLink>
@@ -66,6 +66,7 @@
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchUseLlvm>true</MtouchUseLlvm>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>none</DebugType>
@@ -129,7 +130,6 @@
     <BundleResource Include="Resources\Icon-60%403x.png" />
     <BundleResource Include="Resources\Icon-Small-40%403x.png" />
     <BundleResource Include="Resources\Icon-Small%403x.png" />
-    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <BundleResource Include="Resources\home.png" />
     <BundleResource Include="Resources\home%402x.png" />
     <BundleResource Include="Resources\ic_map.png" />
@@ -147,8 +147,12 @@
     <BundleResource Include="Resources\location.png" />
     <BundleResource Include="Resources\location%402x.png" />
     <BundleResource Include="Resources\location%403x.png" />
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="CsvHelper, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823">
+      <HintPath>..\packages\CsvHelper.2.16.3.0\lib\netstandard1.3\CsvHelper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />

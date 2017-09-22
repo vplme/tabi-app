@@ -25,6 +25,9 @@ namespace Tabi.iOS
 		{
 			global::Xamarin.Forms.Forms.Init ();
 
+            App.ScreenWidth = UIScreen.MainScreen.Bounds.Width;
+            App.ScreenHeight = UIScreen.MainScreen.Bounds.Height;
+
             Distribute.DontCheckForUpdatesInDebug();
 
             LoadApplication (new Tabi.App ());

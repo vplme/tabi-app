@@ -25,7 +25,7 @@ namespace Tabi
         {
             InitializeComponent();
 
-            BindingContext = new ActivityOverviewViewModel();
+            BindingContext = new ActivityOverviewViewModel(this.Navigation);
             ViewModel.Title = "Overzicht";
 
             //List<Track> tracks1 = new List<Track>();

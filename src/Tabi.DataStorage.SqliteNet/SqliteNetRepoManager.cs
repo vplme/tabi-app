@@ -7,6 +7,7 @@ namespace Tabi.DataStorage.SqliteNet
     public class SqliteNetRepoManager : IRepoManager
     {
         private static SQLiteConnection conn;
+
         public SqliteNetRepoManager(string path)
         {
             if (conn == null)
@@ -23,12 +24,14 @@ namespace Tabi.DataStorage.SqliteNet
             conn.CreateTable<Stop>();
             conn.CreateTable<StopVisit>();
             conn.CreateTable<BatteryEntry>();
+            conn.CreateTable<TrackEntry>();
 
             PositionEntryRepository = new SqliteNetPositionEntryRepository(conn);
             DeviceRepository = new SqliteNetDeviceRepository(conn);
             StopRepository = new SqliteNetStopRepository(conn);
             StopVisitRepository = new SqliteNetStopVisitRepository(conn);
             BatteryEntryRepository = new SqliteNetBatteryEntryRepository(conn);
+            TrackEntryRepository = new SqliteNetTrackEntryRepository(conn);
         }
 
         public IUserRepository UserRepository { get; private set; }
@@ -38,6 +41,7 @@ namespace Tabi.DataStorage.SqliteNet
         public IStopRepository StopRepository { get; private set; }
         public IStopVisitRepository StopVisitRepository { get; private set; }
         public IBatteryEntryRepository BatteryEntryRepository { get; private set; }
+        public ITrackEntryRepository TrackEntryRepository { get; }
 
         public void SaveChanges()
         {

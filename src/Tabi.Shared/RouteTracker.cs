@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
 
@@ -14,17 +13,13 @@ namespace Tabi
         IStopVisitRepository stopVisitRepository = App.RepoManager.StopVisitRepository;
         IStopRepository stopRepository = App.RepoManager.StopRepository;
 
-     
-
         public RouteTracker()
         {
         }
 
         public List<StopVisit> StopsBetween(DateTimeOffset begin, DateTimeOffset end)
         {
-            List<StopVisit> visitsAll = stopVisitRepository.GetAll().ToList();
-
-            List<StopVisit> visits = stopVisitRepository.BetweenDates(begin, end).ToList();
+            var visits = stopVisitRepository.BetweenDates(begin, end).ToList();
             foreach (StopVisit v in visits)
             {
                 v.Stop = stopRepository.Get(v.StopId);
@@ -32,6 +27,8 @@ namespace Tabi
 
             return visits;
         }
+
+        
 
         public List<Tuple<StopVisit, List<PositionEntry>>> StopsAndPositionsBetween(DateTimeOffset begin, DateTimeOffset end)
         {
@@ -89,14 +86,7 @@ namespace Tabi
 
         private StopVisit PositionInStop(PositionEntry pos, List<StopVisit> visits)
         {
-            foreach (StopVisit sv in visits)
-            {
-                if (pos.Timestamp >= sv.BeginTimestamp && pos.Timestamp <= sv.EndTimestamp)
-                {
-                    return sv;
-                }
-            }
-            return null;
+            return visits.FirstOrDefault(sv => pos.Timestamp >= sv.BeginTimestamp && pos.Timestamp <= sv.EndTimestamp);
         }
 
 

@@ -5,9 +5,9 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
        <StackLayout>
-            <local:DateSwitchView>
+<!--            <local:DateSwitchView>
             </local:DateSwitchView>
-            <local:TabiRaisedButton></local:TabiRaisedButton>
+            <local:TabiRaisedButton></local:TabiRaisedButton>-->
             <ListView x:Name="ListViewOverview" HasUnevenRows="true" SeparatorVisibility="None" ItemsSource="{Binding ActivityEntries}">
                 <ListView.Effects>
                     <local:NoDividerListViewEffect />

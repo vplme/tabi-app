@@ -21,10 +21,9 @@ namespace Tabi.Droid
         public override void OnCreate()
         {
             base.OnCreate();
-
         }
 
-        public const int SERVICE_RUNNING_NOTIFICATION_ID = 134345;
+        public const int ServiceRunningNotificationId = 134345;
 
         public LocationService()
         {
@@ -39,40 +38,35 @@ namespace Tabi.Droid
         public override StartCommandResult OnStartCommand(Intent intent, StartCommandFlags flags, int startId)
         {
             var notification = new Notification.Builder(this)
-                        .SetContentTitle(AppResources.ServiceTitle)
-                        .SetContentText(AppResources.ServiceText)
-                        .SetSmallIcon(Resource.Drawable.location)
-                        .SetOngoing(true)
-                        .Build();
+                .SetContentTitle(AppResources.ServiceTitle)
+                .SetContentText(AppResources.ServiceText)
+                .SetSmallIcon(Resource.Drawable.location)
+                .SetOngoing(true)
+                .Build();
 
             IAndroidLocation locationImplementation = null;
+
             if (IsGooglePlayApiAvailable())
             {
                 locationImplementation = new GoogleLocationServicesAPI();
             }
-            else{
+            else
+            {
                 locationImplementation = new AndroidLocationAPI();
             }
+
             locationImplementation.RequestLocationUpdates();
 
-            PowerManager sv = (Android.OS.PowerManager)GetSystemService(PowerService);
+            PowerManager sv = (Android.OS.PowerManager) GetSystemService(PowerService);
             WakeLock wklock = sv.NewWakeLock(WakeLockFlags.Partial, "TABI");
             wklock.Acquire();
-            //SensorCollection cs = new SensorCollection();
+            
+            SensorCollection cs = new SensorCollection(() => locationImplementation.RequestUpdateNow());
 
             // Enlist this instance of the service as a foreground service
-            StartForeground(SERVICE_RUNNING_NOTIFICATION_ID, notification);
+            StartForeground(ServiceRunningNotificationId, notification);
 
             return StartCommandResult.Sticky;
-        }
-
-        private void StartLocationListening()
-        {
-            if (IsGooglePlayApiAvailable())
-            {
-                GoogleLocationServicesAPI impl = new GoogleLocationServicesAPI();
-            }
-
         }
 
         private bool IsGooglePlayApiAvailable()

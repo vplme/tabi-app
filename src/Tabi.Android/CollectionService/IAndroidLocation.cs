@@ -5,5 +5,6 @@ namespace Tabi.Droid.CollectionService
     {
         void RequestLocationUpdates();
         void StopLocationUpdates();
+        void RequestUpdateNow();
     }
 }

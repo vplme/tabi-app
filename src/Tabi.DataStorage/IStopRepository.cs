@@ -5,5 +5,6 @@ namespace Tabi.DataStorage
 {
     public interface IStopRepository : IRepository<Stop>
     {
+        void Update(Stop s);
     }
 }

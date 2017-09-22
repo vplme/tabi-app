@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 using MvvmHelpers;
+using Tabi.DataObjects;
 
 namespace Tabi
 {
@@ -9,6 +10,14 @@ namespace Tabi
         public ActivityEntry()
         {
         }
+
+        StopVisit stopVisit;
+        public StopVisit StopVisit
+        {
+            get { return stopVisit; }
+            set { SetProperty(ref stopVisit, value); }
+        }
+
 
         string name;
         public string Name
@@ -35,6 +44,6 @@ namespace Tabi
 
         public bool ShowTrack => Track != null;
 
-        public bool ShowStop => name != null && !name.Equals("");
+        public bool ShowStop => stopVisit != null;
     }
 }

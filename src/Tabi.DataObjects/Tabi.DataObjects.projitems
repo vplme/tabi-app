@@ -20,5 +20,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Stop.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)StopVisit.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)BatteryEntry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TrackEntry.cs" />
+
   </ItemGroup>
 </Project>

@@ -9,5 +9,10 @@ namespace Tabi.DataStorage.SqliteNet
         public SqliteNetStopRepository(SQLiteConnection conn) : base(conn)
         {
         }
+
+        public void Update(Stop s)
+        {
+            connection.Update(s);
+        }
     }
 }

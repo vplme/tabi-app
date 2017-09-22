@@ -5,18 +5,22 @@ using System.Linq;
 using System.Threading.Tasks;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
+using Tabi.Shared;
 using Xamarin.Forms;
 
 namespace Tabi
 {
     public class StopResolver
     {
+
         List<InternalStop> stopPosSets = new List<InternalStop>();
         List<Stop> visitedStops;
 
         PositionEntry lastPosition;
 
         IPositionEntryRepository positionEntryRepository = App.RepoManager.PositionEntryRepository;
+        ITrackEntryRepository trackEntryRepository = App.RepoManager.TrackEntryRepository;
+
         IStopVisitRepository stopVisitRepository = App.RepoManager.StopVisitRepository;
         IStopRepository stopRepository = App.RepoManager.StopRepository;
 
@@ -31,10 +35,7 @@ namespace Tabi
                 }
                 return DateTimeOffset.MinValue;
             }
-            set
-            {
-                Application.Current.Properties["latestProcessedDate"] = value.UtcTicks;
-            }
+            set { Application.Current.Properties["latestProcessedDate"] = value.UtcTicks; }
         }
 
         public StopResolver()
@@ -69,13 +70,11 @@ namespace Tabi
             List<PositionEntry> positions = positionEntryRepository.FilterPeriodAccuracy(begin, end, 100);
             GenerateStops(positions);
             SaveStops();
-
         }
 
 
         public void GenerateStops(List<PositionEntry> positions)
         {
-
             Log.Debug("Positions in db:" + positions.Count);
             foreach (PositionEntry p in positions)
             {
@@ -95,6 +94,8 @@ namespace Tabi
             ClearStopCandidates(true);
             stopPosSets = MergeStops(stopPosSets);
         }
+
+
 
         public void SaveStops()
         {
@@ -118,7 +119,8 @@ namespace Tabi
                 {
                     foreach (Stop v in visitedStops)
                     {
-                        double distance = Util.DistanceBetween(v.Latitude, v.Longitude, intStop.AveragePosition.Latitude, intStop.AveragePosition.Longitude);
+                        double distance = Util.DistanceBetween(v.Latitude, v.Longitude,
+                            intStop.AveragePosition.Latitude, intStop.AveragePosition.Longitude);
                         if (distance < 100)
                         {
                             // replace stop with stop from db.
@@ -180,14 +182,13 @@ namespace Tabi
 
                     stopVisitRepository.Add(lastStopVisit);
                 }
-
             }
             if (lastStopVisit != null)
             {
                 LatestProcessedDate = lastStopVisit.EndTimestamp;
             }
-
         }
+
 
         private bool CheckPositionInExistingStops(PositionEntry p)
         {
@@ -237,6 +238,14 @@ namespace Tabi
             }
         }
 
+        public StopVisit PositionsToStopsAndTracks(IList<PositionEntry> positionEntries)
+        {
+            IList<IList<PositionEntry>> groupedPositions;
+
+
+            return null;
+        }
+
         private List<InternalStop> MergeStops(List<InternalStop> stops)
         {
             List<InternalStop> newStops = new List<InternalStop>();
@@ -247,7 +256,8 @@ namespace Tabi
 
                 foreach (InternalStop iSt in newStops)
                 {
-                    if (stop.AveragePosition.DistanceTo(iSt.AveragePosition) <= 150 && stop.Start - iSt.End < TimeSpan.FromMinutes(10))
+                    if (stop.AveragePosition.DistanceTo(iSt.AveragePosition) <= 150 &&
+                        stop.Start - iSt.End < TimeSpan.FromMinutes(10))
                     {
                         List<PositionEntry> avgs = new List<PositionEntry>()
                         {
@@ -309,25 +319,19 @@ namespace Tabi
 
             public DateTimeOffset Start
             {
-                get
-                {
-                    return Positions.First().Timestamp;
-                }
+                get { return Positions.First().Timestamp; }
             }
 
             public DateTimeOffset End
             {
-                get
-                {
-                    return Positions.Last().Timestamp;
-                }
+                get { return Positions.Last().Timestamp; }
             }
 
             public override string ToString()
             {
-                return string.Format("[InternalStop: Positions={0}, AveragePosition={1}]", PositionsCount, AveragePosition);
+                return string.Format("[InternalStop: Positions={0}, AveragePosition={1}]", PositionsCount,
+                    AveragePosition);
             }
         }
     }
-
 }

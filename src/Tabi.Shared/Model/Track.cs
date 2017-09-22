@@ -1,5 +1,6 @@
 ﻿using System;
 using MvvmHelpers;
+using Tabi.DataObjects;
 using Xamarin.Forms;
 
 namespace Tabi
@@ -9,6 +10,8 @@ namespace Tabi
         public Track()
         {
         }
+
+        public TrackEntry TrackEntry { get; set; }
 
         string text;
         public string Text

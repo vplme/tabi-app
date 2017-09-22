@@ -12,6 +12,11 @@ namespace Tabi.DataStorage.SqliteNet
         {
         }
 
+        public IEnumerable<StopVisit> AllSortedByTime()
+        {
+            return connection.Table<StopVisit>().OrderBy(sv => sv.BeginTimestamp);
+        }
+
         public IEnumerable<StopVisit> BetweenDates(DateTimeOffset begin, DateTimeOffset end)
         {
             return connection.Table<StopVisit>().Where(x => x.BeginTimestamp >= begin || x.EndTimestamp <= end);
@@ -19,7 +24,7 @@ namespace Tabi.DataStorage.SqliteNet
 
         public StopVisit LastStopVisit()
         { 
-            StopVisit visit = connection.Table<StopVisit>().OrderByDescending(sv => sv.EndTimestamp).Last();
+            StopVisit visit = connection.Table<StopVisit>().OrderBy(sv => sv.BeginTimestamp).LastOrDefault();
 
             return visit;
         }

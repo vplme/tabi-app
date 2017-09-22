@@ -16,7 +16,6 @@ namespace Tabi.Droid
 
         public void OnLocationChanged(Location location)
         {
-            Position p = location.ToPosition();
         }
 
         public void OnProviderDisabled(string provider)

@@ -1,39 +1,93 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="X5k-f2-b5h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="291">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="gAE-YM-kbH">
+        <scene sceneID="256">
             <objects>
-                <viewController id="X5k-f2-b5h" sceneMemberID="viewController">
+                <viewController id="257" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Y8P-hJ-Z43"/>
-                        <viewControllerLayoutGuide type="bottom" id="9ZL-r4-8FZ"/>
+                        <viewControllerLayoutGuide type="top" id="252"/>
+                        <viewControllerLayoutGuide type="bottom" id="253"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="yd7-JS-zBw">
+                    <view key="view" contentMode="scaleToFill" id="258">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" image="Icon-60.png" translatesAutoresizingMaskIntoConstraints="NO" id="23">
-                                <rect key="frame" x="270" y="270" width="60" height="60"/>
-                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.20392156862745098" green="0.59607843137254901" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="23" firstAttribute="centerY" secondItem="yd7-JS-zBw" secondAttribute="centerY" priority="1" id="39"/>
-                            <constraint firstItem="23" firstAttribute="centerX" secondItem="yd7-JS-zBw" secondAttribute="centerX" priority="1" id="41"/>
-                        </constraints>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" id="259"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XAI-xm-WK6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="260" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="349" y="339"/>
+            <point key="canvasLocation" x="-105" y="-120"/>
+        </scene>
+        <scene sceneID="261">
+            <objects>
+                <viewController id="262" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="254"/>
+                        <viewControllerLayoutGuide type="bottom" id="255"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="263">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" id="264"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="265" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10" y="-757"/>
+        </scene>
+        <scene sceneID="266">
+            <objects>
+                <tabBarController id="267" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="270">
+                        <rect key="frame" x="0.0" y="551" width="600" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue id="446" destination="262" kind="relationship" relationship="viewControllers"/>
+                        <segue id="543" destination="257" kind="relationship" relationship="viewControllers"/>
+                    </connections>
+                    <navigationItem id="366" key="navigationItem"/>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="271" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-807" y="-597"/>
+        </scene>
+        <scene sceneID="290">
+            <objects>
+                <navigationController id="291" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="293">
+                        <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue id="367" destination="267" kind="relationship" relationship="rootViewController"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="294" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1963" y="-557"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Icon-60.png" width="180" height="180"/>
+        <image name="Default-568h.png" width="320" height="568"/>
+        <image name="Default-Portrait.png" width="768" height="1004"/>
+        <image name="Default.png" width="320" height="480"/>
+        <image name="Icon-60.png" width="60" height="60"/>
+        <image name="Icon-Small-40.png" width="40" height="40"/>
+        <image name="Icon-Small.png" width="29" height="29"/>
+        <image name="home.png" width="128" height="128"/>
+        <image name="ic_map.png" width="24" height="24"/>
+        <image name="ic_refresh.png" width="24" height="24"/>
+        <image name="ic_settings.png" width="24" height="24"/>
+        <image name="ic_view_agenda.png" width="24" height="24"/>
+        <image name="location.png" width="80" height="128"/>
     </resources>
 </document>

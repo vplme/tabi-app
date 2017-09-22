@@ -1,23 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Diagnostics;
-using Xamarin.Forms;
-using PCLStorage;
-using Xamarin.Forms.Xaml;
-using System.ComponentModel;
-using Tabi.Helpers;
-using System.Net.NetworkInformation;
+using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace Tabi
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PermissionsPage : ContentPage
     {
-        readonly IPermissions permissionsPlugin = Plugin.Permissions.CrossPermissions.Current;
+        readonly IPermissions permissionsPlugin = CrossPermissions.Current;
 
-        async void Grant_Clicked(object sender, System.EventArgs e)
+        async void Grant_Clicked(object sender, EventArgs e)
         {
             var status = await permissionsPlugin.CheckPermissionStatusAsync(Permission.Location);
 
@@ -30,9 +24,22 @@ namespace Tabi
                     permissionsPlugin.OpenAppSettings();
                 }
             }
-            else
+            // 
+            else if (status == PermissionStatus.Granted)
             {
+                Settings.Current.PermissionsGranted = true;
+                await Navigation.PopModalAsync();
+            }
+            else 
+            {
+                // iOS implementation of plugin returns a dictionary with the updated permissions (after the user chooses
+                // grants or denies permission.
+                // Android implementation does not return a dictionary with the latest permissions. Only
+                // returns a dictionary with old permissions (or current if the requested permission is already granted)
+                GrantButton.Text = "Next";
                 var resultDict = await permissionsPlugin.RequestPermissionsAsync(Permission.Location);
+                // Android: code after this point is not called.
+                        
                 PermissionStatus resultStatus = resultDict[Permission.Location];
 
                 if (resultStatus == PermissionStatus.Granted)
@@ -44,26 +51,10 @@ namespace Tabi
 
         }
 
-        SettingsViewModel ViewModel => vm ?? (vm = BindingContext as SettingsViewModel);
-        SettingsViewModel vm;
-
         public PermissionsPage()
         {
             InitializeComponent();
-            BindingContext = new SettingsViewModel(Navigation);
-
-
         }
 
-        protected override void OnDisappearing()
-        {
-            base.OnDisappearing();
-            ViewModel.Settings.PropertyChanged -= Settings_PropertyChanged;
-        }
-
-        private void Settings_PropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-
-        }
     }
 }

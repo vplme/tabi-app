@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Threading;
 using System.Windows.Input;
 using PCLStorage;
 using Tabi.Core;
+using Tabi.DataObjects;
 using Tabi.DataStorage;
 using Tabi.Model;
 using Xamarin.Forms;
+using FileAccess = PCLStorage.FileAccess;
 
 namespace Tabi
 {
@@ -36,7 +41,8 @@ namespace Tabi
             {
                 Log.Info("Command: Dropping database");
 
-                var answer = await Application.Current.MainPage.DisplayAlert("Confirm", "Drop database?", "Yes", "Cancel");
+                var answer =
+                    await Application.Current.MainPage.DisplayAlert("Confirm", "Drop database?", "Yes", "Cancel");
                 if (answer)
                 {
                     //SQLiteHelper.Instance.ClearPositions();
@@ -71,20 +77,23 @@ namespace Tabi
 
             ExportCSVCommand = new Command(async key =>
 
-           {
-               Log.Info("Command: Export CSV");
+            {
+                Log.Info("Command: Export CSV");
 
-               IFolder rootFolder = FileSystem.Current.LocalStorage;
-               string fileName = "Tabi-Export.csv";
-               string path = PortablePath.Combine(rootFolder.Path, fileName);
-               //IFile file = await rootFolder.CreateFileAsync(path, CreationCollisionOption.ReplaceExisting);
-               //IPositionEntryRepository positionEntryRepository = App.RepoManager.PositionEntryRepository;
-               //var result = positionEntryRepository.FilterAccuracy(100).ToList();
+                IFolder rootFolder = FileSystem.Current.LocalStorage;
 
-               //string csv = GeoUtil.PositionsToCsv(result);
-               //await file.WriteAllTextAsync(csv);
-               DependencyService.Get<IShareFile>().ShareFile(path, "text/csv");
-           });
+                string fileName = "Tabi-Export.txt";
+                string path = PortablePath.Combine(rootFolder.Path, fileName);
+                IFile file = await rootFolder.CreateFileAsync(path, CreationCollisionOption.ReplaceExisting);
+
+                IPositionEntryRepository positionEntryRepository = App.RepoManager.PositionEntryRepository;
+                var result = positionEntryRepository.FilterAccuracy(100).ToList();
+
+                Stream stream = await file.OpenAsync(FileAccess.ReadAndWrite);
+                GeoUtil.PositionsToCsv(result, stream);
+
+                DependencyService.Get<IShareFile>().ShareFile(path, "text/csv");
+            });
 
             ListStopsCommand = new Command((obj) =>
             {
@@ -117,16 +126,30 @@ namespace Tabi
             });
 
             ShowMockupCommand = new Command(() =>
-           {
-               ActivityOverviewMockupPage sPage = new ActivityOverviewMockupPage();
-               navigationPage.PushAsync(sPage);
-           });
+            {
+                var assembly = typeof(SettingsViewModel).GetTypeInfo().Assembly;
+
+                using (Stream stream = assembly.GetManifestResourceStream("Tabi.DemoCsv"))
+                {
+                    List<PositionEntry> entries = GeoUtil.CsvToPositions(stream).ToList();
+                    DataResolver sv = new DataResolver();
+                    sv.ResolveData(DateTimeOffset.MinValue, DateTimeOffset.Now);
+
+
+                    //var x = sv.GroupPositions(entries, 100);
+                    //var z = sv.DetermineStopVisits(x, null);
+
+                    //Log.Debug(z.ToString());
+                }
+//                ActivityOverviewMockupPage sPage = new ActivityOverviewMockupPage();
+//                navigationPage.PushAsync(sPage);
+            });
 
             ShowPageCommand = new Command(() =>
-           {
-               PermissionsPage sPage = new PermissionsPage();
-               navigationPage.PushModalAsync(sPage);
-           });
+            {
+                PermissionsPage sPage = new PermissionsPage();
+                navigationPage.PushModalAsync(sPage);
+            });
         }
 
         public ICommand ExportDatabaseCommand { protected set; get; }
@@ -159,14 +182,8 @@ namespace Tabi
 
         public bool Tracking
         {
-            get
-            {
-                return Settings.Current.Tracking;
-            }
-            set
-            {
-                Settings.Current.Tracking = value;
-            }
+            get { return Settings.Current.Tracking; }
+            set { Settings.Current.Tracking = value; }
         }
     }
 }

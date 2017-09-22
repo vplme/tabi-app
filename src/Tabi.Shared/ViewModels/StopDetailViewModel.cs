@@ -8,9 +8,9 @@ namespace Tabi.ViewModels
     {
         public Stop Stop { get; set; }
 
-        public StopDetailViewModel(Stop s)
+        public StopDetailViewModel(StopVisit s)
         {
-            Stop = s;
+            Stop = s.Stop;
         }
 
         private string title;
