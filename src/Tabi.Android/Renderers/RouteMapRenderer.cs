@@ -15,7 +15,7 @@ namespace Tabi.Droid.Renderers
     {
         GoogleMap googleMap;
         RouteMap formsMap;
-        List<Position> routeCoordinates;
+        List<Position> routeCoordinates = new List<Position>();
         bool mapReady;
 
         public RouteMapRenderer()
