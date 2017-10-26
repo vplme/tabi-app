@@ -14,7 +14,6 @@ namespace Tabi
         public RouteMap()
         {
             Lines = new List<Line>();
-
         }
 
         public void ClearMap()

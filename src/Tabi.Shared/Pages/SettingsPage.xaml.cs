@@ -11,7 +11,8 @@ using System.Net.NetworkInformation;
 
 namespace Tabi
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
+	// Temporarily disabled xamlC. XAML not inheriting bindableproperties.
+    //[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SettingsPage : ContentPage
     {
         SettingsViewModel ViewModel => vm ?? (vm = BindingContext as SettingsViewModel);

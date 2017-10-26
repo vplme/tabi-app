@@ -4,6 +4,6 @@
 <!--        <ToolbarItem Text="Vandaag" Clicked="DaySwitcher" />-->
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <local:RouteMap x:Name="routeMap" MapType="Street" WidthRequest="{x:Static local:App.ScreenWidth}" HeightRequest="{x:Static local:App.ScreenHeight}" />
+        <local:RouteMap x:Name="routeMap" MapType="Street" x:WidthRequest="{x:Static local:App.ScreenWidth}" x:HeightRequest="{x:Static local:App.ScreenHeight}" />
     </ContentPage.Content>
 </ContentPage>

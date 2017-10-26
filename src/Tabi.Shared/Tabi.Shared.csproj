@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard1.6</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <PackageTargetFallback>portable-net45+win8+wpa81+wp8;portable45-net45+win8+wpa81</PackageTargetFallback>
     <DebugType>full</DebugType>
     <!-- csproj based on https://oren.codes/2017/04/23/using-xamarin-forms-with-net-standard-vs-2017-edition/  -->
