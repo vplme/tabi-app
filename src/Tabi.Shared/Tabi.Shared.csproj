@@ -30,12 +30,18 @@
   </ItemGroup>
   <ItemGroup>
     <!-- https://bugzilla.xamarin.com/show_bug.cgi?id=55591 -->
-    <EmbeddedResource Update="**\*.xaml" SubType="Designer" Generator="MSBuild:UpdateDesignTimeXaml" />
-    <Compile Update="**\*.xaml.cs" DependentUpon="%(Filename)" />
+    <!-- First remove files and then include them. Update does not seem to work on VSMac -->
+    <EmbeddedResource Remove="**\*.xaml" />
+    <Compile Remove="**\*.xaml.cs" />
+
+    <EmbeddedResource Include="**\*.xaml" SubType="Designer" Generator="MSBuild:UpdateDesignTimeXaml" />
+    <Compile Include="**\*.xaml.cs" DependentUpon="%(Filename)" />
+
     <EmbeddedResource Update="Resx\AppResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+
     <Compile Update="Resx\AppResources.Designer.cs">
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
@@ -46,96 +52,13 @@
     <Compile Update="Resx\AppResources.nl.Designer.cs">
       <DependentUpon>AppResources.nl.resx</DependentUpon>
     </Compile>
-    <Compile Update="Controls\FooterDivider.xaml.cs">
-      <DependentUpon>FooterDivider.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Controls\HeaderDivider.xaml.cs">
-      <DependentUpon>HeaderDivider.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Controls\LabelSection.xaml.cs">
-      <DependentUpon>LabelSection.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Controls\SectionDivider.xaml.cs">
-      <DependentUpon>SectionDivider.xaml</DependentUpon>
-    </Compile>
     <None Remove="tabi.config" />
     <EmbeddedResource Include="tabi.config" />
-    <Compile Update="Controls\SettingsSectionDivider.xaml.cs">
-      <DependentUpon>SettingsSectionDivider.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Controls\TabiTextCell.xaml.cs">
-      <DependentUpon>TabiTextCell.xaml</DependentUpon>
-    </Compile>
     <None Remove="appsettings.json" />
-    <Compile Update="Controls\DateSwitchView.xaml.cs">
-      <DependentUpon>DateSwitchView.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Controls\ActivityOverviewCell.xaml.cs">
-      <DependentUpon>ActivityOverviewCell.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Controls\TabiRaisedButton.xaml.cs">
-      <DependentUpon>TabiRaisedButton.xaml</DependentUpon>
-    </Compile>
     <None Remove="tabi.csv" />
     <EmbeddedResource Include="tabi.csv">
       <LogicalName>Tabi.DemoCsv</LogicalName>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Update="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Controls\StopView.xaml.cs">
-      <DependentUpon>StopView.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Controls\TripView.xaml.cs">
-      <DependentUpon>TripView.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\ActivityDetailPage.xaml.cs">
-      <DependentUpon>ActivityDetailPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\ActivityOverviewMockupPage.xaml.cs">
-      <DependentUpon>ActivityOverviewMockupPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\ActivityOverviewPage.xaml.cs">
-      <DependentUpon>ActivityOverviewPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\DayMapPage.xaml.cs">
-      <DependentUpon>DayMapPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\LogsPage.xaml.cs">
-      <DependentUpon>LogsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\MapRoutePage.xaml.cs">
-      <DependentUpon>MapRoutePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\PositionsDebugPage.xaml.cs">
-      <DependentUpon>PositionsDebugPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\SettingsPage.xaml.cs">
-      <DependentUpon>SettingsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\StopDetailPage.xaml.cs">
-      <DependentUpon>StopDetailPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\StopsDebugPage.xaml.cs">
-      <DependentUpon>StopsDebugPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\TabiPage.xaml.cs">
-      <DependentUpon>TabiPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\TabiTabbedPage.xaml.cs">
-      <DependentUpon>TabiTabbedPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\PermissionsPage.xaml.cs">
-      <DependentUpon>PermissionsPage.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources" />
