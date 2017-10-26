@@ -25,22 +25,14 @@
     <PackageReference Include="System.Threading.Tasks.Dataflow" Version="4.7.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="1.1.2" />
     <PackageReference Include="sqlite-net-pcl" Version="1.4.118" />
-    <PackageReference Include="Xamarin.Forms" Version="2.3.4.270" />
-    <PackageReference Include="Xamarin.Forms.Maps" Version="2.3.4.270" />
+    <PackageReference Include="Xamarin.Forms" Version="2.4.0.18342" />
+    <PackageReference Include="Xamarin.Forms.Maps" Version="2.4.0.18342" />
     <PackageReference Include="Xam.Plugins.Settings" Version="3.0.1" />
   </ItemGroup>
   <ItemGroup>
     <!-- https://bugzilla.xamarin.com/show_bug.cgi?id=55591 -->
-    <None Remove="**\*.xaml" />
-    <EmbeddedResource Include="**\*.xaml" SubType="Designer" Generator="MSBuild:UpdateDesignTimeXaml" />
-    <!-- Visual Studio for Mac will not display App.xaml
-         with subitem App.xaml.cs when using "Compile Update=" but instead
-         show the two files separately. This does not seem to affect VS-Win.
-         First removing all .xaml.cs files and then re-Include-ing them to fix
-         this issue.
-    -->
-    <Compile Remove="**\*.xaml.cs" />
-    <Compile Include="**\*.xaml.cs" DependentUpon="%(Filename)" />
+    <EmbeddedResource Update="**\*.xaml" SubType="Designer" Generator="MSBuild:UpdateDesignTimeXaml" />
+    <Compile Update="**\*.xaml.cs" DependentUpon="%(Filename)" />
     <EmbeddedResource Update="Resx\AppResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>

@@ -26,7 +26,7 @@ namespace Tabi.Droid.Renderers
 
         private void DrawRoute(RouteMap formsMap)
         {
-            routeCoordinates = formsMap.RouteCoordinates;
+           // routeCoordinates = formsMap.RouteCoordinates;
 
             // Only run if OnMapReady() has already been called
             if(!mapReady)
