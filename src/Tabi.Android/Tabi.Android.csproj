@@ -391,6 +391,10 @@
       <Project>{569732D5-C994-4F2D-A1B5-D6F13B4A5392}</Project>
       <Name>Tabi.DataStorage</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Tabi.DataObjects\Tabi.DataObjects.csproj">
+      <Project>{B9BF94B9-C02D-4216-9061-1255638E10C4}</Project>
+      <Name>Tabi.DataObjects</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup />

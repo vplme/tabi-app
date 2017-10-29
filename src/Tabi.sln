@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tabi.iOS", "Tabi.iOS\Tabi.i
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tabi.Android", "Tabi.Android\Tabi.Android.csproj", "{CB7AD43D-04F2-42CA-8A26-A83DC6D5C3FA}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Tabi.DataObjects", "Tabi.DataObjects\Tabi.DataObjects.shproj", "{D345A8DC-F076-4EA3-BD7C-286775D8E974}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tabi.DataStorage", "Tabi.DataStorage\Tabi.DataStorage.csproj", "{569732D5-C994-4F2D-A1B5-D6F13B4A5392}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tabi.DataStorage.SqliteNet", "Tabi.DataStorage.SqliteNet\Tabi.DataStorage.SqliteNet.csproj", "{24E617E8-D4F5-46EB-95DD-18E921375939}"
@@ -18,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TabiApiClient", "TabiApiClient\TabiApiClient.csproj", "{659317A6-EE67-419E-9D5D-8973F3AFCB0D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TabiApiClient.Test", "TabiApiClient.Test\TabiApiClient.Test.csproj", "{D3FCD8B2-E48F-4FEC-B6E5-AEAACEE2B7F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tabi.DataObjects", "Tabi.DataObjects\Tabi.DataObjects.csproj", "{B9BF94B9-C02D-4216-9061-1255638E10C4}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -210,6 +210,30 @@ Global
 		{D3FCD8B2-E48F-4FEC-B6E5-AEAACEE2B7F5}.Release|iPhone.Build.0 = Release|Any CPU
 		{D3FCD8B2-E48F-4FEC-B6E5-AEAACEE2B7F5}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{D3FCD8B2-E48F-4FEC-B6E5-AEAACEE2B7F5}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{B9BF94B9-C02D-4216-9061-1255638E10C4}.Ad-Hoc|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9BF94B9-C02D-4216-9061-1255638E10C4}.Ad-Hoc|Any CPU.Build.0 = Debug|Any CPU
+		{B9BF94B9-C02D-4216-9061-1255638E10C4}.Ad-Hoc|iPhone.ActiveCfg = Release|Any CPU
+		{B9BF94B9-C02D-4216-9061-1255638E10C4}.Ad-Hoc|iPhone.Build.0 = Release|Any CPU
+		{B9BF94B9-C02D-4216-9061-1255638E10C4}.Ad-Hoc|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{B9BF94B9-C02D-4216-9061-1255638E10C4}.Ad-Hoc|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{B9BF94B9-C02D-4216-9061-1255638E10C4}.AppStore|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9BF94B9-C02D-4216-9061-1255638E10C4}.AppStore|Any CPU.Build.0 = Debug|Any CPU
+		{B9BF94B9-C02D-4216-9061-1255638E10C4}.AppStore|iPhone.ActiveCfg = Release|Any CPU
+		{B9BF94B9-C02D-4216-9061-1255638E10C4}.AppStore|iPhone.Build.0 = Release|Any CPU
+		{B9BF94B9-C02D-4216-9061-1255638E10C4}.AppStore|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{B9BF94B9-C02D-4216-9061-1255638E10C4}.AppStore|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{B9BF94B9-C02D-4216-9061-1255638E10C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9BF94B9-C02D-4216-9061-1255638E10C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9BF94B9-C02D-4216-9061-1255638E10C4}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{B9BF94B9-C02D-4216-9061-1255638E10C4}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{B9BF94B9-C02D-4216-9061-1255638E10C4}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{B9BF94B9-C02D-4216-9061-1255638E10C4}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{B9BF94B9-C02D-4216-9061-1255638E10C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9BF94B9-C02D-4216-9061-1255638E10C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9BF94B9-C02D-4216-9061-1255638E10C4}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{B9BF94B9-C02D-4216-9061-1255638E10C4}.Release|iPhone.Build.0 = Release|Any CPU
+		{B9BF94B9-C02D-4216-9061-1255638E10C4}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{B9BF94B9-C02D-4216-9061-1255638E10C4}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

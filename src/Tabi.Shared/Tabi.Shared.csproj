@@ -17,16 +17,16 @@
     <PackageReference Include="System.ValueTuple" Version="4.4.0" />
     <PackageReference Include="Xam.Plugin.Connectivity" Version="3.0.2" />
     <PackageReference Include="Plugin.Permissions" Version="2.0.1" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="1.1.1" />
     <PackageReference Include="Xam.Plugin.Battery" Version="3.0.1" />
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="1.1.2" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Xml" Version="1.1.2" />
     <PackageReference Include="System.Threading.Tasks.Dataflow" Version="4.7.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="1.1.2" />
     <PackageReference Include="sqlite-net-pcl" Version="1.4.118" />
     <PackageReference Include="Xamarin.Forms" Version="2.4.0.18342" />
     <PackageReference Include="Xamarin.Forms.Maps" Version="2.4.0.18342" />
     <PackageReference Include="Xam.Plugins.Settings" Version="3.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Xml" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
     <!-- https://bugzilla.xamarin.com/show_bug.cgi?id=55591 -->
@@ -148,5 +148,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Tabi.DataStorage\Tabi.DataStorage.csproj" />
     <ProjectReference Include="..\Tabi.DataStorage.SqliteNet\Tabi.DataStorage.SqliteNet.csproj" />
+    <ProjectReference Include="..\Tabi.DataObjects\Tabi.DataObjects.csproj" />
   </ItemGroup>
 </Project>
