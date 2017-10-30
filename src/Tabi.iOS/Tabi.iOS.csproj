@@ -123,6 +123,8 @@
     <Compile Include="MotionTracker.cs" />
     <Compile Include="Localization\Localize.cs" />
     <Compile Include="Renderers\MaterialFrameRenderer.cs" />
+    <Compile Include="Renderers\MaterialButtonRenderer.cs" />
+    <Compile Include="Effects\NoHelperEntryEffect.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />

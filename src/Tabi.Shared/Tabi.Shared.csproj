@@ -107,6 +107,9 @@
     <Compile Update="Pages\DayMapPage.xaml.cs">
       <DependentUpon>*.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Pages\LoginPage.xaml.cs">
+      <DependentUpon>*.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Pages\LogsPage.xaml.cs">
       <DependentUpon>*.xaml</DependentUpon>
     </Compile>
@@ -137,6 +140,19 @@
     <Compile Update="Pages\TabiTabbedPage.xaml.cs">
       <DependentUpon>*.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Pages\IntroPage.xaml.cs">
+      <DependentUpon>*.xaml</DependentUpon>
+    </Compile>
+
+    <Compile Update="IntroViews\FirstIntroView.xaml.cs">
+      <DependentUpon>*.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="IntroViews\LoginIntroView.xaml.cs">
+      <DependentUpon>*.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="IntroViews\PermIntroView.xaml.cs">
+      <DependentUpon>*.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources" />
@@ -144,10 +160,12 @@
     <Folder Include="Extensions\" />
     <Folder Include="Localization\" />
     <Folder Include="Collection\" />
+    <Folder Include="IntroViews\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tabi.DataStorage\Tabi.DataStorage.csproj" />
     <ProjectReference Include="..\Tabi.DataStorage.SqliteNet\Tabi.DataStorage.SqliteNet.csproj" />
     <ProjectReference Include="..\Tabi.DataObjects\Tabi.DataObjects.csproj" />
+    <ProjectReference Include="..\TabiApiClient\TabiApiClient.csproj" />
   </ItemGroup>
 </Project>

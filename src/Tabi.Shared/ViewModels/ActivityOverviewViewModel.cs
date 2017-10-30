@@ -13,7 +13,7 @@ namespace Tabi.ViewModels
     {
         public ObservableCollection<ActivityEntry> ActivityEntries { get; } = new ObservableCollection<ActivityEntry>();
 
-        INavigation navigationPage;
+        readonly INavigation navigationPage;
 
         IStopVisitRepository stopVisitRepository = App.RepoManager.StopVisitRepository;
         IStopRepository stopRepository = App.RepoManager.StopRepository;

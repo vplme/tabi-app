@@ -7,5 +7,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tabi.DataStorage\Tabi.DataStorage.csproj" />
+    <ProjectReference Include="..\Tabi.DataObjects\Tabi.DataObjects.csproj" />
   </ItemGroup>
 </Project>

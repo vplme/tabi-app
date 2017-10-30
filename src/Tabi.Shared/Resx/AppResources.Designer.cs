@@ -30,7 +30,7 @@ namespace Tabi.Shared.Resx {
         public static System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.Equals(null, resourceMan)) {
-                    System.Resources.ResourceManager temp = new System.Resources.ResourceManager("Tabi.Shared.Resx.AppResources", typeof(AppResources).GetTypeInfo().Assembly);
+                    System.Resources.ResourceManager temp = new System.Resources.ResourceManager("Tabi.Shared.Resx.AppResources", typeof(AppResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -134,6 +134,114 @@ namespace Tabi.Shared.Resx {
         public static string Today {
             get {
                 return ResourceManager.GetString("Today", resourceCulture);
+            }
+        }
+        
+        public static string UsernameLabel {
+            get {
+                return ResourceManager.GetString("UsernameLabel", resourceCulture);
+            }
+        }
+        
+        public static string UsernamePlaceholder {
+            get {
+                return ResourceManager.GetString("UsernamePlaceholder", resourceCulture);
+            }
+        }
+        
+        public static string PasswordLabel {
+            get {
+                return ResourceManager.GetString("PasswordLabel", resourceCulture);
+            }
+        }
+        
+        public static string PasswordPlaceholder {
+            get {
+                return ResourceManager.GetString("PasswordPlaceholder", resourceCulture);
+            }
+        }
+        
+        public static string LoginButton {
+            get {
+                return ResourceManager.GetString("LoginButton", resourceCulture);
+            }
+        }
+        
+        public static string ContinueButton {
+            get {
+                return ResourceManager.GetString("ContinueButton", resourceCulture);
+            }
+        }
+        
+        public static string IntroWelcomeTitle {
+            get {
+                return ResourceManager.GetString("IntroWelcomeTitle", resourceCulture);
+            }
+        }
+        
+        public static string IntroWelcomeText {
+            get {
+                return ResourceManager.GetString("IntroWelcomeText", resourceCulture);
+            }
+        }
+        
+        public static string ErrorOccurredTitle {
+            get {
+                return ResourceManager.GetString("ErrorOccurredTitle", resourceCulture);
+            }
+        }
+        
+        public static string LoginFailureTitle {
+            get {
+                return ResourceManager.GetString("LoginFailureTitle", resourceCulture);
+            }
+        }
+        
+        public static string LoginFailureText {
+            get {
+                return ResourceManager.GetString("LoginFailureText", resourceCulture);
+            }
+        }
+        
+        public static string LoginIntroTitle {
+            get {
+                return ResourceManager.GetString("LoginIntroTitle", resourceCulture);
+            }
+        }
+        
+        public static string LoginIntroText {
+            get {
+                return ResourceManager.GetString("LoginIntroText", resourceCulture);
+            }
+        }
+        
+        public static string LocationPermissionButton {
+            get {
+                return ResourceManager.GetString("LocationPermissionButton", resourceCulture);
+            }
+        }
+        
+        public static string LocationPermissionTitle {
+            get {
+                return ResourceManager.GetString("LocationPermissionTitle", resourceCulture);
+            }
+        }
+        
+        public static string LocationPermissionText {
+            get {
+                return ResourceManager.GetString("LocationPermissionText", resourceCulture);
+            }
+        }
+        
+        public static string UploadDataLabel {
+            get {
+                return ResourceManager.GetString("UploadDataLabel", resourceCulture);
+            }
+        }
+        
+        public static string UploadDataButton {
+            get {
+                return ResourceManager.GetString("UploadDataButton", resourceCulture);
             }
         }
     }

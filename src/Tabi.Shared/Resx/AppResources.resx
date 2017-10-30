@@ -175,4 +175,61 @@
   <data name="Today" xml:space="preserve">
     <value>Today</value>
   </data>
+  <data name="UsernameLabel" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="UsernamePlaceholder" xml:space="preserve">
+    <value>JaneDoe</value>
+  </data>
+  <data name="PasswordLabel" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="PasswordPlaceholder" xml:space="preserve">
+    <value>yourpassword</value>
+  </data>
+  <data name="LoginButton" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="ContinueButton" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="IntroWelcomeTitle" xml:space="preserve">
+    <value>Intro Welcome Title</value>
+  </data>
+  <data name="IntroWelcomeText" xml:space="preserve">
+    <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quod quidem mihi si quando dictum est-est autem dictum non parum saepe-, etsi satis clemens sum in disputando, tamen interdum soleo subirasci. Quae mihi ipsi, qui volo et esse et haberi gratus, grata non essent, nisi eum perspicerem mea causa mihi amicum fuisse, non sua, nisi hoc dicis sua, quod interest omnium recte facere. Quis est autem dignus nomine hominis, qui unum diem totum velit esse in genere isto voluptatis? Ego autem tibi, Piso, assentior usu hoc venire, ut acrius aliquanto et attentius de claris viris locorum admonitu cogitemus. Duo Reges: constructio interrete. Indicant pueri, in quibus ut in speculis natura cernitur. Ut Phidias potest a primo instituere signum idque perficere, potest ab alio inchoatum accipere et absolvere, huic est sapientia similis; Sic faciam igitur, inquit: unam rem explicabo, eamque maximam, de physicis alias, et quidem tibi et declinationem istam atomorum et magnitudinem solis probabo et Democriti errata ab Epicuro reprehensa et correcta permulta.</value>
+  </data>
+  <data name="ErrorOccurredTitle" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="LoginFailureTitle" xml:space="preserve">
+    <value>Failed to login</value>
+  </data>
+  <data name="LoginFailureText" xml:space="preserve">
+    <value>Please check your username and password.</value>
+  </data>
+  <data name="LoginIntroTitle" xml:space="preserve">
+    <value>Login with credentials</value>
+  </data>
+  <data name="LoginIntroText" xml:space="preserve">
+    <value>You need to login with the provided username and password to continue.</value>
+  </data>
+  <data name="LocationPermissionButton" xml:space="preserve">
+    <value>Allow location access</value>
+  </data>
+  <data name="LocationPermissionTitle" xml:space="preserve">
+    <value>Location permission required</value>
+  </data>
+  <data name="LocationPermissionText" xml:space="preserve">
+    <value>You need to give location access to the app so that we can use this to track your movements.</value>
+  </data>
+  <data name="UploadDataLabel" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="UploadDataButton" xml:space="preserve">
+    <value>Upload data</value>
+  </data>
+	
+	
+	
 </root>

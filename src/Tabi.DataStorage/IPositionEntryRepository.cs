@@ -9,5 +9,7 @@ namespace Tabi.DataStorage
         List<PositionEntry> TakeLast(int count);
         List<PositionEntry> FilterAccuracy(double accuracy);
         List<PositionEntry> FilterPeriodAccuracy(DateTimeOffset begin, DateTimeOffset end, double accuracy);
+        List<PositionEntry> After(DateTimeOffset begin);
+
     }
 }

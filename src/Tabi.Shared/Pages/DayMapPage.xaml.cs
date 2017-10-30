@@ -69,9 +69,16 @@ namespace Tabi
 
             routeMap.Lines.Clear();
             routeMap.Lines = wer;
-
-            PositionEntry avg = Util.AveragePosition(posits);
-            routeMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Xamarin.Forms.Maps.Position(avg.Latitude, avg.Longitude), Distance.FromMiles(20.0)));
+            if (posits.Count() > 0)
+            {
+                PositionEntry avg = Util.AveragePosition(posits);
+                System.Diagnostics.Debug.WriteLine($"AVG {avg.Latitude} {avg.Longitude}");
+                routeMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Xamarin.Forms.Maps.Position(avg.Latitude, avg.Longitude), Distance.FromMiles(20.0)));
+            }
+            else{
+                // Center around Utrecht if no other coordinates are available
+                routeMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(52.092876, 5.104480), Distance.FromKilometers(30)));
+            }
 
             routeMap.DrawRoute();
         }

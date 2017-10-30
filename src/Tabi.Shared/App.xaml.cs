@@ -11,6 +11,7 @@ using Tabi.Shared.Extensions;
 using Tabi.DataStorage;
 using Tabi.Logging;
 using Tabi.Shared.Collection;
+using Tabi.Pages;
 
 namespace Tabi
 {
@@ -76,11 +77,10 @@ namespace Tabi
                 Log.Debug($"MobileCenter enabled: {mobileCenterEnabled}");
             }
 
-
             MainPage = new TabiTabbedPage();
             if (!Settings.Current.PermissionsGranted)
             {
-                MainPage.Navigation.PushModalAsync(new PermissionsPage());
+                MainPage.Navigation.PushModalAsync(new IntroPage());
             }
         }
 

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:local="clr-namespace:Tabi;assembly=Tabi.Shared" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:control="clr-namespace:Tabi.Shared.Controls;assembly=Tabi.Shared" xmlns:i18n="clr-namespace:Tabi.Shared.Localization;assembly=Tabi.Shared" x:Class="Tabi.Shared.IntroViews.LoginIntroView">
+    <ContentView.Content>
+        <AbsoluteLayout>
+            <StackLayout Orientation="Vertical">
+                <Label HorizontalTextAlignment="Center" Text="{i18n:Translate LoginIntroTitle}" />
+                <Label HorizontalTextAlignment="Start" Margin="10, 0, 10, 0" Text="{i18n:Translate LoginIntroText}" />
+                <StackLayout VerticalOptions="FillAndExpand">
+                    <Grid Margin="20, 20, 20, 0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Text="{i18n:Translate UsernameLabel}" />
+                        <Entry Text="{Binding Username}" Placeholder="{i18n:Translate UsernamePlaceholder}" Grid.Row="0" Grid.Column="1">
+                            <Entry.Effects>
+                                <local:NoHelperEntryEffect />
+                            </Entry.Effects>
+                        </Entry>
+                        <Label Grid.Row="1" Grid.Column="0" Text="{i18n:Translate PasswordLabel}" />
+                        <Entry Text="{Binding Password}" Placeholder="{i18n:Translate PasswordPlaceholder}" IsPassword="true" Grid.Row="1" Grid.Column="1" />
+                    </Grid>
+                </StackLayout>
+                <StackLayout VerticalOptions="End">
+                    <control:MaterialButton Margin="30, 0, 30, 30" Text="{i18n:Translate LoginButton}" BackgroundColor="{StaticResource tabiBaseColor}" TextColor="White" Command="{Binding LoginCommand}" />
+                </StackLayout>
+            </StackLayout>
+            <ContentView BackgroundColor="#222222" Opacity="0.5" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" IsVisible="{Binding IsLoading}">
+            </ContentView>
+            <Frame AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1" IsVisible="{Binding IsLoading}" BackgroundColor="White" CornerRadius="4">
+                <StackLayout Orientation="Vertical">
+                    <ActivityIndicator VerticalOptions="Center" HorizontalOptions="Center" IsRunning="{Binding IsLoading}" />
+                    <Label Text="Logging in..." />
+                </StackLayout>
+            </Frame>
+        </AbsoluteLayout>
+    </ContentView.Content>
+</ContentView>

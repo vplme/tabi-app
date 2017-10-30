@@ -12,6 +12,7 @@ using PCLStorage;
 using Tabi.Core;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
+using Tabi.iOS.Helpers;
 using Tabi.Model;
 using Tabi.Shared.Csv;
 using Xamarin.Forms;
@@ -172,11 +173,16 @@ namespace Tabi
 //                ActivityOverviewMockupPage sPage = new ActivityOverviewMockupPage();
 //                navigationPage.PushAsync(sPage);
             });
-
             ShowPageCommand = new Command(() =>
             {
                 PermissionsPage sPage = new PermissionsPage();
                 navigationPage.PushModalAsync(sPage);
+            });
+
+            UploadCommand = new Command(() =>
+            {
+                SyncService sc = new SyncService();
+                sc.AutoUpload(false);
             });
         }
 
@@ -207,6 +213,9 @@ namespace Tabi
         public ICommand ShowMockupCommand { protected set; get; }
 
         public ICommand ShowPageCommand { protected set; get; }
+
+        public ICommand UploadCommand { protected set; get; }
+
 
         public int InfoCount { get; set; }
 

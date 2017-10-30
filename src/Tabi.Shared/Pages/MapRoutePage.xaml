@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Tabi;assembly=Tabi.Shared" x:Class="Tabi.Pages.MapRoutePage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Tabi;assembly=Tabi.Shared" xmlns:i18n="clr-namespace:Tabi.Shared.Localization;assembly=Tabi.Shared" x:Class="Tabi.Pages.MapRoutePage">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="+" Clicked="Handle_Clicked" />
     </ContentPage.ToolbarItems>

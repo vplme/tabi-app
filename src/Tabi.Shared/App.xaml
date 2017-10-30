@@ -3,6 +3,7 @@
     <Application.Resources>
         <!-- Application resource dictionary -->
         <ResourceDictionary>
+            <Color x:Key="tabiBaseColor">#0299C3</Color>
             <Color x:Key="walkMethodColor">#EF75EB</Color>
             <Color x:Key="transportMethodColor">#4475EB</Color>
             <Color x:Key="carMethodColor">#FF9300</Color>

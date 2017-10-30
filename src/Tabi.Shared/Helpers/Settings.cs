@@ -73,6 +73,45 @@ namespace Tabi
             }
         }
 
+        public string Username
+        {
+            get => AppSettings.GetValueOrDefault(nameof(Username), string.Empty);
+            set
+            {
+                if (value == Username)
+                    return;
+
+                AppSettings.AddOrUpdateValue(nameof(Username), value);
+                OnPropertyChanged();
+            }
+        }
+
+        public string Password
+        {
+            get => AppSettings.GetValueOrDefault(nameof(Password), string.Empty);
+            set
+            {
+                if (value == Password)
+                    return;
+
+                AppSettings.AddOrUpdateValue(nameof(Password), value);
+                OnPropertyChanged();
+            }
+        }
+
+        public long PositionLastUpload
+        {
+            get => AppSettings.GetValueOrDefault(nameof(Password), 0);
+            set
+            {
+                if (value == PositionLastUpload)
+                    return;
+
+                AppSettings.AddOrUpdateValue(nameof(PositionLastUpload), value);
+                OnPropertyChanged();
+            }
+        }
+
         private static ISettings AppSettings
         {
             get

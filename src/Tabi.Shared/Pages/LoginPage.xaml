@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:i18n="clr-namespace:Tabi.Shared.Localization;assembly=Tabi.Shared" x:Class="Tabi.Pages.LoginPage">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Vertical">
+            <Grid Margin="20, 20, 20, 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Text="{i18n:Translate UsernameLabel}"/>
+                <Entry Text="{Binding Username}" Placeholder="{i18n:Translate UsernamePlaceholder}" Grid.Row="0" Grid.Column="1"/>
+                <Label Grid.Row="1" Grid.Column="0" Text="{i18n:Translate PasswordLabel}"/>
+                <Entry Text="{Binding Password}" Placeholder="{i18n:Translate PasswordPlaceholder}" IsPassword="true" Grid.Row="1" Grid.Column="1"/>
+            </Grid>
+            <Button Command="{Binding LoginCommand}" Text="{i18n:Translate LoginButton}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
