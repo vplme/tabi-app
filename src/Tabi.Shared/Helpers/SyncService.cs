@@ -40,7 +40,12 @@ namespace Tabi.iOS.Helpers
             DateTimeOffset lastUpload = DateTimeOffset.FromUnixTimeMilliseconds(Settings.Current.PositionLastUpload);
             List<PositionEntry> positions = App.RepoManager.PositionEntryRepository.After(lastUpload);
             await Login();
-            await ApiClient.SendPositions(Settings.Current.Device, positions);
+            bool success = await ApiClient.SendPositions(Settings.Current.Device, positions);
+            if(!success)
+            {
+                Log.Error("Could not send positions");
+                return;
+            }
 
             Settings.Current.PositionLastUpload = positions.Last().Timestamp.ToUnixTimeMilliseconds();
         }

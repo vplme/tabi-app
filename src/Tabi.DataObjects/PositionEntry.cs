@@ -1,13 +1,15 @@
 ﻿using System;
+using Newtonsoft.Json;
 using SQLite;
 
 namespace Tabi.DataObjects
 {
     public class PositionEntry
     {
-        [PrimaryKey, AutoIncrement]
+        [PrimaryKey, AutoIncrement, JsonIgnore]
         public int Id { get; set; }
 
+        [JsonIgnore]
         public Guid DeviceId { get; set; }
 
         [Ignore]

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -66,7 +67,7 @@ namespace TabiApiClient
                 token = JsonConvert.DeserializeObject<TokenResult>(data);
                 userId = token.UserId.ToString();
                 this.token = token.Token;
-                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {this.token}");
+                Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", this.token);
             }
             return token;
         }
@@ -86,7 +87,7 @@ namespace TabiApiClient
             return false;
         }
 
-        public async Task<DeviceMessage>GetDevice(string uniqueIdentifier)
+        public async Task<DeviceMessage> GetDevice(string uniqueIdentifier)
         {
             string path = PrefixApiPath($"/user/{userId}/device/{uniqueIdentifier}");
             HttpResponseMessage response = await client.GetAsync(path);
@@ -115,20 +116,16 @@ namespace TabiApiClient
             };
 
             HttpContent httpContent = SerializeObject(dm);
-            Debug.WriteLine(JsonConvert.SerializeObject(dm));
             HttpResponseMessage response = await client.PostAsync(path, httpContent);
-            if(response.IsSuccessStatusCode)
-            {
-                return true;
-            }
-            return false;
+            return response.IsSuccessStatusCode;
         }
 
-        public async Task SendPositions(string deviceId, List<PositionEntry> positions)
+        public async Task<bool> SendPositions(string deviceId, List<PositionEntry> positions)
         {
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/positionentry");
             HttpContent httpContent = SerializeObject(positions);
             HttpResponseMessage response = await client.PostAsync(path, httpContent);
+            return response.IsSuccessStatusCode;
         }
 
     }

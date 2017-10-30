@@ -179,10 +179,10 @@ namespace Tabi
                 navigationPage.PushModalAsync(sPage);
             });
 
-            UploadCommand = new Command(() =>
+            UploadCommand = new Command(async () =>
             {
                 SyncService sc = new SyncService();
-                sc.AutoUpload(false);
+                await sc.AutoUpload(false);
             });
         }
 

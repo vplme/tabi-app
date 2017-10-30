@@ -16,7 +16,7 @@ namespace TabiApiClient.Test
             client.MockHttpClient = SetupMockHttpClient();
             client.Mock = true;
 
-            TokenResult token = await client.Authenticate(new UserMessage() { Username = "vpl", Password = "blue" });
+            TokenResult token = await client.Authenticate("user", "password");
             Assert.NotEqual("", token.Token);
             Assert.NotEqual(0, token.UserId);
 
