@@ -29,7 +29,7 @@ namespace Tabi.DataStorage.SqliteNet
         public List<PositionEntry> After(DateTimeOffset begin)
         {
             return connection.Table<PositionEntry>()
-                             .Where(x => x.Timestamp >= begin)
+                             .Where(x => x.Timestamp > begin)
                              .OrderBy(x => x.Timestamp)
                              .ToList();
         }

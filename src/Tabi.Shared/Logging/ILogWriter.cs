@@ -3,6 +3,6 @@ namespace Tabi.Logging
 {
     public interface ILogWriter
     {
-        void Write(string str);
+        void Write(LogSeverity severity, string str);
     }
 }

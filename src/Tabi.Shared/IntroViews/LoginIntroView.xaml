@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:local="clr-namespace:Tabi;assembly=Tabi.Shared" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:control="clr-namespace:Tabi.Shared.Controls;assembly=Tabi.Shared" xmlns:i18n="clr-namespace:Tabi.Shared.Localization;assembly=Tabi.Shared" x:Class="Tabi.Shared.IntroViews.LoginIntroView">
+    <ContentView.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="Android" Value="0, 0, 0, 0" />
+            <On Platform="iOS" Value="0, 20, 0, 0" />
+        </OnPlatform>
+    </ContentView.Padding>
     <ContentView.Content>
         <AbsoluteLayout>
             <StackLayout Orientation="Vertical">
@@ -29,9 +35,8 @@
                     <control:MaterialButton Margin="30, 0, 30, 30" Text="{i18n:Translate LoginButton}" BackgroundColor="{StaticResource tabiBaseColor}" TextColor="White" Command="{Binding LoginCommand}" />
                 </StackLayout>
             </StackLayout>
-            <ContentView BackgroundColor="#222222" Opacity="0.5" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" IsVisible="{Binding IsLoading}">
-            </ContentView>
-            <Frame AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1" IsVisible="{Binding IsLoading}" BackgroundColor="White" CornerRadius="4">
+            <ContentView BackgroundColor="#222222" Opacity="0.5" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" IsVisible="{Binding IsLoading}" />
+            <Frame AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1" IsVisible="{Binding IsLoading}" OutlineColor="Gray" BackgroundColor="White" CornerRadius="5">
                 <StackLayout Orientation="Vertical">
                     <ActivityIndicator VerticalOptions="Center" HorizontalOptions="Center" IsRunning="{Binding IsLoading}" />
                     <Label Text="Logging in..." />

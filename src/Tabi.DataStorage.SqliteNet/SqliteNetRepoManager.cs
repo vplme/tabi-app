@@ -25,6 +25,8 @@ namespace Tabi.DataStorage.SqliteNet
             conn.CreateTable<StopVisit>();
             conn.CreateTable<BatteryEntry>();
             conn.CreateTable<TrackEntry>();
+            conn.CreateTable<LogEntry>();
+
 
             PositionEntryRepository = new SqliteNetPositionEntryRepository(conn);
             DeviceRepository = new SqliteNetDeviceRepository(conn);
@@ -32,6 +34,7 @@ namespace Tabi.DataStorage.SqliteNet
             StopVisitRepository = new SqliteNetStopVisitRepository(conn);
             BatteryEntryRepository = new SqliteNetBatteryEntryRepository(conn);
             TrackEntryRepository = new SqliteNetTrackEntryRepository(conn);
+            LogEntryRepository = new SqliteNetLogEntryRepository(conn);
         }
 
         public IUserRepository UserRepository { get; private set; }
@@ -42,6 +45,8 @@ namespace Tabi.DataStorage.SqliteNet
         public IStopVisitRepository StopVisitRepository { get; private set; }
         public IBatteryEntryRepository BatteryEntryRepository { get; private set; }
         public ITrackEntryRepository TrackEntryRepository { get; }
+        public ILogEntryRepository LogEntryRepository { get; }
+
 
         public void SaveChanges()
         {

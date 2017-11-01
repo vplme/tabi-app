@@ -9,7 +9,7 @@ namespace Tabi
 
         private static void LogWrite(LogSeverity severity, string text)
         {
-            logger?.Write($"{severity}: {text}");
+            logger?.Write(severity, text);
         }
 
         public static void SetLogger(ILogWriter l)
@@ -46,6 +46,8 @@ namespace Tabi
         {
             LogWrite(LogSeverity.Fatal, text);
         }
+
+
 
     }
 }

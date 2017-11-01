@@ -16,7 +16,7 @@ namespace Tabi.Logging
             ConsumerAsync(bufferBlock);
         }
 
-        public virtual void Write(string str)
+        public virtual void Write(LogSeverity severity, string str)
         {
             target.Post(str);
         }

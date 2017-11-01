@@ -22,11 +22,11 @@ namespace Tabi.Logging
             loggers.Remove(l);
         }
 
-        public void Write(string str)
+        public void Write(LogSeverity severity, string str)
         {
             foreach(ILogWriter wr in loggers)
             {
-                wr.Write(str);
+                wr.Write(severity, str);
             }
         }
     }

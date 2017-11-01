@@ -11,6 +11,7 @@ namespace Tabi.DataStorage
         IStopVisitRepository StopVisitRepository { get; }
         IBatteryEntryRepository BatteryEntryRepository { get; }
         ITrackEntryRepository TrackEntryRepository { get; }
+        ILogEntryRepository LogEntryRepository { get; }
 
         void SaveChanges();
     }

@@ -9,10 +9,10 @@ namespace Tabi.Logging
         public ConsoleLogWriter() : base()
         { }
 
-        public override void Write(string str)
+        public override void Write(LogSeverity severity, string str)
         {
 #if DEBUG
-            base.Write(str);
+            base.Write(severity, str);
 #endif
         }
 

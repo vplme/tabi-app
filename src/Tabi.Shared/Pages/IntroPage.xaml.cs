@@ -111,6 +111,10 @@ namespace Tabi.Pages
             }
         }
 
+        private void GoNextView()
+        {
+            Content = this.NextView;
+        }
 
         public IntroPage()
         {
@@ -153,7 +157,7 @@ namespace Tabi.Pages
                         }
                     }
 
-                    Content = NextView;
+                    GoNextView();
                 }
                 else
                 {
@@ -194,8 +198,8 @@ namespace Tabi.Pages
 
             InitializeComponent();
             BindingContext = this;
-            NextCommand = new Command((obj) => { this.Content = NextView; });
-            Content = NextView;
+            NextCommand = new Command((obj) => { GoNextView(); });
+            GoNextView();
         }
     }
 }

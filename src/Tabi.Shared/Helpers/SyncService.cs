@@ -14,7 +14,7 @@ namespace Tabi.iOS.Helpers
 
         public SyncService()
         {
-            ApiClient = new ApiClient();
+            ApiClient = new ApiClient("https://tabi.0x2a.site");
         }
 
         public async Task Login()
@@ -31,6 +31,8 @@ namespace Tabi.iOS.Helpers
             if (!wifiOnly || connectionTypes.Contains(wifi))
             {
                 await UploadPositions();
+                await UploadLogs();
+                await UploadBatteryInfo();
             }
 
         }
@@ -39,15 +41,47 @@ namespace Tabi.iOS.Helpers
         {
             DateTimeOffset lastUpload = DateTimeOffset.FromUnixTimeMilliseconds(Settings.Current.PositionLastUpload);
             List<PositionEntry> positions = App.RepoManager.PositionEntryRepository.After(lastUpload);
+            if(positions.Count() > 0){
+                await Login();
+                bool success = await ApiClient.PostPositions(Settings.Current.Device, positions);
+                if (!success)
+                {
+                    Log.Error("Could not send positions");
+                    return;
+                }
+                Settings.Current.PositionLastUpload = positions.Last().Timestamp.ToUnixTimeMilliseconds();
+            }
+           
+        }
+
+
+        public async Task<bool> UploadLogs()
+        {
+            List<LogEntry> logs = App.RepoManager.LogEntryRepository.GetAll().ToList();
             await Login();
-            bool success = await ApiClient.SendPositions(Settings.Current.Device, positions);
-            if(!success)
+            bool success = await ApiClient.PostLogs(Settings.Current.Device, logs);
+            if (!success)
             {
-                Log.Error("Could not send positions");
-                return;
+                Log.Error("Could not send logs");
+                return false;
             }
 
-            Settings.Current.PositionLastUpload = positions.Last().Timestamp.ToUnixTimeMilliseconds();
+            App.RepoManager.LogEntryRepository.ClearLogsBefore(logs.Last().Timestamp);
+            return true;
+        }
+
+        public async Task<bool> UploadBatteryInfo()
+        {
+            List<BatteryEntry> batteryEntries = App.RepoManager.BatteryEntryRepository.GetAll().ToList();
+            await Login();
+            bool success = await ApiClient.PostBatteryData(Settings.Current.Device, batteryEntries);
+            if (!success)
+            {
+                Log.Error("Could not send batterydata");
+                return false;
+            }
+
+            return true;
         }
 
 

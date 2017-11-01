@@ -89,6 +89,7 @@ namespace Tabi
             MultiLogger mLogger = new MultiLogger();
             mLogger.AddLogger(new ConsoleLogWriter());
             mLogger.AddLogger(new FileLogWriter());
+            mLogger.AddLogger(new DbLogWriter());
             Log.SetLogger(mLogger);
             Log.Info("Logging Setup");
         }

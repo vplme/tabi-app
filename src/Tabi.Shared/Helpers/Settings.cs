@@ -101,7 +101,8 @@ namespace Tabi
 
         public long PositionLastUpload
         {
-            get => AppSettings.GetValueOrDefault(nameof(Password), 0);
+            // Cast default value as long otherwise it will choose the int typed GetValueOrDefault
+            get => AppSettings.GetValueOrDefault(nameof(PositionLastUpload), (long)0);
             set
             {
                 if (value == PositionLastUpload)

@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Tabi.DataObjects;
 using TabiApiClient.Messages;
+using TabiApiClient.Models;
 
 namespace TabiApiClient
 {
     public class ApiClient
     {
-        private static HttpClient client = new HttpClient();
+        private static HttpClient client;
+
         public HttpClient MockHttpClient { get; set; }
         public bool Mock { get; set; } = false;
 
@@ -23,7 +25,12 @@ namespace TabiApiClient
         private string token;
         private string userId;
 
-        public ApiClient(string apiLocation = "http://localhost:8000") => this.apiLocation = apiLocation;
+        public ApiClient(string apiLocation = "https://tabi.0x2a.site")
+        {
+            this.apiLocation = apiLocation;
+            client = new HttpClient(GetCustomHandler());
+
+        }
 
         private string PrefixApiPath(string path)
         {
@@ -38,6 +45,7 @@ namespace TabiApiClient
                 {
                     return this.MockHttpClient;
                 }
+
                 return ApiClient.client;
             }
         }
@@ -46,6 +54,26 @@ namespace TabiApiClient
         {
             string content = JsonConvert.SerializeObject(o);
             return new StringContent(content, Encoding.UTF8, "application/json");
+        }
+
+        private HttpClientHandler GetCustomHandler()
+        {
+            var httpClientHandler = new HttpClientHandler();
+
+            //httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => {
+            //    Debug.WriteLine(errors);
+
+            //    foreach(var e in chain.ChainElements)
+            //    {
+            //        Debug.WriteLine($"CERT CHAIN: {e.Certificate.Subject} {e.Certificate.GetCertHashString()}");
+            //    }
+
+            //    return errors == System.Net.Security.SslPolicyErrors.None;
+            //};
+
+            return httpClientHandler;
+
+
         }
 
         public async Task<TokenResult> Authenticate(string username, string password)
@@ -120,7 +148,7 @@ namespace TabiApiClient
             return response.IsSuccessStatusCode;
         }
 
-        public async Task<bool> SendPositions(string deviceId, List<PositionEntry> positions)
+        public async Task<bool> PostPositions(string deviceId, List<PositionEntry> positions)
         {
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/positionentry");
             HttpContent httpContent = SerializeObject(positions);
@@ -128,5 +156,21 @@ namespace TabiApiClient
             return response.IsSuccessStatusCode;
         }
 
+        public async Task<bool> PostLogs(string deviceId, List<LogEntry> messages)
+        {
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/logs");
+            HttpContent httpContent = SerializeObject(messages);
+            HttpResponseMessage response = await client.PostAsync(path, httpContent);
+            return response.IsSuccessStatusCode;
+        }
+
+        public async Task<bool> PostBatteryData(string deviceId, List<BatteryEntry> batteryEntries)
+        {
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/battery");
+            Debug.WriteLine(JsonConvert.SerializeObject(batteryEntries));
+            HttpContent httpContent = SerializeObject(batteryEntries);
+            HttpResponseMessage response = await client.PostAsync(path, httpContent);
+            return response.IsSuccessStatusCode;
+        }
     }
 }
