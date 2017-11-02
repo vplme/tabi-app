@@ -12,6 +12,7 @@ using Tabi.DataStorage;
 using Tabi.Logging;
 using Tabi.Shared.Collection;
 using Tabi.Pages;
+using System.Threading.Tasks;
 
 namespace Tabi
 {
@@ -43,6 +44,8 @@ namespace Tabi
             SetupLogging();
 
             SetupSQLite();
+
+
 
             CollectionProfile = CollectionProfile.GetDefaultProfile();
 
@@ -82,6 +85,7 @@ namespace Tabi
             {
                 MainPage.Navigation.PushModalAsync(new IntroPage());
             }
+
         }
 
         private void SetupLogging()
@@ -134,6 +138,24 @@ namespace Tabi
         protected override void OnStart()
         {
             Log.Info("App.OnStart");
+            CheckAuthorization(Settings.Current.Device);
+        }
+
+        void CheckAuthorization(string deviceId)
+        {
+            if (Settings.Current.PermissionsGranted)
+            {
+                TabiApiClient.ApiClient apiClient = new TabiApiClient.ApiClient();
+                apiClient.IsDeviceUnauthorized(deviceId).ContinueWith((arg) =>
+                {
+                    if (arg.Result)
+                    {
+                        Settings.Current.PermissionsGranted = false;
+                        MainPage.Navigation.PushModalAsync(new IntroPage());
+                    }
+                });
+            }
+
         }
 
         protected override void OnSleep()
@@ -146,6 +168,8 @@ namespace Tabi
         {
             Log.Info("App.OnResume");
             // Handle when your app resumes
+            CheckAuthorization(Settings.Current.Device);
+
         }
     }
 }

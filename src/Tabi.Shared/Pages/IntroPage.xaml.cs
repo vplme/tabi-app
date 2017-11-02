@@ -165,7 +165,8 @@ namespace Tabi.Pages
                 }
             });
 
-            PermissionsCommand = new Command(async (obj) => {
+            PermissionsCommand = new Command(async (obj) =>
+            {
                 var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Location);
                 if (status != PermissionStatus.Granted)
                 {
@@ -179,7 +180,7 @@ namespace Tabi.Pages
                     if (results.ContainsKey(Permission.Location))
                         status = results[Permission.Location];
                 }
-                if(status == PermissionStatus.Granted)
+                if (status == PermissionStatus.Granted)
                 {
                     PermissionsGiven = true;
                     PermissionCheckButtonColor = Color.FromHex("#0299C3");
@@ -190,8 +191,8 @@ namespace Tabi.Pages
             {
                 if (PermissionsGiven)
                 {
-                    //Content = NextView;
                     Navigation.PopModalAsync();
+                    Settings.Current.PermissionsGranted = true;
                     Settings.Current.Tracking = true;
                 }
             });

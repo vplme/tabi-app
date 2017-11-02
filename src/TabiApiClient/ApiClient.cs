@@ -172,5 +172,12 @@ namespace TabiApiClient
             HttpResponseMessage response = await client.PostAsync(path, httpContent);
             return response.IsSuccessStatusCode;
         }
+
+        public async Task<bool> IsDeviceUnauthorized(string deviceId)
+        {
+            string path = PrefixApiPath($"/validate_device?device={deviceId}");
+            HttpResponseMessage response = await client.GetAsync(path);
+            return response.StatusCode == System.Net.HttpStatusCode.Unauthorized;
+        }
     }
 }
