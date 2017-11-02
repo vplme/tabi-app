@@ -32,7 +32,7 @@
                     </Grid>
                 </StackLayout>
                 <StackLayout VerticalOptions="End">
-                    <control:MaterialButton Margin="30, 0, 30, 30" Text="{i18n:Translate LoginButton}" BackgroundColor="{StaticResource tabiBaseColor}" TextColor="White" Command="{Binding LoginCommand}" />
+                    <control:MaterialButton Margin="30, 30, 30, 30" Text="{i18n:Translate LoginButton}" BackgroundColor="{StaticResource tabiBaseColor}" TextColor="White" Command="{Binding LoginCommand}" />
                 </StackLayout>
             </StackLayout>
             <ContentView BackgroundColor="#222222" Opacity="0.5" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" IsVisible="{Binding IsLoading}" />

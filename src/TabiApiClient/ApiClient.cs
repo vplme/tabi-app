@@ -28,7 +28,7 @@ namespace TabiApiClient
         public ApiClient(string apiLocation = "https://tabi.0x2a.site")
         {
             this.apiLocation = apiLocation;
-            client = new HttpClient(GetCustomHandler());
+            client = new HttpClient();
 
         }
 
