@@ -141,22 +141,24 @@ namespace Tabi
             CheckAuthorization(Settings.Current.Device);
         }
 
-        void CheckAuthorization(string deviceId)
+        async Task CheckAuthorization(string deviceId)
         {
             if (Settings.Current.PermissionsGranted)
             {
                 TabiApiClient.ApiClient apiClient = new TabiApiClient.ApiClient();
-                apiClient.IsDeviceUnauthorized(deviceId).ContinueWith((arg) =>
+                await apiClient.Authenticate(Settings.Current.Username, Settings.Current.Password);
+                bool unauth = await apiClient.IsDeviceUnauthorized(deviceId);
+
+                if (unauth)
                 {
-                    if (arg.Result)
-                    {
-                        Settings.Current.PermissionsGranted = false;
-                        MainPage.Navigation.PushModalAsync(new IntroPage());
-                    }
-                });
+                    Log.Debug("Unauthorized!");
+                    Settings.Current.PermissionsGranted = false;
+                    await MainPage.Navigation.PushModalAsync(new IntroPage());
+                }
             }
 
         }
+
 
         protected override void OnSleep()
         {
@@ -171,5 +173,7 @@ namespace Tabi
             CheckAuthorization(Settings.Current.Device);
 
         }
+
     }
+
 }

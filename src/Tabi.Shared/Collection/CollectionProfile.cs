@@ -37,7 +37,7 @@ namespace Tabi.Shared.Collection
                         MonitorSignificantChanges = true,
                         AllowDeferredLocationUpdates = true,
                         DeferredLocationUpdatesDistance = 1000,
-                        DeferredLocationUpdatesTimeout = 60,
+                        DeferredLocationUpdatesTimeout = 600,
                         AllowBackgroundLocationUpdates = true,
                     }
                 },
