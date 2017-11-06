@@ -13,7 +13,7 @@
                 <Label HorizontalOptions="Start" VerticalOptions="Center" Margin="10, 0, 10, 0" HorizontalTextAlignment="Start" Text="{i18n:Translate IntroWelcomeText}" />
             </StackLayout>
             <StackLayout VerticalOptions="End">
-                <control:MaterialButton Margin="30, 0, 30, 30" Text="{i18n:Translate ContinueButton}" BackgroundColor="{StaticResource tabiBaseColor}" TextColor="White" Command="{Binding NextCommand}" />
+                <control:MaterialButton Margin="30, 0, 30, 30" Text="{i18n:Translate ContinueButton}" Style="{StaticResource defaultButtonStyle}" Command="{Binding NextCommand}" />
             </StackLayout>
         </StackLayout>
     </ContentView.Content>

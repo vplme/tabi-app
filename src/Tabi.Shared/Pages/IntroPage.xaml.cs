@@ -183,7 +183,7 @@ namespace Tabi.Pages
                 if (status == PermissionStatus.Granted)
                 {
                     PermissionsGiven = true;
-                    PermissionCheckButtonColor = Color.FromHex("#0299C3");
+                    PermissionCheckButtonColor = (Color)Application.Current.Resources["blueButtonColor"];
                 }
             });
 

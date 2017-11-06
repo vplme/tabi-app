@@ -16,16 +16,15 @@ namespace Tabi.iOS.Renderers
         {
             base.Draw(rect);
 
-            if (Element.BackgroundColor.A == 0)
-                return;
+            //if (Element.BackgroundColor.A == 0)
+            //    return;
+            //Layer.ShadowRadius = 2.0f;
+            //Layer.ShadowColor = UIColor.Gray.CGColor;
+            //Layer.ShadowOffset = new CGSize(1, 1);
+            //Layer.ShadowOpacity = 0.80f;
+            //Layer.ShadowPath = UIBezierPath.FromRect(Layer.Bounds).CGPath;
+            //Layer.MasksToBounds = false;
 
-            // Update shadow to match better material design standards of elevation
-            Layer.ShadowRadius = 2.0f;
-            Layer.ShadowColor = UIColor.Gray.CGColor;
-            Layer.ShadowOffset = new CGSize(2, 2);
-            Layer.ShadowOpacity = 0.80f;
-            Layer.ShadowPath = UIBezierPath.FromRect(Layer.Bounds).CGPath;
-            Layer.MasksToBounds = false;
         }
     }
 }

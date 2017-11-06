@@ -1,40 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:local="clr-namespace:Tabi;assembly=Tabi.Shared" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:control="clr-namespace:Tabi.Shared.Controls;assembly=Tabi.Shared" xmlns:i18n="clr-namespace:Tabi.Shared.Localization;assembly=Tabi.Shared" x:Class="Tabi.Shared.IntroViews.LoginIntroView">
-    <ContentView.Padding>
-        <OnPlatform x:TypeArguments="Thickness">
-            <On Platform="Android" Value="0, 0, 0, 0" />
-            <On Platform="iOS" Value="0, 20, 0, 0" />
-        </OnPlatform>
-    </ContentView.Padding>
     <ContentView.Content>
         <AbsoluteLayout>
-            <StackLayout Orientation="Vertical">
-                <Label HorizontalTextAlignment="Center" Text="{i18n:Translate LoginIntroTitle}" />
-                <Label HorizontalTextAlignment="Start" Margin="10, 0, 10, 0" Text="{i18n:Translate LoginIntroText}" />
-                <StackLayout VerticalOptions="FillAndExpand">
-                    <Grid Margin="20, 20, 20, 0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Row="0" Grid.Column="0" Text="{i18n:Translate UsernameLabel}" />
-                        <Entry Text="{Binding Username}" Placeholder="{i18n:Translate UsernamePlaceholder}" Grid.Row="0" Grid.Column="1">
+            <ContentView AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+                <ContentView.Padding>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="Android" Value="0, 0, 0, 0" />
+                        <On Platform="iOS" Value="0, 20, 0, 0" />
+                    </OnPlatform>
+                </ContentView.Padding>
+                <StackLayout Orientation="Vertical">
+                    <Label HorizontalTextAlignment="Center" Text="{i18n:Translate LoginIntroTitle}" />
+                    <Label HorizontalTextAlignment="Start" Margin="10, 0, 10, 0" Text="{i18n:Translate LoginIntroText}" />
+                    <StackLayout Margin="60, 40, 60, 0" VerticalOptions="FillAndExpand" Orientation="Vertical">
+                        <Label FontSize="Small" Text="{i18n:Translate UsernameLabel}" />
+                        <Entry Text="{Binding Username}" Placeholder="{i18n:Translate UsernameLabel}">
                             <Entry.Effects>
                                 <local:NoHelperEntryEffect />
+                                <local:BorderlessEntryEffect />
                             </Entry.Effects>
                         </Entry>
-                        <Label Grid.Row="1" Grid.Column="0" Text="{i18n:Translate PasswordLabel}" />
-                        <Entry Text="{Binding Password}" Placeholder="{i18n:Translate PasswordPlaceholder}" IsPassword="true" Grid.Row="1" Grid.Column="1" />
-                    </Grid>
+                        <BoxView HeightRequest="1.5" Color="Black" />
+                        <Label FontSize="Small" Text="{i18n:Translate PasswordLabel}" />
+                        <Entry Text="{Binding Password}" Placeholder="{i18n:Translate PasswordLabel}" IsPassword="true">
+                            <Entry.Effects>
+                                <local:BorderlessEntryEffect />
+                            </Entry.Effects>
+                        </Entry>
+                        <BoxView HeightRequest="1.5" Color="Black" />
+                    </StackLayout>
+                    <StackLayout VerticalOptions="End">
+                        <control:MaterialButton Margin="30, 30, 30, 30" Text="{i18n:Translate LoginButton}" Style="{StaticResource defaultButtonStyle}" Command="{Binding LoginCommand}" />
+                    </StackLayout>
                 </StackLayout>
-                <StackLayout VerticalOptions="End">
-                    <control:MaterialButton Margin="30, 30, 30, 30" Text="{i18n:Translate LoginButton}" BackgroundColor="{StaticResource tabiBaseColor}" TextColor="White" Command="{Binding LoginCommand}" />
-                </StackLayout>
-            </StackLayout>
+            </ContentView>
             <ContentView BackgroundColor="#222222" Opacity="0.5" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" IsVisible="{Binding IsLoading}" />
             <Frame AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1" IsVisible="{Binding IsLoading}" OutlineColor="Gray" BackgroundColor="White" CornerRadius="5">
                 <StackLayout Orientation="Vertical">

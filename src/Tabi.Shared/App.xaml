@@ -3,7 +3,12 @@
     <Application.Resources>
         <!-- Application resource dictionary -->
         <ResourceDictionary>
+            <Style x:Key="defaultButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{DynamicResource blueButtonColor}" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
             <Color x:Key="tabiBaseColor">#0299C3</Color>
+            <Color x:Key="blueButtonColor">#157EFA</Color>
             <Color x:Key="walkMethodColor">#EF75EB</Color>
             <Color x:Key="transportMethodColor">#4475EB</Color>
             <Color x:Key="carMethodColor">#FF9300</Color>
@@ -20,7 +25,6 @@
             <Thickness x:Key="MediumPadding">8</Thickness>
             <Thickness x:Key="StandardPadding">16</Thickness>
             <OnPlatform x:TypeArguments="Thickness" Android="16,8,16,8" iOS="10,8,10,8" x:Key="NormalPadding" />
-            
             <x:Double x:Key="SmallSpacing">4</x:Double>
             <x:Double x:Key="MediumSpacing">8</x:Double>
             <x:Double x:Key="StandardSpacing">16</x:Double>
