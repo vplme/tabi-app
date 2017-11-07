@@ -20,14 +20,28 @@
                                 <local:BorderlessEntryEffect />
                             </Entry.Effects>
                         </Entry>
-                        <BoxView HeightRequest="1.5" Color="Black" />
+                        <BoxView HeightRequest="1.5" Color="Black">
+                            <BoxView.IsVisible>
+                                <OnPlatform x:TypeArguments="x:Boolean">
+                                    <On Platform="Android" Value="false" />
+                                    <On Platform="iOS" Value="true" />
+                                </OnPlatform>
+                            </BoxView.IsVisible>
+                        </BoxView>
                         <Label FontSize="Small" Text="{i18n:Translate PasswordLabel}" />
                         <Entry Text="{Binding Password}" Placeholder="{i18n:Translate PasswordLabel}" IsPassword="true">
                             <Entry.Effects>
                                 <local:BorderlessEntryEffect />
                             </Entry.Effects>
                         </Entry>
-                        <BoxView HeightRequest="1.5" Color="Black" />
+                        <BoxView HeightRequest="1.5" Color="Black">
+                            <BoxView.IsVisible>
+                                <OnPlatform x:TypeArguments="x:Boolean">
+                                    <On Platform="Android" Value="false" />
+                                    <On Platform="iOS" Value="true" />
+                                </OnPlatform>
+                            </BoxView.IsVisible>
+                        </BoxView>
                     </StackLayout>
                     <StackLayout VerticalOptions="End">
                         <control:MaterialButton Margin="30, 30, 30, 30" Text="{i18n:Translate LoginButton}" Style="{StaticResource defaultButtonStyle}" Command="{Binding LoginCommand}" />
