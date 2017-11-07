@@ -38,9 +38,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
-    <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
-    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+    <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
     <AndroidTlsProvider>btls</AndroidTlsProvider>
+<AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
+<AndroidSupportedAbis>arm64-v8a;armeabi;armeabi-v7a;x86;x86_64</AndroidSupportedAbis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>
@@ -333,6 +334,7 @@
     <Compile Include="CollectionService\SignificantMotionTriggerListener.cs" />
     <Compile Include="Renderers\RouteMapRenderer.cs" />
     <Compile Include="Effects\NoSelectionListViewEffect.cs" />
+    <Compile Include="PlatformImplementations\BaseUrl_Android.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

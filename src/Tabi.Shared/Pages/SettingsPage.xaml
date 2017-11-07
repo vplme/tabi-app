@@ -86,14 +86,12 @@
                                     <SwitchCell x:Name="one" Text="Developer" On="{Binding Settings.Developer}" />
                                     <TextCell x:Name="two" Text="Export SQLite database" Command="{Binding ExportDatabaseCommand}" />
                                     <TextCell Text="Clear SQLite database" Command="{Binding DropDatabaseCommand}" />
-                                    <TextCell Text="List latest positions" Command="{Binding ListPositionsCommand}" />
                                     <TextCell Text="Export KML" Command="{Binding ExportKMLCommand}" />
                                     <TextCell Text="Export CSV" Command="{Binding ExportCSVCommand}" />
                                     <TextCell Text="Export Battery CSV" Command="{Binding ExportBatteryCSVCommand}" />
                                     <TextCell Text="Show mockup" Command="{Binding ShowMockupCommand}" />
                                     <TextCell Text="Load Sample Database" Command="{Binding LoadSampleCommand}" />
                                     <TextCell Text="Generate stops" Command="{Binding GenerateStopsCommand}" />
-                                    <TextCell Text="List stops" Command="{Binding ListStopsCommand}" />
                                     <TextCell Text="Show page" Command="{Binding ShowPageCommand}" />
                                     <TextCell Text="Clear stops" Command="{Binding ClearStopsCommand}" />
                                     <TextCell Text="Logs" Command="{Binding OpenLogsCommand}" />

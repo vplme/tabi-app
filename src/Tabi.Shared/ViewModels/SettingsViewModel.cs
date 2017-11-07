@@ -124,17 +124,7 @@ namespace Tabi
                 DependencyService.Get<IShareFile>().ShareFile(path, "text/csv");
             });
 
-            ListStopsCommand = new Command((obj) =>
-            {
-                StopsDebugPage page = new StopsDebugPage();
-                navigationPage.PushAsync(page);
-            });
-
-            ListPositionsCommand = new Command((obj) =>
-            {
-                PositionsDebugPage page = new PositionsDebugPage();
-                navigationPage.PushAsync(page);
-            });
+          
 
             ClearStopsCommand = new Command((obj) =>
             {
@@ -199,10 +189,6 @@ namespace Tabi
         public ICommand GenerateStopsCommand { protected set; get; }
 
         public ICommand InfoCommand { protected set; get; }
-
-        public ICommand ListStopsCommand { protected set; get; }
-
-        public ICommand ListPositionsCommand { protected set; get; }
 
         public ICommand ClearStopsCommand { protected set; get; }
 

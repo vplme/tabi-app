@@ -98,16 +98,10 @@
     <Compile Update="Pages\ActivityDetailPage.xaml.cs">
       <DependentUpon>*.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Pages\ActivityOverviewMockupPage.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
-    </Compile>
     <Compile Update="Pages\ActivityOverviewPage.xaml.cs">
       <DependentUpon>*.xaml</DependentUpon>
     </Compile>
     <Compile Update="Pages\DayMapPage.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\LoginPage.xaml.cs">
       <DependentUpon>*.xaml</DependentUpon>
     </Compile>
     <Compile Update="Pages\LogsPage.xaml.cs">
@@ -116,25 +110,13 @@
     <Compile Update="Pages\MainPage.xaml.cs">
       <DependentUpon>*.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Pages\MapRoutePage.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
-    </Compile>
     <Compile Update="Pages\PermissionsPage.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\PositionsDebugPage.xaml.cs">
       <DependentUpon>*.xaml</DependentUpon>
     </Compile>
     <Compile Update="Pages\SettingsPage.xaml.cs">
       <DependentUpon>*.xaml</DependentUpon>
     </Compile>
     <Compile Update="Pages\StopDetailPage.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\StopsDebugPage.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\TabiPage.xaml.cs">
       <DependentUpon>*.xaml</DependentUpon>
     </Compile>
     <Compile Update="Pages\TabiTabbedPage.xaml.cs">
