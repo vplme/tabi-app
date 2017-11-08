@@ -244,5 +244,35 @@ namespace Tabi.Shared.Resx {
                 return ResourceManager.GetString("UploadDataButton", resourceCulture);
             }
         }
+        
+        public static string LocationPermissionRationaleTitle {
+            get {
+                return ResourceManager.GetString("LocationPermissionRationaleTitle", resourceCulture);
+            }
+        }
+        
+        public static string LocationPermissionRationaleText {
+            get {
+                return ResourceManager.GetString("LocationPermissionRationaleText", resourceCulture);
+            }
+        }
+        
+        public static string LocationPermissionDeniedOpenSettingsiOSTitle {
+            get {
+                return ResourceManager.GetString("LocationPermissionDeniedOpenSettingsiOSTitle", resourceCulture);
+            }
+        }
+        
+        public static string LocationPermissionDeniedOpenSettingsiOSText {
+            get {
+                return ResourceManager.GetString("LocationPermissionDeniedOpenSettingsiOSText", resourceCulture);
+            }
+        }
+        
+        public static string OkText {
+            get {
+                return ResourceManager.GetString("OkText", resourceCulture);
+            }
+        }
     }
 }

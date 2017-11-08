@@ -177,7 +177,19 @@ namespace Tabi.Shared.ViewModels
                 {
                     if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.Location))
                     {
-                        await introPage.DisplayAlert("Need location", "Require location", "OK");
+                        await introPage.DisplayAlert(
+                            AppResources.LocationPermissionRationaleTitle,
+                            AppResources.LocationPermissionRationaleText,
+                            AppResources.OkText);
+                    }
+                    else if (Device.RuntimePlatform == Device.iOS)
+                    {
+                        await introPage.DisplayAlert(
+                            AppResources.LocationPermissionDeniedOpenSettingsiOSTitle, 
+                            AppResources.LocationPermissionDeniedOpenSettingsiOSText, 
+                            AppResources.OkText);
+                        
+                        CrossPermissions.Current.OpenAppSettings();
                     }
 
                     var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Location);

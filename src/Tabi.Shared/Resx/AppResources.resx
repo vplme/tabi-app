@@ -229,7 +229,19 @@
   <data name="UploadDataButton" xml:space="preserve">
     <value>Upload data</value>
   </data>
-	
-	
-	
+  <data name="LocationPermissionRationaleTitle" xml:space="preserve">
+    <value>Location required</value>
+  </data>
+  <data name="LocationPermissionRationaleText" xml:space="preserve">
+    <value>Location permission needs to be granted for the application to record your movements.</value>
+  </data>	
+  <data name="LocationPermissionDeniedOpenSettingsiOSTitle" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="LocationPermissionDeniedOpenSettingsiOSText" xml:space="preserve">
+    <value>Change location permission to "Always" in the Settings.</value>
+  </data>
+  <data name="OkText" xml:space="preserve">
+    <value>Ok</value>
+  </data>
 </root>
