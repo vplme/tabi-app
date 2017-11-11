@@ -6,6 +6,7 @@ using Microsoft.Azure.Mobile;
 using Microsoft.Azure.Mobile.Analytics;
 using Microsoft.Azure.Mobile.Crashes;
 using Microsoft.Azure.Mobile.Distribute;
+using Microsoft.Azure.Mobile.Push;
 using PCLStorage;
 using Tabi.Shared.Extensions;
 using Tabi.DataStorage;
@@ -76,7 +77,7 @@ namespace Tabi
             if (!apiKey.Equals(""))
             {
                 MobileCenter.Start(apiKey,
-                    typeof(Analytics), typeof(Crashes), typeof(Distribute));
+                                   typeof(Analytics), typeof(Crashes), typeof(Distribute), typeof(Push));
                 Log.Debug("MobileCenter started with apikey");
                 MobileCenter.SetEnabledAsync(mobileCenterEnabled);
                 Log.Debug($"MobileCenter enabled: {mobileCenterEnabled}");
