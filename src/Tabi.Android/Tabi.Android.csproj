@@ -40,8 +40,8 @@
     <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
     <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
     <AndroidTlsProvider>btls</AndroidTlsProvider>
-<AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
-<AndroidSupportedAbis>arm64-v8a;armeabi;armeabi-v7a;x86;x86_64</AndroidSupportedAbis>
+    <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
+    <AndroidSupportedAbis>arm64-v8a;armeabi;armeabi-v7a;x86;x86_64</AndroidSupportedAbis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>
@@ -60,6 +60,12 @@
   <ItemGroup>
     <Reference Include="CsvHelper, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823">
       <HintPath>..\packages\CsvHelper.2.16.3.0\lib\netstandard1.3\CsvHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Mobile, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.Mobile.0.17.1\lib\MonoAndroid403\Microsoft.Azure.Mobile.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Mobile.Android.Bindings, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.Mobile.0.17.1\lib\MonoAndroid403\Microsoft.Azure.Mobile.Android.Bindings.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
@@ -264,12 +270,6 @@
     </Reference>
     <Reference Include="Plugin.Settings">
       <HintPath>..\packages\Xam.Plugins.Settings.3.0.1\lib\MonoAndroid10\Plugin.Settings.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Azure.Mobile.Android.Bindings">
-      <HintPath>..\packages\Microsoft.Azure.Mobile.0.15.0\lib\MonoAndroid403\Microsoft.Azure.Mobile.Android.Bindings.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Azure.Mobile">
-      <HintPath>..\packages\Microsoft.Azure.Mobile.0.15.0\lib\MonoAndroid403\Microsoft.Azure.Mobile.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Azure.Mobile.Analytics.Android.Bindings">
       <HintPath>..\packages\Microsoft.Azure.Mobile.Analytics.0.15.0\lib\MonoAndroid403\Microsoft.Azure.Mobile.Analytics.Android.Bindings.dll</HintPath>
