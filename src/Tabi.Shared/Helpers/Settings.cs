@@ -113,6 +113,34 @@ namespace Tabi
             }
         }
 
+        public long BatteryInfoLastUpload
+        {
+            // Cast default value as long otherwise it will choose the int typed GetValueOrDefault
+            get => AppSettings.GetValueOrDefault(nameof(BatteryInfoLastUpload), (long)0);
+            set
+            {
+                if (value == BatteryInfoLastUpload)
+                    return;
+
+                AppSettings.AddOrUpdateValue(nameof(BatteryInfoLastUpload), value);
+                OnPropertyChanged();
+            }
+        }
+
+        public long LogsLastUpload
+        {
+            // Cast default value as long otherwise it will choose the int typed GetValueOrDefault
+            get => AppSettings.GetValueOrDefault(nameof(LogsLastUpload), (long)0);
+            set
+            {
+                if (value == LogsLastUpload)
+                    return;
+
+                AppSettings.AddOrUpdateValue(nameof(LogsLastUpload), value);
+                OnPropertyChanged();
+            }
+        }
+
         private static ISettings AppSettings
         {
             get

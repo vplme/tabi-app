@@ -11,10 +11,11 @@ namespace Tabi.iOS.Helpers
     public class SyncService
     {
         ApiClient ApiClient;
+        DateTimeOffset lastAutoUpload;
 
-        public SyncService()
+        public SyncService(string url = "https://tabi.0x2a.site")
         {
-            ApiClient = new ApiClient("https://tabi.0x2a.site");
+            ApiClient = new ApiClient(url);
         }
 
         public async Task Login()
@@ -23,7 +24,17 @@ namespace Tabi.iOS.Helpers
 
         }
 
-        public async Task AutoUpload(bool wifiOnly = true)
+        public async Task AutoUpload(TimeSpan window, bool wifiOnly = true)
+        {
+            if (DateTimeOffset.Now - window >= lastAutoUpload)
+            {
+                await UploadAll(wifiOnly);
+                lastAutoUpload = DateTimeOffset.Now;
+            }
+        }
+
+
+        public async Task UploadAll(bool wifiOnly = true)
         {
             var wifi = Plugin.Connectivity.Abstractions.ConnectionType.WiFi;
             var connectionTypes = CrossConnectivity.Current.ConnectionTypes;
@@ -41,7 +52,8 @@ namespace Tabi.iOS.Helpers
         {
             DateTimeOffset lastUpload = DateTimeOffset.FromUnixTimeMilliseconds(Settings.Current.PositionLastUpload);
             List<PositionEntry> positions = App.RepoManager.PositionEntryRepository.After(lastUpload);
-            if(positions.Count() > 0){
+            if (positions.Count() > 0)
+            {
                 await Login();
                 bool success = await ApiClient.PostPositions(Settings.Current.Device, positions);
                 if (!success)
@@ -51,39 +63,48 @@ namespace Tabi.iOS.Helpers
                 }
                 Settings.Current.PositionLastUpload = positions.Last().Timestamp.ToUnixTimeMilliseconds();
             }
-           
+
         }
 
 
         public async Task<bool> UploadLogs()
         {
-            List<LogEntry> logs = App.RepoManager.LogEntryRepository.GetAll().ToList();
-            await Login();
-            bool success = await ApiClient.PostLogs(Settings.Current.Device, logs);
-            if (!success)
-            {
-                Log.Error("Could not send logs");
-                return false;
-            }
+            DateTimeOffset lastUpload = DateTimeOffset.FromUnixTimeMilliseconds(Settings.Current.LogsLastUpload);
 
-            App.RepoManager.LogEntryRepository.ClearLogsBefore(logs.Last().Timestamp);
+            List<LogEntry> logs = App.RepoManager.LogEntryRepository.After(lastUpload);
+            if (logs.Count() > 0)
+            {
+                await Login();
+                bool success = await ApiClient.PostLogs(Settings.Current.Device, logs);
+                if (!success)
+                {
+                    Log.Error("Could not send logs");
+                    return false;
+                }
+                Settings.Current.BatteryInfoLastUpload = logs.Last().Timestamp.ToUnixTimeMilliseconds();
+                App.RepoManager.LogEntryRepository.ClearLogsBefore(logs.Last().Timestamp);
+            }
             return true;
         }
 
         public async Task<bool> UploadBatteryInfo()
         {
-            List<BatteryEntry> batteryEntries = App.RepoManager.BatteryEntryRepository.GetAll().ToList();
-            await Login();
-            bool success = await ApiClient.PostBatteryData(Settings.Current.Device, batteryEntries);
-            if (!success)
+            DateTimeOffset lastUpload = DateTimeOffset.FromUnixTimeMilliseconds(Settings.Current.BatteryInfoLastUpload);
+            List<BatteryEntry> batteryEntries = App.RepoManager.BatteryEntryRepository.After(lastUpload);
+            if(batteryEntries.Count() > 0)
             {
-                Log.Error("Could not send batterydata");
-                return false;
+                await Login();
+                bool success = await ApiClient.PostBatteryData(Settings.Current.Device, batteryEntries);
+                if (!success)
+                {
+                    Log.Error("Could not send batterydata");
+                    return false;
+                }
+                Settings.Current.BatteryInfoLastUpload = batteryEntries.Last().Timestamp.ToUnixTimeMilliseconds();
             }
-
+           
             return true;
         }
-
 
     }
 }

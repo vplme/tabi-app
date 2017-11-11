@@ -172,7 +172,7 @@ namespace Tabi
             UploadCommand = new Command(async () =>
             {
                 SyncService sc = new SyncService();
-                await sc.AutoUpload(false);
+                await sc.UploadAll(false);
             });
         }
 

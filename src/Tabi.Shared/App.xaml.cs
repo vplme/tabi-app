@@ -13,6 +13,7 @@ using Tabi.Logging;
 using Tabi.Shared.Collection;
 using Tabi.Pages;
 using System.Threading.Tasks;
+using Tabi.iOS.Helpers;
 
 namespace Tabi
 {
@@ -21,6 +22,7 @@ namespace Tabi
         public const string LogFilePath = "tabi.log";
         public static double ScreenHeight;
         public static double ScreenWidth;
+        public static readonly SyncService SyncService;
         public static readonly IConfigurationRoot Configuration;
         public static bool LocationPermissionsGranted;
         public static IRepoManager RepoManager;
@@ -35,6 +37,8 @@ namespace Tabi
             Assembly assembly = typeof(App).GetTypeInfo().Assembly;
             var builder = new ConfigurationBuilder().AddEmbeddedXmlFile(assembly, "tabi.config");
             Configuration = builder.Build();
+
+            SyncService = new SyncService(Configuration["api-url"]);
         }
 
 
@@ -44,8 +48,6 @@ namespace Tabi
             SetupLogging();
 
             SetupSQLite();
-
-
 
             CollectionProfile = CollectionProfile.GetDefaultProfile();
 
@@ -139,6 +141,7 @@ namespace Tabi
         {
             Log.Info("App.OnStart");
             CheckAuthorization(Settings.Current.Device);
+            SyncService.AutoUpload(TimeSpan.FromMinutes(10));
         }
 
         async Task CheckAuthorization(string deviceId)
