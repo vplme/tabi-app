@@ -19,6 +19,7 @@ namespace Tabi
     {
         ActivityOverviewViewModel ViewModel => vm ?? (vm = BindingContext as ActivityOverviewViewModel);
         ActivityOverviewViewModel vm;
+        DateTimeOffset lastLoad;
 
         public ActivityOverviewPage()
         {
@@ -37,28 +38,42 @@ namespace Tabi
         protected override void OnAppearing()
         {
             base.OnAppearing();
+
+            if (lastLoad < DateTimeOffset.Now.AddMinutes(-10))
+            {
+                Update();
+            }
+        }
+
+        void Update()
+        {
             ViewModel.UpdateStopVisits();
-
-            //if (first)
-            //{
-            //    UpdateStops();
-            //    LoadData();
-            //    first = false;
-            //}
-
-
-
-
-
-
+            lastLoad = DateTimeOffset.Now;
         }
 
 
         void RefreshClicked(object sender, EventArgs arg)
         {
+            Update();
+        }
 
             ViewModel.UpdateStopVisits();
         }
 
+        void ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem != null)
+            {
+                ActivityEntry ae = (ActivityEntry)e.SelectedItem;
+                if (ae.ShowStop)
+                {
+                    StopDetailPage page = new StopDetailPage(ae.StopVisit);
+                    Navigation.PushAsync(page);
+                }
+
+                    ((ListView)sender).SelectedItem = null;
+
+            }
+        }
     }
 }

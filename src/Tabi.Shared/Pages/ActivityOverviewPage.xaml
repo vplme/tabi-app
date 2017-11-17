@@ -4,14 +4,9 @@
         <ToolbarItem Icon="ic_refresh" Clicked="RefreshClicked" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-       <StackLayout>
-<!--            <local:DateSwitchView>
-            </local:DateSwitchView>
-            <local:TabiRaisedButton></local:TabiRaisedButton>-->
-            <ListView x:Name="ListViewOverview" HasUnevenRows="true" SeparatorVisibility="None" ItemsSource="{Binding ActivityEntries}">
+            <ListView x:Name="ListViewOverview" HasUnevenRows="true" SeparatorVisibility="None" ItemsSource="{Binding ActivityEntries}" ItemSelected="ItemSelected">
                 <ListView.Effects>
                     <local:NoDividerListViewEffect />
-                    <local:NoSelectionListViewEffect />
                 </ListView.Effects>
                 <ListView.ItemTemplate>
                     <DataTemplate>

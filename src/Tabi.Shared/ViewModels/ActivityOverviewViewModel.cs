@@ -52,16 +52,6 @@ namespace Tabi.ViewModels
             foreach (StopVisit sv in stopVisits)
             {
                 ActivityEntry ae = new ActivityEntry();
-                ae.StopCommand = new Command(() =>
-                {
-                    StopDetailPage page = new StopDetailPage(sv);
-                    navigationPage.PushAsync(page);
-                    page.Disappearing += (s, e) => {
-                        ae.StopVisit = null; // Make ObservableObject refresh the collection
-                        ae.StopVisit = sv;
-                    };
-
-                });
 
                 sv.Stop = stopRepository.Get(sv.StopId);
                 sv.Stop.Name = string.IsNullOrEmpty(sv.Stop.Name) ? "Stop" : sv.Stop.Name;
