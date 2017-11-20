@@ -55,7 +55,6 @@ namespace Tabi
         void RefreshClicked(object sender, EventArgs arg)
         {
             Update();
-        }
 
             ViewModel.UpdateStopVisits();
         }
