@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="800"
+   height="800"
+   version="1.1"
+   viewBox="0 0 800.00001 800.00001"
+   id="svg27636"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="tabi-project-blue-favicon.svg"
+   inkscape:export-filename="/home/ole/Documents/tabi/tabi-project-blue-favicon.svg.png"
+   inkscape:export-xdpi="7.1999998"
+   inkscape:export-ydpi="7.1999998">
+  <metadata
+     id="metadata27659">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2462"
+     inkscape:window-height="1564"
+     id="namedview27657"
+     showgrid="false"
+     inkscape:snap-global="true"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-center="true"
+     inkscape:zoom="0.417193"
+     inkscape:cx="-989.65223"
+     inkscape:cy="-265.87995"
+     inkscape:window-x="98"
+     inkscape:window-y="36"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg27636"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:object-paths="true"
+     inkscape:snap-intersection-paths="true"
+     inkscape:object-nodes="true"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:snap-midpoints="true">
+    <sodipodi:guide
+       position="332.20339,-317.79662"
+       orientation="-0.70710678,0.70710678"
+       id="guide5633" />
+  </sodipodi:namedview>
+  <defs
+     id="defs27638">
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect5612"
+       is_visible="true"
+       pattern="M 40.25423,20.12712 A 20.127119,20.127119 0 0 1 20.12712,40.254243 20.127119,20.127119 0 0 1 0,20.12712 20.127119,20.127119 0 0 1 20.12712,0 20.127119,20.127119 0 0 1 40.25423,20.12712 Z"
+       copytype="repeated"
+       prop_scale="1"
+       scale_y_rel="false"
+       spacing="0"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       fuse_tolerance="0" />
+    <linearGradient
+       id="c"
+       x1="344.47"
+       x2="-82.755"
+       y1="447.12"
+       y2="883.37"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         id="stop27641" />
+      <stop
+         stop-opacity="0"
+         offset="1"
+         id="stop27643" />
+    </linearGradient>
+    <mask
+       id="b"
+       maskUnits="userSpaceOnUse">
+      <circle
+         cx="400"
+         cy="400"
+         r="400"
+         color="#000000"
+         color-rendering="auto"
+         fill="#fff"
+         image-rendering="auto"
+         shape-rendering="auto"
+         solid-color="#000000"
+         style="isolation:auto;mix-blend-mode:normal"
+         id="circle27646" />
+    </mask>
+    <mask
+       id="a"
+       maskUnits="userSpaceOnUse">
+      <circle
+         cx="400"
+         cy="400"
+         r="400"
+         color="#000000"
+         color-rendering="auto"
+         fill="#fff"
+         image-rendering="auto"
+         shape-rendering="auto"
+         solid-color="#000000"
+         style="isolation:auto;mix-blend-mode:normal"
+         id="circle27649" />
+    </mask>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath29610">
+      <path
+         id="path29612"
+         style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#b1e7fe;stroke-width:8;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         d="m -128.81355,-62.644066 1176.27125,0 0,1014.406796 -1176.27125,0 z M 401.49274,581.73827 c 0,0 51.15305,-87.0221 51.15305,-124.31806 0,-28.2354 -22.92311,-51.15848 -51.15305,-51.15848 -28.23543,0 -51.15854,22.92308 -51.15854,51.15848 0,37.29596 51.15854,124.31806 51.15854,124.31806 z"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccccsssc" />
+    </clipPath>
+  </defs>
+  <circle
+     cx="400"
+     cy="400"
+     r="400"
+     color="#000000"
+     color-rendering="auto"
+     fill="#1c8adb"
+     image-rendering="auto"
+     shape-rendering="auto"
+     solid-color="#000000"
+     style="isolation:auto;mix-blend-mode:normal;fill:#00b3d5;fill-opacity:1"
+     id="circle27651" />
+  <path
+     d="m 300.6307,202.89132 -303.6999966,303.7 C -236.15728,739.6793 -16.005287,868.26567 184.86471,874.36567 L 399.99234,653.30584 494.30281,245.25345 C 318.19541,152.81014 420.42448,163.73522 300.6307,202.89132 Z"
+     mask="url(#a)"
+     style="color:#000000;opacity:0.42000002;isolation:auto;mix-blend-mode:normal;solid-color:#000000;fill:url(#c);color-rendering:auto;image-rendering:auto;shape-rendering:auto"
+     id="path27653"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cscccc" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer7"
+     inkscape:label="bg"
+     style="display:inline" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer8"
+     inkscape:label="fg"
+     style="display:inline">
+    <g
+       style="clip-rule:evenodd;fill-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5"
+       id="g29590"
+       transform="matrix(5.4879359,0,0,5.4879293,-990.68135,164.14357)" />
+    <g
+       style="clip-rule:evenodd;fill-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5"
+       id="g14773"
+       transform="matrix(-15.343619,0,0,15.3436,4599.9734,-728.27777)">
+      <path
+         inkscape:connector-curvature="0"
+         id="path14775"
+         style="fill:#ffffff"
+         d="m 273.72819,90.042989 c 0,0 9.321,-15.857 9.321,-22.653 0,-5.145 -4.177,-9.322 -9.321,-9.322 -5.145,0 -9.322,4.177 -9.322,9.322 0,6.796 9.322,22.653 9.322,22.653 z m 0,-28 c 2.207,0 4,1.792 4,4 0,2.208 -1.793,4 -4,4 -2.208,0 -4,-1.792 -4,-4 0,-2.208 1.792,-4 4,-4 z" />
+    </g>
+  </g>
+</svg>

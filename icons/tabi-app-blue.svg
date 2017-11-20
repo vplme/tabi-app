@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="800"
+   height="800"
+   version="1.1"
+   viewBox="0 0 800.00001 800.00001"
+   id="svg27661"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="tabi-app-blue.svg"
+   inkscape:export-filename="/home/ole/Documents/tabi-app-blue.svg.png"
+   inkscape:export-xdpi="45"
+   inkscape:export-ydpi="45">
+  <metadata
+     id="metadata27684">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2462"
+     inkscape:window-height="1564"
+     id="namedview27682"
+     showgrid="false"
+     inkscape:snap-bbox="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:object-paths="true"
+     inkscape:object-nodes="true"
+     inkscape:snap-intersection-paths="true"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:snap-midpoints="true"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-center="true"
+     inkscape:zoom="0.834386"
+     inkscape:cx="287.97795"
+     inkscape:cy="339.95238"
+     inkscape:window-x="98"
+     inkscape:window-y="36"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg27661" />
+  <defs
+     id="defs27663">
+    <linearGradient
+       id="c"
+       x1="399.79"
+       x2="-4.0753"
+       y1="420"
+       y2="788.57"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-opacity=".42"
+         offset="0"
+         id="stop27666" />
+      <stop
+         stop-opacity="0"
+         offset="1"
+         id="stop27668" />
+    </linearGradient>
+    <mask
+       id="b"
+       maskUnits="userSpaceOnUse">
+      <circle
+         cx="400"
+         cy="400"
+         r="400"
+         color="#000000"
+         color-rendering="auto"
+         fill="#fff"
+         image-rendering="auto"
+         shape-rendering="auto"
+         solid-color="#000000"
+         style="isolation:auto;mix-blend-mode:normal"
+         id="circle27671" />
+    </mask>
+    <mask
+       id="a"
+       maskUnits="userSpaceOnUse">
+      <circle
+         cx="400"
+         cy="400"
+         r="400"
+         color="#000000"
+         color-rendering="auto"
+         fill="#fff"
+         image-rendering="auto"
+         shape-rendering="auto"
+         solid-color="#000000"
+         style="isolation:auto;mix-blend-mode:normal"
+         id="circle27674" />
+    </mask>
+  </defs>
+  <circle
+     cx="400"
+     cy="400"
+     r="400"
+     color="#000000"
+     color-rendering="auto"
+     fill="#1c8adb"
+     image-rendering="auto"
+     shape-rendering="auto"
+     solid-color="#000000"
+     style="isolation:auto;mix-blend-mode:normal;fill:#00b3d5;fill-opacity:1"
+     id="circle27676" />
+  <path
+     d="m301.46 151.43c-11.905 0-22.567 5.1217-29.922 13.287l-270.57 270.57c12.859 195.83 116.22 343.08 369.17 364.04l161.07-161.07c8.1654-7.3546 13.287-18.017 13.287-29.922v-416.67c0-22.292-17.946-40.238-40.238-40.238z"
+     color="#000000"
+     color-rendering="auto"
+     fill="url(#c)"
+     image-rendering="auto"
+     mask="url(#a)"
+     shape-rendering="auto"
+     solid-color="#000000"
+     style="isolation:auto;mix-blend-mode:normal"
+     id="path27678" />
+  <g
+     id="g7448">
+    <path
+       id="path27680"
+       style="isolation:auto;mix-blend-mode:normal"
+       solid-color="#000000"
+       shape-rendering="auto"
+       mask="url(#b)"
+       image-rendering="auto"
+       fill="#fff"
+       color-rendering="auto"
+       color="#000000"
+       d="m301.46 151.43c-22.292 0-40.238 17.946-40.238 40.238v416.67c0 22.292 17.946 40.238 40.238 40.238h202.8c22.292 0 40.238-17.946 40.238-40.238v-416.67c0-22.292-17.946-40.238-40.238-40.238h-202.8zm2.4531 11.883h197.89c16.03 0 28.934 12.904 28.934 28.934v415.51c0 16.03-12.904 28.934-28.934 28.934h-197.89c-16.03 0-28.934-12.904-28.934-28.934v-415.51c0-16.03 12.904-28.934 28.934-28.934zm72.471 20.449c-4.9495 0-8.9336 3.984-8.9336 8.9336s3.984 8.9336 8.9336 8.9336h52.951c4.9495 0 8.9356-3.984 8.9356-8.9336s-3.986-8.9336-8.9356-8.9336h-52.951zm-94.238 32.535v352.86h241.43v-352.86h-241.43zm12.381 14.184h216.67v324.49h-216.67v-324.49zm108.33 350.77a22.662 22.662 0 0 0 -22.662 22.662 22.662 22.662 0 0 0 22.662 22.662 22.662 22.662 0 0 0 22.662 -22.662 22.662 22.662 0 0 0 -22.662 -22.662z" />
+    <g
+       transform="matrix(6.1770345,0,0,6.177027,-1164.1208,17.481194)"
+       id="g26970"
+       style="clip-rule:evenodd;fill-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5">
+      <path
+         d="m 253.679,75 c 0,0 9.321,-15.857 9.321,-22.653 0,-5.145 -4.177,-9.322 -9.321,-9.322 -5.145,0 -9.322,4.177 -9.322,9.322 0,6.796 9.322,22.653 9.322,22.653 z m 0,-28 c 2.207,0 4,1.792 4,4 0,2.208 -1.793,4 -4,4 -2.208,0 -4,-1.792 -4,-4 0,-2.208 1.792,-4 4,-4 z"
+         style="fill:#ffffff"
+         id="path26972"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+</svg>
