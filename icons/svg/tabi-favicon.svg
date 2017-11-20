@@ -13,7 +13,10 @@
    viewBox="0 0 800.00001 800.00001"
    id="svg27636"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="tabi-backend-blue.svg">
+   sodipodi:docname="tabi-favicon.svg"
+   inkscape:export-filename="/home/ole/Documents/tabi/tabi-project-blue-favicon.svg.png"
+   inkscape:export-xdpi="7.1999998"
+   inkscape:export-ydpi="7.1999998">
   <metadata
      id="metadata27659">
     <rdf:RDF>
@@ -42,21 +45,47 @@
      inkscape:snap-global="true"
      inkscape:snap-object-midpoints="true"
      inkscape:snap-center="true"
-     inkscape:zoom="0.417193"
-     inkscape:cx="-411.58983"
-     inkscape:cy="402.16259"
+     inkscape:zoom="1.70625"
+     inkscape:cx="400"
+     inkscape:cy="400"
      inkscape:window-x="98"
      inkscape:window-y="36"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg27636" />
+     inkscape:current-layer="svg27636"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:object-paths="true"
+     inkscape:snap-intersection-paths="true"
+     inkscape:object-nodes="true"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:snap-midpoints="true" />
   <defs
      id="defs27638">
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect5612"
+       is_visible="true"
+       pattern="M 40.25423,20.12712 A 20.127119,20.127119 0 0 1 20.12712,40.254243 20.127119,20.127119 0 0 1 0,20.12712 20.127119,20.127119 0 0 1 20.12712,0 20.127119,20.127119 0 0 1 40.25423,20.12712 Z"
+       copytype="repeated"
+       prop_scale="1"
+       scale_y_rel="false"
+       spacing="0"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       fuse_tolerance="0" />
     <linearGradient
        id="c"
        x1="344.47"
-       x2="-82.755"
+       x2="0"
        y1="447.12"
-       y2="883.37"
+       y2="800"
        gradientUnits="userSpaceOnUse">
       <stop
          offset="0"
@@ -122,17 +151,12 @@
      style="isolation:auto;mix-blend-mode:normal;fill:#00b3d5;fill-opacity:1"
      id="circle27651" />
   <path
-     d="m209.79 203.74-209.7 209.7c9.8161 329.49 188.56 380.39 389.43 386.49l203.67-203.67v-329.08l-64.271-63.432z"
-     color="#000000"
-     color-rendering="auto"
-     fill="url(#c)"
-     image-rendering="auto"
+     d="M 300.6307,202.89132 4.8572427,498.66479 C 3.9035607,603.34287 68.337591,777.99826 269.20759,784.09826 L 399.99234,653.30584 494.30281,245.25345 C 318.19541,152.81014 420.42448,163.73522 300.6307,202.89132 Z"
      mask="url(#a)"
-     opacity=".42"
-     shape-rendering="auto"
-     solid-color="#000000"
-     style="isolation:auto;mix-blend-mode:normal"
-     id="path27653" />
+     style="color:#000000;opacity:0.42000002;isolation:auto;mix-blend-mode:normal;solid-color:#000000;fill:url(#c);color-rendering:auto;image-rendering:auto;shape-rendering:auto"
+     id="path27653"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cccccc" />
   <g
      inkscape:groupmode="layer"
      id="layer7"
@@ -143,34 +167,19 @@
      id="layer8"
      inkscape:label="fg"
      style="display:inline">
-    <path
-       d="m 291.17,438.677 0,18.045 220.64,0 0,-18.033 -220.64,-0.0117 z m 0,40.711 0,18.045 220.64,0 0,-18.035 z m 0,43.141 0,18.045 220.64,0 0,-18.035 z"
-       mask="url(#b)"
-       style="color:#000000;display:inline;isolation:auto;mix-blend-mode:normal;solid-color:#000000;fill:#ffffff;color-rendering:auto;image-rendering:auto;shape-rendering:auto"
-       id="path27655"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cccccccccccccccc"
-       clip-path="url(#clipPath29610)" />
-    <g
-       transform="matrix(3.9689055,0,0,3.9689007,-605.33599,253.78525)"
-       id="g29491"
-       style="clip-rule:evenodd;fill-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5">
-      <path
-         d="m 253.679,75 c 0,0 9.321,-15.857 9.321,-22.653 0,-5.145 -4.177,-9.322 -9.321,-9.322 -5.145,0 -9.322,4.177 -9.322,9.322 0,6.796 9.322,22.653 9.322,22.653 z m 0,-28 c 2.207,0 4,1.792 4,4 0,2.208 -1.793,4 -4,4 -2.208,0 -4,-1.792 -4,-4 0,-2.208 1.792,-4 4,-4 z"
-         style="fill:#ffffff"
-         id="path29493"
-         inkscape:connector-curvature="0" />
-    </g>
     <g
        style="clip-rule:evenodd;fill-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5"
        id="g29590"
        transform="matrix(5.4879359,0,0,5.4879293,-990.68135,164.14357)" />
-    <path
-       inkscape:connector-curvature="0"
-       id="path29604"
-       style="color:#000000;display:inline;isolation:auto;mix-blend-mode:normal;solid-color:#000000;fill:#ffffff;color-rendering:auto;image-rendering:auto;shape-rendering:auto"
-       mask="url(#b)"
-       d="m 209.79,203.74 0,392.52 383.4,0 0,-329.08 -64.271,-63.432 -319.12,0 z m 95.393,27.795 192.61,0.0664 0,118.73 -192.61,0 0,-118.79 z m 125.78,22.477 0,73.842 42.525,0 0,-73.797 -42.525,-0.0449 z m -167.76,159.36 276.56,0.0899 0,150.59 -276.56,0 0,-150.68 z"
-       sodipodi:nodetypes="ccccccccccccccccccccccccc" />
+    <g
+       style="clip-rule:evenodd;fill-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5"
+       id="g14773"
+       transform="matrix(-15.343619,0,0,15.3436,4599.9734,-728.27777)">
+      <path
+         inkscape:connector-curvature="0"
+         id="path14775"
+         style="fill:#ffffff"
+         d="m 273.72819,90.042989 c 0,0 9.321,-15.857 9.321,-22.653 0,-5.145 -4.177,-9.322 -9.321,-9.322 -5.145,0 -9.322,4.177 -9.322,9.322 0,6.796 9.322,22.653 9.322,22.653 z m 0,-28 c 2.207,0 4,1.792 4,4 0,2.208 -1.793,4 -4,4 -2.208,0 -4,-1.792 -4,-4 0,-2.208 1.792,-4 4,-4 z" />
+    </g>
   </g>
 </svg>

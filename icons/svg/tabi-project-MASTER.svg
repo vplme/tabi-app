@@ -13,7 +13,7 @@
    viewBox="0 0 800.00001 800.00001"
    id="svg27636"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="tabi-project-blue.svg"
+   sodipodi:docname="tabi-project-MASTER.svg"
    inkscape:export-filename="/home/ole/Documents/tabi/tabi-project-blue-website-logo.svg.png"
    inkscape:export-xdpi="78.75"
    inkscape:export-ydpi="78.75">
@@ -25,7 +25,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -45,9 +45,9 @@
      inkscape:snap-global="true"
      inkscape:snap-object-midpoints="true"
      inkscape:snap-center="true"
-     inkscape:zoom="1.18"
-     inkscape:cx="414.53277"
-     inkscape:cy="351.46137"
+     inkscape:zoom="1.70625"
+     inkscape:cx="400"
+     inkscape:cy="400"
      inkscape:window-x="98"
      inkscape:window-y="36"
      inkscape:window-maximized="1"
@@ -63,12 +63,10 @@
      inkscape:snap-intersection-paths="true"
      inkscape:snap-smooth-nodes="true"
      inkscape:snap-midpoints="true"
-     inkscape:object-nodes="true">
-    <sodipodi:guide
-       position="572.03391,483.05085"
-       orientation="-0.70710678,0.70710678"
-       id="guide5633" />
-  </sodipodi:namedview>
+     inkscape:object-nodes="true"
+     inkscape:snap-page="true"
+     inkscape:snap-grids="true"
+     inkscape:snap-to-guides="true" />
   <defs
      id="defs27638">
     <inkscape:path-effect
@@ -88,9 +86,9 @@
     <linearGradient
        id="c"
        x1="344.47"
-       x2="-82.755"
+       x2="0.025602655"
        y1="447.12"
-       y2="883.37"
+       y2="800"
        gradientUnits="userSpaceOnUse">
       <stop
          offset="0"
@@ -147,16 +145,16 @@
      cx="400"
      cy="400"
      r="400"
-     color="#000000"
+     style="isolation:auto;mix-blend-mode:normal;fill:#00b3d5;fill-opacity:1"
+     id="circle27651"
+     shape-rendering="auto"
+     image-rendering="auto"
      color-rendering="auto"
      fill="#1c8adb"
-     image-rendering="auto"
-     shape-rendering="auto"
      solid-color="#000000"
-     style="isolation:auto;mix-blend-mode:normal;fill:#00b3d5;fill-opacity:1"
-     id="circle27651" />
+     color="#000000" />
   <path
-     d="M 215.79,179.74 -7.91,403.44 C 1.9061,732.93 173.68694,795.97564 374.55694,802.07564 L 587.87431,588.75828 617.14763,425.6256 550.62404,420.37325 482.03686,488.11831 383.2917,466.12916 536.64342,311.751 369.72395,291.98302 258.19431,255.87606 l 11.35171,-78.47985 -21.54227,-8.83465 z"
+     d="M 215.79,179.74 0.02560549,395.4741 C 0,724.9641 173.47735,800 376.63258,800 L 587.87431,588.75828 617.14763,425.6256 550.62404,420.37325 482.03686,488.11831 383.2917,466.12916 536.64342,311.751 369.72395,291.98302 258.19431,255.87606 l 11.35171,-78.47985 -21.54227,-8.83465 z"
      mask="url(#a)"
      style="color:#000000;opacity:0.42000002;isolation:auto;mix-blend-mode:normal;solid-color:#000000;fill:url(#c);color-rendering:auto;image-rendering:auto;shape-rendering:auto"
      id="path27653"
