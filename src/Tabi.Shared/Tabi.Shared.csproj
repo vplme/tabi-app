@@ -137,6 +137,11 @@
     <Compile Update="IntroViews\PermIntroView.xaml.cs">
       <DependentUpon>*.xaml</DependentUpon>
     </Compile>
+    <None Remove="Resources\credits.html" />
+    <None Remove="Resources\html\credits.html" />
+    <EmbeddedResource Include="Resources\html\credits.html">
+      <LogicalName>Tabi.Resources.credits.html</LogicalName>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources" />
@@ -145,6 +150,8 @@
     <Folder Include="Localization\" />
     <Folder Include="Collection\" />
     <Folder Include="IntroViews\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\html\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tabi.DataStorage\Tabi.DataStorage.csproj" />
