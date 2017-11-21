@@ -1,6 +1,7 @@
 ## Overview Licenses
 
 #### MIT License (Expat)
+```
 FormsToolkit
 Microsoft.Azure.Mobile
 Microsoft.Azure.Mobile.Analytics
@@ -43,8 +44,10 @@ Xamarin.GooglePlayServices.Basement
 Xamarin.GooglePlayServices.Location
 Xamarin.GooglePlayServices.Maps
 Xamarin.GooglePlayServices.Measurement
+```
 
 #### Apache License 2.0 (Apache-2.0)
+```
 CsvHelper (dual license MS-PL)
 Microsoft.Extensions.Caching.Abstractions
 Microsoft.Extensions.Caching.Memory
@@ -67,13 +70,17 @@ SQLitePCLRaw.bundle_green
 SQLitePCLRaw.core
 SQLitePCLRaw.lib.e_sqlite3.android
 SQLitePCLRaw.provider.e_sqlite3.android
+```
 
 #### Microsoft Public License (Ms-PL)
+```
 CsvHelper (dual license Apache 2.0)
 PCLStorage
 SharpKml.Core
+```
 
 #### Microsoft .NET Library License 
+```
 Microsoft.Tpl.Dataflow
 Microsoft.Win32.Primitives
 System.AppContext
@@ -133,3 +140,4 @@ System.Xml.ReaderWriter
 System.Xml.XDocument
 System.Xml.XmlDocument
 System.Xml.XmlSerializer
+```
