@@ -1,68 +1,159 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
-	<resheader name="resmimetype">
-		<value>text/microsoft-resx</value>
-	</resheader>
-	<resheader name="version">
-		<value>2.0</value>
-	</resheader>
-	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-
-	<data name="NotesLabel" xml:space="preserve">
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="NotesLabel" xml:space="preserve">
     <value>Notitie:</value>
     <comment>Notitie label</comment>
     </data>
-    <data name="SettingsPageTitle" xml:space="preserve">
+  <data name="SettingsPageTitle" xml:space="preserve">
         <value>Instellingen</value>
         <comment>Label for the SettingsPage</comment>
 	</data>
-    <data name="ActivityOverviewPageTitle" xml:space="preserve">
+  <data name="ActivityOverviewPageTitle" xml:space="preserve">
         <value>Overzicht</value>
         <comment>Label for the ActivityOverviewPage</comment>
 	</data>
-    <data name="DayMapPageTitle" xml:space="preserve">
+  <data name="DayMapPageTitle" xml:space="preserve">
 		<value>Kaart</value>
         <comment>Label for the DayMapPage</comment>
     </data>
-    <data name="TrackingSectionLabel" xml:space="preserve">
+  <data name="TrackingSectionLabel" xml:space="preserve">
         <value>Dataverzameling</value>
         <comment>Title label for the section/card regarding data collection</comment>
     </data>
-	<data name="TrackingSwitchLabel" xml:space="preserve">
+  <data name="TrackingSwitchLabel" xml:space="preserve">
         <value>Verplaatsingen bepalen</value>
         <comment>Label for the switch that allows the user to enable/disable tracking</comment>
     </data>
-	<data name="GeneralLabel" xml:space="preserve">
+  <data name="GeneralLabel" xml:space="preserve">
         <value>Algemeen</value>
         <comment>Label for General items, used in settings.</comment>
     </data>
-	<data name="AboutSectionLabel" xml:space="preserve">
+  <data name="AboutSectionLabel" xml:space="preserve">
     <value>Over</value>
     <comment>Label used in the About section/card.</comment>
     </data>
-    
-    <data name="InfoLabel" xml:space="preserve">
+  <data name="InfoLabel" xml:space="preserve">
         <value>Info</value>
         <comment>Info label, used in settings</comment>
     </data>
-	<data name="VersionLabel" xml:space="preserve">
+  <data name="VersionLabel" xml:space="preserve">
         <value>Versie</value>
         <comment>Version</comment>
     </data>
-    <data name="ServiceTitle" xml:space="preserve">
+  <data name="ServiceTitle" xml:space="preserve">
         <value>Tabi</value>
         <comment>Title used in the notification for the foreground service</comment>
     </data>
-    <data name="ServiceText" xml:space="preserve">
+  <data name="ServiceText" xml:space="preserve">
         <value>Draait op de achtergrond om verplaatsingen te meten.</value>
         <comment>Text used (below title and smaller in text) in the notification for the foreground service</comment>
     </data>
-    <data name="Today" xml:space="preserve">
-    <value>Vandaag</value>
+  <data name="Today" xml:space="preserve">
+        <value>Vandaag</value>
+    </data>
+  <data name="UsernameLabel" xml:space="preserve">
+        <value>Gebruikersnaam</value>
+    </data>
+  <data name="UsernamePlaceholder" xml:space="preserve">
+    <value>Naam</value>
+    </data>
+  <data name="PasswordLabel" xml:space="preserve">
+    <value>Wachtwoord</value>
+    </data>
+  <data name="PasswordPlaceholder" xml:space="preserve">
+    <value>uwwachtwoord</value>
+    </data>
+  <data name="LoginButton" xml:space="preserve">
+    <value>Login</value>
+    </data>
+  <data name="ContinueButton" xml:space="preserve">
+    <value>Verder</value>
+    </data>
+  <data name="IntroWelcomeTitle" xml:space="preserve">
+    <value>Tabi</value>
+    </data>
+  <data name="IntroWelcomeText" xml:space="preserve">
+    <value>Welkom bij de Tabi Verplaatsingen app.</value>
+    </data>
+  <data name="ErrorOccurredTitle" xml:space="preserve">
+    <value>Fout</value>
+    </data>
+  <data name="LoginFailureTitle" xml:space="preserve">
+    <value>Inloggen mislukt</value>
+    </data>
+  <data name="LoginFailureText" xml:space="preserve">
+    <value>Check uw inloggegevens.</value>
+    </data>
+  <data name="LoginIntroTitle" xml:space="preserve">
+    <value>Login met uw gegevens</value>
+    </data>
+  <data name="LoginIntroText" xml:space="preserve">
+    <value>Om deze app te gebruiken en deel te nemen aan de test moet u inloggen met de inloggegevens die u gekregen heeft.</value>
+    </data>
+  <data name="LocationPermissionButton" xml:space="preserve">
+    <value>Sta locatiegegevens toe</value>
+    </data>
+  <data name="LocationPermissionTitle" xml:space="preserve">
+    <value>Locatiegegevens</value>
+    </data>
+  <data name="LocationPermissionText" xml:space="preserve">
+    <value>De app heeft uw locatiegegevens nodig om de verplaatsingen te kunnen bepalen.</value>
+    </data>
+  <data name="UploadDataLabel" xml:space="preserve">
+    <value>Data</value>
+    </data>
+  <data name="UploadDataButton" xml:space="preserve">
+    <value>Upload data</value>
+    </data>
+  <data name="LocationPermissionRationaleTitle" xml:space="preserve">
+    <value>Locatiebepaling vereist</value>
+    </data>
+  <data name="LocationPermissionRationaleText" xml:space="preserve">
+    <value>Locatiebepaling is nodig voor het gebruik van de app.</value>
+    </data>
+  <data name="LocationPermissionDeniedOpenSettingsiOSTitle" xml:space="preserve">
+    <value>Instellingen</value>
+    </data>
+  <data name="LocationPermissionDeniedOpenSettingsiOSText" xml:space="preserve">
+    <value>Pas de toestemming voor locatiebepaling aan naar "Altijd" in de Instellingen.</value>
+    </data>
+  <data name="OkText" xml:space="preserve">
+    <value>Ok</value>
+    </data>
+  <data name="NoInternetConnectionTitle" xml:space="preserve">
+    <value>Geen internetverbinding</value>
+    </data>
+  <data name="NoInternetConnectionText" xml:space="preserve">
+    <value>Tabi kon geen verbinding maken met het internet</value>
+    </data>
+  <data name="CancelText" xml:space="preserve">
+    <value>Annuleer</value>
+    </data>
+  <data name="MobileDataUsageTitle" xml:space="preserve">
+    <value>Mobiele data</value>
+    </data>
+  <data name="MobileDataUsageText" xml:space="preserve">
+    <value>Er wordt gebruik gemaakt van mobiele data om de gegevens te versturen. Dit kan resulteren in kosten van uw provider.</value>
+    </data>
+  <data name="UploadDataErrorText" xml:space="preserve">
+    <value>Kon data niet uploaden. Neem contact op met support wanneer u dit probleem blijft ondervinden.</value>
+    </data>
+  <data name="DataSentTitle" xml:space="preserve">
+    <value>Data verstuurd</value>
+  </data>
+    <data name="DataSentText" xml:space="preserve">
+    <value>Data versturen is gelukt.</value>
   </data>
 </root>

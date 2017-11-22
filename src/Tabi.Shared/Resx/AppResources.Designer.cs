@@ -274,5 +274,53 @@ namespace Tabi.Shared.Resx {
                 return ResourceManager.GetString("OkText", resourceCulture);
             }
         }
+        
+        public static string NoInternetConnectionTitle {
+            get {
+                return ResourceManager.GetString("NoInternetConnectionTitle", resourceCulture);
+            }
+        }
+        
+        public static string NoInternetConnectionText {
+            get {
+                return ResourceManager.GetString("NoInternetConnectionText", resourceCulture);
+            }
+        }
+        
+        public static string CancelText {
+            get {
+                return ResourceManager.GetString("CancelText", resourceCulture);
+            }
+        }
+        
+        public static string MobileDataUsageTitle {
+            get {
+                return ResourceManager.GetString("MobileDataUsageTitle", resourceCulture);
+            }
+        }
+        
+        public static string MobileDataUsageText {
+            get {
+                return ResourceManager.GetString("MobileDataUsageText", resourceCulture);
+            }
+        }
+        
+        public static string UploadDataErrorText {
+            get {
+                return ResourceManager.GetString("UploadDataErrorText", resourceCulture);
+            }
+        }
+        
+        public static string DataSentTitle {
+            get {
+                return ResourceManager.GetString("DataSentTitle", resourceCulture);
+            }
+        }
+        
+        public static string DataSentText {
+            get {
+                return ResourceManager.GetString("DataSentText", resourceCulture);
+            }
+        }
     }
 }

@@ -55,7 +55,7 @@
                                 <StackLayout.Padding>
                                     <OnPlatform x:TypeArguments="Thickness" iOS="16,8,16,0" Android="16,8" WinPhone="16,8" />
                                 </StackLayout.Padding>
-                                <Label Text="Developer app version" Style="{DynamicResource EvolveListItemDetailTextStyle}" />
+                                <Label IsVisible="{Binding Source={x:Static local:App.Developer}}" Text="Developer app version" Style="{DynamicResource EvolveListItemDetailTextStyle}" />
                             </StackLayout>
                         </StackLayout>
                     </control:CardView>

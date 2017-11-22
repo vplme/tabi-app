@@ -30,7 +30,7 @@ namespace Tabi.Shared.Resx {
         internal static System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.Equals(null, resourceMan)) {
-                    System.Resources.ResourceManager temp = new System.Resources.ResourceManager("Tabi.Shared.Resx.AppResources.nl", typeof(AppResources_nl).GetTypeInfo().Assembly);
+                    System.Resources.ResourceManager temp = new System.Resources.ResourceManager("Tabi.Shared.Resx.AppResources.nl", typeof(AppResources_nl).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -122,6 +122,192 @@ namespace Tabi.Shared.Resx {
         internal static string Today {
             get {
                 return ResourceManager.GetString("Today", resourceCulture);
+            }
+        }
+        
+        internal static string UsernameLabel {
+            get {
+                return ResourceManager.GetString("UsernameLabel", resourceCulture);
+            }
+        }
+        
+        internal static string UsernamePlaceholder {
+            get {
+                return ResourceManager.GetString("UsernamePlaceholder", resourceCulture);
+            }
+        }
+        
+        internal static string PasswordLabel {
+            get {
+                return ResourceManager.GetString("PasswordLabel", resourceCulture);
+            }
+        }
+        
+        internal static string PasswordPlaceholder {
+            get {
+                return ResourceManager.GetString("PasswordPlaceholder", resourceCulture);
+            }
+        }
+        
+        internal static string LoginButton {
+            get {
+                return ResourceManager.GetString("LoginButton", resourceCulture);
+            }
+        }
+        
+        internal static string ContinueButton {
+            get {
+                return ResourceManager.GetString("ContinueButton", resourceCulture);
+            }
+        }
+        
+        internal static string IntroWelcomeTitle {
+            get {
+                return ResourceManager.GetString("IntroWelcomeTitle", resourceCulture);
+            }
+        }
+        
+        internal static string IntroWelcomeText {
+            get {
+                return ResourceManager.GetString("IntroWelcomeText", resourceCulture);
+            }
+        }
+        
+        internal static string ErrorOccurredTitle {
+            get {
+                return ResourceManager.GetString("ErrorOccurredTitle", resourceCulture);
+            }
+        }
+        
+        internal static string LoginFailureTitle {
+            get {
+                return ResourceManager.GetString("LoginFailureTitle", resourceCulture);
+            }
+        }
+        
+        internal static string LoginFailureText {
+            get {
+                return ResourceManager.GetString("LoginFailureText", resourceCulture);
+            }
+        }
+        
+        internal static string LoginIntroTitle {
+            get {
+                return ResourceManager.GetString("LoginIntroTitle", resourceCulture);
+            }
+        }
+        
+        internal static string LoginIntroText {
+            get {
+                return ResourceManager.GetString("LoginIntroText", resourceCulture);
+            }
+        }
+        
+        internal static string LocationPermissionButton {
+            get {
+                return ResourceManager.GetString("LocationPermissionButton", resourceCulture);
+            }
+        }
+        
+        internal static string LocationPermissionTitle {
+            get {
+                return ResourceManager.GetString("LocationPermissionTitle", resourceCulture);
+            }
+        }
+        
+        internal static string LocationPermissionText {
+            get {
+                return ResourceManager.GetString("LocationPermissionText", resourceCulture);
+            }
+        }
+        
+        internal static string UploadDataLabel {
+            get {
+                return ResourceManager.GetString("UploadDataLabel", resourceCulture);
+            }
+        }
+        
+        internal static string UploadDataButton {
+            get {
+                return ResourceManager.GetString("UploadDataButton", resourceCulture);
+            }
+        }
+        
+        internal static string LocationPermissionRationaleTitle {
+            get {
+                return ResourceManager.GetString("LocationPermissionRationaleTitle", resourceCulture);
+            }
+        }
+        
+        internal static string LocationPermissionRationaleText {
+            get {
+                return ResourceManager.GetString("LocationPermissionRationaleText", resourceCulture);
+            }
+        }
+        
+        internal static string LocationPermissionDeniedOpenSettingsiOSTitle {
+            get {
+                return ResourceManager.GetString("LocationPermissionDeniedOpenSettingsiOSTitle", resourceCulture);
+            }
+        }
+        
+        internal static string LocationPermissionDeniedOpenSettingsiOSText {
+            get {
+                return ResourceManager.GetString("LocationPermissionDeniedOpenSettingsiOSText", resourceCulture);
+            }
+        }
+        
+        internal static string OkText {
+            get {
+                return ResourceManager.GetString("OkText", resourceCulture);
+            }
+        }
+        
+        internal static string NoInternetConnectionTitle {
+            get {
+                return ResourceManager.GetString("NoInternetConnectionTitle", resourceCulture);
+            }
+        }
+        
+        internal static string NoInternetConnectionText {
+            get {
+                return ResourceManager.GetString("NoInternetConnectionText", resourceCulture);
+            }
+        }
+        
+        internal static string CancelText {
+            get {
+                return ResourceManager.GetString("CancelText", resourceCulture);
+            }
+        }
+        
+        internal static string MobileDataUsageTitle {
+            get {
+                return ResourceManager.GetString("MobileDataUsageTitle", resourceCulture);
+            }
+        }
+        
+        internal static string MobileDataUsageText {
+            get {
+                return ResourceManager.GetString("MobileDataUsageText", resourceCulture);
+            }
+        }
+        
+        internal static string UploadDataErrorText {
+            get {
+                return ResourceManager.GetString("UploadDataErrorText", resourceCulture);
+            }
+        }
+        
+        internal static string DataSentTitle {
+            get {
+                return ResourceManager.GetString("DataSentTitle", resourceCulture);
+            }
+        }
+        
+        internal static string DataSentText {
+            get {
+                return ResourceManager.GetString("DataSentText", resourceCulture);
             }
         }
     }

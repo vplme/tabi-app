@@ -28,8 +28,15 @@ namespace Tabi.iOS.Helpers
         {
             if (DateTimeOffset.Now - window >= lastAutoUpload)
             {
-                await UploadAll(wifiOnly);
-                lastAutoUpload = DateTimeOffset.Now;
+                try
+                {
+                    await UploadAll(wifiOnly);
+                    lastAutoUpload = DateTimeOffset.Now;
+                }
+                catch (Exception e)
+                {
+                    Log.Error($"UploadAll exception {e.Message}: {e.StackTrace}");
+                }
             }
         }
 
@@ -45,7 +52,6 @@ namespace Tabi.iOS.Helpers
                 await UploadLogs();
                 await UploadBatteryInfo();
             }
-
         }
 
         public async Task UploadPositions()
@@ -91,7 +97,7 @@ namespace Tabi.iOS.Helpers
         {
             DateTimeOffset lastUpload = DateTimeOffset.FromUnixTimeMilliseconds(Settings.Current.BatteryInfoLastUpload);
             List<BatteryEntry> batteryEntries = App.RepoManager.BatteryEntryRepository.After(lastUpload);
-            if(batteryEntries.Count() > 0)
+            if (batteryEntries.Count() > 0)
             {
                 await Login();
                 bool success = await ApiClient.PostBatteryData(Settings.Current.Device, batteryEntries);
@@ -102,7 +108,7 @@ namespace Tabi.iOS.Helpers
                 }
                 Settings.Current.BatteryInfoLastUpload = batteryEntries.Last().Timestamp.ToUnixTimeMilliseconds();
             }
-           
+
             return true;
         }
 

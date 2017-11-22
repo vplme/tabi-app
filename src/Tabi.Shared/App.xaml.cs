@@ -21,6 +21,7 @@ namespace Tabi
     public partial class App : Application
     {
         public const string LogFilePath = "tabi.log";
+        public static bool Developer;
         public static double ScreenHeight;
         public static double ScreenWidth;
         public static readonly SyncService SyncService;
@@ -70,9 +71,11 @@ namespace Tabi
 
             SetupLocationManager();
 
+            Developer = Convert.ToBoolean(Configuration["developer"]);
 
             string apiKey = Configuration["mobilecenter:apikey"];
             bool mobileCenterEnabled = Convert.ToBoolean(Configuration["mobilecenter:enabled"]);
+
 
             if (!apiKey.Equals(""))
             {

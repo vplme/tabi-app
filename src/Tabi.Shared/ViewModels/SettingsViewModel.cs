@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Threading;
 using System.Windows.Input;
 using CsvHelper;
 using PCLStorage;
@@ -13,10 +10,12 @@ using Tabi.Core;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
 using Tabi.iOS.Helpers;
-using Tabi.Model;
 using Tabi.Shared.Csv;
 using Xamarin.Forms;
+using Plugin.Connectivity;
+
 using FileAccess = PCLStorage.FileAccess;
+using Tabi.Shared.Resx;
 
 namespace Tabi
 {
@@ -55,7 +54,7 @@ namespace Tabi
             InfoCommand = new Command((obj) =>
             {
                 InfoCount++;
-                if (InfoCount == 10)
+                if (InfoCount == 10 && App.Developer)
                 {
                     Settings.Developer = true;
                 }
@@ -65,7 +64,6 @@ namespace Tabi
 
             {
                 Log.Info("Command: Export KML");
-
                 //IFolder rootFolder = FileSystem.Current.LocalStorage;
                 //string fileName = "Tabi-Export.kml";
                 //IFile file = await rootFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
@@ -124,7 +122,7 @@ namespace Tabi
                 DependencyService.Get<IShareFile>().ShareFile(path, "text/csv");
             });
 
-          
+
 
             ClearStopsCommand = new Command((obj) =>
             {
@@ -160,8 +158,8 @@ namespace Tabi
 
                     //Log.Debug(z.ToString());
                 }
-//                ActivityOverviewMockupPage sPage = new ActivityOverviewMockupPage();
-//                navigationPage.PushAsync(sPage);
+                //                ActivityOverviewMockupPage sPage = new ActivityOverviewMockupPage();
+                //                navigationPage.PushAsync(sPage);
             });
             ShowPageCommand = new Command(() =>
             {
@@ -171,8 +169,42 @@ namespace Tabi
 
             UploadCommand = new Command(async () =>
             {
-                SyncService sc = new SyncService();
-                await sc.UploadAll(false);
+                if (CrossConnectivity.Current.IsConnected)
+                {
+                    bool upload = false;
+                    if (CrossConnectivity.Current.ConnectionTypes.Contains(Plugin.Connectivity.Abstractions.ConnectionType.WiFi))
+                    {
+                        upload = true;
+                    }
+                    else
+                    {
+                        upload = await App.Current.MainPage.DisplayAlert(AppResources.MobileDataUsageTitle,
+                                                                         AppResources.MobileDataUsageText,
+                                                                         AppResources.ContinueButton,
+                                                                         AppResources.CancelText);
+
+                    }
+
+                    if (upload)
+                    {
+                        try
+                        {
+                            await App.SyncService.UploadAll(false);
+                            await App.Current.MainPage.DisplayAlert(AppResources.DataSentTitle, AppResources.DataSentText, AppResources.OkText);
+
+                        }
+                        catch (Exception e)
+                        {
+                            await App.Current.MainPage.DisplayAlert(AppResources.ErrorOccurredTitle, AppResources.UploadDataErrorText, AppResources.OkText);
+                            Log.Error($"UploadAll exception {e.Message}: {e.StackTrace}");
+                        }
+                    }
+                }
+                else
+                {
+                    await App.Current.MainPage.DisplayAlert(AppResources.NoInternetConnectionTitle, AppResources.NoInternetConnectionText, AppResources.OkText);
+                }
+
             });
         }
 
