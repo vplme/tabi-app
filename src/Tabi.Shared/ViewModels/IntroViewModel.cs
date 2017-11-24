@@ -182,13 +182,13 @@ namespace Tabi.Shared.ViewModels
                             AppResources.LocationPermissionRationaleText,
                             AppResources.OkText);
                     }
-                    else if (Device.RuntimePlatform == Device.iOS)
+                    if (status == PermissionStatus.Denied && Device.RuntimePlatform == Device.iOS)
                     {
                         await introPage.DisplayAlert(
-                            AppResources.LocationPermissionDeniedOpenSettingsiOSTitle, 
-                            AppResources.LocationPermissionDeniedOpenSettingsiOSText, 
+                            AppResources.LocationPermissionDeniedOpenSettingsiOSTitle,
+                            AppResources.LocationPermissionDeniedOpenSettingsiOSText,
                             AppResources.OkText);
-                        
+
                         CrossPermissions.Current.OpenAppSettings();
                     }
 
@@ -197,6 +197,7 @@ namespace Tabi.Shared.ViewModels
                     if (results.ContainsKey(Permission.Location))
                         status = results[Permission.Location];
                 }
+
                 if (status == PermissionStatus.Granted)
                 {
                     PermissionsGiven = true;
