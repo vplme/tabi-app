@@ -197,7 +197,7 @@
     <value>Tabi</value>
   </data>
   <data name="IntroWelcomeText" xml:space="preserve">
-    <value>Tabi test app.</value>
+    <value>Welcome to the Tabi Verplaatsingen app. You will need to login with your credentials on the next screen.</value>
   </data>
   <data name="ErrorOccurredTitle" xml:space="preserve">
     <value>Error</value>

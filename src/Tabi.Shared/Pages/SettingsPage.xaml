@@ -29,8 +29,8 @@
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-                                <Label Style="{DynamicResource EvolveListItemTextStyle}" VerticalOptions="Center" Text="{i18n:Translate UploadDataLabel}" />
-                                <Button Text="{i18n:Translate UploadDataButton}" Command="{Binding UploadCommand}"/>
+                                <Label Grid.Column="0" Style="{DynamicResource EvolveListItemTextStyle}" VerticalOptions="Center" Text="{i18n:Translate UploadDataLabel}" />
+                                <Button Grid.Column="1" HorizontalOptions="Center" Text="{i18n:Translate UploadDataButton}" Command="{Binding UploadCommand}"/>
                             </Grid>
                             <control:FooterDivider />
                         </StackLayout>
