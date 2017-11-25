@@ -9,6 +9,8 @@ using Android.Widget;
 using Android.OS;
 using FormsToolkit.Droid;
 using Tabi.Droid.CollectionService;
+using Plugin.CurrentActivity;
+using Acr.UserDialogs;
 
 namespace Tabi.Droid
 {
@@ -25,6 +27,7 @@ namespace Tabi.Droid
             global::Xamarin.Forms.Forms.Init(this, bundle);
             Toolkit.Init();
             Xamarin.FormsMaps.Init(this, bundle);
+            UserDialogs.Init(() => CrossCurrentActivity.Current.Activity);
 
 			var width = Resources.DisplayMetrics.WidthPixels;
 			var height = Resources.DisplayMetrics.HeightPixels;

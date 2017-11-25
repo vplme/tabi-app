@@ -29,6 +29,7 @@
     <PackageReference Include="Xamarin.Firebase.Core" Version="60.1142.0-beta2" />
     <PackageReference Include="Xamarin.Forms" Version="2.5.0.77107" />
     <PackageReference Include="Xamarin.Forms.Maps" Version="2.5.0.77107" />
+    <PackageReference Include="Acr.UserDialogs" Version="6.5.1" />
   </ItemGroup>
   <ItemGroup>
     <!-- https://bugzilla.xamarin.com/show_bug.cgi?id=55591 -->
