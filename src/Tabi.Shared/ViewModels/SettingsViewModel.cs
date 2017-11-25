@@ -16,6 +16,7 @@ using Plugin.Connectivity;
 
 using FileAccess = PCLStorage.FileAccess;
 using Tabi.Shared.Resx;
+using Acr.UserDialogs;
 
 namespace Tabi
 {
@@ -169,42 +170,46 @@ namespace Tabi
 
             UploadCommand = new Command(async () =>
             {
+                // Check if there is an active internet connection
                 if (CrossConnectivity.Current.IsConnected)
                 {
                     bool upload = false;
-                    if (CrossConnectivity.Current.ConnectionTypes.Contains(Plugin.Connectivity.Abstractions.ConnectionType.WiFi))
+
+                    // Check if connected to WiFI
+                    if (!(upload = CrossConnectivity.Current.ConnectionTypes.Contains(Plugin.Connectivity.Abstractions.ConnectionType.WiFi)))
                     {
-                        upload = true;
-                    }
-                    else
-                    {
-                        upload = await App.Current.MainPage.DisplayAlert(AppResources.MobileDataUsageTitle,
-                                                                         AppResources.MobileDataUsageText,
+                        // Ask permission to use mobile data
+                        upload = await UserDialogs.Instance.ConfirmAsync(AppResources.MobileDataUsageText,
+                                                                         AppResources.MobileDataUsageTitle,
                                                                          AppResources.ContinueButton,
                                                                          AppResources.CancelText);
-
                     }
 
                     if (upload)
                     {
+                        UserDialogs.Instance.ShowLoading(AppResources.UploadDataInProgress, MaskType.Black);
+
                         try
                         {
                             await App.SyncService.UploadAll(false);
-                            await App.Current.MainPage.DisplayAlert(AppResources.DataSentTitle, AppResources.DataSentText, AppResources.OkText);
+                            UserDialogs.Instance.HideLoading();
+                            var img = Splat.BitmapLoader.Current.LoadFromResource("MapMarker", 38, 82).Result;
+                            UserDialogs.Instance.ShowImage(img, AppResources.DataUploadSuccesful);
 
                         }
                         catch (Exception e)
                         {
-                            await App.Current.MainPage.DisplayAlert(AppResources.ErrorOccurredTitle, AppResources.UploadDataErrorText, AppResources.OkText);
+                            UserDialogs.Instance.HideLoading();
+                            await UserDialogs.Instance.AlertAsync(AppResources.UploadDataErrorText, AppResources.ErrorOccurredTitle, AppResources.OkText);
                             Log.Error($"UploadAll exception {e.Message}: {e.StackTrace}");
                         }
                     }
                 }
                 else
                 {
-                    await App.Current.MainPage.DisplayAlert(AppResources.NoInternetConnectionTitle, AppResources.NoInternetConnectionText, AppResources.OkText);
+                    // Show user a message that there is no internet connection
+                    await UserDialogs.Instance.AlertAsync(AppResources.NoInternetConnectionText, AppResources.NoInternetConnectionTitle, AppResources.OkText);
                 }
-
             });
         }
 

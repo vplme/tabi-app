@@ -299,15 +299,15 @@ namespace Tabi.Shared.Resx {
             }
         }
         
-        internal static string DataSentTitle {
+        internal static string UploadDataInProgress {
             get {
-                return ResourceManager.GetString("DataSentTitle", resourceCulture);
+                return ResourceManager.GetString("UploadDataInProgress", resourceCulture);
             }
         }
         
-        internal static string DataSentText {
+        internal static string DataUploadSuccesful {
             get {
-                return ResourceManager.GetString("DataSentText", resourceCulture);
+                return ResourceManager.GetString("DataUploadSuccesful", resourceCulture);
             }
         }
     }

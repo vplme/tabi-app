@@ -150,10 +150,10 @@
   <data name="UploadDataErrorText" xml:space="preserve">
     <value>Kon data niet uploaden. Neem contact op met support wanneer u dit probleem blijft ondervinden.</value>
     </data>
-  <data name="DataSentTitle" xml:space="preserve">
-    <value>Data verstuurd</value>
+  <data name="UploadDataInProgress" xml:space="preserve">
+    <value>Data uploaden...</value>
   </data>
-    <data name="DataSentText" xml:space="preserve">
-    <value>Data versturen is gelukt.</value>
+  <data name="DataUploadSuccesful" xml:space="preserve">
+    <value>Data upload succesvol</value>
   </data>
 </root>

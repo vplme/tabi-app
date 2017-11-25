@@ -262,10 +262,10 @@
   <data name="UploadDataErrorText" xml:space="preserve">
     <value>Could not upload data. If this problem keeps occuring please contact support.</value>
   </data>
-  <data name="DataSentTitle" xml:space="preserve">
-    <value>Data Uploaded</value>
+  <data name="UploadDataInProgress" xml:space="preserve">
+    <value>Uploading data...</value>
   </data>
-    <data name="DataSentText" xml:space="preserve">
-    <value>Data was uploaded.</value>
+  <data name="DataUploadSuccesful" xml:space="preserve">
+    <value>Data upload succesful</value>
   </data>
 </root>

@@ -311,15 +311,15 @@ namespace Tabi.Shared.Resx {
             }
         }
         
-        public static string DataSentTitle {
+        public static string UploadDataInProgress {
             get {
-                return ResourceManager.GetString("DataSentTitle", resourceCulture);
+                return ResourceManager.GetString("UploadDataInProgress", resourceCulture);
             }
         }
         
-        public static string DataSentText {
+        public static string DataUploadSuccesful {
             get {
-                return ResourceManager.GetString("DataSentText", resourceCulture);
+                return ResourceManager.GetString("DataUploadSuccesful", resourceCulture);
             }
         }
     }
