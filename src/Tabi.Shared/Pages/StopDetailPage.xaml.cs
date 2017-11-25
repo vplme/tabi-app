@@ -18,16 +18,23 @@ namespace Tabi
 
         public StopDetailPage(StopVisit sv)
         {
+            Setup();
+
+            ViewModel.Stop = sv.Stop;
+            SetMapLocation(ViewModel.Stop);
+        }
+
+        void Setup()
+        {
             InitializeComponent();
+            BindingContext = new StopDetailViewModel();
             routeMap.HeightRequest = App.ScreenHeight * 0.30;
             routeMap.ClearMap();
-            SetupPage(sv);
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
         }
 
         protected override void OnDisappearing()
@@ -35,15 +42,6 @@ namespace Tabi
             base.OnDisappearing();
             SaveStop();
         }
-
-        private void SetupPage(StopVisit sv)
-        {
-
-            SetMapLocation(sv.Stop);
-            BindingContext = new StopDetailViewModel(sv);
-        }
-
-
 
         private void SetMapLocation(Stop s)
         {

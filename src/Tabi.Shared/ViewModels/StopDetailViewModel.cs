@@ -6,11 +6,15 @@ namespace Tabi.ViewModels
 {
     public class StopDetailViewModel : ObservableObject
     {
-        public Stop Stop { get; set; }
+        private Stop stop;
 
-        public StopDetailViewModel(StopVisit s)
+        public Stop Stop
         {
-            Stop = s.Stop;
+            get => stop;
+            set => SetProperty(ref stop, value);
+        }
+        public StopDetailViewModel()
+        {
         }
 
         private string title;
