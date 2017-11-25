@@ -158,9 +158,15 @@
     <BundleResource Include="Resources\nl.lproj\InfoPlist.strings" />
     <BundleResource Include="Resources\Base.lproj\InfoPlist.strings" />
     <BundleResource Include="Resources\sample.html" />
-    <BundleResource Include="Resources\MapMarker.png" />
-    <BundleResource Include="Resources\MapMarker%402x.png" />
-    <BundleResource Include="Resources\MapMarker%403x.png" />
+    <BundleResource Include="Resources\noun_map_pin.png" />
+    <BundleResource Include="Resources\noun_map_pin%402x.png" />
+    <BundleResource Include="Resources\noun_map_pin%403x.png" />
+    <BundleResource Include="Resources\checkmark.png" />
+    <BundleResource Include="Resources\checkmark%402x.png" />
+    <BundleResource Include="Resources\checkmark%403x.png" />
+    <BundleResource Include="Resources\checkmark_white.png" />
+    <BundleResource Include="Resources\checkmark_white%402x.png" />
+    <BundleResource Include="Resources\checkmark_white%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="CsvHelper, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823">

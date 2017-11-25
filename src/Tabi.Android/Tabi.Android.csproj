@@ -418,6 +418,15 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_settings.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_view_agenda.png" />
     <AndroidResource Include="Resources\values\api-keys.xml" />
+    <AndroidResource Include="Resources\drawable-mdpi\noun_map_pin.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\noun_map_pin.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\noun_map_pin.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\checkmark.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\checkmark_white.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\checkmark.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\checkmark_white.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\checkmark.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\checkmark_white.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Tabbar.axml" />

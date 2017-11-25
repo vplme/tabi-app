@@ -5,7 +5,7 @@
           <!--  <StackLayout.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding StopCommand}" NumberOfTapsRequired="1" />
             </StackLayout.GestureRecognizers>-->
-            <Image WidthRequest="50" HeightRequest="50" Source="MapMarker" />
+            <Image WidthRequest="50" HeightRequest="50" Source="noun_map_pin" />
             <StackLayout Padding="0, 5, 0, 0" Orientation="Vertical">
                 <Label x:Name="textLabel" VerticalOptions="Center" TextColor="#000000" FontSize="20" Text="{Binding StopVisit.Stop.Name}" />
                 <Label x:Name="detailLabel" VerticalOptions="Center" TextColor="#000000" FontSize="13" Text="{Binding Time}" />

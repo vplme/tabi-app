@@ -17,6 +17,7 @@ using Plugin.Connectivity;
 using FileAccess = PCLStorage.FileAccess;
 using Tabi.Shared.Resx;
 using Acr.UserDialogs;
+using Splat;
 
 namespace Tabi
 {
@@ -193,7 +194,17 @@ namespace Tabi
                         {
                             await App.SyncService.UploadAll(false);
                             UserDialogs.Instance.HideLoading();
-                            var img = Splat.BitmapLoader.Current.LoadFromResource("MapMarker", 38, 82).Result;
+                            IBitmap img;
+                            if (Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.Android)
+                            {
+                                img = await Splat.BitmapLoader.Current.LoadFromResource("checkmark_white", null, null);
+                            }
+                            else
+                            {
+                                img = await Splat.BitmapLoader.Current.LoadFromResource("checkmark", null, null);
+                            }
+
+
                             UserDialogs.Instance.ShowImage(img, AppResources.DataUploadSuccesful);
 
                         }
