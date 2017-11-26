@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Tabi.Shared.Collection
+namespace Tabi.DataObjects.CollectionProfile
 {
     public class LocationRequestProfile
     {

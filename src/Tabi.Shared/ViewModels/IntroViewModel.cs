@@ -129,7 +129,7 @@ namespace Tabi.Shared.ViewModels
 
             LoginCommand = new Command(async (obj) =>
             {
-                ApiClient ac = new ApiClient();
+                ApiClient ac = new ApiClient(App.Configuration["api-url"]);
                 TokenResult tokenResult = null;
                 try
                 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using Tabi.DataObjects;
 
-namespace Tabi.Shared.Collection
+namespace Tabi.DataObjects.CollectionProfile
 {
     public class CollectionProfile
     {

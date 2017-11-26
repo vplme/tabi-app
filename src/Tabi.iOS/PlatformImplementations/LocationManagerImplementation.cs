@@ -4,6 +4,7 @@ using System.Linq;
 using CoreLocation;
 using Foundation;
 using Tabi.DataObjects;
+using Tabi.DataObjects.CollectionProfile;
 using Tabi.DataStorage;
 using Tabi.iOS.Helpers;
 using Tabi.iOS.PlatformImplementations;

@@ -1,5 +1,6 @@
 ﻿using System;
 using MvvmHelpers;
+using Newtonsoft.Json;
 using SQLite;
 
 namespace Tabi.DataObjects
@@ -8,13 +9,14 @@ namespace Tabi.DataObjects
     {
         private int id;
 
-        [PrimaryKey, AutoIncrement]
+        [PrimaryKey, AutoIncrement, JsonProperty("PhoneStopVisitId")]
         public int Id
         {
             get => id;
             set => SetProperty(ref id, value);
         }
 
+        [JsonIgnore]
         public int StopId { get; set; }
 
         private Stop stop;

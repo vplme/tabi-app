@@ -1,11 +1,12 @@
 ﻿using System;
 using MvvmHelpers;
+using Newtonsoft.Json;
 using SQLite;
 namespace Tabi.DataObjects
 {
     public class Stop : ObservableObject
     {
-        [PrimaryKey, AutoIncrement]
+        [PrimaryKey, AutoIncrement, JsonProperty("PhoneStopId")]
         public int Id { get; set; }
 
         private string name;

@@ -15,6 +15,7 @@ using Tabi.Shared.Collection;
 using Tabi.Pages;
 using System.Threading.Tasks;
 using Tabi.iOS.Helpers;
+using Tabi.DataObjects.CollectionProfile;
 
 namespace Tabi
 {

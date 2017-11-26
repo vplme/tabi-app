@@ -48,9 +48,11 @@ namespace Tabi.iOS.Helpers
 
             if (!wifiOnly || connectionTypes.Contains(wifi))
             {
+                await Login();
                 await UploadPositions();
                 await UploadLogs();
                 await UploadBatteryInfo();
+                await UploadStopVisits();
             }
         }
 
@@ -60,7 +62,6 @@ namespace Tabi.iOS.Helpers
             List<PositionEntry> positions = App.RepoManager.PositionEntryRepository.After(lastUpload);
             if (positions.Count() > 0)
             {
-                await Login();
                 bool success = await ApiClient.PostPositions(Settings.Current.Device, positions);
                 if (!success)
                 {
@@ -80,7 +81,6 @@ namespace Tabi.iOS.Helpers
             List<LogEntry> logs = App.RepoManager.LogEntryRepository.After(lastUpload);
             if (logs.Count() > 0)
             {
-                await Login();
                 bool success = await ApiClient.PostLogs(Settings.Current.Device, logs);
                 if (!success)
                 {
@@ -93,13 +93,32 @@ namespace Tabi.iOS.Helpers
             return true;
         }
 
+
+        public async Task UploadStopVisits()
+        {
+            List<StopVisit> stopVisits = App.RepoManager.StopVisitRepository.GetAll().ToList();
+            // Retrieve stops
+            foreach (StopVisit sv in stopVisits)
+            {
+                sv.Stop = App.RepoManager.StopRepository.Get(sv.StopId);
+            }
+
+
+            bool success = await ApiClient.PostStopVisits(Settings.Current.Device, stopVisits);
+            if (!success)
+            {
+                Log.Error("Could not send stopvisits");
+                return;
+            }
+
+        }
+
         public async Task<bool> UploadBatteryInfo()
         {
             DateTimeOffset lastUpload = DateTimeOffset.FromUnixTimeMilliseconds(Settings.Current.BatteryInfoLastUpload);
             List<BatteryEntry> batteryEntries = App.RepoManager.BatteryEntryRepository.After(lastUpload);
             if (batteryEntries.Count() > 0)
             {
-                await Login();
                 bool success = await ApiClient.PostBatteryData(Settings.Current.Device, batteryEntries);
                 if (!success)
                 {
