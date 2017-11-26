@@ -49,11 +49,20 @@ namespace Tabi.ViewModels
             List<ActivityEntry> newActivityEntries = new List<ActivityEntry>();
 
             var stopVisits = stopVisitRepository.AllSortedByTime();
+            Dictionary<int, Stop> stopDictionary = new Dictionary<int, Stop>();
             foreach (StopVisit sv in stopVisits)
             {
                 ActivityEntry ae = new ActivityEntry();
 
-                sv.Stop = stopRepository.Get(sv.StopId);
+                if(stopDictionary.ContainsKey(sv.StopId))
+                {
+                    sv.Stop = stopDictionary[sv.StopId];
+                }
+                else
+                {
+                    sv.Stop = stopRepository.Get(sv.StopId);
+                    stopDictionary.Add(sv.StopId, sv.Stop);
+                }
                 sv.Stop.Name = string.IsNullOrEmpty(sv.Stop.Name) ? "Stop" : sv.Stop.Name;
                 ae.Time = $"{sv.BeginTimestamp.ToLocalTime():HH:mm} - {sv.EndTimestamp.ToLocalTime():HH:mm}";
                 ae.StopVisit = sv;
