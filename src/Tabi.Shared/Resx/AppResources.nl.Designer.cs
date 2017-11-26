@@ -119,6 +119,12 @@ namespace Tabi.Shared.Resx {
             }
         }
         
+        internal static string TrackingExplanation {
+            get {
+                return ResourceManager.GetString("TrackingExplanation", resourceCulture);
+            }
+        }
+        
         internal static string Today {
             get {
                 return ResourceManager.GetString("Today", resourceCulture);

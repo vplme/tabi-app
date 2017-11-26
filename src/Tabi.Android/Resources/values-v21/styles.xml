@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<style name="TabiTheme" parent="TabiTheme.Base">
+		<item name="colorPrimary">@color/colorPrimary</item>
+		<item name="colorAccent">@color/colorPrimary</item>
+	</style>
+</resources>

@@ -9,7 +9,7 @@ namespace Tabi.Droid.CollectionService
 
         public void RequestLocationUpdates()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public void StopLocationUpdates()

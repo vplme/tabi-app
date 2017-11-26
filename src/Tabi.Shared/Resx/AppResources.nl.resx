@@ -60,6 +60,9 @@
         <value>Draait op de achtergrond om verplaatsingen te meten.</value>
         <comment>Text used (below title and smaller in text) in the notification for the foreground service</comment>
     </data>
+  <data name="TrackingExplanation" xml:space="preserve">
+    <value>Het is mogelijk om de meting van verplaatsingen uit te zetten door middel van de onderstaande instelling.</value>
+  </data>
   <data name="Today" xml:space="preserve">
         <value>Vandaag</value>
     </data>

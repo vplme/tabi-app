@@ -1444,44 +1444,44 @@ namespace Tabi.Droid
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f0a0053
-			public const int abc_background_cache_hint_selector_material_dark = 2131361875;
-			
 			// aapt resource value: 0x7f0a0054
-			public const int abc_background_cache_hint_selector_material_light = 2131361876;
+			public const int abc_background_cache_hint_selector_material_dark = 2131361876;
 			
 			// aapt resource value: 0x7f0a0055
-			public const int abc_btn_colored_borderless_text_material = 2131361877;
+			public const int abc_background_cache_hint_selector_material_light = 2131361877;
 			
 			// aapt resource value: 0x7f0a0056
-			public const int abc_btn_colored_text_material = 2131361878;
+			public const int abc_btn_colored_borderless_text_material = 2131361878;
 			
 			// aapt resource value: 0x7f0a0057
-			public const int abc_color_highlight_material = 2131361879;
+			public const int abc_btn_colored_text_material = 2131361879;
 			
 			// aapt resource value: 0x7f0a0058
-			public const int abc_hint_foreground_material_dark = 2131361880;
+			public const int abc_color_highlight_material = 2131361880;
 			
 			// aapt resource value: 0x7f0a0059
-			public const int abc_hint_foreground_material_light = 2131361881;
+			public const int abc_hint_foreground_material_dark = 2131361881;
+			
+			// aapt resource value: 0x7f0a005a
+			public const int abc_hint_foreground_material_light = 2131361882;
 			
 			// aapt resource value: 0x7f0a000c
 			public const int abc_input_method_navigation_guard = 2131361804;
 			
-			// aapt resource value: 0x7f0a005a
-			public const int abc_primary_text_disable_only_material_dark = 2131361882;
-			
 			// aapt resource value: 0x7f0a005b
-			public const int abc_primary_text_disable_only_material_light = 2131361883;
+			public const int abc_primary_text_disable_only_material_dark = 2131361883;
 			
 			// aapt resource value: 0x7f0a005c
-			public const int abc_primary_text_material_dark = 2131361884;
+			public const int abc_primary_text_disable_only_material_light = 2131361884;
 			
 			// aapt resource value: 0x7f0a005d
-			public const int abc_primary_text_material_light = 2131361885;
+			public const int abc_primary_text_material_dark = 2131361885;
 			
 			// aapt resource value: 0x7f0a005e
-			public const int abc_search_url_text = 2131361886;
+			public const int abc_primary_text_material_light = 2131361886;
+			
+			// aapt resource value: 0x7f0a005f
+			public const int abc_search_url_text = 2131361887;
 			
 			// aapt resource value: 0x7f0a000d
 			public const int abc_search_url_text_normal = 2131361805;
@@ -1492,29 +1492,29 @@ namespace Tabi.Droid
 			// aapt resource value: 0x7f0a000f
 			public const int abc_search_url_text_selected = 2131361807;
 			
-			// aapt resource value: 0x7f0a005f
-			public const int abc_secondary_text_material_dark = 2131361887;
-			
 			// aapt resource value: 0x7f0a0060
-			public const int abc_secondary_text_material_light = 2131361888;
+			public const int abc_secondary_text_material_dark = 2131361888;
 			
 			// aapt resource value: 0x7f0a0061
-			public const int abc_tint_btn_checkable = 2131361889;
+			public const int abc_secondary_text_material_light = 2131361889;
 			
 			// aapt resource value: 0x7f0a0062
-			public const int abc_tint_default = 2131361890;
+			public const int abc_tint_btn_checkable = 2131361890;
 			
 			// aapt resource value: 0x7f0a0063
-			public const int abc_tint_edittext = 2131361891;
+			public const int abc_tint_default = 2131361891;
 			
 			// aapt resource value: 0x7f0a0064
-			public const int abc_tint_seek_thumb = 2131361892;
+			public const int abc_tint_edittext = 2131361892;
 			
 			// aapt resource value: 0x7f0a0065
-			public const int abc_tint_spinner = 2131361893;
+			public const int abc_tint_seek_thumb = 2131361893;
 			
 			// aapt resource value: 0x7f0a0066
-			public const int abc_tint_switch_track = 2131361894;
+			public const int abc_tint_spinner = 2131361894;
+			
+			// aapt resource value: 0x7f0a0067
+			public const int abc_tint_switch_track = 2131361895;
 			
 			// aapt resource value: 0x7f0a0010
 			public const int accent_material_dark = 2131361808;
@@ -1570,8 +1570,11 @@ namespace Tabi.Droid
 			// aapt resource value: 0x7f0a000b
 			public const int cardview_shadow_start_color = 2131361803;
 			
-			// aapt resource value: 0x7f0a0067
-			public const int common_google_signin_btn_text_dark = 2131361895;
+			// aapt resource value: 0x7f0a0053
+			public const int colorPrimary = 2131361875;
+			
+			// aapt resource value: 0x7f0a0068
+			public const int common_google_signin_btn_text_dark = 2131361896;
 			
 			// aapt resource value: 0x7f0a0000
 			public const int common_google_signin_btn_text_dark_default = 2131361792;
@@ -1585,8 +1588,8 @@ namespace Tabi.Droid
 			// aapt resource value: 0x7f0a0003
 			public const int common_google_signin_btn_text_dark_pressed = 2131361795;
 			
-			// aapt resource value: 0x7f0a0068
-			public const int common_google_signin_btn_text_light = 2131361896;
+			// aapt resource value: 0x7f0a0069
+			public const int common_google_signin_btn_text_light = 2131361897;
 			
 			// aapt resource value: 0x7f0a0004
 			public const int common_google_signin_btn_text_light_default = 2131361796;
@@ -1600,14 +1603,14 @@ namespace Tabi.Droid
 			// aapt resource value: 0x7f0a0007
 			public const int common_google_signin_btn_text_light_pressed = 2131361799;
 			
-			// aapt resource value: 0x7f0a0069
-			public const int common_google_signin_btn_tint = 2131361897;
+			// aapt resource value: 0x7f0a006a
+			public const int common_google_signin_btn_tint = 2131361898;
 			
 			// aapt resource value: 0x7f0a0048
 			public const int design_bottom_navigation_shadow_color = 2131361864;
 			
-			// aapt resource value: 0x7f0a006a
-			public const int design_error = 2131361898;
+			// aapt resource value: 0x7f0a006b
+			public const int design_error = 2131361899;
 			
 			// aapt resource value: 0x7f0a0049
 			public const int design_fab_shadow_end_color = 2131361865;
@@ -1633,8 +1636,8 @@ namespace Tabi.Droid
 			// aapt resource value: 0x7f0a0050
 			public const int design_snackbar_background_color = 2131361872;
 			
-			// aapt resource value: 0x7f0a006b
-			public const int design_tint_password_toggle = 2131361899;
+			// aapt resource value: 0x7f0a006c
+			public const int design_tint_password_toggle = 2131361900;
 			
 			// aapt resource value: 0x7f0a001e
 			public const int dim_foreground_disabled_material_dark = 2131361822;
@@ -1756,11 +1759,11 @@ namespace Tabi.Droid
 			// aapt resource value: 0x7f0a0042
 			public const int switch_thumb_disabled_material_light = 2131361858;
 			
-			// aapt resource value: 0x7f0a006c
-			public const int switch_thumb_material_dark = 2131361900;
-			
 			// aapt resource value: 0x7f0a006d
-			public const int switch_thumb_material_light = 2131361901;
+			public const int switch_thumb_material_dark = 2131361901;
+			
+			// aapt resource value: 0x7f0a006e
+			public const int switch_thumb_material_light = 2131361902;
 			
 			// aapt resource value: 0x7f0a0043
 			public const int switch_thumb_normal_material_dark = 2131361859;
@@ -2544,26 +2547,26 @@ namespace Tabi.Droid
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
+			// aapt resource value: 0x7f020154
+			public const int avd_hide_password_1 = 2130837844;
+			
+			// aapt resource value: 0x7f020155
+			public const int avd_hide_password_2 = 2130837845;
+			
 			// aapt resource value: 0x7f020156
-			public const int avd_hide_password_1 = 2130837846;
-			
-			// aapt resource value: 0x7f020157
-			public const int avd_hide_password_2 = 2130837847;
-			
-			// aapt resource value: 0x7f020158
-			public const int avd_hide_password_3 = 2130837848;
+			public const int avd_hide_password_3 = 2130837846;
 			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
 			
+			// aapt resource value: 0x7f020157
+			public const int avd_show_password_1 = 2130837847;
+			
+			// aapt resource value: 0x7f020158
+			public const int avd_show_password_2 = 2130837848;
+			
 			// aapt resource value: 0x7f020159
-			public const int avd_show_password_1 = 2130837849;
-			
-			// aapt resource value: 0x7f02015a
-			public const int avd_show_password_2 = 2130837850;
-			
-			// aapt resource value: 0x7f02015b
-			public const int avd_show_password_3 = 2130837851;
+			public const int avd_show_password_3 = 2130837849;
 			
 			// aapt resource value: 0x7f020055
 			public const int checkmark = 2130837589;
@@ -3303,11 +3306,11 @@ namespace Tabi.Droid
 			// aapt resource value: 0x7f02014a
 			public const int notification_icon_background = 2130837834;
 			
-			// aapt resource value: 0x7f020154
-			public const int notification_template_icon_bg = 2130837844;
+			// aapt resource value: 0x7f020152
+			public const int notification_template_icon_bg = 2130837842;
 			
-			// aapt resource value: 0x7f020155
-			public const int notification_template_icon_low_bg = 2130837845;
+			// aapt resource value: 0x7f020153
+			public const int notification_template_icon_low_bg = 2130837843;
 			
 			// aapt resource value: 0x7f02014b
 			public const int notification_tile_bg = 2130837835;
@@ -3316,25 +3319,19 @@ namespace Tabi.Droid
 			public const int notify_panel_notification_icon_bg = 2130837836;
 			
 			// aapt resource value: 0x7f02014d
-			public const int noun_check = 2130837837;
+			public const int noun_map_pin = 2130837837;
 			
 			// aapt resource value: 0x7f02014e
-			public const int noun_check_white = 2130837838;
+			public const int roundedbg = 2130837838;
 			
 			// aapt resource value: 0x7f02014f
-			public const int noun_map_pin = 2130837839;
+			public const int roundedbgdark = 2130837839;
 			
 			// aapt resource value: 0x7f020150
-			public const int roundedbg = 2130837840;
+			public const int tooltip_frame_dark = 2130837840;
 			
 			// aapt resource value: 0x7f020151
-			public const int roundedbgdark = 2130837841;
-			
-			// aapt resource value: 0x7f020152
-			public const int tooltip_frame_dark = 2130837842;
-			
-			// aapt resource value: 0x7f020153
-			public const int tooltip_frame_light = 2130837843;
+			public const int tooltip_frame_light = 2130837841;
 			
 			static Drawable()
 			{
@@ -5145,12 +5142,6 @@ namespace Tabi.Droid
 			// aapt resource value: 0x7f0d000e
 			public const int CardView_Light = 2131558414;
 			
-			// aapt resource value: 0x7f0d0199
-			public const int MyTheme = 2131558809;
-			
-			// aapt resource value: 0x7f0d019a
-			public const int MyTheme_Base = 2131558810;
-			
 			// aapt resource value: 0x7f0d002d
 			public const int Platform_AppCompat = 2131558445;
 			
@@ -5234,6 +5225,12 @@ namespace Tabi.Droid
 			
 			// aapt resource value: 0x7f0d0047
 			public const int RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = 2131558471;
+			
+			// aapt resource value: 0x7f0d0199
+			public const int TabiTheme = 2131558809;
+			
+			// aapt resource value: 0x7f0d019a
+			public const int TabiTheme_Base = 2131558810;
 			
 			// aapt resource value: 0x7f0d00de
 			public const int TextAppearance_AppCompat = 2131558622;
