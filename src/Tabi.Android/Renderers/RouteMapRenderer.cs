@@ -1,7 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Android.Content;
 using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
+using Android.Support.V4.Content;
 using Tabi;
 using Tabi.Droid.Renderers;
 using Xamarin.Forms;
@@ -11,25 +12,23 @@ using Xamarin.Forms.Maps.Android;
 [assembly: ExportRenderer(typeof(RouteMap), typeof(RouteMapRenderer))]
 namespace Tabi.Droid.Renderers
 {
-    public class RouteMapRenderer : MapRenderer, IOnMapReadyCallback
+    public class RouteMapRenderer : MapRenderer
     {
         GoogleMap googleMap;
         RouteMap formsMap;
-        List<Position> routeCoordinates = new List<Position>();
         bool mapReady;
 
-        public RouteMapRenderer()
+        public RouteMapRenderer(Context context) : base(context)
         {
             MessagingCenter.Subscribe<RouteMap>(this, "Clear", ClearMap);
             MessagingCenter.Subscribe<RouteMap>(this, "DrawRoute", DrawRoute);
         }
 
-        private void DrawRoute(RouteMap formsMap)
+        private void DrawRoute(RouteMap fMap)
         {
-           // routeCoordinates = formsMap.RouteCoordinates;
 
             // Only run if OnMapReady() has already been called
-            if(!mapReady)
+            if (!mapReady)
             {
                 Log.Info("OnMapReady not yet called. Returning");
                 return;
@@ -37,28 +36,23 @@ namespace Tabi.Droid.Renderers
 
             Log.Debug("DrawRoute Executed");
 
-            // Add line based on the coordinates in routeCoordinates.
-            var polylineOptions = new PolylineOptions();
-            polylineOptions.InvokeColor(0x66FF0000);
 
-            foreach (var position in routeCoordinates)
+            foreach (Line line in formsMap.Lines)
             {
-                polylineOptions.Add(new LatLng(position.Latitude, position.Longitude));
-            }
+                PolylineOptions po = new PolylineOptions();
+                po.InvokeWidth(8);
+                po.InvokeColor(ContextCompat.GetColor(Context, Resource.Color.mapLine));
 
-            googleMap.AddPolyline(polylineOptions);
+                foreach (var position in line.Positions)
+                {
+                    po.Add(new LatLng(position.Latitude, position.Longitude));
+                }
+                googleMap.AddPolyline(po);
 
-            // Add markers based on Forms Maps Pins
-            foreach (Pin pin in formsMap.Pins)
-            {
-                MarkerOptions mO = new MarkerOptions();
-                mO.SetTitle(pin.Label);
-                mO.SetPosition(new LatLng(pin.Position.Latitude, pin.Position.Longitude));
-                googleMap.AddMarker(mO);
             }
         }
 
-        private void ClearMap(RouteMap formsMap)
+        private void ClearMap(RouteMap fMap)
         {
             Log.Debug("RouteMap Cleared");
 
@@ -78,15 +72,16 @@ namespace Tabi.Droid.Renderers
             {
                 formsMap = (RouteMap)e.NewElement;
 
-                ((MapView)Control).GetMapAsync(this);
+                Control.GetMapAsync(this);
             }
         }
 
-        public void OnMapReady(GoogleMap googleMap)
+        protected override void OnMapReady(Android.Gms.Maps.GoogleMap map)
         {
+            base.OnMapReady(map);
             Log.Debug("GoogleMap Ready");
             mapReady = true;
-            this.googleMap = googleMap;
+            this.googleMap = map;
 
             DrawRoute(formsMap);
         }
