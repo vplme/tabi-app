@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Tabi;assembly=Tabi.Shared" xmlns:i18n="clr-namespace:Tabi.Shared.Localization;assembly=Tabi.Shared" x:Class="Tabi.ActivityOverviewPage" Title="{Binding Title}">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Icon="ic_refresh" Clicked="RefreshClicked" />
+        <ToolbarItem Clicked="RefreshClicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <OnPlatform.iOS>ic_refresh</OnPlatform.iOS>
+                    <OnPlatform.Android>ic_refresh_white_24dp</OnPlatform.Android>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
