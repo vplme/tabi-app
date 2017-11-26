@@ -7,6 +7,7 @@ using Android.Locations;
 using Android.OS;
 using Android.Service.Voice;
 using Tabi.DataObjects;
+using Tabi.DataObjects.CollectionProfile;
 using Tabi.DataStorage;
 using Tabi.Droid.CollectionService;
 using Tabi.Shared.Collection;
