@@ -6,6 +6,7 @@ namespace Tabi.Logging
     public class MultiLogger : ILogWriter
     {
         private List<ILogWriter> loggers;
+        private LogSeverity logLevel;
 
         public MultiLogger()
         {
@@ -22,11 +23,18 @@ namespace Tabi.Logging
             loggers.Remove(l);
         }
 
+        public void SetLogLevel(LogSeverity severity)
+        {
+            logLevel = severity;
+        }
         public void Write(LogSeverity severity, string str)
         {
-            foreach(ILogWriter wr in loggers)
+            if (severity >= logLevel)
             {
-                wr.Write(severity, str);
+                foreach (ILogWriter wr in loggers)
+                {
+                    wr.Write(severity, str);
+                }
             }
         }
     }

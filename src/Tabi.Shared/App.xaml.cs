@@ -97,7 +97,10 @@ namespace Tabi
 
         private void SetupLogging()
         {
+            LogSeverity level = Log.SeverityFromString(Configuration["logging:level"]);
             MultiLogger mLogger = new MultiLogger();
+            mLogger.SetLogLevel(level);
+
             mLogger.AddLogger(new ConsoleLogWriter());
             mLogger.AddLogger(new FileLogWriter());
             mLogger.AddLogger(new DbLogWriter());

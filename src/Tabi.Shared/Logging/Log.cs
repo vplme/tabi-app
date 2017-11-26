@@ -47,6 +47,36 @@ namespace Tabi
             LogWrite(LogSeverity.Fatal, text);
         }
 
+        public static LogSeverity SeverityFromString(string s)
+        {
+            LogSeverity severity;
+            switch (s)
+            {
+                case "fatal":
+                    severity = LogSeverity.Fatal;
+                    break;
+                case "error":
+                    severity = LogSeverity.Error;
+                    break;
+                case "warn":
+                    severity = LogSeverity.Warn;
+                    break;
+                case "info":
+                    severity = LogSeverity.Info;
+                    break;
+                case "debug":
+                    severity = LogSeverity.Debug;
+                    break;
+                case "trace":
+                    severity = LogSeverity.Trace;
+                    break;
+                default:
+                    severity = LogSeverity.Debug;
+                    break;
+            }
+
+            return severity;
+        }
 
 
     }
