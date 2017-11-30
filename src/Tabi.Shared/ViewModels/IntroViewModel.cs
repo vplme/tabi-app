@@ -85,6 +85,21 @@ namespace Tabi.Shared.ViewModels
             }
         }
 
+        public Color permissionLocationButtonColor = (Color)Application.Current.Resources["blueButtonColor"];
+        public Color PermissionLocationButtonColor
+        {
+            get
+            {
+                return permissionLocationButtonColor;
+            }
+            set
+            {
+                permissionLocationButtonColor = value;
+                OnPropertyChanged();
+            }
+        }
+
+
         public Color permissionCheckButtonColor = Color.Gray;
         public Color PermissionCheckButtonColor
         {
@@ -200,6 +215,7 @@ namespace Tabi.Shared.ViewModels
 
                 if (status == PermissionStatus.Granted)
                 {
+                    PermissionLocationButtonColor = (Color)Application.Current.Resources["greenButtonColor"];
                     PermissionsGiven = true;
                     PermissionCheckButtonColor = (Color)Application.Current.Resources["blueButtonColor"];
                 }
