@@ -59,9 +59,6 @@
     <EmbeddedResource Include="tabi.config" />
     <None Remove="appsettings.json" />
     <None Remove="tabi.csv" />
-    <EmbeddedResource Include="tabi.csv">
-      <LogicalName>Tabi.DemoCsv</LogicalName>
-    </EmbeddedResource>
     <Compile Update="App.xaml.cs">
       <DependentUpon>*.xaml</DependentUpon>
     </Compile>
