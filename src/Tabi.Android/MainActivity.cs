@@ -11,6 +11,7 @@ using FormsToolkit.Droid;
 using Tabi.Droid.CollectionService;
 using Plugin.CurrentActivity;
 using Acr.UserDialogs;
+using Plugin.Permissions;
 
 namespace Tabi.Droid
 {
@@ -38,5 +39,11 @@ namespace Tabi.Droid
 
             LoadApplication(new App());
 		}
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
+        {
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
     }
 }
