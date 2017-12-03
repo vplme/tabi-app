@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Tabi.Shared.Controls;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 
@@ -8,6 +9,7 @@ namespace Tabi
     public class RouteMap : Map
     {
         public List<Line> Lines { get; set; } = new List<Line>();
+        public IMapControl MapControl { get; set; }
 
         public string Message = "";
 
@@ -18,12 +20,18 @@ namespace Tabi
 
         public void ClearMap()
         {
-            MessagingCenter.Send<RouteMap>(this, "Clear");
+            if(MapControl != null)
+            {
+                MapControl.Clear();
+            }
         }
 
         public void DrawRoute()
         {
-            MessagingCenter.Send<RouteMap>(this, "DrawRoute");
+            if (MapControl != null)
+            {
+                MapControl.Draw();
+            }
         }
     }
 

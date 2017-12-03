@@ -9,19 +9,16 @@ using CoreLocation;
 using UIKit;
 using Tabi.Logging;
 using System.Collections.Generic;
+using Tabi.Shared.Controls;
 
 [assembly: ExportRenderer(typeof(RouteMap), typeof(RouteMapRenderer))]
 namespace Tabi.iOS
 {
-    public class RouteMapRenderer : MapRenderer
+    public class RouteMapRenderer : MapRenderer, IMapControl
     {
-        public RouteMapRenderer()
-        {
-            MessagingCenter.Subscribe<RouteMap>(this, "Clear", ClearMap);
-            MessagingCenter.Subscribe<RouteMap>(this, "DrawRoute", DrawRoute);
-        }
+        private RouteMap formsMap;
 
-        private void DrawRoute(RouteMap formsMap)
+        public void Draw()
         {
             var nativeMap = Control as MKMapView;
 
@@ -54,7 +51,7 @@ namespace Tabi.iOS
             nativeMap.AddOverlays(polylines.ToArray());
         }
 
-        private void ClearMap(RouteMap obj)
+        public void Clear()
         {
             var nativeMap = Control as MKMapView;
 
@@ -73,8 +70,9 @@ namespace Tabi.iOS
 
             if (e.NewElement != null)
             {
-                var formsMap = (RouteMap)e.NewElement;
-                DrawRoute(formsMap);
+                formsMap = (RouteMap)e.NewElement;
+                formsMap.MapControl = this;
+                Draw();
             }
         }
 

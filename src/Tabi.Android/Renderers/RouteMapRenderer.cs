@@ -5,6 +5,7 @@ using Android.Gms.Maps.Model;
 using Android.Support.V4.Content;
 using Tabi;
 using Tabi.Droid.Renderers;
+using Tabi.Shared.Controls;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Maps.Android;
@@ -12,7 +13,7 @@ using Xamarin.Forms.Maps.Android;
 [assembly: ExportRenderer(typeof(RouteMap), typeof(RouteMapRenderer))]
 namespace Tabi.Droid.Renderers
 {
-    public class RouteMapRenderer : MapRenderer
+    public class RouteMapRenderer : MapRenderer, IMapControl
     {
         GoogleMap googleMap;
         RouteMap formsMap;
@@ -20,11 +21,10 @@ namespace Tabi.Droid.Renderers
 
         public RouteMapRenderer(Context context) : base(context)
         {
-            MessagingCenter.Subscribe<RouteMap>(this, "Clear", ClearMap);
-            MessagingCenter.Subscribe<RouteMap>(this, "DrawRoute", DrawRoute);
+           
         }
 
-        private void DrawRoute(RouteMap fMap)
+        public void Draw()
         {
 
             // Only run if OnMapReady() has already been called
@@ -52,11 +52,14 @@ namespace Tabi.Droid.Renderers
             }
         }
 
-        private void ClearMap(RouteMap fMap)
+        public void Clear()
         {
             Log.Debug("RouteMap Cleared");
 
-            googleMap?.Clear();
+            if(googleMap != null)
+            {
+                googleMap.Clear();
+            }
         }
 
         protected override void OnElementChanged(Xamarin.Forms.Platform.Android.ElementChangedEventArgs<Map> e)
@@ -66,11 +69,13 @@ namespace Tabi.Droid.Renderers
             if (e.OldElement != null)
             {
                 // Unsubscribe
+
             }
 
             if (e.NewElement != null)
             {
                 formsMap = (RouteMap)e.NewElement;
+                formsMap.MapControl = this;
 
                 Control.GetMapAsync(this);
             }
@@ -83,7 +88,7 @@ namespace Tabi.Droid.Renderers
             mapReady = true;
             this.googleMap = map;
 
-            DrawRoute(formsMap);
+            Draw();
         }
     }
 }

@@ -73,7 +73,7 @@ namespace Tabi.Droid
             PositionEntry positionEntry = location.ToPositionEntry();
             
             positionCache.Add(positionEntry);
-            Log.Debug($"GoogleApi: Location was changed {positionCache.PreviousDistance}");
+            Log.Trace($"GoogleApi: Location was changed {positionCache.PreviousDistance}");
 
             positionEntry.DistanceBetweenPreviousPosition = positionCache.PreviousDistance;
 

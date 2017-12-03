@@ -23,8 +23,14 @@ namespace Tabi.Droid.CollectionService
         public override void OnTrigger(TriggerEvent e)
         {
             Log.Info("Significant Motion detected");
-            action?.Invoke();
-            
+            try{
+                action?.Invoke();
+            }
+            catch (Exception exc)
+            {
+                Log.Error($"{exc.Message}");
+            }
+
             // Trigger only works once. Request trigger sensor again.
             sensorManager.RequestTriggerSensor(new SignificantMotionTriggerListener(sensorManager, sensor, action), sensor);
         }
