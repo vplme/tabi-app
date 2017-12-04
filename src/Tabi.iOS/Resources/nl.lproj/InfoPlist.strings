@@ -1,2 +1,2 @@
-﻿"NSLocationAlwaysAndWhenInUseUsageDescription" = "Tabi heeft uw locatie nodig";
-"NSLocationWhenInUseUsageDescription" = "Tabi heeft uw locatie nodig";
+﻿"NSLocationAlwaysAndWhenInUseUsageDescription" = "De locatiedata wordt gebruikt voor het bepalen en verzamelen van verplaatsingen.";
+"NSLocationWhenInUseUsageDescription" = "De locatiedata wordt gebruikt voor het bepalen en verzamelen van verplaatsingen.";

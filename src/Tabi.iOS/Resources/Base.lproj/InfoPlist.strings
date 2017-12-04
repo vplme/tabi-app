@@ -1,2 +1,2 @@
-﻿"NSLocationAlwaysAndWhenInUseUsageDescription" = "Tabi requires your location";
-"NSLocationWhenInUseUsageDescription" = "Tabi requires your location";
+﻿"NSLocationAlwaysAndWhenInUseUsageDescription" = "Your location data is used to determine and collect your movements.";
+"NSLocationWhenInUseUsageDescription" = "Your location data is used to determine and collect your movements.";
