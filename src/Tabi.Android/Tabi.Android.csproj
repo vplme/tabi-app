@@ -436,6 +436,10 @@
     <AndroidResource Include="Resources\drawable-mdpi\ic_refresh_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_refresh_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_refresh_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-ldpi-v11\tabi_status_bar_icon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi-v11\tabi_status_bar_icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi-v11\tabi_status_bar_icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi-v11\tabi_status_bar_icon.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Tabbar.axml" />
@@ -467,6 +471,10 @@
   <ItemGroup />
   <ItemGroup>
     <Folder Include="Resources\values-v21\" />
+    <Folder Include="Resources\drawable-xhdpi-v11\" />
+    <Folder Include="Resources\drawable-hdpi-v11\" />
+    <Folder Include="Resources\drawable-mdpi-v11\" />
+    <Folder Include="Resources\drawable-ldpi-v11\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Annotations.26.1.0.1\build\MonoAndroid80\Xamarin.Android.Support.Annotations.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Annotations.26.1.0.1\build\MonoAndroid80\Xamarin.Android.Support.Annotations.targets')" />

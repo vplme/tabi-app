@@ -47,7 +47,7 @@ namespace Tabi.Droid
                 .SetContentTitle(AppResources.ServiceTitle)
                 .SetContentText(AppResources.ServiceText)
                 .SetContentIntent(PendingIntent.GetActivity(context, 0, appIntent, 0))
-                .SetSmallIcon(Resource.Drawable.location)
+                .SetSmallIcon(Resource.Drawable.tabi_status_bar_icon)
                 .SetOngoing(true)
                 .Build();
 
