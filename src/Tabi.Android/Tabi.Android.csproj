@@ -381,6 +381,7 @@
     <Compile Include="Renderers\RouteMapRenderer.cs" />
     <Compile Include="Effects\NoSelectionListViewEffect.cs" />
     <Compile Include="PlatformImplementations\BaseUrl_Android.cs" />
+    <Compile Include="SplashScreenActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -440,6 +441,7 @@
     <AndroidResource Include="Resources\drawable-mdpi-v11\tabi_status_bar_icon.png" />
     <AndroidResource Include="Resources\drawable-hdpi-v11\tabi_status_bar_icon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi-v11\tabi_status_bar_icon.png" />
+    <AndroidResource Include="Resources\drawable\splash_screen.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Tabbar.axml" />

@@ -8,11 +8,15 @@
 		<item name="windowNoTitle">true</item>
 		<!--We will be using the toolbar so no need to show ActionBar-->
 		<item name="windowActionBar">true</item>
-        
 		<item name="windowActionModeOverlay">true</item>
 		<item name="android:datePickerDialogTheme">@style/AppCompatDialogStyle</item>
 	</style>
 	<style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
 		<item name="colorAccent">#2196F3</item>
+	</style>
+	<style name="TabiTheme.Splash" parent="Theme.AppCompat.Light.NoActionBar">
+		<item name="android:windowBackground">@drawable/splash_screen</item>
+		<item name="android:windowNoTitle">true</item>
+		<item name="android:windowFullscreen">true</item>
 	</style>
 </resources>

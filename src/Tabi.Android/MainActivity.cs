@@ -15,7 +15,7 @@ using Plugin.Permissions;
 
 namespace Tabi.Droid
 {
-    [Activity(Label = "Tabi", Icon = "@drawable/icon", RoundIcon = "@drawable/ic_launcher_round", Theme = "@style/TabiTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Tabi", Icon = "@drawable/icon", RoundIcon = "@drawable/ic_launcher_round", Theme = "@style/TabiTheme", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
