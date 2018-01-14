@@ -33,13 +33,32 @@ namespace Tabi.ViewModels
             }
         }
 
-
-
         public ActivityOverviewViewModel(INavigation navigationPage)
         {
             this.navigationPage = navigationPage;
+            App.DateService.PropertyChanged += (sender, e) =>
+            {
+                if (e.PropertyName == "SelectedDate")
+                {
+                    UpdateStopVisits();
+                }
+            };
         }
 
+        private DateTime selectedDate = App.DateService.SelectedDate.Date;
+
+        public DateTime SelectedDate
+        {
+            get
+            {
+                return selectedDate;
+            }
+            set
+            {
+                selectedDate = value;
+                App.DateService.SelectedDate = selectedDate;
+            }
+        }
 
         public void UpdateStopVisits()
         {
@@ -48,13 +67,17 @@ namespace Tabi.ViewModels
 
             List<ActivityEntry> newActivityEntries = new List<ActivityEntry>();
 
-            var stopVisits = stopVisitRepository.AllSortedByTime();
+            DateTimeOffset startDate = App.DateService.SelectedDate.Date;
+            DateTimeOffset endDate = App.DateService.SelectedDate.Date.AddHours(23).AddMinutes(59).AddSeconds(59);
+
+
+            var stopVisits = stopVisitRepository.BetweenDates(startDate, endDate);
             Dictionary<int, Stop> stopDictionary = new Dictionary<int, Stop>();
             foreach (StopVisit sv in stopVisits)
             {
                 ActivityEntry ae = new ActivityEntry();
 
-                if(stopDictionary.ContainsKey(sv.StopId))
+                if (stopDictionary.ContainsKey(sv.StopId))
                 {
                     sv.Stop = stopDictionary[sv.StopId];
                 }
@@ -73,7 +96,7 @@ namespace Tabi.ViewModels
                     TrackEntry te = trackEntryRepository.Get(sv.NextTrackId);
 
                     double minutes = te.TimeTravelled.TotalMinutes < 200 ? te.TimeTravelled.TotalMinutes : 200;
-         
+
                     ActivityEntry tAe = new ActivityEntry()
                     {
                         Track = new Track()

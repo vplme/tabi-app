@@ -16,6 +16,7 @@ using Tabi.Pages;
 using System.Threading.Tasks;
 using Tabi.iOS.Helpers;
 using Tabi.DataObjects.CollectionProfile;
+using Tabi.Shared.Helpers;
 
 namespace Tabi
 {
@@ -23,6 +24,7 @@ namespace Tabi
     {
         public const string LogFilePath = "tabi.log";
         public static bool Developer;
+        public static readonly DateService DateService;
         public static double ScreenHeight;
         public static double ScreenWidth;
         public static readonly SyncService SyncService;
@@ -41,6 +43,7 @@ namespace Tabi
             var builder = new ConfigurationBuilder().AddEmbeddedXmlFile(assembly, "tabi.config");
             Configuration = builder.Build();
 
+            DateService = new DateService();
             SyncService = new SyncService(Configuration["api-url"]);
         }
 
