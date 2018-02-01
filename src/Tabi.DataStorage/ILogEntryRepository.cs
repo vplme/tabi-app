@@ -8,5 +8,6 @@ namespace Tabi.DataStorage
     {
         void ClearLogsBefore(DateTimeOffset before);
         List<LogEntry> After(DateTimeOffset begin);
+        int CountBefore(DateTimeOffset dto);
     }
 }

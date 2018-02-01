@@ -49,6 +49,11 @@ namespace Tabi.DataStorage.SqliteNet
             throw new NotImplementedException();
         }
 
+        public int Count()
+        {
+            return connection.Table<TEntity>().Count();
+        }
+
         public void Clear()
         {
             connection.DeleteAll<TEntity>();
