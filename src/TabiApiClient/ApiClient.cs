@@ -129,6 +129,20 @@ namespace TabiApiClient
             return dm;
         }
 
+        public async Task<DeviceCounts> GetDeviceCounts(string uniqueIdentifier)
+        {
+            string path = PrefixApiPath($"/user/{userId}/device/{uniqueIdentifier}/counts");
+            HttpResponseMessage response = await client.GetAsync(path);
+            DeviceCounts dc = null;
+            if (response.IsSuccessStatusCode)
+            {
+                string data = await response.Content.ReadAsStringAsync();
+                dc = JsonConvert.DeserializeObject<DeviceCounts>(data);
+            }
+
+            return dc;
+        }
+
         public async Task<bool> RegisterDevice(string uniqueIdentifier,
                                                string model = "",
                                               string os = "",

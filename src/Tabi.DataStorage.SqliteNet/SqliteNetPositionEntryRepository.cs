@@ -38,5 +38,12 @@ namespace Tabi.DataStorage.SqliteNet
         {
             return connection.Table<PositionEntry>().OrderByDescending(x => x.Timestamp).Take(count).ToList();
         }
+
+        public int CountBefore(DateTimeOffset dto)
+        {
+            return connection.Table<PositionEntry>()
+                            .Where(x => x.Timestamp <= dto)
+                            .Count();
+        }
     }
 }

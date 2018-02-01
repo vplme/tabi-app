@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Plugin.Connectivity;
 using Tabi.DataObjects;
 using TabiApiClient;
+using TabiApiClient.Messages;
 
 namespace Tabi.iOS.Helpers
 {
@@ -53,12 +54,14 @@ namespace Tabi.iOS.Helpers
                 await UploadLogs();
                 await UploadBatteryInfo();
                 await UploadStopVisits();
+
+                await ValidateCounts();
             }
         }
 
         public async Task UploadPositions()
         {
-            DateTimeOffset lastUpload = DateTimeOffset.FromUnixTimeMilliseconds(Settings.Current.PositionLastUpload);
+            DateTimeOffset lastUpload = new DateTimeOffset(Settings.Current.PositionLastUpload, TimeSpan.Zero);
             List<PositionEntry> positions = App.RepoManager.PositionEntryRepository.After(lastUpload);
             if (positions.Count() > 0)
             {
@@ -68,15 +71,59 @@ namespace Tabi.iOS.Helpers
                     Log.Error("Could not send positions");
                     return;
                 }
-                Settings.Current.PositionLastUpload = positions.Last().Timestamp.ToUnixTimeMilliseconds();
+                else
+                {
+                    Settings.Current.PositionLastUpload = positions.Last().Timestamp.Ticks;
+
+                }
             }
 
         }
 
 
+        public async Task<bool> ValidateCounts()
+        {
+            bool valid = true;
+
+            DateTimeOffset lastPositionUploaded = new DateTimeOffset(Settings.Current.PositionLastUpload, TimeSpan.Zero);
+            DateTimeOffset lastLogUploaded = new DateTimeOffset(Settings.Current.LogsLastUpload, TimeSpan.Zero);
+            DateTimeOffset lastBatteryInfoUploaded = new DateTimeOffset(Settings.Current.BatteryInfoLastUpload, TimeSpan.Zero);
+
+            int positionCount = App.RepoManager.PositionEntryRepository.CountBefore(lastPositionUploaded);
+            int logCount = App.RepoManager.LogEntryRepository.CountBefore(lastLogUploaded);
+            int batteryCount = App.RepoManager.BatteryEntryRepository.CountBefore(lastBatteryInfoUploaded);
+
+            DeviceCounts counts = await ApiClient.GetDeviceCounts(Settings.Current.Device);
+            if (counts != null)
+            {
+                if (counts.Positions != positionCount)
+                {
+                    Log.Error($"Position count invalid local {positionCount} remote {counts.Positions}");
+                    valid = false;
+                }
+                if (counts.Logs != logCount)
+                {
+                    Log.Error($"Log count invalid local {logCount} remote {counts.Logs}");
+                    valid = false;
+                }
+                if (counts.BatteryInfos != batteryCount)
+                {
+                    Log.Error($"Battery count invalid local {batteryCount} remote {counts.BatteryInfos}");
+                    valid = false;
+                }
+            }
+            else
+            {
+                Log.Error("Could not validate counts with remote server");
+            }
+
+            return valid;
+        }
+
+
         public async Task<bool> UploadLogs()
         {
-            DateTimeOffset lastUpload = DateTimeOffset.FromUnixTimeMilliseconds(Settings.Current.LogsLastUpload);
+            DateTimeOffset lastUpload = new DateTimeOffset(Settings.Current.LogsLastUpload, TimeSpan.Zero);
 
             List<LogEntry> logs = App.RepoManager.LogEntryRepository.After(lastUpload);
             if (logs.Count() > 0)
@@ -87,8 +134,12 @@ namespace Tabi.iOS.Helpers
                     Log.Error("Could not send logs");
                     return false;
                 }
-                Settings.Current.BatteryInfoLastUpload = logs.Last().Timestamp.ToUnixTimeMilliseconds();
-                App.RepoManager.LogEntryRepository.ClearLogsBefore(logs.Last().Timestamp);
+                else
+                {
+                    Settings.Current.LogsLastUpload = logs.Last().Timestamp.Ticks;
+                    //App.RepoManager.LogEntryRepository.ClearLogsBefore(logs.Last().Timestamp);
+                }
+
             }
             return true;
         }
@@ -115,17 +166,20 @@ namespace Tabi.iOS.Helpers
 
         public async Task<bool> UploadBatteryInfo()
         {
-            DateTimeOffset lastUpload = DateTimeOffset.FromUnixTimeMilliseconds(Settings.Current.BatteryInfoLastUpload);
+            DateTimeOffset lastUpload = new DateTimeOffset(Settings.Current.BatteryInfoLastUpload, TimeSpan.Zero);
             List<BatteryEntry> batteryEntries = App.RepoManager.BatteryEntryRepository.After(lastUpload);
-            if (batteryEntries.Count() > 0)
+            if (batteryEntries.Any())
             {
                 bool success = await ApiClient.PostBatteryData(Settings.Current.Device, batteryEntries);
                 if (!success)
                 {
-                    Log.Error("Could not send batterydata");
+                    Log.Error($"Tried to send {batteryEntries.Count()} batterydata but failed");
                     return false;
                 }
-                Settings.Current.BatteryInfoLastUpload = batteryEntries.Last().Timestamp.ToUnixTimeMilliseconds();
+                else
+                {
+                    Settings.Current.BatteryInfoLastUpload = batteryEntries.Last().Timestamp.Ticks;
+                }
             }
 
             return true;

@@ -20,5 +20,11 @@ namespace Tabi.DataStorage.SqliteNet
                              .ToList();
         }
 
+        public int CountBefore(DateTimeOffset dto)
+        {
+            return connection.Table<BatteryEntry>()
+                             .Where(x => x.Timestamp <= dto)
+                             .Count();
+        }
     }
 }

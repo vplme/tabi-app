@@ -15,5 +15,7 @@ namespace Tabi.DataStorage
 
         void Remove(TEntity entity);
         void RemoveRange(IEnumerable<TEntity> entities);
+
+        int Count();
     }
 }
