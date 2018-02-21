@@ -142,7 +142,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources" />
     <Folder Include="Resx\" />
     <Folder Include="Extensions\" />
     <Folder Include="Localization\" />
