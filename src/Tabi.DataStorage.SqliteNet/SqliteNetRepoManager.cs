@@ -26,7 +26,7 @@ namespace Tabi.DataStorage.SqliteNet
             conn.CreateTable<BatteryEntry>();
             conn.CreateTable<TrackEntry>();
             conn.CreateTable<LogEntry>();
-            conn.CreateTable<SensorMeasurementSession>();
+            conn.CreateTable<MeasurementSession>();
             conn.CreateTable<Accelerometer>();
             conn.CreateTable<Gyroscope>();
             conn.CreateTable<Magnetometer>();
@@ -54,7 +54,7 @@ namespace Tabi.DataStorage.SqliteNet
         public IBatteryEntryRepository BatteryEntryRepository { get; private set; }
         public ITrackEntryRepository TrackEntryRepository { get; }
         public ILogEntryRepository LogEntryRepository { get; }
-        public ISensorMeasurementSession SensorMeasurementSession { get; }
+        public IMeasurementSession SensorMeasurementSession { get; }
         public IAccelerometerRepository AccelerometerRepository { get; }
         public IGyroscopeRepository GyroscopeRepository { get; }
         public IMagnetometerRepository MagnetometerRepository { get; }

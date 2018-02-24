@@ -5,7 +5,7 @@ using Tabi.DataObjects;
 
 namespace Tabi.DataStorage
 {
-    public interface ISensorMeasurementSession : IRepository<SensorMeasurementSession>
+    public interface IMeasurementSession : IRepository<MeasurementSession>
     {
     }
 }

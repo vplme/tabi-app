@@ -5,7 +5,7 @@ using SQLite;
 
 namespace Tabi.DataObjects
 {
-    public class SensorMeasurementSession
+    public class MeasurementSession
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
