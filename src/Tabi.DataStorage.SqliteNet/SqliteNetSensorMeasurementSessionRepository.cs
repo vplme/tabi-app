@@ -10,6 +10,7 @@ namespace Tabi.DataStorage.SqliteNet
     {
         public SqliteNetSensorMeasurementSessionRepository(SQLiteConnection conn) : base(conn)
         {
+
         }
     }
 }
