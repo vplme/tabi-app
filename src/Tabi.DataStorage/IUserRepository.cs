@@ -5,5 +5,6 @@ namespace Tabi.DataStorage
 {
     public interface IUserRepository : IRepository<User>
     {
+
     }
 }
