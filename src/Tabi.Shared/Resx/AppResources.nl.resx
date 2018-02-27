@@ -159,4 +159,19 @@
   <data name="DataUploadSuccesful" xml:space="preserve">
     <value>Data upload succesvol</value>
   </data>
+  <data name="SensorPermissionButton" xml:space="preserve">
+    <value>Sta bewegingsgegevens toe</value>
+  </data>
+  <data name="SensorPermissionRationaleTitle" xml:space="preserve">
+    <value>Bewegingsgegevens vereist</value>
+    </data>
+  <data name="SensorPermissionRationaleText" xml:space="preserve">
+    <value>Bewegingsgegevens zijn nodig voor het gebruik van de app.</value>
+    </data>
+  <data name="SensorPermissionDeniedOpenSettingsiOSTitle" xml:space="preserve">
+    <value>Instellingen</value>
+    </data>
+  <data name="SensorPermissionDeniedOpenSettingsiOSText" xml:space="preserve">
+    <value>Pas de toestemming voor beweging en conditie aan naar "Altijd" in de Instellingen.</value>
+    </data>
 </root>

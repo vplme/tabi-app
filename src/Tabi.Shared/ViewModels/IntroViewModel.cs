@@ -23,8 +23,9 @@ namespace Tabi.Shared.ViewModels
         public ICommand PermissionCheckCommand { get; set; }
         public ICommand PermissionsCommand { get; set; }
         public ICommand LoginCommand { protected set; get; }
+        public ICommand SensorPermissionCommand { get; set; }
 
-
+        
         public View NextView
         {
             get
@@ -114,7 +115,21 @@ namespace Tabi.Shared.ViewModels
             }
         }
 
-        public bool permissionsGiven;
+        public Color permissionSensorButtonColor = (Color)Application.Current.Resources["blueButtonColor"];
+        public Color PermissionSensorButtonColor
+        {
+            get
+            {
+                return permissionSensorButtonColor;
+            }
+            set
+            {
+                permissionSensorButtonColor = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool permissionsGiven;
         public bool PermissionsGiven
         {
             get
@@ -124,6 +139,34 @@ namespace Tabi.Shared.ViewModels
             set
             {
                 permissionsGiven = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool locationPermissionGiven;
+        public bool LocationPermissionGiven
+        {
+            get
+            {
+                return locationPermissionGiven;
+            }
+            set
+            {
+                locationPermissionGiven = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool sensorPermissionGiven;
+        public bool SensorPermissionGiven
+        {
+            get
+            {
+                return sensorPermissionGiven;
+            }
+            set
+            {
+                sensorPermissionGiven = value;
                 OnPropertyChanged();
             }
         }
@@ -140,8 +183,12 @@ namespace Tabi.Shared.ViewModels
 
             Views.Add(new FirstIntroView());
             Views.Add(new LoginIntroView());
-            Views.Add(new PermIntroView());
 
+            PermIntroView permIntroView = new PermIntroView();
+            InitMotionPermissionButton(permIntroView);
+            Views.Add(permIntroView);
+
+            
             LoginCommand = new Command(async (obj) =>
             {
                 ApiClient ac = new ApiClient(App.Configuration["api-url"]);
@@ -216,13 +263,14 @@ namespace Tabi.Shared.ViewModels
                 if (status == PermissionStatus.Granted)
                 {
                     PermissionLocationButtonColor = (Color)Application.Current.Resources["greenButtonColor"];
-                    PermissionsGiven = true;
-                    PermissionCheckButtonColor = (Color)Application.Current.Resources["blueButtonColor"];
+                    LocationPermissionGiven = true;
+                    CheckPermissionsGiven();
                 }
             });
 
             PermissionCheckCommand = new Command((obj) =>
             {
+                //triggered when?
                 if (PermissionsGiven)
                 {
                     introPage.Navigation.PopModalAsync();
@@ -232,7 +280,86 @@ namespace Tabi.Shared.ViewModels
             });
 
             NextCommand = new Command((obj) => { GoNextView(); });
+
+            SensorPermissionCommand = new Command(async (obj) => {
+                //permission from iOS for usage of pedometer
+                // double check if OS is iOS
+                if (Device.RuntimePlatform == Device.iOS)
+                {
+                    var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Sensors);
+
+                    switch (status)
+                    {
+                        case PermissionStatus.Granted:
+                            PermissionSensorButtonColor = (Color)Application.Current.Resources["greenButtonColor"];
+                            SensorPermissionGiven = true;
+                            CheckPermissionsGiven();
+                            break;
+
+                        default:
+                            if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.Sensors))
+                            {
+                                await introPage.DisplayAlert(
+                                    AppResources.SensorPermissionRationaleTitle,
+                                    AppResources.SensorPermissionRationaleText,
+                                    AppResources.OkText);
+                            }
+                            if (status == PermissionStatus.Denied)
+                            {
+                                await introPage.DisplayAlert(
+                                    AppResources.SensorPermissionDeniedOpenSettingsiOSTitle,
+                                    AppResources.SensorPermissionDeniedOpenSettingsiOSText,
+                                    AppResources.OkText);
+
+                                CrossPermissions.Current.OpenAppSettings();
+                            }
+                            var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Sensors);
+                            //Best practice to always check that the key exists
+                            if (results.ContainsKey(Permission.Sensors))
+                                status = results[Permission.Sensors];
+                            break;
+                    }
+                }
+                else
+                {
+                    PermissionSensorButtonColor = (Color)Application.Current.Resources["greenButtonColor"];
+                    SensorPermissionGiven = true;
+                    CheckPermissionsGiven();
+                }
+            });
             GoNextView();
+        }
+
+        private void CheckPermissionsGiven()
+        {
+            if (LocationPermissionGiven && SensorPermissionGiven)
+            {
+                PermissionsGiven = true;
+                PermissionCheckButtonColor = (Color)Application.Current.Resources["blueButtonColor"];
+            }
+        }
+
+        private void InitMotionPermissionButton(View view)
+        {
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                // show button for permission
+                var topLayout = view.FindByName<StackLayout>("Stacklayout_top");
+
+                topLayout.Children.Add(new Button()
+                {
+                    Margin = new Thickness(30, 0, 30, 30),
+                    Text = (string)Application.Current.Resources["SensorPermissionButton"],
+                    BackgroundColor = (Color)Application.Current.Resources["blueButtonColor"],
+                    Command = SensorPermissionCommand
+                });
+            }
+            else
+            {
+                // don't show button for permission 
+                // set 
+                SensorPermissionGiven = true;
+            }
         }
     }
 }

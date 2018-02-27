@@ -51,6 +51,11 @@ namespace Tabi
 
         }
 
+        async void Grant_Sensor_Clicked(object sender, EventArgs e)
+        {
+            // give permissions
+
+        }
         public PermissionsPage()
         {
             InitializeComponent();

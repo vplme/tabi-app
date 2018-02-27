@@ -47,6 +47,8 @@
 
     <Compile Update="Resx\AppResources.Designer.cs">
       <DependentUpon>AppResources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <EmbeddedResource Update="Resx\AppResources.nl.resx">
       <Generator>ResXFileCodeGenerator</Generator>

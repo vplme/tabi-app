@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 using Tabi.iOS.Helpers;
 using Tabi.DataObjects.CollectionProfile;
 using Tabi.Shared.Helpers;
+using Tabi.Shared.Sensors;
 
 namespace Tabi
 {
@@ -34,7 +35,8 @@ namespace Tabi
 
         public static CollectionProfile CollectionProfile { get; private set; }
 
-        ILocationManager manager;
+        ILocationManager locationManager;
+        ISensorManager sensorManager;
 
         static App()
         {
@@ -95,7 +97,6 @@ namespace Tabi
             {
                 MainPage.Navigation.PushModalAsync(new IntroPage());
             }
-
         }
 
         private void SetupLogging()
@@ -120,18 +121,18 @@ namespace Tabi
 
         private void SetupLocationManager()
         {
-            manager = DependencyService.Get<ILocationManager>();
+            locationManager = DependencyService.Get<ILocationManager>();
             Settings.Current.PropertyChanged += (sender, e) =>
             {
                 if (e.PropertyName == "Tracking")
                 {
-                    if (Settings.Current.Tracking && !manager.IsListening)
+                    if (Settings.Current.Tracking && !locationManager.IsListening)
                     {
-                        manager.StartLocationUpdates();
+                        locationManager.StartLocationUpdates();
                     }
-                    else if (!Settings.Current.Tracking && manager.IsListening)
+                    else if (!Settings.Current.Tracking && locationManager.IsListening)
                     {
-                        manager.StopLocationUpdates();
+                        locationManager.StopLocationUpdates();
                     }
                 }
                 if (e.PropertyName == "PermissionsGranted")
@@ -144,9 +145,41 @@ namespace Tabi
             };
             if (Settings.Current.Tracking)
             {
-                manager.StartLocationUpdates();
+                locationManager.StartLocationUpdates();
             }
         }
+
+        private void SetupSensorManager()
+        {
+            sensorManager = new SensorManager();
+            Settings.Current.PropertyChanged += (sender, e) =>
+            {
+                if (e.PropertyName == "Tracking")
+                {
+                    if (Settings.Current.Tracking && !locationManager.IsListening)
+                    {
+                        sensorManager.StartSensorUpdates();
+                    }
+                    else if (!Settings.Current.Tracking && locationManager.IsListening)
+                    {
+                        sensorManager.StopSensorUpdates();
+                    }
+                }
+                if (e.PropertyName == "PermissionsGranted")
+                {
+                    if (Settings.Current.PermissionsGranted)
+                    {
+                        Settings.Current.Tracking = true;
+                    }
+                }
+            };
+            if (Settings.Current.Tracking)
+            {
+                sensorManager.StartSensorUpdates();
+            }
+
+        }
+
 
         protected override void OnStart()
         {
