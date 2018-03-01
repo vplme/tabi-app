@@ -48,13 +48,6 @@ namespace Tabi
                     await Navigation.PopModalAsync();
                 }
             }
-
-        }
-
-        async void Grant_Sensor_Clicked(object sender, EventArgs e)
-        {
-            // give permissions
-
         }
         public PermissionsPage()
         {

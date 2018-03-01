@@ -6,7 +6,7 @@ using Tabi.DataObjects;
 
 namespace Tabi.DataStorage.SqliteNet
 {
-    public class SqliteNetSensorMeasurementSessionRepository : SqliteNetRepository<MeasurementSession>, IMeasurementSession
+    public class SqliteNetSensorMeasurementSessionRepository : SqliteNetRepository<SensorMeasurementSession>, ISensorMeasurementSessionRepository
     {
         public SqliteNetSensorMeasurementSessionRepository(SQLiteConnection conn) : base(conn)
         {

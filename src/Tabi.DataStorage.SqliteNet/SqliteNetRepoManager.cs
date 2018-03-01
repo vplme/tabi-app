@@ -26,7 +26,7 @@ namespace Tabi.DataStorage.SqliteNet
             conn.CreateTable<BatteryEntry>();
             conn.CreateTable<TrackEntry>();
             conn.CreateTable<LogEntry>();
-            conn.CreateTable<MeasurementSession>();
+            conn.CreateTable<SensorMeasurementSession>();
             conn.CreateTable<Accelerometer>();
             conn.CreateTable<Gyroscope>();
             conn.CreateTable<Magnetometer>();
@@ -39,7 +39,7 @@ namespace Tabi.DataStorage.SqliteNet
             BatteryEntryRepository = new SqliteNetBatteryEntryRepository(conn);
             TrackEntryRepository = new SqliteNetTrackEntryRepository(conn);
             LogEntryRepository = new SqliteNetLogEntryRepository(conn);
-            SensorMeasurementSession = new SqliteNetSensorMeasurementSessionRepository(conn);
+            SensorMeasurementSessionRepository = new SqliteNetSensorMeasurementSessionRepository(conn);
             AccelerometerRepository = new SqliteNetAccelerometerRepository(conn); 
             GyroscopeRepository = new SqliteNetGyroscopeRepository(conn);
             MagnetometerRepository = new SqliteNetMagnetometerRepository(conn);
@@ -54,11 +54,11 @@ namespace Tabi.DataStorage.SqliteNet
         public IBatteryEntryRepository BatteryEntryRepository { get; private set; }
         public ITrackEntryRepository TrackEntryRepository { get; }
         public ILogEntryRepository LogEntryRepository { get; }
-        public IMeasurementSession SensorMeasurementSession { get; }
+        public ISensorMeasurementSessionRepository SensorMeasurementSessionRepository { get; }
         public IAccelerometerRepository AccelerometerRepository { get; }
         public IGyroscopeRepository GyroscopeRepository { get; }
         public IMagnetometerRepository MagnetometerRepository { get; }
-        
+
 
 
         public void SaveChanges()

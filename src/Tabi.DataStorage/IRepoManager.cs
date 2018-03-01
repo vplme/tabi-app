@@ -12,6 +12,11 @@ namespace Tabi.DataStorage
         IBatteryEntryRepository BatteryEntryRepository { get; }
         ITrackEntryRepository TrackEntryRepository { get; }
         ILogEntryRepository LogEntryRepository { get; }
+        ISensorMeasurementSessionRepository SensorMeasurementSessionRepository { get; }
+        IAccelerometerRepository AccelerometerRepository { get; }
+        IGyroscopeRepository GyroscopeRepository { get; }
+        IMagnetometerRepository MagnetometerRepository { get; }
+        
 
         void SaveChanges();
     }

@@ -151,7 +151,8 @@ namespace Tabi
 
         private void SetupSensorManager()
         {
-            sensorManager = new SensorManager();
+            sensorManager = DependencyService.Get<ISensorManager>();
+
             Settings.Current.PropertyChanged += (sender, e) =>
             {
                 if (e.PropertyName == "Tracking")

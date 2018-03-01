@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Tabi.DataObjects
 {
-    public class Magnetometer : Sensor
+    public class Magnetometer : MotionSensor
     {
     }
 }

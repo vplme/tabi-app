@@ -7,7 +7,7 @@ using SQLite;
 
 namespace Tabi.DataObjects
 {
-    public abstract class Sensor : ObservableObject
+    public abstract class MotionSensor : ObservableObject
     {
         [PrimaryKey, AutoIncrement]
         public long Id { get; set; }
