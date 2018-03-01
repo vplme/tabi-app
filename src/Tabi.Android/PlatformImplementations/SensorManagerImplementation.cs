@@ -25,7 +25,6 @@ namespace Tabi.Droid.PlatformImplementations
             Intent sensorMeasurementSessionServiceIntent = new Intent(Application.Context, typeof(SensorMeasurementSessionService));
             Application.Context.StartService(sensorMeasurementSessionServiceIntent);
 
-            
 
             //this code was to try periods by using alarmManager -> replaced by timer in service 
             //AlarmManager scheduler = (AlarmManager)Application.Context.GetSystemService(Context.AlarmService);

@@ -359,6 +359,8 @@
   <ItemGroup>
     <Compile Include="CollectionService\SensorService.cs" />
     <Compile Include="CollectionService\SensorServiceBinder.cs" />
+    <Compile Include="CollectionService\SensorMeasurementSessionService.cs" />
+    <Compile Include="CollectionService\SensorMeasurementSessionServiceBinder.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="PlatformImplementations\SensorManagerImplementation.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
