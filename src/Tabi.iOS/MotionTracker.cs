@@ -36,7 +36,6 @@ namespace Tabi.iOS
 
                 nextDeviceMotionPoll = DateTime.Now.AddSeconds(deviceMotionInterval);
             }
-
         }
 
 

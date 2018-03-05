@@ -22,17 +22,9 @@ namespace Tabi.DataObjects
         public int Compass { get; set; }
         public int BatteryLevel { get; set; }
         public BatteryStatus BatteryStatus { get; set; } 
-        public PowerSource PowerSource { get; set; }
-
     }
 
-    public enum PowerSource
-    {
-        Battery = 1,
-        Usb,
-        Ac,
-        Wireless
-    }
+
     public enum BatteryStatus
     {
         Unknown = 1,

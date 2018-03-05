@@ -19,8 +19,8 @@ namespace Tabi.Droid.CollectionService
     public class SensorMeasurementSessionService : Service, ISensorEventListener
     {
         private readonly ISensorMeasurementSessionRepository _sensorMeasurementSessionRepository;
-        SensorMeasurementSessionServiceBinder _binder;
-        SensorMeasurementSession _sensorMeasurementSession;
+        private SensorMeasurementSessionServiceBinder _binder;
+        private SensorMeasurementSession _sensorMeasurementSession;
         
 
         public SensorMeasurementSessionService()
@@ -107,25 +107,6 @@ namespace Tabi.Droid.CollectionService
                             break;
                         case (int)Android.OS.BatteryStatus.Full:
                             _sensorMeasurementSession.BatteryStatus = DataObjects.BatteryStatus.Full;
-                            break;
-                    }
-                    DataObjects.BatteryStatus s = (DataObjects.BatteryStatus)status;
-                    
-                    //powersource
-                    var chargePlug = battery.GetIntExtra(BatteryManager.ExtraPlugged, -1);
-                    switch (chargePlug)
-                    {
-                        case (int)BatteryPlugged.Usb:
-                            _sensorMeasurementSession.PowerSource = PowerSource.Usb;
-                            break;
-                        case (int)BatteryPlugged.Ac:
-                            _sensorMeasurementSession.PowerSource = PowerSource.Ac;
-                            break;
-                        case (int)BatteryPlugged.Wireless:
-                            _sensorMeasurementSession.PowerSource = PowerSource.Wireless;
-                            break;
-                        default:
-                            _sensorMeasurementSession.PowerSource = PowerSource.Battery;
                             break;
                     }
                 }

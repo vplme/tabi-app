@@ -25,24 +25,24 @@ namespace Tabi.Shared.Helpers
             }
         }
 
-        private static BatteryEntryState ToBatteryEntryState(BatteryStatus bs)
+        private static BatteryEntryState ToBatteryEntryState(Plugin.Battery.Abstractions.BatteryStatus bs)
         {
             BatteryEntryState state = BatteryEntryState.Unknown;
             switch (bs)
             {
-                case BatteryStatus.Full:
+                case Plugin.Battery.Abstractions.BatteryStatus.Full:
                     state = BatteryEntryState.Full;
                         break;
-                case BatteryStatus.Charging:
+                case Plugin.Battery.Abstractions.BatteryStatus.Charging:
                     state = BatteryEntryState.Charging;
                     break;
-                case BatteryStatus.Discharging:
+                case Plugin.Battery.Abstractions.BatteryStatus.Discharging:
                     state = BatteryEntryState.Discharging;
                     break;
-                case BatteryStatus.NotCharging:
+                case Plugin.Battery.Abstractions.BatteryStatus.NotCharging:
                     state = BatteryEntryState.NotCharging;
                     break;
-                case BatteryStatus.Unknown:
+                case Plugin.Battery.Abstractions.BatteryStatus.Unknown:
                     state = BatteryEntryState.Unknown;
                     break;   
             }

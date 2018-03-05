@@ -23,7 +23,7 @@ namespace Tabi.Droid.CollectionService
         private readonly IGyroscopeRepository _gyroscopeRepository;
         private readonly IMagnetometerRepository _magnetometerRepository;
 
-        SensorServiceBinder binder;
+        private SensorServiceBinder _binder;
 
         public SensorService()
         {
@@ -36,8 +36,8 @@ namespace Tabi.Droid.CollectionService
         public override IBinder OnBind(Intent intent)
         {
             // service binder is used to communicate with the service
-            binder = new SensorServiceBinder(this);
-            return binder;
+            _binder = new SensorServiceBinder(this);
+            return _binder;
         }
 
         public override StartCommandResult OnStartCommand(Intent intent, [GeneratedEnum] StartCommandFlags flags, int startId)
@@ -54,6 +54,9 @@ namespace Tabi.Droid.CollectionService
 
             Sensor magnetometer = sensorManager.GetDefaultSensor(SensorType.MagneticField);
             sensorManager.RegisterListener(this, magnetometer, SensorDelay.Normal);
+
+            Sensor rotationVector = sensorManager.GetDefaultSensor(SensorType.RotationVector);
+            sensorManager.RegisterListener(this, rotationVector, SensorDelay.Normal);
             
             //var linearAccSensor = sensorManager.GetDefaultSensor(SensorType.LinearAcceleration);
             //var gravitySensor = sensorManager.GetDefaultSensor(SensorType.Gravity);
@@ -81,11 +84,6 @@ namespace Tabi.Droid.CollectionService
                         Zvalue = e.Values[3],
                     });
                     break;
-                case SensorType.GeomagneticRotationVector:
-                    break;
-                case SensorType.Gravity:
-                    
-                    break;
                 case SensorType.Gyroscope:
                     _gyroscopeRepository.Add(new DataObjects.Gyroscope()
                     {
@@ -94,12 +92,6 @@ namespace Tabi.Droid.CollectionService
                         Yvalue = e.Values[2],
                         Zvalue = e.Values[3],
                     });
-                    break;
-                case SensorType.GyroscopeUncalibrated:
-                    break;
-                case SensorType.LinearAcceleration:
-                    break;
-                case SensorType.LowLatencyOffbodyDetect:
                     break;
                 case SensorType.MagneticField:
                     _magnetometerRepository.Add(new DataObjects.Magnetometer()
@@ -110,22 +102,12 @@ namespace Tabi.Droid.CollectionService
                         Zvalue = e.Values[3],
                     });
                     break;
-                case SensorType.MagneticFieldUncalibrated:
-                    break;
-                case SensorType.MotionDetect:
-                    break;
-                case SensorType.RelativeHumidity:
-                    break;
                 case SensorType.RotationVector:
-                    break;
-                case SensorType.SignificantMotion:
-                    break;
-                case SensorType.StationaryDetect:
+                    
                     break;
                 default:
                     break;
             }
-            throw new NotImplementedException();
         }
 
         void SessionMeasurementTrigger(TriggerEvent e)
