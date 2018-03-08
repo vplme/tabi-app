@@ -11,5 +11,17 @@ namespace Tabi.DataStorage.SqliteNet
         public SqliteNetMagnetometerRepository(SQLiteConnection conn) : base(conn)
         {
         }
+        public IEnumerable<Magnetometer> GetRange(DateTimeOffset begin, DateTimeOffset end)
+        {
+            try
+            {
+                return connection.Table<Magnetometer>().Where(x => x.Timestamp >= begin && x.Timestamp <= end);
+            }
+            catch (Exception e)
+            {
+                //log error?
+                return new List<Magnetometer>();
+            }
+        }
     }
 }

@@ -193,6 +193,49 @@ namespace TabiApiClient
             HttpResponseMessage response = await client.PostAsync(path, httpContent);
             return response.IsSuccessStatusCode;
         }
+        public async Task<bool> PostTrackEntries(string deviceId, List<TrackEntry> trackEntries)
+        {
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track");
+            HttpContent httpContent = SerializeObject(trackEntries);
+            HttpResponseMessage response = await client.PostAsync(path, httpContent);
+            return response.IsSuccessStatusCode;
+        }
+
+        public async Task<bool> PostSensorMeasurementSessions(string deviceId, List<SensorMeasurementSession> sensorMeasurementSessions)
+        {
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/sensormeasurementsession");
+            HttpContent httpContent = SerializeObject(sensorMeasurementSessions);
+            HttpResponseMessage response = await client.PostAsync(path, httpContent);
+            return response.IsSuccessStatusCode;
+        }
+
+        public async Task<bool> PostAccelerometerData(string deviceId, List<Accelerometer> accelerometerData)
+        {
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/accelerometer");
+            HttpContent httpContent = SerializeObject(accelerometerData);
+            HttpResponseMessage response = await client.PostAsync(path, httpContent);
+            return response.IsSuccessStatusCode;
+        }
+
+        public async Task<bool> PostGyroscopeData(string deviceId, List<Gyroscope> gyroscopeData)
+        {
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/gyroscope");
+            HttpContent httpContent = SerializeObject(gyroscopeData);
+            HttpResponseMessage response = await client.PostAsync(path, httpContent);
+            return response.IsSuccessStatusCode;
+        }
+
+        public async Task<bool> PostMagnetometerData(string deviceId, List<Magnetometer> magnetometerData)
+        {
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/magnetometer");
+            HttpContent httpContent = SerializeObject(magnetometerData);
+            HttpResponseMessage response = await client.PostAsync(path, httpContent);
+            return response.IsSuccessStatusCode;
+        }
+
+        
+
+
 
         public async Task<bool> IsDeviceUnauthorized(string deviceId)
         {

@@ -12,5 +12,18 @@ namespace Tabi.DataStorage.SqliteNet
         {
 
         }
+
+        public IEnumerable<SensorMeasurementSession> GetRange(DateTimeOffset begin, DateTimeOffset end)
+        {
+            try
+            {
+                return connection.Table<SensorMeasurementSession>().Where(x => x.Timestamp >= begin && x.Timestamp <= end);            
+            }
+            catch (Exception e)
+            {
+                //log error?
+                return new List<SensorMeasurementSession>();
+            }
+        }
     }
 }

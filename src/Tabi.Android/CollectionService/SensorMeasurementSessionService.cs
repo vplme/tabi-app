@@ -26,7 +26,7 @@ namespace Tabi.Droid.CollectionService
         public SensorMeasurementSessionService()
         {
             _sensorMeasurementSessionRepository = App.RepoManager.SensorMeasurementSessionRepository;
-
+            _sensorMeasurementSession = new SensorMeasurementSession();
         }
 
         public void OnAccuracyChanged(Sensor sensor, [GeneratedEnum] SensorStatus accuracy)
@@ -46,7 +46,8 @@ namespace Tabi.Droid.CollectionService
             //register sensors
             var sensorManager = (SensorManager)Application.Context.GetSystemService(Context.SensorService);
 
-            Sensor ambientLight = sensorManager.GetDefaultSensor(SensorType.Light);
+
+            Sensor ambientLight = sensorManager.GetDefaultSensor(SensorType.Light);            
             sensorManager.RegisterListener(this, ambientLight, SensorDelay.Normal);
 
 
@@ -67,7 +68,6 @@ namespace Tabi.Droid.CollectionService
             timer.AutoReset = true;
             timer.Elapsed += TimerElapsed;
             timer.Start();
-
 
             return StartCommandResult.Sticky;
         }

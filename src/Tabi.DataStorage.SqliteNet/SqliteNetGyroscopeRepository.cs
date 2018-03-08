@@ -11,5 +11,18 @@ namespace Tabi.DataStorage.SqliteNet
         public SqliteNetGyroscopeRepository(SQLiteConnection conn) : base(conn)
         {
         }
+
+        public IEnumerable<Gyroscope> GetRange(DateTimeOffset begin, DateTimeOffset end)
+        {
+            try
+            {
+                return connection.Table<Gyroscope>().Where(x => x.Timestamp >= begin && x.Timestamp <= end);
+            }
+            catch (Exception e)
+            {
+                //log error?
+                return new List<Gyroscope>();
+            }
+        }
     }
 }

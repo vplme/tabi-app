@@ -34,7 +34,10 @@ namespace Tabi.iOS.PlatformImplementations
             _gyroscoperRepository = App.RepoManager.GyroscopeRepository;
             _magnetoometerRepository = App.RepoManager.MagnetometerRepository;
             _sensorMeasurementSessionRepository = App.RepoManager.SensorMeasurementSessionRepository;
-            _cMMotionManager = new CMMotionManager();
+            _cMMotionManager = new CMMotionManager()
+            {
+                DeviceMotionUpdateInterval = 0.1
+            };
             _cMPedometer = new CMPedometer();
             _cLLocationManager = new CLLocationManager()
             {
@@ -67,7 +70,6 @@ namespace Tabi.iOS.PlatformImplementations
             //        Xvalue = Convert.ToSingle(data.RotationRate.x),
             //        Yvalue = Convert.ToSingle(data.RotationRate.y),
             //        Zvalue = Convert.ToSingle(data.RotationRate.z)
-
             //    });
             //});
 
@@ -108,6 +110,12 @@ namespace Tabi.iOS.PlatformImplementations
                     Yvalue = Convert.ToSingle(data.MagneticField.Field.Y),
                     Zvalue = Convert.ToSingle(data.MagneticField.Field.Z)
                 });
+
+                //var attitude = data.Attitude; //pitch, roll, yaw
+                //var heading = data.Heading;
+                //var linearAcceleration = data.UserAcceleration;
+                //var quaternion = data.RotationRate;
+                //var gravity = data.Gravity;
             });
 
             // service for measurements once per minute

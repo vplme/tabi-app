@@ -7,6 +7,6 @@ namespace Tabi.DataStorage
 {
     public interface IAccelerometerRepository : IRepository<Accelerometer>
     {
-        
+        IEnumerable<Accelerometer> GetRange(DateTimeOffset begin, DateTimeOffset end);
     }
 }

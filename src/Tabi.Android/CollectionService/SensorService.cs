@@ -55,11 +55,20 @@ namespace Tabi.Droid.CollectionService
             Sensor magnetometer = sensorManager.GetDefaultSensor(SensorType.MagneticField);
             sensorManager.RegisterListener(this, magnetometer, SensorDelay.Normal);
 
+
+            //sensor fusion
             Sensor rotationVector = sensorManager.GetDefaultSensor(SensorType.RotationVector);
             sensorManager.RegisterListener(this, rotationVector, SensorDelay.Normal);
             
-            //var linearAccSensor = sensorManager.GetDefaultSensor(SensorType.LinearAcceleration);
-            //var gravitySensor = sensorManager.GetDefaultSensor(SensorType.Gravity);
+            Sensor linearAccSensor = sensorManager.GetDefaultSensor(SensorType.LinearAcceleration);
+            sensorManager.RegisterListener(this, linearAccSensor, SensorDelay.Normal);
+
+            Sensor gravitySensor = sensorManager.GetDefaultSensor(SensorType.Gravity);
+            sensorManager.RegisterListener(this, gravitySensor, SensorDelay.Normal);
+
+            
+
+            
             //var significantMotionSensor = sensorManager.GetDefaultSensor(SensorType.SignificantMotion);
 
             return StartCommandResult.Sticky;
@@ -79,31 +88,35 @@ namespace Tabi.Droid.CollectionService
                     _accelerometerRepository.Add(new DataObjects.Accelerometer()
                     {
                         Timestamp = DateTimeOffset.Now,
-                        Xvalue = e.Values[1],
-                        Yvalue = e.Values[2],
-                        Zvalue = e.Values[3],
+                        Xvalue = e.Values[0],
+                        Yvalue = e.Values[1],
+                        Zvalue = e.Values[2],
                     });
                     break;
                 case SensorType.Gyroscope:
                     _gyroscopeRepository.Add(new DataObjects.Gyroscope()
                     {
                         Timestamp = DateTimeOffset.Now,
-                        Xvalue = e.Values[1],
-                        Yvalue = e.Values[2],
-                        Zvalue = e.Values[3],
+                        Xvalue = e.Values[0],
+                        Yvalue = e.Values[1],
+                        Zvalue = e.Values[2],
                     });
                     break;
                 case SensorType.MagneticField:
                     _magnetometerRepository.Add(new DataObjects.Magnetometer()
                     {
                         Timestamp = DateTimeOffset.Now,
-                        Xvalue = e.Values[1],
-                        Yvalue = e.Values[2],
-                        Zvalue = e.Values[3],
+                        Xvalue = e.Values[0],
+                        Yvalue = e.Values[1],
+                        Zvalue = e.Values[2],
                     });
                     break;
                 case SensorType.RotationVector:
                     
+                    break;
+                case SensorType.Gravity:
+                    break;
+                case SensorType.LinearAcceleration:
                     break;
                 default:
                     break;

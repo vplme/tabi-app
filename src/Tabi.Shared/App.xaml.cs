@@ -76,6 +76,7 @@ namespace Tabi
 
 
             SetupLocationManager();
+            SetupSensorManager();
 
             Developer = Convert.ToBoolean(Configuration["developer"]);
 
@@ -157,11 +158,11 @@ namespace Tabi
             {
                 if (e.PropertyName == "Tracking")
                 {
-                    if (Settings.Current.Tracking && !locationManager.IsListening)
+                    if (Settings.Current.Tracking && !sensorManager.IsListening)
                     {
                         sensorManager.StartSensorUpdates();
                     }
-                    else if (!Settings.Current.Tracking && locationManager.IsListening)
+                    else if (!Settings.Current.Tracking && sensorManager.IsListening)
                     {
                         sensorManager.StopSensorUpdates();
                     }

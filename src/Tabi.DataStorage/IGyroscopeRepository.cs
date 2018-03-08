@@ -7,5 +7,6 @@ namespace Tabi.DataStorage
 {
     public interface IGyroscopeRepository : IRepository<Gyroscope>
     {
+        IEnumerable<Gyroscope> GetRange(DateTimeOffset begin, DateTimeOffset end);
     }
 }
