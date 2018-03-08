@@ -90,25 +90,25 @@ namespace Tabi.iOS.PlatformImplementations
                 _accelerometerRepository.Add(new Accelerometer()
                 {
                     Timestamp = timestamp,
-                    Xvalue = Convert.ToSingle(data.UserAcceleration.X),
-                    Yvalue = Convert.ToSingle(data.UserAcceleration.Y),
-                    Zvalue = Convert.ToSingle(data.UserAcceleration.Z)
+                    X = Convert.ToSingle(data.UserAcceleration.X),
+                    Y = Convert.ToSingle(data.UserAcceleration.Y),
+                    Z = Convert.ToSingle(data.UserAcceleration.Z)
                 });
 
                 _gyroscoperRepository.Add(new Gyroscope()
                 {
                     Timestamp = DateTimeOffset.Now,
-                    Xvalue = Convert.ToSingle(data.RotationRate.x),
-                    Yvalue = Convert.ToSingle(data.RotationRate.y),
-                    Zvalue = Convert.ToSingle(data.RotationRate.z)
+                    X = Convert.ToSingle(data.RotationRate.x),
+                    Y = Convert.ToSingle(data.RotationRate.y),
+                    Z = Convert.ToSingle(data.RotationRate.z)
                 });
 
                 _magnetoometerRepository.Add(new Magnetometer()
                 {
                     Timestamp = DateTimeOffset.Now,
-                    Xvalue = Convert.ToSingle(data.MagneticField.Field.X),
-                    Yvalue = Convert.ToSingle(data.MagneticField.Field.Y),
-                    Zvalue = Convert.ToSingle(data.MagneticField.Field.Z)
+                    X = Convert.ToSingle(data.MagneticField.Field.X),
+                    Y = Convert.ToSingle(data.MagneticField.Field.Y),
+                    Z = Convert.ToSingle(data.MagneticField.Field.Z)
                 });
 
                 //var attitude = data.Attitude; //pitch, roll, yaw

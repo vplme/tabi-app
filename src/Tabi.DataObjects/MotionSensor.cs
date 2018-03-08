@@ -14,13 +14,10 @@ namespace Tabi.DataObjects
 
         public int TrackEntryId { get; set; }
 
-        [Ignore]
-        public TrackEntry TrackEntry { get; set; }
-
         public DateTimeOffset Timestamp { get; set; }
 
-        public float Xvalue { get; set; }
-        public float Yvalue { get; set; }
-        public float Zvalue { get; set; }
+        public float X { get; set; }
+        public float Y { get; set; }
+        public float Z { get; set; }
     }
 }

@@ -88,27 +88,27 @@ namespace Tabi.Droid.CollectionService
                     _accelerometerRepository.Add(new DataObjects.Accelerometer()
                     {
                         Timestamp = DateTimeOffset.Now,
-                        Xvalue = e.Values[0],
-                        Yvalue = e.Values[1],
-                        Zvalue = e.Values[2],
+                        X = e.Values[0],
+                        Y = e.Values[1],
+                        Z = e.Values[2],
                     });
                     break;
                 case SensorType.Gyroscope:
                     _gyroscopeRepository.Add(new DataObjects.Gyroscope()
                     {
                         Timestamp = DateTimeOffset.Now,
-                        Xvalue = e.Values[0],
-                        Yvalue = e.Values[1],
-                        Zvalue = e.Values[2],
+                        X = e.Values[0],
+                        Y = e.Values[1],
+                        Z = e.Values[2],
                     });
                     break;
                 case SensorType.MagneticField:
                     _magnetometerRepository.Add(new DataObjects.Magnetometer()
                     {
                         Timestamp = DateTimeOffset.Now,
-                        Xvalue = e.Values[0],
-                        Yvalue = e.Values[1],
-                        Zvalue = e.Values[2],
+                        X = e.Values[0],
+                        Y = e.Values[1],
+                        Z = e.Values[2],
                     });
                     break;
                 case SensorType.RotationVector:
