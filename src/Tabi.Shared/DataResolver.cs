@@ -15,11 +15,6 @@ namespace Tabi.Core
         IStopVisitRepository stopVisitRepository = App.RepoManager.StopVisitRepository;
         IStopRepository stopRepository = App.RepoManager.StopRepository;
 
-        ISensorMeasurementSessionRepository sensorMeasurementSessionRepository = App.RepoManager.SensorMeasurementSessionRepository;
-        IAccelerometerRepository accelerometerRepository = App.RepoManager.AccelerometerRepository;
-        IGyroscopeRepository gyroscopeRepository = App.RepoManager.GyroscopeRepository;
-        IMagnetometerRepository magnetometerRepository = App.RepoManager.MagnetometerRepository;
-
         // Resolve data for period including
         public void ResolveData(DateTimeOffset begin, DateTimeOffset end)
         {
@@ -43,12 +38,6 @@ namespace Tabi.Core
             (TrackEntry firstTrack, IList<StopVisit> stopVisits) = DetermineStopVisits(positionGroups, existingStops);
 
             // tracks will not be added unless there is a stopvisit, need fix....
-
-            //TODO Where to assign sensordata to a track?
-            if (lastTrackEntry != null)
-            {
-                AssignSensorDataToTrack(lastTrackEntry);
-            }
 
 
             Log.Debug($"after Existingstops size {existingStops.Count()}");
@@ -311,22 +300,6 @@ namespace Tabi.Core
             double dLat = distance / radius;
             double dLon = distance / (radius * Math.Cos(Math.PI * latitude / 180));
             return (latitude + dLat * 180 / Math.PI, longitude + dLon * 180 / Math.PI);
-        }
-
-        private void AssignSensorDataToTrack(TrackEntry track)
-        {
-            //GET Sensor measuredSession
-            List<SensorMeasurementSession> sensorMeasurementSessions = sensorMeasurementSessionRepository.GetRange(track.StartTime, track.EndTime).ToList();
-            sensorMeasurementSessions.ForEach(s => s.TrackEntryId = track.Id);
-
-            List<Accelerometer> accelerometerData = accelerometerRepository.GetRange(track.StartTime, track.EndTime).ToList();
-            accelerometerData.ForEach(a => a.TrackEntryId = track.Id);
-
-            List<Gyroscope> gyroscopeData = gyroscopeRepository.GetRange(track.StartTime, track.EndTime).ToList();
-            gyroscopeData.ForEach(g => g.TrackEntryId = track.Id);
-
-            List<Magnetometer> magnetometerData = magnetometerRepository.GetRange(track.StartTime, track.EndTime).ToList();
-            magnetometerData.ForEach(m => m.TrackEntryId = track.Id);
         }
     }
 }

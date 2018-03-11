@@ -193,41 +193,41 @@ namespace TabiApiClient
             HttpResponseMessage response = await client.PostAsync(path, httpContent);
             return response.IsSuccessStatusCode;
         }
-        public async Task<bool> PostTrackEntries(string deviceId, List<TrackEntry> trackEntries)
+        public async Task<int> PostTrackEntries(string deviceId, TrackEntry trackEntries)
         {
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track");
             HttpContent httpContent = SerializeObject(trackEntries);
             HttpResponseMessage response = await client.PostAsync(path, httpContent);
-            return response.IsSuccessStatusCode;
+            return Convert.ToInt32(response.Content);
         }
 
-        public async Task<bool> PostSensorMeasurementSessions(string deviceId, List<SensorMeasurementSession> sensorMeasurementSessions)
+        public async Task<bool> PostSensorMeasurementSessions(string deviceId, int trackId, List<SensorMeasurementSession> sensorMeasurementSessions)
         {
-            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/sensormeasurementsession");
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/{trackId}/sensormeasurementsession");
             HttpContent httpContent = SerializeObject(sensorMeasurementSessions);
             HttpResponseMessage response = await client.PostAsync(path, httpContent);
             return response.IsSuccessStatusCode;
         }
 
-        public async Task<bool> PostAccelerometerData(string deviceId, List<Accelerometer> accelerometerData)
+        public async Task<bool> PostAccelerometerData(string deviceId, int trackId, List<Accelerometer> accelerometerData)
         {
-            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/accelerometer");
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/{trackId}/accelerometer");
             HttpContent httpContent = SerializeObject(accelerometerData);
             HttpResponseMessage response = await client.PostAsync(path, httpContent);
             return response.IsSuccessStatusCode;
         }
 
-        public async Task<bool> PostGyroscopeData(string deviceId, List<Gyroscope> gyroscopeData)
+        public async Task<bool> PostGyroscopeData(string deviceId, int trackId, List<Gyroscope> gyroscopeData)
         {
-            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/gyroscope");
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/{trackId}/gyroscope");
             HttpContent httpContent = SerializeObject(gyroscopeData);
             HttpResponseMessage response = await client.PostAsync(path, httpContent);
             return response.IsSuccessStatusCode;
         }
 
-        public async Task<bool> PostMagnetometerData(string deviceId, List<Magnetometer> magnetometerData)
+        public async Task<bool> PostMagnetometerData(string deviceId, int trackId, List<Magnetometer> magnetometerData)
         {
-            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/magnetometer");
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/{trackId}/magnetometer");
             HttpContent httpContent = SerializeObject(magnetometerData);
             HttpResponseMessage response = await client.PostAsync(path, httpContent);
             return response.IsSuccessStatusCode;

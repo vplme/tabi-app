@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Plugin.Connectivity;
 using Tabi.DataObjects;
+using Tabi.DataStorage;
 using TabiApiClient;
 using TabiApiClient.Messages;
 
@@ -14,9 +15,19 @@ namespace Tabi.iOS.Helpers
         ApiClient ApiClient;
         DateTimeOffset lastAutoUpload;
 
+        private readonly ISensorMeasurementSessionRepository _sensorMeasurementSessionRepository;
+        private readonly IAccelerometerRepository _accelerometerRepository;
+        private readonly IGyroscopeRepository _gyroscopeRepository;
+        private readonly IMagnetometerRepository _magnetometerRepository;
+
         public SyncService(string url = "https://tabi.0x2a.site")
         {
             ApiClient = new ApiClient(url);
+
+            _sensorMeasurementSessionRepository = App.RepoManager.SensorMeasurementSessionRepository;
+            _accelerometerRepository = App.RepoManager.AccelerometerRepository;
+            _gyroscopeRepository = App.RepoManager.GyroscopeRepository;
+            _magnetometerRepository = App.RepoManager.MagnetometerRepository;
         }
 
         public async Task Login()
@@ -57,10 +68,10 @@ namespace Tabi.iOS.Helpers
 
                 //sensordata
                 await UploadTracks();
-                await UploadSensorMeasurementSessions();
-                await UploadAccelerometerData();
-                await UploadGyroscopeData();
-                await UploadMagnetometerData();
+                //await UploadSensorMeasurementSessions();
+                //await UploadAccelerometerData();
+                //await UploadGyroscopeData();
+                //await UploadMagnetometerData();
                 
 
                 await ValidateCounts();
@@ -190,14 +201,14 @@ namespace Tabi.iOS.Helpers
             return true;
         }
 
-        public async Task<bool> UploadAccelerometerData()
+        public async Task<bool> UploadAccelerometerData(List<Accelerometer> accelerometerData, int trackId)
         {
             try
             {
-                //get accelerometerdata
-                List<Accelerometer> accelerometerData = App.RepoManager.AccelerometerRepository.GetAll().ToList();
+                //cluster accelerometerData per track
 
-                bool success = await ApiClient.PostAccelerometerData(Settings.Current.Device, accelerometerData);
+
+                bool success = await ApiClient.PostAccelerometerData(Settings.Current.Device, trackId, accelerometerData);
 
                 if (!success)
                 {
@@ -214,14 +225,12 @@ namespace Tabi.iOS.Helpers
             }
         }
 
-        public async Task<bool> UploadGyroscopeData()
+        public async Task<bool> UploadGyroscopeData(List<Gyroscope> gyroscopeData, int trackId)
         {
             try
             {
                 //get gyroscopedata
-                List<Gyroscope> gyroscopeData = App.RepoManager.GyroscopeRepository.GetAll().ToList();
-
-                bool success = await ApiClient.PostGyroscopeData(Settings.Current.Device, gyroscopeData);
+                bool success = await ApiClient.PostGyroscopeData(Settings.Current.Device, trackId, gyroscopeData);
 
                 if (!success)
                 {
@@ -238,14 +247,12 @@ namespace Tabi.iOS.Helpers
             }
         }
 
-        public async Task<bool> UploadMagnetometerData()
+        public async Task<bool> UploadMagnetometerData(List<Magnetometer> magnetometerData, int trackId)
         {
             try
             {
                 //get magnetometerdata
-                List<Magnetometer> magnetometerData = App.RepoManager.MagnetometerRepository.GetAll().ToList();
-
-                bool success = await ApiClient.PostMagnetometerData(Settings.Current.Device, magnetometerData);
+                bool success = await ApiClient.PostMagnetometerData(Settings.Current.Device, trackId, magnetometerData);
 
                 if (!success)
                 {
@@ -262,21 +269,18 @@ namespace Tabi.iOS.Helpers
             }
         }
 
-        public async Task<bool> UploadSensorMeasurementSessions()
+        public async Task<bool> UploadSensorMeasurementSessions(List<SensorMeasurementSession> sensorMeasurementSessions, int trackId)
         {
             try
             {
                 //get sensormeasurementsessiondata
-                List<SensorMeasurementSession> sensorMeasurementSessions = App.RepoManager.SensorMeasurementSessionRepository.GetAll().ToList();
-
-                bool success = await ApiClient.PostSensorMeasurementSessions(Settings.Current.Device, sensorMeasurementSessions);
+                bool success = await ApiClient.PostSensorMeasurementSessions(Settings.Current.Device, trackId, sensorMeasurementSessions);
 
                 if (!success)
                 {
                     Log.Error($"Tried to send {sensorMeasurementSessions.Count} accelerometerdata but failed");
                     return false;
                 }
-
 
                 return true;
             }
@@ -293,13 +297,32 @@ namespace Tabi.iOS.Helpers
             {
                 List<TrackEntry> trackEntries = App.RepoManager.TrackEntryRepository.GetAll().ToList();
 
-                bool success = await ApiClient.PostTrackEntries(Settings.Current.Device, trackEntries);
-
-                if (!success)
+                // loop through tracks
+                foreach (var track in trackEntries)
                 {
-                    Log.Error($"Tried to send {trackEntries.Count} accelerometerdata but failed");
-                    return false;
+                    //upload track and retrieve inserted id
+                    var id = ApiClient.PostTrackEntries(Settings.Current.Device, track).Result;
+
+                    if (id == 0)
+                    {
+                        Log.Error($"Tried to send {track.Id} accelerometerdata but failed");
+                        return false;
+                    }
+
+                    //GET sensordata corresponds to track
+                    List<SensorMeasurementSession> sensorMeasurementSessions = _sensorMeasurementSessionRepository.GetRange(track.StartTime, track.EndTime).ToList();
+                    await UploadSensorMeasurementSessions(sensorMeasurementSessions, id);
+
+                    List<Accelerometer> accelerometerData = _accelerometerRepository.GetRange(track.StartTime, track.EndTime).ToList();
+                    await UploadAccelerometerData(accelerometerData, id);
+
+                    List<Gyroscope> gyroscopeData = _gyroscopeRepository.GetRange(track.StartTime, track.EndTime).ToList();
+                    await UploadGyroscopeData(gyroscopeData, id);
+
+                    List<Magnetometer> magnetometerData = _magnetometerRepository.GetRange(track.StartTime, track.EndTime).ToList();
+                    await UploadMagnetometerData(magnetometerData, id);
                 }
+
 
                 return true;
             } catch (Exception e)
