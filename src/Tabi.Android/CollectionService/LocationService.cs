@@ -1,13 +1,7 @@
-﻿using System;
-using System.Runtime.Remoting.Contexts;
-using Android;
-using Android.App;
+﻿using Android.App;
 using Android.Content;
 using Android.Gms.Common;
-using Android.Hardware;
-using Android.Locations;
 using Android.OS;
-using Android.Runtime;
 using Plugin.CurrentActivity;
 using Tabi.Droid.CollectionService;
 using Tabi.Shared.Resx;

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -9,7 +7,6 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Tabi.DataObjects;
 using TabiApiClient.Messages;
-using TabiApiClient.Models;
 
 namespace TabiApiClient
 {

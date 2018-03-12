@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Plugin.Connectivity;
 using Tabi.DataObjects;
-using Tabi.DataStorage;
 using TabiApiClient;
 using TabiApiClient.Messages;
 

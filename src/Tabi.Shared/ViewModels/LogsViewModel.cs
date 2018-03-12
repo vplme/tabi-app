@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Text;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using Xamarin.Forms;
 
 namespace Tabi.ViewModels

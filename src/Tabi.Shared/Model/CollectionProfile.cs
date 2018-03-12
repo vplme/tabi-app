@@ -1,5 +1,4 @@
-﻿using System;
-namespace Tabi.Shared.Model
+﻿namespace Tabi.Shared.Model
 {
     public class CollectionProfile
     {

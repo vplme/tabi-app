@@ -1,8 +1,5 @@
-﻿using System;
-using CoreLocation;
-using Foundation;
+﻿using CoreLocation;
 using Tabi.DataObjects;
-using Tabi.Model;
 
 namespace Tabi.iOS.Helpers
 {

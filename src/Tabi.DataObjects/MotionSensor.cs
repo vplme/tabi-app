@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using MvvmHelpers;
-using Newtonsoft.Json;
 using SQLite;
 
 namespace Tabi.DataObjects
