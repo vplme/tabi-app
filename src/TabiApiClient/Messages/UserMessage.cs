@@ -1,4 +1,8 @@
-﻿namespace TabiApiClient
+﻿using System;
+using System.Runtime.Serialization;
+
+
+namespace TabiApiClient
 {
     public class UserMessage
     {

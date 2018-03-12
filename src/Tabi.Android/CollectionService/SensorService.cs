@@ -1,11 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Android.Hardware;
+using Android.Views;
+using Android.Widget;
 using Tabi.DataStorage;
+using Tabi.DataStorage.SqliteNet;
+using System.Threading;
 
 namespace Tabi.Droid.CollectionService
 {

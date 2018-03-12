@@ -2,6 +2,7 @@
 using Android.Content;
 using Android.Hardware;
 using Android.Runtime;
+using Xamarin.Forms;
 
 namespace Tabi.Droid.CollectionService
 {

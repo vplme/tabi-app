@@ -1,4 +1,5 @@
-﻿namespace Tabi.Droid.CollectionService
+﻿using System;
+namespace Tabi.Droid.CollectionService
 {
     public interface IAndroidLocation
     {

@@ -1,4 +1,5 @@
-﻿namespace Tabi.Helpers
+﻿using System;
+namespace Tabi.Helpers
 {
     public interface IVersion
     {

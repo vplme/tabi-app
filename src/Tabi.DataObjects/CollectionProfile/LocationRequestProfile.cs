@@ -1,4 +1,5 @@
-﻿namespace Tabi.DataObjects.CollectionProfile
+﻿using System;
+namespace Tabi.DataObjects.CollectionProfile
 {
     public class LocationRequestProfile
     {

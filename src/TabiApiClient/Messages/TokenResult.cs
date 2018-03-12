@@ -1,4 +1,7 @@
-﻿namespace TabiApiClient
+﻿using System;
+using Newtonsoft.Json;
+
+namespace TabiApiClient
 {
     public class TokenResult
     {

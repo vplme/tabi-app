@@ -11,6 +11,7 @@ using PCLStorage;
 using Tabi.Shared.Extensions;
 using Tabi.DataStorage;
 using Tabi.Logging;
+using Tabi.Shared.Collection;
 using Tabi.Pages;
 using System.Threading.Tasks;
 using Tabi.iOS.Helpers;

@@ -1,4 +1,5 @@
-﻿namespace TabiApiClient.Messages
+﻿using System;
+namespace TabiApiClient.Messages
 {
     public class DeviceCounts
     {

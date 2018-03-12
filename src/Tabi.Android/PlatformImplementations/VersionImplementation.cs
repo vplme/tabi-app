@@ -1,4 +1,7 @@
-﻿using Tabi.Helpers;
+﻿using System;
+using Android.Content.PM;
+using Tabi.Helpers;
+using Android.App;
 using Xamarin.Forms;
 using Tabi.Droid.PlatformImplementations;
 using Android.Content;

@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Threading;
 using Foundation;
 using Tabi.Shared;
@@ -7,7 +8,7 @@ using Xamarin.Forms;
 [assembly: Dependency(typeof(Tabi.iOS.Localization.Localize))]
 namespace Tabi.iOS.Localization
 {
-    public class Localize : ILocalize
+	public class Localize : ILocalize
 	{
 		public void SetLocale(CultureInfo ci)
 		{

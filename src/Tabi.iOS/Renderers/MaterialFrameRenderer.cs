@@ -1,4 +1,5 @@
-﻿using CoreGraphics;
+﻿using System;
+using CoreGraphics;
 using Tabi.iOS.Renderers;
 using Tabi;
 using UIKit;

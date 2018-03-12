@@ -1,13 +1,16 @@
-﻿using MvvmHelpers;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using MvvmHelpers;
+using Newtonsoft.Json;
 using SQLite;
-using System;
 
 namespace Tabi.DataObjects
 {
     public abstract class MotionSensor : ObservableObject
     {
         [PrimaryKey, AutoIncrement]
-        public ulong Id { get; set; }
+        public long Id { get; set; }
 
         public int TrackEntryId { get; set; }
 

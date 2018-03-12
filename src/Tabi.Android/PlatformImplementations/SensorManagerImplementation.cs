@@ -1,5 +1,8 @@
-﻿using Android.App;
+﻿using System;
+using System.Threading;
+using Android.App;
 using Android.Content;
+using Android.OS;
 using Tabi.Droid.CollectionService;
 using Tabi.Droid.PlatformImplementations;
 using Tabi.Shared.Sensors;

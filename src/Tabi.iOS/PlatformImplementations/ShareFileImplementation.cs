@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using Foundation;
 using Tabi.iOS;
 using UIKit;
@@ -6,7 +8,7 @@ using UIKit;
 [assembly: Xamarin.Forms.Dependency(typeof(ShareFileImplementation))]
 namespace Tabi.iOS
 {
-    public class ShareFileImplementation : IShareFile
+	public class ShareFileImplementation : IShareFile
 	{
 		public void ShareFile(string path, string mime)
 		{

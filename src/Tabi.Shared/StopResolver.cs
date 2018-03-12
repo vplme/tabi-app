@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
+using Tabi.Shared;
 using Xamarin.Forms;
 
 namespace Tabi

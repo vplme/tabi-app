@@ -1,6 +1,8 @@
+using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using RichardSzalay.MockHttp;
+using TabiApiClient;
 using Xunit;
 
 namespace TabiApiClient.Test

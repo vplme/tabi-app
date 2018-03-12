@@ -1,4 +1,5 @@
-﻿using Plugin.Settings;
+﻿using System;
+using Plugin.Settings;
 using Plugin.Settings.Abstractions;
 
 namespace Tabi

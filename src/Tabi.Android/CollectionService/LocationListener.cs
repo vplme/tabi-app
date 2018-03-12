@@ -1,6 +1,8 @@
-﻿using Android.Locations;
+﻿using System;
+using Android.Locations;
 using Android.OS;
 using Android.Runtime;
+using Tabi.Model;
 
 namespace Tabi.Droid
 {

@@ -197,6 +197,7 @@ namespace Tabi.Core
                     previousTrack.LastLongitude = last.Longitude;
 
                 }
+
             }
 
             return (firstLooseTrack, stopVisits);

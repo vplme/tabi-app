@@ -1,4 +1,5 @@
-﻿using Android.Content;
+﻿using System.Collections.Generic;
+using Android.Content;
 using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
 using Android.Support.V4.Content;

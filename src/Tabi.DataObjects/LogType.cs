@@ -1,4 +1,5 @@
-﻿namespace Tabi.DataObjects
+﻿using System;
+namespace Tabi.DataObjects
 {
     public class LogType
     {
