@@ -1,8 +1,6 @@
-﻿using System;
-using CoreGraphics;
+﻿using CoreGraphics;
 using Tabi.iOS.Renderers;
 using Tabi.Shared.Controls;
-using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 

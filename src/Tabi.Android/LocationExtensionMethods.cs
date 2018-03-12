@@ -1,5 +1,4 @@
-﻿using System;
-using Android.Locations;
+﻿using Android.Locations;
 using Tabi.DataObjects;
 
 namespace Tabi.Droid

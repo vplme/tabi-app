@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using MvvmHelpers;
-using Tabi.DataObjects;
-using Tabi.DataStorage;
-using Tabi.Logging;
 using Tabi.Shared.Resx;
 using Tabi.ViewModels;
 using Xamarin.Forms;

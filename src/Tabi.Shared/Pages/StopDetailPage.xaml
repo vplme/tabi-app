@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:i18n="clr-namespace:Tabi.Shared.Localization;assembly=Tabi.Shared" xmlns:local="clr-namespace:Tabi;assembly=Tabi.Shared" x:Class="Tabi.StopDetailPage">
     <ContentPage.Content>
-
         <StackLayout Spacing="0">
             <local:RouteMap x:Name="routeMap" MapType="Street" WidthRequest="{x:Static local:App.ScreenWidth}" VerticalOptions='FillAndExpand' />
             <local:StopDetailTableView Intent="Form" VerticalOptions="FillAndExpand">

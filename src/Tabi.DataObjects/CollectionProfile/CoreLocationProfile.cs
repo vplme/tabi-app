@@ -1,5 +1,4 @@
-﻿using System;
-namespace Tabi.DataObjects.CollectionProfile
+﻿namespace Tabi.DataObjects.CollectionProfile
 {
     public class CoreLocationProfile
     {

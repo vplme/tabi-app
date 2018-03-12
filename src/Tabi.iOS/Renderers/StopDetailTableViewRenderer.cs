@@ -1,13 +1,7 @@
-﻿using System;
-using Tabi.iOS;
+﻿using Tabi.iOS;
 using Tabi;
 using Xamarin.Forms;
-using Xamarin.Forms.Maps.iOS;
-using MapKit;
 using Xamarin.Forms.Platform.iOS;
-using CoreLocation;
-using UIKit;
-using Tabi.Logging;
 
 [assembly: ExportRenderer(typeof(StopDetailTableView), typeof(StopDetailTableViewRenderer))]
 namespace Tabi.iOS

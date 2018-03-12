@@ -1,5 +1,4 @@
-﻿using System;
-using MvvmHelpers;
+﻿using MvvmHelpers;
 using Tabi.DataObjects;
 
 namespace Tabi.ViewModels

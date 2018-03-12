@@ -1,5 +1,4 @@
-﻿using System;
-namespace Tabi.DataStorage
+﻿namespace Tabi.DataStorage
 {
     public interface IRepoManager
     {
