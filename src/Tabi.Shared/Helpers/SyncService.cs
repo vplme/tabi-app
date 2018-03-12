@@ -15,19 +15,9 @@ namespace Tabi.iOS.Helpers
         ApiClient ApiClient;
         DateTimeOffset lastAutoUpload;
 
-        private readonly ISensorMeasurementSessionRepository _sensorMeasurementSessionRepository;
-        private readonly IAccelerometerRepository _accelerometerRepository;
-        private readonly IGyroscopeRepository _gyroscopeRepository;
-        private readonly IMagnetometerRepository _magnetometerRepository;
-
         public SyncService(string url = "https://tabi.0x2a.site")
         {
             ApiClient = new ApiClient(url);
-
-            _sensorMeasurementSessionRepository = App.RepoManager.SensorMeasurementSessionRepository;
-            _accelerometerRepository = App.RepoManager.AccelerometerRepository;
-            _gyroscopeRepository = App.RepoManager.GyroscopeRepository;
-            _magnetometerRepository = App.RepoManager.MagnetometerRepository;
         }
 
         public async Task Login()
@@ -310,16 +300,16 @@ namespace Tabi.iOS.Helpers
                     }
 
                     //GET sensordata corresponds to track
-                    List<SensorMeasurementSession> sensorMeasurementSessions = _sensorMeasurementSessionRepository.GetRange(track.StartTime, track.EndTime).ToList();
+                    List<SensorMeasurementSession> sensorMeasurementSessions = App.RepoManager.SensorMeasurementSessionRepository.GetRange(track.StartTime, track.EndTime).ToList();
                     await UploadSensorMeasurementSessions(sensorMeasurementSessions, id);
 
-                    List<Accelerometer> accelerometerData = _accelerometerRepository.GetRange(track.StartTime, track.EndTime).ToList();
+                    List<Accelerometer> accelerometerData = App.RepoManager.AccelerometerRepository.GetRange(track.StartTime, track.EndTime).ToList();
                     await UploadAccelerometerData(accelerometerData, id);
 
-                    List<Gyroscope> gyroscopeData = _gyroscopeRepository.GetRange(track.StartTime, track.EndTime).ToList();
+                    List<Gyroscope> gyroscopeData = App.RepoManager.GyroscopeRepository.GetRange(track.StartTime, track.EndTime).ToList();
                     await UploadGyroscopeData(gyroscopeData, id);
 
-                    List<Magnetometer> magnetometerData = _magnetometerRepository.GetRange(track.StartTime, track.EndTime).ToList();
+                    List<Magnetometer> magnetometerData = App.RepoManager.MagnetometerRepository.GetRange(track.StartTime, track.EndTime).ToList();
                     await UploadMagnetometerData(magnetometerData, id);
                 }
 
