@@ -23,12 +23,6 @@ namespace Tabi.Droid.PlatformImplementations
             Application.Context.StartService(sensorMeasurementSessionServiceIntent);
 
 
-            //this code was to try periods by using alarmManager -> replaced by timer in service 
-            //AlarmManager scheduler = (AlarmManager)Application.Context.GetSystemService(Context.AlarmService);
-            //Intent intent = new Intent(Application.Context, typeof(SensorMeasurementSessionService) );
-            //PendingIntent scheduledIntent = PendingIntent.GetService(Application.Context, 0, intent, PendingIntentFlags.UpdateCurrent);
-            //scheduler.SetInexactRepeating(AlarmType.RtcWakeup, DateTime.Now.Millisecond, TimeSpan.FromMinutes(1),scheduledIntent);
-
             IsListening = true;
         }
 

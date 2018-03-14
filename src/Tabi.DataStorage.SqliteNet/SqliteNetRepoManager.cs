@@ -28,15 +28,13 @@ namespace Tabi.DataStorage.SqliteNet
             conn.CreateTable<LogEntry>();
 
             conn.CreateTable<SensorMeasurementSession>();
-            conn.CreateTable<Heading>();
             conn.CreateTable<Accelerometer>();
             conn.CreateTable<Gyroscope>();
             conn.CreateTable<Magnetometer>();
             conn.CreateTable<LinearAcceleration>();
-            conn.CreateTable<RotationVector>();
+            conn.CreateTable<Orientation>();
             conn.CreateTable<Quaternion>();
             conn.CreateTable<Gravity>();
-
 
 
 
@@ -50,12 +48,11 @@ namespace Tabi.DataStorage.SqliteNet
 
             //sensor
             SensorMeasurementSessionRepository = new SqliteNetSensorMeasurementSessionRepository(conn);
-            HeadingRepository = new SqliteNetHeadingRepository(conn);
             AccelerometerRepository = new SqliteNetSensorRepository<Accelerometer>(conn); 
             GyroscopeRepository = new SqliteNetSensorRepository<Gyroscope>(conn);
             MagnetometerRepository = new SqliteNetSensorRepository<Magnetometer>(conn);
             LinearAccelerationRepository = new SqliteNetSensorRepository<LinearAcceleration>(conn);
-            RotationVectorRepository = new SqliteNetSensorRepository<RotationVector>(conn);
+            OrientationRepository = new SqliteNetSensorRepository<Orientation>(conn);
             QuaternionRepository = new SqliteNetSensorRepository<Quaternion>(conn);
             GravityRepository = new SqliteNetSensorRepository<Gravity>(conn);
         }
@@ -72,13 +69,12 @@ namespace Tabi.DataStorage.SqliteNet
 
         //sensor
         public ISensorMeasurementSessionRepository SensorMeasurementSessionRepository { get; }
-        public IHeadingRepository HeadingRepository { get; }
         // motion sensor
         public ISensorRepository<Accelerometer> AccelerometerRepository { get; }
         public ISensorRepository<Gyroscope> GyroscopeRepository { get; }
         public ISensorRepository<Magnetometer> MagnetometerRepository { get; }
         public ISensorRepository<LinearAcceleration> LinearAccelerationRepository { get; }
-        public ISensorRepository<RotationVector> RotationVectorRepository { get; }
+        public ISensorRepository<Orientation> OrientationRepository { get; }
         public ISensorRepository<Quaternion> QuaternionRepository { get; }
         public ISensorRepository<Gravity> GravityRepository { get; }
 

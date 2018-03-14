@@ -16,12 +16,11 @@ namespace Tabi.iOS.PlatformImplementations
     public class SensorManagerImplementation : ISensorManager
     {
         private readonly ISensorMeasurementSessionRepository _sensorMeasurementSessionRepository;
-        private readonly IHeadingRepository _headingRepository;
         private readonly ISensorRepository<Accelerometer> _accelerometerRepository;
         private readonly ISensorRepository<Gyroscope> _gyroscoperRepository;
         private readonly ISensorRepository<Magnetometer> _magnetoometerRepository;
         private readonly ISensorRepository<LinearAcceleration> _linearAccelerationRepository;
-        private readonly ISensorRepository<RotationVector> _rotationVectorRepository;
+        private readonly ISensorRepository<Orientation> _orientationRepository;
         private readonly ISensorRepository<Quaternion> _quaternionRepository;
         private readonly ISensorRepository<Gravity> _gravityRepository;
 
@@ -35,12 +34,11 @@ namespace Tabi.iOS.PlatformImplementations
         public SensorManagerImplementation()
         {
             _sensorMeasurementSessionRepository = App.RepoManager.SensorMeasurementSessionRepository;
-            _headingRepository = App.RepoManager.HeadingRepository;
             _accelerometerRepository = App.RepoManager.AccelerometerRepository;
             _gyroscoperRepository = App.RepoManager.GyroscopeRepository;
             _magnetoometerRepository = App.RepoManager.MagnetometerRepository;
             _linearAccelerationRepository = App.RepoManager.LinearAccelerationRepository;
-            _rotationVectorRepository = App.RepoManager.RotationVectorRepository;
+            _orientationRepository = App.RepoManager.OrientationRepository;
             _quaternionRepository = App.RepoManager.QuaternionRepository;
             _gravityRepository = App.RepoManager.GravityRepository;
 
@@ -132,7 +130,7 @@ namespace Tabi.iOS.PlatformImplementations
                     Z = Convert.ToSingle(data.UserAcceleration.Z)
                 });
 
-                _rotationVectorRepository.Add(new RotationVector()
+                _orientationRepository.Add(new Orientation()
                 {
                     Timestamp = timestamp,
                     X = Convert.ToSingle(data.Attitude.Roll),
@@ -162,7 +160,7 @@ namespace Tabi.iOS.PlatformImplementations
 
             });
 
-            _cLLocationManager.
+            
 
             // service for measurements once per minute
             UIDevice.CurrentDevice.BatteryMonitoringEnabled = true;

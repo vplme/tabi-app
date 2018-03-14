@@ -14,15 +14,14 @@ namespace Tabi.DataStorage
         ITrackEntryRepository TrackEntryRepository { get; }
         ILogEntryRepository LogEntryRepository { get; }
 
-        //sensors
+        // session sensors
         ISensorMeasurementSessionRepository SensorMeasurementSessionRepository { get; }
-        IHeadingRepository HeadingRepository { get; }
         // motion sensors
         ISensorRepository<Accelerometer> AccelerometerRepository { get; }
         ISensorRepository<Gyroscope> GyroscopeRepository { get; }
         ISensorRepository<Magnetometer> MagnetometerRepository { get; }
         ISensorRepository<LinearAcceleration> LinearAccelerationRepository { get; }
-        ISensorRepository<RotationVector> RotationVectorRepository { get; }
+        ISensorRepository<Orientation> OrientationRepository { get; }
         ISensorRepository<Quaternion> QuaternionRepository { get; }
         ISensorRepository<Gravity> GravityRepository { get; }
 

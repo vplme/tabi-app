@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Tabi.DataObjects
 {
-    public class RotationVector : MotionSensor
+    public class Orientation : MotionSensor
     {
     }
 }
