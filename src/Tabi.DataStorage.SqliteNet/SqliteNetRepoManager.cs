@@ -26,10 +26,18 @@ namespace Tabi.DataStorage.SqliteNet
             conn.CreateTable<BatteryEntry>();
             conn.CreateTable<TrackEntry>();
             conn.CreateTable<LogEntry>();
+
             conn.CreateTable<SensorMeasurementSession>();
+            conn.CreateTable<Heading>();
             conn.CreateTable<Accelerometer>();
             conn.CreateTable<Gyroscope>();
             conn.CreateTable<Magnetometer>();
+            conn.CreateTable<LinearAcceleration>();
+            conn.CreateTable<RotationVector>();
+            conn.CreateTable<Quaternion>();
+            conn.CreateTable<Gravity>();
+
+
 
 
             PositionEntryRepository = new SqliteNetPositionEntryRepository(conn);
@@ -39,10 +47,17 @@ namespace Tabi.DataStorage.SqliteNet
             BatteryEntryRepository = new SqliteNetBatteryEntryRepository(conn);
             TrackEntryRepository = new SqliteNetTrackEntryRepository(conn);
             LogEntryRepository = new SqliteNetLogEntryRepository(conn);
+
+            //sensor
             SensorMeasurementSessionRepository = new SqliteNetSensorMeasurementSessionRepository(conn);
-            AccelerometerRepository = new SqliteNetAccelerometerRepository(conn); 
-            GyroscopeRepository = new SqliteNetGyroscopeRepository(conn);
-            MagnetometerRepository = new SqliteNetMagnetometerRepository(conn);
+            HeadingRepository = new SqliteNetHeadingRepository(conn);
+            AccelerometerRepository = new SqliteNetSensorRepository<Accelerometer>(conn); 
+            GyroscopeRepository = new SqliteNetSensorRepository<Gyroscope>(conn);
+            MagnetometerRepository = new SqliteNetSensorRepository<Magnetometer>(conn);
+            LinearAccelerationRepository = new SqliteNetSensorRepository<LinearAcceleration>(conn);
+            RotationVectorRepository = new SqliteNetSensorRepository<RotationVector>(conn);
+            QuaternionRepository = new SqliteNetSensorRepository<Quaternion>(conn);
+            GravityRepository = new SqliteNetSensorRepository<Gravity>(conn);
         }
 
         public IUserRepository UserRepository { get; private set; }
@@ -54,11 +69,18 @@ namespace Tabi.DataStorage.SqliteNet
         public IBatteryEntryRepository BatteryEntryRepository { get; private set; }
         public ITrackEntryRepository TrackEntryRepository { get; }
         public ILogEntryRepository LogEntryRepository { get; }
-        public ISensorMeasurementSessionRepository SensorMeasurementSessionRepository { get; }
-        public IAccelerometerRepository AccelerometerRepository { get; }
-        public IGyroscopeRepository GyroscopeRepository { get; }
-        public IMagnetometerRepository MagnetometerRepository { get; }
 
+        //sensor
+        public ISensorMeasurementSessionRepository SensorMeasurementSessionRepository { get; }
+        public IHeadingRepository HeadingRepository { get; }
+        // motion sensor
+        public ISensorRepository<Accelerometer> AccelerometerRepository { get; }
+        public ISensorRepository<Gyroscope> GyroscopeRepository { get; }
+        public ISensorRepository<Magnetometer> MagnetometerRepository { get; }
+        public ISensorRepository<LinearAcceleration> LinearAccelerationRepository { get; }
+        public ISensorRepository<RotationVector> RotationVectorRepository { get; }
+        public ISensorRepository<Quaternion> QuaternionRepository { get; }
+        public ISensorRepository<Gravity> GravityRepository { get; }
 
 
         public void SaveChanges()

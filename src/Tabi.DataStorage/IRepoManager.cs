@@ -1,4 +1,6 @@
-﻿namespace Tabi.DataStorage
+﻿using Tabi.DataObjects;
+
+namespace Tabi.DataStorage
 {
     public interface IRepoManager
     {
@@ -11,11 +13,19 @@
         IBatteryEntryRepository BatteryEntryRepository { get; }
         ITrackEntryRepository TrackEntryRepository { get; }
         ILogEntryRepository LogEntryRepository { get; }
+
+        //sensors
         ISensorMeasurementSessionRepository SensorMeasurementSessionRepository { get; }
-        IAccelerometerRepository AccelerometerRepository { get; }
-        IGyroscopeRepository GyroscopeRepository { get; }
-        IMagnetometerRepository MagnetometerRepository { get; }
-        
+        IHeadingRepository HeadingRepository { get; }
+        // motion sensors
+        ISensorRepository<Accelerometer> AccelerometerRepository { get; }
+        ISensorRepository<Gyroscope> GyroscopeRepository { get; }
+        ISensorRepository<Magnetometer> MagnetometerRepository { get; }
+        ISensorRepository<LinearAcceleration> LinearAccelerationRepository { get; }
+        ISensorRepository<RotationVector> RotationVectorRepository { get; }
+        ISensorRepository<Quaternion> QuaternionRepository { get; }
+        ISensorRepository<Gravity> GravityRepository { get; }
+
 
         void SaveChanges();
     }

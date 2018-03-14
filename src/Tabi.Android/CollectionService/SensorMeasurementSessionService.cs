@@ -57,7 +57,7 @@ namespace Tabi.Droid.CollectionService
             Sensor proximity = sensorManager.GetDefaultSensor(SensorType.Proximity);
             sensorManager.RegisterListener(this, proximity, SensorDelay.Normal);
 
-
+            
             // service for measurements once per minute
             Timer timer = new Timer(60000);
             timer.AutoReset = true;
@@ -114,21 +114,21 @@ namespace Tabi.Droid.CollectionService
             _sensorMeasurementSession = new SensorMeasurementSession();
         }
 
-            public void OnSensorChanged(SensorEvent e)
+        public void OnSensorChanged(SensorEvent e)
         {
             switch (e.Sensor.Type)
             {
                 case SensorType.Light:
-                    _sensorMeasurementSession.AmbientLight = Convert.ToInt32(e.Values[0]);
+                    _sensorMeasurementSession.AmbientLight = Convert.ToInt32(e.Values[0]); // light level in lx
                     break;
                 case SensorType.Orientation:
-                    _sensorMeasurementSession.Compass = Convert.ToInt32(e.Values[0]);
+                    _sensorMeasurementSession.Compass = Convert.ToInt32(e.Values[0]); //azimuth magnetic north in degrees
                     break;
                 case SensorType.Proximity:
-                    _sensorMeasurementSession.Proximity = e.Values[0] < 5;
+                    _sensorMeasurementSession.Proximity = e.Values[0] < 5;  //returns bit more than 5.. check if smaller than 5 -> true
                     break;
                 case SensorType.StepCounter:
-                    _sensorMeasurementSession.Pedometer = Convert.ToInt32(e.Values[0]);
+                    _sensorMeasurementSession.Pedometer = Convert.ToInt32(e.Values[0]); // steps taken since reboot, resets on reboot
                     break;
                 default:
                     break;
