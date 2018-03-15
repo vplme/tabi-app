@@ -56,15 +56,19 @@ namespace Tabi.iOS.Helpers
                 await UploadStopVisits();
 
                 //sensordata
-                UploadTracks();
-                await UploadSensorMeasurementSessions();
-                await UploadAccelerometerData();
-                await UploadGyroscopeData();
-                await UploadMagnetometerData();
-                await UploadLinearAccelerationData();
-                await UploadGravityData();
-                await UploadOrientationData();
-                await UploadQuaternionData();
+                var success = await UploadTracks();
+                if (success)
+                {
+                    UploadSensorMeasurementSessions();
+                    UploadAccelerometerData();
+                    UploadGyroscopeData();
+                    UploadMagnetometerData();
+                    UploadLinearAccelerationData();
+                    UploadGravityData();
+                    UploadOrientationData();
+                    UploadQuaternionData();
+                }
+                
 
                 await ValidateCounts();
             }
@@ -379,12 +383,12 @@ namespace Tabi.iOS.Helpers
             }
         }
 
-        public bool UploadTracks()
+        public async Task<bool> UploadTracks()
         {
             try
             {
                 List<TrackEntry> trackEntries = App.RepoManager.TrackEntryRepository.GetAll().ToList();
-                bool success = ApiClient.PostTrackEntries(Settings.Current.Device, trackEntries).Result;
+                bool success = await ApiClient.PostTrackEntries(Settings.Current.Device, trackEntries);
 
                 if (!success)
                 {

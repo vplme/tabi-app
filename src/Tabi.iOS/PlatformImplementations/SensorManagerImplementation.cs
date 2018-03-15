@@ -204,16 +204,16 @@ namespace Tabi.iOS.PlatformImplementations
             switch (UIDevice.CurrentDevice.BatteryState)    
             {
                 case UIDeviceBatteryState.Unknown:
-                    sensorMeasurementSession.BatteryStatus = BatteryStatus.Unknown;
+                    sensorMeasurementSession.BatteryStatus = BatteryEntryState.Unknown;
                     break;
                 case UIDeviceBatteryState.Unplugged:
-                    sensorMeasurementSession.BatteryStatus = BatteryStatus.NotCharging;
+                    sensorMeasurementSession.BatteryStatus = BatteryEntryState.NotCharging;
                     break;
                 case UIDeviceBatteryState.Charging:
-                    sensorMeasurementSession.BatteryStatus = BatteryStatus.Charging;
+                    sensorMeasurementSession.BatteryStatus = BatteryEntryState.Charging;
                     break;
                 case UIDeviceBatteryState.Full:
-                    sensorMeasurementSession.BatteryStatus = BatteryStatus.Full;
+                    sensorMeasurementSession.BatteryStatus = BatteryEntryState.Full;
                     break;
                 default:
                     break;

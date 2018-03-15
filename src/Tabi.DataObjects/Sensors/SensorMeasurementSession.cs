@@ -19,16 +19,6 @@ namespace Tabi.DataObjects
         public bool Proximity{ get; set; }
         public int Compass { get; set; }
         public int BatteryLevel { get; set; }
-        public BatteryStatus BatteryStatus { get; set; } 
-    }
-
-
-    public enum BatteryStatus
-    {
-        Unknown = 1,
-        Charging = 2,
-        Discharging = 3,
-        NotCharging = 4,
-        Full = 5
+        public BatteryEntryState BatteryStatus { get; set; } 
     }
 }

@@ -88,21 +88,21 @@ namespace Tabi.Droid.CollectionService
                     int status = battery.GetIntExtra(BatteryManager.ExtraStatus, -1);
                     switch (status)
                     {
-                        case (int)Android.OS.BatteryStatus.Unknown:
-                            _sensorMeasurementSession.BatteryStatus = DataObjects.BatteryStatus.Unknown;
+                        case (int)BatteryStatus.Charging:
+                            _sensorMeasurementSession.BatteryStatus = BatteryEntryState.Charging;
                             break;
-                        case (int)Android.OS.BatteryStatus.Charging:
-                            _sensorMeasurementSession.BatteryStatus = DataObjects.BatteryStatus.Charging;
+                        case (int)BatteryStatus.Discharging:
+                            _sensorMeasurementSession.BatteryStatus = BatteryEntryState.Discharging;
                             break;
-                        case (int)Android.OS.BatteryStatus.Discharging:
-                            _sensorMeasurementSession.BatteryStatus = DataObjects.BatteryStatus.Discharging;
+                        case (int)BatteryStatus.NotCharging:
+                            _sensorMeasurementSession.BatteryStatus = BatteryEntryState.NotCharging;
                             break;
-                        case (int)Android.OS.BatteryStatus.NotCharging:
-                            _sensorMeasurementSession.BatteryStatus = DataObjects.BatteryStatus.NotCharging;
+                        case (int)BatteryStatus.Full:
+                            _sensorMeasurementSession.BatteryStatus = BatteryEntryState.Full;
                             break;
-                        case (int)Android.OS.BatteryStatus.Full:
-                            _sensorMeasurementSession.BatteryStatus = DataObjects.BatteryStatus.Full;
-                            break;
+                        case (int)BatteryStatus.Unknown:
+                        _sensorMeasurementSession.BatteryStatus = BatteryEntryState.Unknown;
+                        break;
                     }
                 }
             }
