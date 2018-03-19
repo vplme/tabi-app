@@ -59,14 +59,20 @@ namespace Tabi.iOS.Helpers
                 var success = await UploadTracks();
                 if (success)
                 {
-                    UploadSensorMeasurementSessions();
-                    UploadAccelerometerData();
-                    UploadGyroscopeData();
-                    UploadMagnetometerData();
-                    UploadLinearAccelerationData();
-                    UploadGravityData();
-                    UploadOrientationData();
-                    UploadQuaternionData();
+                    var uploadSuccess = await Task.WhenAll(
+                        UploadSensorMeasurementSessions(),
+                        UploadAccelerometerData(),
+                        UploadGyroscopeData(),
+                        UploadMagnetometerData(),
+                        UploadLinearAccelerationData(),
+                        UploadGravityData(),
+                        UploadOrientationData(),
+                        UploadQuaternionData()
+                    );
+                    foreach (var item in uploadSuccess)
+                    {
+                        Console.WriteLine(item);
+                    }
                 }
                 
 

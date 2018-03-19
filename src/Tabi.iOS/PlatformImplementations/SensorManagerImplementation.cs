@@ -103,7 +103,7 @@ namespace Tabi.iOS.PlatformImplementations
             {
                 //Linear acceleration (acceleration - gravity)
                 DateTimeOffset timestamp = DateTimeOffset.Now;
-
+                
                 _accelerometerRepository.Add(new Accelerometer()
                 {
                     Timestamp = timestamp,
@@ -154,9 +154,6 @@ namespace Tabi.iOS.PlatformImplementations
                     Y = Convert.ToSingle(data.Gravity.Y),
                     Z = Convert.ToSingle(data.Gravity.Z)
                 });
-
-
-                var heading = data.Heading; // compass
 
             });
 
