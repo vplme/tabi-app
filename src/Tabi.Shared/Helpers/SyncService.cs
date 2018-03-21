@@ -62,61 +62,87 @@ namespace Tabi.iOS.Helpers
                 {
                     DateTimeOffset timestamp = DateTimeOffset.Now;
 
-                    bool sensorMeasurementSessionIsUploaded = await UploadSensorMeasurementSessions();
-                    Console.WriteLine("sensormeasurement: " + sensorMeasurementSessionIsUploaded);
-                    if (sensorMeasurementSessionIsUploaded)
+                    var uploadSuccess = await Task.WhenAll(
+                        UploadSensorMeasurementSessions(),
+                        UploadAccelerometerData(),
+                        UploadGyroscopeData(),
+                        UploadMagnetometerData(),
+                        UploadLinearAccelerationData(),
+                        UploadGravityData(),
+                        UploadOrientationData(),
+                        UploadQuaternionData()
+                        );
+
+                    Console.WriteLine("UploadSuccess: ");
+                    foreach (var item in uploadSuccess)
                     {
-                        RemoveOldSensorMeasurementSessions(timestamp);
+                        Console.WriteLine(item);
                     }
 
-                    bool accelerometerDataIsUploaded = await UploadAccelerometerData();
-                    Console.WriteLine("accelerometer: " + accelerometerDataIsUploaded);
-                    if (accelerometerDataIsUploaded)
-                    {
-                        RemoveOldAccelerometerData(timestamp);
-                    }
 
-                    var gyroscopeDataIsUploaded = await UploadGyroscopeData();
-                    Console.WriteLine("gyroscope: " + gyroscopeDataIsUploaded);
-                    if (gyroscopeDataIsUploaded)
+                    var removeOldDataSuccess = await RemoveOldSensorData(timestamp, uploadSuccess);
+                    Console.WriteLine("RemoveSuccess:");
+                    foreach (var item in removeOldDataSuccess)
                     {
-                       RemoveOldGyroscopeData(timestamp);
+                        Console.WriteLine(item);
                     }
+                    //bool sensorMeasurementSessionIsUploaded = await UploadSensorMeasurementSessions();
+                    //Console.WriteLine("sensormeasurement: " + sensorMeasurementSessionIsUploaded);
+                    //if (sensorMeasurementSessionIsUploaded)
+                    //{
+                    //    RemoveOldSensorMeasurementSessions(timestamp);
+                    //}
 
-                    var magnetometerDataIsUploaded = await UploadMagnetometerData();
-                    Console.WriteLine("magnetometer: " + magnetometerDataIsUploaded);
-                    if (magnetometerDataIsUploaded)
-                    {
-                        RemoveOldMagnetometerData(timestamp);
-                    }
+                    //bool accelerometerDataIsUploaded = await UploadAccelerometerData();
+                    //Console.WriteLine("accelerometer: " + accelerometerDataIsUploaded);
+                    //if (accelerometerDataIsUploaded)
+                    //{
+                    //    RemoveOldAccelerometerData(timestamp);
+                    //}
 
-                    var linearAccelerationDataIsUploaded = await UploadLinearAccelerationData();
-                    Console.WriteLine("linear acceleration: " + linearAccelerationDataIsUploaded);
-                    if (linearAccelerationDataIsUploaded)
-                    {
-                        RemoveOldLinearAccelerationData(timestamp);
-                    }
+                    //var gyroscopeDataIsUploaded = await UploadGyroscopeData();
+                    //Console.WriteLine("gyroscope: " + gyroscopeDataIsUploaded);
+                    //if (gyroscopeDataIsUploaded)
+                    //{
+                    //   RemoveOldGyroscopeData(timestamp);
+                    //}
 
-                    var gravityDataIsUploaded = await UploadGravityData();
-                    Console.WriteLine("gravity: " + gravityDataIsUploaded);
-                    if (gravityDataIsUploaded)
-                    {
-                        RemoveOldGravityData(timestamp);
-                    }
+                    //var magnetometerDataIsUploaded = await UploadMagnetometerData();
+                    //Console.WriteLine("magnetometer: " + magnetometerDataIsUploaded);
+                    //if (magnetometerDataIsUploaded)
+                    //{
+                    //    RemoveOldMagnetometerData(timestamp);
+                    //}
 
-                    var orientationDataIsUploaded = await UploadOrientationData();
-                    Console.WriteLine("orientation: " + orientationDataIsUploaded);
-                    if (orientationDataIsUploaded)
-                    {
-                        RemoveOldOrientationData(timestamp);
-                    }
+                    //var linearAccelerationDataIsUploaded = await UploadLinearAccelerationData();
+                    //Console.WriteLine("linear acceleration: " + linearAccelerationDataIsUploaded);
+                    //if (linearAccelerationDataIsUploaded)
+                    //{
+                    //    RemoveOldLinearAccelerationData(timestamp);
+                    //}
 
-                    var quaternionDataIsUploaded = await UploadQuaternionData();
-                    Console.WriteLine("quaternion: " + quaternionDataIsUploaded);
-                    if (quaternionDataIsUploaded)
-                    {
-                        RemoveOldQuaternionData(timestamp);
-                    }
+                    //var gravityDataIsUploaded = await UploadGravityData();
+                    //Console.WriteLine("gravity: " + gravityDataIsUploaded);
+                    //if (gravityDataIsUploaded)
+                    //{
+                    //    RemoveOldGravityData(timestamp);
+                    //}
+
+                    //var orientationDataIsUploaded = await UploadOrientationData();
+                    //Console.WriteLine("orientation: " + orientationDataIsUploaded);
+                    //if (orientationDataIsUploaded)
+                    //{
+                    //    RemoveOldOrientationData(timestamp);
+                    //}
+
+                    //var quaternionDataIsUploaded = await UploadQuaternionData();
+                    //Console.WriteLine("quaternion: " + quaternionDataIsUploaded);
+                    //if (quaternionDataIsUploaded)
+                    //{
+                    //    RemoveOldQuaternionData(timestamp);
+                    //}
+
+
                 }
                 
 
@@ -143,6 +169,47 @@ namespace Tabi.iOS.Helpers
                     Settings.Current.PositionLastUpload = positions.Last().Timestamp.Ticks;
                 }
             }
+        }
+
+        private Task<bool[]> RemoveOldSensorData(DateTimeOffset timestamp, bool[] uploadSuccess)
+        {
+            List<Task<bool>> toBeRemoved = new List<Task<bool>>();
+            if (uploadSuccess[0]) {
+                toBeRemoved.Add(RemoveOldSensorMeasurementSessions(timestamp));
+            }
+            if (uploadSuccess[1])
+            {
+                toBeRemoved.Add(RemoveOldAccelerometerData(timestamp));
+            }
+            if (uploadSuccess[2])
+            {
+                toBeRemoved.Add(RemoveOldGyroscopeData(timestamp));
+            }
+            if (uploadSuccess[3])
+            {
+                toBeRemoved.Add(RemoveOldMagnetometerData(timestamp));
+            }
+            if (uploadSuccess[4])
+            {
+                toBeRemoved.Add(RemoveOldLinearAccelerationData(timestamp));
+            }
+            if (uploadSuccess[5])
+            {
+                toBeRemoved.Add(RemoveOldGravityData(timestamp));
+            }
+            if (uploadSuccess[6])
+            {
+                toBeRemoved.Add(RemoveOldOrientationData(timestamp));
+            }
+            if (uploadSuccess[7])
+            {
+                toBeRemoved.Add(RemoveOldQuaternionData(timestamp));
+            }
+            
+            var removeOldSensorDataSuccess = Task.WhenAll(
+                        toBeRemoved
+                    );
+            return removeOldSensorDataSuccess;
         }
 
         private async Task<bool> RemoveOldSensorMeasurementSessions(DateTimeOffset timestamp)
