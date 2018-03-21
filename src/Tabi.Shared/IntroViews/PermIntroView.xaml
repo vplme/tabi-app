@@ -12,7 +12,7 @@
                 <Label HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Text="{i18n:Translate LocationPermissionTitle}" />
                 <Label HorizontalTextAlignment="Start" Margin="10, 0, 10, 0" Text="{i18n:Translate LocationPermissionText}" />
                 <control:MaterialButton Margin="30, 0, 30, 30" Text="{i18n:Translate LocationPermissionButton}" Style="{StaticResource defaultButtonStyle}" BackgroundColor="{Binding PermissionLocationButtonColor}" Command="{Binding PermissionsCommand}" />
-                <!--<control:MaterialButton Margin="30, 0, 30, 30" Text="{i18n:Translate SensorPermissionButton}" Style="{StaticResource defaultButtonStyle}" BackgroundColor="{Binding PermissionSensorButtonColor}" Command="{Binding SensorPermissionCommand}" />-->
+                <control:MaterialButton Margin="30, 0, 30, 30" Text="{i18n:Translate SensorPermissionButton}" Style="{StaticResource defaultButtonStyle}" BackgroundColor="{Binding PermissionSensorButtonColor}" Command="{Binding SensorPermissionCommand}" IsVisible="{Binding IsIOS}"/>
             </StackLayout>
             <StackLayout VerticalOptions="End">
                 <control:MaterialButton Margin="30, 0, 30, 30" IsEnabled="{Binding PermissionsGiven}" Text="{i18n:Translate ContinueButton}" Style="{StaticResource defaultButtonStyle}" BackgroundColor="{Binding PermissionCheckButtonColor}" TextColor="White" Command="{Binding PermissionCheckCommand}" />

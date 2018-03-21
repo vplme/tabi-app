@@ -23,5 +23,18 @@ namespace Tabi.DataStorage.SqliteNet
                 return new List<MotionSensor>();
             }
         }
+
+        public bool RemoveRangeBeforeTimestamp(DateTimeOffset timestamp)
+        {
+            try
+            {
+                return connection.Table<MotionSensor>().Delete(x => x.Timestamp < timestamp) > 0;
+            }
+            catch (Exception e)
+            {
+                //log error?
+                return false;
+            }
+        }
     }
 }

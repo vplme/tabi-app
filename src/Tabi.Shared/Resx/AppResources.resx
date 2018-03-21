@@ -269,18 +269,18 @@
     <value>Data upload succesful</value>
   </data>
   <data name="SensorPermissionButton" xml:space="preserve">
-    <value>Motion activity permission required</value>
+    <value>Motion and Fitness permission required</value>
   </data>
   <data name="SensorPermissionDeniedOpenSettingsiOSText" xml:space="preserve">
-    <value>Change Motion activity permission to "Always" in the Settings.</value>
+    <value>Turn Motion and Fitness permission on in the Settings.</value>
   </data>
   <data name="SensorPermissionDeniedOpenSettingsiOSTitle" xml:space="preserve">
     <value>Settings</value>
   </data>
   <data name="SensorPermissionRationaleText" xml:space="preserve">
-    <value>Motion activity permission needs to be granted for the application to record your movements.</value>
+    <value>Motion and Fitness permission needs to be granted for the application to record your movements.</value>
   </data>
   <data name="SensorPermissionRationaleTitle" xml:space="preserve">
-    <value>Motion activity required</value>
+    <value>Motion and Fitness required</value>
   </data>
 </root>

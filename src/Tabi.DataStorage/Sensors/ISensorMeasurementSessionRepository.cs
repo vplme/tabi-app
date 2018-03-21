@@ -7,5 +7,6 @@ namespace Tabi.DataStorage
     public interface ISensorMeasurementSessionRepository : IRepository<SensorMeasurementSession>
     {
         IEnumerable<SensorMeasurementSession> GetRange(DateTimeOffset begin, DateTimeOffset end);
+        bool RemoveRangeBeforeTimestamp(DateTimeOffset timestamp);
     }
 }

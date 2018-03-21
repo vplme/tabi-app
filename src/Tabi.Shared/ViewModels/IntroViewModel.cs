@@ -5,6 +5,7 @@ using System.Windows.Input;
 using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
 using Tabi.Pages;
+using Tabi.Shared.Controls;
 using Tabi.Shared.IntroViews;
 using Tabi.Shared.Resx;
 using TabiApiClient;
@@ -171,6 +172,20 @@ namespace Tabi.Shared.ViewModels
             }
         }
 
+        private bool isIOS;
+        public bool IsIOS
+        {
+            get
+            {
+                return isIOS;
+            }
+            set
+            {
+                isIOS = value;
+                OnPropertyChanged();
+            }
+        }
+
         private void GoNextView()
         {
             introPage.Content = this.NextView;
@@ -183,10 +198,13 @@ namespace Tabi.Shared.ViewModels
 
             Views.Add(new FirstIntroView());
             Views.Add(new LoginIntroView());
+            Views.Add(new PermIntroView());
 
-            PermIntroView permIntroView = new PermIntroView();
-            InitMotionPermissionButton(permIntroView);
-            Views.Add(permIntroView);
+            IsIOS = Device.RuntimePlatform == Device.iOS;
+            if (!IsIOS)
+            {
+                SensorPermissionGiven = true;
+            }
 
             
             LoginCommand = new Command(async (obj) =>
@@ -264,7 +282,7 @@ namespace Tabi.Shared.ViewModels
                 {
                     PermissionLocationButtonColor = (Color)Application.Current.Resources["greenButtonColor"];
                     LocationPermissionGiven = true;
-                    CheckPermissionsGiven();
+                    CheckAllPermissionsGiven();
                 }
             });
 
@@ -288,12 +306,14 @@ namespace Tabi.Shared.ViewModels
                 {
                     var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Sensors);
 
+                    //for test purposes status = granted
                     switch (status)
                     {
                         case PermissionStatus.Granted:
+                            Console.WriteLine("permission granted");
                             PermissionSensorButtonColor = (Color)Application.Current.Resources["greenButtonColor"];
                             SensorPermissionGiven = true;
-                            CheckPermissionsGiven();
+                            CheckAllPermissionsGiven();
                             break;
 
                         default:
@@ -306,6 +326,7 @@ namespace Tabi.Shared.ViewModels
                             }
                             if (status == PermissionStatus.Denied)
                             {
+                                Console.WriteLine("permission denied");
                                 await introPage.DisplayAlert(
                                     AppResources.SensorPermissionDeniedOpenSettingsiOSTitle,
                                     AppResources.SensorPermissionDeniedOpenSettingsiOSText,
@@ -320,45 +341,17 @@ namespace Tabi.Shared.ViewModels
                             break;
                     }
                 }
-                else
-                {
-                    PermissionSensorButtonColor = (Color)Application.Current.Resources["greenButtonColor"];
-                    SensorPermissionGiven = true;
-                    CheckPermissionsGiven();
-                }
+                
             });
             GoNextView();
         }
 
-        private void CheckPermissionsGiven()
+        private void CheckAllPermissionsGiven()
         {
             if (LocationPermissionGiven && SensorPermissionGiven)
             {
                 PermissionsGiven = true;
                 PermissionCheckButtonColor = (Color)Application.Current.Resources["blueButtonColor"];
-            }
-        }
-
-        private void InitMotionPermissionButton(View view)
-        {
-            if (Device.RuntimePlatform == Device.iOS)
-            {
-                // show button for permission
-                var topLayout = view.FindByName<StackLayout>("Stacklayout_top");
-
-                topLayout.Children.Add(new Button()
-                {
-                    Margin = new Thickness(30, 0, 30, 30),
-                    Text = (string)Application.Current.Resources["SensorPermissionButton"],
-                    BackgroundColor = (Color)Application.Current.Resources["blueButtonColor"],
-                    Command = SensorPermissionCommand
-                });
-            }
-            else
-            {
-                // don't show button for permission 
-                // set 
-                SensorPermissionGiven = true;
             }
         }
     }

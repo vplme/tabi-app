@@ -349,7 +349,7 @@ namespace Tabi.Shared.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Motion activity permission required.
+        ///   Looks up a localized string similar to Motion and Fitness permission required.
         /// </summary>
         public static string SensorPermissionButton {
             get {
@@ -358,7 +358,7 @@ namespace Tabi.Shared.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Change Motion activity permission to &quot;Always&quot; in the Settings..
+        ///   Looks up a localized string similar to Turn Motion and Fitness permission on in the Settings..
         /// </summary>
         public static string SensorPermissionDeniedOpenSettingsiOSText {
             get {
@@ -376,7 +376,7 @@ namespace Tabi.Shared.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Motion activity permission needs to be granted for the application to record your movements..
+        ///   Looks up a localized string similar to Motion and Fitness permission needs to be granted for the application to record your movements..
         /// </summary>
         public static string SensorPermissionRationaleText {
             get {
@@ -385,7 +385,7 @@ namespace Tabi.Shared.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Motion activity required.
+        ///   Looks up a localized string similar to Motion and Fitness required.
         /// </summary>
         public static string SensorPermissionRationaleTitle {
             get {

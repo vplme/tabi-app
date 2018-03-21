@@ -24,5 +24,18 @@ namespace Tabi.DataStorage.SqliteNet
                 return new List<SensorMeasurementSession>();
             }
         }
+
+        public bool RemoveRangeBeforeTimestamp(DateTimeOffset timestamp)
+        {
+            try
+            {
+                return connection.Table<SensorMeasurementSession>().Delete(x => x.Timestamp < timestamp) > 0;
+            }
+            catch (Exception e)
+            {
+
+                return false;
+            }
+        }
     }
 }

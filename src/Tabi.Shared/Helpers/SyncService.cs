@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Plugin.Connectivity;
 using Tabi.DataObjects;
+using Tabi.DataStorage;
 using TabiApiClient;
 using TabiApiClient.Messages;
 
@@ -59,19 +60,62 @@ namespace Tabi.iOS.Helpers
                 var success = await UploadTracks();
                 if (success)
                 {
-                    var uploadSuccess = await Task.WhenAll(
-                        UploadSensorMeasurementSessions(),
-                        UploadAccelerometerData(),
-                        UploadGyroscopeData(),
-                        UploadMagnetometerData(),
-                        UploadLinearAccelerationData(),
-                        UploadGravityData(),
-                        UploadOrientationData(),
-                        UploadQuaternionData()
-                    );
-                    foreach (var item in uploadSuccess)
+                    DateTimeOffset timestamp = DateTimeOffset.Now;
+
+                    bool sensorMeasurementSessionIsUploaded = await UploadSensorMeasurementSessions();
+                    Console.WriteLine("sensormeasurement: " + sensorMeasurementSessionIsUploaded);
+                    if (sensorMeasurementSessionIsUploaded)
                     {
-                        Console.WriteLine(item);
+                        RemoveOldSensorMeasurementSessions(timestamp);
+                    }
+
+                    bool accelerometerDataIsUploaded = await UploadAccelerometerData();
+                    Console.WriteLine("accelerometer: " + accelerometerDataIsUploaded);
+                    if (accelerometerDataIsUploaded)
+                    {
+                        RemoveOldAccelerometerData(timestamp);
+                    }
+
+                    var gyroscopeDataIsUploaded = await UploadGyroscopeData();
+                    Console.WriteLine("gyroscope: " + gyroscopeDataIsUploaded);
+                    if (gyroscopeDataIsUploaded)
+                    {
+                       RemoveOldGyroscopeData(timestamp);
+                    }
+
+                    var magnetometerDataIsUploaded = await UploadMagnetometerData();
+                    Console.WriteLine("magnetometer: " + magnetometerDataIsUploaded);
+                    if (magnetometerDataIsUploaded)
+                    {
+                        RemoveOldMagnetometerData(timestamp);
+                    }
+
+                    var linearAccelerationDataIsUploaded = await UploadLinearAccelerationData();
+                    Console.WriteLine("linear acceleration: " + linearAccelerationDataIsUploaded);
+                    if (linearAccelerationDataIsUploaded)
+                    {
+                        RemoveOldLinearAccelerationData(timestamp);
+                    }
+
+                    var gravityDataIsUploaded = await UploadGravityData();
+                    Console.WriteLine("gravity: " + gravityDataIsUploaded);
+                    if (gravityDataIsUploaded)
+                    {
+                        RemoveOldGravityData(timestamp);
+                    }
+
+                    var orientationDataIsUploaded = await UploadOrientationData();
+                    Console.WriteLine("orientation: " + orientationDataIsUploaded);
+                    if (orientationDataIsUploaded)
+                    {
+                        RemoveOldOrientationData(timestamp);
+                    }
+
+                    var quaternionDataIsUploaded = await UploadQuaternionData();
+                    Console.WriteLine("quaternion: " + quaternionDataIsUploaded);
+                    if (quaternionDataIsUploaded)
+                    {
+                        RemoveOldQuaternionData(timestamp);
                     }
                 }
                 
@@ -79,6 +123,8 @@ namespace Tabi.iOS.Helpers
                 await ValidateCounts();
             }
         }
+
+        
 
         public async Task UploadPositions()
         {
@@ -97,6 +143,67 @@ namespace Tabi.iOS.Helpers
                     Settings.Current.PositionLastUpload = positions.Last().Timestamp.Ticks;
                 }
             }
+        }
+
+        private async Task<bool> RemoveOldSensorMeasurementSessions(DateTimeOffset timestamp)
+        {
+            ISensorMeasurementSessionRepository sensorMeasurementRepository = App.RepoManager.SensorMeasurementSessionRepository;
+            return await Task.Run(() => sensorMeasurementRepository.RemoveRangeBeforeTimestamp(timestamp));
+        }
+
+        private async Task<bool> RemoveOldAccelerometerData(DateTimeOffset timestamp)
+        {
+            ISensorRepository<Accelerometer> accelerometerRepository = App.RepoManager.AccelerometerRepository;
+            Console.WriteLine("amount of accelerometerdata before: " + accelerometerRepository.Count());
+            var removedSuccessfully = await Task.Run(() => accelerometerRepository.RemoveRangeBeforeTimestamp(timestamp));
+            if (removedSuccessfully)
+            {
+                Console.WriteLine("amount of accelerometerdata after: " + accelerometerRepository.Count());
+            }
+
+            return removedSuccessfully;
+        }
+
+        private async Task<bool> RemoveOldGyroscopeData(DateTimeOffset timestamp)
+        {
+            ISensorRepository<Gyroscope> gyroscopeRepository = App.RepoManager.GyroscopeRepository;
+
+            return await Task.Run(() => gyroscopeRepository.RemoveRangeBeforeTimestamp(timestamp));
+        }
+
+        private async Task<bool> RemoveOldMagnetometerData(DateTimeOffset timestamp)
+        {
+            ISensorRepository<Magnetometer> magnetometerRepository = App.RepoManager.MagnetometerRepository;
+
+            return await Task.Run(() => magnetometerRepository.RemoveRangeBeforeTimestamp(timestamp));
+        }
+
+        private async Task<bool> RemoveOldLinearAccelerationData(DateTimeOffset timestamp)
+        {
+            ISensorRepository<LinearAcceleration> linearAccelerationRepository = App.RepoManager.LinearAccelerationRepository;
+
+            return await Task.Run(() => linearAccelerationRepository.RemoveRangeBeforeTimestamp(timestamp));
+        }
+
+        private async Task<bool> RemoveOldGravityData(DateTimeOffset timestamp)
+        {
+            ISensorRepository<Gravity> gravityRepository = App.RepoManager.GravityRepository;
+
+            return await Task.Run(() => gravityRepository.RemoveRangeBeforeTimestamp(timestamp));
+        }
+
+        private async Task<bool> RemoveOldOrientationData(DateTimeOffset timestamp)
+        {
+            ISensorRepository<Orientation> orientationRepository = App.RepoManager.OrientationRepository;
+
+            return await Task.Run(() => orientationRepository.RemoveRangeBeforeTimestamp(timestamp));
+        }
+
+        private async Task<bool> RemoveOldQuaternionData(DateTimeOffset timestamp)
+        {
+            ISensorRepository<Quaternion> quaternionRepository = App.RepoManager.QuaternionRepository;
+
+            return await Task.Run(() => quaternionRepository.RemoveRangeBeforeTimestamp(timestamp));
         }
 
 
@@ -158,7 +265,6 @@ namespace Tabi.iOS.Helpers
                     Settings.Current.LogsLastUpload = logs.Last().Timestamp.Ticks;
                     //App.RepoManager.LogEntryRepository.ClearLogsBefore(logs.Last().Timestamp);
                 }
-
             }
             return true;
         }

@@ -30,7 +30,7 @@
     <PackageReference Include="Acr.UserDialogs" Version="6.5.1" />
     <PackageReference Include="Xamarin.Forms" Version="2.5.0.91635" />
     <PackageReference Include="Xamarin.Forms.Maps" Version="2.5.0.91635" />
-    <PackageReference Include="Plugin.Permissions" Version="2.1.0" />
+    <PackageReference Include="Plugin.Permissions" Version="2.2.1" />
   </ItemGroup>
   <ItemGroup>
     <!-- https://bugzilla.xamarin.com/show_bug.cgi?id=55591 -->
