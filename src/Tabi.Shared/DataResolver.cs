@@ -15,20 +15,27 @@ namespace Tabi.Core
         IStopVisitRepository stopVisitRepository = App.RepoManager.StopVisitRepository;
         IStopRepository stopRepository = App.RepoManager.StopRepository;
 
+        private double _accuracy;
+        private double _groupDistance;
+        public DataResolver()
+        {
+            _accuracy = 100;
+            _groupDistance = 50;
+        }
+
         // Resolve data for period including
         public void ResolveData(DateTimeOffset begin, DateTimeOffset end)
         {
             // Get latest StopVisit/Track from db
-
             StopVisit lastStopVisit = stopVisitRepository.LastStopVisit();
             TrackEntry lastTrackEntry = trackEntryRepository.LastTrackEntry();
 
             DateTimeOffset newBeginTime = lastStopVisit != null ? lastStopVisit.BeginTimestamp : begin;
 
             // Fetch Positions starting from beginning
-            List<PositionEntry> fetchedPositions = positionEntryRepository.FilterPeriodAccuracy(newBeginTime, end, 100);
+            List<PositionEntry> fetchedPositions = positionEntryRepository.FilterPeriodAccuracy(newBeginTime, end, _accuracy);
             // Group Positions
-            IList<PositionGroup> positionGroups = GroupPositions(fetchedPositions, 50);
+            IList<PositionGroup> positionGroups = GroupPositions(fetchedPositions, _groupDistance);
 
             // fetch existing stops
             IList<Stop> existingStops = stopRepository.GetAll().ToList();
@@ -43,7 +50,6 @@ namespace Tabi.Core
             Log.Debug($"after Existingstops size {existingStops.Count()}");
 
             // Merge last StopVisit/Track from db and new stopvisits/tracks
-
             StopVisit first = stopVisits.FirstOrDefault();
             if (first != null && first.BeginTimestamp == lastStopVisit?.BeginTimestamp)
             {

@@ -22,6 +22,8 @@ namespace Tabi.Droid.PlatformImplementations
             Intent sensorMeasurementSessionServiceIntent = new Intent(Application.Context, typeof(SensorMeasurementSessionService));
             Application.Context.StartService(sensorMeasurementSessionServiceIntent);
 
+            Intent assignSensorDataToTrackServiceIntent = new Intent(Application.Context, typeof(AssignSensorDataToTrackService));
+            Application.Context.StartService(assignSensorDataToTrackServiceIntent);
 
             IsListening = true;
         }
@@ -35,6 +37,9 @@ namespace Tabi.Droid.PlatformImplementations
             //stop sensorMeasurementSessionServiceIntent
             Intent sensorMeasurementSessionServiceIntent = new Intent(Application.Context, typeof(SensorMeasurementSessionService));
             Application.Context.StopService(sensorMeasurementSessionServiceIntent);
+
+            Intent assignSensorDataToTrackServiceIntent = new Intent(Application.Context, typeof(AssignSensorDataToTrackService));
+            Application.Context.StopService(assignSensorDataToTrackServiceIntent);
 
             IsListening = false;
         }

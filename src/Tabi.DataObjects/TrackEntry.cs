@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using SQLite;
 
 namespace Tabi.DataObjects
@@ -33,5 +34,24 @@ namespace Tabi.DataObjects
         public int NextStopId { get; set; }
         [Ignore]
         public StopVisit NextStop { get; set; }
+
+        //public List<TransportationMode> TransportationModes { get; set; }
     }
+
+    //public enum TransportationMode
+    //{
+    //    Walk = 1,
+    //    Run,
+    //    Mobility_Scooter,
+    //    Car,
+    //    Bike,
+    //    Moped,
+    //    Scooter,
+    //    MotorCycle,
+    //    Train,
+    //    Subway,
+    //    Tram,
+    //    Bus,
+    //    Other,
+    //}
 }

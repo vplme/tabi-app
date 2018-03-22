@@ -65,8 +65,8 @@ namespace Tabi.ViewModels
             DataResolver dateResolver = new DataResolver();
             dateResolver.ResolveData(DateTimeOffset.MinValue, DateTimeOffset.Now);
             //track maded
-
             //TODO send notification for getting transportation mode
+
 
             List<ActivityEntry> newActivityEntries = new List<ActivityEntry>();
 

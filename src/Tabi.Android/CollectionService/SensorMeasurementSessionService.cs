@@ -17,7 +17,6 @@ namespace Tabi.Droid.CollectionService
         private SensorMeasurementSessionServiceBinder _binder;
         private SensorMeasurementSession _sensorMeasurementSession;
         
-
         public SensorMeasurementSessionService()
         {
             _sensorMeasurementSessionRepository = App.RepoManager.SensorMeasurementSessionRepository;
@@ -35,7 +34,6 @@ namespace Tabi.Droid.CollectionService
             return _binder;
         }
 
-        [return: GeneratedEnum]
         public override StartCommandResult OnStartCommand(Intent intent, [GeneratedEnum] StartCommandFlags flags, int startId)
         {
             //register sensors

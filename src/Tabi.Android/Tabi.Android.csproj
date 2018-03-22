@@ -357,6 +357,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CollectionService\AssignSensorDataToTrackService.cs" />
+    <Compile Include="CollectionService\AssignSensorDataToTrackServiceBinder.cs" />
     <Compile Include="CollectionService\SensorService.cs" />
     <Compile Include="CollectionService\SensorServiceBinder.cs" />
     <Compile Include="CollectionService\SensorMeasurementSessionService.cs" />

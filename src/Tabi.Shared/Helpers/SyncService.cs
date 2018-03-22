@@ -86,65 +86,7 @@ namespace Tabi.iOS.Helpers
                     {
                         Console.WriteLine(item);
                     }
-                    //bool sensorMeasurementSessionIsUploaded = await UploadSensorMeasurementSessions();
-                    //Console.WriteLine("sensormeasurement: " + sensorMeasurementSessionIsUploaded);
-                    //if (sensorMeasurementSessionIsUploaded)
-                    //{
-                    //    RemoveOldSensorMeasurementSessions(timestamp);
-                    //}
-
-                    //bool accelerometerDataIsUploaded = await UploadAccelerometerData();
-                    //Console.WriteLine("accelerometer: " + accelerometerDataIsUploaded);
-                    //if (accelerometerDataIsUploaded)
-                    //{
-                    //    RemoveOldAccelerometerData(timestamp);
-                    //}
-
-                    //var gyroscopeDataIsUploaded = await UploadGyroscopeData();
-                    //Console.WriteLine("gyroscope: " + gyroscopeDataIsUploaded);
-                    //if (gyroscopeDataIsUploaded)
-                    //{
-                    //   RemoveOldGyroscopeData(timestamp);
-                    //}
-
-                    //var magnetometerDataIsUploaded = await UploadMagnetometerData();
-                    //Console.WriteLine("magnetometer: " + magnetometerDataIsUploaded);
-                    //if (magnetometerDataIsUploaded)
-                    //{
-                    //    RemoveOldMagnetometerData(timestamp);
-                    //}
-
-                    //var linearAccelerationDataIsUploaded = await UploadLinearAccelerationData();
-                    //Console.WriteLine("linear acceleration: " + linearAccelerationDataIsUploaded);
-                    //if (linearAccelerationDataIsUploaded)
-                    //{
-                    //    RemoveOldLinearAccelerationData(timestamp);
-                    //}
-
-                    //var gravityDataIsUploaded = await UploadGravityData();
-                    //Console.WriteLine("gravity: " + gravityDataIsUploaded);
-                    //if (gravityDataIsUploaded)
-                    //{
-                    //    RemoveOldGravityData(timestamp);
-                    //}
-
-                    //var orientationDataIsUploaded = await UploadOrientationData();
-                    //Console.WriteLine("orientation: " + orientationDataIsUploaded);
-                    //if (orientationDataIsUploaded)
-                    //{
-                    //    RemoveOldOrientationData(timestamp);
-                    //}
-
-                    //var quaternionDataIsUploaded = await UploadQuaternionData();
-                    //Console.WriteLine("quaternion: " + quaternionDataIsUploaded);
-                    //if (quaternionDataIsUploaded)
-                    //{
-                    //    RemoveOldQuaternionData(timestamp);
-                    //}
-
-
                 }
-                
 
                 await ValidateCounts();
             }
