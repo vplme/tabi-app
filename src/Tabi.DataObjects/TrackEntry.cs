@@ -34,6 +34,7 @@ namespace Tabi.DataObjects
         public int NextStopId { get; set; }
         [Ignore]
         public StopVisit NextStop { get; set; }
+        public Guid UniqueKey{ get; set; }
 
         //public List<TransportationMode> TransportationModes { get; set; }
     }

@@ -37,5 +37,26 @@ namespace Tabi.DataStorage.SqliteNet
                 return false;
             }
         }
+
+        public bool UpdateTrackKey(TrackEntry trackEntry)
+        {
+            try
+            {
+                var query = $"UPDATE  SensorMeasurementSession" +
+                                   " SET TrackEntryKey = '" + trackEntry.UniqueKey.ToString() + "' " +
+                                   "WHERE Timestamp > '" + trackEntry.StartTime + "' AND Timestamp < '" + trackEntry.EndTime + "'";
+
+                Console.WriteLine(query);
+
+                connection.Execute(query);
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return false;
+            }
+        }
     }
 }

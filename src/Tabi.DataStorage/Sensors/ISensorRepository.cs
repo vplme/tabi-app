@@ -9,5 +9,6 @@ namespace Tabi.DataStorage
     {
         IEnumerable<TEntity> GetRange(DateTimeOffset begin, DateTimeOffset end);
         bool RemoveRangeBeforeTimestamp(DateTimeOffset timestamp);
+        bool UpdateTrackKey(TrackEntry trackEntry, string tableName);
     }
 }

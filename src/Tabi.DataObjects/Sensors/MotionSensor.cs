@@ -9,7 +9,7 @@ namespace Tabi.DataObjects
         [PrimaryKey, AutoIncrement]
         public long Id { get; set; }
 
-        public int TrackEntryId { get; set; }
+        public Guid TrackEntryKey { get; set; }
 
         public DateTimeOffset Timestamp { get; set; }
 

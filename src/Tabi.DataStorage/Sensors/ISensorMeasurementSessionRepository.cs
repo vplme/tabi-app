@@ -8,5 +8,6 @@ namespace Tabi.DataStorage
     {
         IEnumerable<SensorMeasurementSession> GetRange(DateTimeOffset begin, DateTimeOffset end);
         bool RemoveRangeBeforeTimestamp(DateTimeOffset timestamp);
+        bool UpdateTrackKey(TrackEntry trackEntry);
     }
 }

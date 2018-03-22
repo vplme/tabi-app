@@ -19,6 +19,7 @@ namespace Tabi.DataObjects
         public bool Proximity{ get; set; }
         public int Compass { get; set; }
         public int BatteryLevel { get; set; }
-        public BatteryEntryState BatteryStatus { get; set; } 
+        public BatteryEntryState BatteryStatus { get; set; }
+        public Guid TrackEntryKey { get; set; }
     }
 }

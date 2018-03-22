@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using SQLite;
+using Tabi.DataObjects;
 
 namespace Tabi.DataStorage.SqliteNet
 {
@@ -20,6 +22,7 @@ namespace Tabi.DataStorage.SqliteNet
             catch (Exception e)
             {
                 //log error?
+                Console.WriteLine();
                 return new List<MotionSensor>();
             }
         }
@@ -33,6 +36,28 @@ namespace Tabi.DataStorage.SqliteNet
             catch (Exception e)
             {
                 //log error?
+                Console.WriteLine(e);
+                return false;
+            }
+        }
+
+        public bool UpdateTrackKey(TrackEntry trackEntry, string tableName)
+        {
+            try
+            {
+                var query = $"UPDATE " + tableName +
+                                   " SET TrackEntryKey = '" + trackEntry.UniqueKey.ToString() + "' " +
+                                   "WHERE Timestamp > '" + trackEntry.StartTime + "' AND Timestamp < '" + trackEntry.EndTime + "'";
+
+                Console.WriteLine(query);
+
+                connection.Execute(query);
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
                 return false;
             }
         }
