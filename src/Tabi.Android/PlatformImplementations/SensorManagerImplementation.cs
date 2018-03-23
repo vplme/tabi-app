@@ -18,12 +18,17 @@ namespace Tabi.Droid.PlatformImplementations
             Intent sensorServiceIntent = new Intent(Application.Context, typeof(SensorService));
             Application.Context.StartService(sensorServiceIntent);
 
+            //service for sensorfusion data (reading < 1 second)
+            Intent sensorFusionServiceIntent = new Intent(Application.Context, typeof(SensorFusionService));
+            Application.Context.StartService(sensorFusionServiceIntent);
+
             //service for measurements periodically -> 1 minute
             Intent sensorMeasurementSessionServiceIntent = new Intent(Application.Context, typeof(SensorMeasurementSessionService));
             Application.Context.StartService(sensorMeasurementSessionServiceIntent);
 
-            Intent assignSensorDataToTrackServiceIntent = new Intent(Application.Context, typeof(AssignSensorDataToTrackService));
-            Application.Context.StartService(assignSensorDataToTrackServiceIntent);
+            //Intent assignSensorDataToTrackServiceIntent = new Intent(Application.Context, typeof(AssignSensorDataToTrackService));
+            //Application.Context.StartService(assignSensorDataToTrackServiceIntent);
+
 
             IsListening = true;
         }

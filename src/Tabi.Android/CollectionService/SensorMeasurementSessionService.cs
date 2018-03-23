@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Timers;
 using Android.App;
 using Android.Content;
@@ -36,31 +37,35 @@ namespace Tabi.Droid.CollectionService
 
         public override StartCommandResult OnStartCommand(Intent intent, [GeneratedEnum] StartCommandFlags flags, int startId)
         {
-            //register sensors
-            var sensorManager = (SensorManager)Application.Context.GetSystemService(Context.SensorService);
+            Task.Run(() =>
+            {
+                //register sensors
+                var sensorManager = (SensorManager)Application.Context.GetSystemService(Context.SensorService);
 
 
-            Sensor ambientLight = sensorManager.GetDefaultSensor(SensorType.Light);            
-            sensorManager.RegisterListener(this, ambientLight, SensorDelay.Normal);
+                Sensor ambientLight = sensorManager.GetDefaultSensor(SensorType.Light);
+                sensorManager.RegisterListener(this, ambientLight, SensorDelay.Normal);
 
 
-            //float degree = Math.round(event.values[0]);
-            //tvHeading.setText("Heading: " + Float.toString(degree) + " degrees");
-            Sensor compass = sensorManager.GetDefaultSensor(SensorType.Orientation);
-            sensorManager.RegisterListener(this, compass, SensorDelay.Normal);
+                //float degree = Math.round(event.values[0]);
+                //tvHeading.setText("Heading: " + Float.toString(degree) + " degrees");
+                Sensor compass = sensorManager.GetDefaultSensor(SensorType.Orientation);
+                sensorManager.RegisterListener(this, compass, SensorDelay.Normal);
 
-            Sensor pedometer = sensorManager.GetDefaultSensor(SensorType.StepCounter);
-            sensorManager.RegisterListener(this, pedometer, SensorDelay.Normal);
+                Sensor pedometer = sensorManager.GetDefaultSensor(SensorType.StepCounter);
+                sensorManager.RegisterListener(this, pedometer, SensorDelay.Normal);
 
-            Sensor proximity = sensorManager.GetDefaultSensor(SensorType.Proximity);
-            sensorManager.RegisterListener(this, proximity, SensorDelay.Normal);
+                Sensor proximity = sensorManager.GetDefaultSensor(SensorType.Proximity);
+                sensorManager.RegisterListener(this, proximity, SensorDelay.Normal);
 
-            
-            // service for measurements once per minute
-            Timer timer = new Timer(60000);
-            timer.AutoReset = true;
-            timer.Elapsed += TimerElapsed;
-            timer.Start();
+
+                // service for measurements once per minute
+                Timer timer = new Timer(60000);
+                timer.AutoReset = true;
+                timer.Elapsed += TimerElapsed;
+                timer.Start();
+
+            });
 
             return StartCommandResult.Sticky;
         }
