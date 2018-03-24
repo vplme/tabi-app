@@ -85,7 +85,6 @@ namespace Tabi.Droid.CollectionService
                             Y = e.Values[1],
                             Z = e.Values[2],
                         });
-                        Console.WriteLine("accelerometer: X:" + e.Values[0] + " Y" + e.Values[1] + " Z:" + e.Values[2]);
                     });
                     break;
 
@@ -100,9 +99,7 @@ namespace Tabi.Droid.CollectionService
                             Z = e.Values[2],
                         });
                     });
-                    Console.WriteLine("Gyroscope: X:" + e.Values[0] + " Y" + e.Values[1] + " Z:" + e.Values[2]);
                     break;
-
                 case SensorType.MagneticField:
                     Task.Run(() =>
                     {
@@ -114,9 +111,7 @@ namespace Tabi.Droid.CollectionService
                             Z = e.Values[2],
                         });
                     });
-                    Console.WriteLine("magnetometer: X:" + e.Values[0] + " Y" + e.Values[1] + " Z:" + e.Values[2]);
                     break;
-
                 default:
                     break;
             }

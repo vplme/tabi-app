@@ -59,69 +59,68 @@ namespace Tabi.Droid.CollectionService
             timer.AutoReset = true;
             timer.Elapsed += TimerElapsed;
             timer.Start();
-
+            
             return StartCommandResult.Sticky;
         }
 
         private void TimerElapsed(object sender, ElapsedEventArgs e)
         {
-
-            _trackEntryRepository.Add(new TrackEntry() { StartTime = DateTimeOffset.Now.AddHours(-1), EndTime = DateTimeOffset.Now });
-            var testTack = _trackEntryRepository.GetAll().Last();
-            testTack.UniqueKey = Guid.NewGuid();
-
-            bool accelerometerUpdated = _accelerometerRepository.UpdateTrackKey(testTack, "Accelerometer");
-            bool gyroscopeUpdated = _gyroscopeRepository.UpdateTrackKey(testTack, "Gyroscope");
-            bool magnetometerUpdated = _magnetometerRepository.UpdateTrackKey(testTack, "Magnetometer");
-            bool linearAcceleration = _linearAccelerationRepository.UpdateTrackKey(testTack, "LinearAcceleration");
-            bool gravityUpdated = _linearAccelerationRepository.UpdateTrackKey(testTack, "Gravity");
-            bool orientationUpdated = _orientationRepository.UpdateTrackKey(testTack, "Orientation");
-            bool quaternionUpdated = _quaternionRepository.UpdateTrackKey(testTack, "Quaternion");
-            bool sensorMeasurementSessionUpdated = _sensorMeasurementSessionRepository.UpdateTrackKey(testTack);
-
-            var accelerometer = _accelerometerRepository.GetAll().Where(x => x.TrackEntryKey == testTack.UniqueKey).ToList();
-            Console.WriteLine(accelerometer.Count); 
-
-            //resolve the data
-            DataResolver dataResolver = new DataResolver();
-            dataResolver.ResolveData(DateTimeOffset.MinValue, DateTimeOffset.Now);
-
-            //get all information we need
-            List<TrackEntry> trackEntries = _trackEntryRepository.GetAll().ToList();
-
-            Console.WriteLine("Trackentries: " + trackEntries.Count);
-
-            //check if there are any tracks
-            if (!trackEntries.Any())
-            {
-                return;
-            }
+            //var myTrack = new TrackEntry() { StartTime = DateTimeOffset.Now.AddDays(-1), EndTime = DateTimeOffset.Now.AddDays(1) };
+            //_trackEntryRepository.Add(myTrack);
+            //var testTrack = _trackEntryRepository.GetAll().Last();
             
+            //bool accelerometerUpdated = _accelerometerRepository.UpdateTrackKey(testTrack, "Accelerometer");
+            //bool gyroscopeUpdated = _gyroscopeRepository.UpdateTrackKey(testTrack, "Gyroscope");
+            //bool magnetometerUpdated = _magnetometerRepository.UpdateTrackKey(testTrack, "Magnetometer");
+            //bool linearAcceleration = _linearAccelerationRepository.UpdateTrackKey(testTrack, "LinearAcceleration");
+            //bool gravityUpdated = _linearAccelerationRepository.UpdateTrackKey(testTrack, "Gravity");
+            //bool orientationUpdated = _orientationRepository.UpdateTrackKey(testTrack, "Orientation");
+            //bool quaternionUpdated = _quaternionRepository.UpdateTrackKey(testTrack, "Quaternion");
+            //bool sensorMeasurementSessionUpdated = _sensorMeasurementSessionRepository.UpdateTrackKey(testTrack);
 
-            //if it is the first track made
-            if (lastTrack.Id == 0)
+            Task.Run(() =>
             {
-                lastTrack = trackEntries.Last();
-            }
+                //resolve the data
+                DataResolver dataResolver = new DataResolver();
+                dataResolver.ResolveData(DateTimeOffset.MinValue, DateTimeOffset.Now);
 
-            //if there is a difference between last recorded track and latest track maded
-            if (lastTrack != trackEntries.Last())
-            {
-                //resolve last recorded track
-                //TrackEntry toBeResolvedTrack = trackEntries.First(t => t.Id == lastTrack.Id);
-                //bool accelerometerUpdated = _accelerometerRepository.UpdateTrackKey(toBeResolvedTrack, "Accelerometer");
-                //bool gyroscopeUpdated = _gyroscopeRepository.UpdateTrackKey(toBeResolvedTrack, "Gyroscope");
-                //bool magnetometerUpdated = _magnetometerRepository.UpdateTrackKey(toBeResolvedTrack, "Magnetometer");
-                //bool linearAcceleration = _linearAccelerationRepository.UpdateTrackKey(toBeResolvedTrack, "LinearAcceleration");
-                //bool gravityUpdated = _linearAccelerationRepository.UpdateTrackKey(toBeResolvedTrack, "Gravity");
-                //bool orientationUpdated = _orientationRepository.UpdateTrackKey(toBeResolvedTrack, "Orientation");
-                //bool quaternionUpdated = _quaternionRepository.UpdateTrackKey(toBeResolvedTrack, "Quaternion");
-                //bool sensorMeasurementSessionUpdated = _sensorMeasurementSessionRepository.UpdateTrackKey(toBeResolvedTrack);
+                //get all information we need
+                List<TrackEntry> trackEntries = _trackEntryRepository.GetAll().ToList();
 
+                Console.WriteLine("Trackentries: " + trackEntries.Count);
 
-                lastTrack = trackEntries.Last();
-                
-            }
+                //check if there are any tracks
+                if (!trackEntries.Any())
+                {
+                    return;
+                }
+
+                //if it is the first track made
+                if (lastTrack.Id == Guid.Empty)
+                {
+                    lastTrack = trackEntries.Last();
+                }
+
+                //if there is a new track maded.. resolve the lastTrack and replace with newest track
+                if (lastTrack.Id != trackEntries.Last().Id)
+                {                    
+                    Console.WriteLine("begin resolving" + DateTime.Now);
+
+                    //resolve last recorded track
+                    bool accelerometerUpdated = _accelerometerRepository.UpdateTrackKey(lastTrack, "Accelerometer");
+                    bool gyroscopeUpdated = _gyroscopeRepository.UpdateTrackKey(lastTrack, "Gyroscope");
+                    bool magnetometerUpdated = _magnetometerRepository.UpdateTrackKey(lastTrack, "Magnetometer");
+                    bool linearAcceleration = _linearAccelerationRepository.UpdateTrackKey(lastTrack, "LinearAcceleration");
+                    bool gravityUpdated = _linearAccelerationRepository.UpdateTrackKey(lastTrack, "Gravity");
+                    bool orientationUpdated = _orientationRepository.UpdateTrackKey(lastTrack, "Orientation");
+                    bool quaternionUpdated = _quaternionRepository.UpdateTrackKey(lastTrack, "Quaternion");
+                    bool sensorMeasurementSessionUpdated = _sensorMeasurementSessionRepository.UpdateTrackKey(lastTrack);
+
+                    Console.WriteLine("Done resolving" + DateTime.Now);
+
+                    this.lastTrack = trackEntries.Last();
+                }
+            });
             
         }
     }

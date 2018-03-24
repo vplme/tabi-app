@@ -43,13 +43,16 @@ namespace Tabi.DataStorage.SqliteNet
 
         public bool UpdateTrackKey(TrackEntry trackEntry, string tableName)
         {
+            long startDateTime = trackEntry.StartTime.Ticks;
+            long endDateTime = trackEntry.EndTime.Ticks;
+
             try
             {
                 var query = $"UPDATE " + tableName +
-                                   " SET TrackEntryKey = '" + trackEntry.UniqueKey.ToString() + "' " +
-                                   "WHERE Timestamp > '" + trackEntry.StartTime + "' AND Timestamp < '" + trackEntry.EndTime + "'";
+                                   " SET TrackEntryKey = '" + trackEntry.Id.ToString() + "' " +
+                                   "WHERE Timestamp BETWEEN " + startDateTime + " AND " + endDateTime;
 
-                Console.WriteLine(query);
+                //Console.WriteLine(query);
 
                 connection.Execute(query);
 

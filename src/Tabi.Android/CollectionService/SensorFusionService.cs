@@ -84,9 +84,7 @@ namespace Tabi.Droid.CollectionService
                             Z = e.Values[2]
                         });
                     });
-                    Console.WriteLine("Orientation: X:" + e.Values[0] + " Y" + e.Values[1] + " Z:" + e.Values[2]);
                     break;
-
                 case SensorType.Gravity:
                     Task.Run(() =>
                     {
@@ -98,9 +96,7 @@ namespace Tabi.Droid.CollectionService
                             Z = e.Values[2]
                         });
                     });
-                    Console.WriteLine("Gravity: X:" + e.Values[0] + " Y" + e.Values[1] + " Z:" + e.Values[2]);
                     break;
-
                 case SensorType.LinearAcceleration:
                     Task.Run(() =>
                     {
@@ -112,9 +108,7 @@ namespace Tabi.Droid.CollectionService
                             Z = e.Values[2]
                         });
                     });
-                    Console.WriteLine("linear acceleration: X:" + e.Values[0] + " Y" + e.Values[1] + " Z:" + e.Values[2]);
                     break;
-
                 case SensorType.RotationVector:
                     Task.Run(() =>
                     {
@@ -127,9 +121,7 @@ namespace Tabi.Droid.CollectionService
                             W = e.Values[3]
                         });
                     });
-                    Console.WriteLine("RotationVector: X:" + e.Values[0] + " Y" + e.Values[1] + " Z:" + e.Values[2] + " W:" + e.Values[3]);
                     break;
-
                 default:
                     break;
             }

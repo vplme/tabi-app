@@ -8,8 +8,6 @@ namespace Tabi.DataObjects
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 
-        public int TrackEntryId { get; set; }
-
         [Ignore]
         public TrackEntry TrackEntry { get; set; }
 
