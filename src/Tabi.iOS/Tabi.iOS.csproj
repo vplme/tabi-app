@@ -127,6 +127,7 @@
     <Compile Include="Effects\NoHelperEntryEffect.cs" />
     <Compile Include="Effects\BorderlessEntryEffect.cs" />
     <Compile Include="PlatformImplementations\BaseUrl_iOS.cs" />
+    <Compile Include="Effects\LeftToolbarItemEffect.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />

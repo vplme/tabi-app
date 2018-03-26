@@ -13,5 +13,10 @@ namespace Tabi.Pages
             BindingContext = new IntroViewModel(this);
             InitializeComponent();
         }
+
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
+        }
     }
 }

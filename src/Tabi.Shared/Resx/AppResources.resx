@@ -268,4 +268,7 @@
   <data name="DataUploadSuccesful" xml:space="preserve">
     <value>Data upload succesful</value>
   </data>
+  <data name="DaySelectorButton" xml:space="preserve">
+    <value>Days</value>
+  </data>
 </root>

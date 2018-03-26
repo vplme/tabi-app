@@ -59,18 +59,30 @@ namespace Tabi
             ViewModel.UpdateStopVisits();
         }
 
+        void DaySelectorClicked(object sender, EventArgs arg)
+        {
+            
+        }
+
         void ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem != null)
             {
                 ActivityEntry ae = (ActivityEntry)e.SelectedItem;
+
+                Page page = null;
                 if (ae.ShowStop)
                 {
-                    StopDetailPage page = new StopDetailPage(ae.StopVisit);
-                    Navigation.PushAsync(page);
+                    page = new StopDetailPage(ae.StopVisit);
+                }
+                else if (ae.ShowTrack)
+                {
+                    page = new StopDetailPage(ae.StopVisit);
                 }
 
-                    ((ListView)sender).SelectedItem = null;
+                Navigation.PushAsync(page);
+
+                ((ListView)sender).SelectedItem = null;
 
             }
         }

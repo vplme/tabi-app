@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
 using MvvmHelpers;
 using Tabi.Core;
 using Tabi.DataObjects;
@@ -18,6 +19,11 @@ namespace Tabi.ViewModels
         IStopVisitRepository stopVisitRepository = App.RepoManager.StopVisitRepository;
         IStopRepository stopRepository = App.RepoManager.StopRepository;
         ITrackEntryRepository trackEntryRepository = App.RepoManager.TrackEntryRepository;
+
+
+        public ICommand SettingsCommand { protected set; get; }
+
+        public ICommand DaySelectorCommand { protected set; get; }
 
 
         private string title;

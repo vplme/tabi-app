@@ -322,5 +322,11 @@ namespace Tabi.Shared.Resx {
                 return ResourceManager.GetString("DataUploadSuccesful", resourceCulture);
             }
         }
+        
+        public static string DaySelectorButton {
+            get {
+                return ResourceManager.GetString("DaySelectorButton", resourceCulture);
+            }
+        }
     }
 }
