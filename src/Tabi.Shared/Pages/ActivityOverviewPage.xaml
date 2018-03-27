@@ -9,8 +9,8 @@
         <ToolbarItem Command="{Binding SettingsCommand}}">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
-                    <OnPlatform.iOS>ic_refresh</OnPlatform.iOS>
-                    <OnPlatform.Android>ic_refresh_white_24dp</OnPlatform.Android>
+                    <OnPlatform.iOS>ic_settings</OnPlatform.iOS>
+                    <OnPlatform.Android>ic_settings_white_24dp</OnPlatform.Android>
                 </OnPlatform>
             </ToolbarItem.Icon>
         </ToolbarItem>
@@ -18,7 +18,7 @@
     <ContentPage.Content>
         <StackLayout>
             <DatePicker Date="{Binding SelectedDate}" Format="D" />
-            <ListView x:Name="ListViewOverview" HasUnevenRows="true" SeparatorVisibility="None" ItemsSource="{Binding ActivityEntries}" ItemSelected="ItemSelected">
+            <ListView x:Name="ListViewOverview" HasUnevenRows="true" SeparatorVisibility="None" ItemsSource="{Binding ActivityEntries}" IsPullToRefreshEnabled="true" IsRefreshing="{Binding ListIsRefreshing}" RefreshCommand="{Binding RefreshCommand}" ItemSelected="ItemSelected">
                 <ListView.Effects>
                     <local:NoDividerListViewEffect />
                 </ListView.Effects>

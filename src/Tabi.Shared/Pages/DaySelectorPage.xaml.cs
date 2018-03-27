@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace Tabi.Pages
 {
-    public partial class TrackDetailPage : ContentPage
+    public partial class DaySelectorPage : ContentPage
     {
-        public TrackDetailPage()
+        public DaySelectorPage()
         {
             InitializeComponent();
         }

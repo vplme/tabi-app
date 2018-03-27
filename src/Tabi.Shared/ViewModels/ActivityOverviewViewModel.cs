@@ -6,6 +6,7 @@ using MvvmHelpers;
 using Tabi.Core;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
+using Tabi.Pages;
 using Xamarin.Forms;
 
 namespace Tabi.ViewModels
@@ -20,11 +21,24 @@ namespace Tabi.ViewModels
         IStopRepository stopRepository = App.RepoManager.StopRepository;
         ITrackEntryRepository trackEntryRepository = App.RepoManager.TrackEntryRepository;
 
+        private bool listIsRefreshing;
+        public bool ListIsRefreshing
+        {
+            get
+            {
+                return listIsRefreshing;
+            }
+            set
+            {
+                SetProperty(ref listIsRefreshing, value);
+            }
+        }
 
         public ICommand SettingsCommand { protected set; get; }
 
         public ICommand DaySelectorCommand { protected set; get; }
 
+        public ICommand RefreshCommand { protected set; get; }
 
         private string title;
         public string Title
@@ -42,13 +56,24 @@ namespace Tabi.ViewModels
         public ActivityOverviewViewModel(INavigation navigationPage)
         {
             this.navigationPage = navigationPage;
-            App.DateService.PropertyChanged += (sender, e) =>
+
+            SettingsCommand = new Command(async () =>
             {
-                if (e.PropertyName == "SelectedDate")
-                {
-                    UpdateStopVisits();
-                }
-            };
+                await navigationPage.PushAsync(new SettingsPage());
+            });
+
+            DaySelectorCommand = new Command(async () =>
+            {
+                await navigationPage.PushAsync(new DaySelectorPage());
+            });
+
+            RefreshCommand = new Command(() =>
+            {
+                UpdateStopVisits();
+                ListIsRefreshing = false;
+
+            });
+
         }
 
         private DateTime selectedDate = App.DateService.SelectedDate.Date;

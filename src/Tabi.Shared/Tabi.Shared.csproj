@@ -38,7 +38,7 @@
     <Compile Remove="**\*.xaml.cs" />
 
     <EmbeddedResource Include="**\*.xaml" SubType="Designer" Generator="MSBuild:UpdateDesignTimeXaml" />
-    <Compile Include="**\*.xaml.cs" DependentUpon="%(Filename)" />
+    <Compile Include="**\*.xaml.cs" DependentUpon="%(Filename)" Exclude="Pages\TrackDetailPage.xaml.cs" />
 
     <EmbeddedResource Update="Resx\AppResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -137,11 +137,9 @@
     <EmbeddedResource Include="Resources\html\credits.html">
       <LogicalName>Tabi.Resources.credits.html</LogicalName>
     </EmbeddedResource>
-    <Compile Remove="Pages\TrackDetailPage.xaml.cs" />
-    <Compile Remove="Pages\TrackDetailPage.xaml.cs" />
-    <Compile Remove="Pages\TrackDetailPage.xaml.cs" />
-    <Compile Remove="Pages\TrackDetailPage.xaml.cs" />
-    <Compile Remove="Pages\TrackDetailPage.xaml.cs" />
+    <Compile Include="Pages\TrackDetailPage.xaml.cs">
+      <DependentUpon>TrackDetailPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resx\" />
