@@ -50,19 +50,38 @@ namespace Tabi.iOS.Helpers
 
             if (!wifiOnly || connectionTypes.Contains(wifi))
             {
+                Console.WriteLine("login");
                 await Login();
+                Console.WriteLine("upload positions");
                 await UploadPositions();
+                Console.WriteLine("upload logs");
                 await UploadLogs();
+                Console.WriteLine("upload battery info");
                 await UploadBatteryInfo();
+                Console.WriteLine("upload stop visits");
                 await UploadStopVisits();
 
-                //sensordata
+                // tracks && sensordata
+                // select only tracks & sensordata from tracks which are complete
+                // track is 
+                // get all tracks where enddate not minvalue
+                // order by begintime
+                // remove all sensordata before endtime
+                List<TrackEntry> tracksToBeRemoved = App.RepoManager.TrackEntryRepository.GetAll().Where(x => x.NextStopId != 0).OrderBy(x => x.StartTime).ToList();
+                DateTimeOffset removeDataBeforeTimestamp = tracksToBeRemoved.Last().EndTime;
+
+
+                Console.WriteLine("upload tracks");
                 var success = await UploadTracks();
                 if (success)
                 {
-                    DateTimeOffset timestamp = DateTimeOffset.Now;
+                    // remove old tracks
+                    var removeoldTracksSuccess = RemoveOldTracks(tracksToBeRemoved);
 
-                    var uploadSuccess = await Task.WhenAll(
+                    Console.WriteLine("upload sensordata");
+
+                    // UPLOADSUCCESS IS BOOL ARRAY IN ORDER OF TASKS
+                    bool[] uploadSuccess = await Task.WhenAll(
                         UploadSensorMeasurementSessions(),
                         UploadAccelerometerData(),
                         UploadGyroscopeData(),
@@ -73,14 +92,8 @@ namespace Tabi.iOS.Helpers
                         UploadQuaternionData()
                         );
 
-                    Console.WriteLine("UploadSuccess: ");
-                    foreach (var item in uploadSuccess)
-                    {
-                        Console.WriteLine(item);
-                    }
 
-
-                    var removeOldDataSuccess = await RemoveOldSensorData(timestamp, uploadSuccess);
+                    var removeOldDataSuccess = await RemoveOldSensorData(removeDataBeforeTimestamp, uploadSuccess);
                     Console.WriteLine("RemoveSuccess:");
                     foreach (var item in removeOldDataSuccess)
                     {
@@ -112,9 +125,25 @@ namespace Tabi.iOS.Helpers
                 }
             }
         }
+        private bool RemoveOldTracks(List<TrackEntry> tracks)
+        {
+            try
+            {
+                App.RepoManager.TrackEntryRepository.RemoveRange(tracks);
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                Log.Error(e.ToString());
+                return false;
+            }
+
+        }
 
         private Task<bool[]> RemoveOldSensorData(DateTimeOffset timestamp, bool[] uploadSuccess)
         {
+            // creating list of items where uploads are succeeded to be removed as a batch
             List<Task<bool>> toBeRemoved = new List<Task<bool>>();
             if (uploadSuccess[0]) {
                 toBeRemoved.Add(RemoveOldSensorMeasurementSessions(timestamp));

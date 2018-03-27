@@ -48,8 +48,6 @@ namespace Tabi.Droid.CollectionService
 
 
             //register sensors for listening
-            Task.Run(() =>
-            {
                 var sensorManager = (SensorManager)Application.Context.GetSystemService(Context.SensorService);
 
                 Sensor accelerometer = sensorManager.GetDefaultSensor(SensorType.Accelerometer);
@@ -60,61 +58,58 @@ namespace Tabi.Droid.CollectionService
 
                 Sensor magnetometer = sensorManager.GetDefaultSensor(SensorType.MagneticField);
                 sensorManager.RegisterListener(this, magnetometer, SensorDelay.Normal);
-            });
 
             return StartCommandResult.Sticky;
         }
 
         public void OnAccuracyChanged(Sensor sensor, [GeneratedEnum] SensorStatus accuracy)
         {
-            
         }
 
         public void OnSensorChanged(SensorEvent e)
         {
-            //start gathering data and push to SqliteDB
-            switch (e.Sensor.Type)
-            {
-                case SensorType.Accelerometer:
-                    Task.Run(() =>
-                    {
-                        _accelerometerRepository.Add(new Accelerometer()
+                //start gathering data and push to SqliteDB
+                switch (e.Sensor.Type)
+                {
+                    case SensorType.Accelerometer:
+                        Task.Run(() =>
                         {
-                            Timestamp = DateTimeOffset.Now,
-                            X = e.Values[0],
-                            Y = e.Values[1],
-                            Z = e.Values[2],
+                            _accelerometerRepository.Add(new Accelerometer()
+                            {
+                                Timestamp = DateTimeOffset.Now,
+                                X = e.Values[0],
+                                Y = e.Values[1],
+                                Z = e.Values[2],
+                            });
                         });
-                    });
-                    break;
-
-                case SensorType.Gyroscope:
-                    Task.Run(() =>
-                    {
-                        _gyroscopeRepository.Add(new Gyroscope()
+                        break;
+                    case SensorType.Gyroscope:
+                        Task.Run(() =>
                         {
-                            Timestamp = DateTimeOffset.Now,
-                            X = e.Values[0],
-                            Y = e.Values[1],
-                            Z = e.Values[2],
+                            _gyroscopeRepository.Add(new Gyroscope()
+                            {
+                                Timestamp = DateTimeOffset.Now,
+                                X = e.Values[0],
+                                Y = e.Values[1],
+                                Z = e.Values[2],
+                            });
                         });
-                    });
-                    break;
-                case SensorType.MagneticField:
-                    Task.Run(() =>
-                    {
-                        _magnetometerRepository.Add(new Magnetometer()
+                        break;
+                    case SensorType.MagneticField:
+                        Task.Run(() =>
                         {
-                            Timestamp = DateTimeOffset.Now,
-                            X = e.Values[0],
-                            Y = e.Values[1],
-                            Z = e.Values[2],
+                            _magnetometerRepository.Add(new Magnetometer()
+                            {
+                                Timestamp = DateTimeOffset.Now,
+                                X = e.Values[0],
+                                Y = e.Values[1],
+                                Z = e.Values[2],
+                            });
                         });
-                    });
-                    break;
-                default:
-                    break;
-            }
+                        break;
+                    default:
+                        break;
+                }
         }
     }
 }

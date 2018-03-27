@@ -55,7 +55,7 @@ namespace Tabi.Droid.CollectionService
         public override StartCommandResult OnStartCommand(Intent intent, [GeneratedEnum] StartCommandFlags flags, int startId)
         {
             // service for resolve data per 5 minutes
-            Timer timer = new Timer(TimeSpan.FromMinutes(1).TotalMilliseconds);
+            Timer timer = new Timer(TimeSpan.FromMinutes(30).TotalMilliseconds);
             timer.AutoReset = true;
             timer.Elapsed += TimerElapsed;
             timer.Start();
@@ -65,10 +65,18 @@ namespace Tabi.Droid.CollectionService
 
         private void TimerElapsed(object sender, ElapsedEventArgs e)
         {
-            //var myTrack = new TrackEntry() { StartTime = DateTimeOffset.Now.AddDays(-1), EndTime = DateTimeOffset.Now.AddDays(1) };
+            //begin test code
+            //Console.WriteLine("create test track");
+            //var myTrack = new TrackEntry() {
+            //    StartTime = DateTimeOffset.Now.AddHours(-1),
+            //    EndTime = DateTimeOffset.Now.AddHours(3)
+            //};
+
             //_trackEntryRepository.Add(myTrack);
             //var testTrack = _trackEntryRepository.GetAll().Last();
-            
+
+
+            //Console.WriteLine("start updating!: " + DateTime.Now);
             //bool accelerometerUpdated = _accelerometerRepository.UpdateTrackKey(testTrack, "Accelerometer");
             //bool gyroscopeUpdated = _gyroscopeRepository.UpdateTrackKey(testTrack, "Gyroscope");
             //bool magnetometerUpdated = _magnetometerRepository.UpdateTrackKey(testTrack, "Magnetometer");
@@ -77,7 +85,10 @@ namespace Tabi.Droid.CollectionService
             //bool orientationUpdated = _orientationRepository.UpdateTrackKey(testTrack, "Orientation");
             //bool quaternionUpdated = _quaternionRepository.UpdateTrackKey(testTrack, "Quaternion");
             //bool sensorMeasurementSessionUpdated = _sensorMeasurementSessionRepository.UpdateTrackKey(testTrack);
+            //Console.WriteLine("finished updating: " + DateTime.Now);
 
+            //end test code
+           
             Task.Run(() =>
             {
                 //resolve the data
@@ -85,7 +96,7 @@ namespace Tabi.Droid.CollectionService
                 dataResolver.ResolveData(DateTimeOffset.MinValue, DateTimeOffset.Now);
 
                 //get all information we need
-                List<TrackEntry> trackEntries = _trackEntryRepository.GetAll().ToList();
+                List<TrackEntry> trackEntries = _trackEntryRepository.GetAll().OrderBy(x => x.StartTime).ToList();
 
                 Console.WriteLine("Trackentries: " + trackEntries.Count);
 
