@@ -190,7 +190,7 @@ namespace TabiApiClient
             HttpResponseMessage response = await client.PostAsync(path, httpContent);
             return response.IsSuccessStatusCode;
         }
-        public async Task<bool> PostTrackEntries(string deviceId, List<TrackEntry> trackEntries)
+        public async Task<bool> PostTrackEntries(string deviceId, List<TabiApiClient.Models.TrackEntry> trackEntries)
         {
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track");
             try

@@ -63,37 +63,32 @@ namespace Tabi.iOS.Helpers
 
                 // tracks && sensordata
                 // select only tracks & sensordata from tracks which are complete
-                // track is 
-                // get all tracks where enddate not minvalue
-                // order by begintime
-                // remove all sensordata before endtime
-                List<TrackEntry> tracksToBeRemoved = App.RepoManager.TrackEntryRepository.GetAll().Where(x => x.NextStopId != 0).OrderBy(x => x.StartTime).ToList();
-                DateTimeOffset removeDataBeforeTimestamp = tracksToBeRemoved.Last().EndTime;
+                TrackEntry lastTrack = App.RepoManager.TrackEntryRepository.LastCompletedTrackEntry();
 
 
                 Console.WriteLine("upload tracks");
-                var success = await UploadTracks();
+                var success = await UploadTracks(lastTrack.EndTime);
                 if (success)
                 {
                     // remove old tracks
-                    var removeoldTracksSuccess = RemoveOldTracks(tracksToBeRemoved);
+                    var removeoldTracksSuccess = RemoveOldTracks(lastTrack.EndTime);
 
                     Console.WriteLine("upload sensordata");
 
                     // UPLOADSUCCESS IS BOOL ARRAY IN ORDER OF TASKS
                     bool[] uploadSuccess = await Task.WhenAll(
-                        UploadSensorMeasurementSessions(),
-                        UploadAccelerometerData(),
-                        UploadGyroscopeData(),
-                        UploadMagnetometerData(),
-                        UploadLinearAccelerationData(),
-                        UploadGravityData(),
-                        UploadOrientationData(),
-                        UploadQuaternionData()
+                        UploadSensorMeasurementSessions(lastTrack.EndTime),
+                        UploadAccelerometerData(lastTrack.EndTime),
+                        UploadGyroscopeData(lastTrack.EndTime),
+                        UploadMagnetometerData(lastTrack.EndTime),
+                        UploadLinearAccelerationData(lastTrack.EndTime),
+                        UploadGravityData(lastTrack.EndTime),
+                        UploadOrientationData(lastTrack.EndTime),
+                        UploadQuaternionData(lastTrack.EndTime)
                         );
 
 
-                    var removeOldDataSuccess = await RemoveOldSensorData(removeDataBeforeTimestamp, uploadSuccess);
+                    var removeOldDataSuccess = await RemoveOldSensorData(lastTrack.EndTime, uploadSuccess);
                     Console.WriteLine("RemoveSuccess:");
                     foreach (var item in removeOldDataSuccess)
                     {
@@ -125,11 +120,23 @@ namespace Tabi.iOS.Helpers
                 }
             }
         }
-        private bool RemoveOldTracks(List<TrackEntry> tracks)
+        private bool RemoveOldTracks(DateTimeOffset endTime)
         {
             try
             {
-                App.RepoManager.TrackEntryRepository.RemoveRange(tracks);
+                List<TrackEntry> tracksWithChildren = new List<TrackEntry>();
+                // get tracks before range
+                List<TrackEntry> tracks = App.RepoManager.TrackEntryRepository.GetRangeByEndTime(DateTimeOffset.MinValue, endTime).ToList();
+                foreach (var track in tracks)
+                {
+                    tracksWithChildren.Add(App.RepoManager.TrackEntryRepository.GetWithChildren(track.Id));
+                }
+
+                foreach (var trackWithChildren in tracksWithChildren)
+                {
+                    App.RepoManager.TrackEntryRepository.Remove(trackWithChildren);
+                }
+
                 return true;
             }
             catch (Exception e)
@@ -347,11 +354,11 @@ namespace Tabi.iOS.Helpers
             return true;
         }
 
-        public async Task<bool> UploadAccelerometerData()
+        public async Task<bool> UploadAccelerometerData(DateTimeOffset endTime)
         {
             try
             {
-                List<Accelerometer> accelerometerData = App.RepoManager.AccelerometerRepository.GetAll().ToList();
+                List<Accelerometer> accelerometerData = App.RepoManager.AccelerometerRepository.GetRange(DateTimeOffset.MinValue, endTime).ToList();
 
                 bool success = await ApiClient.PostAccelerometerData(Settings.Current.Device, accelerometerData);
 
@@ -370,12 +377,12 @@ namespace Tabi.iOS.Helpers
             }
         }
 
-        public async Task<bool> UploadGyroscopeData()
+        public async Task<bool> UploadGyroscopeData(DateTimeOffset endTime)
         {
             try
             {
                 //get gyroscopedata
-                List<Gyroscope> gyroscopeData = App.RepoManager.GyroscopeRepository.GetAll().ToList();
+                List<Gyroscope> gyroscopeData = App.RepoManager.GyroscopeRepository.GetRange(DateTimeOffset.MinValue, endTime).ToList();
 
                 bool success = await ApiClient.PostGyroscopeData(Settings.Current.Device, gyroscopeData);
 
@@ -394,12 +401,12 @@ namespace Tabi.iOS.Helpers
             }
         }
 
-        public async Task<bool> UploadMagnetometerData()
+        public async Task<bool> UploadMagnetometerData(DateTimeOffset endTime)
         {
             try
             {
                 //get magnetometerdata
-                List<Magnetometer> magnetometerData = App.RepoManager.MagnetometerRepository.GetAll().ToList();
+                List<Magnetometer> magnetometerData = App.RepoManager.MagnetometerRepository.GetRange(DateTimeOffset.MinValue, endTime).ToList();
 
                 bool success = await ApiClient.PostMagnetometerData(Settings.Current.Device, magnetometerData);
 
@@ -417,11 +424,11 @@ namespace Tabi.iOS.Helpers
                 return false;
             }
         }
-        private async Task<bool> UploadQuaternionData()
+        private async Task<bool> UploadQuaternionData(DateTimeOffset endTime)
         {
             try
             {
-                List<Quaternion> quaternionData = App.RepoManager.QuaternionRepository.GetAll().ToList();
+                List<Quaternion> quaternionData = App.RepoManager.QuaternionRepository.GetRange(DateTimeOffset.MinValue, endTime).ToList();
 
                 bool success = await ApiClient.PostQuaternionData(Settings.Current.Device, quaternionData);
 
@@ -440,11 +447,11 @@ namespace Tabi.iOS.Helpers
             }
         }
 
-        private async Task<bool> UploadOrientationData()
+        private async Task<bool> UploadOrientationData(DateTimeOffset endTime)
         {
             try
             {
-                List<Orientation> orientationData = App.RepoManager.OrientationRepository.GetAll().ToList();
+                List<Orientation> orientationData = App.RepoManager.OrientationRepository.GetRange(DateTimeOffset.MinValue, endTime).ToList();
 
                 bool success = await ApiClient.PostOrientationData(Settings.Current.Device, orientationData);
 
@@ -463,11 +470,11 @@ namespace Tabi.iOS.Helpers
             }
         }
 
-        private async Task<bool> UploadGravityData()
+        private async Task<bool> UploadGravityData(DateTimeOffset endTime)
         {
             try
             {
-                List<Gravity> gravityData = App.RepoManager.GravityRepository.GetAll().ToList();
+                List<Gravity> gravityData = App.RepoManager.GravityRepository.GetRange(DateTimeOffset.MinValue, endTime).ToList();
 
                 bool success = await ApiClient.PostGravityData(Settings.Current.Device, gravityData);
 
@@ -486,11 +493,11 @@ namespace Tabi.iOS.Helpers
             }
         }
 
-        private async Task<bool> UploadLinearAccelerationData()
+        private async Task<bool> UploadLinearAccelerationData(DateTimeOffset endTime)
         {
             try
             {
-                List<LinearAcceleration> linearAccelerationData = App.RepoManager.LinearAccelerationRepository.GetAll().ToList();
+                List<LinearAcceleration> linearAccelerationData = App.RepoManager.LinearAccelerationRepository.GetRange(DateTimeOffset.MinValue, endTime).ToList();
 
                 bool success = await ApiClient.PostLinearAccelerationData(Settings.Current.Device, linearAccelerationData);
 
@@ -509,12 +516,12 @@ namespace Tabi.iOS.Helpers
             }
         }
 
-        public async Task<bool> UploadSensorMeasurementSessions()
+        public async Task<bool> UploadSensorMeasurementSessions(DateTimeOffset endTime)
         {
             try
             {
                 //get sensormeasurementsessiondata
-                List<SensorMeasurementSession> sensorMeasurementSessions = App.RepoManager.SensorMeasurementSessionRepository.GetAll().ToList();
+                List<SensorMeasurementSession> sensorMeasurementSessions = App.RepoManager.SensorMeasurementSessionRepository.GetRange(DateTimeOffset.MinValue, endTime).ToList();
 
                 bool success = await ApiClient.PostSensorMeasurementSessions(Settings.Current.Device, sensorMeasurementSessions);
 
@@ -533,12 +540,39 @@ namespace Tabi.iOS.Helpers
             }
         }
 
-        public async Task<bool> UploadTracks()
+        public async Task<bool> UploadTracks(DateTimeOffset endTime)
         {
             try
             {
-                List<TrackEntry> trackEntries = App.RepoManager.TrackEntryRepository.GetAll().ToList();
-                bool success = await ApiClient.PostTrackEntries(Settings.Current.Device, trackEntries);
+                List<TrackEntry> trackEntriesWithChildren = new List<TrackEntry>();
+                List<TrackEntry> trackEntries = App.RepoManager.TrackEntryRepository.GetRangeByEndTime(DateTimeOffset.MinValue, endTime).ToList();
+                //get the models with children
+                foreach (var track in trackEntries)
+                { 
+                    trackEntriesWithChildren.Add(App.RepoManager.TrackEntryRepository.GetWithChildren(track.Id));
+                }
+
+                
+                // convert to trackDTO
+                List<TabiApiClient.Models.TrackEntry> trackDTO = new List<TabiApiClient.Models.TrackEntry>();
+                foreach (var trackEntryWithChildren in trackEntriesWithChildren)
+                {
+                    List<TabiApiClient.Models.TransportationMode> transportationModes = new List<TabiApiClient.Models.TransportationMode>();
+                    foreach (var transportationMode in trackEntryWithChildren.TransportationModes)
+                    {
+                        transportationModes.Add(new TabiApiClient.Models.TransportationMode() {Id = (int)transportationMode.Mode,Mode = transportationMode.Mode.ToString() });
+                    }
+
+                    trackDTO.Add(new TabiApiClient.Models.TrackEntry()
+                    {
+                        Id = trackEntryWithChildren.Id,
+                        StartTime = trackEntryWithChildren.StartTime,
+                        EndTime = trackEntryWithChildren.EndTime,
+                        TransportationModes = transportationModes
+                    });
+                }
+
+                bool success = await ApiClient.PostTrackEntries(Settings.Current.Device, trackDTO);
 
                 if (!success)
                 {
