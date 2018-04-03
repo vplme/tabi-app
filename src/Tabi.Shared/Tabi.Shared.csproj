@@ -38,7 +38,7 @@
     <Compile Remove="**\*.xaml.cs" />
 
     <EmbeddedResource Include="**\*.xaml" SubType="Designer" Generator="MSBuild:UpdateDesignTimeXaml" />
-    <Compile Include="**\*.xaml.cs" DependentUpon="%(Filename)" Exclude="Pages\TrackDetailPage.xaml.cs" />
+    <Compile Include="**\*.xaml.cs" DependentUpon="%(Filename)" Exclude="Pages\TrackDetailPage.xaml.cs;Pages\TransportSelectionPage.xaml.cs" />
 
     <EmbeddedResource Update="Resx\AppResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -140,6 +140,7 @@
     <Compile Include="Pages\TrackDetailPage.xaml.cs">
       <DependentUpon>TrackDetailPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\TransportSelectionPage.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resx\" />
@@ -149,6 +150,7 @@
     <Folder Include="IntroViews\" />
     <Folder Include="Resources\" />
     <Folder Include="Resources\html\" />
+    <Folder Include="Controls\MultiSelectListView\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tabi.DataStorage\Tabi.DataStorage.csproj" />

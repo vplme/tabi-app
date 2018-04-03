@@ -271,4 +271,61 @@
   <data name="DaySelectorButton" xml:space="preserve">
     <value>Days</value>
   </data>
+  <data name="TrackDetailPageTitle" xml:space="preserve">
+    <value>Trip</value>
+  </data>
+  <data name="InformationSectionLabel" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="TripDataSectionLabel" xml:space="preserve">
+    <value>Trip data</value>
+  </data>
+  <data name="TransportModeLabel" xml:space="preserve">
+    <value>Transport modes</value>
+  </data>
+  <data name="SelectTransportModeButton" xml:space="preserve">
+    <value>Select transport modes</value>
+  </data>
+  <data name="TransportModeSelectionExplanation" xml:space="preserve">
+    <value>Please click the button above to fill in the transport mode(s) used during the trip currently on display. You can select multiple transport modes. </value>
+  </data>
+  <data name="BikeLabel" xml:space="preserve">
+    <value>Bike</value>
+  </data>
+  <data name="BusLabel" xml:space="preserve">
+    <value>Car</value>
+  </data>
+  <data name="CarLabel" xml:space="preserve">
+    <value>Bus</value>
+  </data>
+  <data name="MobilityScooterLabel" xml:space="preserve">
+    <value>Mobility Scooter</value>
+  </data>
+  <data name="RunLabel" xml:space="preserve">
+    <value>Run</value>
+  </data>    
+  <data name="TramLabel" xml:space="preserve">
+    <value>Tram</value>
+  </data>
+  <data name="WalkLabel" xml:space="preserve">
+    <value>Walk</value>
+  </data>
+  <data name="MopedLabel" xml:space="preserve">
+    <value>Moped</value>
+  </data>
+  <data name="MotorcycleLabel" xml:space="preserve">
+    <value>Motorcycle</value>
+  </data>
+  <data name="OtherLabel" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="ScooterLabel" xml:space="preserve">
+    <value>Scooter</value>
+  </data>
+  <data name="SubwayLabel" xml:space="preserve">
+    <value>Subway</value>
+  </data>
+  <data name="TrainLabel" xml:space="preserve">
+    <value>Train</value>
+  </data>
 </root>

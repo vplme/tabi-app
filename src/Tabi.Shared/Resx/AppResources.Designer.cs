@@ -328,5 +328,119 @@ namespace Tabi.Shared.Resx {
                 return ResourceManager.GetString("DaySelectorButton", resourceCulture);
             }
         }
+        
+        public static string TrackDetailPageTitle {
+            get {
+                return ResourceManager.GetString("TrackDetailPageTitle", resourceCulture);
+            }
+        }
+        
+        public static string InformationSectionLabel {
+            get {
+                return ResourceManager.GetString("InformationSectionLabel", resourceCulture);
+            }
+        }
+        
+        public static string TripDataSectionLabel {
+            get {
+                return ResourceManager.GetString("TripDataSectionLabel", resourceCulture);
+            }
+        }
+        
+        public static string TransportModeLabel {
+            get {
+                return ResourceManager.GetString("TransportModeLabel", resourceCulture);
+            }
+        }
+        
+        public static string SelectTransportModeButton {
+            get {
+                return ResourceManager.GetString("SelectTransportModeButton", resourceCulture);
+            }
+        }
+        
+        public static string TransportModeSelectionExplanation {
+            get {
+                return ResourceManager.GetString("TransportModeSelectionExplanation", resourceCulture);
+            }
+        }
+        
+        public static string BikeLabel {
+            get {
+                return ResourceManager.GetString("BikeLabel", resourceCulture);
+            }
+        }
+        
+        public static string BusLabel {
+            get {
+                return ResourceManager.GetString("BusLabel", resourceCulture);
+            }
+        }
+        
+        public static string CarLabel {
+            get {
+                return ResourceManager.GetString("CarLabel", resourceCulture);
+            }
+        }
+        
+        public static string MobilityScooterLabel {
+            get {
+                return ResourceManager.GetString("MobilityScooterLabel", resourceCulture);
+            }
+        }
+        
+        public static string RunLabel {
+            get {
+                return ResourceManager.GetString("RunLabel", resourceCulture);
+            }
+        }
+        
+        public static string TramLabel {
+            get {
+                return ResourceManager.GetString("TramLabel", resourceCulture);
+            }
+        }
+        
+        public static string WalkLabel {
+            get {
+                return ResourceManager.GetString("WalkLabel", resourceCulture);
+            }
+        }
+        
+        public static string MopedLabel {
+            get {
+                return ResourceManager.GetString("MopedLabel", resourceCulture);
+            }
+        }
+        
+        public static string MotorcycleLabel {
+            get {
+                return ResourceManager.GetString("MotorcycleLabel", resourceCulture);
+            }
+        }
+        
+        public static string OtherLabel {
+            get {
+                return ResourceManager.GetString("OtherLabel", resourceCulture);
+            }
+        }
+        
+        public static string ScooterLabel {
+            get {
+                return ResourceManager.GetString("ScooterLabel", resourceCulture);
+            }
+        }
+        
+        public static string SubwayLabel {
+            get {
+                return ResourceManager.GetString("SubwayLabel", resourceCulture);
+            }
+        }
+        
+        public static string TrainLabel {
+            get {
+                return ResourceManager.GetString("TrainLabel", resourceCulture);
+            }
+        }
     }
 }
