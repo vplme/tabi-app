@@ -33,10 +33,5 @@ namespace Tabi.DataStorage.SqliteNet
 
             return visit;
         }
-
-        public void Update(StopVisit sv)
-        {
-            connection.Update(sv);
-        }
     }
 }
