@@ -34,6 +34,20 @@ namespace Tabi.ViewModels
             }
         }
 
+        private bool noDataInOverviewVisible;
+
+        public bool NoDataInOverviewVisible
+        {
+            get
+            {
+                return noDataInOverviewVisible;
+            }
+            set
+            {
+                SetProperty(ref noDataInOverviewVisible, value);
+            }
+        }
+
         public ICommand SettingsCommand { protected set; get; }
 
         public ICommand DaySelectorCommand { protected set; get; }
@@ -147,6 +161,9 @@ namespace Tabi.ViewModels
             {
                 ActivityEntries.Add(e);
             }
+
+            NoDataInOverviewVisible = (ActivityEntries.Count == 0);
+
         }
 
     }

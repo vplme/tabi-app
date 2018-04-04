@@ -9,7 +9,6 @@
                     <ViewCell>
                         <StackLayout Padding="10">
                             <Label Text="{Binding CurrentDate}" FontAttributes="Bold" />
-                            <Label Text="Tracking day text here" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

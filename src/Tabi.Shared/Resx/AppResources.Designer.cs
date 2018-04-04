@@ -442,5 +442,11 @@ namespace Tabi.Shared.Resx {
                 return ResourceManager.GetString("TrainLabel", resourceCulture);
             }
         }
+        
+        public static string NoDataInOverview {
+            get {
+                return ResourceManager.GetString("NoDataInOverview", resourceCulture);
+            }
+        }
     }
 }

@@ -328,4 +328,9 @@
   <data name="TrainLabel" xml:space="preserve">
     <value>Train</value>
   </data>
+  <data name="NoDataInOverview" xml:space="preserve">
+    <value>There is no data available to show you. If this is today; wait a few minutes and pull to refresh the page.</value>
+  </data>
+
+    
 </root>

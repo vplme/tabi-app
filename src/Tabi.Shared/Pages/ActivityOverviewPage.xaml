@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Tabi;assembly=Tabi.Shared" xmlns:i18n="clr-namespace:Tabi.Shared.Localization;assembly=Tabi.Shared" x:Class="Tabi.ActivityOverviewPage" Title="{Binding Title}">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:local="clr-namespace:Tabi;assembly=Tabi.Shared" xmlns:i18n="clr-namespace:Tabi.Shared.Localization;assembly=Tabi.Shared"
+     x:Class="Tabi.ActivityOverviewPage" Title="{Binding Title}">
     <ContentPage.ToolbarItems>
         <ToolbarItem Command="{Binding DaySelectorCommand}" Text="{i18n:Translate DaySelectorButton}">
             <ToolbarItem.Effects>
@@ -17,8 +19,9 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <DatePicker Date="{Binding SelectedDate}" Format="D" />
-            <ListView x:Name="ListViewOverview" HasUnevenRows="true" SeparatorVisibility="None" ItemsSource="{Binding ActivityEntries}" IsPullToRefreshEnabled="true" IsRefreshing="{Binding ListIsRefreshing}" RefreshCommand="{Binding RefreshCommand}" ItemSelected="ItemSelected">
+            <Label IsVisible="{Binding NoDataInOverviewVisible}" HorizontalTextAlignment="Center" Margin="20, 15, 20, 0" Text="{i18n:Translate NoDataInOverview}" />
+            <ListView x:Name="ListViewOverview" HasUnevenRows="true" SeparatorVisibility="None" ItemsSource="{Binding ActivityEntries}"
+                 IsPullToRefreshEnabled="true" IsRefreshing="{Binding ListIsRefreshing}" RefreshCommand="{Binding RefreshCommand}" ItemSelected="ItemSelected">
                 <ListView.Effects>
                     <local:NoDividerListViewEffect />
                 </ListView.Effects>

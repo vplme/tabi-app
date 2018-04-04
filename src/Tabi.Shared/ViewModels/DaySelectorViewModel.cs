@@ -25,7 +25,6 @@ namespace Tabi.ViewModels
         {
             for (int i = 0; i < 5; i++)
             {
-                // TODO populate only available days.
                 Items.Add(new Day() { Time = DateTime.Now.AddDays(-1 * i)});
             }
         }
