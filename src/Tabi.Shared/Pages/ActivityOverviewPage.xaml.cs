@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using MvvmHelpers;
+using Tabi.Controls;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
 using Tabi.Logging;
@@ -41,10 +42,9 @@ namespace Tabi
         {
             base.OnAppearing();
 
-            if (lastLoad < DateTimeOffset.Now.AddMinutes(-10))
-            {
-                Update();
-            }
+
+            Update();
+
         }
 
         void Update()
