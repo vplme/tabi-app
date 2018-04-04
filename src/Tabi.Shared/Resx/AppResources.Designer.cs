@@ -448,5 +448,11 @@ namespace Tabi.Shared.Resx {
                 return ResourceManager.GetString("NoDataInOverview", resourceCulture);
             }
         }
+        
+        public static string DaySelectorPageTitle {
+            get {
+                return ResourceManager.GetString("DaySelectorPageTitle", resourceCulture);
+            }
+        }
     }
 }
