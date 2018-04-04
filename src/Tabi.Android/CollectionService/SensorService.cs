@@ -7,6 +7,7 @@ using Android.Hardware;
 using Tabi.DataStorage;
 using Tabi.DataObjects;
 using System.Threading.Tasks;
+using static Android.OS.PowerManager;
 
 namespace Tabi.Droid.CollectionService
 {
@@ -36,19 +37,25 @@ namespace Tabi.Droid.CollectionService
 
         public override StartCommandResult OnStartCommand(Intent intent, [GeneratedEnum] StartCommandFlags flags, int startId)
         {
-            //!!!possibly needed for android 8+
-            // maybe convert it into foreground service and uncomment code below
-            //Notification.Builder builder = new Notification.Builder(Application.Context, "com.tabi.sensor");
-            //builder.SetContentTitle("sensor");
-            //builder.SetContentText("you are being watched -.-");
-            //builder.SetAutoCancel(true);
+            if (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.O)
+            {
+                //!!!possibly needed for android 8+
+                // maybe convert it into foreground service and uncomment code below
+                Notification.Builder builder = new Notification.Builder(Application.Context, "com.tabi.sensor");
+                builder.SetContentTitle("sensor");
+                builder.SetContentText("sensor service");
+                builder.SetAutoCancel(true);
 
-            //Notification notification = builder.Build();
-            //StartForeground(1, notification);
+                Notification notification = builder.Build();
+                StartForeground(1, notification);
+            }
 
+            PowerManager sv = (Android.OS.PowerManager)GetSystemService(PowerService);
+            WakeLock wklock = sv.NewWakeLock(WakeLockFlags.Partial, "TABI_sensor_service");
+            wklock.Acquire();
 
             //register sensors for listening
-                var sensorManager = (SensorManager)Application.Context.GetSystemService(Context.SensorService);
+            var sensorManager = (SensorManager)Application.Context.GetSystemService(Context.SensorService);
 
                 Sensor accelerometer = sensorManager.GetDefaultSensor(SensorType.Accelerometer);
                 sensorManager.RegisterListener(this, accelerometer, SensorDelay.Normal);
@@ -64,6 +71,20 @@ namespace Tabi.Droid.CollectionService
 
         public void OnAccuracyChanged(Sensor sensor, [GeneratedEnum] SensorStatus accuracy)
         {
+            switch (sensor.Type)
+            {
+                case SensorType.Accelerometer:
+                    Console.WriteLine("Accelerometer accuracy: " + accuracy);
+                    break;
+                case SensorType.Gyroscope:
+                    Console.WriteLine("Gyroscope accuracy: " + accuracy);
+                    break;
+                case SensorType.MagneticField:
+                    Console.WriteLine("Magnetometer accuracy: " + accuracy);
+                    break;
+                default:
+                    break;
+            }
         }
 
         public void OnSensorChanged(SensorEvent e)

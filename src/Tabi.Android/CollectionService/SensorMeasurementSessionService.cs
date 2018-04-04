@@ -8,6 +8,7 @@ using Android.OS;
 using Android.Runtime;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
+using static Android.OS.PowerManager;
 
 namespace Tabi.Droid.CollectionService
 {
@@ -17,6 +18,7 @@ namespace Tabi.Droid.CollectionService
         private readonly ISensorMeasurementSessionRepository _sensorMeasurementSessionRepository;
         private SensorMeasurementSessionServiceBinder _binder;
         private SensorMeasurementSession _sensorMeasurementSession;
+        private Sensor proximity;
         
         public SensorMeasurementSessionService()
         {
@@ -26,7 +28,20 @@ namespace Tabi.Droid.CollectionService
 
         public void OnAccuracyChanged(Sensor sensor, [GeneratedEnum] SensorStatus accuracy)
         {
-            
+            switch (sensor.Type)
+            {
+                case SensorType.Orientation:
+                    Console.WriteLine("Orientation accuracy: " + accuracy);
+                    break;
+                case SensorType.Proximity:
+                    Console.WriteLine("Proximity accuracy: " + accuracy);
+                    break;
+                case SensorType.StepCounter:
+                    Console.WriteLine("Stepcounter accuracy: " + accuracy);
+                    break;
+                default:
+                    break;
+            }
         }
 
         public override IBinder OnBind(Intent intent)
@@ -37,6 +52,24 @@ namespace Tabi.Droid.CollectionService
 
         public override StartCommandResult OnStartCommand(Intent intent, [GeneratedEnum] StartCommandFlags flags, int startId)
         {
+            if (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.O)
+            {
+                //!!!possibly needed for android 8+
+                // maybe convert it into foreground service and uncomment code below
+                Notification.Builder builder = new Notification.Builder(Application.Context, "com.tabi.sensor");
+                builder.SetContentTitle("sensor");
+                builder.SetContentText("sensor measurement session service");
+                builder.SetAutoCancel(true);
+
+                Notification notification = builder.Build();
+                StartForeground(3, notification);
+            }
+
+            PowerManager sv = (Android.OS.PowerManager)GetSystemService(PowerService);
+            WakeLock wklock = sv.NewWakeLock(WakeLockFlags.Partial, "TABI_sensor_measurement_session");
+            wklock.Acquire();
+
+
             Task.Run(() =>
             {
                 //register sensors
@@ -55,7 +88,7 @@ namespace Tabi.Droid.CollectionService
                 Sensor pedometer = sensorManager.GetDefaultSensor(SensorType.StepCounter);
                 sensorManager.RegisterListener(this, pedometer, SensorDelay.Normal);
 
-                Sensor proximity = sensorManager.GetDefaultSensor(SensorType.Proximity);
+                proximity = sensorManager.GetDefaultSensor(SensorType.Proximity);
                 sensorManager.RegisterListener(this, proximity, SensorDelay.Normal);
 
 
@@ -128,7 +161,7 @@ namespace Tabi.Droid.CollectionService
                     _sensorMeasurementSession.Compass = Convert.ToInt32(e.Values[0]); //azimuth magnetic north in degrees
                     break;
                 case SensorType.Proximity:
-                    _sensorMeasurementSession.Proximity = e.Values[0] < 5;  //returns bit more than 5.. check if smaller than 5 -> true
+                    _sensorMeasurementSession.Proximity = e.Values[0] < proximity.MaximumRange;  
                     break;
                 case SensorType.StepCounter:
                     _sensorMeasurementSession.Pedometer = Convert.ToInt32(e.Values[0]); // steps taken since reboot, resets on reboot

@@ -99,7 +99,6 @@ namespace Tabi.iOS.Helpers
                 await ValidateCounts();
             }
         }
-
         
 
         public async Task UploadPositions()
@@ -124,6 +123,9 @@ namespace Tabi.iOS.Helpers
         {
             try
             {
+                Console.WriteLine("amount of tracks before upload: " + App.RepoManager.TrackEntryRepository.Count());
+
+
                 List<TrackEntry> tracksWithChildren = new List<TrackEntry>();
                 // get tracks before range
                 List<TrackEntry> tracks = App.RepoManager.TrackEntryRepository.GetRangeByEndTime(DateTimeOffset.MinValue, endTime).ToList();
@@ -137,6 +139,8 @@ namespace Tabi.iOS.Helpers
                     App.RepoManager.TrackEntryRepository.Remove(trackWithChildren);
                 }
 
+
+                Console.WriteLine("Amount of tracks after upload: " + App.RepoManager.TrackEntryRepository.Count());
                 return true;
             }
             catch (Exception e)
@@ -552,7 +556,6 @@ namespace Tabi.iOS.Helpers
                     trackEntriesWithChildren.Add(App.RepoManager.TrackEntryRepository.GetWithChildren(track.Id));
                 }
 
-                
                 // convert to trackDTO
                 List<TabiApiClient.Models.TrackEntry> trackDTO = new List<TabiApiClient.Models.TrackEntry>();
                 foreach (var trackEntryWithChildren in trackEntriesWithChildren)
@@ -579,6 +582,9 @@ namespace Tabi.iOS.Helpers
                     Log.Error($"Tried to send {trackEntries.Count} trackEntries but failed");
                     return false;
                 }
+
+
+                
 
                 return true;
             } catch (Exception e)

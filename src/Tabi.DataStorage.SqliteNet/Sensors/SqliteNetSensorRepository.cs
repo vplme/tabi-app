@@ -22,6 +22,7 @@ namespace Tabi.DataStorage.SqliteNet
             catch (Exception e)
             {
                 //log error?
+
                 Console.WriteLine();
                 return new List<MotionSensor>();
             }

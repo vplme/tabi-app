@@ -10,6 +10,7 @@ using Android.OS;
 using Android.Runtime;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
+using static Android.OS.PowerManager;
 
 namespace Tabi.Droid.CollectionService
 {
@@ -40,6 +41,24 @@ namespace Tabi.Droid.CollectionService
 
         public override StartCommandResult OnStartCommand(Intent intent, [GeneratedEnum] StartCommandFlags flags, int startId)
         {
+            if (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.O)
+            {
+                //!!!possibly needed for android 8+
+                // maybe convert it into foreground service and uncomment code below
+                Notification.Builder builder = new Notification.Builder(Application.Context, "com.tabi.sensor")
+                .SetContentTitle("sensor")
+                .SetContentText("sensor fusion service")
+                .SetSmallIcon(Resource.Drawable.notification_icon_background);
+                
+
+                Notification notification = builder.Build();
+                StartForeground(2, notification);
+            }
+
+            PowerManager sv = (Android.OS.PowerManager)GetSystemService(PowerService);
+            WakeLock wklock = sv.NewWakeLock(WakeLockFlags.Partial, "TABI_sensor_fusion_service");
+            wklock.Acquire();
+
             Task.Run(() =>
             {
                 var sensorManager = (SensorManager)Application.Context.GetSystemService(Context.SensorService);
@@ -66,6 +85,23 @@ namespace Tabi.Droid.CollectionService
 
         public void OnAccuracyChanged(Sensor sensor, [GeneratedEnum] SensorStatus accuracy)
         {
+            switch (sensor.Type)
+            {
+                case SensorType.LinearAcceleration:
+                    Console.WriteLine("Accelerometer accuracy: " + accuracy);
+                    break;
+                case SensorType.Gravity:
+                    Console.WriteLine("Gyroscope accuracy: " + accuracy);
+                    break;
+                case SensorType.Orientation:
+                    Console.WriteLine("Magnetometer accuracy: " + accuracy);
+                    break;
+                case SensorType.RotationVector:
+                    Console.WriteLine("Rotation Vector accuracy: " + accuracy);
+                    break;
+                default:
+                    break;
+            }
         }
 
         public void OnSensorChanged(SensorEvent e)

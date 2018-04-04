@@ -12,6 +12,7 @@ using Android.Runtime;
 using Tabi.Core;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
+using static Android.OS.PowerManager;
 
 namespace Tabi.Droid.CollectionService
 {
@@ -54,7 +55,24 @@ namespace Tabi.Droid.CollectionService
 
         public override StartCommandResult OnStartCommand(Intent intent, [GeneratedEnum] StartCommandFlags flags, int startId)
         {
-            // service for resolve data per 5 minutes
+            if (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.O)
+            {
+                //!!!possibly needed for android 8+
+                // maybe convert it into foreground service and uncomment code below
+                Notification.Builder builder = new Notification.Builder(Application.Context, "com.tabi.sensor");
+                builder.SetContentTitle("sensor");
+                builder.SetContentText("assign sensor to track service");
+                builder.SetAutoCancel(true);
+
+                Notification notification = builder.Build();
+                StartForeground(4, notification);
+            }
+
+            PowerManager sv = (Android.OS.PowerManager)GetSystemService(PowerService);
+            WakeLock wklock = sv.NewWakeLock(WakeLockFlags.Partial, "TABI_assign_sensor_to_track");
+            wklock.Acquire();
+
+            // service for resolve data per 30 minutes
             Timer timer = new Timer(TimeSpan.FromMinutes(1).TotalMilliseconds);
             timer.AutoReset = true;
             timer.Elapsed += TimerElapsed;
@@ -66,45 +84,45 @@ namespace Tabi.Droid.CollectionService
         private void TimerElapsed(object sender, ElapsedEventArgs e)
         {
             //begin test code
-            Console.WriteLine("create test track");
+            //Console.WriteLine("create test track");
 
-            //create transportationmode for test purposes
-            List<TransportationMode> transportationModes = new List<TransportationMode>()
-            {
-                new TransportationMode() {Mode = TransportationModes.Bike },
-                new TransportationMode() {Mode = TransportationModes.Car }
-            };
+            ////create transportationmode for test purposes
+            //List<TransportationMode> transportationModes = new List<TransportationMode>()
+            //{
+            //    new TransportationMode() {Mode = TransportationModes.Bike },
+            //    new TransportationMode() {Mode = TransportationModes.Car }
+            //};
 
-            //add transportationmodes to database
-            foreach (var transportationMode in transportationModes)
-            {
-                App.RepoManager.TransportationModeRepository.Add(transportationMode); 
-            }
+            ////add transportationmodes to database
+            //foreach (var transportationMode in transportationModes)
+            //{
+            //    App.RepoManager.TransportationModeRepository.Add(transportationMode); 
+            //}
             
-            //create track
-            var myTrack = new TrackEntry()
-            {
-                StartTime = DateTimeOffset.Now.AddHours(-1),
-                EndTime = DateTimeOffset.Now.AddHours(3),
-                NextStopId = 5
-            };
+            ////create track
+            //var myTrack = new TrackEntry()
+            //{
+            //    StartTime = DateTimeOffset.Now.AddHours(-1),
+            //    EndTime = DateTimeOffset.Now.AddHours(3),
+            //    NextStopId = 5
+            //};
 
-            //insert track in database
-            _trackEntryRepository.Add(myTrack);
+            ////insert track in database
+            //_trackEntryRepository.Add(myTrack);
 
-            //add transportationmodes to track
-            myTrack.TransportationModes = transportationModes;
+            ////add transportationmodes to track
+            //myTrack.TransportationModes = transportationModes;
 
-            //update track to databse
-            var updateSuccess = _trackEntryRepository.UpdateWithChildren(myTrack);
+            ////update track to databse
+            //var updateSuccess = _trackEntryRepository.UpdateWithChildren(myTrack);
 
             
-            //get track with the transportationmodes
-            var testTrack = _trackEntryRepository.GetWithChildren(myTrack.Id);
-            foreach (var transportationMode in testTrack.TransportationModes)
-            {
-                Console.WriteLine(transportationMode);
-            }
+            ////get track with the transportationmodes
+            //var testTrack = _trackEntryRepository.GetWithChildren(myTrack.Id);
+            //foreach (var transportationMode in testTrack.TransportationModes)
+            //{
+            //    Console.WriteLine(transportationMode);
+            //}
 
 
             //Console.WriteLine("start updating!: " + DateTime.Now);
@@ -149,14 +167,14 @@ namespace Tabi.Droid.CollectionService
                     Console.WriteLine("begin resolving" + DateTime.Now);
 
                     //resolve last recorded track
-                    //bool accelerometerUpdated = _accelerometerRepository.UpdateTrackKey(lastTrack, "Accelerometer");
-                    //bool gyroscopeUpdated = _gyroscopeRepository.UpdateTrackKey(lastTrack, "Gyroscope");
-                    //bool magnetometerUpdated = _magnetometerRepository.UpdateTrackKey(lastTrack, "Magnetometer");
-                    //bool linearAcceleration = _linearAccelerationRepository.UpdateTrackKey(lastTrack, "LinearAcceleration");
-                    //bool gravityUpdated = _linearAccelerationRepository.UpdateTrackKey(lastTrack, "Gravity");
-                    //bool orientationUpdated = _orientationRepository.UpdateTrackKey(lastTrack, "Orientation");
-                    //bool quaternionUpdated = _quaternionRepository.UpdateTrackKey(lastTrack, "Quaternion");
-                    //bool sensorMeasurementSessionUpdated = _sensorMeasurementSessionRepository.UpdateTrackKey(lastTrack);
+                    bool accelerometerUpdated = _accelerometerRepository.UpdateTrackKey(lastTrack, "Accelerometer");
+                    bool gyroscopeUpdated = _gyroscopeRepository.UpdateTrackKey(lastTrack, "Gyroscope");
+                    bool magnetometerUpdated = _magnetometerRepository.UpdateTrackKey(lastTrack, "Magnetometer");
+                    bool linearAcceleration = _linearAccelerationRepository.UpdateTrackKey(lastTrack, "LinearAcceleration");
+                    bool gravityUpdated = _linearAccelerationRepository.UpdateTrackKey(lastTrack, "Gravity");
+                    bool orientationUpdated = _orientationRepository.UpdateTrackKey(lastTrack, "Orientation");
+                    bool quaternionUpdated = _quaternionRepository.UpdateTrackKey(lastTrack, "Quaternion");
+                    bool sensorMeasurementSessionUpdated = _sensorMeasurementSessionRepository.UpdateTrackKey(lastTrack);
 
                     Console.WriteLine("Done resolving" + DateTime.Now);
 
