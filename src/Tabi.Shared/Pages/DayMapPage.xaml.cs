@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Tabi.Core;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
 using Tabi.Logging;
@@ -92,7 +93,7 @@ namespace Tabi
         {
             routeMap.Pins.Clear();
 
-            StopResolver resolver = new StopResolver();
+            DataResolver resolver = new DataResolver();
 
             List<StopVisit> visits = stopVisitRepository.BetweenDates(DateTimeOffset.MinValue, DateTimeOffset.Now).ToList();
 

@@ -58,5 +58,10 @@ namespace Tabi.DataStorage.SqliteNet
         {
             connection.DeleteAll<TEntity>();
         }
+
+        public void Update(TEntity entity)
+        {
+            connection.Update(entity);
+        }
     }
 }

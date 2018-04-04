@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 using MvvmHelpers;
+using Tabi.Controls;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
 using Tabi.Logging;
+using Tabi.Pages;
 using Tabi.Shared.Resx;
 using Tabi.ViewModels;
 using Xamarin.Forms;
@@ -39,10 +42,9 @@ namespace Tabi
         {
             base.OnAppearing();
 
-            if (lastLoad < DateTimeOffset.Now.AddMinutes(-10))
-            {
-                Update();
-            }
+
+            Update();
+
         }
 
         void Update()
@@ -51,26 +53,29 @@ namespace Tabi
             lastLoad = DateTimeOffset.Now;
         }
 
-
-        void RefreshClicked(object sender, EventArgs arg)
-        {
-            Update();
-
-            ViewModel.UpdateStopVisits();
-        }
-
-        void ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
+        async void ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem != null)
             {
-                ActivityEntry ae = (ActivityEntry)e.SelectedItem;
-                if (ae.ShowStop)
+                var lastPageType = Navigation.NavigationStack.Last().GetType();
+                if (lastPageType != typeof(StopDetailPage) && lastPageType != typeof(TrackDetailPage))
                 {
-                    StopDetailPage page = new StopDetailPage(ae.StopVisit);
-                    Navigation.PushAsync(page);
+                    ActivityEntry ae = (ActivityEntry)e.SelectedItem;
+
+                    Page page = null;
+                    if (ae.ShowStop)
+                    {
+                        page = new StopDetailPage(ae.StopVisit);
+                    }
+                    else if (ae.ShowTrack)
+                    {
+                        page = new TrackDetailPage();
+                    }
+
+                    await Navigation.PushAsync(page);
                 }
 
-                    ((ListView)sender).SelectedItem = null;
+                ((ListView)sender).SelectedItem = null;
 
             }
         }

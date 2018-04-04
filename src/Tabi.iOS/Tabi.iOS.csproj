@@ -127,6 +127,7 @@
     <Compile Include="Effects\NoHelperEntryEffect.cs" />
     <Compile Include="Effects\BorderlessEntryEffect.cs" />
     <Compile Include="PlatformImplementations\BaseUrl_iOS.cs" />
+    <Compile Include="Effects\LeftToolbarItemEffect.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
@@ -167,6 +168,9 @@
     <BundleResource Include="Resources\checkmark_white.png" />
     <BundleResource Include="Resources\checkmark_white%402x.png" />
     <BundleResource Include="Resources\checkmark_white%403x.png" />
+    <BundleResource Include="Resources\ic_check_circle.png" />
+    <BundleResource Include="Resources\ic_check_circle_2x.png" />
+    <BundleResource Include="Resources\ic_check_circle_3x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="CsvHelper, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823">

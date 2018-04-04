@@ -90,7 +90,7 @@ namespace Tabi
                 Log.Debug($"MobileCenter enabled: {mobileCenterEnabled}");
             }
 
-            MainPage = new TabiTabbedPage();
+            MainPage = new NavigationPage(new ActivityOverviewPage());
             if (!Settings.Current.PermissionsGranted)
             {
                 MainPage.Navigation.PushModalAsync(new IntroPage());
