@@ -16,30 +16,19 @@ namespace Tabi.Droid.PlatformImplementations
         {
             // service for accelerometer, gyroscope and magnetometer (reading < 1 second)
             Intent sensorServiceIntent = new Intent(Application.Context, typeof(SensorService));
-            
+            Application.Context.StartService(sensorServiceIntent);
+
             //service for sensorfusion data (reading < 1 second)
             Intent sensorFusionServiceIntent = new Intent(Application.Context, typeof(SensorFusionService));
-            
+            Application.Context.StartService(sensorFusionServiceIntent);
+
             //service for measurements periodically -> 1 minute
             Intent sensorMeasurementSessionServiceIntent = new Intent(Application.Context, typeof(SensorMeasurementSessionService));
-            
-            Intent assignSensorDataToTrackServiceIntent = new Intent(Application.Context, typeof(AssignSensorDataToTrackService));
-            
+            Application.Context.StartService(sensorMeasurementSessionServiceIntent);
 
-            if (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.O)
-            {
-                Application.Context.StartForegroundService(sensorServiceIntent);
-                Application.Context.StartForegroundService(sensorFusionServiceIntent);
-                Application.Context.StartForegroundService(sensorMeasurementSessionServiceIntent);
-                Application.Context.StartForegroundService(assignSensorDataToTrackServiceIntent);
-            }
-            else
-            {
-                Application.Context.StartService(sensorServiceIntent);
-                Application.Context.StartService(sensorFusionServiceIntent);
-                Application.Context.StartService(sensorMeasurementSessionServiceIntent);
-                Application.Context.StartService(assignSensorDataToTrackServiceIntent);
-            }
+            Intent assignSensorDataToTrackServiceIntent = new Intent(Application.Context, typeof(AssignSensorDataToTrackService));
+            Application.Context.StartService(assignSensorDataToTrackServiceIntent);
+
 
             IsListening = true;
         }

@@ -41,20 +41,6 @@ namespace Tabi.Droid.CollectionService
 
         public override StartCommandResult OnStartCommand(Intent intent, [GeneratedEnum] StartCommandFlags flags, int startId)
         {
-            if (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.O)
-            {
-                //!!!possibly needed for android 8+
-                // maybe convert it into foreground service and uncomment code below
-                Notification.Builder builder = new Notification.Builder(Application.Context, "com.tabi.sensor")
-                .SetContentTitle("sensor")
-                .SetContentText("sensor fusion service")
-                .SetSmallIcon(Resource.Drawable.notification_icon_background);
-                
-
-                Notification notification = builder.Build();
-                StartForeground(2, notification);
-            }
-
             PowerManager sv = (Android.OS.PowerManager)GetSystemService(PowerService);
             WakeLock wklock = sv.NewWakeLock(WakeLockFlags.Partial, "TABI_sensor_fusion_service");
             wklock.Acquire();

@@ -9,6 +9,7 @@ using Tabi.DataObjects;
 using System.Threading.Tasks;
 using static Android.OS.PowerManager;
 
+
 namespace Tabi.Droid.CollectionService
 {
     [Service]
@@ -37,19 +38,6 @@ namespace Tabi.Droid.CollectionService
 
         public override StartCommandResult OnStartCommand(Intent intent, [GeneratedEnum] StartCommandFlags flags, int startId)
         {
-            if (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.O)
-            {
-                //!!!possibly needed for android 8+
-                // maybe convert it into foreground service and uncomment code below
-                Notification.Builder builder = new Notification.Builder(Application.Context, "com.tabi.sensor");
-                builder.SetContentTitle("sensor");
-                builder.SetContentText("sensor service");
-                builder.SetAutoCancel(true);
-
-                Notification notification = builder.Build();
-                StartForeground(1, notification);
-            }
-
             PowerManager sv = (Android.OS.PowerManager)GetSystemService(PowerService);
             WakeLock wklock = sv.NewWakeLock(WakeLockFlags.Partial, "TABI_sensor_service");
             wklock.Acquire();

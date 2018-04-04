@@ -55,19 +55,6 @@ namespace Tabi.Droid.CollectionService
 
         public override StartCommandResult OnStartCommand(Intent intent, [GeneratedEnum] StartCommandFlags flags, int startId)
         {
-            if (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.O)
-            {
-                //!!!possibly needed for android 8+
-                // maybe convert it into foreground service and uncomment code below
-                Notification.Builder builder = new Notification.Builder(Application.Context, "com.tabi.sensor");
-                builder.SetContentTitle("sensor");
-                builder.SetContentText("assign sensor to track service");
-                builder.SetAutoCancel(true);
-
-                Notification notification = builder.Build();
-                StartForeground(4, notification);
-            }
-
             PowerManager sv = (Android.OS.PowerManager)GetSystemService(PowerService);
             WakeLock wklock = sv.NewWakeLock(WakeLockFlags.Partial, "TABI_assign_sensor_to_track");
             wklock.Acquire();
@@ -83,60 +70,6 @@ namespace Tabi.Droid.CollectionService
 
         private void TimerElapsed(object sender, ElapsedEventArgs e)
         {
-            //begin test code
-            //Console.WriteLine("create test track");
-
-            ////create transportationmode for test purposes
-            //List<TransportationMode> transportationModes = new List<TransportationMode>()
-            //{
-            //    new TransportationMode() {Mode = TransportationModes.Bike },
-            //    new TransportationMode() {Mode = TransportationModes.Car }
-            //};
-
-            ////add transportationmodes to database
-            //foreach (var transportationMode in transportationModes)
-            //{
-            //    App.RepoManager.TransportationModeRepository.Add(transportationMode); 
-            //}
-            
-            ////create track
-            //var myTrack = new TrackEntry()
-            //{
-            //    StartTime = DateTimeOffset.Now.AddHours(-1),
-            //    EndTime = DateTimeOffset.Now.AddHours(3),
-            //    NextStopId = 5
-            //};
-
-            ////insert track in database
-            //_trackEntryRepository.Add(myTrack);
-
-            ////add transportationmodes to track
-            //myTrack.TransportationModes = transportationModes;
-
-            ////update track to databse
-            //var updateSuccess = _trackEntryRepository.UpdateWithChildren(myTrack);
-
-            
-            ////get track with the transportationmodes
-            //var testTrack = _trackEntryRepository.GetWithChildren(myTrack.Id);
-            //foreach (var transportationMode in testTrack.TransportationModes)
-            //{
-            //    Console.WriteLine(transportationMode);
-            //}
-
-
-            //Console.WriteLine("start updating!: " + DateTime.Now);
-            //bool accelerometerUpdated = _accelerometerRepository.UpdateTrackKey(testTrack, "Accelerometer");
-            //bool gyroscopeUpdated = _gyroscopeRepository.UpdateTrackKey(testTrack, "Gyroscope");
-            //bool magnetometerUpdated = _magnetometerRepository.UpdateTrackKey(testTrack, "Magnetometer");
-            //bool linearAcceleration = _linearAccelerationRepository.UpdateTrackKey(testTrack, "LinearAcceleration");
-            //bool gravityUpdated = _linearAccelerationRepository.UpdateTrackKey(testTrack, "Gravity");
-            //bool orientationUpdated = _orientationRepository.UpdateTrackKey(testTrack, "Orientation");
-            //bool quaternionUpdated = _quaternionRepository.UpdateTrackKey(testTrack, "Quaternion");
-            //bool sensorMeasurementSessionUpdated = _sensorMeasurementSessionRepository.UpdateTrackKey(testTrack);
-            //Console.WriteLine("finished updating: " + DateTime.Now);
-
-            //end test code
 
             Task.Run(() =>
             {
