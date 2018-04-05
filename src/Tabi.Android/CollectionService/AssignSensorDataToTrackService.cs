@@ -60,7 +60,7 @@ namespace Tabi.Droid.CollectionService
             wklock.Acquire();
 
             // service for resolve data per 30 minutes
-            Timer timer = new Timer(TimeSpan.FromMinutes(1).TotalMilliseconds);
+            Timer timer = new Timer(TimeSpan.FromMinutes(30).TotalMilliseconds);
             timer.AutoReset = true;
             timer.Elapsed += TimerElapsed;
             timer.Start();
