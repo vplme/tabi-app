@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -9,7 +7,6 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Tabi.DataObjects;
 using TabiApiClient.Messages;
-using TabiApiClient.Models;
 
 namespace TabiApiClient
 {
@@ -192,6 +189,154 @@ namespace TabiApiClient
             HttpContent httpContent = SerializeObject(batteryEntries);
             HttpResponseMessage response = await client.PostAsync(path, httpContent);
             return response.IsSuccessStatusCode;
+        }
+        public async Task<bool> PostTrackEntries(string deviceId, List<TabiApiClient.Models.TrackEntry> trackEntries)
+        {
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track");
+            try
+            {
+                HttpContent httpContent = SerializeObject(trackEntries);
+                HttpResponseMessage response = await client.PostAsync(path, httpContent);
+                return response.IsSuccessStatusCode;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return false;
+            }
+        }
+
+        public async Task<bool> PostSensorMeasurementSessions(string deviceId, List<SensorMeasurementSession> sensorMeasurementSessions)
+        {
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/sensormeasurementsession");
+            try
+            {
+                HttpContent httpContent = SerializeObject(sensorMeasurementSessions);
+                HttpResponseMessage response = await client.PostAsync(path, httpContent);
+                return response.IsSuccessStatusCode;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return false;
+            }
+            
+        }
+
+        public async Task<bool> PostAccelerometerData(string deviceId, List<Accelerometer> accelerometerData)
+        {
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/accelerometer");
+            try
+            {
+                HttpContent httpContent = SerializeObject(accelerometerData);
+                HttpResponseMessage response = await client.PostAsync(path, httpContent);
+                return response.IsSuccessStatusCode;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return false;
+            }
+        }
+
+        public async Task<bool> PostGyroscopeData(string deviceId, List<Gyroscope> gyroscopeData)
+        {
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/gyroscope");
+            try
+            {
+                HttpContent httpContent = SerializeObject(gyroscopeData);
+                HttpResponseMessage response = await client.PostAsync(path, httpContent);
+                return response.IsSuccessStatusCode;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return false;
+            }
+            
+        }
+
+        public async Task<bool> PostMagnetometerData(string deviceId, List<Magnetometer> magnetometerData)
+        {
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/magnetometer");
+            try
+            {
+                HttpContent httpContent = SerializeObject(magnetometerData);
+                HttpResponseMessage response = await client.PostAsync(path, httpContent);
+                return response.IsSuccessStatusCode;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return false;
+            }
+        }
+
+        public async Task<bool> PostLinearAccelerationData(string deviceId, List<LinearAcceleration> linearAcceleration)
+        {
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/linearacceleration");
+            try
+            {
+                HttpContent httpContent = SerializeObject(linearAcceleration);
+                HttpResponseMessage response = await client.PostAsync(path, httpContent);
+                return response.IsSuccessStatusCode;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return false;
+            }
+            
+        }
+
+        public async Task<bool> PostGravityData(string deviceId, List<Gravity> gravity)
+        {
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/gravity");
+            try
+            {
+                HttpContent httpContent = SerializeObject(gravity);
+                HttpResponseMessage response = await client.PostAsync(path, httpContent);
+                return response.IsSuccessStatusCode;
+            }
+            catch(Exception e){
+                Console.WriteLine(e);
+                return false;
+            }
+            
+        }
+
+        public async Task<bool> PostQuaternionData(string deviceId, List<Quaternion> quaternionData)
+        {
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/quaternion");
+            try
+            {
+                HttpContent httpContent = SerializeObject(quaternionData);
+                HttpResponseMessage response = await client.PostAsync(path, httpContent);
+                return response.IsSuccessStatusCode;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return false;
+            }
+            
+        }
+
+        public async Task<bool> PostOrientationData(string deviceId, List<Orientation> orientationData)
+        {
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/orientation");
+            try
+            {
+                HttpContent httpContent = SerializeObject(orientationData);
+                HttpResponseMessage response = await client.PostAsync(path, httpContent);
+                return response.IsSuccessStatusCode;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return false;
+            }
+            
         }
 
         public async Task<bool> IsDeviceUnauthorized(string deviceId)

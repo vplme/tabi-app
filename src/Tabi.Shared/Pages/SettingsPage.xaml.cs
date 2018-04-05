@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Diagnostics;
 using Xamarin.Forms;
 using PCLStorage;
-using Xamarin.Forms.Xaml;
 using System.ComponentModel;
 using Tabi.Helpers;
-using System.Net.NetworkInformation;
 
 namespace Tabi
 {
-	// Temporarily disabled xamlC. XAML not inheriting bindableproperties.
+    // Temporarily disabled xamlC. XAML not inheriting bindableproperties.
     //[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SettingsPage : ContentPage
     {

@@ -15,21 +15,27 @@ namespace Tabi.Core
         IStopVisitRepository stopVisitRepository = App.RepoManager.StopVisitRepository;
         IStopRepository stopRepository = App.RepoManager.StopRepository;
 
+        private double _accuracy;
+        private double _groupDistance;
+        public DataResolver()
+        {
+            _accuracy = 100;
+            _groupDistance = 50;
+        }
 
         // Resolve data for period including
         public void ResolveData(DateTimeOffset begin, DateTimeOffset end)
         {
             // Get latest StopVisit/Track from db
-
             StopVisit lastStopVisit = stopVisitRepository.LastStopVisit();
             TrackEntry lastTrackEntry = trackEntryRepository.LastTrackEntry();
 
             DateTimeOffset newBeginTime = lastStopVisit != null ? lastStopVisit.BeginTimestamp : begin;
 
             // Fetch Positions starting from beginning
-            List<PositionEntry> fetchedPositions = positionEntryRepository.FilterPeriodAccuracy(newBeginTime, end, 100);
+            List<PositionEntry> fetchedPositions = positionEntryRepository.FilterPeriodAccuracy(newBeginTime, end, _accuracy);
             // Group Positions
-            IList<PositionGroup> positionGroups = GroupPositions(fetchedPositions, 50);
+            IList<PositionGroup> positionGroups = GroupPositions(fetchedPositions, _groupDistance);
 
             // fetch existing stops
             IList<Stop> existingStops = stopRepository.GetAll().ToList();
@@ -40,10 +46,10 @@ namespace Tabi.Core
 
             // tracks will not be added unless there is a stopvisit, need fix....
 
+
             Log.Debug($"after Existingstops size {existingStops.Count()}");
 
             // Merge last StopVisit/Track from db and new stopvisits/tracks
-
             StopVisit first = stopVisits.FirstOrDefault();
             if (first != null && first.BeginTimestamp == lastStopVisit?.BeginTimestamp)
             {
@@ -283,7 +289,7 @@ namespace Tabi.Core
                     stopRepository.Add(sv.Stop);
                     sv.StopId = sv.Stop.Id;
                 }
-                if (sv.NextTrackId == 0)
+                if (sv.NextTrackId == Guid.Empty)
                 {
                     trackEntryRepository.Add(sv.NextTrack);
                     sv.NextTrackId = sv.NextTrack.Id;

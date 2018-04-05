@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
-using CoreGraphics;
 using Tabi.iOS.Effects;
 using UIKit;
 using Xamarin.Forms;

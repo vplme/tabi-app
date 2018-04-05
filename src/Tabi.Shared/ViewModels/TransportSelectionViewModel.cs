@@ -36,10 +36,10 @@ namespace Tabi.ViewModels
             Items = new SelectableObservableCollection<TransportModeItem>(TransportModeItem.GetPossibleTransportModes());
         }
 
-        public IList<TransportationModes> GetSelectedTransportModes()
+        public IList<TransportationMode> GetSelectedTransportModes()
         {
             var selectedItems = Items.Where(x => x.IsSelected).Select(x => x.Data);
-            IList<TransportationModes> selectedModes = TransportModeItem.GetTransportModeEnums(selectedItems);
+            IList<TransportationMode> selectedModes = TransportModeItem.GetTransportModeEnums(selectedItems);
 
             return selectedModes;
         }

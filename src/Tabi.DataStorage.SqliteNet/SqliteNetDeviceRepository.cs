@@ -1,5 +1,4 @@
-﻿using System;
-using SQLite;
+﻿using SQLite;
 using Tabi.DataObjects;
 
 namespace Tabi.DataStorage.SqliteNet

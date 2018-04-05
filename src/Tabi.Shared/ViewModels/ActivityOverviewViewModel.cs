@@ -109,6 +109,9 @@ namespace Tabi.ViewModels
         {
             DataResolver dateResolver = new DataResolver();
             dateResolver.ResolveData(DateTimeOffset.MinValue, DateTimeOffset.Now);
+            //track maded
+            //TODO send notification for getting transportation mode
+
 
             List<ActivityEntry> newActivityEntries = new List<ActivityEntry>();
 
@@ -136,7 +139,7 @@ namespace Tabi.ViewModels
                 ae.StopVisit = sv;
                 newActivityEntries.Add(ae);
 
-                if (sv.NextTrackId != 0)
+                if (sv.NextTrackId != Guid.Empty)
                 {
                     TrackEntry te = trackEntryRepository.Get(sv.NextTrackId);
 

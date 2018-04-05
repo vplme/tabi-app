@@ -11,10 +11,12 @@
     <PackageReference Include="Microsoft.Azure.Mobile.Crashes" Version="0.15.0" />
     <PackageReference Include="Microsoft.Azure.Mobile.Distribute" Version="0.15.0" />
     <PackageReference Include="Microsoft.Azure.Mobile.Push" Version="0.17.1" />
+    <PackageReference Include="Plugin.Sensors" Version="2.2.1" />
     <PackageReference Include="Refractored.MvvmHelpers" Version="1.3.0" />
     <PackageReference Include="PCLStorage" Version="1.0.2" />
     <PackageReference Include="FormsToolkit" Version="1.1.18" />
     <PackageReference Include="SharpKml.Core" Version="3.0.0" />
+    <PackageReference Include="SQLiteNetExtensions" Version="2.0.0" />
     <PackageReference Include="System.ValueTuple" Version="4.4.0" />
     <PackageReference Include="Xam.Plugin.Connectivity" Version="3.0.2" />
     <PackageReference Include="Xam.Plugin.Battery" Version="3.0.1" />
@@ -29,7 +31,7 @@
     <PackageReference Include="Acr.UserDialogs" Version="6.5.1" />
     <PackageReference Include="Xamarin.Forms" Version="2.5.0.91635" />
     <PackageReference Include="Xamarin.Forms.Maps" Version="2.5.0.91635" />
-    <PackageReference Include="Plugin.Permissions" Version="2.1.0" />
+    <PackageReference Include="Plugin.Permissions" Version="2.2.1" />
   </ItemGroup>
   <ItemGroup>
     <!-- https://bugzilla.xamarin.com/show_bug.cgi?id=55591 -->
@@ -47,6 +49,8 @@
 
     <Compile Update="Resx\AppResources.Designer.cs">
       <DependentUpon>AppResources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <EmbeddedResource Update="Resx\AppResources.nl.resx">
       <Generator>ResXFileCodeGenerator</Generator>

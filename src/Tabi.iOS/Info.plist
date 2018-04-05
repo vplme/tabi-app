@@ -54,6 +54,8 @@
 	<string>Tabi requires location access</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Tabi requires location access</string>
+  <key>NSMotionUsageDescription</key>
+  <string>Tabi requires motion access</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.tabiapp.tabi</string>
 	<key>CFBundleVersion</key>

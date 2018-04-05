@@ -1,14 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
-using MvvmHelpers;
-using Tabi.Controls;
-using Tabi.DataObjects;
-using Tabi.DataStorage;
-using Tabi.Logging;
 using Tabi.Pages;
 using Tabi.Shared.Resx;
 using Tabi.ViewModels;

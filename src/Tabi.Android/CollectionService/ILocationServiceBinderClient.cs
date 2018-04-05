@@ -1,5 +1,4 @@
-﻿using System;
-namespace Tabi.Droid
+﻿namespace Tabi.Droid
 {
     public interface ILocationServiceBinderClient
     {

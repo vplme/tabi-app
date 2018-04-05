@@ -1,7 +1,6 @@
 ﻿using System;
 using Tabi.Droid.Effects;
 using Xamarin.Forms;
-using Android.App;
 using Xamarin.Forms.Platform.Android;
 using AListView = Android.Widget.ListView;
 using Android.Graphics.Drawables;

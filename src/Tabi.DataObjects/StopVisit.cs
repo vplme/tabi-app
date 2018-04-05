@@ -42,7 +42,7 @@ namespace Tabi.DataObjects
             set => SetProperty(ref endTimestamp, value);
         }
 
-        public int NextTrackId { get; set; }
+        public Guid NextTrackId { get; set; }
         [Ignore]
         public TrackEntry NextTrack { get; set; }
     }

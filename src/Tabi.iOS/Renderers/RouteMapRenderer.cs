@@ -1,5 +1,4 @@
-﻿using System;
-using Tabi.iOS;
+﻿using Tabi.iOS;
 using Tabi;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps.iOS;
@@ -7,7 +6,6 @@ using MapKit;
 using Xamarin.Forms.Platform.iOS;
 using CoreLocation;
 using UIKit;
-using Tabi.Logging;
 using System.Collections.Generic;
 using Tabi.Shared.Controls;
 

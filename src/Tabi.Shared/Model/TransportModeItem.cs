@@ -9,7 +9,7 @@ namespace Tabi.Shared.Model
     public class TransportModeItem
     {
         public string Name { get; set; }
-        public TransportationModes Mode { get; set; }
+        public TransportationMode Mode { get; set; }
 
         public TransportModeItem()
         {
@@ -22,7 +22,7 @@ namespace Tabi.Shared.Model
         {
             List<TransportModeItem> items = new List<TransportModeItem>();
 
-            foreach (TransportationModes mode in Enum.GetValues(typeof(TransportationModes)))
+            foreach (TransportationMode mode in Enum.GetValues(typeof(TransportationMode)))
             {
                 TransportModeItem newItem = new TransportModeItem() { Name = GetTranslationForEnum(mode), Mode = mode };
                 items.Add(newItem);
@@ -37,49 +37,49 @@ namespace Tabi.Shared.Model
         /// </summary>
         /// <returns>The translation for enum.</returns>
         /// <param name="mode">Transportmode enum</param>
-        private static string GetTranslationForEnum(TransportationModes mode)
+        private static string GetTranslationForEnum(TransportationMode mode)
         {
             string result = "";
 
             switch (mode)
             {
-                case TransportationModes.Bike:
+                case TransportationMode.Bike:
                     result = AppResources.BikeLabel;
                     break;
-                case TransportationModes.Bus:
+                case TransportationMode.Bus:
                     result = AppResources.BusLabel;
                     break;
-                case TransportationModes.Car:
+                case TransportationMode.Car:
                     result = AppResources.CarLabel;
                     break;
-                case TransportationModes.MobilityScooter:
+                case TransportationMode.MobilityScooter:
                     result = AppResources.MobilityScooterLabel;
                     break;
-                case TransportationModes.Run:
+                case TransportationMode.Run:
                     result = AppResources.RunLabel;
                     break;
-                case TransportationModes.Tram:
+                case TransportationMode.Tram:
                     result = AppResources.TramLabel;
                     break;
-                case TransportationModes.Walk:
+                case TransportationMode.Walk:
                     result = AppResources.WalkLabel;
                     break;
-                case TransportationModes.Moped:
+                case TransportationMode.Moped:
                     result = AppResources.MopedLabel;
                     break;
-                case TransportationModes.Motorcycle:
+                case TransportationMode.Motorcycle:
                     result = AppResources.MotorcycleLabel;
                     break;
-                case TransportationModes.Other:
+                case TransportationMode.Other:
                     result = AppResources.OtherLabel;
                     break;
-                case TransportationModes.Scooter:
+                case TransportationMode.Scooter:
                     result = AppResources.ScooterLabel;
                     break;
-                case TransportationModes.Subway:
+                case TransportationMode.Subway:
                     result = AppResources.SubwayLabel;
                     break;
-                case TransportationModes.Train:
+                case TransportationMode.Train:
                     result = AppResources.TrainLabel;
                     break;
                 default:
@@ -95,9 +95,9 @@ namespace Tabi.Shared.Model
         /// </summary>
         /// <returns>List of transportmode enums that are in the list given to the method</returns>
         /// <param name="items">List of TransportModeItems (wrapped TransportationModeItems)</param>
-        public static IList<TransportationModes> GetTransportModeEnums(IEnumerable<TransportModeItem> items)
+        public static IList<TransportationMode> GetTransportModeEnums(IEnumerable<TransportModeItem> items)
         {
-            List<TransportationModes> resultEnums = new List<TransportationModes>();
+            List<TransportationMode> resultEnums = new List<TransportationMode>();
             foreach (TransportModeItem item in items)
             {
                 resultEnums.Add(item.Mode);

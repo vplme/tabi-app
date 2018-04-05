@@ -1,5 +1,4 @@
-﻿using System;
-namespace TabiApiClient.Models
+﻿namespace TabiApiClient.Models
 {
     public class Device
     {

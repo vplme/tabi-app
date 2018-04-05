@@ -48,9 +48,7 @@ namespace Tabi
                     await Navigation.PopModalAsync();
                 }
             }
-
         }
-
         public PermissionsPage()
         {
             InitializeComponent();

@@ -1,5 +1,4 @@
-﻿using System;
-namespace Tabi.iOS
+﻿namespace Tabi.iOS
 {
     public class ActivityTracker
     {
