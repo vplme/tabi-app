@@ -4,7 +4,6 @@ using System.Linq;
 using Tabi.Core;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
-using Tabi.Logging;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;

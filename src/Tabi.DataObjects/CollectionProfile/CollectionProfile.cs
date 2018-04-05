@@ -1,7 +1,4 @@
-﻿using System;
-using Tabi.DataObjects;
-
-namespace Tabi.DataObjects.CollectionProfile
+﻿namespace Tabi.DataObjects.CollectionProfile
 {
     public class CollectionProfile
     {

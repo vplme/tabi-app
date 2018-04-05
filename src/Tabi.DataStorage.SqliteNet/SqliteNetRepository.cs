@@ -16,7 +16,14 @@ namespace Tabi.DataStorage.SqliteNet
 
         public void Add(TEntity entity)
         {
-            connection.Insert(entity);
+            try
+            {
+                connection.Insert(entity);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Could not insert into database " + e);
+            }
         }
 
         public void AddRange(IEnumerable<TEntity> entities)
@@ -62,6 +69,11 @@ namespace Tabi.DataStorage.SqliteNet
         public void Update(TEntity entity)
         {
             connection.Update(entity);
+		}
+		
+        public void UpdateAll(IEnumerable<TEntity> entities)
+        {
+            connection.UpdateAll(entities);
         }
     }
 }

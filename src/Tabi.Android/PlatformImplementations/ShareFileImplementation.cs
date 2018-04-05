@@ -1,17 +1,8 @@
-﻿using System;
-using System.IO;
-using System.Security.Permissions;
-using System.Threading.Tasks;
-using Android.Content;
-using Android.Content.PM;
-using Android.Support.V4.Content;
-using Android.Widget;
+﻿using System.IO;
 using PCLStorage;
 using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
 using Tabi.Droid;
-using Tabi.Shared.Resx;
-using Xamarin.Forms;
 using FileAccess = PCLStorage.FileAccess;
 using Permission = Plugin.Permissions.Abstractions.Permission;
 

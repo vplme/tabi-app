@@ -1,9 +1,8 @@
-﻿using System;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace Tabi.Shared.Controls
 {
-	public partial class LabelSection : ContentView
+    public partial class LabelSection : ContentView
 	{
 		public LabelSection()
 		{

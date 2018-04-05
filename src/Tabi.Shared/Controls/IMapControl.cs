@@ -1,5 +1,4 @@
-﻿using System;
-namespace Tabi.Shared.Controls
+﻿namespace Tabi.Shared.Controls
 {
     public interface IMapControl
     {

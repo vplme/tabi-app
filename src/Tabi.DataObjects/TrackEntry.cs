@@ -1,14 +1,22 @@
 ﻿using System;
+using System.Collections.Generic;
 using SQLite;
+using SQLiteNetExtensions.Attributes;
 
 namespace Tabi.DataObjects
 {
     public class TrackEntry
     {
-        [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
+        public TrackEntry()
+        {
+            Id = Guid.NewGuid();
+        }
+
+        [PrimaryKey]
+        public Guid Id { get; set; }
         
         public int DeviceId { get; set; }
+
         [Ignore]
         public Device Device { get; set; }
        
@@ -25,12 +33,15 @@ namespace Tabi.DataObjects
 
         public double DistanceTravelled { get; set; }
         
-        public int NextTrackId { get; set; }
+        public Guid NextTrackId { get; set; }
         [Ignore]
         public TrackEntry NextTrack { get; set; }
         
         public int NextStopId { get; set; }
         [Ignore]
         public StopVisit NextStop { get; set; }
+
+        [ManyToMany(typeof(TransportationModeTracks))]
+        public List<TransportationModeEntry> TransportationModes { get; set; }
     }
 }

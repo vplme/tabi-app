@@ -1,5 +1,4 @@
-﻿using System;
-using Tabi.Logging;
+﻿using Tabi.Logging;
 
 namespace Tabi
 {

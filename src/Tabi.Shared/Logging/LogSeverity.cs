@@ -1,5 +1,4 @@
-﻿using System;
-namespace Tabi.Logging
+﻿namespace Tabi.Logging
 {
     public enum LogSeverity
     {

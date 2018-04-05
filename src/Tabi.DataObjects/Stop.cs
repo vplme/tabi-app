@@ -1,5 +1,4 @@
-﻿using System;
-using MvvmHelpers;
+﻿using MvvmHelpers;
 using Newtonsoft.Json;
 using SQLite;
 namespace Tabi.DataObjects

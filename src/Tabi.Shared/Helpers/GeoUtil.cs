@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Collections.Generic;
 using Tabi.Model;
 using SharpKml.Dom;
 using SharpKml.Base;
-using SharpKml.Dom.GX;
-using System.Text;
-using System.Globalization;
 using System.IO;
 using CsvHelper;
 using Tabi.Csv;

@@ -1,5 +1,4 @@
-﻿using System;
-namespace TabiApiClient.Messages
+﻿namespace TabiApiClient.Messages
 {
     public class DeviceMessage
     {
