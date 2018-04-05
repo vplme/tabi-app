@@ -6,26 +6,26 @@ using System.Text;
 
 namespace Tabi.DataObjects
 {
-    public class TransportationMode
+    public class TransportationModeEntry
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public TransportationModes Mode { get; set; }
+        public TransportationMode Mode { get; set; }
 
         [ManyToMany(typeof(TransportationModeTracks))]
         public List<TrackEntry> Tracks { get; set; }
     }
 
-    public enum TransportationModes
+    public enum TransportationMode
     {
         Walk = 0,
         Run,
-        Mobility_Scooter,
+        MobilityScooter,
         Car,
         Bike,
         Moped,
         Scooter,
-        MotorCycle,
+        Motorcycle,
         Train,
         Subway,
         Tram,

@@ -25,7 +25,7 @@ namespace Tabi.DataStorage.SqliteNet
             conn.CreateTable<StopVisit>();
             conn.CreateTable<BatteryEntry>();
             conn.CreateTable<TrackEntry>();
-            conn.CreateTable<TransportationMode>();
+            conn.CreateTable<TransportationModeEntry>();
             conn.CreateTable<TransportationModeTracks>();
             conn.CreateTable<LogEntry>();
 

@@ -74,16 +74,16 @@ namespace Tabi.Droid.CollectionService
             switch (sensor.Type)
             {
                 case SensorType.LinearAcceleration:
-                    Console.WriteLine("Accelerometer accuracy: " + accuracy);
+                    Log.Debug("Linear Acceleration accuracy: " + accuracy);
                     break;
                 case SensorType.Gravity:
-                    Console.WriteLine("Gyroscope accuracy: " + accuracy);
+                    Log.Debug("Gravity accuracy: " + accuracy);
                     break;
                 case SensorType.Orientation:
-                    Console.WriteLine("Magnetometer accuracy: " + accuracy);
+                    Log.Debug("Orientation accuracy: " + accuracy);
                     break;
                 case SensorType.RotationVector:
-                    Console.WriteLine("Rotation Vector accuracy: " + accuracy);
+                    Log.Debug("Rotation Vector accuracy: " + accuracy);
                     break;
                 default:
                     break;

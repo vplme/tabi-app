@@ -6,13 +6,13 @@ using Tabi.DataObjects;
 
 namespace Tabi.DataStorage.SqliteNet
 {
-    public class SqliteNetTransportationModeRepository : SqliteNetRepository<TransportationMode>, ITransportationModeRepository
+    public class SqliteNetTransportationModeRepository : SqliteNetRepository<TransportationModeEntry>, ITransportationModeRepository
     {
         public SqliteNetTransportationModeRepository(SQLiteConnection conn) : base(conn)
         {
         }
 
-        public TransportationMode GetWithChildren(int id)
+        public TransportationModeEntry GetWithChildren(int id)
         {
             throw new NotImplementedException();
         }

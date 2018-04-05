@@ -5,9 +5,9 @@ using Tabi.DataObjects;
 
 namespace Tabi.DataStorage
 {
-    public interface ITransportationModeRepository : IRepository<TransportationMode>
+    public interface ITransportationModeRepository : IRepository<TransportationModeEntry>
     {
-        TransportationMode GetWithChildren(int id);
+        TransportationModeEntry GetWithChildren(int id);
 
     }
 }

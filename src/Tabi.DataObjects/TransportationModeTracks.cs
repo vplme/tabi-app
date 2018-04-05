@@ -10,7 +10,7 @@ namespace Tabi.DataObjects
         [ForeignKey(typeof(TrackEntry))]
         public Guid TrackId { get; set; }
 
-        [ForeignKey(typeof(TransportationMode))]
+        [ForeignKey(typeof(TransportationModeEntry))]
         public int TransportationModeId { get; set; }
     }
 }

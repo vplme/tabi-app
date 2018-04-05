@@ -53,7 +53,6 @@ namespace Tabi.DataStorage.SqliteNet
                                    " SET TrackEntryKey = '" + trackEntry.Id.ToString() + "' " +
                                    "WHERE Timestamp BETWEEN " + startDateTime + " AND " + endDateTime;
 
-                //Console.WriteLine(query);
 
                 connection.Execute(query);
 

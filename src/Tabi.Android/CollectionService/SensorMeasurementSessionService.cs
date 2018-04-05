@@ -31,13 +31,13 @@ namespace Tabi.Droid.CollectionService
             switch (sensor.Type)
             {
                 case SensorType.Orientation:
-                    Console.WriteLine("Orientation accuracy: " + accuracy);
+                    Log.Debug("Orientation accuracy: " + accuracy);
                     break;
                 case SensorType.Proximity:
-                    Console.WriteLine("Proximity accuracy: " + accuracy);
+                    Log.Debug("Proximity accuracy: " + accuracy);
                     break;
                 case SensorType.StepCounter:
-                    Console.WriteLine("Stepcounter accuracy: " + accuracy);
+                    Log.Debug("Stepcounter accuracy: " + accuracy);
                     break;
                 default:
                     break;
@@ -108,22 +108,22 @@ namespace Tabi.Droid.CollectionService
                     _sensorMeasurementSession.BatteryLevel = level_0_to_100;
 
                     // batterystatus
-                    int status = battery.GetIntExtra(BatteryManager.ExtraStatus, -1);
+                    BatteryStatus status = (BatteryStatus)battery.GetIntExtra(BatteryManager.ExtraStatus, -1);
                     switch (status)
                     {
-                        case (int)BatteryStatus.Charging:
+                        case BatteryStatus.Charging:
                             _sensorMeasurementSession.BatteryStatus = BatteryEntryState.Charging;
                             break;
-                        case (int)BatteryStatus.Discharging:
+                        case BatteryStatus.Discharging:
                             _sensorMeasurementSession.BatteryStatus = BatteryEntryState.Discharging;
                             break;
-                        case (int)BatteryStatus.NotCharging:
+                        case BatteryStatus.NotCharging:
                             _sensorMeasurementSession.BatteryStatus = BatteryEntryState.NotCharging;
                             break;
-                        case (int)BatteryStatus.Full:
+                        case BatteryStatus.Full:
                             _sensorMeasurementSession.BatteryStatus = BatteryEntryState.Full;
                             break;
-                        case (int)BatteryStatus.Unknown:
+                        case BatteryStatus.Unknown:
                         _sensorMeasurementSession.BatteryStatus = BatteryEntryState.Unknown;
                         break;
                     }
