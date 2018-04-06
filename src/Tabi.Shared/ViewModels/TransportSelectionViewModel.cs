@@ -41,13 +41,33 @@ namespace Tabi.ViewModels
             var selectedItems = Items.Where(x => x.IsSelected).Select(x => x.Data);
             IList<TransportationMode> selectedModes = TransportModeItem.GetTransportModeEnums(selectedItems);
 
+
+
             return selectedModes;
         }
 
         public void FinishedTransportSelection()
         {
-            
 
+            //get track with transportation, remoce the transportmodes
+            var trackWithTransportationMode = App.RepoManager.TrackEntryRepository.GetWithChildren(TrackEntry.Id);
+            trackWithTransportationMode.TransportationModes = null;
+
+            //convert to transportationmodeentry objects
+            List<TransportationModeEntry> transportationModes = new List<TransportationModeEntry>();
+
+            foreach (var transportationMode in GetSelectedTransportModes())
+            {
+                transportationModes.Add(new TransportationModeEntry()
+                {
+                    Mode = transportationMode
+                });
+            }
+
+            trackWithTransportationMode.TransportationModes = transportationModes;
+
+            // update the track new transportationmodes
+            App.RepoManager.TrackEntryRepository.Update(trackWithTransportationMode);
         }
     }
 }
