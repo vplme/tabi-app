@@ -19,11 +19,8 @@ namespace Tabi.Droid.PlatformImplementations
         public void StartLocationUpdates()
         {
             Intent serviceIntent = new Intent(Application.Context, typeof(LocationService));
-            Application.Context.StartService(serviceIntent);
+            Application.Context.StartForegroundService(serviceIntent);
             IsListening = true;
-            //Binding service:
-			//LocationServiceConnection serviceConnection = new LocationServiceConnection(this);
-			//Application.Context.BindService(serviceIntent, serviceConnection, Bind.AutoCreate);
 		}
 
         public void StopLocationUpdates()
