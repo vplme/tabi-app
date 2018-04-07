@@ -42,13 +42,11 @@ namespace Tabi.ViewModels
             IList<TransportationMode> selectedModes = TransportModeItem.GetTransportModeEnums(selectedItems);
 
 
-
             return selectedModes;
         }
 
         public void FinishedTransportSelection()
         {
-
             //get track with transportation, remoce the transportmodes
             var trackWithTransportationMode = App.RepoManager.TrackEntryRepository.GetWithChildren(TrackEntry.Id);
             trackWithTransportationMode.TransportationModes = null;
@@ -60,14 +58,14 @@ namespace Tabi.ViewModels
             {
                 transportationModes.Add(new TransportationModeEntry()
                 {
-                    Mode = transportationMode
+                    Mode = transportationMode,
                 });
             }
 
             trackWithTransportationMode.TransportationModes = transportationModes;
 
             // update the track new transportationmodes
-            App.RepoManager.TrackEntryRepository.Update(trackWithTransportationMode);
+            App.RepoManager.TrackEntryRepository.UpdateWithChildren(trackWithTransportationMode);
         }
     }
 }
