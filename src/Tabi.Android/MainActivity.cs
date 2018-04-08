@@ -7,6 +7,7 @@ using FormsToolkit.Droid;
 using Plugin.CurrentActivity;
 using Acr.UserDialogs;
 using Plugin.Permissions;
+using Tabi.Droid.Helpers;
 
 namespace Tabi.Droid
 {
@@ -31,6 +32,9 @@ namespace Tabi.Droid
 
             App.ScreenWidth = (width - 0.5f) / density;
             App.ScreenHeight = (height - 0.5f) / density;
+
+            var notificationChannelHelper = new NotificationChannelHelper(Application.Context);
+            notificationChannelHelper.SetupNotificationChannels();
 
             LoadApplication(new App());
 		}

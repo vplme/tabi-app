@@ -2,8 +2,10 @@
 using Android.Content;
 using Android.Gms.Common;
 using Android.OS;
+using Android.Support.V4.App;
 using Plugin.CurrentActivity;
 using Tabi.Droid.CollectionService;
+using Tabi.Droid.Helpers;
 using Tabi.Shared.Resx;
 
 namespace Tabi.Droid
@@ -11,8 +13,6 @@ namespace Tabi.Droid
     [Service]
     public class LocationService : Service
     {
-        public const string SERVICE_CHANNEL = "com.tabiapp.tabi.service";
-
         public const int ServiceRunningNotificationId = 134345;
 
         private LocationServiceBinder binder;
@@ -34,21 +34,11 @@ namespace Tabi.Droid
             var appIntent = context.PackageManager.GetLaunchIntentForPackage(context.PackageName);
             appIntent.AddFlags(ActivityFlags.ClearTop);
 
-
-            var chanName = AppResources.ServiceNotificationChannelLabel;
-            var importance = NotificationImportance.Low;
-            var chan = new NotificationChannel(SERVICE_CHANNEL, chanName, importance);
-
-            var notificationManager =
-                (NotificationManager) GetSystemService(NotificationService);
-            notificationManager.CreateNotificationChannel(chan);
-
-            var notification = new Notification.Builder(this)
+            var notification = new NotificationCompat.Builder(this, NotificationChannelHelper.SERVICE_CHANNEL)
                 .SetContentTitle(AppResources.ServiceTitle)
                 .SetContentText(AppResources.ServiceText)
                 .SetContentIntent(PendingIntent.GetActivity(context, 0, appIntent, 0))
                 .SetSmallIcon(Resource.Drawable.tabi_status_bar_icon)
-                .SetChannelId(SERVICE_CHANNEL)
                 .SetOngoing(true)
                 .Build();
 
@@ -66,7 +56,7 @@ namespace Tabi.Droid
 
             locationImplementation.RequestLocationUpdates();
 
-            var sv = (PowerManager) GetSystemService(PowerService);
+            var sv = (PowerManager)GetSystemService(PowerService);
             var wklock = sv.NewWakeLock(WakeLockFlags.Partial, "TABI");
             wklock.Acquire();
 
