@@ -349,4 +349,7 @@
   <data name="SensorPermissionRationaleTitle" xml:space="preserve">
     <value>Motion and Fitness required</value>
   </data>
+  <data name="ServiceNotificationChannelLabel" xml:space="preserve">
+    <value>Service foreground notification</value>
+  </data>
 </root>

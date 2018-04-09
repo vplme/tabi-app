@@ -400,6 +400,7 @@
     <Compile Include="Effects\NoSelectionListViewEffect.cs" />
     <Compile Include="PlatformImplementations\BaseUrl_Android.cs" />
     <Compile Include="SplashScreenActivity.cs" />
+    <Compile Include="Helpers\NotificationChannelHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
