@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Tabi.DataObjects;
 using Tabi.ViewModels;
 using Xamarin.Forms;
 
@@ -10,11 +11,12 @@ namespace Tabi.Pages
         TransportSelectionViewModel ViewModel => vm ?? (vm = BindingContext as TransportSelectionViewModel);
         TransportSelectionViewModel vm;
 
-        public TransportSelectionPage()
+        public TransportSelectionPage(TrackEntry trackEntry)
         {
             InitializeComponent();
             BindingContext = new TransportSelectionViewModel(this.Navigation);
 
+            ViewModel.TrackEntry = trackEntry;
         }
 
         protected override void OnDisappearing()

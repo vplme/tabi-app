@@ -52,17 +52,24 @@ namespace Tabi.ViewModels
             trackWithTransportationMode.TransportationModes = null;
 
             //convert to transportationmodeentry objects
-            List<TransportationModeEntry> selectedTransportationModes = new List<TransportationModeEntry>();
+            List<TransportationModeEntry> selectedTransportationModeEntries = new List<TransportationModeEntry>();
+            var selectedTransportModes = GetSelectedTransportModes();
 
-            foreach (var transportationMode in GetSelectedTransportModes())
+            foreach (var transportationMode in selectedTransportModes)
             {
-                selectedTransportationModes.Add(new TransportationModeEntry()
+                //add to list
+                TransportationModeEntry transportationModeEntry = new TransportationModeEntry()
                 {
-                    Mode = transportationMode,
-                });
+                    Mode = transportationMode
+                };
+
+                selectedTransportationModeEntries.Add(transportationModeEntry);
+
+                //insert in database
+                App.RepoManager.TransportationModeRepository.Add(transportationModeEntry);
             }
 
-            trackWithTransportationMode.TransportationModes = selectedTransportationModes;
+            trackWithTransportationMode.TransportationModes = selectedTransportationModeEntries;
 
             // update the track new transportationmodes
             App.RepoManager.TrackEntryRepository.UpdateWithChildren(trackWithTransportationMode);

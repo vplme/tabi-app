@@ -23,10 +23,8 @@ namespace Tabi.ViewModels
 
             TransportModeSelectionCommand = new Command(async () =>
             {
-                await navigation.PushAsync(new TransportSelectionPage());
+                await navigation.PushAsync(new TransportSelectionPage(TrackEntry));
             });
         }
-
-
     }
 }

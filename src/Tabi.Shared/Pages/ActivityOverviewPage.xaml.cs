@@ -60,7 +60,7 @@ namespace Tabi
                     }
                     else if (ae.ShowTrack)
                     {
-                        page = new TrackDetailPage();
+                        page = new TrackDetailPage(ae.Track);
                     }
 
                     await Navigation.PushAsync(page);
