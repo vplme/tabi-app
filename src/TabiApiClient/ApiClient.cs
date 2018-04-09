@@ -206,6 +206,23 @@ namespace TabiApiClient
             }
         }
 
+        public async Task<bool> PostTransportationModes(string deviceId, List<TabiApiClient.Models.TransportationMode> transportModes)
+        {
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/mode");
+
+            try
+            {
+                HttpContent httpContent = SerializeObject(transportModes);
+                HttpResponseMessage response = await client.PostAsync(path, httpContent);
+                return response.IsSuccessStatusCode;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return false;
+            }
+        }
+
         public async Task<bool> PostSensorMeasurementSessions(string deviceId, List<SensorMeasurementSession> sensorMeasurementSessions)
         {
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/sensormeasurementsession");

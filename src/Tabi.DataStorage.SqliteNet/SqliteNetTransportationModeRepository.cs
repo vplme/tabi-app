@@ -12,9 +12,14 @@ namespace Tabi.DataStorage.SqliteNet
         {
         }
 
-        public TransportationModeEntry GetWithChildren(int id)
+        public IEnumerable<TransportationModeEntry> GetRange(DateTimeOffset startTime, DateTimeOffset endTime)
         {
-            throw new NotImplementedException();
+            return connection.Table<TransportationModeEntry>().Where(x => x.Timestamp > startTime && x.Timestamp < endTime);
+        }
+
+        public IEnumerable<TransportationModeEntry> GetTransportModesByTrackId(Guid trackId)
+        {
+            return connection.Table<TransportationModeEntry>().Where(x => x.TrackId == trackId);
         }
     }
 }

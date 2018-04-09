@@ -71,7 +71,7 @@ namespace Tabi.iOS.Helpers
                 if (success)
                 {
                     // remove old tracks
-                    var removeoldTracksSuccess = RemoveOldTracks(lastTrack.EndTime);
+                    // var removeoldTracksSuccess = RemoveOldTracks();
 
                     Console.WriteLine("upload sensordata");
 
@@ -84,7 +84,8 @@ namespace Tabi.iOS.Helpers
                         UploadLinearAccelerationData(lastTrack.EndTime),
                         UploadGravityData(lastTrack.EndTime),
                         UploadOrientationData(lastTrack.EndTime),
-                        UploadQuaternionData(lastTrack.EndTime)
+                        UploadQuaternionData(lastTrack.EndTime),
+                        UploadTransportationModes(lastTrack.EndTime)
                         );
 
 
@@ -119,16 +120,17 @@ namespace Tabi.iOS.Helpers
                 }
             }
         }
-        private bool RemoveOldTracks(DateTimeOffset endTime)
+
+        private bool RemoveOldTracks()
         {
+            // Tracks should be kept 5 days!!!
+            int amountOfDaysAgo = 5;
+
             try
             {
-                Console.WriteLine("amount of tracks before upload: " + App.RepoManager.TrackEntryRepository.Count());
-
-
                 List<TrackEntry> tracksWithChildren = new List<TrackEntry>();
                 // get tracks before range
-                List<TrackEntry> tracks = App.RepoManager.TrackEntryRepository.GetRangeByEndTime(DateTimeOffset.MinValue, endTime).ToList();
+                List<TrackEntry> tracks = App.RepoManager.TrackEntryRepository.GetRangeByEndTime(DateTimeOffset.MinValue, DateTimeOffset.Now.AddDays(amountOfDaysAgo)).ToList();
                 foreach (var track in tracks)
                 {
                     tracksWithChildren.Add(App.RepoManager.TrackEntryRepository.GetWithChildren(track.Id));
@@ -140,7 +142,6 @@ namespace Tabi.iOS.Helpers
                 }
 
 
-                Console.WriteLine("Amount of tracks after upload: " + App.RepoManager.TrackEntryRepository.Count());
                 return true;
             }
             catch (Exception e)
@@ -149,7 +150,6 @@ namespace Tabi.iOS.Helpers
                 Log.Error(e.ToString());
                 return false;
             }
-
         }
 
         private Task<bool[]> RemoveOldSensorData(DateTimeOffset timestamp, bool[] uploadSuccess)
@@ -544,34 +544,80 @@ namespace Tabi.iOS.Helpers
             }
         }
 
-        public async Task<bool> UploadTracks(DateTimeOffset endTime)
+        public async Task<bool> UploadTransportationModes(DateTimeOffset endTime)
         {
+            DateTimeOffset lastUpload = new DateTimeOffset(Settings.Current.TransportModeLastUpload, TimeSpan.Zero);
+
             try
             {
-                List<TrackEntry> trackEntriesWithChildren = new List<TrackEntry>();
-                List<TrackEntry> trackEntries = App.RepoManager.TrackEntryRepository.GetRangeByEndTime(DateTimeOffset.MinValue, endTime).ToList();
-                //get the models with children
-                foreach (var track in trackEntries)
-                { 
-                    trackEntriesWithChildren.Add(App.RepoManager.TrackEntryRepository.GetWithChildren(track.Id));
+                List<TabiApiClient.Models.TransportationMode> transportModes = new List<TabiApiClient.Models.TransportationMode>();
+
+                //get transportmodes that are between lastuploaded and lasttrackentry
+                List<TransportationModeEntry> transportationModeEntries = App.RepoManager.TransportationModeRepository.GetRange(lastUpload, endTime).ToList();
+
+                foreach (var transportationMode in transportationModeEntries)
+                {
+                    TabiApiClient.Models.TransportationMode transportationModeDTO = new TabiApiClient.Models.TransportationMode()
+                    {
+                        TrackId = transportationMode.TrackId,
+                        Timestamp = transportationMode.Timestamp,
+
+                        Walk = transportationMode.Walk,
+                        Run = transportationMode.Run,
+                        MobilityScooter = transportationMode.MobilityScooter,
+                        Car = transportationMode.Car,
+                        Bike = transportationMode.Bike,
+                        Moped = transportationMode.Moped,
+                        Scooter = transportationMode.Scooter,
+                        Motorcycle = transportationMode.Motorcycle,
+                        Train = transportationMode.Train,
+                        Subway = transportationMode.Subway,
+                        Tram = transportationMode.Tram,
+                        Bus = transportationMode.Bus,
+                        Other = transportationMode.Other
+                    };
+                    transportModes.Add(transportationModeDTO);
                 }
+
+                bool success = await ApiClient.PostTransportationModes(Settings.Current.Device, transportModes);
+
+                if (!success)
+                {
+                    Log.Error($"Tried to send {transportModes.Count} transportationModes but failed");
+                    return false;
+                }
+
+                Settings.Current.TransportModeLastUpload = endTime.Ticks;
+
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                Log.Error("Could not upload transportationModes " + e);
+                return false;
+            }
+        }
+
+        public async Task<bool> UploadTracks(DateTimeOffset endTime)
+        {
+            //TODO upload tracks and keep track of last one uploaded
+            DateTimeOffset lastUpload = new DateTimeOffset(Settings.Current.TracksLastUpload, TimeSpan.Zero);
+
+            try
+            {
+                //gets tracks that are completed and between lastuploadtime and LastCompletedTrackEntry
+                List<TrackEntry> trackEntries = App.RepoManager.TrackEntryRepository.GetRangeByEndTime(lastUpload, endTime).ToList();
 
                 // convert to trackDTO
                 List<TabiApiClient.Models.TrackEntry> trackDTO = new List<TabiApiClient.Models.TrackEntry>();
-                foreach (var trackEntryWithChildren in trackEntriesWithChildren)
+                foreach (var trackEntryWithChildren in trackEntries)
                 {
-                    List<TabiApiClient.Models.TransportationMode> transportationModes = new List<TabiApiClient.Models.TransportationMode>();
-                    foreach (var transportationMode in trackEntryWithChildren.TransportationModes)
-                    {
-                        transportationModes.Add(new TabiApiClient.Models.TransportationMode() {Id = (int)transportationMode.Mode,Mode = transportationMode.Mode.ToString() });
-                    }
-
                     trackDTO.Add(new TabiApiClient.Models.TrackEntry()
                     {
                         Id = trackEntryWithChildren.Id,
                         StartTime = trackEntryWithChildren.StartTime,
-                        EndTime = trackEntryWithChildren.EndTime,
-                        TransportationModes = transportationModes
+                        EndTime = trackEntryWithChildren.EndTime
                     });
                 }
 
@@ -583,8 +629,7 @@ namespace Tabi.iOS.Helpers
                     return false;
                 }
 
-
-                
+                Settings.Current.TracksLastUpload = endTime.Ticks;
 
                 return true;
             } catch (Exception e)
@@ -594,5 +639,7 @@ namespace Tabi.iOS.Helpers
             }
 
         }
+
+        
     }
 }

@@ -47,32 +47,67 @@ namespace Tabi.ViewModels
 
         public void FinishedTransportSelection()
         {
-            //get track with transportation, remoce the transportmodes
-            var trackWithTransportationMode = App.RepoManager.TrackEntryRepository.GetWithChildren(TrackEntry.Id);
-            trackWithTransportationMode.TransportationModes = null;
-
             //convert to transportationmodeentry objects
-            List<TransportationModeEntry> selectedTransportationModeEntries = new List<TransportationModeEntry>();
             var selectedTransportModes = GetSelectedTransportModes();
 
-            foreach (var transportationMode in selectedTransportModes)
-            {
-                //add to list
-                TransportationModeEntry transportationModeEntry = new TransportationModeEntry()
-                {
-                    Mode = transportationMode
-                };
+            var Timestamp = DateTimeOffset.Now;
 
-                selectedTransportationModeEntries.Add(transportationModeEntry);
+            TransportationModeEntry selectedTransportationModeEntry = new TransportationModeEntry
+            {
+                Timestamp = Timestamp,
+                TrackId = TrackEntry.Id
+            };
+
+            foreach (var transportMode in selectedTransportModes)
+            {
+                switch (transportMode)
+                {
+                    case TransportationMode.Walk:
+                        selectedTransportationModeEntry.Walk = true;
+                        break;
+                    case TransportationMode.Run:
+                        selectedTransportationModeEntry.Run = true;
+                        break;
+                    case TransportationMode.MobilityScooter:
+                        selectedTransportationModeEntry.MobilityScooter = true;
+                        break;
+                    case TransportationMode.Car:
+                        selectedTransportationModeEntry.Car = true;
+                        break;
+                    case TransportationMode.Bike:
+                        selectedTransportationModeEntry.Bike = true;
+                        break;
+                    case TransportationMode.Moped:
+                        selectedTransportationModeEntry.Moped = true;
+                        break;
+                    case TransportationMode.Scooter:
+                        selectedTransportationModeEntry.Scooter = true;
+                        break;
+                    case TransportationMode.Motorcycle:
+                        selectedTransportationModeEntry.Motorcycle = true;
+                        break;
+                    case TransportationMode.Train:
+                        selectedTransportationModeEntry.Train = true;
+                        break;
+                    case TransportationMode.Subway:
+                        selectedTransportationModeEntry.Subway = true;
+                        break;
+                    case TransportationMode.Tram:
+                        selectedTransportationModeEntry.Tram = true;
+                        break;
+                    case TransportationMode.Bus:
+                        selectedTransportationModeEntry.Bus = true;
+                        break;
+                    case TransportationMode.Other:
+                        selectedTransportationModeEntry.Other = true;
+                        break;
+                    default:
+                        break;
+                }
 
                 //insert in database
-                App.RepoManager.TransportationModeRepository.Add(transportationModeEntry);
+                App.RepoManager.TransportationModeRepository.Add(selectedTransportationModeEntry);
             }
-
-            trackWithTransportationMode.TransportationModes = selectedTransportationModeEntries;
-
-            // update the track new transportationmodes
-            App.RepoManager.TrackEntryRepository.UpdateWithChildren(trackWithTransportationMode);
         }
     }
 }

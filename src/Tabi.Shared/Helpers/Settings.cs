@@ -140,6 +140,34 @@ namespace Tabi
             }
         }
 
+        public long TracksLastUpload
+        {
+            get => AppSettings.GetValueOrDefault(nameof(TracksLastUpload), (long)0);
+            set
+            {
+                if (value == TracksLastUpload)
+                {
+                    return;
+                }
+                AppSettings.AddOrUpdateValue(nameof(TracksLastUpload), value);
+                OnPropertyChanged();
+            }
+        }
+
+        public long TransportModeLastUpload
+        {
+            get => AppSettings.GetValueOrDefault(nameof(TransportModeLastUpload), (long)0);
+            set
+            {
+                if (value == TransportModeLastUpload)
+                {
+                    return;
+                }
+                AppSettings.AddOrUpdateValue(nameof(TransportModeLastUpload), value);
+                OnPropertyChanged();
+            }
+        }
+
         private static ISettings AppSettings
         {
             get

@@ -40,8 +40,5 @@ namespace Tabi.DataObjects
         public int NextStopId { get; set; }
         [Ignore]
         public StopVisit NextStop { get; set; }
-
-        [ManyToMany(typeof(TransportationModeTracks))]
-        public List<TransportationModeEntry> TransportationModes { get; set; }
     }
 }
