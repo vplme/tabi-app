@@ -79,11 +79,38 @@ namespace Tabi.Shared.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bike.
+        /// </summary>
+        public static string BikeLabel {
+            get {
+                return ResourceManager.GetString("BikeLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bus.
+        /// </summary>
+        public static string BusLabel {
+            get {
+                return ResourceManager.GetString("BusLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string CancelText {
             get {
                 return ResourceManager.GetString("CancelText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Car.
+        /// </summary>
+        public static string CarLabel {
+            get {
+                return ResourceManager.GetString("CarLabel", resourceCulture);
             }
         }
         
@@ -115,6 +142,24 @@ namespace Tabi.Shared.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Days.
+        /// </summary>
+        public static string DaySelectorButton {
+            get {
+                return ResourceManager.GetString("DaySelectorButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select day.
+        /// </summary>
+        public static string DaySelectorPageTitle {
+            get {
+                return ResourceManager.GetString("DaySelectorPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         public static string ErrorOccurredTitle {
@@ -138,6 +183,15 @@ namespace Tabi.Shared.Resx {
         public static string InfoLabel {
             get {
                 return ResourceManager.GetString("InfoLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Information.
+        /// </summary>
+        public static string InformationSectionLabel {
+            get {
+                return ResourceManager.GetString("InformationSectionLabel", resourceCulture);
             }
         }
         
@@ -286,6 +340,42 @@ namespace Tabi.Shared.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mobility Scooter.
+        /// </summary>
+        public static string MobilityScooterLabel {
+            get {
+                return ResourceManager.GetString("MobilityScooterLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Moped.
+        /// </summary>
+        public static string MopedLabel {
+            get {
+                return ResourceManager.GetString("MopedLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Motorcycle.
+        /// </summary>
+        public static string MotorcycleLabel {
+            get {
+                return ResourceManager.GetString("MotorcycleLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is no data available to show you. If this is today; wait a few minutes and pull to refresh the page..
+        /// </summary>
+        public static string NoDataInOverview {
+            get {
+                return ResourceManager.GetString("NoDataInOverview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tabi could not connect to the internet.
         /// </summary>
         public static string NoInternetConnectionText {
@@ -331,6 +421,15 @@ namespace Tabi.Shared.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Other.
+        /// </summary>
+        public static string OtherLabel {
+            get {
+                return ResourceManager.GetString("OtherLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string PasswordLabel {
@@ -345,6 +444,33 @@ namespace Tabi.Shared.Resx {
         public static string PasswordPlaceholder {
             get {
                 return ResourceManager.GetString("PasswordPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Run.
+        /// </summary>
+        public static string RunLabel {
+            get {
+                return ResourceManager.GetString("RunLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scooter.
+        /// </summary>
+        public static string ScooterLabel {
+            get {
+                return ResourceManager.GetString("ScooterLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select transport modes.
+        /// </summary>
+        public static string SelectTransportModeButton {
+            get {
+                return ResourceManager.GetString("SelectTransportModeButton", resourceCulture);
             }
         }
         
@@ -421,11 +547,29 @@ namespace Tabi.Shared.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Subway.
+        /// </summary>
+        public static string SubwayLabel {
+            get {
+                return ResourceManager.GetString("SubwayLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Today.
         /// </summary>
         public static string Today {
             get {
                 return ResourceManager.GetString("Today", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trip.
+        /// </summary>
+        public static string TrackDetailPageTitle {
+            get {
+                return ResourceManager.GetString("TrackDetailPageTitle", resourceCulture);
             }
         }
         
@@ -453,6 +597,51 @@ namespace Tabi.Shared.Resx {
         public static string TrackingSwitchLabel {
             get {
                 return ResourceManager.GetString("TrackingSwitchLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Train.
+        /// </summary>
+        public static string TrainLabel {
+            get {
+                return ResourceManager.GetString("TrainLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tram.
+        /// </summary>
+        public static string TramLabel {
+            get {
+                return ResourceManager.GetString("TramLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transport modes.
+        /// </summary>
+        public static string TransportModeLabel {
+            get {
+                return ResourceManager.GetString("TransportModeLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please click the button above to fill in the transport mode(s) used during the trip currently on display. You can select multiple transport modes. .
+        /// </summary>
+        public static string TransportModeSelectionExplanation {
+            get {
+                return ResourceManager.GetString("TransportModeSelectionExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trip data.
+        /// </summary>
+        public static string TripDataSectionLabel {
+            get {
+                return ResourceManager.GetString("TripDataSectionLabel", resourceCulture);
             }
         }
         
@@ -519,135 +708,12 @@ namespace Tabi.Shared.Resx {
             }
         }
         
-        public static string DaySelectorButton {
-            get {
-                return ResourceManager.GetString("DaySelectorButton", resourceCulture);
-            }
-        }
-        
-        public static string TrackDetailPageTitle {
-            get {
-                return ResourceManager.GetString("TrackDetailPageTitle", resourceCulture);
-            }
-        }
-        
-        public static string InformationSectionLabel {
-            get {
-                return ResourceManager.GetString("InformationSectionLabel", resourceCulture);
-            }
-        }
-        
-        public static string TripDataSectionLabel {
-            get {
-                return ResourceManager.GetString("TripDataSectionLabel", resourceCulture);
-            }
-        }
-        
-        public static string TransportModeLabel {
-            get {
-                return ResourceManager.GetString("TransportModeLabel", resourceCulture);
-            }
-        }
-        
-        public static string SelectTransportModeButton {
-            get {
-                return ResourceManager.GetString("SelectTransportModeButton", resourceCulture);
-            }
-        }
-        
-        public static string TransportModeSelectionExplanation {
-            get {
-                return ResourceManager.GetString("TransportModeSelectionExplanation", resourceCulture);
-            }
-        }
-        
-        public static string BikeLabel {
-            get {
-                return ResourceManager.GetString("BikeLabel", resourceCulture);
-            }
-        }
-        
-        public static string BusLabel {
-            get {
-                return ResourceManager.GetString("BusLabel", resourceCulture);
-            }
-        }
-        
-        public static string CarLabel {
-            get {
-                return ResourceManager.GetString("CarLabel", resourceCulture);
-            }
-        }
-        
-        public static string MobilityScooterLabel {
-            get {
-                return ResourceManager.GetString("MobilityScooterLabel", resourceCulture);
-            }
-        }
-        
-        public static string RunLabel {
-            get {
-                return ResourceManager.GetString("RunLabel", resourceCulture);
-            }
-        }
-        
-        public static string TramLabel {
-            get {
-                return ResourceManager.GetString("TramLabel", resourceCulture);
-            }
-        }
-        
+        /// <summary>
+        ///   Looks up a localized string similar to Walk.
+        /// </summary>
         public static string WalkLabel {
             get {
                 return ResourceManager.GetString("WalkLabel", resourceCulture);
-            }
-        }
-        
-        public static string MopedLabel {
-            get {
-                return ResourceManager.GetString("MopedLabel", resourceCulture);
-            }
-        }
-        
-        public static string MotorcycleLabel {
-            get {
-                return ResourceManager.GetString("MotorcycleLabel", resourceCulture);
-            }
-        }
-        
-        public static string OtherLabel {
-            get {
-                return ResourceManager.GetString("OtherLabel", resourceCulture);
-            }
-        }
-        
-        public static string ScooterLabel {
-            get {
-                return ResourceManager.GetString("ScooterLabel", resourceCulture);
-            }
-        }
-        
-        public static string SubwayLabel {
-            get {
-                return ResourceManager.GetString("SubwayLabel", resourceCulture);
-            }
-        }
-        
-        public static string TrainLabel {
-            get {
-                return ResourceManager.GetString("TrainLabel", resourceCulture);
-            }
-        }
-        
-        public static string NoDataInOverview {
-            get {
-                return ResourceManager.GetString("NoDataInOverview", resourceCulture);
-            }
-        }
-        
-        public static string DaySelectorPageTitle {
-            get {
-                return ResourceManager.GetString("DaySelectorPageTitle", resourceCulture);
             }
         }
     }

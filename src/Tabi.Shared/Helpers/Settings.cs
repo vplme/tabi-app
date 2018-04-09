@@ -168,6 +168,117 @@ namespace Tabi
             }
         }
 
+        public long AccelerometerLastUpload
+        {
+            get => AppSettings.GetValueOrDefault(nameof(AccelerometerLastUpload), (long)0);
+            set
+            {
+                if (value == AccelerometerLastUpload)
+                {
+                    return;
+                }
+                AppSettings.AddOrUpdateValue(nameof(AccelerometerLastUpload), value);
+                OnPropertyChanged();
+            }
+        }
+
+        public long GyroscopeLastUpload
+        {
+            get => AppSettings.GetValueOrDefault(nameof(GyroscopeLastUpload), (long)0);
+            set
+            {
+                if (value == GyroscopeLastUpload)
+                {
+                    return;
+                }
+                AppSettings.AddOrUpdateValue(nameof(GyroscopeLastUpload), value);
+                OnPropertyChanged();
+            }
+        }
+
+        public long MagnetometerLastUpload
+        {
+            get => AppSettings.GetValueOrDefault(nameof(MagnetometerLastUpload), (long)0);
+            set
+            {
+                if (value == MagnetometerLastUpload)
+                {
+                    return;
+                }
+                AppSettings.AddOrUpdateValue(nameof(MagnetometerLastUpload), value);
+                OnPropertyChanged();
+            }
+        }
+
+        public long LinearAccelerationLastUpload
+        {
+            get => AppSettings.GetValueOrDefault(nameof(LinearAccelerationLastUpload), (long)0);
+            set
+            {
+                if (value == LinearAccelerationLastUpload)
+                {
+                    return;
+                }
+                AppSettings.AddOrUpdateValue(nameof(LinearAccelerationLastUpload), value);
+                OnPropertyChanged();
+            }
+        }
+
+        public long GravityLastUpload
+        {
+            get => AppSettings.GetValueOrDefault(nameof(GravityLastUpload), (long)0);
+            set
+            {
+                if (value == GravityLastUpload)
+                {
+                    return;
+                }
+                AppSettings.AddOrUpdateValue(nameof(GravityLastUpload), value);
+                OnPropertyChanged();
+            }
+        }
+        public long OrientationLastUpload
+        {
+            get => AppSettings.GetValueOrDefault(nameof(OrientationLastUpload), (long)0);
+            set
+            {
+                if (value == OrientationLastUpload)
+                {
+                    return;
+                }
+                AppSettings.AddOrUpdateValue(nameof(OrientationLastUpload), value);
+                OnPropertyChanged();
+            }
+        }
+
+        public long QuaternionLastUpload
+        {
+            get => AppSettings.GetValueOrDefault(nameof(QuaternionLastUpload), (long)0);
+            set
+            {
+                if (value == QuaternionLastUpload)
+                {
+                    return;
+                }
+                AppSettings.AddOrUpdateValue(nameof(QuaternionLastUpload), value);
+                OnPropertyChanged();
+            }
+        }
+
+        public long SensorMeasurementSessionLastUpload
+        {
+            get => AppSettings.GetValueOrDefault(nameof(SensorMeasurementSessionLastUpload), (long)0);
+            set
+            {
+                if (value == SensorMeasurementSessionLastUpload)
+                {
+                    return;
+                }
+                AppSettings.AddOrUpdateValue(nameof(SensorMeasurementSessionLastUpload), value);
+                OnPropertyChanged();
+            }
+        }
+
         private static ISettings AppSettings
         {
             get

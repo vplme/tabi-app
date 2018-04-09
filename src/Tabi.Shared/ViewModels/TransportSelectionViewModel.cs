@@ -104,10 +104,10 @@ namespace Tabi.ViewModels
                     default:
                         break;
                 }
-
-                //insert in database
-                App.RepoManager.TransportationModeRepository.Add(selectedTransportationModeEntry);
+                
             }
+            //insert in database
+            App.RepoManager.TransportationModeRepository.Add(selectedTransportationModeEntry);
         }
     }
 }

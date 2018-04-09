@@ -1,15 +1,14 @@
 ﻿using System;
 using MvvmHelpers;
+using Newtonsoft.Json;
 using SQLite;
 
 namespace Tabi.DataObjects
 {
     public abstract class MotionSensor : ObservableObject
     {
-        [PrimaryKey, AutoIncrement]
+        [PrimaryKey, AutoIncrement, JsonIgnore]
         public long Id { get; set; }
-
-        public Guid TrackEntryKey { get; set; }
 
         public DateTimeOffset Timestamp { get; set; }
 

@@ -71,49 +71,49 @@ namespace Tabi.Droid.CollectionService
         private void TimerElapsed(object sender, ElapsedEventArgs e)
         {
 
-            Task.Run(() =>
-            {
-                //resolve the data
-                DataResolver dataResolver = new DataResolver();
-                dataResolver.ResolveData(DateTimeOffset.MinValue, DateTimeOffset.Now);
+            //Task.Run(() =>
+            //{
+            //    //resolve the data
+            //    DataResolver dataResolver = new DataResolver();
+            //    dataResolver.ResolveData(DateTimeOffset.MinValue, DateTimeOffset.Now);
 
-                //get all information we need
-                List<TrackEntry> trackEntries = _trackEntryRepository.GetAll().OrderBy(x => x.StartTime).ToList();
+            //    //get all information we need
+            //    List<TrackEntry> trackEntries = _trackEntryRepository.GetAll().OrderBy(x => x.StartTime).ToList();
 
-                Console.WriteLine("Trackentries: " + trackEntries.Count);
+            //    Console.WriteLine("Trackentries: " + trackEntries.Count);
 
-                //check if there are any tracks
-                if (!trackEntries.Any())
-                {
-                    return;
-                }
+            //    //check if there are any tracks
+            //    if (!trackEntries.Any())
+            //    {
+            //        return;
+            //    }
 
-                //if it is the first track made
-                if (lastTrack.Id == Guid.Empty)
-                {
-                    lastTrack = trackEntries.Last();
-                }
+            //    //if it is the first track made
+            //    if (lastTrack.Id == Guid.Empty)
+            //    {
+            //        lastTrack = trackEntries.Last();
+            //    }
 
-                //if there is a new track maded.. resolve the lastTrack and replace with newest track
-                if (lastTrack.Id != trackEntries.Last().Id)
-                {                    
-                    Console.WriteLine("begin resolving" + DateTime.Now);
+            //    //if there is a new track maded.. resolve the lastTrack and replace with newest track
+            //    if (lastTrack.Id != trackEntries.Last().Id)
+            //    {                    
+            //        Console.WriteLine("begin resolving" + DateTime.Now);
 
-                    //resolve last recorded track
-                    bool accelerometerUpdated = _accelerometerRepository.UpdateTrackKey(lastTrack, "Accelerometer");
-                    bool gyroscopeUpdated = _gyroscopeRepository.UpdateTrackKey(lastTrack, "Gyroscope");
-                    bool magnetometerUpdated = _magnetometerRepository.UpdateTrackKey(lastTrack, "Magnetometer");
-                    bool linearAcceleration = _linearAccelerationRepository.UpdateTrackKey(lastTrack, "LinearAcceleration");
-                    bool gravityUpdated = _linearAccelerationRepository.UpdateTrackKey(lastTrack, "Gravity");
-                    bool orientationUpdated = _orientationRepository.UpdateTrackKey(lastTrack, "Orientation");
-                    bool quaternionUpdated = _quaternionRepository.UpdateTrackKey(lastTrack, "Quaternion");
-                    bool sensorMeasurementSessionUpdated = _sensorMeasurementSessionRepository.UpdateTrackKey(lastTrack);
+            //        //resolve last recorded track
+            //        bool accelerometerUpdated = _accelerometerRepository.UpdateTrackKey(lastTrack, "Accelerometer");
+            //        bool gyroscopeUpdated = _gyroscopeRepository.UpdateTrackKey(lastTrack, "Gyroscope");
+            //        bool magnetometerUpdated = _magnetometerRepository.UpdateTrackKey(lastTrack, "Magnetometer");
+            //        bool linearAcceleration = _linearAccelerationRepository.UpdateTrackKey(lastTrack, "LinearAcceleration");
+            //        bool gravityUpdated = _linearAccelerationRepository.UpdateTrackKey(lastTrack, "Gravity");
+            //        bool orientationUpdated = _orientationRepository.UpdateTrackKey(lastTrack, "Orientation");
+            //        bool quaternionUpdated = _quaternionRepository.UpdateTrackKey(lastTrack, "Quaternion");
+            //        bool sensorMeasurementSessionUpdated = _sensorMeasurementSessionRepository.UpdateTrackKey(lastTrack);
 
-                    Console.WriteLine("Done resolving" + DateTime.Now);
+            //        Console.WriteLine("Done resolving" + DateTime.Now);
 
-                    this.lastTrack = trackEntries.Last();
-                }
-            });
+            //        this.lastTrack = trackEntries.Last();
+            //    }
+            //});
             
         }
     }
