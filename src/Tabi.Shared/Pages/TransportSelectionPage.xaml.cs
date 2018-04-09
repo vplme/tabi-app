@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using Tabi.ViewModels;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace Tabi.Pages
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TransportSelectionPage : ContentPage
     {
         TransportSelectionViewModel ViewModel => vm ?? (vm = BindingContext as TransportSelectionViewModel);
