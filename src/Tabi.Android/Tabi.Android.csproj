@@ -471,6 +471,7 @@
     <AndroidResource Include="Resources\drawable-xhdpi\ic_check_circle_black_24dp.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_check_circle_black_24dp.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_check_circle_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\splash.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Tabbar.axml" />
