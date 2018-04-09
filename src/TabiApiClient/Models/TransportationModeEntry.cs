@@ -1,15 +1,16 @@
-﻿using SQLite;
-using SQLiteNetExtensions.Attributes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Tabi.DataObjects;
 
-namespace Tabi.DataObjects
+namespace TabiApiClient.Models
 {
-    public class TransportationModeEntry
+    public class TransportationMode
     {
-        [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
+        public Guid TrackId { get; set; }
+
+        //public string Mode { get; set; }
+
         public bool Walk { get; set; }
         public bool Run { get; set; }
         public bool MobilityScooter { get; set; }
@@ -25,24 +26,5 @@ namespace Tabi.DataObjects
         public bool Other { get; set; }
 
         public DateTimeOffset Timestamp { get; set; }
-
-        public Guid TrackId { get; set; }
-    }
-
-    public enum TransportationMode
-    {
-        Walk = 0,
-        Run,
-        MobilityScooter,
-        Car,
-        Bike,
-        Moped,
-        Scooter,
-        Motorcycle,
-        Train,
-        Subway,
-        Tram,
-        Bus,
-        Other,
     }
 }

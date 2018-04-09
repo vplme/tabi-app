@@ -10,11 +10,13 @@ namespace Tabi.Pages
         TrackDetailViewModel ViewModel => vm ?? (vm = BindingContext as TrackDetailViewModel);
         TrackDetailViewModel vm;
 
-        public TrackDetailPage()
+        public TrackDetailPage(Track track)
         {
             InitializeComponent();
             BindingContext = new TrackDetailViewModel(this.Navigation);
             routeMap.HeightRequest = App.ScreenHeight * 0.30;
+
+            ViewModel.TrackEntry = track.TrackEntry;
         }
     }
 }

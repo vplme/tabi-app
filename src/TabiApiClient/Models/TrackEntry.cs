@@ -10,7 +10,5 @@ namespace TabiApiClient.Models
 
         public DateTimeOffset StartTime { get; set; }
         public DateTimeOffset EndTime { get; set; }
-
-        public List<TransportationMode> TransportationModes { get; set; }
     }
 }

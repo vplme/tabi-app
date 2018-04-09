@@ -1,15 +1,13 @@
 ﻿using System;
+using Newtonsoft.Json;
 using SQLite;
 
 namespace Tabi.DataObjects
 {
     public class SensorMeasurementSession
     {
-        [PrimaryKey, AutoIncrement]
+        [PrimaryKey, AutoIncrement, JsonIgnore]
         public int Id { get; set; }
-
-        [Ignore]
-        public TrackEntry TrackEntry { get; set; }
 
         public DateTimeOffset Timestamp { get; set; }
         public int AmbientLight { get; set; }
@@ -18,6 +16,5 @@ namespace Tabi.DataObjects
         public int Compass { get; set; }
         public int BatteryLevel { get; set; }
         public BatteryEntryState BatteryStatus { get; set; }
-        public Guid TrackEntryKey { get; set; }
     }
 }
