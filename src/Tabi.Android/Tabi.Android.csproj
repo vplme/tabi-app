@@ -364,6 +364,12 @@
     <Reference Include="Xamarin.Android.Support.v7.MediaRouter">
       <HintPath>..\packages\Xamarin.Android.Support.v7.MediaRouter.27.0.2\lib\MonoAndroid81\Xamarin.Android.Support.v7.MediaRouter.dll</HintPath>
     </Reference>
+    <Reference Include="Plugin.DeviceInfo.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.DeviceInfo.3.1.0\lib\MonoAndroid10\Plugin.DeviceInfo.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.DeviceInfo">
+      <HintPath>..\packages\Xam.Plugin.DeviceInfo.3.1.0\lib\MonoAndroid10\Plugin.DeviceInfo.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CollectionService\AssignSensorDataToTrackService.cs" />

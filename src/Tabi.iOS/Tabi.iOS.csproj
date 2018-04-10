@@ -379,6 +379,12 @@
     <Reference Include="Plugin.Permissions">
       <HintPath>..\packages\Plugin.Permissions.2.1.0\lib\Xamarin.iOS10\Plugin.Permissions.dll</HintPath>
     </Reference>
+    <Reference Include="Plugin.DeviceInfo.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.DeviceInfo.3.1.0\lib\Xamarin.iOS10\Plugin.DeviceInfo.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.DeviceInfo">
+      <HintPath>..\packages\Xam.Plugin.DeviceInfo.3.1.0\lib\Xamarin.iOS10\Plugin.DeviceInfo.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tabi.Shared\Tabi.Shared.csproj">

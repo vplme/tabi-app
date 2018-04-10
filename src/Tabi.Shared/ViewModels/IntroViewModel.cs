@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Linq;  
 using System.Windows.Input;
+using Plugin.DeviceInfo.Abstractions;
 using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
 using Tabi.Pages;
@@ -234,7 +235,8 @@ namespace Tabi.Shared.ViewModels
                     }
                     else
                     {
-                        bool success = await ac.RegisterDevice(Settings.Current.Device);
+                        IDeviceInfo deviceInfo = Plugin.DeviceInfo.CrossDeviceInfo.Current;
+                        bool success = await ac.RegisterDevice(Settings.Current.Device, deviceInfo.Model, deviceInfo.Version, deviceInfo.Manufacturer);
                         if (!success)
                         {
                             await introPage.DisplayAlert(AppResources.ErrorOccurredTitle, "Problem registering device", "OK");
