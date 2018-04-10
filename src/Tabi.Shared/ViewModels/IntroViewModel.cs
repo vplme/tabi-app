@@ -305,40 +305,27 @@ namespace Tabi.Shared.ViewModels
                 if (Device.RuntimePlatform == Device.iOS)
                 {
                     var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Sensors);
-
-                    //for test purposes status = granted
-                    switch (status)
+                    if (status != PermissionStatus.Granted)
                     {
-                        case PermissionStatus.Granted:
-                            Console.WriteLine("permission granted");
-                            PermissionSensorButtonColor = (Color)Application.Current.Resources["greenButtonColor"];
-                            SensorPermissionGiven = true;
-                            CheckAllPermissionsGiven();
-                            break;
+                        if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.Sensors))
+                        {
+                            await introPage.DisplayAlert("Need sensor access", "Tabi requires sensor access", "OK");
+                        }
 
-                        default:
-                            if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.Sensors))
-                            {
-                                await introPage.DisplayAlert(
-                                    AppResources.SensorPermissionRationaleTitle,
-                                    AppResources.SensorPermissionRationaleText,
-                                    AppResources.OkText);
-                            }
-                            if (status == PermissionStatus.Denied)
-                            {
-                                Console.WriteLine("permission denied");
-                                await introPage.DisplayAlert(
-                                    AppResources.SensorPermissionDeniedOpenSettingsiOSTitle,
-                                    AppResources.SensorPermissionDeniedOpenSettingsiOSText,
-                                    AppResources.OkText);
+                        var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Sensors);
+                        //Best practice to always check that the key exists
+                        if (results.ContainsKey(Permission.Location))
+                            status = results[Permission.Location];
+                    }
 
-                                CrossPermissions.Current.OpenAppSettings();
-                            }
-                            var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Sensors);
-                            //Best practice to always check that the key exists
-                            if (results.ContainsKey(Permission.Sensors))
-                                status = results[Permission.Sensors];
-                            break;
+                    if (status == PermissionStatus.Granted)
+                    {
+                        SensorPermissionGiven = true;
+                        CheckAllPermissionsGiven();
+                    }
+                    else if (status != PermissionStatus.Unknown)
+                    {
+                        await introPage.DisplayAlert("Sensor access denied", "Can not continue, try again.", "OK");
                     }
                 }
                 
