@@ -30,9 +30,7 @@
 	<string>Tabi</string>
 	<key>UIBackgroundModes</key>
 	<array>
-		<string>audio</string>
 		<string>location</string>
-		<string>bluetooth-central</string>
 		<string>remote-notification</string>
 	</array>
 	<key>CFBundleURLTypes</key>
@@ -54,13 +52,13 @@
 	<string>Tabi requires location access</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Tabi requires location access</string>
-  <key>NSMotionUsageDescription</key>
-  <string>Tabi requires motion access</string>
-	<key>CFBundleIdentifier</key>
-	<string>com.tabiapp.tabi</string>
+	<key>NSMotionUsageDescription</key>
+	<string>Tabi requires motion access</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>1.0.6</string>
+	<key>CFBundleIdentifier</key>
+	<string>nl.cbs.tabi</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.3.5</string>
+	<string>1.0.2</string>
 </dict>
 </plist>
