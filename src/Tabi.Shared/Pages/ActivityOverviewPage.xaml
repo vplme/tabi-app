@@ -3,11 +3,7 @@
      xmlns:local="clr-namespace:Tabi;assembly=Tabi.Shared" xmlns:i18n="clr-namespace:Tabi.Shared.Localization;assembly=Tabi.Shared"
      x:Class="Tabi.ActivityOverviewPage" Title="{Binding Title}">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Command="{Binding DaySelectorCommand}" Text="{i18n:Translate DaySelectorButton}">
-            <ToolbarItem.Effects>
-                <local:LeftToolbarItemEffect />
-            </ToolbarItem.Effects>
-        </ToolbarItem>
+        <local:ExtendedToolbarItem Left="True" Command="{Binding DaySelectorCommand}" Text="{i18n:Translate DaySelectorButton}" />
         <ToolbarItem Command="{Binding SettingsCommand}}">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
@@ -19,7 +15,8 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <Label IsVisible="{Binding NoDataInOverviewVisible}" HorizontalTextAlignment="Center" Margin="20, 15, 20, 0" Text="{i18n:Translate NoDataInOverview}" />
+            <Label IsVisible="{Binding NoDataInOverviewVisible}" HorizontalTextAlignment="Center" Margin="20, 15, 20, 0"
+                 Text="{i18n:Translate NoDataInOverview}" />
             <ListView x:Name="ListViewOverview" HasUnevenRows="true" SeparatorVisibility="None" ItemsSource="{Binding ActivityEntries}"
                  IsPullToRefreshEnabled="true" IsRefreshing="{Binding ListIsRefreshing}" RefreshCommand="{Binding RefreshCommand}" ItemSelected="ItemSelected">
                 <ListView.Effects>
