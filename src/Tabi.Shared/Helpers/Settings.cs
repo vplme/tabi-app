@@ -59,9 +59,9 @@ namespace Tabi
             }
         }
 
-        public string Device
+        public int Device
         {
-            get => AppSettings.GetValueOrDefault(nameof(Device), string.Empty);
+            get => AppSettings.GetValueOrDefault(nameof(Device), 0);
             set
             {
                 if (value == Device)

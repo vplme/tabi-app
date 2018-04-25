@@ -6,7 +6,7 @@ namespace Tabi.DataObjects
     public class Device
     {
         [PrimaryKey]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         public Guid UserId { get; set; }
 

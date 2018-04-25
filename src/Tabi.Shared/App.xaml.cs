@@ -39,7 +39,6 @@ namespace Tabi
         public static double ScreenWidth;
         public static readonly IConfigurationRoot Configuration;
         public static bool LocationPermissionsGranted;
-        //public static IRepoManager RepoManager;
 
         public static CollectionProfile CollectionProfile { get; private set; }
 
@@ -66,21 +65,6 @@ namespace Tabi
 
 
             CollectionProfile = CollectionProfile.GetDefaultProfile();
-
-
-            IRepoManager repoManager = Container.Resolve<IRepoManager>();
-            // Initialize Device Identifier on empty database
-            if (repoManager.DeviceRepository.Count() == 0)
-            {
-                Log.Info("Registering new device guid");
-                DataObjects.Device device = new DataObjects.Device()
-                {
-                    Id = Guid.NewGuid(),
-                    OperatingSystem = Xamarin.Forms.Device.RuntimePlatform,
-                };
-                repoManager.DeviceRepository.Add(device);
-                Settings.Current.Device = device.Id.ToString();
-            }
 
             InitializeComponent();
 
@@ -119,7 +103,7 @@ namespace Tabi
             containerBuilder.RegisterType<SqliteNetRepoManager>().As<IRepoManager>().SingleInstance();
 
             containerBuilder.RegisterType<SyncService>();
-            containerBuilder.RegisterType<ApiClient>().WithParameter("url", Configuration["api-url"]);
+            containerBuilder.RegisterType<ApiClient>().WithParameter("apiLocation", Configuration["api-url"]);
 
             containerBuilder.RegisterType<DateService>().SingleInstance();
             containerBuilder.RegisterType<DataResolver>();
@@ -240,11 +224,11 @@ namespace Tabi
             CheckAuthorization(Settings.Current.Device);
         }
 
-        async Task CheckAuthorization(string deviceId)
+        async Task CheckAuthorization(int deviceId)
         {
             if (Settings.Current.PermissionsGranted)
             {
-                TabiApiClient.ApiClient apiClient = new TabiApiClient.ApiClient();
+                TabiApiClient.ApiClient apiClient = Container.Resolve<ApiClient>();
                 await apiClient.Authenticate(Settings.Current.Username, Settings.Current.Password);
                 bool unauth = await apiClient.IsDeviceUnauthorized(deviceId);
 

@@ -10,6 +10,7 @@ using Tabi.Shared.Controls;
 using Tabi.Shared.IntroViews;
 using Tabi.Shared.Resx;
 using TabiApiClient;
+using TabiApiClient.Messages;
 using Xamarin.Forms;
 
 namespace Tabi.Shared.ViewModels
@@ -236,15 +237,17 @@ namespace Tabi.Shared.ViewModels
                     else
                     {
                         IDeviceInfo deviceInfo = Plugin.DeviceInfo.CrossDeviceInfo.Current;
-                        bool success = await ac.RegisterDevice(Settings.Current.Device, deviceInfo.Model, deviceInfo.Version, deviceInfo.Manufacturer);
-                        if (!success)
+                        DeviceMessage response = await ac.RegisterDevice(deviceInfo.Model, deviceInfo.Version, deviceInfo.Manufacturer);
+                        if (response.ID == 0)
                         {
                             await introPage.DisplayAlert(AppResources.ErrorOccurredTitle, "Problem registering device", "OK");
-
+                        }
+                        else{
+                            Settings.Current.Device = response.ID;
+                            GoNextView();
                         }
                     }
 
-                    GoNextView();
                 }
                 else
                 {
