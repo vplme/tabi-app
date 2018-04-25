@@ -1,355 +1,355 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
-    Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
-    associated with the data types.
-    
-    Example:
-    
-    ... ado.net/XML headers & schema ...
-    <resheader name="resmimetype">text/microsoft-resx</resheader>
-    <resheader name="version">2.0</resheader>
-    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[base64 mime encoded serialized .NET Framework object]</value>
-    </data>
-    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-        <comment>This is a comment</comment>
-    </data>
-                
-    There are any number of "resheader" rows that contain simple 
-    name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
-    mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
-    extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
-    read any of the formats listed below.
-    
-    mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-            : and then encoded with base64 encoding.
-    
-    mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-            : and then encoded with base64 encoding.
+    <!-- 
+		Microsoft ResX Schema 
 
-    mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
-            : using a System.ComponentModel.TypeConverter
-            : and then encoded with base64 encoding.
-    -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+		Version 2.0
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">2.0</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+				<value>[base64 mime encoded serialized .NET Framework object]</value>
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+				<value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+				<comment>This is a comment</comment>
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+						: System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+						: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+						: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+						: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+						: using a System.ComponentModel.TypeConverter
+						: and then encoded with base64 encoding.
+		-->
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="NotesLabel" xml:space="preserve">
-    <value>Hiii:</value>
-    <comment>label for input field</comment>
-  </data>
-  <data name="SettingsPageTitle" xml:space="preserve">
-    <value>Settings</value>
-    <comment>Label for the SettingsPage</comment>
-  </data>
-  <data name="ActivityOverviewPageTitle" xml:space="preserve">
-    <value>Overview</value>
-    <comment>Label for the ActivityOverviewPage</comment>
-  </data>
-  <data name="DayMapPageTitle" xml:space="preserve">
-    <value>Map</value>
-    <comment>Label for the DayMapPage</comment>
-  </data>
-  <data name="TrackingSectionLabel" xml:space="preserve">
-    <value>Data Collection</value>
-    <comment>Title label for the section/card regarding data collection</comment>
-  </data>
-  <data name="TrackingSwitchLabel" xml:space="preserve">
-    <value>Tracking</value>
-    <comment>Label for the switch that allows the user to enable/disable tracking</comment>
-  </data>
-  <data name="GeneralLabel" xml:space="preserve">
-    <value>General</value>
-    <comment>Label for General items, used in settings.</comment>
-  </data>
-  <data name="AboutSectionLabel" xml:space="preserve">
-    <value>About</value>
-    <comment>Label used in the About section/card.</comment>
-  </data>
-  <data name="InfoLabel" xml:space="preserve">
-    <value>Info</value>
-    <comment>Info label, used in settings</comment>
-  </data>
-  <data name="VersionLabel" xml:space="preserve">
-    <value>Version</value>
-    <comment>Version</comment>
-  </data>
-  <data name="ServiceTitle" xml:space="preserve">
-    <value>Tabi</value>
-    <comment>Title used in the notification for the foreground service</comment>
-  </data>
-  <data name="ServiceText" xml:space="preserve">
-    <value>Running in the background to track your movement.</value>
-    <comment>Text used (below title and smaller in text) in the notification for the foreground service</comment>
-  </data>
-  <data name="OpenFileInApp" xml:space="preserve">
-    <value>Select app</value>
-    <comment>Text instruction used when sharing data with another app</comment>
-  </data>
-  <data name="TrackingExplanation" xml:space="preserve">
-    <value>It's possible to disable the collection of data by disabling the tracking below.</value>
-  </data>
-  <data name="Today" xml:space="preserve">
-    <value>Today</value>
-  </data>
-  <data name="UsernameLabel" xml:space="preserve">
-    <value>Username</value>
-  </data>
-  <data name="UsernamePlaceholder" xml:space="preserve">
-    <value>JaneDoe</value>
-  </data>
-  <data name="PasswordLabel" xml:space="preserve">
-    <value>Password</value>
-  </data>
-  <data name="PasswordPlaceholder" xml:space="preserve">
-    <value>yourpassword</value>
-  </data>
-  <data name="LoginButton" xml:space="preserve">
-    <value>Login</value>
-  </data>
-  <data name="ContinueButton" xml:space="preserve">
-    <value>Continue</value>
-  </data>
-  <data name="IntroWelcomeTitle" xml:space="preserve">
-    <value>Tabi</value>
-  </data>
-  <data name="IntroWelcomeText" xml:space="preserve">
-    <value>Welcome to the Tabi Verplaatsingen app. You will need to login with your credentials on the next screen.</value>
-  </data>
-  <data name="ErrorOccurredTitle" xml:space="preserve">
-    <value>Error</value>
-  </data>
-  <data name="LoginFailureTitle" xml:space="preserve">
-    <value>Failed to login</value>
-  </data>
-  <data name="LoginFailureText" xml:space="preserve">
-    <value>Please check your username and password.</value>
-  </data>
-  <data name="LoginIntroTitle" xml:space="preserve">
-    <value>Login with credentials</value>
-  </data>
-  <data name="LoginIntroText" xml:space="preserve">
-    <value>You need to login with the provided username and password to continue.</value>
-  </data>
-  <data name="LocationPermissionButton" xml:space="preserve">
-    <value>Allow location access</value>
-  </data>
-  <data name="LocationPermissionTitle" xml:space="preserve">
-    <value>Location permission required</value>
-  </data>
-  <data name="LocationPermissionText" xml:space="preserve">
-    <value>You need to give location access to the app so that we can use this to track your movements.</value>
-  </data>
-  <data name="UploadDataLabel" xml:space="preserve">
-    <value>Data</value>
-  </data>
-  <data name="UploadDataButton" xml:space="preserve">
-    <value>Upload data</value>
-  </data>
-  <data name="LocationPermissionRationaleTitle" xml:space="preserve">
-    <value>Location required</value>
-  </data>
-  <data name="LocationPermissionRationaleText" xml:space="preserve">
-    <value>Location permission needs to be granted for the application to record your movements.</value>
-  </data>
-  <data name="LocationPermissionDeniedOpenSettingsiOSTitle" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="LocationPermissionDeniedOpenSettingsiOSText" xml:space="preserve">
-    <value>Change location permission to "Always" in the Settings.</value>
-  </data>
-  <data name="OkText" xml:space="preserve">
-    <value>Ok</value>
-  </data>
-  <data name="NoInternetConnectionTitle" xml:space="preserve">
-    <value>No Internet Connection</value>
-  </data>
-  <data name="NoInternetConnectionText" xml:space="preserve">
-    <value>Tabi could not connect to the internet</value>
-  </data>
-  <data name="CancelText" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="MobileDataUsageTitle" xml:space="preserve">
-    <value>Mobile Data</value>
-  </data>
-  <data name="MobileDataUsageText" xml:space="preserve">
-    <value>This will use your mobile connection to upload data. This may result in fees from your mobile operator.</value>
-  </data>
-  <data name="UploadDataErrorText" xml:space="preserve">
-    <value>Could not upload data. If this problem keeps occuring please contact support.</value>
-  </data>
-  <data name="UploadDataInProgress" xml:space="preserve">
-    <value>Uploading data...</value>
-  </data>
-  <data name="DataUploadSuccesful" xml:space="preserve">
-    <value>Data upload succesful</value>
-  </data>
-  <data name="DaySelectorButton" xml:space="preserve">
-    <value>Days</value>
-  </data>
-  <data name="TrackDetailPageTitle" xml:space="preserve">
-    <value>Trip</value>
-  </data>
-  <data name="InformationSectionLabel" xml:space="preserve">
-    <value>Information</value>
-  </data>
-  <data name="TripDataSectionLabel" xml:space="preserve">
-    <value>Trip data</value>
-  </data>
-  <data name="TransportModeLabel" xml:space="preserve">
-    <value>Transport modes</value>
-  </data>
-  <data name="SelectTransportModeButton" xml:space="preserve">
-    <value>Select transport modes</value>
-  </data>
-  <data name="TransportModeSelectionExplanation" xml:space="preserve">
-    <value>Please click the button above to fill in the transport mode(s) used during the trip currently on display. You can select multiple transport modes. </value>
-  </data>
-  <data name="BikeLabel" xml:space="preserve">
-    <value>Bike</value>
-  </data>
-  <data name="BusLabel" xml:space="preserve">
-    <value>Bus</value>
-  </data>
-  <data name="CarLabel" xml:space="preserve">
-    <value>Car</value>
-  </data>
-  <data name="MobilityScooterLabel" xml:space="preserve">
-    <value>Mobility Scooter</value>
-  </data>
-  <data name="RunLabel" xml:space="preserve">
-    <value>Run</value>
-  </data>
-  <data name="TramLabel" xml:space="preserve">
-    <value>Tram</value>
-  </data>
-  <data name="WalkLabel" xml:space="preserve">
-    <value>Walk</value>
-  </data>
-  <data name="MopedLabel" xml:space="preserve">
-    <value>Moped</value>
-  </data>
-  <data name="MotorcycleLabel" xml:space="preserve">
-    <value>Motorcycle</value>
-  </data>
-  <data name="OtherLabel" xml:space="preserve">
-    <value>Other</value>
-  </data>
-  <data name="ScooterLabel" xml:space="preserve">
-    <value>Scooter</value>
-  </data>
-  <data name="SubwayLabel" xml:space="preserve">
-    <value>Subway</value>
-  </data>
-  <data name="TrainLabel" xml:space="preserve">
-    <value>Train</value>
-  </data>
-  <data name="NoDataInOverview" xml:space="preserve">
-    <value>There is no data available to show you. If this is today; wait a few minutes and pull to refresh the page.</value>
-  </data>
-  <data name="DaySelectorPageTitle" xml:space="preserve">
-    <value>Select day</value>
-  </data>
-  <data name="SensorPermissionButton" xml:space="preserve">
-    <value>Motion and Fitness permission required</value>
-  </data>
-  <data name="SensorPermissionDeniedOpenSettingsiOSText" xml:space="preserve">
-    <value>Turn Motion and Fitness permission on in the Settings.</value>
-  </data>
-  <data name="SensorPermissionDeniedOpenSettingsiOSTitle" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="SensorPermissionRationaleText" xml:space="preserve">
-    <value>Motion and Fitness permission needs to be granted for the application to record your movements.</value>
-  </data>
-  <data name="SensorPermissionRationaleTitle" xml:space="preserve">
-    <value>Motion and Fitness required</value>
-  </data>
-  <data name="ServiceNotificationChannelLabel" xml:space="preserve">
-    <value>Service foreground notification</value>
-  </data>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="NotesLabel" xml:space="preserve">
+		<value>Hiii:</value>
+		<comment>label for input field</comment>
+	</data>
+    <data name="SettingsPageTitle" xml:space="preserve">
+		<value>Settings</value>
+		<comment>Label for the SettingsPage</comment>
+	</data>
+    <data name="ActivityOverviewPageTitle" xml:space="preserve">
+		<value>Overview</value>
+		<comment>Label for the ActivityOverviewPage</comment>
+	</data>
+    <data name="DayMapPageTitle" xml:space="preserve">
+		<value>Map</value>
+		<comment>Label for the DayMapPage</comment>
+	</data>
+    <data name="TrackingSectionLabel" xml:space="preserve">
+		<value>Data Collection</value>
+		<comment>Title label for the section/card regarding data collection</comment>
+	</data>
+    <data name="TrackingSwitchLabel" xml:space="preserve">
+		<value>Tracking</value>
+		<comment>Label for the switch that allows the user to enable/disable tracking</comment>
+	</data>
+    <data name="GeneralLabel" xml:space="preserve">
+		<value>General</value>
+		<comment>Label for General items, used in settings.</comment>
+	</data>
+    <data name="AboutSectionLabel" xml:space="preserve">
+		<value>About</value>
+		<comment>Label used in the About section/card.</comment>
+	</data>
+    <data name="InfoLabel" xml:space="preserve">
+		<value>Info</value>
+		<comment>Info label, used in settings</comment>
+	</data>
+    <data name="VersionLabel" xml:space="preserve">
+		<value>Version</value>
+		<comment>Version</comment>
+	</data>
+    <data name="ServiceTitle" xml:space="preserve">
+		<value>Tabi</value>
+		<comment>Title used in the notification for the foreground service</comment>
+	</data>
+    <data name="ServiceText" xml:space="preserve">
+		<value>Running in the background to track your movement.</value>
+		<comment>Text used (below title and smaller in text) in the notification for the foreground service</comment>
+	</data>
+    <data name="OpenFileInApp" xml:space="preserve">
+		<value>Select app</value>
+		<comment>Text instruction used when sharing data with another app</comment>
+	</data>
+    <data name="TrackingExplanation" xml:space="preserve">
+		<value>It's possible to disable the collection of data by disabling the tracking below.</value>
+	</data>
+    <data name="Today" xml:space="preserve">
+		<value>Today</value>
+	</data>
+    <data name="UsernameLabel" xml:space="preserve">
+		<value>Username</value>
+	</data>
+    <data name="UsernamePlaceholder" xml:space="preserve">
+		<value>JaneDoe</value>
+	</data>
+    <data name="PasswordLabel" xml:space="preserve">
+		<value>Password</value>
+	</data>
+    <data name="PasswordPlaceholder" xml:space="preserve">
+		<value>yourpassword</value>
+	</data>
+    <data name="LoginButton" xml:space="preserve">
+		<value>Login</value>
+	</data>
+    <data name="ContinueButton" xml:space="preserve">
+		<value>Continue</value>
+	</data>
+    <data name="IntroWelcomeTitle" xml:space="preserve">
+		<value>Tabi</value>
+	</data>
+    <data name="IntroWelcomeText" xml:space="preserve">
+		<value>Welcome to the Tabi Verplaatsingen app. You will need to login with your credentials on the next screen.</value>
+	</data>
+    <data name="ErrorOccurredTitle" xml:space="preserve">
+		<value>Error</value>
+	</data>
+    <data name="LoginFailureTitle" xml:space="preserve">
+		<value>Failed to login</value>
+	</data>
+    <data name="LoginFailureText" xml:space="preserve">
+		<value>Please check your username and password.</value>
+	</data>
+    <data name="LoginIntroTitle" xml:space="preserve">
+		<value>Login with credentials</value>
+	</data>
+    <data name="LoginIntroText" xml:space="preserve">
+		<value>You need to login with the provided username and password to continue.</value>
+	</data>
+    <data name="LocationPermissionButton" xml:space="preserve">
+		<value>Allow location access</value>
+	</data>
+    <data name="LocationPermissionTitle" xml:space="preserve">
+		<value>Location permission required</value>
+	</data>
+    <data name="LocationPermissionText" xml:space="preserve">
+		<value>You need to give location access to the app so that we can use this to track your movements.</value>
+	</data>
+    <data name="UploadDataLabel" xml:space="preserve">
+		<value>Data</value>
+	</data>
+    <data name="UploadDataButton" xml:space="preserve">
+		<value>Upload data</value>
+	</data>
+    <data name="LocationPermissionRationaleTitle" xml:space="preserve">
+		<value>Location required</value>
+	</data>
+    <data name="LocationPermissionRationaleText" xml:space="preserve">
+		<value>Location permission needs to be granted for the application to record your movements.</value>
+	</data>
+    <data name="LocationPermissionDeniedOpenSettingsiOSTitle" xml:space="preserve">
+		<value>Settings</value>
+	</data>
+    <data name="LocationPermissionDeniedOpenSettingsiOSText" xml:space="preserve">
+		<value>Change location permission to "Always" in the Settings.</value>
+	</data>
+    <data name="OkText" xml:space="preserve">
+		<value>Ok</value>
+	</data>
+    <data name="NoInternetConnectionTitle" xml:space="preserve">
+		<value>No Internet Connection</value>
+	</data>
+    <data name="NoInternetConnectionText" xml:space="preserve">
+		<value>Tabi could not connect to the internet</value>
+	</data>
+    <data name="CancelText" xml:space="preserve">
+		<value>Cancel</value>
+	</data>
+    <data name="MobileDataUsageTitle" xml:space="preserve">
+		<value>Mobile Data</value>
+	</data>
+    <data name="MobileDataUsageText" xml:space="preserve">
+		<value>This will use your mobile connection to upload data. This may result in fees from your mobile operator.</value>
+	</data>
+    <data name="UploadDataErrorText" xml:space="preserve">
+		<value>Could not upload data. If this problem keeps occuring please contact support.</value>
+	</data>
+    <data name="UploadDataInProgress" xml:space="preserve">
+		<value>Uploading data...</value>
+	</data>
+    <data name="DataUploadSuccesful" xml:space="preserve">
+		<value>Data upload succesful</value>
+	</data>
+    <data name="DaySelectorButton" xml:space="preserve">
+		<value>Days</value>
+	</data>
+    <data name="TrackDetailPageTitle" xml:space="preserve">
+		<value>Trip</value>
+	</data>
+    <data name="InformationSectionLabel" xml:space="preserve">
+		<value>Information</value>
+	</data>
+    <data name="TripDataSectionLabel" xml:space="preserve">
+		<value>Trip data</value>
+	</data>
+    <data name="TransportModeLabel" xml:space="preserve">
+		<value>Transport modes</value>
+	</data>
+    <data name="SelectTransportModeButton" xml:space="preserve">
+		<value>Select transport modes</value>
+	</data>
+    <data name="TransportModeSelectionExplanation" xml:space="preserve">
+		<value>Please click the button above to fill in the transport mode(s) used during the trip currently on display. You can select multiple transport modes. </value>
+	</data>
+    <data name="BikeLabel" xml:space="preserve">
+		<value>Bike</value>
+	</data>
+    <data name="BusLabel" xml:space="preserve">
+		<value>Bus</value>
+	</data>
+    <data name="CarLabel" xml:space="preserve">
+		<value>Car</value>
+	</data>
+    <data name="MobilityScooterLabel" xml:space="preserve">
+		<value>Mobility Scooter</value>
+	</data>
+    <data name="RunLabel" xml:space="preserve">
+		<value>Run</value>
+	</data>
+    <data name="TramLabel" xml:space="preserve">
+		<value>Tram</value>
+	</data>
+    <data name="WalkLabel" xml:space="preserve">
+		<value>Walk</value>
+	</data>
+    <data name="MopedLabel" xml:space="preserve">
+		<value>Moped</value>
+	</data>
+    <data name="MotorcycleLabel" xml:space="preserve">
+		<value>Motorcycle</value>
+	</data>
+    <data name="OtherLabel" xml:space="preserve">
+		<value>Other</value>
+	</data>
+    <data name="ScooterLabel" xml:space="preserve">
+		<value>Scooter</value>
+	</data>
+    <data name="SubwayLabel" xml:space="preserve">
+		<value>Subway</value>
+	</data>
+    <data name="TrainLabel" xml:space="preserve">
+		<value>Train</value>
+	</data>
+    <data name="NoDataInOverview" xml:space="preserve">
+		<value>There is no data available to show you. If this is today; wait a few minutes and pull to refresh the page.</value>
+	</data>
+    <data name="DaySelectorPageTitle" xml:space="preserve">
+		<value>Select day</value>
+	</data>
+    <data name="SensorPermissionButton" xml:space="preserve">
+		<value>Motion and Fitness permission required</value>
+	</data>
+    <data name="SensorPermissionDeniedOpenSettingsiOSText" xml:space="preserve">
+		<value>Turn Motion and Fitness permission on in the Settings.</value>
+	</data>
+    <data name="SensorPermissionDeniedOpenSettingsiOSTitle" xml:space="preserve">
+		<value>Settings</value>
+	</data>
+    <data name="SensorPermissionRationaleText" xml:space="preserve">
+		<value>Motion and Fitness permission needs to be granted for the application to record your movements.</value>
+	</data>
+    <data name="SensorPermissionRationaleTitle" xml:space="preserve">
+		<value>Motion and Fitness required</value>
+	</data>
+    <data name="ServiceNotificationChannelLabel" xml:space="preserve">
+		<value>Service foreground notification</value>
+	</data>
 </root>
