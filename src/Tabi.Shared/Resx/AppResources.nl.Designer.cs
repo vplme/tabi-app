@@ -119,6 +119,12 @@ namespace Tabi.Shared.Resx {
             }
         }
         
+        internal static string OpenFileInApp {
+            get {
+                return ResourceManager.GetString("OpenFileInApp", resourceCulture);
+            }
+        }
+        
         internal static string TrackingExplanation {
             get {
                 return ResourceManager.GetString("TrackingExplanation", resourceCulture);
@@ -314,6 +320,174 @@ namespace Tabi.Shared.Resx {
         internal static string DataUploadSuccesful {
             get {
                 return ResourceManager.GetString("DataUploadSuccesful", resourceCulture);
+            }
+        }
+        
+        internal static string DaySelectorButton {
+            get {
+                return ResourceManager.GetString("DaySelectorButton", resourceCulture);
+            }
+        }
+        
+        internal static string TrackDetailPageTitle {
+            get {
+                return ResourceManager.GetString("TrackDetailPageTitle", resourceCulture);
+            }
+        }
+        
+        internal static string InformationSectionLabel {
+            get {
+                return ResourceManager.GetString("InformationSectionLabel", resourceCulture);
+            }
+        }
+        
+        internal static string TripDataSectionLabel {
+            get {
+                return ResourceManager.GetString("TripDataSectionLabel", resourceCulture);
+            }
+        }
+        
+        internal static string TransportModeLabel {
+            get {
+                return ResourceManager.GetString("TransportModeLabel", resourceCulture);
+            }
+        }
+        
+        internal static string SelectTransportModeButton {
+            get {
+                return ResourceManager.GetString("SelectTransportModeButton", resourceCulture);
+            }
+        }
+        
+        internal static string TransportModeSelectionExplanation {
+            get {
+                return ResourceManager.GetString("TransportModeSelectionExplanation", resourceCulture);
+            }
+        }
+        
+        internal static string BikeLabel {
+            get {
+                return ResourceManager.GetString("BikeLabel", resourceCulture);
+            }
+        }
+        
+        internal static string BusLabel {
+            get {
+                return ResourceManager.GetString("BusLabel", resourceCulture);
+            }
+        }
+        
+        internal static string CarLabel {
+            get {
+                return ResourceManager.GetString("CarLabel", resourceCulture);
+            }
+        }
+        
+        internal static string MobilityScooterLabel {
+            get {
+                return ResourceManager.GetString("MobilityScooterLabel", resourceCulture);
+            }
+        }
+        
+        internal static string RunLabel {
+            get {
+                return ResourceManager.GetString("RunLabel", resourceCulture);
+            }
+        }
+        
+        internal static string TramLabel {
+            get {
+                return ResourceManager.GetString("TramLabel", resourceCulture);
+            }
+        }
+        
+        internal static string WalkLabel {
+            get {
+                return ResourceManager.GetString("WalkLabel", resourceCulture);
+            }
+        }
+        
+        internal static string MopedLabel {
+            get {
+                return ResourceManager.GetString("MopedLabel", resourceCulture);
+            }
+        }
+        
+        internal static string MotorcycleLabel {
+            get {
+                return ResourceManager.GetString("MotorcycleLabel", resourceCulture);
+            }
+        }
+        
+        internal static string OtherLabel {
+            get {
+                return ResourceManager.GetString("OtherLabel", resourceCulture);
+            }
+        }
+        
+        internal static string ScooterLabel {
+            get {
+                return ResourceManager.GetString("ScooterLabel", resourceCulture);
+            }
+        }
+        
+        internal static string SubwayLabel {
+            get {
+                return ResourceManager.GetString("SubwayLabel", resourceCulture);
+            }
+        }
+        
+        internal static string TrainLabel {
+            get {
+                return ResourceManager.GetString("TrainLabel", resourceCulture);
+            }
+        }
+        
+        internal static string NoDataInOverview {
+            get {
+                return ResourceManager.GetString("NoDataInOverview", resourceCulture);
+            }
+        }
+        
+        internal static string DaySelectorPageTitle {
+            get {
+                return ResourceManager.GetString("DaySelectorPageTitle", resourceCulture);
+            }
+        }
+        
+        internal static string SensorPermissionButton {
+            get {
+                return ResourceManager.GetString("SensorPermissionButton", resourceCulture);
+            }
+        }
+        
+        internal static string SensorPermissionDeniedOpenSettingsiOSText {
+            get {
+                return ResourceManager.GetString("SensorPermissionDeniedOpenSettingsiOSText", resourceCulture);
+            }
+        }
+        
+        internal static string SensorPermissionDeniedOpenSettingsiOSTitle {
+            get {
+                return ResourceManager.GetString("SensorPermissionDeniedOpenSettingsiOSTitle", resourceCulture);
+            }
+        }
+        
+        internal static string SensorPermissionRationaleText {
+            get {
+                return ResourceManager.GetString("SensorPermissionRationaleText", resourceCulture);
+            }
+        }
+        
+        internal static string SensorPermissionRationaleTitle {
+            get {
+                return ResourceManager.GetString("SensorPermissionRationaleTitle", resourceCulture);
+            }
+        }
+        
+        internal static string ServiceNotificationChannelLabel {
+            get {
+                return ResourceManager.GetString("ServiceNotificationChannelLabel", resourceCulture);
             }
         }
     }
