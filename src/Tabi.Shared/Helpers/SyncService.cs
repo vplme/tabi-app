@@ -68,40 +68,37 @@ namespace Tabi.iOS.Helpers
 
 
                 Console.WriteLine("upload tracks");
-                var success = await UploadTracks();
-                if (success)
+                await UploadTracks();
+
+
+                Console.WriteLine("upload sensordata");
+
+                // UPLOADSUCCESS IS BOOL ARRAY IN ORDER OF TASKS
+                bool[] uploadSuccess = await Task.WhenAll(
+                    UploadSensorMeasurementSessions(),
+                    UploadAccelerometerData(),
+                    UploadGyroscopeData(),
+                    UploadMagnetometerData(),
+                    UploadLinearAccelerationData(),
+                    UploadGravityData(),
+                    UploadOrientationData(),
+                    UploadQuaternionData(),
+                    UploadTransportationModes()
+                    );
+
+
+                var removeOldDataSuccess = await RemoveOldSensorData(uploadSuccess);
+                Console.WriteLine("RemoveSuccess:");
+                foreach (var item in removeOldDataSuccess)
                 {
-                    // remove old tracks
-                    // var removeoldTracksSuccess = RemoveOldTracks();
-
-                    Console.WriteLine("upload sensordata");
-
-                    // UPLOADSUCCESS IS BOOL ARRAY IN ORDER OF TASKS
-                    bool[] uploadSuccess = await Task.WhenAll(
-                        UploadSensorMeasurementSessions(),
-                        UploadAccelerometerData(),
-                        UploadGyroscopeData(),
-                        UploadMagnetometerData(),
-                        UploadLinearAccelerationData(),
-                        UploadGravityData(),
-                        UploadOrientationData(),
-                        UploadQuaternionData(),
-                        UploadTransportationModes()
-                        );
-
-
-                    var removeOldDataSuccess = await RemoveOldSensorData(uploadSuccess);
-                    Console.WriteLine("RemoveSuccess:");
-                    foreach (var item in removeOldDataSuccess)
-                    {
-                        Console.WriteLine(item);
-                    }
+                    Console.WriteLine(item);
                 }
-
-                await ValidateCounts();
             }
+
+            await ValidateCounts();
+
         }
-        
+
 
         public async Task UploadPositions()
         {
@@ -157,7 +154,8 @@ namespace Tabi.iOS.Helpers
         {
             // creating list of items where uploads are succeeded to be removed as a batch
             List<Task<bool>> toBeRemoved = new List<Task<bool>>();
-            if (uploadSuccess[0]) {
+            if (uploadSuccess[0])
+            {
                 toBeRemoved.Add(RemoveOldSensorMeasurementSessions());
             }
             if (uploadSuccess[1])
@@ -188,7 +186,7 @@ namespace Tabi.iOS.Helpers
             {
                 toBeRemoved.Add(RemoveOldQuaternionData());
             }
-            
+
             var removeOldSensorDataSuccess = Task.WhenAll(
                         toBeRemoved
                     );
@@ -487,7 +485,7 @@ namespace Tabi.iOS.Helpers
 
         private async Task<bool> UploadGravityData()
         {
-            DateTimeOffset lastUpload = new DateTimeOffset(Settings.Current.GravityLastUpload , TimeSpan.Zero);
+            DateTimeOffset lastUpload = new DateTimeOffset(Settings.Current.GravityLastUpload, TimeSpan.Zero);
             try
             {
                 List<Gravity> gravityData = _repoManager.GravityRepository.GetRange(lastUpload, DateTimeOffset.MaxValue).ToList();
@@ -650,7 +648,8 @@ namespace Tabi.iOS.Helpers
                 Settings.Current.TracksLastUpload = trackEntries.Last().EndTime.Ticks;
 
                 return true;
-            } catch (Exception e)
+            }
+            catch (Exception e)
             {
                 Log.Error("Could not upload tracks " + e);
                 return false;
@@ -658,6 +657,6 @@ namespace Tabi.iOS.Helpers
 
         }
 
-        
+
     }
 }
