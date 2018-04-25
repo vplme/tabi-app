@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Autofac;
 using Tabi.Pages;
 using Tabi.Shared.Resx;
 using Tabi.ViewModels;
@@ -19,7 +20,9 @@ namespace Tabi
         {
             InitializeComponent();
 
-            BindingContext = new ActivityOverviewViewModel(this.Navigation);
+            BindingContext = App.Container.Resolve<ActivityOverviewViewModel>();
+
+            ViewModel.Navigation = Navigation;
             ViewModel.Title = AppResources.ActivityOverviewPageTitle;
         }
 

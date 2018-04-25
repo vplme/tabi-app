@@ -4,6 +4,7 @@ using Xamarin.Forms;
 using PCLStorage;
 using System.ComponentModel;
 using Tabi.Helpers;
+using Autofac;
 
 namespace Tabi
 {
@@ -17,7 +18,7 @@ namespace Tabi
         public SettingsPage()
         {
             InitializeComponent();
-            BindingContext = new SettingsViewModel(Navigation);
+            BindingContext = App.Container.Resolve<SettingsViewModel>();
 
             if (!ViewModel.Settings.Developer)
             {
@@ -26,7 +27,6 @@ namespace Tabi
 
             VersionLabel.Text = DependencyService.Get<IVersion>().GetVersion();
             System.Diagnostics.Debug.WriteLine($"{two.TextColor}");
-
         }
 
         protected override void OnAppearing()

@@ -1,4 +1,5 @@
-﻿using Tabi.DataObjects;
+﻿using Autofac;
+using Tabi.DataObjects;
 using Tabi.DataStorage;
 using Tabi.ViewModels;
 using Xamarin.Forms;
@@ -11,7 +12,6 @@ namespace Tabi
         StopDetailViewModel ViewModel => vm ?? (vm = BindingContext as StopDetailViewModel);
         StopDetailViewModel vm;
 
-        IStopRepository stopRepository = App.RepoManager.StopRepository;
 
         public StopDetailPage(StopVisit sv)
         {
@@ -24,7 +24,7 @@ namespace Tabi
         void Setup()
         {
             InitializeComponent();
-            BindingContext = new StopDetailViewModel();
+            BindingContext = App.Container.Resolve<StopDetailViewModel>();
             routeMap.HeightRequest = App.ScreenHeight * 0.30;
             routeMap.ClearMap();
         }
@@ -37,7 +37,7 @@ namespace Tabi
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
-            SaveStop();
+            ViewModel.UpdateStop();
         }
 
         private void SetMapLocation(Stop s)
@@ -56,11 +56,6 @@ namespace Tabi
 
             routeMap.Pins.Add(new Xamarin.Forms.Maps.Pin() { Label = labelPin, Position = pos });
             routeMap.MoveToRegion(MapSpan.FromCenterAndRadius(pos, Distance.FromMeters(300)));
-        }
-
-        private void SaveStop()
-        {
-            stopRepository.Update(ViewModel.Stop);
         }
 
         protected override void OnBindingContextChanged()

@@ -1,16 +1,23 @@
 ﻿using System;
 using Plugin.Battery.Abstractions;
 using Tabi.DataObjects;
+using Tabi.DataStorage;
 
 namespace Tabi.Shared.Helpers
 {
     public class BatteryHelper
     {
         public static DateTimeOffset LastEntryTimestamp;
+        private readonly IRepoManager _repoManager;
 
-        public static void CheckStoreBatteryLevel(TimeSpan span)
+        public BatteryHelper(IRepoManager repoManager)
         {
-            if(DateTimeOffset.Now - LastEntryTimestamp >= span)
+            _repoManager = repoManager ?? throw new ArgumentNullException(nameof(repoManager));
+        }
+
+        public void CheckStoreBatteryLevel(TimeSpan span)
+        {
+            if (DateTimeOffset.Now - LastEntryTimestamp >= span)
             {
                 IBattery batteryPlugin = Plugin.Battery.CrossBattery.Current;
                 LastEntryTimestamp = DateTimeOffset.Now;
@@ -21,7 +28,7 @@ namespace Tabi.Shared.Helpers
                     State = ToBatteryEntryState(batteryPlugin.Status),
                 };
 
-                App.RepoManager.BatteryEntryRepository.Add(entry);
+                _repoManager.BatteryEntryRepository.Add(entry);
             }
         }
 
@@ -32,7 +39,7 @@ namespace Tabi.Shared.Helpers
             {
                 case BatteryStatus.Full:
                     state = BatteryEntryState.Full;
-                        break;
+                    break;
                 case BatteryStatus.Charging:
                     state = BatteryEntryState.Charging;
                     break;
@@ -44,7 +51,7 @@ namespace Tabi.Shared.Helpers
                     break;
                 case BatteryStatus.Unknown:
                     state = BatteryEntryState.Unknown;
-                    break;   
+                    break;
             }
             return state;
         }

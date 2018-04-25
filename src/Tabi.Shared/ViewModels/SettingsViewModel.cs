@@ -17,16 +17,24 @@ using FileAccess = PCLStorage.FileAccess;
 using Tabi.Shared.Resx;
 using Acr.UserDialogs;
 using Splat;
+using Tabi.iOS.Helpers;
 
 namespace Tabi
 {
     public class SettingsViewModel : BaseViewModel
     {
-        private INavigation navigationPage;
+        private readonly IRepoManager _repoManager;
+        private readonly DataResolver _dataResolver;
+        private readonly SyncService _syncService;
 
-        public SettingsViewModel(INavigation navigationPage) : this()
+        public INavigation Navigation { get; set; }
+
+
+        public SettingsViewModel(IRepoManager repoManager, SyncService syncService, DataResolver dataResolver) : this()
         {
-            this.navigationPage = navigationPage;
+            _repoManager = repoManager ?? throw new ArgumentNullException(nameof(repoManager));
+            _dataResolver = dataResolver ?? throw new ArgumentNullException(nameof(dataResolver));
+            _syncService = syncService ?? throw new ArgumentNullException(nameof(syncService));
         }
 
         public SettingsViewModel()
@@ -88,7 +96,7 @@ namespace Tabi
                 string path = PortablePath.Combine(rootFolder.Path, fileName);
                 IFile file = await rootFolder.CreateFileAsync(path, CreationCollisionOption.ReplaceExisting);
 
-                IPositionEntryRepository positionEntryRepository = App.RepoManager.PositionEntryRepository;
+                IPositionEntryRepository positionEntryRepository = _repoManager.PositionEntryRepository;
                 var result = positionEntryRepository.FilterAccuracy(100).ToList();
 
                 Stream stream = await file.OpenAsync(FileAccess.ReadAndWrite);
@@ -108,7 +116,7 @@ namespace Tabi
                 string path = PortablePath.Combine(rootFolder.Path, fileName);
                 IFile file = await rootFolder.CreateFileAsync(path, CreationCollisionOption.ReplaceExisting);
 
-                var batteryEntryRepo = App.RepoManager.BatteryEntryRepository;
+                var batteryEntryRepo = _repoManager.BatteryEntryRepository;
                 var result = batteryEntryRepo.GetAll().ToList();
 
                 Stream stream = await file.OpenAsync(FileAccess.ReadAndWrite);
@@ -127,14 +135,14 @@ namespace Tabi
 
             ClearStopsCommand = new Command((obj) =>
             {
-                App.RepoManager.StopVisitRepository.ClearAll();
-                App.RepoManager.TrackEntryRepository.ClearAll();
+                _repoManager.StopVisitRepository.ClearAll();
+                _repoManager.TrackEntryRepository.ClearAll();
             });
 
             OpenLogsCommand = new Command((obj) =>
             {
                 LogsPage page = new LogsPage();
-                navigationPage.PushAsync(page);
+                Navigation.PushAsync(page);
             });
 
             LoadSampleCommand = new Command(async () =>
@@ -150,8 +158,7 @@ namespace Tabi
                 using (Stream stream = assembly.GetManifestResourceStream("Tabi.DemoCsv"))
                 {
                     List<PositionEntry> entries = GeoUtil.CsvToPositions(stream).ToList();
-                    DataResolver sv = new DataResolver();
-                    sv.ResolveData(DateTimeOffset.MinValue, DateTimeOffset.Now);
+                    _dataResolver.ResolveData(DateTimeOffset.MinValue, DateTimeOffset.Now);
 
 
                     //var x = sv.GroupPositions(entries, 100);
@@ -165,7 +172,7 @@ namespace Tabi
             ShowPageCommand = new Command(() =>
             {
                 PermissionsPage sPage = new PermissionsPage();
-                navigationPage.PushModalAsync(sPage);
+                Navigation.PushModalAsync(sPage);
             });
 
             UploadCommand = new Command(async () =>
@@ -191,7 +198,7 @@ namespace Tabi
 
                         try
                         {
-                            await App.SyncService.UploadAll(false);
+                            await _syncService.UploadAll(false);
                             UserDialogs.Instance.HideLoading();
                             IBitmap img;
                             if (Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.Android)

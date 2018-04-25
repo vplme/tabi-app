@@ -5,6 +5,7 @@ using Android.Gms.Common.Apis;
 using Android.Gms.Location;
 using Android.Locations;
 using Android.OS;
+using Autofac;
 using Tabi.DataObjects;
 using Tabi.DataObjects.CollectionProfile;
 using Tabi.DataStorage;
@@ -20,13 +21,21 @@ namespace Tabi.Droid
         GoogleApiClient.IConnectionCallbacks, GoogleApiClient.IOnConnectionFailedListener
     {
         private GoogleApiClient client;
-        private readonly IPositionEntryRepository positionEntryRepository = App.RepoManager.PositionEntryRepository;
+        private readonly IPositionEntryRepository positionEntryRepository;
+        private readonly IRepoManager _repoManager;
+        private readonly BatteryHelper _batteryHelper;
         private readonly ProfileAndroid currentProfile;
         private LocationRequestProfile currentRequestProfile;
         private readonly PositionCache positionCache = new PositionCache();
-       
+
         public GoogleLocationServicesAPI()
         {
+            _repoManager = App.Container.Resolve<IRepoManager>();
+            _batteryHelper = App.Container.Resolve<BatteryHelper>();
+
+            positionEntryRepository = _repoManager.PositionEntryRepository;
+
+
             currentProfile = App.CollectionProfile.AndroidProfile;
         }
 
@@ -49,7 +58,7 @@ namespace Tabi.Droid
             Log.Debug("RequestUpdateNow: HighTrackingProfile");
             currentRequestProfile = currentProfile.HighTrackingProfile;
             RestartLocationUpdates();
-            
+
         }
 
         void GoogleApiClient.IConnectionCallbacks.OnConnected(Bundle connectionHint)
@@ -65,11 +74,11 @@ namespace Tabi.Droid
 
         public void OnLocationChanged(Location location)
         {
-            BatteryHelper.CheckStoreBatteryLevel(TimeSpan.FromMinutes(10));
+            _batteryHelper.CheckStoreBatteryLevel(TimeSpan.FromMinutes(10));
 
             positionCache.Distance = currentProfile.DistanceDeltaLowTracking;
             PositionEntry positionEntry = location.ToPositionEntry();
-            
+
             positionCache.Add(positionEntry);
             Log.Trace($"GoogleApi: Location was changed {positionCache.PreviousDistance}");
 
@@ -85,14 +94,14 @@ namespace Tabi.Droid
                     RestartLocationUpdates();
                 }
             }
-            else if(currentRequestProfile != currentProfile.HighTrackingProfile)
+            else if (currentRequestProfile != currentProfile.HighTrackingProfile)
             {
                 Log.Info("HighTracking");
                 currentRequestProfile = currentProfile.HighTrackingProfile;
                 RestartLocationUpdates();
             }
-             
-            
+
+
             positionEntryRepository.Add(positionEntry);
         }
 
@@ -107,7 +116,7 @@ namespace Tabi.Droid
             LocationRequest req = CreateLocationRequest(profile);
             LocationServices.FusedLocationApi.RequestLocationUpdates(client, req, this);
         }
-        
+
         public void StartLocationUpdates()
         {
             StartLocationUpdates(currentRequestProfile);
@@ -118,7 +127,7 @@ namespace Tabi.Droid
             StopLocationUpdates();
             StartLocationUpdates();
         }
-        
+
         private GoogleApiClient GetGoogleAPIClient()
         {
             return new GoogleApiClient.Builder(Application.Context)

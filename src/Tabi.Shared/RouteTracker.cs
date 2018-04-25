@@ -9,31 +9,31 @@ namespace Tabi
 {
     public class RouteTracker
     {
-        IPositionEntryRepository positionEntryRepository = App.RepoManager.PositionEntryRepository;
-        IStopVisitRepository stopVisitRepository = App.RepoManager.StopVisitRepository;
-        IStopRepository stopRepository = App.RepoManager.StopRepository;
+        private readonly IRepoManager _repoManager;
 
-        public RouteTracker()
+        public RouteTracker(IRepoManager repoManager)
         {
+            _repoManager = repoManager ?? throw new ArgumentNullException(nameof(repoManager));
         }
 
         public List<StopVisit> StopsBetween(DateTimeOffset begin, DateTimeOffset end)
         {
-            var visits = stopVisitRepository.BetweenDates(begin, end).ToList();
+            IStopVisitRepository svRepo = _repoManager.StopVisitRepository;
+            IStopRepository sRepo = _repoManager.StopRepository;
+
+            var visits = svRepo.BetweenDates(begin, end).ToList();
             foreach (StopVisit v in visits)
             {
-                v.Stop = stopRepository.Get(v.StopId);
+                v.Stop = sRepo.Get(v.StopId);
             }
 
             return visits;
         }
 
-        
-
         public List<Tuple<StopVisit, List<PositionEntry>>> StopsAndPositionsBetween(DateTimeOffset begin, DateTimeOffset end)
         {
             List<StopVisit> visits = StopsBetween(begin, end);
-            List<PositionEntry> allPositionEntries = positionEntryRepository.FilterPeriodAccuracy(begin, end, 100);
+            List<PositionEntry> allPositionEntries = _repoManager.PositionEntryRepository.FilterPeriodAccuracy(begin, end, 100);
             List<Tuple<StopVisit, List<PositionEntry>>> visitsPositions = new List<Tuple<StopVisit, List<PositionEntry>>>();
 
             Tuple<StopVisit, List<PositionEntry>> currentTuple = new Tuple<StopVisit, List<PositionEntry>>(null, new List<PositionEntry>());

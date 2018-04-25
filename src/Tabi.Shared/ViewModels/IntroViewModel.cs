@@ -320,7 +320,9 @@ namespace Tabi.Shared.ViewModels
                             status = results[Permission.Location];
                     }
 
-                    if (status == PermissionStatus.Granted)
+                    IDeviceInfo deviceInfo = Plugin.DeviceInfo.CrossDeviceInfo.Current;
+
+                    if (status == PermissionStatus.Granted || !deviceInfo.IsDevice)
                     {
                         SensorPermissionGiven = true;
                         CheckAllPermissionsGiven();

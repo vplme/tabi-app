@@ -17,20 +17,29 @@ using Tabi.iOS.Helpers;
 using Tabi.DataObjects.CollectionProfile;
 using Tabi.Shared.Helpers;
 using Tabi.Shared.Sensors;
+using Autofac.Core;
+using Autofac;
+using Tabi.DataStorage.SqliteNet;
+using SQLite;
+using Tabi.ViewModels;
+using Tabi.Core;
+using TabiApiClient;
 
 namespace Tabi
 {
     public partial class App : Application
     {
+        private static IContainer _container;
+
+        public static IContainer Container { get => _container; }
+
         public const string LogFilePath = "tabi.log";
         public static bool Developer;
-        public static readonly DateService DateService;
         public static double ScreenHeight;
         public static double ScreenWidth;
-        public static readonly SyncService SyncService;
         public static readonly IConfigurationRoot Configuration;
         public static bool LocationPermissionsGranted;
-        public static IRepoManager RepoManager;
+        //public static IRepoManager RepoManager;
 
         public static CollectionProfile CollectionProfile { get; private set; }
 
@@ -44,22 +53,24 @@ namespace Tabi
             var builder = new ConfigurationBuilder().AddEmbeddedXmlFile(assembly, "tabi.config");
             Configuration = builder.Build();
 
-            DateService = new DateService();
-            SyncService = new SyncService(Configuration["api-url"]);
         }
 
 
-        public App()
+        public App(IModule[] platformSpecificModules)
         {
+            PrepareContainer(platformSpecificModules);
+
+
             // Setup logging
             SetupLogging();
 
-            SetupSQLite();
 
             CollectionProfile = CollectionProfile.GetDefaultProfile();
 
+
+            IRepoManager repoManager = Container.Resolve<IRepoManager>();
             // Initialize Device Identifier on empty database
-            if (RepoManager.DeviceRepository.Count() == 0)
+            if (repoManager.DeviceRepository.Count() == 0)
             {
                 Log.Info("Registering new device guid");
                 DataObjects.Device device = new DataObjects.Device()
@@ -67,7 +78,7 @@ namespace Tabi
                     Id = Guid.NewGuid(),
                     OperatingSystem = Xamarin.Forms.Device.RuntimePlatform,
                 };
-                RepoManager.DeviceRepository.Add(device);
+                repoManager.DeviceRepository.Add(device);
                 Settings.Current.Device = device.Id.ToString();
             }
 
@@ -81,7 +92,7 @@ namespace Tabi
 
             string apiKey = Configuration["mobilecenter:apikey"];
             bool mobileCenterEnabled = Convert.ToBoolean(Configuration["mobilecenter:enabled"]);
-
+           
 
             if (!apiKey.Equals(""))
             {
@@ -99,6 +110,40 @@ namespace Tabi
             }
         }
 
+        private void PrepareContainer(IModule[] platformSpecificModules)
+        {
+            var containerBuilder = new Autofac.ContainerBuilder();
+            RegisterPlatformSpecificModules(platformSpecificModules, containerBuilder);
+
+            containerBuilder.RegisterInstance(GetSqliteConnection()).As<SQLiteConnection>();
+            containerBuilder.RegisterType<SqliteNetRepoManager>().As<IRepoManager>().SingleInstance();
+
+            containerBuilder.RegisterType<SyncService>();
+            containerBuilder.RegisterType<ApiClient>().WithParameter("url", Configuration["api-url"]);
+
+            containerBuilder.RegisterType<DateService>().SingleInstance();
+            containerBuilder.RegisterType<DataResolver>();
+            containerBuilder.RegisterType<DbLogWriter>();
+            containerBuilder.RegisterType<BatteryHelper>().SingleInstance();
+
+            containerBuilder.RegisterType<SettingsViewModel>();
+            containerBuilder.RegisterType<ActivityOverviewViewModel>();
+            containerBuilder.RegisterType<DaySelectorViewModel>();
+            containerBuilder.RegisterType<StopDetailViewModel>();
+            containerBuilder.RegisterType<TransportSelectionViewModel>();
+
+            _container = containerBuilder.Build();
+        }
+
+        private void RegisterPlatformSpecificModules(IModule[] platformSpecificModules, ContainerBuilder containerBuilder)
+        {
+            foreach (var platformSpecificModule in platformSpecificModules)
+            {
+                containerBuilder.RegisterModule(platformSpecificModule);
+            }
+        }
+
+
         private void SetupLogging()
         {
             LogSeverity level = Log.SeverityFromString(Configuration["logging:level"]);
@@ -107,21 +152,28 @@ namespace Tabi
 
             mLogger.AddLogger(new ConsoleLogWriter());
             mLogger.AddLogger(new FileLogWriter());
-            mLogger.AddLogger(new DbLogWriter());
+
+            DbLogWriter dbLogWriter = App.Container.Resolve<DbLogWriter>();
+            mLogger.AddLogger(dbLogWriter);
             Log.SetLogger(mLogger);
             Log.Info("Logging Setup");
         }
 
-        private void SetupSQLite()
+        private SQLiteConnection GetSqliteConnection()
         {
             IFolder rootFolder = FileSystem.Current.LocalStorage;
             var dbPath = PortablePath.Combine(rootFolder.Path, "tabi.db");
-            RepoManager = new DataStorage.SqliteNet.SqliteNetRepoManager(dbPath);
+            return new SQLiteConnection(
+                dbPath,
+                    SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.Create | SQLiteOpenFlags.FullMutex,
+                    false);
         }
+
+
 
         private void SetupLocationManager()
         {
-            locationManager = DependencyService.Get<ILocationManager>();
+            locationManager = Container.Resolve<ILocationManager>();
             Settings.Current.PropertyChanged += (sender, e) =>
             {
                 if (e.PropertyName == "Tracking")
@@ -151,7 +203,7 @@ namespace Tabi
 
         private void SetupSensorManager()
         {
-            sensorManager = DependencyService.Get<ISensorManager>();
+            sensorManager = Container.Resolve<ISensorManager>();
 
             Settings.Current.PropertyChanged += (sender, e) =>
             {
@@ -186,7 +238,6 @@ namespace Tabi
         {
             Log.Info("App.OnStart");
             CheckAuthorization(Settings.Current.Device);
-            SyncService.AutoUpload(TimeSpan.FromMinutes(10));
         }
 
         async Task CheckAuthorization(string deviceId)
@@ -219,7 +270,6 @@ namespace Tabi
             Log.Info("App.OnResume");
             // Handle when your app resumes
             CheckAuthorization(Settings.Current.Device);
-
         }
 
     }

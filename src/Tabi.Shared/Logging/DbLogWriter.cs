@@ -2,21 +2,24 @@
 using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
 using Tabi.DataObjects;
+using Tabi.DataStorage;
 
 namespace Tabi.Logging
 {
     public class DbLogWriter : LogWriter
     {
-        LogSeverity severity;
-        public DbLogWriter(LogSeverity logLevel = LogSeverity.Info) : base()
-        {
-            severity = logLevel;
-        }
+        private readonly IRepoManager _repoManager;
+        private LogSeverity _severity;
 
+        public DbLogWriter(IRepoManager repoManager, LogSeverity logLevel = LogSeverity.Info) : base()
+        {
+            _repoManager = repoManager ?? throw new ArgumentNullException(nameof(repoManager));
+            _severity = logLevel;
+        }
 
         public override void Write(LogSeverity severity, string str)
         {
-            if(severity >= this.severity)
+            if(severity >= _severity)
             {
                 base.Write(severity, str);
             }
@@ -27,7 +30,7 @@ namespace Tabi.Logging
             while (await Source.OutputAvailableAsync())
             {
                 LogEntry le = new LogEntry() { Timestamp = DateTimeOffset.Now, Message = Source.Receive() };
-                App.RepoManager.LogEntryRepository.Add(le);
+                _repoManager.LogEntryRepository.Add(le);
             }
         }
     }

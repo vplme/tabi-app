@@ -11,17 +11,32 @@ namespace Tabi
 {
     public class StopResolver
     {
+        private readonly IRepoManager _repoManager;
 
         List<InternalStop> stopPosSets = new List<InternalStop>();
         List<Stop> visitedStops;
 
         PositionEntry lastPosition;
 
-        IPositionEntryRepository positionEntryRepository = App.RepoManager.PositionEntryRepository;
-        ITrackEntryRepository trackEntryRepository = App.RepoManager.TrackEntryRepository;
+        IPositionEntryRepository positionEntryRepository;
+        ITrackEntryRepository trackEntryRepository;
+        IStopVisitRepository stopVisitRepository;
+        IStopRepository stopRepository;
 
-        IStopVisitRepository stopVisitRepository = App.RepoManager.StopVisitRepository;
-        IStopRepository stopRepository = App.RepoManager.StopRepository;
+        public StopResolver(IRepoManager repoManager)
+        {
+            _repoManager = repoManager ?? throw new ArgumentNullException();
+            positionEntryRepository = _repoManager.PositionEntryRepository;
+            trackEntryRepository = _repoManager.TrackEntryRepository;
+            stopVisitRepository = _repoManager.StopVisitRepository;
+            stopRepository = _repoManager.StopRepository;
+
+            Log.Debug("Latestproceseddate+ " + LatestProcessedDate);
+
+            Log.Debug("Before visited" + DateTime.Now);
+            visitedStops = stopRepository.GetAll().ToList();
+            Log.Debug("after visited" + DateTime.Now + " " + visitedStops.Count);
+        }
 
         private DateTimeOffset LatestProcessedDate
         {
@@ -35,15 +50,6 @@ namespace Tabi
                 return DateTimeOffset.MinValue;
             }
             set { Application.Current.Properties["latestProcessedDate"] = value.UtcTicks; }
-        }
-
-        public StopResolver()
-        {
-            Log.Debug("Latestproceseddate+ " + LatestProcessedDate);
-
-            Log.Debug("Before visited" + DateTime.Now);
-            visitedStops = stopRepository.GetAll().ToList();
-            Log.Debug("after visited" + DateTime.Now + " " + visitedStops.Count);
         }
 
         public Task<List<StopVisit>> GetStopsBetweenAsync(DateTimeOffset begin, DateTimeOffset end)
@@ -71,7 +77,6 @@ namespace Tabi
             SaveStops();
         }
 
-
         public void GenerateStops(List<PositionEntry> positions)
         {
             Log.Debug("Positions in db:" + positions.Count);
@@ -93,8 +98,6 @@ namespace Tabi
             ClearStopCandidates(true);
             stopPosSets = MergeStops(stopPosSets);
         }
-
-
 
         public void SaveStops()
         {

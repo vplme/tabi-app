@@ -7,6 +7,7 @@ using Tabi.Core;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
 using Tabi.Pages;
+using Tabi.Shared.Helpers;
 using Xamarin.Forms;
 
 namespace Tabi.ViewModels
@@ -15,11 +16,9 @@ namespace Tabi.ViewModels
     {
         public ObservableCollection<ActivityEntry> ActivityEntries { get; } = new ObservableCollection<ActivityEntry>();
 
-        readonly INavigation navigationPage;
-
-        IStopVisitRepository stopVisitRepository = App.RepoManager.StopVisitRepository;
-        IStopRepository stopRepository = App.RepoManager.StopRepository;
-        ITrackEntryRepository trackEntryRepository = App.RepoManager.TrackEntryRepository;
+        private readonly DataResolver _dataResolver;
+        private readonly DateService _dateService;
+        private readonly IRepoManager _repoManager;
 
         private bool listIsRefreshing;
         public bool ListIsRefreshing
@@ -67,18 +66,22 @@ namespace Tabi.ViewModels
             }
         }
 
-        public ActivityOverviewViewModel(INavigation navigationPage)
+        public INavigation Navigation { get; set; }
+
+        public ActivityOverviewViewModel(DateService dateService, IRepoManager repoManager, DataResolver dataResolver)
         {
-            this.navigationPage = navigationPage;
+            _dataResolver = dataResolver ?? throw new ArgumentNullException(nameof(dataResolver));
+            _dateService = dateService ?? throw new ArgumentNullException(nameof(dateService));
+            _repoManager = repoManager ?? throw new ArgumentNullException(nameof(repoManager));
 
             SettingsCommand = new Command(async () =>
             {
-                await navigationPage.PushAsync(new SettingsPage());
+                await Navigation.PushAsync(new SettingsPage());
             });
 
             DaySelectorCommand = new Command(async () =>
             {
-                await navigationPage.PushAsync(new DaySelectorPage());
+                await Navigation.PushAsync(new DaySelectorPage());
             });
 
             RefreshCommand = new Command(() =>
@@ -90,36 +93,32 @@ namespace Tabi.ViewModels
 
         }
 
-        private DateTime selectedDate = App.DateService.SelectedDate.Date;
-
         public DateTime SelectedDate
         {
             get
             {
-                return selectedDate;
+                return _dateService.SelectedDate.Date;
             }
             set
             {
-                selectedDate = value;
-                App.DateService.SelectedDate = selectedDate;
+                _dateService.SelectedDate = value;
             }
         }
 
         public void UpdateStopVisits()
         {
-            DataResolver dateResolver = new DataResolver();
-            dateResolver.ResolveData(DateTimeOffset.MinValue, DateTimeOffset.Now);
+            _dataResolver.ResolveData(DateTimeOffset.MinValue, DateTimeOffset.Now);
             //track maded
             //TODO send notification for getting transportation mode
 
 
             List<ActivityEntry> newActivityEntries = new List<ActivityEntry>();
 
-            DateTimeOffset startDate = App.DateService.SelectedDate.Date;
-            DateTimeOffset endDate = App.DateService.SelectedDate.Date.AddHours(23).AddMinutes(59).AddSeconds(59);
+            DateTimeOffset startDate =_dateService.SelectedDate.Date;
+            DateTimeOffset endDate =_dateService.SelectedDate.Date.AddHours(23).AddMinutes(59).AddSeconds(59);
 
 
-            var stopVisits = stopVisitRepository.BetweenDates(startDate, endDate);
+            var stopVisits = _repoManager.StopVisitRepository.BetweenDates(startDate, endDate);
             Dictionary<int, Stop> stopDictionary = new Dictionary<int, Stop>();
             foreach (StopVisit sv in stopVisits)
             {
@@ -131,7 +130,7 @@ namespace Tabi.ViewModels
                 }
                 else
                 {
-                    sv.Stop = stopRepository.Get(sv.StopId);
+                    sv.Stop = _repoManager.StopRepository.Get(sv.StopId);
                     stopDictionary.Add(sv.StopId, sv.Stop);
                 }
                 sv.Stop.Name = string.IsNullOrEmpty(sv.Stop.Name) ? "Stop" : sv.Stop.Name;
@@ -141,7 +140,7 @@ namespace Tabi.ViewModels
 
                 if (sv.NextTrackId != Guid.Empty)
                 {
-                    TrackEntry te = trackEntryRepository.Get(sv.NextTrackId);
+                    TrackEntry te = _repoManager.TrackEntryRepository.Get(sv.NextTrackId);
 
                     double minutes = te.TimeTravelled.TotalMinutes < 200 ? te.TimeTravelled.TotalMinutes : 200;
 

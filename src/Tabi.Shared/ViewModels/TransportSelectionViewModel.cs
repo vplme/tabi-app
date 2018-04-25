@@ -5,6 +5,7 @@ using System.Windows.Input;
 using MvvmHelpers;
 using Tabi.Controls;
 using Tabi.DataObjects;
+using Tabi.DataStorage;
 using Tabi.Pages;
 using Tabi.Shared.Model;
 using Xamarin.Forms;
@@ -14,6 +15,16 @@ namespace Tabi.ViewModels
 {
     public class TransportSelectionViewModel : ObservableObject
     {
+        private readonly IRepoManager _repoManager;
+
+        public TransportSelectionViewModel(IRepoManager repoManager)
+        {
+            _repoManager = repoManager ?? throw new ArgumentNullException(nameof(repoManager));
+            Items = new SelectableObservableCollection<TransportModeItem>(TransportModeItem.GetPossibleTransportModes());
+        }
+
+        public INavigation Navigation { get; set; }
+
         private SelectableObservableCollection<TransportModeItem> items = new SelectableObservableCollection<TransportModeItem>();
 
         public SelectableObservableCollection<TransportModeItem> Items
@@ -29,12 +40,6 @@ namespace Tabi.ViewModels
         }
 
         public TrackEntry TrackEntry { get; set; }
-
-
-        public TransportSelectionViewModel(INavigation navigation)
-        {
-            Items = new SelectableObservableCollection<TransportModeItem>(TransportModeItem.GetPossibleTransportModes());
-        }
 
         public IList<TransportationMode> GetSelectedTransportModes()
         {
@@ -104,10 +109,9 @@ namespace Tabi.ViewModels
                     default:
                         break;
                 }
-                
             }
-            //insert in database
-            App.RepoManager.TransportationModeRepository.Add(selectedTransportationModeEntry);
+
+            _repoManager.TransportationModeRepository.Add(selectedTransportationModeEntry);
         }
     }
 }
