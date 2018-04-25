@@ -1,4 +1,5 @@
-﻿using Tabi.Logging;
+﻿using System;
+using Tabi.Logging;
 
 namespace Tabi
 {
@@ -9,6 +10,11 @@ namespace Tabi
         private static void LogWrite(LogSeverity severity, string text)
         {
             logger?.Write(severity, text);
+        }
+
+        private static void Exception(Exception e)
+        {
+            logger?.Error(e);
         }
 
         public static void SetLogger(ILogWriter l)
@@ -44,6 +50,11 @@ namespace Tabi
         public static void Fatal(string text)
         {
             LogWrite(LogSeverity.Fatal, text);
+        }
+
+        public static void Error(Exception e)
+        {
+            Exception(e);
         }
 
         public static LogSeverity SeverityFromString(string s)

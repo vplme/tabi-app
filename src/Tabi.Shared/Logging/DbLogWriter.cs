@@ -25,11 +25,20 @@ namespace Tabi.Logging
             }
         }
 
-        protected override async Task ConsumerAsync(ISourceBlock<string> Source)
+        protected override async Task LogConsumerAsync(ISourceBlock<string> Source)
         {
             while (await Source.OutputAvailableAsync())
             {
                 LogEntry le = new LogEntry() { Timestamp = DateTimeOffset.Now, Message = Source.Receive() };
+                _repoManager.LogEntryRepository.Add(le);
+            }
+        }
+
+        protected override async Task ErrorConsumerAsync(ISourceBlock<Exception> Source)
+        {
+            while (await Source.OutputAvailableAsync())
+            {
+                LogEntry le = new LogEntry() { Event = "Exception", Timestamp = DateTimeOffset.Now, Message = Source.Receive().ToString() };
                 _repoManager.LogEntryRepository.Add(le);
             }
         }

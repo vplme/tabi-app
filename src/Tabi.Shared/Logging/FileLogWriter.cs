@@ -21,7 +21,16 @@ namespace Tabi.Logging
             LogWriteEvent?.Invoke(this, EventArgs.Empty);
         }
 
-        protected override async Task ConsumerAsync(ISourceBlock<string> Source)
+        protected override async Task ErrorConsumerAsync(ISourceBlock<Exception> Source)
+        {
+            while (await Source.OutputAvailableAsync())
+            {
+                await WriteToFile($"{DateTime.Now} {Source.Receive()}\n");
+                LogWriteEvent?.Invoke(this, EventArgs.Empty);
+            }
+        }
+
+        protected override async Task LogConsumerAsync(ISourceBlock<string> Source)
         {
             while (await Source.OutputAvailableAsync())
             {

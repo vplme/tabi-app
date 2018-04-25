@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
 
 namespace Tabi.Logging
@@ -15,8 +16,15 @@ namespace Tabi.Logging
 #endif
         }
 
+        protected override async Task ErrorConsumerAsync(ISourceBlock<Exception> Source)
+        {
+            while (await Source.OutputAvailableAsync())
+            {
+                System.Diagnostics.Debug.WriteLine(Source.Receive());
+            }
+        }
 
-        protected override async Task ConsumerAsync(ISourceBlock<string> Source)
+        protected override async Task LogConsumerAsync(ISourceBlock<string> Source)
         {
             while (await Source.OutputAvailableAsync())
             {

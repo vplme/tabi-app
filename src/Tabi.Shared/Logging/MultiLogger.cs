@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Tabi.Logging
 {
@@ -15,6 +16,14 @@ namespace Tabi.Logging
         public void AddLogger(ILogWriter l)
         {
             loggers.Add(l);
+        }
+
+        public void Error(Exception exception)
+        {
+            foreach (ILogWriter wr in loggers)
+            {
+                wr.Error(exception);
+            }
         }
 
         public void RemoveLogger(ILogWriter l)
