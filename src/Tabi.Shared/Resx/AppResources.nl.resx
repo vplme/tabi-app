@@ -224,7 +224,6 @@
 		<value>Trein</value>
 	</data>
     <data name="NoDataInOverview" xml:space="preserve">
-		<value>There is no data available to show you. If this is today; wait a few minutes and pull to refresh the page.</value>
 		<value>Er is nog geen data beschikbaar. Als het vandaag is, wacht u eventjes nog een paar minuten en swipe naar beneden om de pagina te updaten.</value>
 	</data>
     <data name="DaySelectorPageTitle" xml:space="preserve">
