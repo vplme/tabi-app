@@ -370,6 +370,9 @@
     <Reference Include="Plugin.DeviceInfo">
       <HintPath>..\packages\Xam.Plugin.DeviceInfo.3.1.0\lib\MonoAndroid10\Plugin.DeviceInfo.dll</HintPath>
     </Reference>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.4.7.0\lib\netstandard1.1\Autofac.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CollectionService\AssignSensorDataToTrackService.cs" />
@@ -407,6 +410,7 @@
     <Compile Include="PlatformImplementations\BaseUrl_Android.cs" />
     <Compile Include="SplashScreenActivity.cs" />
     <Compile Include="Helpers\NotificationChannelHelper.cs" />
+    <Compile Include="PlatformImplementations\PlatformContainerModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

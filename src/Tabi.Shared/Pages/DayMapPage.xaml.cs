@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using Autofac;
 using Tabi.Core;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
+using Tabi.Shared.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
@@ -13,22 +16,20 @@ namespace Tabi
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DayMapPage : ContentPage
     {
-        IStopRepository stopRepository = App.RepoManager.StopRepository;
-        IStopVisitRepository stopVisitRepository = App.RepoManager.StopVisitRepository;
-        IPositionEntryRepository positionEntryRepo = App.RepoManager.PositionEntryRepository;
-        ITrackEntryRepository trackEntryRepository = App.RepoManager.TrackEntryRepository;
+        DayMapViewModel ViewModel => vm ?? (vm = BindingContext as DayMapViewModel);
+        DayMapViewModel vm;
+
 
         public DayMapPage()
         {
             InitializeComponent();
-
-
+            BindingContext = App.Container.Resolve<DayMapViewModel>();
         }
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
-            ShowPositions();
+            await ShowPositions();
             ShowMap();
         }
 
@@ -36,50 +37,18 @@ namespace Tabi
         {
             base.OnDisappearing();
             routeMap.ClearMap();
-
         }
 
-        void ShowPositions()
+        async Task ShowPositions()
         {
-
-            IEnumerable<TrackEntry> trackEntries = trackEntryRepository.GetAll();
-
-            List<PositionEntry> posits = new List<PositionEntry>();
-
-            List<Line> wer = new List<Line>();
-
-            List<StopVisit> visits = stopVisitRepository.BetweenDates(DateTimeOffset.MinValue, DateTimeOffset.Now).ToList();
-            foreach (StopVisit sv in visits)
-            {
-                TrackEntry tEntry = trackEntryRepository.Get(sv.NextTrackId);
-                if (tEntry != null)
-                {
-                    IEnumerable<PositionEntry> entries = positionEntryRepo.FilterPeriodAccuracy(tEntry.StartTime, tEntry.EndTime, 100);
-                    Line line = new Line();
-                    posits.AddRange(entries);
-                    foreach(var entry in entries)
-                    {
-                        line.Positions.Add(new Position(entry.Latitude, entry.Longitude));
-                    }
-                    line.Color = Color.Blue;
-                    wer.Add(line);
-                 
-                }
-            }
-
+            List<Line> lines = await ViewModel.GetLinesAsync();
             routeMap.Lines.Clear();
-            routeMap.Lines = wer;
-            if (posits.Count() > 0)
-            {
-                PositionEntry avg = Util.AveragePosition(posits);
-                System.Diagnostics.Debug.WriteLine($"AVG {avg.Latitude} {avg.Longitude}");
-                routeMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Xamarin.Forms.Maps.Position(avg.Latitude, avg.Longitude), Distance.FromMiles(20.0)));
-            }
-            else{
-                // Center around Utrecht if no other coordinates are available
-                routeMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(52.092876, 5.104480), Distance.FromKilometers(30)));
-            }
+            routeMap.Lines = lines;
 
+            MapSpan mapSpan = await ViewModel.GetMapSpanAsync();
+            routeMap.MoveToRegion(mapSpan);
+
+            routeMap.ClearMap();
             routeMap.DrawRoute();
         }
 
@@ -91,30 +60,9 @@ namespace Tabi
         async void ShowMap()
         {
             routeMap.Pins.Clear();
+            List<Pin> pins = await ViewModel.GetPinsAsync();
 
-            DataResolver resolver = new DataResolver();
-
-            List<StopVisit> visits = stopVisitRepository.BetweenDates(DateTimeOffset.MinValue, DateTimeOffset.Now).ToList();
-
-            foreach (StopVisit p in visits)
-            {
-                Stop st = stopRepository.Get(p.StopId);
-                string labelPin = "Stop";
-
-                if (st.Name != null)
-                {
-                    labelPin = st.Name;
-                }
-
-                var xP = new Position(st.Latitude, st.Longitude);
-                Pin pin = new Pin() { Label = labelPin, Position = xP };
-                pin.Clicked += (sender, e) =>
-                {
-                    StopDetailPage page = new StopDetailPage(p);
-                    Navigation.PushAsync(page);
-                };
-                routeMap.Pins.Add(pin);
-            }
+            pins.ForEach(p => routeMap.Pins.Add(p));
         }
     }
 }

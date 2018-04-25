@@ -10,11 +10,12 @@ using Tabi.Shared.Sensors;
 using UIKit;
 using Xamarin.Forms;
 
-[assembly: Dependency(typeof(SensorManagerImplementation))]
 namespace Tabi.iOS.PlatformImplementations
 {
     public class SensorManagerImplementation : ISensorManager
     {
+        private readonly IRepoManager _repoManager;
+
         private readonly ISensorMeasurementSessionRepository _sensorMeasurementSessionRepository;
         private readonly ISensorRepository<Accelerometer> _accelerometerRepository;
         private readonly ISensorRepository<Gyroscope> _gyroscoperRepository;
@@ -24,43 +25,38 @@ namespace Tabi.iOS.PlatformImplementations
         private readonly ISensorRepository<Quaternion> _quaternionRepository;
         private readonly ISensorRepository<Gravity> _gravityRepository;
 
-        private readonly CMMotionManager _cMMotionManager;
-        private readonly CMPedometer _cMPedometer;
-        private readonly CLLocationManager _cLLocationManager;
+        private readonly CMMotionManager _motionManager;
+        private readonly CMPedometer _pedometer;
+        private readonly CLLocationManager _locationManager;
 
-        private int _pedometer;
+        private int _pedometerInt;
 
         public bool IsListening { get; private set; }
 
-        public SensorManagerImplementation()
+        public SensorManagerImplementation(IRepoManager repoManager, CMMotionManager motionManager, CLLocationManager locationManager, CMPedometer pedometer)
         {
-            _sensorMeasurementSessionRepository = App.RepoManager.SensorMeasurementSessionRepository;
-            _accelerometerRepository = App.RepoManager.AccelerometerRepository;
-            _gyroscoperRepository = App.RepoManager.GyroscopeRepository;
-            _magnetometerRepository = App.RepoManager.MagnetometerRepository;
-            _linearAccelerationRepository = App.RepoManager.LinearAccelerationRepository;
-            _orientationRepository = App.RepoManager.OrientationRepository;
-            _quaternionRepository = App.RepoManager.QuaternionRepository;
-            _gravityRepository = App.RepoManager.GravityRepository;
+            _repoManager = repoManager ?? throw new ArgumentNullException(nameof(repoManager));
+            _motionManager = motionManager ?? throw new ArgumentNullException(nameof(motionManager));
+            _locationManager = locationManager ?? throw new ArgumentNullException(nameof(locationManager));
+            _pedometer = pedometer ?? throw new ArgumentNullException(nameof(pedometer));
 
+            _sensorMeasurementSessionRepository = _repoManager.SensorMeasurementSessionRepository;
+            _accelerometerRepository = _repoManager.AccelerometerRepository;
+            _gyroscoperRepository = _repoManager.GyroscopeRepository;
+            _magnetometerRepository = _repoManager.MagnetometerRepository;
+            _linearAccelerationRepository = _repoManager.LinearAccelerationRepository;
+            _orientationRepository = _repoManager.OrientationRepository;
+            _quaternionRepository = _repoManager.QuaternionRepository;
+            _gravityRepository = _repoManager.GravityRepository;
 
-            _cMMotionManager = new CMMotionManager()
-            {
-                DeviceMotionUpdateInterval = 0.1,
-                AccelerometerUpdateInterval = 0.1,
-                GyroUpdateInterval = 0.1,
-                MagnetometerUpdateInterval = 0.1
-            };
+            locationManager.DesiredAccuracy = CLLocation.AccuracyBest;
+            locationManager.HeadingFilter = 1;
+            locationManager.AllowsBackgroundLocationUpdates = true;
 
-            _cMPedometer = new CMPedometer();
-
-
-            _cLLocationManager = new CLLocationManager()
-            {
-                DesiredAccuracy = CLLocation.AccuracyBest,
-                HeadingFilter = 1,
-                AllowsBackgroundLocationUpdates = true
-            };
+            motionManager.DeviceMotionUpdateInterval = 0.1;
+            motionManager.AccelerometerUpdateInterval = 0.1;
+            motionManager.GyroUpdateInterval = 0.1;
+            motionManager.MagnetometerUpdateInterval = 0.1;         
         }
 
 
@@ -68,7 +64,7 @@ namespace Tabi.iOS.PlatformImplementations
         {
             //get motion sensors
             //Raw accelerometer
-            _cMMotionManager.StartAccelerometerUpdates(NSOperationQueue.CurrentQueue, (data, error) =>
+            _motionManager.StartAccelerometerUpdates(NSOperationQueue.CurrentQueue, (data, error) =>
             {
                 _accelerometerRepository.Add(new Accelerometer()
                 {
@@ -81,7 +77,7 @@ namespace Tabi.iOS.PlatformImplementations
             });
 
             ////gyroscope
-            _cMMotionManager.StartGyroUpdates(NSOperationQueue.CurrentQueue, (data, error) =>
+            _motionManager.StartGyroUpdates(NSOperationQueue.CurrentQueue, (data, error) =>
             {
 
                 _gyroscoperRepository.Add(new Gyroscope()
@@ -95,7 +91,7 @@ namespace Tabi.iOS.PlatformImplementations
             });
 
             ////Raw magnetometer
-            _cMMotionManager.StartMagnetometerUpdates(NSOperationQueue.CurrentQueue, (data, error) =>
+            _motionManager.StartMagnetometerUpdates(NSOperationQueue.CurrentQueue, (data, error) =>
             {
                 _magnetometerRepository.Add(new Magnetometer()
                 {
@@ -108,7 +104,7 @@ namespace Tabi.iOS.PlatformImplementations
             });
 
 
-            _cMMotionManager.StartDeviceMotionUpdates(NSOperationQueue.CurrentQueue, (data, error) =>
+            _motionManager.StartDeviceMotionUpdates(NSOperationQueue.CurrentQueue, (data, error) =>
             {
                 //Linear acceleration (acceleration - gravity)
                 DateTimeOffset timestamp = DateTimeOffset.Now;
@@ -162,14 +158,14 @@ namespace Tabi.iOS.PlatformImplementations
 
             });
 
-            _cMPedometer.StartPedometerUpdates(NSDate.Now, (data, error) =>
+            _pedometer.StartPedometerUpdates(NSDate.Now, (data, error) =>
             {
-                _pedometer = data.NumberOfSteps.Int32Value;
+                _pedometerInt = data.NumberOfSteps.Int32Value;
                 Console.WriteLine("assigned a pedometer");
             });
 
             //start updating headings
-            _cLLocationManager.StartUpdatingHeading();
+            _locationManager.StartUpdatingHeading();
 
             //// service for measurements once per minute
             UIDevice.CurrentDevice.BatteryMonitoringEnabled = true;
@@ -192,10 +188,10 @@ namespace Tabi.iOS.PlatformImplementations
             };
 
             //pedometer
-            sensorMeasurementSession.Pedometer = _pedometer;
+            sensorMeasurementSession.Pedometer = _pedometerInt;
 
             //compass
-            sensorMeasurementSession.Compass = Convert.ToInt32(_cLLocationManager.Heading.MagneticHeading);
+            sensorMeasurementSession.Compass = Convert.ToInt32(_locationManager.Heading.MagneticHeading);
 
             // proximity
             sensorMeasurementSession.Proximity = UIDevice.CurrentDevice.ProximityState;

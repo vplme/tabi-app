@@ -6,6 +6,7 @@ using Android.Content;
 using Android.Hardware;
 using Android.OS;
 using Android.Runtime;
+using Autofac;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
 using static Android.OS.PowerManager;
@@ -15,6 +16,7 @@ namespace Tabi.Droid.CollectionService
     [Service]
     public class SensorMeasurementSessionService : Service, ISensorEventListener
     {
+        private readonly IRepoManager _repoManager;
         private readonly ISensorMeasurementSessionRepository _sensorMeasurementSessionRepository;
         private SensorMeasurementSessionServiceBinder _binder;
         private SensorMeasurementSession _sensorMeasurementSession;
@@ -22,7 +24,9 @@ namespace Tabi.Droid.CollectionService
         
         public SensorMeasurementSessionService()
         {
-            _sensorMeasurementSessionRepository = App.RepoManager.SensorMeasurementSessionRepository;
+            _repoManager = App.Container.Resolve<IRepoManager>();
+
+            _sensorMeasurementSessionRepository = _repoManager.SensorMeasurementSessionRepository;
             _sensorMeasurementSession = new SensorMeasurementSession();
         }
 

@@ -9,6 +9,7 @@ using Android.Content;
 using Android.Hardware;
 using Android.OS;
 using Android.Runtime;
+using Autofac;
 using Tabi.Core;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
@@ -19,6 +20,7 @@ namespace Tabi.Droid.CollectionService
     [Service]
     public class AssignSensorDataToTrackService : Service
     {
+        private readonly IRepoManager _repoManager;
         private readonly ITrackEntryRepository _trackEntryRepository;
         private readonly ISensorRepository<Accelerometer> _accelerometerRepository;
         private readonly ISensorRepository<Gyroscope> _gyroscopeRepository;
@@ -34,15 +36,17 @@ namespace Tabi.Droid.CollectionService
 
         public AssignSensorDataToTrackService()
         {
-            _trackEntryRepository = App.RepoManager.TrackEntryRepository;
-            _accelerometerRepository = App.RepoManager.AccelerometerRepository;
-            _gyroscopeRepository = App.RepoManager.GyroscopeRepository;
-            _magnetometerRepository = App.RepoManager.MagnetometerRepository;
-            _linearAccelerationRepository = App.RepoManager.LinearAccelerationRepository;
-            _orientationRepository = App.RepoManager.OrientationRepository;
-            _quaternionRepository = App.RepoManager.QuaternionRepository;
-            _gravityRepository = App.RepoManager.GravityRepository;
-            _sensorMeasurementSessionRepository = App.RepoManager.SensorMeasurementSessionRepository;
+            _repoManager = App.Container.Resolve<IRepoManager>();
+
+            _trackEntryRepository = _repoManager.TrackEntryRepository;
+            _accelerometerRepository = _repoManager.AccelerometerRepository;
+            _gyroscopeRepository = _repoManager.GyroscopeRepository;
+            _magnetometerRepository = _repoManager.MagnetometerRepository;
+            _linearAccelerationRepository = _repoManager.LinearAccelerationRepository;
+            _orientationRepository = _repoManager.OrientationRepository;
+            _quaternionRepository = _repoManager.QuaternionRepository;
+            _gravityRepository = _repoManager.GravityRepository;
+            _sensorMeasurementSessionRepository = _repoManager.SensorMeasurementSessionRepository;
 
             lastTrack = new TrackEntry();
         }

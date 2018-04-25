@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Autofac;
 using Tabi.DataObjects;
 using Tabi.ViewModels;
 using Xamarin.Forms;
@@ -16,7 +17,9 @@ namespace Tabi.Pages
         public TransportSelectionPage(TrackEntry trackEntry)
         {
             InitializeComponent();
-            BindingContext = new TransportSelectionViewModel(this.Navigation);
+            BindingContext = App.Container.Resolve<TransportSelectionViewModel>();
+
+            ViewModel.Navigation = Navigation;
 
             ViewModel.TrackEntry = trackEntry;
         }

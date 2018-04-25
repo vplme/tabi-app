@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Autofac;
 using Tabi.Model;
 using Tabi.ViewModels;
 using Xamarin.Forms;
@@ -15,7 +16,7 @@ namespace Tabi.Pages
         public DaySelectorPage()
         {
             InitializeComponent();
-            BindingContext = new DaySelectorViewModel();
+            BindingContext = App.Container.Resolve<DaySelectorViewModel>();
         }
 
         async void ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
@@ -28,7 +29,7 @@ namespace Tabi.Pages
 
             Day selectedDay = (Day)e.SelectedItem;
 
-            App.DateService.SelectedDate = selectedDay.Time;
+            ViewModel.SelectedDate = selectedDay.Time;
 
             await Navigation.PopAsync();
         }

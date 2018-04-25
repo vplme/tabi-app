@@ -8,6 +8,8 @@ using Plugin.CurrentActivity;
 using Acr.UserDialogs;
 using Plugin.Permissions;
 using Tabi.Droid.Helpers;
+using Autofac.Core;
+using Tabi.Droid.PlatformImplementations;
 
 namespace Tabi.Droid
 {
@@ -26,9 +28,9 @@ namespace Tabi.Droid
             Xamarin.FormsMaps.Init(this, bundle);
             UserDialogs.Init(() => CrossCurrentActivity.Current.Activity);
 
-			var width = Resources.DisplayMetrics.WidthPixels;
-			var height = Resources.DisplayMetrics.HeightPixels;
-			var density = Resources.DisplayMetrics.Density;
+            var width = Resources.DisplayMetrics.WidthPixels;
+            var height = Resources.DisplayMetrics.HeightPixels;
+            var density = Resources.DisplayMetrics.Density;
 
             App.ScreenWidth = (width - 0.5f) / density;
             App.ScreenHeight = (height - 0.5f) / density;
@@ -36,13 +38,20 @@ namespace Tabi.Droid
             var notificationChannelHelper = new NotificationChannelHelper(Application.Context);
             notificationChannelHelper.SetupNotificationChannels();
 
-            LoadApplication(new App());
-		}
+            LoadApplication(new App(new IModule[] { new PlatformContainerModule() }));
+        }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+        public override void OnLowMemory()
+        {
+            base.OnLowMemory();
+
+            Log.Info("Device is on low memory");
         }
     }
 }

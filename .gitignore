@@ -237,3 +237,7 @@ FakesAssemblies/
 
 *.ipa
 .vs/
+
+.sonarqube/
+
+.mfractor/

@@ -9,16 +9,25 @@ namespace Tabi.Core
 {
     public class DataResolver
     {
-        IPositionEntryRepository positionEntryRepository = App.RepoManager.PositionEntryRepository;
-        ITrackEntryRepository trackEntryRepository = App.RepoManager.TrackEntryRepository;
+        IPositionEntryRepository _positionEntryRepository;
+        ITrackEntryRepository _trackEntryRepository;
 
-        IStopVisitRepository stopVisitRepository = App.RepoManager.StopVisitRepository;
-        IStopRepository stopRepository = App.RepoManager.StopRepository;
+        IStopVisitRepository _stopVisitRepository;
+        IStopRepository _stopRepository;
+        private readonly IRepoManager _repoManager;
 
         private double _accuracy;
         private double _groupDistance;
-        public DataResolver()
+        public DataResolver(IRepoManager repoManager)
         {
+            _repoManager = repoManager ?? throw new ArgumentNullException(nameof(repoManager));
+
+            _positionEntryRepository = _repoManager.PositionEntryRepository;
+            _trackEntryRepository = _repoManager.TrackEntryRepository;
+            _stopVisitRepository = _repoManager.StopVisitRepository;
+            _trackEntryRepository = _repoManager.TrackEntryRepository;
+            _stopRepository = _repoManager.StopRepository;
+
             _accuracy = 100;
             _groupDistance = 50;
         }
@@ -27,18 +36,18 @@ namespace Tabi.Core
         public void ResolveData(DateTimeOffset begin, DateTimeOffset end)
         {
             // Get latest StopVisit/Track from db
-            StopVisit lastStopVisit = stopVisitRepository.LastStopVisit();
-            TrackEntry lastTrackEntry = trackEntryRepository.LastTrackEntry();
+            StopVisit lastStopVisit = _stopVisitRepository.LastStopVisit();
+            TrackEntry lastTrackEntry = _trackEntryRepository.LastTrackEntry();
 
             DateTimeOffset newBeginTime = lastStopVisit != null ? lastStopVisit.BeginTimestamp : begin;
 
             // Fetch Positions starting from beginning
-            List<PositionEntry> fetchedPositions = positionEntryRepository.FilterPeriodAccuracy(newBeginTime, end, _accuracy);
+            List<PositionEntry> fetchedPositions = _positionEntryRepository.FilterPeriodAccuracy(newBeginTime, end, _accuracy);
             // Group Positions
             IList<PositionGroup> positionGroups = GroupPositions(fetchedPositions, _groupDistance);
 
             // fetch existing stops
-            IList<Stop> existingStops = stopRepository.GetAll().ToList();
+            IList<Stop> existingStops = _stopRepository.GetAll().ToList();
             Log.Debug($"Existingstops size {existingStops.Count()}");
 
             // CreateStopVisits, Tracks
@@ -56,11 +65,11 @@ namespace Tabi.Core
                 lastStopVisit.EndTimestamp = first.EndTimestamp;
                 if (first.NextTrack.TimeTravelled != TimeSpan.Zero){
                     lastStopVisit.NextTrack = first.NextTrack;
-                    trackEntryRepository.Add(lastStopVisit.NextTrack);
+                    _trackEntryRepository.Add(lastStopVisit.NextTrack);
                     lastStopVisit.NextTrackId = lastStopVisit.NextTrack.Id;
                 }
 
-                stopVisitRepository.Update(lastStopVisit);
+                _stopVisitRepository.Update(lastStopVisit);
                 stopVisits.Remove(first);
             }
 
@@ -219,11 +228,11 @@ namespace Tabi.Core
 
             if (sv.Stop.Id == 0)
             {
-                stopRepository.Add(sv.Stop);
+                _stopRepository.Add(sv.Stop);
             }
             sv.StopId = sv.Stop.Id;
 
-            stopVisitRepository.Add(sv);
+            _stopVisitRepository.Add(sv);
 
             return sv;
         }
@@ -236,7 +245,7 @@ namespace Tabi.Core
                 te.NextStopId = te.NextStop.Id;
             }
 
-            trackEntryRepository.Add(te);
+            _trackEntryRepository.Add(te);
             return te;
         }
 
@@ -286,16 +295,16 @@ namespace Tabi.Core
             {
                 if (sv.StopId == 0)
                 {
-                    stopRepository.Add(sv.Stop);
+                    _stopRepository.Add(sv.Stop);
                     sv.StopId = sv.Stop.Id;
                 }
                 if (sv.NextTrackId == Guid.Empty)
                 {
-                    trackEntryRepository.Add(sv.NextTrack);
+                    _trackEntryRepository.Add(sv.NextTrack);
                     sv.NextTrackId = sv.NextTrack.Id;
                 }
 
-                stopVisitRepository.Add(sv);
+                _stopVisitRepository.Add(sv);
             }
         }
 

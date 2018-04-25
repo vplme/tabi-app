@@ -8,13 +8,14 @@ using Tabi.DataStorage;
 using Tabi.DataObjects;
 using System.Threading.Tasks;
 using static Android.OS.PowerManager;
-
+using Autofac;
 
 namespace Tabi.Droid.CollectionService
 {
     [Service]
     public class SensorService : Service, ISensorEventListener
     {
+        private readonly IRepoManager _repoManager;
         private readonly ISensorRepository<Accelerometer> _accelerometerRepository;
         private readonly ISensorRepository<Gyroscope> _gyroscopeRepository;
         private readonly ISensorRepository<Magnetometer> _magnetometerRepository;
@@ -23,9 +24,11 @@ namespace Tabi.Droid.CollectionService
 
         public SensorService()
         {
-            _accelerometerRepository = App.RepoManager.AccelerometerRepository;
-            _gyroscopeRepository = App.RepoManager.GyroscopeRepository;
-            _magnetometerRepository = App.RepoManager.MagnetometerRepository;
+            _repoManager = App.Container.Resolve<IRepoManager>();
+
+            _accelerometerRepository = _repoManager.AccelerometerRepository;
+            _gyroscopeRepository = _repoManager.GyroscopeRepository;
+            _magnetometerRepository = _repoManager.MagnetometerRepository;
         }
 
 

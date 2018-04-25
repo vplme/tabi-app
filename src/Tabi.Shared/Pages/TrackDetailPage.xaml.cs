@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Autofac;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
 using Tabi.ViewModels;
@@ -14,8 +15,6 @@ namespace Tabi.Pages
         TrackDetailViewModel ViewModel => vm ?? (vm = BindingContext as TrackDetailViewModel);
         TrackDetailViewModel vm;
 
-        IPositionEntryRepository positionEntryRepo = App.RepoManager.PositionEntryRepository;
-
         Track track;
 
         public TrackDetailPage(Track track)
@@ -24,7 +23,9 @@ namespace Tabi.Pages
 
             this.track = track ?? throw new ArgumentNullException(nameof(track));
 
-            BindingContext = new TrackDetailViewModel(this.Navigation);
+            BindingContext = App.Container.Resolve<TrackDetailViewModel>();
+            ViewModel.Navigation = Navigation;
+
             routeMap.HeightRequest = App.ScreenHeight * 0.30;
 
             ViewModel.TrackEntry = track.TrackEntry;

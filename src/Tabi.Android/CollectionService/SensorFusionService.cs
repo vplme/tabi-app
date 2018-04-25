@@ -8,6 +8,7 @@ using Android.Content;
 using Android.Hardware;
 using Android.OS;
 using Android.Runtime;
+using Autofac;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
 using static Android.OS.PowerManager;
@@ -17,6 +18,8 @@ namespace Tabi.Droid.CollectionService
     [Service]
     public class SensorFusionService : Service, ISensorEventListener
     {
+        private readonly IRepoManager _repoManager;
+
         private readonly ISensorRepository<LinearAcceleration> _linearAccelerationRepository;
         private readonly ISensorRepository<Orientation> _orientationRepository;
         private readonly ISensorRepository<Quaternion> _quaternionRepository;
@@ -26,10 +29,15 @@ namespace Tabi.Droid.CollectionService
 
         public SensorFusionService()
         {
-            _linearAccelerationRepository = App.RepoManager.LinearAccelerationRepository;
-            _orientationRepository = App.RepoManager.OrientationRepository;
-            _quaternionRepository = App.RepoManager.QuaternionRepository;
-            _gravityRepository = App.RepoManager.GravityRepository;
+            // TODO Service locator style. Use constructor injection. Not possible at the moment
+            // because this service is instantiated by android.
+            _repoManager = App.Container.Resolve<IRepoManager>();
+
+
+            _linearAccelerationRepository = _repoManager.LinearAccelerationRepository;
+            _orientationRepository = _repoManager.OrientationRepository;
+            _quaternionRepository = _repoManager.QuaternionRepository;
+            _gravityRepository = _repoManager.GravityRepository;
         }
 
         public override IBinder OnBind(Intent intent)

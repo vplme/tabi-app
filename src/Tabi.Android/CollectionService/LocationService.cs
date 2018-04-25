@@ -1,4 +1,5 @@
-﻿using Android.App;
+﻿using System;
+using Android.App;
 using Android.Content;
 using Android.Gms.Common;
 using Android.OS;
@@ -14,6 +15,7 @@ namespace Tabi.Droid
     public class LocationService : Service
     {
         public const int ServiceRunningNotificationId = 134345;
+        private DateTime _startTimestamp;
 
         private LocationServiceBinder binder;
 
@@ -65,7 +67,17 @@ namespace Tabi.Droid
             // Enlist this instance of the service as a foreground service
             StartForeground(ServiceRunningNotificationId, notification);
 
+            _startTimestamp = DateTime.Now;
+
             return StartCommandResult.Sticky;
+        }
+
+        public override void OnDestroy()
+        {
+            base.OnDestroy();
+
+            Log.Info($"Location Service was destroyed. Ran for: {DateTime.Now - _startTimestamp}");
+
         }
 
         private bool IsGooglePlayApiAvailable()

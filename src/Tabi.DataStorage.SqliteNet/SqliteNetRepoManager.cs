@@ -6,58 +6,52 @@ namespace Tabi.DataStorage.SqliteNet
 {
     public class SqliteNetRepoManager : IRepoManager
     {
-        private static SQLiteConnection conn;
+        private static SQLiteConnection _connection;
 
-        public SqliteNetRepoManager(string path)
+        public SqliteNetRepoManager(SQLiteConnection connection)
         {
-            if (conn == null)
-            {
-                conn = new SQLiteConnection(
-                    path,
-                    SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.Create | SQLiteOpenFlags.FullMutex,
-                    false);
-            }
+            _connection = connection ?? throw new ArgumentNullException(nameof(connection));
 
-            conn.CreateTable<User>();
-            conn.CreateTable<Device>();
-            conn.CreateTable<PositionEntry>();
-            conn.CreateTable<Stop>();
-            conn.CreateTable<StopVisit>();
-            conn.CreateTable<BatteryEntry>();
-            conn.CreateTable<TrackEntry>();
-            conn.CreateTable<TransportationModeEntry>();
-            conn.CreateTable<TransportationModeTracks>();
-            conn.CreateTable<LogEntry>();
+            _connection.CreateTable<User>();
+            _connection.CreateTable<Device>();
+            _connection.CreateTable<PositionEntry>();
+            _connection.CreateTable<Stop>();
+            _connection.CreateTable<StopVisit>();
+            _connection.CreateTable<BatteryEntry>();
+            _connection.CreateTable<TrackEntry>();
+            _connection.CreateTable<TransportationModeEntry>();
+            _connection.CreateTable<TransportationModeTracks>();
+            _connection.CreateTable<LogEntry>();
 
-            conn.CreateTable<SensorMeasurementSession>();
-            conn.CreateTable<Accelerometer>();
-            conn.CreateTable<Gyroscope>();
-            conn.CreateTable<Magnetometer>();
-            conn.CreateTable<LinearAcceleration>();
-            conn.CreateTable<Orientation>();
-            conn.CreateTable<Quaternion>();
-            conn.CreateTable<Gravity>();
+            _connection.CreateTable<SensorMeasurementSession>();
+            _connection.CreateTable<Accelerometer>();
+            _connection.CreateTable<Gyroscope>();
+            _connection.CreateTable<Magnetometer>();
+            _connection.CreateTable<LinearAcceleration>();
+            _connection.CreateTable<Orientation>();
+            _connection.CreateTable<Quaternion>();
+            _connection.CreateTable<Gravity>();
 
 
 
-            PositionEntryRepository = new SqliteNetPositionEntryRepository(conn);
-            DeviceRepository = new SqliteNetDeviceRepository(conn);
-            StopRepository = new SqliteNetStopRepository(conn);
-            StopVisitRepository = new SqliteNetStopVisitRepository(conn);
-            BatteryEntryRepository = new SqliteNetBatteryEntryRepository(conn);
-            TrackEntryRepository = new SqliteNetTrackEntryRepository(conn);
-            LogEntryRepository = new SqliteNetLogEntryRepository(conn);
-            TransportationModeRepository = new SqliteNetTransportationModeRepository(conn);
+            PositionEntryRepository = new SqliteNetPositionEntryRepository(_connection);
+            DeviceRepository = new SqliteNetDeviceRepository(_connection);
+            StopRepository = new SqliteNetStopRepository(_connection);
+            StopVisitRepository = new SqliteNetStopVisitRepository(_connection);
+            BatteryEntryRepository = new SqliteNetBatteryEntryRepository(_connection);
+            TrackEntryRepository = new SqliteNetTrackEntryRepository(_connection);
+            LogEntryRepository = new SqliteNetLogEntryRepository(_connection);
+            TransportationModeRepository = new SqliteNetTransportationModeRepository(_connection);
 
             //sensor
-            SensorMeasurementSessionRepository = new SqliteNetSensorMeasurementSessionRepository(conn);
-            AccelerometerRepository = new SqliteNetSensorRepository<Accelerometer>(conn); 
-            GyroscopeRepository = new SqliteNetSensorRepository<Gyroscope>(conn);
-            MagnetometerRepository = new SqliteNetSensorRepository<Magnetometer>(conn);
-            LinearAccelerationRepository = new SqliteNetSensorRepository<LinearAcceleration>(conn);
-            OrientationRepository = new SqliteNetSensorRepository<Orientation>(conn);
-            QuaternionRepository = new SqliteNetSensorRepository<Quaternion>(conn);
-            GravityRepository = new SqliteNetSensorRepository<Gravity>(conn);
+            SensorMeasurementSessionRepository = new SqliteNetSensorMeasurementSessionRepository(_connection);
+            AccelerometerRepository = new SqliteNetSensorRepository<Accelerometer>(_connection); 
+            GyroscopeRepository = new SqliteNetSensorRepository<Gyroscope>(_connection);
+            MagnetometerRepository = new SqliteNetSensorRepository<Magnetometer>(_connection);
+            LinearAccelerationRepository = new SqliteNetSensorRepository<LinearAcceleration>(_connection);
+            OrientationRepository = new SqliteNetSensorRepository<Orientation>(_connection);
+            QuaternionRepository = new SqliteNetSensorRepository<Quaternion>(_connection);
+            GravityRepository = new SqliteNetSensorRepository<Gravity>(_connection);
         }
 
         public IUserRepository UserRepository { get; private set; }
