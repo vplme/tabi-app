@@ -218,7 +218,7 @@ namespace TabiApiClient
 
         public async Task<bool> PostTransportationModes(int deviceId, List<TabiApiClient.Models.TransportationMode> transportModes)
         {
-            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/mode");
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/mode");
 
             try
             {
@@ -235,7 +235,7 @@ namespace TabiApiClient
 
         public async Task<bool> PostSensorMeasurementSessions(int deviceId, List<SensorMeasurementSession> sensorMeasurementSessions)
         {
-            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/sensormeasurementsession");
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/sensormeasurementsession");
             try
             {
                 HttpContent httpContent = SerializeObject(sensorMeasurementSessions);
@@ -252,7 +252,7 @@ namespace TabiApiClient
 
         public async Task<bool> PostAccelerometerData(int deviceId, List<Accelerometer> accelerometerData)
         {
-            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/accelerometer");
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/accelerometer");
             try
             {
                 HttpContent httpContent = SerializeObject(accelerometerData);
@@ -268,7 +268,7 @@ namespace TabiApiClient
 
         public async Task<bool> PostGyroscopeData(int deviceId, List<Gyroscope> gyroscopeData)
         {
-            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/gyroscope");
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/gyroscope");
             try
             {
                 HttpContent httpContent = SerializeObject(gyroscopeData);
@@ -285,7 +285,7 @@ namespace TabiApiClient
 
         public async Task<bool> PostMagnetometerData(int deviceId, List<Magnetometer> magnetometerData)
         {
-            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/magnetometer");
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/magnetometer");
             try
             {
                 HttpContent httpContent = SerializeObject(magnetometerData);
@@ -301,7 +301,7 @@ namespace TabiApiClient
 
         public async Task<bool> PostLinearAccelerationData(int deviceId, List<LinearAcceleration> linearAcceleration)
         {
-            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/linearacceleration");
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/linearacceleration");
             try
             {
                 HttpContent httpContent = SerializeObject(linearAcceleration);
@@ -318,7 +318,7 @@ namespace TabiApiClient
 
         public async Task<bool> PostGravityData(int deviceId, List<Gravity> gravity)
         {
-            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/gravity");
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/gravity");
             try
             {
                 HttpContent httpContent = SerializeObject(gravity);
@@ -334,7 +334,7 @@ namespace TabiApiClient
 
         public async Task<bool> PostQuaternionData(int deviceId, List<Quaternion> quaternionData)
         {
-            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/quaternion");
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/quaternion");
             try
             {
                 HttpContent httpContent = SerializeObject(quaternionData);
@@ -351,7 +351,7 @@ namespace TabiApiClient
 
         public async Task<bool> PostOrientationData(int deviceId, List<Orientation> orientationData)
         {
-            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/orientation");
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/orientation");
             try
             {
                 HttpContent httpContent = SerializeObject(orientationData);
