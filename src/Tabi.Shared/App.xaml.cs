@@ -24,6 +24,8 @@ using SQLite;
 using Tabi.ViewModels;
 using Tabi.Core;
 using TabiApiClient;
+using Tabi.Shared.Pages.OnBoarding;
+using Tabi.Shared.ViewModels;
 
 namespace Tabi
 {
@@ -87,11 +89,17 @@ namespace Tabi
                 Log.Debug($"MobileCenter enabled: {mobileCenterEnabled}");
             }
 
-            MainPage = new NavigationPage(new ActivityOverviewPage());
+            NavigationPage navigationPage = new NavigationPage();
+
             if (!Settings.Current.PermissionsGranted)
             {
-                MainPage.Navigation.PushModalAsync(new IntroPage());
+                navigationPage.PushAsync(new WelcomePage());
             }
+            else{
+                navigationPage.PushAsync(new ActivityOverviewPage());
+            }
+
+            MainPage = navigationPage;
         }
 
         private void PrepareContainer(IModule[] platformSpecificModules)
@@ -115,6 +123,12 @@ namespace Tabi
             containerBuilder.RegisterType<DaySelectorViewModel>();
             containerBuilder.RegisterType<StopDetailViewModel>();
             containerBuilder.RegisterType<TransportSelectionViewModel>();
+            containerBuilder.RegisterType<WelcomeViewModel>();
+            containerBuilder.RegisterType<LoginViewModel>();
+            containerBuilder.RegisterType<LocationAccessViewModel>();
+            containerBuilder.RegisterType<MotionAccessViewModel>();
+            containerBuilder.RegisterType<ThanksViewModel>();
+
 
             _container = containerBuilder.Build();
         }
@@ -126,7 +140,6 @@ namespace Tabi
                 containerBuilder.RegisterModule(platformSpecificModule);
             }
         }
-
 
         private void SetupLogging()
         {
@@ -221,26 +234,9 @@ namespace Tabi
         protected override void OnStart()
         {
             Log.Info("App.OnStart");
-            CheckAuthorization(Settings.Current.Device);
         }
 
-        async Task CheckAuthorization(int deviceId)
-        {
-            if (Settings.Current.PermissionsGranted)
-            {
-                TabiApiClient.ApiClient apiClient = Container.Resolve<ApiClient>();
-                await apiClient.Authenticate(Settings.Current.Username, Settings.Current.Password);
-                bool unauth = await apiClient.IsDeviceUnauthorized(deviceId);
-
-                if (unauth)
-                {
-                    Log.Debug("Unauthorized!");
-                    Settings.Current.PermissionsGranted = false;
-                    await MainPage.Navigation.PushModalAsync(new IntroPage());
-                }
-            }
-
-        }
+       
 
 
         protected override void OnSleep()
@@ -253,7 +249,6 @@ namespace Tabi
         {
             Log.Info("App.OnResume");
             // Handle when your app resumes
-            CheckAuthorization(Settings.Current.Device);
         }
 
     }

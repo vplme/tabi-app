@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:local="clr-namespace:Tabi;assembly=Tabi.Shared" xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+     xmlns:control="clr-namespace:Tabi.Shared.Controls;assembly=Tabi.Shared" xmlns:i18n="clr-namespace:Tabi.Shared.Localization;assembly=Tabi.Shared"
+     ios:Page.UseSafeArea="true" NavigationPage.HasNavigationBar="False" x:Class="Tabi.Shared.Pages.OnBoarding.LoginPage">
+     <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:NegateBoolConverter x:Key="inverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical">
+                <StackLayout.Padding>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="Android" Value="0, 0, 0, 0" />
+                        <On Platform="iOS" Value="0, 20, 0, 0" />
+                    </OnPlatform>
+                </StackLayout.Padding>
+                <StackLayout VerticalOptions="FillAndExpand">
+                    <ffimageloadingsvg:SvgCachedImage HorizontalOptions="Center" HeightRequest="60" Source="tabi.svg">
+                        <ffimageloadingsvg:SvgCachedImage.Margin>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="Android" Value="0, 20, 0, 0" />
+                                <On Platform="iOS" Value="0, 0, 0, 0" />
+                            </OnPlatform>
+                        </ffimageloadingsvg:SvgCachedImage.Margin>
+                    </ffimageloadingsvg:SvgCachedImage>
+                    <Label FontSize="30" HorizontalOptions="CenterAndExpand" Text="{i18n:Translate LoginIntroTitle}" />
+                    <Label Margin="20, 0, 20, 0" Text="{i18n:Translate LoginIntroText}" />
+                    <StackLayout Margin="40, 30, 40, 30" VerticalOptions="FillAndExpand" Orientation="Vertical">
+                        <Label FontSize="Small" Text="{i18n:Translate UsernameLabel}" />
+                        <Entry Text="{Binding Username}" FontSize="20" Placeholder="{i18n:Translate UsernameLabel}" Completed="Handle_UsernameEntryCompleted">
+                            <Entry.Effects>
+                                <local:NoHelperEntryEffect />
+                                <local:BorderlessEntryEffect />
+                            </Entry.Effects>
+                        </Entry>
+                        <BoxView HeightRequest="0.5" Color="Black">
+                            <BoxView.IsVisible>
+                                <OnPlatform x:TypeArguments="x:Boolean">
+                                    <On Platform="Android" Value="false" />
+                                    <On Platform="iOS" Value="true" />
+                                </OnPlatform>
+                            </BoxView.IsVisible>
+                        </BoxView>
+                        <Label FontSize="Small" Text="{i18n:Translate PasswordLabel}" />
+                        <Entry x:Name="passwordEntry" Text="{Binding Password}" FontSize="20" Placeholder="{i18n:Translate PasswordLabel}" Completed="Handle_PasswordEntryCompletedAsync" IsPassword="true">
+                            <Entry.Effects>
+                                <local:BorderlessEntryEffect />
+                            </Entry.Effects>
+                        </Entry>
+                        <BoxView HeightRequest="0.5" Color="Black">
+                            <BoxView.IsVisible>
+                                <OnPlatform x:TypeArguments="x:Boolean">
+                                    <On Platform="Android" Value="false" />
+                                    <On Platform="iOS" Value="true" />
+                                </OnPlatform>
+                            </BoxView.IsVisible>
+                        </BoxView>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout VerticalOptions="End">
+                    <control:MaterialButton IsVisible="{Binding IsLoggingIn, Converter={StaticResource inverter}" Margin="30, 0, 30, 30" Text="{i18n:Translate ContinueButton}" Style="{StaticResource defaultButtonStyle}"
+                         Command="{Binding LoginCommand}" />
+                    <control:MaterialButton IsVisible="{Binding IsLoggingIn}" Margin="30, 0, 30, 30" Text="{i18n:Translate LoggingInWaitMessage}" Style="{StaticResource inactiveButtonStyle}" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

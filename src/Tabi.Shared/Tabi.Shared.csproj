@@ -34,6 +34,9 @@
     <PackageReference Include="Plugin.Permissions" Version="2.2.1" />
     <PackageReference Include="Xam.Plugin.DeviceInfo" Version="3.1.0" />
     <PackageReference Include="Autofac" Version="4.7.0" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.3.6" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.3.6" />
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.3.6" />
   </ItemGroup>
   <ItemGroup>
     <!-- https://bugzilla.xamarin.com/show_bug.cgi?id=55591 -->
@@ -42,7 +45,7 @@
     <Compile Remove="**\*.xaml.cs" />
 
     <EmbeddedResource Include="**\*.xaml" SubType="Designer" Generator="MSBuild:UpdateDesignTimeXaml" />
-    <Compile Include="**\*.xaml.cs" DependentUpon="%(Filename)" Exclude="Pages\TrackDetailPage.xaml.cs;Pages\TransportSelectionPage.xaml.cs" />
+    <Compile Include="**\*.xaml.cs" DependentUpon="%(Filename)" />
 
     <EmbeddedResource Update="Resx\AppResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -61,102 +64,21 @@
     <Compile Update="Resx\AppResources.nl.Designer.cs">
       <DependentUpon>AppResources.nl.resx</DependentUpon>
     </Compile>
-    <None Remove="tabi.config" />
     <EmbeddedResource Include="tabi.config" />
     <None Remove="appsettings.json" />
     <None Remove="tabi.csv" />
-    <Compile Update="App.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Controls\ActivityOverviewCell.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Controls\DateSwitchView.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Controls\FooterDivider.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Controls\HeaderDivider.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Controls\LabelSection.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Controls\SectionDivider.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Controls\SettingsSectionDivider.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Controls\StopView.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Controls\TabiRaisedButton.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Controls\TabiTextCell.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Controls\TripView.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\ActivityDetailPage.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\ActivityOverviewPage.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\DayMapPage.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\LogsPage.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\PermissionsPage.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\SettingsPage.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\StopDetailPage.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\TabiTabbedPage.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\IntroPage.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
-    </Compile>
-
-    <Compile Update="IntroViews\FirstIntroView.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="IntroViews\LoginIntroView.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="IntroViews\PermIntroView.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
-    </Compile>
-    <None Remove="Resources\credits.html" />
-    <None Remove="Resources\html\credits.html" />
-    <EmbeddedResource Include="Resources\html\credits.html">
-      <LogicalName>Tabi.Resources.credits.html</LogicalName>
-    </EmbeddedResource>
-    <Compile Include="Pages\TrackDetailPage.xaml.cs">
-      <DependentUpon>TrackDetailPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\TransportSelectionPage.xaml.cs" />
+    <Compile Remove="StopResolver.cs" />
+    <EmbeddedResource Remove="IntroViews\FirstIntroView.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resx\" />
     <Folder Include="Extensions\" />
     <Folder Include="Localization\" />
     <Folder Include="Collection\" />
-    <Folder Include="IntroViews\" />
     <Folder Include="Resources\" />
     <Folder Include="Resources\html\" />
     <Folder Include="Controls\MultiSelectListView\" />
+    <Folder Include="Pages\OnBoarding\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tabi.DataStorage\Tabi.DataStorage.csproj" />

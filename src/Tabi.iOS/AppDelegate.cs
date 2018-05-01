@@ -1,5 +1,7 @@
 ﻿
 using Autofac.Core;
+using FFImageLoading.Forms.Touch;
+using FFImageLoading.Svg.Forms;
 using Foundation;
 using Microsoft.Azure.Mobile.Distribute;
 using Tabi.iOS.PlatformImplementations;
@@ -23,6 +25,10 @@ namespace Tabi.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+
+            CachedImageRenderer.Init();
+            // to avoid linking issues:
+            var ignore = typeof(SvgCachedImage);
 
             App.ScreenWidth = UIScreen.MainScreen.Bounds.Width;
             App.ScreenHeight = UIScreen.MainScreen.Bounds.Height;

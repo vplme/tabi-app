@@ -373,6 +373,30 @@
     <Reference Include="Autofac">
       <HintPath>..\packages\Autofac.4.7.0\lib\netstandard1.1\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="FFImageLoading">
+      <HintPath>..\packages\Xamarin.FFImageLoading.2.3.6\lib\MonoAndroid10\FFImageLoading.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading.Platform">
+      <HintPath>..\packages\Xamarin.FFImageLoading.2.3.6\lib\MonoAndroid10\FFImageLoading.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading.Forms">
+      <HintPath>..\packages\Xamarin.FFImageLoading.Forms.2.3.6\lib\MonoAndroid10\FFImageLoading.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading.Forms.Droid">
+      <HintPath>..\packages\Xamarin.FFImageLoading.Forms.2.3.6\lib\MonoAndroid10\FFImageLoading.Forms.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp">
+      <HintPath>..\packages\SkiaSharp.1.60.0\lib\MonoAndroid\SkiaSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading.Svg.Platform">
+      <HintPath>..\packages\Xamarin.FFImageLoading.Svg.2.3.6\lib\MonoAndroid10\FFImageLoading.Svg.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading.Svg.Forms">
+      <HintPath>..\packages\Xamarin.FFImageLoading.Svg.Forms.2.3.6\lib\MonoAndroid10\FFImageLoading.Svg.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading.Transformations">
+      <HintPath>..\packages\Xamarin.FFImageLoading.Transformations.2.3.6\lib\MonoAndroid10\FFImageLoading.Transformations.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CollectionService\AssignSensorDataToTrackService.cs" />
@@ -483,6 +507,7 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_check_circle_black_24dp.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_check_circle_black_24dp.png" />
     <AndroidResource Include="Resources\drawable\splash.png" />
+    <AndroidResource Include="Resources\drawable\tabi.svg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Tabbar.axml" />

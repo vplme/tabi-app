@@ -98,9 +98,11 @@ namespace TabiApiClient
                     this.token = token.Token;
                     Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", this.token);
                 }
-            } catch(Exception e){
+            }
+            catch (Exception e)
+            {
                 Debug.WriteLine("ApiClient error" + e);
-            } 
+            }
 
             return token;
         }
@@ -123,14 +125,23 @@ namespace TabiApiClient
         public async Task<DeviceMessage> GetDevice(int id)
         {
             string path = PrefixApiPath($"/user/{userId}/device/{id}");
-            HttpResponseMessage response = await client.GetAsync(path);
             DeviceMessage dm = null;
-            if (response.IsSuccessStatusCode)
+
+            try
+            {
+                HttpResponseMessage response = await client.GetAsync(path);
+                 if (response.IsSuccessStatusCode)
             {
                 string data = await response.Content.ReadAsStringAsync();
                 dm = JsonConvert.DeserializeObject<DeviceMessage>(data);
             }
 
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+           
             return dm;
         }
 
@@ -247,7 +258,7 @@ namespace TabiApiClient
                 Console.WriteLine(e);
                 return false;
             }
-            
+
         }
 
         public async Task<bool> PostAccelerometerData(int deviceId, List<Accelerometer> accelerometerData)
@@ -280,7 +291,7 @@ namespace TabiApiClient
                 Console.WriteLine(e);
                 return false;
             }
-            
+
         }
 
         public async Task<bool> PostMagnetometerData(int deviceId, List<Magnetometer> magnetometerData)
@@ -313,7 +324,7 @@ namespace TabiApiClient
                 Console.WriteLine(e);
                 return false;
             }
-            
+
         }
 
         public async Task<bool> PostGravityData(int deviceId, List<Gravity> gravity)
@@ -325,11 +336,12 @@ namespace TabiApiClient
                 HttpResponseMessage response = await client.PostAsync(path, httpContent);
                 return response.IsSuccessStatusCode;
             }
-            catch(Exception e){
+            catch (Exception e)
+            {
                 Console.WriteLine(e);
                 return false;
             }
-            
+
         }
 
         public async Task<bool> PostQuaternionData(int deviceId, List<Quaternion> quaternionData)
@@ -346,7 +358,7 @@ namespace TabiApiClient
                 Console.WriteLine(e);
                 return false;
             }
-            
+
         }
 
         public async Task<bool> PostOrientationData(int deviceId, List<Orientation> orientationData)
@@ -363,7 +375,7 @@ namespace TabiApiClient
                 Console.WriteLine(e);
                 return false;
             }
-            
+
         }
 
         public async Task<bool> IsDeviceUnauthorized(int deviceId)

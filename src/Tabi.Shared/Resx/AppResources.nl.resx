@@ -230,7 +230,7 @@
 		<value>Kies dag</value>
 	</data>
     <data name="SensorPermissionButton" xml:space="preserve">
-		<value>Bewegings en conditie toestemmingen vereist</value>
+		<value>Sta bewegingsdata toe</value>
 	</data>
     <data name="SensorPermissionDeniedOpenSettingsiOSText" xml:space="preserve">
 		<value>Pas de toestemming voor beweging en conditie aan in de Instellingen.</value>

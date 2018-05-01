@@ -7,8 +7,27 @@
                 <Setter Property="BackgroundColor" Value="{DynamicResource blueButtonColor}" />
                 <Setter Property="TextColor" Value="White" />
             </Style>
+            <Style x:Key="inactiveButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{DynamicResource greyButtonColor}" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+            <Style x:Key="successButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{DynamicResource greenButtonColor}" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+            <Style x:Key="warningButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{DynamicResource orangeButtonColor}" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+            <Style x:Key="errorButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{DynamicResource redButtonColor}" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
             <Color x:Key="tabiBaseColor">#0299C3</Color>
+            <Color x:Key="greyButtonColor">#DADADA</Color>
             <Color x:Key="blueButtonColor">#157EFA</Color>
+            <Color x:Key="redButtonColor">#FF4F4F</Color>
+            <Color x:Key="orangeButtonColor">#FF9A4F</Color>
             <Color x:Key="greenButtonColor">#388E3C</Color>
             <Color x:Key="walkMethodColor">#EF75EB</Color>
             <Color x:Key="transportMethodColor">#4475EB</Color>
