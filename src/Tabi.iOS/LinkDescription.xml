@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <linker>
-  <!--
+    <!--
   
         LinkDescription.xml. File added to iOS project by @cwrea for adaptation to EF Core.
         
@@ -21,16 +21,26 @@
         in iOS projects, even though it is an option within iOS projects on Visual Studio 2017 for Mac.
         
   -->
-  <assembly fullname="mscorlib">
-    <type fullname="System.String">
-      <method name="Compare"></method>
-      <method name="CompareTo"></method>
-      <method name="ToUpper"></method>
-      <method name="ToLower"></method>
-    </type>
-  </assembly>
-  <assembly fullname="System.Core">
-    <type fullname="System.Linq.Expressions.Expression`1"></type>
-    <type fullname="System.Linq.Queryable"></type>
-  </assembly>
+    <assembly fullname="mscorlib">
+        <type fullname="System.String">
+            <method name="Compare">
+            </method>
+            <method name="CompareTo">
+            </method>
+            <method name="ToUpper">
+            </method>
+            <method name="ToLower">
+            </method>
+            <type fullname="System.Convert" />
+        </type>
+    </assembly>
+    <assembly fullname="System.Core">
+        <type fullname="System.Linq.Expressions.Expression`1">
+        </type>
+        <type fullname="System.Linq.Queryable">
+        </type>
+    </assembly>
+    <assembly fullname="Xamarin.iOS">
+        <type fullname="CoreMotion.CMPedometer" />
+    </assembly>
 </linker>
