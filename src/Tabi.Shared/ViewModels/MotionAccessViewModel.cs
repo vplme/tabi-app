@@ -18,7 +18,7 @@ namespace Tabi.Shared.ViewModels
         public MotionAccessViewModel(IExtraPermission extraPermission)
         {
             _extraPermission = extraPermission ?? throw new ArgumentNullException();
-            MotionAccessCommand = new Command(async () => await RequestMotionAccess());
+            MotionAccessCommand = new Command(async () => RequestMotionAccess());
 
             ContinueCommand = new Command(async () => await CheckAndContinue());
         }
@@ -48,37 +48,16 @@ namespace Tabi.Shared.ViewModels
             }
         }
 
-        private async Task RequestMotionAccess()
+        private void RequestMotionAccess()
         {
-            var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Location);
-            if (status != PermissionStatus.Granted)
-            {
-                if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.Location))
-                {
-                    await Page.DisplayAlert(
-                        AppResources.LocationPermissionRationaleTitle,
-                        AppResources.LocationPermissionRationaleText,
-                        AppResources.OkText);
-                }
-                if (status == PermissionStatus.Denied && Device.RuntimePlatform == Device.iOS)
-                {
-                    await Page.DisplayAlert(
-                        AppResources.LocationPermissionDeniedOpenSettingsiOSTitle,
-                        AppResources.LocationPermissionDeniedOpenSettingsiOSText,
-                        AppResources.OkText);
-
-                    CrossPermissions.Current.OpenAppSettings();
-                }
-
-                var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Location);
-                //Best practice to always check that the key exists
-                if (results.ContainsKey(Permission.Location))
-                    status = results[Permission.Location];
-            }
-
-            if (status == PermissionStatus.Granted)
+            var status = _extraPermission.CheckMotionPermission();
+            if (status == PermissionAuthorization.Authorized)
             {
                 MotionButtonStyle = (Style)Application.Current.Resources["successButtonStyle"];
+            }
+            else
+            {
+                _extraPermission.RequestMotionPermission();
             }
         }
 
@@ -97,13 +76,13 @@ namespace Tabi.Shared.ViewModels
                 IDeviceInfo deviceInfo = Plugin.DeviceInfo.CrossDeviceInfo.Current;
 
                 // Also allow simulator to pass
-                if (status == PermissionAuthorization.Authorized || !deviceInfo.IsDevice)
+                if (status == PermissionAuthorization.Authorized || !_extraPermission.IsMotionAvailable())
                 {
                     await Next();
                 }
                 else
                 {
-                    Page.DisplayAlert("Motion", "Enable motion access", "Understood");
+                    await Page.DisplayAlert("Motion", AppResources.MotionIntroLabel, "Ok");
                 }
 
             }

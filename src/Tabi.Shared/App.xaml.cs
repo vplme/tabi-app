@@ -26,6 +26,8 @@ using Tabi.Core;
 using TabiApiClient;
 using Tabi.Shared.Pages.OnBoarding;
 using Tabi.Shared.ViewModels;
+using System.Net;
+using Tabi.Shared.DataSync;
 
 namespace Tabi
 {
@@ -34,6 +36,11 @@ namespace Tabi
         private static IContainer _container;
 
         public static IContainer Container { get => _container; }
+
+        public static bool DebugMode
+        {
+            get; private set;
+        }
 
         public const string LogFilePath = "tabi.log";
         public static bool Developer;
@@ -56,7 +63,6 @@ namespace Tabi
 
         }
 
-
         public App(IModule[] platformSpecificModules)
         {
             PrepareContainer(platformSpecificModules);
@@ -70,15 +76,20 @@ namespace Tabi
 
             InitializeComponent();
 
-
+            SetupCertificatePinningCheck();
             SetupLocationManager();
             SetupSensorManager();
 
             Developer = Convert.ToBoolean(Configuration["developer"]);
+            DebugMode = Developer;
+#if DEBUG
+            DebugMode = true;
+#endif
+
 
             string apiKey = Configuration["mobilecenter:apikey"];
             bool mobileCenterEnabled = Convert.ToBoolean(Configuration["mobilecenter:enabled"]);
-           
+
 
             if (!apiKey.Equals(""))
             {
@@ -95,7 +106,8 @@ namespace Tabi
             {
                 navigationPage.PushAsync(new WelcomePage());
             }
-            else{
+            else
+            {
                 navigationPage.PushAsync(new ActivityOverviewPage());
             }
 
@@ -128,9 +140,17 @@ namespace Tabi
             containerBuilder.RegisterType<LocationAccessViewModel>();
             containerBuilder.RegisterType<MotionAccessViewModel>();
             containerBuilder.RegisterType<ThanksViewModel>();
+            containerBuilder.RegisterType<TrackDetailViewModel>();
 
 
             _container = containerBuilder.Build();
+        }
+
+        public static void SetupCertificatePinningCheck()
+        {
+            EndpointConfiguration.AddPublicKeyString(Configuration["certificate-key"]);
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            ServicePointManager.ServerCertificateValidationCallback = EndpointConfiguration.ValidateServerCertificate;
         }
 
         private void RegisterPlatformSpecificModules(IModule[] platformSpecificModules, ContainerBuilder containerBuilder)
@@ -230,27 +250,20 @@ namespace Tabi
 
         }
 
-
         protected override void OnStart()
         {
             Log.Info("App.OnStart");
         }
 
-       
-
-
         protected override void OnSleep()
         {
             Log.Info("App.OnSleep");
-            // Handle when your app sleeps
         }
 
         protected override void OnResume()
         {
             Log.Info("App.OnResume");
-            // Handle when your app resumes
         }
-
     }
 
 }

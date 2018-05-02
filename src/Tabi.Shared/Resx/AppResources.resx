@@ -373,7 +373,7 @@
     <data name="EnableLocationServices" xml:space="preserve">
         <value>Enable location services</value>
     </data>
-     <data name="LocationPermissionGiven" xml:space="preserve">
+    <data name="LocationPermissionGiven" xml:space="preserve">
         <value>Done!</value>
     </data>
     <data name="MotionTitleLabel" xml:space="preserve">
@@ -382,7 +382,7 @@
     <data name="MotionIntroLabel" xml:space="preserve">
         <value>This app needs your motion data.</value>
     </data>
-     <data name="MotionPermissionButton" xml:space="preserve">
+    <data name="MotionPermissionButton" xml:space="preserve">
         <value>Allow motion access</value>
     </data>
     <data name="ThanksTitleLabel" xml:space="preserve">
@@ -391,8 +391,7 @@
     <data name="ThanksText" xml:space="preserve">
         <value>If you have any questions you can contact us here: winhelpdesk@cbs.nl</value>
     </data>
-
-
-
-
+    <data name="Yesterday" xml:space="preserve">
+        <value>Yesterday</value>
+    </data>
 </root>

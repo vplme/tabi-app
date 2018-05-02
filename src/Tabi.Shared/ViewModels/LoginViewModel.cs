@@ -69,6 +69,10 @@ namespace Tabi.Shared.ViewModels
 
         public ICommand LoginCommand { get; set; }
 
+        private bool OnlineServiceAvailable()
+        {
+            return Plugin.Connectivity.CrossConnectivity.Current.IsConnected;
+        }
 
         private async Task Next()
         {
@@ -85,6 +89,12 @@ namespace Tabi.Shared.ViewModels
         public async Task Login()
         {
             IsLoggingIn = true;
+
+            if (!OnlineServiceAvailable())
+            {
+                await Page.DisplayAlert(AppResources.NoInternetConnectionTitle, AppResources.NoInternetConnectionText, AppResources.OkText);
+                return;
+            }
 
             TokenResult tokenResult = null;
             try
@@ -105,7 +115,7 @@ namespace Tabi.Shared.ViewModels
                 {
                     if (await _apiClient.GetDevice(Settings.Current.Device) != null)
                     {
-                        Log.Debug("already register");
+                        Log.Info($"Device ({Settings.Current.Device}) was already registered");
                         // Device is already registered
                         await Next();
 
@@ -113,7 +123,10 @@ namespace Tabi.Shared.ViewModels
                     else
                     {
                         IDeviceInfo deviceInfo = Plugin.DeviceInfo.CrossDeviceInfo.Current;
-                        DeviceMessage response = await _apiClient.RegisterDevice(deviceInfo.Model, deviceInfo.Version, deviceInfo.Manufacturer);
+
+                        string os = Enum.GetName(typeof(Platform), deviceInfo.Platform);
+
+                        DeviceMessage response = await _apiClient.RegisterDevice(deviceInfo.Model, os, deviceInfo.Version, deviceInfo.Manufacturer);
                         if (response.ID == 0)
                         {
                             await Page.DisplayAlert(AppResources.ErrorOccurredTitle, "Problem registering device", "OK");

@@ -147,6 +147,12 @@ namespace Tabi.Shared.ViewModels
             }
         }
 
+        public async Task CheckLocationPermissionAsync()
+        {
+            var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Location);
+            PermissionToViewModel(status);
+        }
+
         private async Task RequestLocationPermissionAsync()
         {
             var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Location);

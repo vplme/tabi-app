@@ -79,6 +79,7 @@
     <Folder Include="Resources\html\" />
     <Folder Include="Controls\MultiSelectListView\" />
     <Folder Include="Pages\OnBoarding\" />
+    <Folder Include="DataSync\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tabi.DataStorage\Tabi.DataStorage.csproj" />

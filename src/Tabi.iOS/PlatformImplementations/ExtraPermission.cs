@@ -3,6 +3,7 @@ using CoreMotion;
 using Foundation;
 using Tabi.Shared;
 using UIKit;
+using Xamarin.Forms;
 
 namespace Tabi.iOS.PlatformImplementations
 {
@@ -76,7 +77,7 @@ namespace Tabi.iOS.PlatformImplementations
                 _activityManager.QueryActivity(NSDate.Now, NSDate.Now, NSOperationQueue.MainQueue, (activities, error) => { });
             }
             else if (status == PermissionAuthorization.Denied || status == PermissionAuthorization.Restricted) {
-                UIApplication.SharedApplication.OpenUrl(new NSUrl("app-settings:"));
+                Device.OpenUri(new NSUrl("app-settings:"));
             }
 
             return true;

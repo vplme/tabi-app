@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Plugin.Connectivity;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
+using Tabi.Shared.Helpers;
 using TabiApiClient;
 using TabiApiClient.Messages;
 
@@ -51,30 +52,31 @@ namespace Tabi.iOS.Helpers
 
             if (!wifiOnly || connectionTypes.Contains(wifi))
             {
-                Console.WriteLine("login");
+                Timer timer = new Timer();
+                timer.Start();
                 await Login();
-                Console.WriteLine("upload positions");
-                await UploadPositions();
-                Console.WriteLine("upload logs");
-                await UploadLogs();
-                Console.WriteLine("upload battery info");
-                await UploadBatteryInfo();
-                Console.WriteLine("upload stop visits");
-                await UploadStopVisits();
+                Log.Info($"Login took: {timer.EndAndReturnTime()}");
 
-                // tracks && sensordata
-                // select only tracks & sensordata from tracks which are complete
-                TrackEntry lastTrack = _repoManager.TrackEntryRepository.LastCompletedTrackEntry();
+                List<Task> toBeUploaded = new List<Task>();
 
+                toBeUploaded.Add(UploadPositions());
+                toBeUploaded.Add(UploadLogs());
+                toBeUploaded.Add(UploadStopVisits());
+                toBeUploaded.Add(UploadBatteryInfo());
 
-                Console.WriteLine("upload tracks");
-                await UploadTracks();
+                toBeUploaded.Add(UploadAndRemoveTracks());
+                toBeUploaded.Add(UploadAndRemoveGravityData());
+                toBeUploaded.Add(UploadAndRemoveGyroscopeData());
+                toBeUploaded.Add(UploadAndRemoveQuaternionData());
+                toBeUploaded.Add(UploadAndRemoveOrientationData());
+                toBeUploaded.Add(UploadAndRemoveMagnetometerData());
+                toBeUploaded.Add(UploadAndRemoveAccelerometerAsync());
+                toBeUploaded.Add(UploadAndRemoveLinearAcceleration());
+                toBeUploaded.Add(UploadAndRemoveTransporationModes());
+                toBeUploaded.Add(UploadAndRemoveSensorMeasurementSessions());
 
-
-                Console.WriteLine("upload sensordata");
-
-                // UPLOADSUCCESS IS BOOL ARRAY IN ORDER OF TASKS
-                bool[] uploadSuccess = await Task.WhenAll(
+                timer.Start();
+                await Task.WhenAll(
                     UploadSensorMeasurementSessions(),
                     UploadAccelerometerData(),
                     UploadGyroscopeData(),
@@ -85,18 +87,10 @@ namespace Tabi.iOS.Helpers
                     UploadQuaternionData(),
                     UploadTransportationModes()
                     );
+                Log.Info($"Total upload took: {timer.EndAndReturnTime()}");
 
-
-                var removeOldDataSuccess = await RemoveOldSensorData(uploadSuccess);
-                Console.WriteLine("RemoveSuccess:");
-                foreach (var item in removeOldDataSuccess)
-                {
-                    Console.WriteLine(item);
-                }
             }
-
             await ValidateCounts();
-
         }
 
 
@@ -149,50 +143,6 @@ namespace Tabi.iOS.Helpers
                 return false;
             }
         }
-
-        private Task<bool[]> RemoveOldSensorData(bool[] uploadSuccess)
-        {
-            // creating list of items where uploads are succeeded to be removed as a batch
-            List<Task<bool>> toBeRemoved = new List<Task<bool>>();
-            if (uploadSuccess[0])
-            {
-                toBeRemoved.Add(RemoveOldSensorMeasurementSessions());
-            }
-            if (uploadSuccess[1])
-            {
-                toBeRemoved.Add(RemoveOldAccelerometerData());
-            }
-            if (uploadSuccess[2])
-            {
-                toBeRemoved.Add(RemoveOldGyroscopeData());
-            }
-            if (uploadSuccess[3])
-            {
-                toBeRemoved.Add(RemoveOldMagnetometerData());
-            }
-            if (uploadSuccess[4])
-            {
-                toBeRemoved.Add(RemoveOldLinearAccelerationData());
-            }
-            if (uploadSuccess[5])
-            {
-                toBeRemoved.Add(RemoveOldGravityData());
-            }
-            if (uploadSuccess[6])
-            {
-                toBeRemoved.Add(RemoveOldOrientationData());
-            }
-            if (uploadSuccess[7])
-            {
-                toBeRemoved.Add(RemoveOldQuaternionData());
-            }
-
-            var removeOldSensorDataSuccess = Task.WhenAll(
-                        toBeRemoved
-                    );
-            return removeOldSensorDataSuccess;
-        }
-
         private async Task<bool> RemoveOldSensorMeasurementSessions()
         {
             ISensorMeasurementSessionRepository sensorMeasurementRepository = _repoManager.SensorMeasurementSessionRepository;
@@ -254,6 +204,65 @@ namespace Tabi.iOS.Helpers
             return await Task.Run(() => quaternionRepository.RemoveRangeBeforeTimestamp(new DateTimeOffset(Settings.Current.QuaternionLastUpload, TimeSpan.Zero)));
         }
 
+        private async Task UploadAndRemoveAccelerometerAsync()
+        {
+            await UploadAccelerometerData();
+            await RemoveOldAccelerometerData();
+        }
+
+        private async Task UploadAndRemoveGyroscopeData()
+        {
+            await UploadGyroscopeData();
+            await RemoveOldGyroscopeData();
+        }
+
+        private async Task UploadAndRemoveMagnetometerData()
+        {
+            await UploadMagnetometerData();
+            await RemoveOldMagnetometerData();
+        }
+
+        private async Task UploadAndRemoveQuaternionData()
+        {
+            await UploadQuaternionData();
+            await RemoveOldQuaternionData();
+        }
+
+        private async Task UploadAndRemoveOrientationData()
+        {
+            await UploadOrientationData();
+            await RemoveOldOrientationData();
+        }
+
+        private async Task UploadAndRemoveGravityData()
+        {
+            await UploadGravityData();
+            await RemoveOldGravityData();
+        }
+
+        private async Task UploadAndRemoveLinearAcceleration()
+        {
+            await UploadLinearAccelerationData();
+            await RemoveOldLinearAccelerationData();
+        }
+
+        private async Task UploadAndRemoveSensorMeasurementSessions()
+        {
+            await UploadSensorMeasurementSessions();
+            await RemoveOldSensorMeasurementSessions();
+        }
+
+        private async Task UploadAndRemoveTransporationModes()
+        {
+            await UploadTransportationModes();
+            // Donot remove
+        }
+
+        private async Task UploadAndRemoveTracks()
+        {
+            await UploadTracks();
+            // dont remove tracks
+        }
 
         public async Task<bool> ValidateCounts()
         {
@@ -297,29 +306,41 @@ namespace Tabi.iOS.Helpers
 
         public async Task<bool> UploadLogs()
         {
+            bool success = false;
+
             DateTimeOffset lastUpload = new DateTimeOffset(Settings.Current.LogsLastUpload, TimeSpan.Zero);
 
             List<LogEntry> logs = _repoManager.LogEntryRepository.After(lastUpload);
             if (logs.Count() > 0)
             {
-                bool success = await _apiClient.PostLogs(Settings.Current.Device, logs);
-                if (!success)
+                try
                 {
-                    Log.Error("Could not send logs");
-                    return false;
+                    success = await _apiClient.PostLogs(Settings.Current.Device, logs);
                 }
-                else
+                catch (Exception e)
+                {
+                    Log.Error("Failed to upload logs: " + e);
+                }
+                if (success)
                 {
                     Settings.Current.LogsLastUpload = logs.Last().Timestamp.Ticks;
                     //_repoManager.LogEntryRepository.ClearLogsBefore(logs.Last().Timestamp);
+
+                }
+                else
+                {
+                    Log.Error("Could not send logs");
+
                 }
             }
-            return true;
+            return success;
         }
 
 
-        public async Task UploadStopVisits()
+        public async Task<bool> UploadStopVisits()
         {
+            bool success = false;
+
             List<StopVisit> stopVisits = _repoManager.StopVisitRepository.GetAll().ToList();
             // Retrieve stops
             foreach (StopVisit sv in stopVisits)
@@ -327,153 +348,175 @@ namespace Tabi.iOS.Helpers
                 sv.Stop = _repoManager.StopRepository.Get(sv.StopId);
             }
 
-
-            bool success = await _apiClient.PostStopVisits(Settings.Current.Device, stopVisits);
-            if (!success)
+            success = await _apiClient.PostStopVisits(Settings.Current.Device, stopVisits);
+            if (success)
+            {
+                // TODO On success
+            }
+            else
             {
                 Log.Error("Could not send stopvisits");
-                return;
             }
+
+            return success;
         }
 
         public async Task<bool> UploadBatteryInfo()
         {
+            bool success = false;
+
             DateTimeOffset lastUpload = new DateTimeOffset(Settings.Current.BatteryInfoLastUpload, TimeSpan.Zero);
             List<BatteryEntry> batteryEntries = _repoManager.BatteryEntryRepository.After(lastUpload);
             if (batteryEntries.Any())
             {
-                bool success = await _apiClient.PostBatteryData(Settings.Current.Device, batteryEntries);
-                if (!success)
-                {
-                    Log.Error($"Tried to send {batteryEntries.Count()} batterydata but failed");
-                    return false;
-                }
-                else
+                success = await _apiClient.PostBatteryData(Settings.Current.Device, batteryEntries);
+                if (success)
                 {
                     Settings.Current.BatteryInfoLastUpload = batteryEntries.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
                 }
+                else
+                {
+                    Log.Error($"Tried to send {batteryEntries.Count()} batterydata but failed");
+                }
             }
 
-            return true;
+            return success;
         }
 
         public async Task<bool> UploadAccelerometerData()
         {
+            bool success = false;
+
             DateTimeOffset lastUpload = new DateTimeOffset(Settings.Current.AccelerometerLastUpload, TimeSpan.Zero);
             try
             {
                 List<Accelerometer> accelerometerData = _repoManager.AccelerometerRepository.GetRange(lastUpload, DateTimeOffset.MaxValue).ToList();
 
-                bool success = await _apiClient.PostAccelerometerData(Settings.Current.Device, accelerometerData);
+                success = await _apiClient.PostAccelerometerData(Settings.Current.Device, accelerometerData);
 
-                if (!success)
+                if (success)
+                {
+                    Settings.Current.AccelerometerLastUpload = accelerometerData.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
+                }
+                else
                 {
                     Log.Error($"Tried to send {accelerometerData.Count} accelerometerdata but failed");
-                    return false;
                 }
-
-                Settings.Current.AccelerometerLastUpload = accelerometerData.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
-                return true;
             }
             catch (Exception e)
             {
                 Log.Error("Could not upload accelerometerdata " + e);
-                return false;
             }
+
+            return success;
         }
 
         public async Task<bool> UploadGyroscopeData()
         {
+            bool success = false;
+
             DateTimeOffset lastUpload = new DateTimeOffset(Settings.Current.GyroscopeLastUpload, TimeSpan.Zero);
             try
             {
                 //get gyroscopedata
                 List<Gyroscope> gyroscopeData = _repoManager.GyroscopeRepository.GetRange(lastUpload, DateTimeOffset.MaxValue).ToList();
 
-                bool success = await _apiClient.PostGyroscopeData(Settings.Current.Device, gyroscopeData);
+                success = await _apiClient.PostGyroscopeData(Settings.Current.Device, gyroscopeData);
 
-                if (!success)
+                if (success)
+                {
+                    Settings.Current.GyroscopeLastUpload = gyroscopeData.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
+                }
+                else
                 {
                     Log.Error($"Tried to send {gyroscopeData.Count} gyroscopedata but failed");
-                    return false;
                 }
-
-                Settings.Current.GyroscopeLastUpload = gyroscopeData.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
-                return true;
             }
             catch (Exception e)
             {
                 Log.Error("Could not upload gyroscopedata " + e);
-                return false;
             }
+
+            return success;
         }
 
         public async Task<bool> UploadMagnetometerData()
         {
+            bool success = false;
+
             DateTimeOffset lastUpload = new DateTimeOffset(Settings.Current.MagnetometerLastUpload, TimeSpan.Zero);
             try
             {
                 //get magnetometerdata
                 List<Magnetometer> magnetometerData = _repoManager.MagnetometerRepository.GetRange(lastUpload, DateTimeOffset.MaxValue).ToList();
 
-                bool success = await _apiClient.PostMagnetometerData(Settings.Current.Device, magnetometerData);
+                success = await _apiClient.PostMagnetometerData(Settings.Current.Device, magnetometerData);
 
-                if (!success)
+                if (success)
+                {
+                    Settings.Current.MagnetometerLastUpload = magnetometerData.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
+                }
+                else
                 {
                     Log.Error($"Tried to send {magnetometerData.Count} magnetometerdata but failed");
-                    return false;
                 }
-
-                Settings.Current.MagnetometerLastUpload = magnetometerData.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
-                return true;
             }
             catch (Exception e)
             {
                 Log.Error("Could not upload magnetometerdata " + e);
-                return false;
             }
+
+            return success;
         }
         private async Task<bool> UploadQuaternionData()
         {
+            bool success = false;
+
             DateTimeOffset lastUpload = new DateTimeOffset(Settings.Current.QuaternionLastUpload, TimeSpan.Zero);
             try
             {
                 List<Quaternion> quaternionData = _repoManager.QuaternionRepository.GetRange(lastUpload, DateTimeOffset.MaxValue).ToList();
 
-                bool success = await _apiClient.PostQuaternionData(Settings.Current.Device, quaternionData);
+                success = await _apiClient.PostQuaternionData(Settings.Current.Device, quaternionData);
 
-                if (!success)
+                if (success)
+                {
+                    Settings.Current.QuaternionLastUpload = quaternionData.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
+                }
+                else
                 {
                     Log.Error($"Tried to send {quaternionData.Count} quaterniondata but failed");
-                    return false;
                 }
 
-                Settings.Current.QuaternionLastUpload = quaternionData.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
-                return true;
             }
             catch (Exception e)
             {
                 Log.Error("Could not upload quaterniondata " + e);
-                return false;
             }
+
+            return success;
         }
 
         private async Task<bool> UploadOrientationData()
         {
+            bool success = false;
+
             DateTimeOffset lastUpload = new DateTimeOffset(Settings.Current.OrientationLastUpload, TimeSpan.Zero);
             try
             {
                 List<Orientation> orientationData = _repoManager.OrientationRepository.GetRange(lastUpload, DateTimeOffset.MaxValue).ToList();
 
-                bool success = await _apiClient.PostOrientationData(Settings.Current.Device, orientationData);
+                success = await _apiClient.PostOrientationData(Settings.Current.Device, orientationData);
 
-                if (!success)
+                if (success)
+                {
+                    Settings.Current.OrientationLastUpload = orientationData.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
+                }
+                else
                 {
                     Log.Error($"Tried to send {orientationData.Count} orientationdata but failed");
-                    return false;
                 }
 
-                Settings.Current.OrientationLastUpload = orientationData.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
                 return true;
             }
             catch (Exception e)
@@ -485,81 +528,95 @@ namespace Tabi.iOS.Helpers
 
         private async Task<bool> UploadGravityData()
         {
+            bool success = false;
+
             DateTimeOffset lastUpload = new DateTimeOffset(Settings.Current.GravityLastUpload, TimeSpan.Zero);
             try
             {
                 List<Gravity> gravityData = _repoManager.GravityRepository.GetRange(lastUpload, DateTimeOffset.MaxValue).ToList();
 
-                bool success = await _apiClient.PostGravityData(Settings.Current.Device, gravityData);
+                success = await _apiClient.PostGravityData(Settings.Current.Device, gravityData);
 
-                if (!success)
+                if (success)
+                {
+                    Settings.Current.GravityLastUpload = gravityData.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
+                }
+                else
                 {
                     Log.Error($"Tried to send {gravityData.Count} gravitydata but failed");
-                    return false;
                 }
-
-                Settings.Current.GravityLastUpload = gravityData.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
-                return true;
             }
             catch (Exception e)
             {
                 Log.Error("Could not upload gravitydata " + e);
-                return false;
             }
+            return success;
         }
 
         private async Task<bool> UploadLinearAccelerationData()
         {
+            bool success = false;
+
             DateTimeOffset lastUpload = new DateTimeOffset(Settings.Current.LinearAccelerationLastUpload, TimeSpan.Zero);
+
             try
             {
                 List<LinearAcceleration> linearAccelerationData = _repoManager.LinearAccelerationRepository.GetRange(lastUpload, DateTimeOffset.MaxValue).ToList();
 
-                bool success = await _apiClient.PostLinearAccelerationData(Settings.Current.Device, linearAccelerationData);
+                success = await _apiClient.PostLinearAccelerationData(Settings.Current.Device, linearAccelerationData);
 
-                if (!success)
+                if (success)
+                {
+                    Settings.Current.LinearAccelerationLastUpload = linearAccelerationData.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
+                }
+                else
                 {
                     Log.Error($"Tried to send {linearAccelerationData.Count} linearaccelerationdata but failed");
-                    return false;
                 }
 
-                Settings.Current.LinearAccelerationLastUpload = linearAccelerationData.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
-                return true;
             }
             catch (Exception e)
             {
                 Log.Error("Could not upload linearaccelerationdata " + e);
-                return false;
             }
+
+            return success;
         }
 
         public async Task<bool> UploadSensorMeasurementSessions()
         {
+            bool success = false;
+
             DateTimeOffset lastUpload = new DateTimeOffset(Settings.Current.SensorMeasurementSessionLastUpload, TimeSpan.Zero);
             try
             {
                 //get sensormeasurementsessiondata
                 List<SensorMeasurementSession> sensorMeasurementSessions = _repoManager.SensorMeasurementSessionRepository.GetRange(lastUpload, DateTimeOffset.MaxValue).ToList();
 
-                bool success = await _apiClient.PostSensorMeasurementSessions(Settings.Current.Device, sensorMeasurementSessions);
+                success = await _apiClient.PostSensorMeasurementSessions(Settings.Current.Device, sensorMeasurementSessions);
 
-                if (!success)
+                if (success)
+                {
+                    Settings.Current.SensorMeasurementSessionLastUpload = sensorMeasurementSessions.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
+                }
+                else
                 {
                     Log.Error($"Tried to send {sensorMeasurementSessions.Count} sensormeasurementsessions but failed");
-                    return false;
+
                 }
-                Settings.Current.SensorMeasurementSessionLastUpload = sensorMeasurementSessions.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
-                return true;
             }
             catch (Exception e)
             {
                 Log.Error("Could not upload sensormeasurementsessions " + e);
-                return false;
             }
+
+            return success;
         }
 
         public async Task<bool> UploadTransportationModes()
         {
+            bool success = false;
+
             DateTimeOffset lastUpload = new DateTimeOffset(Settings.Current.TransportModeLastUpload, TimeSpan.Zero);
 
             try
@@ -593,18 +650,18 @@ namespace Tabi.iOS.Helpers
                     transportModes.Add(transportationModeDTO);
                 }
 
-                bool success = await _apiClient.PostTransportationModes(Settings.Current.Device, transportModes);
+                success = await _apiClient.PostTransportationModes(Settings.Current.Device, transportModes);
 
-                if (!success)
+                if (success)
+                {
+                    Settings.Current.TransportModeLastUpload = transportationModeEntries.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
+                }
+                else
                 {
                     Log.Error($"Tried to send {transportModes.Count} transportationModes but failed");
-                    return false;
                 }
 
-                Settings.Current.TransportModeLastUpload = transportationModeEntries.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
-
-
-                return true;
+                return success;
             }
             catch (Exception e)
             {
@@ -615,15 +672,14 @@ namespace Tabi.iOS.Helpers
 
         public async Task<bool> UploadTracks()
         {
-            //TODO upload tracks and keep track of last one uploaded
             DateTimeOffset lastUpload = new DateTimeOffset(Settings.Current.TracksLastUpload, TimeSpan.Zero);
 
+            bool success = false;
             try
             {
                 //gets tracks that are completed and between lastuploadtime and LastCompletedTrackEntry
                 List<TrackEntry> trackEntries = _repoManager.TrackEntryRepository.GetRangeByEndTime(lastUpload, DateTimeOffset.MaxValue).ToList();
                 trackEntries.Remove(trackEntries.Last());
-
 
                 // convert to trackDTO
                 List<TabiApiClient.Models.TrackEntry> trackDTO = new List<TabiApiClient.Models.TrackEntry>();
@@ -637,23 +693,23 @@ namespace Tabi.iOS.Helpers
                     });
                 }
 
-                bool success = await _apiClient.PostTrackEntries(Settings.Current.Device, trackDTO);
+                success = await _apiClient.PostTrackEntries(Settings.Current.Device, trackDTO);
 
-                if (!success)
+                if (success)
+                {
+                    Settings.Current.TracksLastUpload = trackEntries.Last().EndTime.Ticks;
+                }
+                else
                 {
                     Log.Error($"Tried to send {trackEntries.Count} trackEntries but failed");
-                    return false;
                 }
-
-                Settings.Current.TracksLastUpload = trackEntries.Last().EndTime.Ticks;
-
-                return true;
             }
             catch (Exception e)
             {
                 Log.Error("Could not upload tracks " + e);
-                return false;
             }
+
+            return success;
 
         }
 

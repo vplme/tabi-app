@@ -247,4 +247,46 @@
     <data name="ServiceNotificationChannelLabel" xml:space="preserve">
 		<value>Service voorgrond notificatie</value>
 	</data>
+      <data name="LoggingInWaitMessage" xml:space="preserve">
+        <value>Inloggen... een moment</value>
+    </data>
+    <data name="WelcomeTitleLabel" xml:space="preserve">
+        <value>Welkom!</value>
+    </data>
+    <data name="LocationTitleLabel" xml:space="preserve">
+        <value>Uw locatie</value>
+    </data>
+    <data name="LocationIntroLabel" xml:space="preserve">
+        <value>De app heeft uw locatie nodig om verplaatsingen te meten.</value>
+    </data>
+    <data name="LocationSpecificiOSLabel" xml:space="preserve">
+        <value>Selecteer "Sta altijd toe" wanneer dit gevraagd wordt.</value>
+    </data>
+    <data name="LocationTryAgainLabel" xml:space="preserve">
+        <value>Probeer opnieuw..</value>
+    </data>
+    <data name="EnableLocationServices" xml:space="preserve">
+        <value>Zet locatievoorzieningen aan</value>
+    </data>
+     <data name="LocationPermissionGiven" xml:space="preserve">
+        <value>Klaar!</value>
+    </data>
+    <data name="MotionTitleLabel" xml:space="preserve">
+        <value>Motion data</value>
+    </data>
+    <data name="MotionIntroLabel" xml:space="preserve">
+        <value>De app heeft toegang nodig tot de bewegingsdata van de telefoon.</value>
+    </data>
+     <data name="MotionPermissionButton" xml:space="preserve">
+        <value>Sta bewegingsdata toe</value>
+    </data>
+    <data name="ThanksTitleLabel" xml:space="preserve">
+        <value>Bedankt!</value>
+    </data>
+    <data name="ThanksText" xml:space="preserve">
+        <value>Als je nog vragen hebt kan je contact opnemen met: winhelpdesk@cbs.nl</value>
+    </data>
+    <data name="Yesterday" xml:space="preserve">
+        <value>Gisteren</value>
+    </data>
 </root>

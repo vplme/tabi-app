@@ -55,26 +55,6 @@ namespace TabiApiClient
             return new StringContent(content, Encoding.UTF8, "application/json");
         }
 
-        private HttpClientHandler GetCustomHandler()
-        {
-            var httpClientHandler = new HttpClientHandler();
-
-            //httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => {
-            //    Debug.WriteLine(errors);
-
-            //    foreach(var e in chain.ChainElements)
-            //    {
-            //        Debug.WriteLine($"CERT CHAIN: {e.Certificate.Subject} {e.Certificate.GetCertHashString()}");
-            //    }
-
-            //    return errors == System.Net.Security.SslPolicyErrors.None;
-            //};
-
-            return httpClientHandler;
-
-
-        }
-
         public async Task<TokenResult> Authenticate(string username, string password)
         {
             UserMessage um = new UserMessage()
@@ -130,18 +110,18 @@ namespace TabiApiClient
             try
             {
                 HttpResponseMessage response = await client.GetAsync(path);
-                 if (response.IsSuccessStatusCode)
-            {
-                string data = await response.Content.ReadAsStringAsync();
-                dm = JsonConvert.DeserializeObject<DeviceMessage>(data);
-            }
+                if (response.IsSuccessStatusCode)
+                {
+                    string data = await response.Content.ReadAsStringAsync();
+                    dm = JsonConvert.DeserializeObject<DeviceMessage>(data);
+                }
 
             }
             catch (Exception e)
             {
                 Debug.WriteLine(e);
             }
-           
+
             return dm;
         }
 
@@ -160,7 +140,7 @@ namespace TabiApiClient
         }
 
         public async Task<DeviceMessage> RegisterDevice(string model = "",
-                                              string os = "",
+                                                        string os = "", string osVersion = "",
                                                string manufacturer = "")
         {
             string path = PrefixApiPath($"/user/{userId}/device");
@@ -168,6 +148,7 @@ namespace TabiApiClient
             {
                 Model = model,
                 OperatingSystem = os,
+                OperatingSystemVersion = osVersion,
                 Manufacturer = manufacturer
             };
 

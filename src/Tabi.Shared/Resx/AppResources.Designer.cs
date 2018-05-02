@@ -568,5 +568,11 @@ namespace Tabi.Shared.Resx {
                 return ResourceManager.GetString("ThanksText", resourceCulture);
             }
         }
+        
+        public static string Yesterday {
+            get {
+                return ResourceManager.GetString("Yesterday", resourceCulture);
+            }
+        }
     }
 }

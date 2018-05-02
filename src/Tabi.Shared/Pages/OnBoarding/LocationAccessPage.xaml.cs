@@ -18,5 +18,11 @@ namespace Tabi.Shared.Pages.OnBoarding
             ViewModel.Page = this;
             ViewModel.Navigation = Navigation;
         }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await ViewModel.CheckLocationPermissionAsync();
+        }
     }
 }
