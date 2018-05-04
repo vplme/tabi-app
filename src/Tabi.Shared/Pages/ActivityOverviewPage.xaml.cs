@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
 using Autofac;
 using Tabi.Pages;
 using Tabi.Shared.Resx;
@@ -32,18 +33,16 @@ namespace Tabi
         }
 
 
-        protected override void OnAppearing()
+        protected async override void OnAppearing()
         {
             base.OnAppearing();
 
-
-            Update();
-
+            await UpdateAsync();
         }
 
-        void Update()
+        async Task UpdateAsync()
         {
-            ViewModel.UpdateStopVisits();
+            await ViewModel.UpdateStopVisitsAsync();
             lastLoad = DateTimeOffset.Now;
         }
 
