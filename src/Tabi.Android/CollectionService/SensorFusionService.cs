@@ -25,14 +25,16 @@ namespace Tabi.Droid.CollectionService
         private readonly ISensorRepository<Quaternion> _quaternionRepository;
         private readonly ISensorRepository<Gravity> _gravityRepository;
 
-        private SensorFusionServiceBinder _binder; 
+        private SensorFusionServiceBinder _binder;
+        private SensorManager sensorManager;
+        private DateTime _startTimestamp;
+
 
         public SensorFusionService()
         {
             // TODO Service locator style. Use constructor injection. Not possible at the moment
             // because this service is instantiated by android.
             _repoManager = App.Container.Resolve<IRepoManager>();
-
 
             _linearAccelerationRepository = _repoManager.LinearAccelerationRepository;
             _orientationRepository = _repoManager.OrientationRepository;
@@ -55,7 +57,7 @@ namespace Tabi.Droid.CollectionService
 
             Task.Run(() =>
             {
-                var sensorManager = (SensorManager)Application.Context.GetSystemService(Context.SensorService);
+                sensorManager = (SensorManager)Application.Context.GetSystemService(Context.SensorService);
                 //sensor fusion
                 //linear acceleration
                 Sensor linearAcceleration = sensorManager.GetDefaultSensor(SensorType.LinearAcceleration);
@@ -74,7 +76,18 @@ namespace Tabi.Droid.CollectionService
                 sensorManager.RegisterListener(this, rotationVector, SensorDelay.Normal);
             });
 
+            _startTimestamp = DateTime.Now;
+
             return StartCommandResult.Sticky;
+        }
+
+        public override void OnDestroy()
+        {
+            base.OnDestroy();
+
+            sensorManager.UnregisterListener(this);
+
+            Log.Info($"SensorFusion Service was destroyed. Ran for: {DateTime.Now - _startTimestamp}");
         }
 
         public void OnAccuracyChanged(Sensor sensor, [GeneratedEnum] SensorStatus accuracy)
@@ -156,5 +169,6 @@ namespace Tabi.Droid.CollectionService
                     break;
             }
         }
+
     }
 }

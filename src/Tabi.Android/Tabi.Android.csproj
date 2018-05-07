@@ -396,8 +396,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CollectionService\AssignSensorDataToTrackService.cs" />
-    <Compile Include="CollectionService\AssignSensorDataToTrackServiceBinder.cs" />
     <Compile Include="CollectionService\SensorFusionService.cs" />
     <Compile Include="CollectionService\SensorFusionServiceBinder.cs" />
     <Compile Include="CollectionService\SensorService.cs" />
@@ -431,6 +429,7 @@
     <Compile Include="SplashScreenActivity.cs" />
     <Compile Include="Helpers\NotificationChannelHelper.cs" />
     <Compile Include="PlatformImplementations\PlatformContainerModule.cs" />
+    <Compile Include="MainApplication.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

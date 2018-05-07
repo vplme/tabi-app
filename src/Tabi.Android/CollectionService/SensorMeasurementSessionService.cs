@@ -21,7 +21,10 @@ namespace Tabi.Droid.CollectionService
         private SensorMeasurementSessionServiceBinder _binder;
         private SensorMeasurementSession _sensorMeasurementSession;
         private Sensor proximity;
-        
+
+        private SensorManager sensorManager;
+        private DateTime _startTimestamp;
+
         public SensorMeasurementSessionService()
         {
             _repoManager = App.Container.Resolve<IRepoManager>();
@@ -64,7 +67,7 @@ namespace Tabi.Droid.CollectionService
             Task.Run(() =>
             {
                 //register sensors
-                var sensorManager = (SensorManager)Application.Context.GetSystemService(Context.SensorService);
+                sensorManager = (SensorManager)Application.Context.GetSystemService(Context.SensorService);
 
 
                 Sensor ambientLight = sensorManager.GetDefaultSensor(SensorType.Light);
@@ -90,6 +93,8 @@ namespace Tabi.Droid.CollectionService
                 timer.Start();
 
             });
+
+            _startTimestamp = DateTime.Now;
 
             return StartCommandResult.Sticky;
         }
@@ -160,6 +165,15 @@ namespace Tabi.Droid.CollectionService
                 default:
                     break;
             }
+        }
+
+        public override void OnDestroy()
+        {
+            base.OnDestroy();
+
+            sensorManager.UnregisterListener(this);
+
+            Log.Info($"SensorMeasurement Service was destroyed. Ran for: {DateTime.Now - _startTimestamp}");
         }
     }
 }

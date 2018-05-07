@@ -77,7 +77,6 @@ namespace Tabi.Droid
             base.OnDestroy();
 
             Log.Info($"Location Service was destroyed. Ran for: {DateTime.Now - _startTimestamp}");
-
         }
 
         private bool IsGooglePlayApiAvailable()
