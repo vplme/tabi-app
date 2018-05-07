@@ -107,10 +107,10 @@ namespace Tabi.Shared.ViewModels
             await Navigation.PopAsync();
         }
 
-        private void PermissionToViewModel(PermissionStatus status)
+        private void PermissionStatusSetViewModel(PermissionStatus status)
         {
             LocationPermissionGiven = false;
-        
+
             switch (status)
             {
                 case PermissionStatus.Granted:
@@ -143,10 +143,15 @@ namespace Tabi.Shared.ViewModels
             }
         }
 
+        public async Task OnAppearingAsync()
+        {
+            await CheckLocationPermissionAsync();
+        }
+
         public async Task CheckLocationPermissionAsync()
         {
             var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Location);
-            PermissionToViewModel(status);
+            PermissionStatusSetViewModel(status);
         }
 
         private async Task RequestLocationPermissionAsync()
@@ -163,21 +168,26 @@ namespace Tabi.Shared.ViewModels
                 }
                 if (status == PermissionStatus.Denied && Device.RuntimePlatform == Device.iOS)
                 {
-                    await Page.DisplayAlert(
+                    bool openSettings = await Page.DisplayAlert(
                         AppResources.LocationPermissionDeniedOpenSettingsiOSTitle,
                         AppResources.LocationPermissionDeniedOpenSettingsiOSText,
-                        AppResources.OkText);
+                        AppResources.Settings, AppResources.CancelText);
 
-                    CrossPermissions.Current.OpenAppSettings();
+                    if (openSettings)
+                    {
+                        CrossPermissions.Current.OpenAppSettings();
+                    }
                 }
 
                 var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Location);
                 //Best practice to always check that the key exists
                 if (results.ContainsKey(Permission.Location))
+                {
                     status = results[Permission.Location];
+                }
             }
 
-            PermissionToViewModel(status);
+            PermissionStatusSetViewModel(status);
         }
     }
 }

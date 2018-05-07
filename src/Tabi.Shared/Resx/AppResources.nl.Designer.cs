@@ -574,5 +574,11 @@ namespace Tabi.Shared.Resx {
                 return ResourceManager.GetString("Yesterday", resourceCulture);
             }
         }
+        
+        internal static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
     }
 }

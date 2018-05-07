@@ -24,7 +24,6 @@ namespace Tabi.Shared.ViewModels
 
         public Page Page { get; set; }
 
-
         public ICommand MotionAccessCommand { get; set; }
 
         public ICommand ContinueCommand { get; set; }
@@ -42,17 +41,53 @@ namespace Tabi.Shared.ViewModels
             }
         }
 
+        private void PermissionStatusSetViewModel(PermissionStatus status)
+        {
+            switch (status)
+            {
+                case PermissionStatus.Granted:
+                    MotionButtonStyle = (Style)Application.Current.Resources["successButtonStyle"];
+                    break;
+                case PermissionStatus.Denied:
+                    MotionButtonStyle = (Style)Application.Current.Resources["warningButtonStyle"];
+                    break;
+            }
+        }
+
+        public async Task OnAppearingAsync()
+        {
+            await CheckMotionPermissionAsync();
+        }
+
+        public async Task CheckMotionPermissionAsync()
+        {
+            var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Sensors);
+            PermissionStatusSetViewModel(status);
+        }
+
         private async Task RequestMotionAccessAsync()
         {
             PermissionStatus status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Sensors);
-            if (status == PermissionStatus.Granted)
+
+            // If permission was denied before, open App Settings.
+            if (status == PermissionStatus.Denied && Device.RuntimePlatform == Device.iOS)
             {
-                MotionButtonStyle = (Style)Application.Current.Resources["successButtonStyle"];
+                bool openSettings = await Page.DisplayAlert(AppResources.MotionTitleLabel, AppResources.MotionIntroLabel, AppResources.Settings, AppResources.CancelText);
+
+                if (openSettings)
+                {
+                    CrossPermissions.Current.OpenAppSettings();
+                }
             }
-            else
+            else if (status != PermissionStatus.Granted)
             {
-                await CrossPermissions.Current.RequestPermissionsAsync(Permission.Sensors);
+                var statusMap = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Sensors);
+                if (statusMap.ContainsKey(Permission.Sensors))
+                {
+                    status = statusMap[Permission.Sensors];
+                }
             }
+            PermissionStatusSetViewModel(status);
         }
 
         private async Task Next()
@@ -76,7 +111,7 @@ namespace Tabi.Shared.ViewModels
                 }
                 else
                 {
-                    await Page.DisplayAlert("Motion", AppResources.MotionIntroLabel, "Ok");
+                    await Page.DisplayAlert(AppResources.MotionTitleLabel, AppResources.MotionIntroLabel, AppResources.OkText);
                 }
             }
         }

@@ -22,7 +22,7 @@ namespace Tabi.Shared.Pages.OnBoarding
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            await ViewModel.CheckLocationPermissionAsync();
+            await ViewModel.OnAppearingAsync();
         }
     }
 }

@@ -11,14 +11,18 @@ namespace Tabi.Shared.Pages.OnBoarding
         MotionAccessViewModel ViewModel => vm ?? (vm = BindingContext as MotionAccessViewModel);
         MotionAccessViewModel vm;
 
-
-
         public MotionAccessPage()
         {
             InitializeComponent();
             BindingContext = App.Container.Resolve<MotionAccessViewModel>();
             ViewModel.Page = this;
             ViewModel.Navigation = Navigation;
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await ViewModel.OnAppearingAsync();
         }
     }
 }
