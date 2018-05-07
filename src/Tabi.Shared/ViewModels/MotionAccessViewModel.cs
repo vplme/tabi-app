@@ -13,17 +13,12 @@ namespace Tabi.Shared.ViewModels
 {
     public class MotionAccessViewModel : BaseViewModel
     {
-        private readonly IExtraPermission _extraPermission;
-
-        public MotionAccessViewModel(IExtraPermission extraPermission)
+        public MotionAccessViewModel()
         {
-            _extraPermission = extraPermission ?? throw new ArgumentNullException();
-            MotionAccessCommand = new Command(async () => RequestMotionAccess());
+            MotionAccessCommand = new Command(async () => await RequestMotionAccessAsync());
 
-            ContinueCommand = new Command(async () => await CheckAndContinue());
+            ContinueCommand = new Command(async () => await CheckAndContinueAsync());
         }
-
-
 
         public INavigation Navigation { get; set; }
 
@@ -33,7 +28,6 @@ namespace Tabi.Shared.ViewModels
         public ICommand MotionAccessCommand { get; set; }
 
         public ICommand ContinueCommand { get; set; }
-
 
         private Style _motionButtonStyle = (Style)Application.Current.Resources["defaultButtonStyle"];
         public Style MotionButtonStyle
@@ -48,16 +42,16 @@ namespace Tabi.Shared.ViewModels
             }
         }
 
-        private void RequestMotionAccess()
+        private async Task RequestMotionAccessAsync()
         {
-            var status = _extraPermission.CheckMotionPermission();
-            if (status == PermissionAuthorization.Authorized)
+            PermissionStatus status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Sensors);
+            if (status == PermissionStatus.Granted)
             {
                 MotionButtonStyle = (Style)Application.Current.Resources["successButtonStyle"];
             }
             else
             {
-                _extraPermission.RequestMotionPermission();
+                await CrossPermissions.Current.RequestPermissionsAsync(Permission.Sensors);
             }
         }
 
@@ -67,16 +61,16 @@ namespace Tabi.Shared.ViewModels
             await Navigation.PopAsync();
         }
 
-        private async Task CheckAndContinue()
+        private async Task CheckAndContinueAsync()
         {
             if (Device.RuntimePlatform == Device.iOS)
             {
-                var status = _extraPermission.CheckMotionPermission();
+                PermissionStatus status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Sensors);
 
                 IDeviceInfo deviceInfo = Plugin.DeviceInfo.CrossDeviceInfo.Current;
 
                 // Also allow simulator to pass
-                if (status == PermissionAuthorization.Authorized || !_extraPermission.IsMotionAvailable())
+                if (status == PermissionStatus.Granted || status == PermissionStatus.Disabled)
                 {
                     await Next();
                 }
@@ -84,7 +78,6 @@ namespace Tabi.Shared.ViewModels
                 {
                     await Page.DisplayAlert("Motion", AppResources.MotionIntroLabel, "Ok");
                 }
-
             }
         }
 
