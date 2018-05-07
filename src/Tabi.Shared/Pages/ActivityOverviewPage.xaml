@@ -21,7 +21,6 @@
                  IsPullToRefreshEnabled="true" IsRefreshing="{Binding ListIsRefreshing}" RefreshCommand="{Binding RefreshCommand}" ItemSelected="ItemSelected">
                 <ListView.Effects>
                     <local:NoDividerListViewEffect />
-                    <local:NoAnimationListViewEffect />
                 </ListView.Effects>
                 <ListView.ItemTemplate>
                     <DataTemplate>

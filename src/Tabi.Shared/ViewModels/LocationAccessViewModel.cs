@@ -137,12 +137,8 @@ namespace Tabi.Shared.ViewModels
                     LocationButtonText = AppResources.EnableLocationServices;
                     LocationPermissionIncorrect = true;
                     LocationButtonStyle = (Style)Application.Current.Resources["warningButtonStyle"];
-
                     break;
                 case PermissionStatus.Unknown:
-                    LocationButtonText = AppResources.LocationTryAgainLabel;
-                    LocationButtonStyle = (Style)Application.Current.Resources["warningButtonStyle"];
-                    Page.DisplayAlert("Something went wrong", "Permission is unknown. Please contact support.", "Understood");
                     break;
             }
         }

@@ -28,7 +28,6 @@ namespace TabiApiClient
         {
             this.apiLocation = apiLocation;
             client = new HttpClient();
-
         }
 
         private string PrefixApiPath(string path)
@@ -208,7 +207,7 @@ namespace TabiApiClient
             }
         }
 
-        public async Task<bool> PostTransportationModes(int deviceId, List<TabiApiClient.Models.TransportationMode> transportModes)
+        public async Task<bool> PostTransportationModes(int deviceId, IEnumerable<TabiApiClient.Models.TransportationMode> transportModes)
         {
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/mode");
 

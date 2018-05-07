@@ -210,9 +210,7 @@ namespace Tabi
                                 img = await Splat.BitmapLoader.Current.LoadFromResource("checkmark", null, null);
                             }
 
-
                             UserDialogs.Instance.ShowImage(img, AppResources.DataUploadSuccesful);
-
                         }
                         catch (Exception e)
                         {

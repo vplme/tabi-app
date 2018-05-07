@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Plugin.Connectivity;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
+using Tabi.Shared.Extensions;
 using Tabi.Shared.Helpers;
 using TabiApiClient;
 using TabiApiClient.Messages;
@@ -13,9 +14,11 @@ namespace Tabi.iOS.Helpers
 {
     public class SyncService
     {
+        private const int loginTimeout = 60;
         private readonly ApiClient _apiClient;
         private readonly IRepoManager _repoManager;
         private DateTimeOffset _lastAutoUpload;
+        private DateTimeOffset _lastLogin;
 
         public SyncService(ApiClient apiClient, IRepoManager repoManager)
         {
@@ -54,26 +57,32 @@ namespace Tabi.iOS.Helpers
             {
                 Timer timer = new Timer();
                 timer.Start();
-                await Login();
+                if (_lastLogin > DateTimeOffset.Now.AddMinutes(loginTimeout))
+                {
+                    await Login();
+                    _lastLogin = DateTimeOffset.Now;
+                }
+
                 Log.Info($"Login took: {timer.EndAndReturnTime()}");
 
-                List<Task> toBeUploaded = new List<Task>();
+                List<Task> toBeUploaded = new List<Task>
+                {
+                    UploadPositions(),
+                    UploadLogs(),
+                    UploadStopVisits(),
+                    UploadBatteryInfo(),
 
-                toBeUploaded.Add(UploadPositions());
-                toBeUploaded.Add(UploadLogs());
-                toBeUploaded.Add(UploadStopVisits());
-                toBeUploaded.Add(UploadBatteryInfo());
-
-                toBeUploaded.Add(UploadAndRemoveTracks());
-                toBeUploaded.Add(UploadAndRemoveGravityData());
-                toBeUploaded.Add(UploadAndRemoveGyroscopeData());
-                toBeUploaded.Add(UploadAndRemoveQuaternionData());
-                toBeUploaded.Add(UploadAndRemoveOrientationData());
-                toBeUploaded.Add(UploadAndRemoveMagnetometerData());
-                toBeUploaded.Add(UploadAndRemoveAccelerometerAsync());
-                toBeUploaded.Add(UploadAndRemoveLinearAcceleration());
-                toBeUploaded.Add(UploadAndRemoveTransporationModes());
-                toBeUploaded.Add(UploadAndRemoveSensorMeasurementSessions());
+                    UploadAndRemoveTracks(),
+                    UploadAndRemoveGravityData(),
+                    UploadAndRemoveGyroscopeData(),
+                    UploadAndRemoveQuaternionData(),
+                    UploadAndRemoveOrientationData(),
+                    UploadAndRemoveMagnetometerData(),
+                    UploadAndRemoveAccelerometerAsync(),
+                    UploadAndRemoveLinearAcceleration(),
+                    UploadAndRemoveTransporationModes(),
+                    UploadAndRemoveSensorMeasurementSessions()
+                };
 
                 timer.Start();
                 await Task.WhenAll(
@@ -563,7 +572,10 @@ namespace Tabi.iOS.Helpers
             {
                 List<LinearAcceleration> linearAccelerationData = _repoManager.LinearAccelerationRepository.GetRange(lastUpload, DateTimeOffset.MaxValue).ToList();
 
-                success = await _apiClient.PostLinearAccelerationData(Settings.Current.Device, linearAccelerationData);
+                if (linearAccelerationData.Any())
+                {
+                    success = await _apiClient.PostLinearAccelerationData(Settings.Current.Device, linearAccelerationData);
+                }
 
                 if (success)
                 {
@@ -621,36 +633,17 @@ namespace Tabi.iOS.Helpers
 
             try
             {
-                List<TabiApiClient.Models.TransportationMode> transportModes = new List<TabiApiClient.Models.TransportationMode>();
+                IEnumerable<TabiApiClient.Models.TransportationMode> transportModes = null;
 
                 //get transportmodes that are between lastuploaded and lasttrackentry
                 List<TransportationModeEntry> transportationModeEntries = _repoManager.TransportationModeRepository.GetRange(lastUpload, DateTimeOffset.MaxValue).ToList();
 
-                foreach (var transportationMode in transportationModeEntries)
+                if (transportationModeEntries.Any())
                 {
-                    TabiApiClient.Models.TransportationMode transportationModeDTO = new TabiApiClient.Models.TransportationMode()
-                    {
-                        TrackId = transportationMode.TrackId,
-                        Timestamp = transportationMode.Timestamp,
+                    IEnumerable<TabiApiClient.Models.TransportationMode> apiModels = transportationModeEntries.Select(entry => entry.ToApiModel());
 
-                        Walk = transportationMode.Walk,
-                        Run = transportationMode.Run,
-                        MobilityScooter = transportationMode.MobilityScooter,
-                        Car = transportationMode.Car,
-                        Bike = transportationMode.Bike,
-                        Moped = transportationMode.Moped,
-                        Scooter = transportationMode.Scooter,
-                        Motorcycle = transportationMode.Motorcycle,
-                        Train = transportationMode.Train,
-                        Subway = transportationMode.Subway,
-                        Tram = transportationMode.Tram,
-                        Bus = transportationMode.Bus,
-                        Other = transportationMode.Other
-                    };
-                    transportModes.Add(transportationModeDTO);
+                    success = await _apiClient.PostTransportationModes(Settings.Current.Device, transportModes);
                 }
-
-                success = await _apiClient.PostTransportationModes(Settings.Current.Device, transportModes);
 
                 if (success)
                 {
@@ -658,7 +651,7 @@ namespace Tabi.iOS.Helpers
                 }
                 else
                 {
-                    Log.Error($"Tried to send {transportModes.Count} transportationModes but failed");
+                    Log.Error($"Tried to send {transportModes?.Count()} transportationModes but failed");
                 }
 
                 return success;
