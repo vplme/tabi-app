@@ -31,12 +31,12 @@
     <PackageReference Include="Acr.UserDialogs" Version="6.5.1" />
     <PackageReference Include="Xamarin.Forms" Version="2.5.0.91635" />
     <PackageReference Include="Xamarin.Forms.Maps" Version="2.5.0.91635" />
-    <PackageReference Include="Plugin.Permissions" Version="2.2.1" />
     <PackageReference Include="Xam.Plugin.DeviceInfo" Version="3.1.0" />
     <PackageReference Include="Autofac" Version="4.7.0" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.3.6" />
     <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.3.6" />
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.3.6" />
+    <PackageReference Include="Plugin.Permissions" Version="3.0.0.8" />
   </ItemGroup>
   <ItemGroup>
     <!-- https://bugzilla.xamarin.com/show_bug.cgi?id=55591 -->
