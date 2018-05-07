@@ -254,13 +254,6 @@ namespace Tabi
 
         public ICommand UploadCommand { protected set; get; }
 
-
         public int InfoCount { get; set; }
-
-        public bool Tracking
-        {
-            get { return Settings.Current.Tracking; }
-            set { Settings.Current.Tracking = value; }
-        }
     }
 }

@@ -580,5 +580,11 @@ namespace Tabi.Shared.Resx {
                 return ResourceManager.GetString("Settings", resourceCulture);
             }
         }
+        
+        public static string SensorMeasurementsSwitchLabel {
+            get {
+                return ResourceManager.GetString("SensorMeasurementsSwitchLabel", resourceCulture);
+            }
+        }
     }
 }

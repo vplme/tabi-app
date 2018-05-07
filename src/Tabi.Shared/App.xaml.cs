@@ -225,26 +225,19 @@ namespace Tabi
 
             Settings.Current.PropertyChanged += (sender, e) =>
             {
-                if (e.PropertyName == "Tracking")
+                if (e.PropertyName == "Tracking" || e.PropertyName == "SensorMeasurements")
                 {
-                    if (Settings.Current.Tracking && !sensorManager.IsListening)
+                    if (Settings.Current.Tracking && Settings.Current.SensorMeasurements && !sensorManager.IsListening)
                     {
                         sensorManager.StartSensorUpdates();
                     }
-                    else if (!Settings.Current.Tracking && sensorManager.IsListening)
+                    else if ((!Settings.Current.Tracking || !Settings.Current.SensorMeasurements) && sensorManager.IsListening)
                     {
                         sensorManager.StopSensorUpdates();
                     }
                 }
-                if (e.PropertyName == "PermissionsGranted")
-                {
-                    if (Settings.Current.PermissionsGranted)
-                    {
-                        Settings.Current.Tracking = true;
-                    }
-                }
             };
-            if (Settings.Current.Tracking)
+            if (Settings.Current.Tracking && Settings.Current.SensorMeasurements)
             {
                 sensorManager.StartSensorUpdates();
             }

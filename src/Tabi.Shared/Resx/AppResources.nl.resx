@@ -272,7 +272,7 @@
         <value>Klaar!</value>
     </data>
     <data name="MotionTitleLabel" xml:space="preserve">
-        <value>Motion data</value>
+        <value>Beweging en conditie</value>
     </data>
     <data name="MotionIntroLabel" xml:space="preserve">
         <value>De app heeft toegang nodig tot de bewegingsdata van de telefoon.</value>

@@ -397,4 +397,7 @@
     <data name="Settings" xml:space="preserve">
         <value>Settings</value>
     </data>
+    <data name="SensorMeasurementsSwitchLabel" xml:space="preserve">
+        <value>Sensors</value>
+    </data>
 </root>

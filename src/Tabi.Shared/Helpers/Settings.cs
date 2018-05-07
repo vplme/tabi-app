@@ -33,6 +33,19 @@ namespace Tabi
             }
         }
 
+        public bool SensorMeasurements
+        {
+            get => AppSettings.GetValueOrDefault(nameof(SensorMeasurements), false);
+            set
+            {
+                if (value == SensorMeasurements)
+                    return;
+
+                AppSettings.AddOrUpdateValue(nameof(SensorMeasurements), value);
+                OnPropertyChanged();
+            }
+        }
+
         public bool PermissionsGranted
         {
             get => AppSettings.GetValueOrDefault(nameof(PermissionsGranted), false);

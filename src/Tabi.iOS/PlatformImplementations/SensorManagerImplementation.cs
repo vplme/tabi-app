@@ -27,6 +27,7 @@ namespace Tabi.iOS.PlatformImplementations
 
         private readonly CMMotionManager _motionManager;
         private readonly CMPedometer _pedometer;
+        private NSOperationQueue _queue;
         private readonly CLLocationManager _locationManager;
 
         private int _pedometerInt;
@@ -39,6 +40,8 @@ namespace Tabi.iOS.PlatformImplementations
             _motionManager = motionManager ?? throw new ArgumentNullException(nameof(motionManager));
             _locationManager = locationManager ?? throw new ArgumentNullException(nameof(locationManager));
             _pedometer = pedometer ?? throw new ArgumentNullException(nameof(pedometer));
+
+            _queue = new NSOperationQueue();
 
             _sensorMeasurementSessionRepository = _repoManager.SensorMeasurementSessionRepository;
             _accelerometerRepository = _repoManager.AccelerometerRepository;
@@ -56,113 +59,112 @@ namespace Tabi.iOS.PlatformImplementations
             motionManager.DeviceMotionUpdateInterval = 0.1;
             motionManager.AccelerometerUpdateInterval = 0.1;
             motionManager.GyroUpdateInterval = 0.1;
-            motionManager.MagnetometerUpdateInterval = 0.1;         
+            motionManager.MagnetometerUpdateInterval = 0.1;
+        }
+
+        void HandleCMAccelerometerHandler(CMAccelerometerData data, NSError error)
+        {
+            _accelerometerRepository.Add(new Accelerometer()
+            {
+                Timestamp = DateTimeOffset.Now,
+                X = Convert.ToSingle(data.Acceleration.X),
+                Y = Convert.ToSingle(data.Acceleration.Y),
+                Z = Convert.ToSingle(data.Acceleration.Z)
+            });
+        }
+
+        void HandleCMGyroHandler(CMGyroData gyroData, NSError error)
+        {
+            _gyroscoperRepository.Add(new Gyroscope()
+            {
+                Timestamp = DateTimeOffset.Now,
+                X = Convert.ToSingle(gyroData.RotationRate.x),
+                Y = Convert.ToSingle(gyroData.RotationRate.y),
+                Z = Convert.ToSingle(gyroData.RotationRate.z)
+            });
+        }
+
+        void HandleCMMagnetometerHandler(CMMagnetometerData data, NSError error)
+        {
+            _magnetometerRepository.Add(new Magnetometer()
+            {
+                Timestamp = DateTimeOffset.Now,
+                X = Convert.ToSingle(data.MagneticField.X),
+                Y = Convert.ToSingle(data.MagneticField.Y),
+                Z = Convert.ToSingle(data.MagneticField.Z)
+            });
+        }
+
+        void HandleCMDeviceMotionHandler(CMDeviceMotion data, NSError error)
+        {
+            //Linear acceleration (acceleration - gravity)
+            DateTimeOffset timestamp = DateTimeOffset.Now;
+
+            _accelerometerRepository.Add(new Accelerometer()
+            {
+                Timestamp = timestamp,
+                X = Convert.ToSingle(data.UserAcceleration.X),
+                Y = Convert.ToSingle(data.UserAcceleration.Y),
+                Z = Convert.ToSingle(data.UserAcceleration.Z)
+            });
+            //Console.WriteLine("inserted linear acceleratin data");
+
+            //calibrated magnetic field
+            _magnetometerRepository.Add(new Magnetometer()
+            {
+                Timestamp = timestamp,
+                X = Convert.ToSingle(data.MagneticField.Field.X),
+                Y = Convert.ToSingle(data.MagneticField.Field.Y),
+                Z = Convert.ToSingle(data.MagneticField.Field.Z)
+            });
+            //Console.WriteLine("inserted callibrated magnetometerdata");
+
+            _orientationRepository.Add(new Orientation()
+            {
+                Timestamp = timestamp,
+                X = Convert.ToSingle(data.Attitude.Roll),
+                Y = Convert.ToSingle(data.Attitude.Pitch),
+                Z = Convert.ToSingle(data.Attitude.Yaw)
+            });
+            //Console.WriteLine("inserted attitude");
+
+            _quaternionRepository.Add(new Quaternion()
+            {
+                Timestamp = timestamp,
+                X = Convert.ToSingle(data.Attitude.Quaternion.x),
+                Y = Convert.ToSingle(data.Attitude.Quaternion.y),
+                Z = Convert.ToSingle(data.Attitude.Quaternion.z),
+                W = Convert.ToSingle(data.Attitude.Quaternion.w)
+            });
+
+            _gravityRepository.Add(new Gravity()
+            {
+                Timestamp = timestamp,
+                X = Convert.ToSingle(data.Gravity.X),
+                Y = Convert.ToSingle(data.Gravity.Y),
+                Z = Convert.ToSingle(data.Gravity.Z)
+            });
+        }
+
+        void HandleCMPedometer(CMPedometerData data, NSError error)
+        {
+            _pedometerInt = data.NumberOfSteps.Int32Value;
         }
 
 
         public void StartSensorUpdates()
         {
-            //get motion sensors
-            //Raw accelerometer
-            _motionManager.StartAccelerometerUpdates(NSOperationQueue.CurrentQueue, (data, error) =>
-            {
-                _accelerometerRepository.Add(new Accelerometer()
-                {
-                    Timestamp = DateTimeOffset.Now,
-                    X = Convert.ToSingle(data.Acceleration.X),
-                    Y = Convert.ToSingle(data.Acceleration.Y),
-                    Z = Convert.ToSingle(data.Acceleration.Z)
-                });
-                //Console.WriteLine("inserted accelerometerdata");
-            });
+            // Raw accelerometer
+            _motionManager.StartAccelerometerUpdates(_queue, HandleCMAccelerometerHandler);
 
-            ////gyroscope
-            _motionManager.StartGyroUpdates(NSOperationQueue.CurrentQueue, (data, error) =>
-            {
+            _motionManager.StartGyroUpdates(_queue, HandleCMGyroHandler);
 
-                _gyroscoperRepository.Add(new Gyroscope()
-                {
-                    Timestamp = DateTimeOffset.Now,
-                    X = Convert.ToSingle(data.RotationRate.x),
-                    Y = Convert.ToSingle(data.RotationRate.y),
-                    Z = Convert.ToSingle(data.RotationRate.z)
-                });
-                //Console.WriteLine("inserted gyroscopedata");
-            });
+            // Raw magnetometer
+            _motionManager.StartMagnetometerUpdates(_queue, HandleCMMagnetometerHandler);
 
-            ////Raw magnetometer
-            _motionManager.StartMagnetometerUpdates(NSOperationQueue.CurrentQueue, (data, error) =>
-            {
-                _magnetometerRepository.Add(new Magnetometer()
-                {
-                    Timestamp = DateTimeOffset.Now,
-                    X = Convert.ToSingle(data.MagneticField.X),
-                    Y = Convert.ToSingle(data.MagneticField.Y),
-                    Z = Convert.ToSingle(data.MagneticField.Z)
-                });
-                //Console.WriteLine("inserted raw magnetometerdata");
-            });
+            _motionManager.StartDeviceMotionUpdates(_queue, HandleCMDeviceMotionHandler);
 
-
-            _motionManager.StartDeviceMotionUpdates(NSOperationQueue.CurrentQueue, (data, error) =>
-            {
-                //Linear acceleration (acceleration - gravity)
-                DateTimeOffset timestamp = DateTimeOffset.Now;
-
-                _accelerometerRepository.Add(new Accelerometer()
-                {
-                    Timestamp = timestamp,
-                    X = Convert.ToSingle(data.UserAcceleration.X),
-                    Y = Convert.ToSingle(data.UserAcceleration.Y),
-                    Z = Convert.ToSingle(data.UserAcceleration.Z)
-                });
-                //Console.WriteLine("inserted linear acceleratin data");
-
-                //calibrated magnetic field
-                _magnetometerRepository.Add(new Magnetometer()
-                {
-                    Timestamp = timestamp,
-                    X = Convert.ToSingle(data.MagneticField.Field.X),
-                    Y = Convert.ToSingle(data.MagneticField.Field.Y),
-                    Z = Convert.ToSingle(data.MagneticField.Field.Z)
-                });
-                //Console.WriteLine("inserted callibrated magnetometerdata");
-
-                _orientationRepository.Add(new Orientation()
-                {
-                    Timestamp = timestamp,
-                    X = Convert.ToSingle(data.Attitude.Roll),
-                    Y = Convert.ToSingle(data.Attitude.Pitch),
-                    Z = Convert.ToSingle(data.Attitude.Yaw)
-                });
-                //Console.WriteLine("inserted attitude");
-
-                _quaternionRepository.Add(new Quaternion()
-                {
-                    Timestamp = timestamp,
-                    X = Convert.ToSingle(data.Attitude.Quaternion.x),
-                    Y = Convert.ToSingle(data.Attitude.Quaternion.y),
-                    Z = Convert.ToSingle(data.Attitude.Quaternion.z),
-                    W = Convert.ToSingle(data.Attitude.Quaternion.w)
-                });
-                //Console.WriteLine("inserted quaternion");
-
-                _gravityRepository.Add(new Gravity()
-                {
-                    Timestamp = timestamp,
-                    X = Convert.ToSingle(data.Gravity.X),
-                    Y = Convert.ToSingle(data.Gravity.Y),
-                    Z = Convert.ToSingle(data.Gravity.Z)
-                });
-                //Console.WriteLine("inserted gravity");
-
-            });
-
-            _pedometer.StartPedometerUpdates(NSDate.Now, (data, error) =>
-            {
-                _pedometerInt = data.NumberOfSteps.Int32Value;
-                Console.WriteLine("assigned a pedometer");
-            });
+            _pedometer.StartPedometerUpdates(NSDate.Now, HandleCMPedometer);
 
             //start updating headings
             _locationManager.StartUpdatingHeading();
@@ -229,6 +231,11 @@ namespace Tabi.iOS.PlatformImplementations
 
         public void StopSensorUpdates()
         {
+            _motionManager.StopAccelerometerUpdates();
+            _motionManager.StopMagnetometerUpdates();
+            _motionManager.StopGyroUpdates();
+            _motionManager.StopDeviceMotionUpdates();
+
             IsListening = false;
         }
     }

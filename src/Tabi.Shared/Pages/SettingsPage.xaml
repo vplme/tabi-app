@@ -29,6 +29,15 @@
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
+                                <Label Style="{DynamicResource EvolveListItemTextStyle}" VerticalOptions="Center" Text="{i18n:Translate SensorMeasurementsSwitchLabel}" />
+                                <Switch Grid.Column="1" HorizontalOptions="Fill" IsToggled="{Binding Settings.SensorMeasurements}" />
+                            </Grid>
+                            <control:SettingsSectionDivider />
+                            <Grid Padding="{DynamicResource NormalPadding}" ColumnSpacing="0" BackgroundColor="White">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
                                 <Label Grid.Column="0" Style="{DynamicResource EvolveListItemTextStyle}" VerticalOptions="Center" Text="{i18n:Translate UploadDataLabel}" />
                                 <Button Grid.Column="1" HorizontalOptions="Center" Text="{i18n:Translate UploadDataButton}" Command="{Binding UploadCommand}"/>
                             </Grid>
