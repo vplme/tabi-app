@@ -150,6 +150,7 @@ namespace Tabi
         {
             EndpointConfiguration.AddPublicKeyString(Configuration["certificate-key"]);
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            ServicePointManager.DefaultConnectionLimit = 8;
             ServicePointManager.ServerCertificateValidationCallback = EndpointConfiguration.ValidateServerCertificate;
         }
 
