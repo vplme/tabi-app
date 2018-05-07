@@ -137,7 +137,7 @@ namespace Tabi.ViewModels
                 ae.StopVisit = sv;
                 newActivityEntries.Add(ae);
 
-                if (sv.NextTrackId != Guid.Empty)
+                if (sv.NextTrackId != 0)
                 {
                     TrackEntry te = _repoManager.TrackEntryRepository.Get(sv.NextTrackId);
 

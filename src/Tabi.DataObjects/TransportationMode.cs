@@ -10,6 +10,9 @@ namespace Tabi.DataObjects
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
+
+        public int TrackId { get; set; }
+
         public bool Walk { get; set; }
         public bool Run { get; set; }
         public bool MobilityScooter { get; set; }
@@ -26,7 +29,6 @@ namespace Tabi.DataObjects
 
         public DateTimeOffset Timestamp { get; set; }
 
-        public Guid TrackId { get; set; }
     }
 
     public enum TransportationMode

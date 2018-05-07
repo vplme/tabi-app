@@ -6,7 +6,7 @@ namespace Tabi.DataStorage
 {
     public interface ITrackEntryRepository : IRepository<TrackEntry>
     {
-        TrackEntry GetWithChildren(Guid id);
+        TrackEntry GetWithChildren(int id);
         TrackEntry LastTrackEntry();
         bool UpdateWithChildren(TrackEntry track);
         TrackEntry LastCompletedTrackEntry();

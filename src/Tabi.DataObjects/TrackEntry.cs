@@ -7,13 +7,8 @@ namespace Tabi.DataObjects
 {
     public class TrackEntry
     {
-        public TrackEntry()
-        {
-            Id = Guid.NewGuid();
-        }
-
-        [PrimaryKey]
-        public Guid Id { get; set; }
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
         
         public int DeviceId { get; set; }
 

@@ -304,7 +304,7 @@ namespace Tabi.Core
                     _stopRepository.Add(sv.Stop);
                     sv.StopId = sv.Stop.Id;
                 }
-                if (sv.NextTrackId == Guid.Empty)
+                if (sv.NextTrackId == 0)
                 {
                     _trackEntryRepository.Add(sv.NextTrack);
                     sv.NextTrackId = sv.NextTrack.Id;

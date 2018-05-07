@@ -7,7 +7,6 @@ namespace Tabi.DataStorage
 {
     public interface ITransportationModeRepository : IRepository<TransportationModeEntry>
     {
-        IEnumerable<TransportationModeEntry> GetTransportModesByTrackId(Guid trackId);
         IEnumerable<TransportationModeEntry> GetRange(DateTimeOffset startTime, DateTimeOffset endTime);
     }
 }

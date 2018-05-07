@@ -16,10 +16,5 @@ namespace Tabi.DataStorage.SqliteNet
         {
             return connection.Table<TransportationModeEntry>().Where(x => x.Timestamp > startTime && x.Timestamp < endTime);
         }
-
-        public IEnumerable<TransportationModeEntry> GetTransportModesByTrackId(Guid trackId)
-        {
-            return connection.Table<TransportationModeEntry>().Where(x => x.TrackId == trackId);
-        }
     }
 }
