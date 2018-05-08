@@ -57,11 +57,11 @@ namespace Tabi.iOS.Helpers
             {
                 Timer timer = new Timer();
                 timer.Start();
-                if (_lastLogin > DateTimeOffset.Now.AddMinutes(loginTimeout))
-                {
-                    await Login();
-                    _lastLogin = DateTimeOffset.Now;
-                }
+                //if (_lastLogin > DateTimeOffset.Now.AddMinutes(loginTimeout))
+                //{
+                await Login();
+                //_lastLogin = DateTimeOffset.Now;
+                //}
 
                 Log.Info($"Login took: {timer.EndAndReturnTime()}");
 

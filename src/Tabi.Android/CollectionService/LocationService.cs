@@ -32,14 +32,15 @@ namespace Tabi.Droid
 
         public override StartCommandResult OnStartCommand(Intent intent, StartCommandFlags flags, int startId)
         {
-            var context = CrossCurrentActivity.Current.Activity.ApplicationContext;
-            var appIntent = context.PackageManager.GetLaunchIntentForPackage(context.PackageName);
+            Log.Info("Location Service started");
+
+            var appIntent = PackageManager.GetLaunchIntentForPackage(PackageName);
             appIntent.AddFlags(ActivityFlags.ClearTop);
 
             var notification = new NotificationCompat.Builder(this, NotificationChannelHelper.SERVICE_CHANNEL)
                 .SetContentTitle(AppResources.ServiceTitle)
                 .SetContentText(AppResources.ServiceText)
-                .SetContentIntent(PendingIntent.GetActivity(context, 0, appIntent, 0))
+                .SetContentIntent(PendingIntent.GetActivity(this, 0, appIntent, 0))
                 .SetSmallIcon(Resource.Drawable.tabi_status_bar_icon)
                 .SetOngoing(true)
                 .Build();

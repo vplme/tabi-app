@@ -16,7 +16,6 @@ using Plugin.Connectivity;
 using FileAccess = PCLStorage.FileAccess;
 using Tabi.Shared.Resx;
 using Acr.UserDialogs;
-using Splat;
 using Tabi.iOS.Helpers;
 
 namespace Tabi
@@ -177,6 +176,7 @@ namespace Tabi
 
             UploadCommand = new Command(async () =>
             {
+
                 // Check if there is an active internet connection
                 if (CrossConnectivity.Current.IsConnected)
                 {
@@ -185,7 +185,6 @@ namespace Tabi
                     // Check if connected to WiFI
                     if (!(upload = CrossConnectivity.Current.ConnectionTypes.Contains(Plugin.Connectivity.Abstractions.ConnectionType.WiFi)))
                     {
-                        // Ask permission to use mobile data
                         upload = await UserDialogs.Instance.ConfirmAsync(AppResources.MobileDataUsageText,
                                                                          AppResources.MobileDataUsageTitle,
                                                                          AppResources.ContinueButton,
@@ -199,18 +198,10 @@ namespace Tabi
                         try
                         {
                             await _syncService.UploadAll(false);
+                   
                             UserDialogs.Instance.HideLoading();
-                            IBitmap img;
-                            if (Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.Android)
-                            {
-                                img = await Splat.BitmapLoader.Current.LoadFromResource("checkmark_white", null, null);
-                            }
-                            else
-                            {
-                                img = await Splat.BitmapLoader.Current.LoadFromResource("checkmark", null, null);
-                            }
 
-                            UserDialogs.Instance.ShowImage(img, AppResources.DataUploadSuccesful);
+                            UserDialogs.Instance.Toast(AppResources.DataUploadSuccesful);
                         }
                         catch (Exception e)
                         {
@@ -222,6 +213,7 @@ namespace Tabi
                 }
                 else
                 {
+                    UserDialogs.Instance.HideLoading();
                     // Show user a message that there is no internet connection
                     await UserDialogs.Instance.AlertAsync(AppResources.NoInternetConnectionText, AppResources.NoInternetConnectionTitle, AppResources.OkText);
                 }

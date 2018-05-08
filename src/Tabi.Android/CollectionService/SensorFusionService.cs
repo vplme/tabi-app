@@ -51,6 +51,8 @@ namespace Tabi.Droid.CollectionService
 
         public override StartCommandResult OnStartCommand(Intent intent, [GeneratedEnum] StartCommandFlags flags, int startId)
         {
+            Log.Info("Sensor Fusion Service started");
+
             PowerManager sv = (Android.OS.PowerManager)GetSystemService(PowerService);
             WakeLock wklock = sv.NewWakeLock(WakeLockFlags.Partial, "TABI_sensor_fusion_service");
             wklock.Acquire();
