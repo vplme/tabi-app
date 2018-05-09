@@ -233,21 +233,35 @@ namespace Tabi
             {
                 if (e.PropertyName == "Tracking" || e.PropertyName == "SensorMeasurements")
                 {
-                    if (Settings.Current.Tracking && Settings.Current.SensorMeasurements && !sensorManager.IsListening)
+                    bool enabled = TabiConfig.SensorMeasurements.Enabled && Settings.Current.Tracking;
+
+                    if (TabiConfig.SensorMeasurements.UserAdjustable)
+                    {
+                        enabled = enabled && Settings.Current.SensorMeasurements;
+                    }
+
+                    if (enabled && !sensorManager.IsListening)
                     {
                         sensorManager.StartSensorUpdates();
                     }
-                    else if ((!Settings.Current.Tracking || !Settings.Current.SensorMeasurements) && sensorManager.IsListening)
+                    else if (!enabled && sensorManager.IsListening)
                     {
                         sensorManager.StopSensorUpdates();
                     }
                 }
             };
-            if (Settings.Current.Tracking && Settings.Current.SensorMeasurements)
+
+            bool enabledOnStart = TabiConfig.SensorMeasurements.Enabled && Settings.Current.Tracking;
+
+            if (TabiConfig.SensorMeasurements.UserAdjustable)
+            {
+                enabledOnStart = enabledOnStart && Settings.Current.SensorMeasurements;
+            }
+
+            if (enabledOnStart)
             {
                 sensorManager.StartSensorUpdates();
             }
-
         }
 
         protected override void OnStart()
