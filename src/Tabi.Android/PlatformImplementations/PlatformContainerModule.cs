@@ -1,5 +1,4 @@
-﻿using System;
-using Autofac;
+﻿using Autofac;
 using Tabi.Shared.Sensors;
 
 namespace Tabi.Droid.PlatformImplementations

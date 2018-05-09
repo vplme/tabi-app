@@ -5,7 +5,6 @@
     <DebugType>full</DebugType>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="CsvHelper" Version="2.16.3" />
     <PackageReference Include="Microsoft.Azure.Mobile" Version="0.17.1" />
     <PackageReference Include="Microsoft.Azure.Mobile.Analytics" Version="0.15.0" />
     <PackageReference Include="Microsoft.Azure.Mobile.Crashes" Version="0.15.0" />
@@ -14,8 +13,6 @@
     <PackageReference Include="Plugin.Sensors" Version="2.2.1" />
     <PackageReference Include="Refractored.MvvmHelpers" Version="1.3.0" />
     <PackageReference Include="PCLStorage" Version="1.0.2" />
-    <PackageReference Include="FormsToolkit" Version="1.1.18" />
-    <PackageReference Include="SharpKml.Core" Version="3.0.0" />
     <PackageReference Include="SQLiteNetExtensions" Version="2.0.0" />
     <PackageReference Include="System.ValueTuple" Version="4.4.0" />
     <PackageReference Include="Xam.Plugin.Battery" Version="3.0.1" />
@@ -23,7 +20,6 @@
     <PackageReference Include="sqlite-net-pcl" Version="1.4.118" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.0.0" />
     <PackageReference Include="Xamarin.Firebase.Core" Version="60.1142.0-beta2" />
-    <PackageReference Include="Autofac" Version="4.7.0" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.3.6" />
     <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.3.6" />
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.3.6" />
@@ -38,6 +34,9 @@
     <PackageReference Include="Xam.Plugin.Connectivity" Version="3.1.1" />
     <PackageReference Include="Xam.Plugin.DeviceInfo" Version="4.0.0.5" />
     <PackageReference Include="Xam.Plugins.Settings" Version="4.0.0.7" />
+    <PackageReference Include="FormsToolkit" Version="2.0.1" />
+    <PackageReference Include="CsvHelper" Version="7.1.0" />
+    <PackageReference Include="Autofac" Version="4.8.0" />
   </ItemGroup>
   <ItemGroup>
     <!-- https://bugzilla.xamarin.com/show_bug.cgi?id=55591 -->
@@ -98,7 +97,5 @@
   <ItemGroup>
     <None Include="Config\config.debug.sample.xml" />
     <None Include="Config\config.release.sample.xml" />
-    <None Include="Config\config.release.sample %28copy%29.xml" />
-    <None Include="Config\config.debug.sample %28copy%29.xml" />
   </ItemGroup>
 </Project>
