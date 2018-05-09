@@ -96,10 +96,19 @@ namespace Tabi
 
             if (!string.IsNullOrEmpty(TabiConfig.MobileCenter.ApiKey))
             {
-                MobileCenter.Start(TabiConfig.MobileCenter.ApiKey,
+                if (TabiConfig.MobileCenter.Distribute)
+                {
+                    // Start with Distribute
+                    MobileCenter.Start(TabiConfig.MobileCenter.ApiKey,
                                    typeof(Analytics), typeof(Crashes), typeof(Distribute), typeof(Push));
-                Log.Debug("MobileCenter started with apikey");
+                }
+                else
+                {
+                    MobileCenter.Start(TabiConfig.MobileCenter.ApiKey,
+                                      typeof(Analytics), typeof(Crashes), typeof(Push));
+                }
 
+                Log.Debug("MobileCenter started with apikey");
                 MobileCenter.SetEnabledAsync(TabiConfig.MobileCenter.Enabled);
                 Log.Debug($"MobileCenter enabled: {TabiConfig.MobileCenter.Enabled}");
             }
