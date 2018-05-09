@@ -4,32 +4,19 @@ using System.Threading.Tasks.Dataflow;
 
 namespace Tabi.Logging
 {
-    public class ConsoleLogWriter : LogWriter
+    public class ConsoleLogWriter : ILogWriter
     {
         public ConsoleLogWriter() : base()
         { }
 
-        public override void Write(LogSeverity severity, string str)
+        public void Error(Exception exception)
         {
-#if DEBUG
-            base.Write(severity, str);
-#endif
+            System.Diagnostics.Debug.WriteLine($"Error: {exception}");
         }
 
-        protected override async Task ErrorConsumerAsync(ISourceBlock<Exception> Source)
+        public void Write(LogSeverity severity, string str)
         {
-            while (await Source.OutputAvailableAsync())
-            {
-                System.Diagnostics.Debug.WriteLine(Source.Receive());
-            }
-        }
-
-        protected override async Task LogConsumerAsync(ISourceBlock<string> Source)
-        {
-            while (await Source.OutputAvailableAsync())
-            {
-                System.Diagnostics.Debug.WriteLine(Source.Receive());
-            }
+            System.Diagnostics.Debug.WriteLine($"{severity}: {str}");
         }
     }
 }
