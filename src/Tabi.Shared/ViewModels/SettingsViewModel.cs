@@ -17,6 +17,7 @@ using FileAccess = PCLStorage.FileAccess;
 using Tabi.Shared.Resx;
 using Acr.UserDialogs;
 using Tabi.iOS.Helpers;
+using Tabi.Shared;
 
 namespace Tabi
 {
@@ -25,12 +26,14 @@ namespace Tabi
         private readonly IRepoManager _repoManager;
         private readonly DataResolver _dataResolver;
         private readonly SyncService _syncService;
+        private readonly TabiConfiguration _config;
 
         public INavigation Navigation { get; set; }
 
 
-        public SettingsViewModel(IRepoManager repoManager, SyncService syncService, DataResolver dataResolver) : this()
+        public SettingsViewModel(TabiConfiguration config, IRepoManager repoManager, SyncService syncService, DataResolver dataResolver) : this()
         {
+            _config = config ?? throw new ArgumentNullException(nameof(config));
             _repoManager = repoManager ?? throw new ArgumentNullException(nameof(repoManager));
             _dataResolver = dataResolver ?? throw new ArgumentNullException(nameof(dataResolver));
             _syncService = syncService ?? throw new ArgumentNullException(nameof(syncService));
@@ -245,6 +248,8 @@ namespace Tabi
         public ICommand ShowPageCommand { protected set; get; }
 
         public ICommand UploadCommand { protected set; get; }
+
+        public bool ShowSensorMeasurements { get => _config.SensorMeasurements.UserAdjustable; }
 
         public int InfoCount { get; set; }
     }
