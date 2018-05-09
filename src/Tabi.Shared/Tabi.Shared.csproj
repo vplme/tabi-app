@@ -24,9 +24,6 @@
     <PackageReference Include="sqlite-net-pcl" Version="1.4.118" />
     <PackageReference Include="Xam.Plugins.Settings" Version="3.0.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Xml" Version="2.0.0" />
     <PackageReference Include="Xamarin.Firebase.Core" Version="60.1142.0-beta2" />
     <PackageReference Include="Xamarin.Forms" Version="2.5.0.91635" />
     <PackageReference Include="Xamarin.Forms.Maps" Version="2.5.0.91635" />
@@ -37,6 +34,10 @@
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.3.6" />
     <PackageReference Include="Plugin.Permissions" Version="3.0.0.8" />
     <PackageReference Include="Acr.UserDialogs" Version="7.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="2.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Xml" Version="2.0.2" />
   </ItemGroup>
   <ItemGroup>
     <!-- https://bugzilla.xamarin.com/show_bug.cgi?id=55591 -->
@@ -64,12 +65,15 @@
     <Compile Update="Resx\AppResources.nl.Designer.cs">
       <DependentUpon>AppResources.nl.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="tabi.config" />
     <None Remove="appsettings.json" />
     <None Remove="tabi.csv" />
     <Compile Remove="StopResolver.cs" />
     <EmbeddedResource Remove="IntroViews\FirstIntroView.xaml" />
-    <None Remove="tabi.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Config\*.xml" />
+    <EmbeddedResource Include="Config\config.debug.xml" Condition="'$(Configuration)'=='Debug'" LogicalName="config.xml" />
+    <EmbeddedResource Include="Config\config.release.xml" Condition="'$(Configuration)'!='Debug'" LogicalName="config.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resx\" />
@@ -81,6 +85,9 @@
     <Folder Include="Controls\MultiSelectListView\" />
     <Folder Include="Pages\OnBoarding\" />
     <Folder Include="DataSync\" />
+    <Folder Include="Config\" />
+    <Folder Include="Files\" />
+    <Folder Include="Files\ResourceFilesSupport\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tabi.DataStorage\Tabi.DataStorage.csproj" />

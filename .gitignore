@@ -241,3 +241,7 @@ FakesAssemblies/
 .sonarqube/
 
 .mfractor/
+
+src/Tabi\.Shared/Config/config\.debug\.xml
+
+src/Tabi\.Shared/Config/config\.release\.xml

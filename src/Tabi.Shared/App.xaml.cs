@@ -28,6 +28,8 @@ using Tabi.Shared.Pages.OnBoarding;
 using Tabi.Shared.ViewModels;
 using System.Net;
 using Tabi.Shared.DataSync;
+using Tabi.Shared;
+using Tabi.Shared.Config;
 
 namespace Tabi
 {
@@ -46,7 +48,7 @@ namespace Tabi
         public static bool Developer;
         public static double ScreenHeight;
         public static double ScreenWidth;
-        public static readonly IConfigurationRoot Configuration;
+        public static TabiConfiguration TabiConfig;
         public static bool LocationPermissionsGranted;
 
         public static CollectionProfile CollectionProfile { get; private set; }
@@ -56,21 +58,27 @@ namespace Tabi
 
         static App()
         {
-            // Load configuration from embeddedresource file.
-            Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-            var builder = new ConfigurationBuilder().AddEmbeddedXmlFile(assembly, "tabi.config");
-            Configuration = builder.Build();
+            IConfiguration configuration = RetrieveConfiguration();
+            TabiConfig = ConvertTabiConfiguration(configuration);
+        }
 
+        private static IConfiguration RetrieveConfiguration()
+        {
+            var builder = new ConfigurationBuilder().AddXmlFile(new ResourceFileProvider(), "config.xml", false, false);
+            return builder.Build();
+        }
+
+        private static TabiConfiguration ConvertTabiConfiguration(IConfiguration configuration)
+        {
+            return configuration.Get<TabiConfiguration>();
         }
 
         public App(IModule[] platformSpecificModules)
         {
             PrepareContainer(platformSpecificModules);
 
-
             // Setup logging
             SetupLogging();
-
 
             CollectionProfile = CollectionProfile.GetDefaultProfile();
 
@@ -80,24 +88,20 @@ namespace Tabi
             SetupLocationManager();
             SetupSensorManager();
 
-            Developer = Convert.ToBoolean(Configuration["developer"]);
+            Developer = TabiConfig.Developer;
             DebugMode = Developer;
 #if DEBUG
             DebugMode = true;
 #endif
 
-
-            string apiKey = Configuration["mobilecenter:apikey"];
-            bool mobileCenterEnabled = Convert.ToBoolean(Configuration["mobilecenter:enabled"]);
-
-
-            if (!apiKey.Equals(""))
+            if (!string.IsNullOrEmpty(TabiConfig.MobileCenter.ApiKey))
             {
-                MobileCenter.Start(apiKey,
+                MobileCenter.Start(TabiConfig.MobileCenter.ApiKey,
                                    typeof(Analytics), typeof(Crashes), typeof(Distribute), typeof(Push));
                 Log.Debug("MobileCenter started with apikey");
-                MobileCenter.SetEnabledAsync(mobileCenterEnabled);
-                Log.Debug($"MobileCenter enabled: {mobileCenterEnabled}");
+
+                MobileCenter.SetEnabledAsync(TabiConfig.MobileCenter.Enabled);
+                Log.Debug($"MobileCenter enabled: {TabiConfig.MobileCenter.Enabled}");
             }
 
             NavigationPage navigationPage = new NavigationPage();
@@ -123,7 +127,9 @@ namespace Tabi
             containerBuilder.RegisterType<SqliteNetRepoManager>().As<IRepoManager>().SingleInstance();
 
             containerBuilder.RegisterType<SyncService>();
-            containerBuilder.RegisterType<ApiClient>().WithParameter("apiLocation", Configuration["api-url"]);
+            containerBuilder.RegisterType<ApiClient>().WithParameter("apiLocation", TabiConfig.ApiUrl);
+
+            containerBuilder.RegisterInstance(TabiConfig).As<TabiConfiguration>();
 
             containerBuilder.RegisterType<DateService>().SingleInstance();
             containerBuilder.RegisterType<DataResolver>();
@@ -148,7 +154,7 @@ namespace Tabi
 
         public static void SetupCertificatePinningCheck()
         {
-            EndpointConfiguration.AddPublicKeyString(Configuration["certificate-key"]);
+            EndpointConfiguration.AddPublicKeyString(TabiConfig.CertificateKey);
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             ServicePointManager.DefaultConnectionLimit = 8;
             ServicePointManager.ServerCertificateValidationCallback = EndpointConfiguration.ValidateServerCertificate;
@@ -164,7 +170,7 @@ namespace Tabi
 
         private void SetupLogging()
         {
-            LogSeverity level = Log.SeverityFromString(Configuration["logging:level"]);
+            LogSeverity level = Log.SeverityFromString(TabiConfig.Logging.LogLevel);
             MultiLogger mLogger = new MultiLogger();
             mLogger.SetLogLevel(level);
 
