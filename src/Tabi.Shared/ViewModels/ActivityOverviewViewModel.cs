@@ -84,11 +84,10 @@ namespace Tabi.ViewModels
                 await Navigation.PushAsync(new DaySelectorPage());
             });
 
-            RefreshCommand = new Command(() =>
+            RefreshCommand = new Command(async () =>
             {
-                UpdateStopVisits();
+                await UpdateStopVisitsAsync();
                 ListIsRefreshing = false;
-
             });
 
         }
@@ -105,17 +104,17 @@ namespace Tabi.ViewModels
             }
         }
 
-        public void UpdateStopVisits()
+        public async System.Threading.Tasks.Task UpdateStopVisitsAsync()
         {
-            _dataResolver.ResolveData(DateTimeOffset.MinValue, DateTimeOffset.Now);
+            await _dataResolver.ResolveDataAsync(DateTimeOffset.MinValue, DateTimeOffset.Now);
             //track maded
             //TODO send notification for getting transportation mode
 
 
             List<ActivityEntry> newActivityEntries = new List<ActivityEntry>();
 
-            DateTimeOffset startDate =_dateService.SelectedDate.Date;
-            DateTimeOffset endDate =_dateService.SelectedDate.Date.AddHours(23).AddMinutes(59).AddSeconds(59);
+            DateTimeOffset startDate = _dateService.SelectedDate.Date;
+            DateTimeOffset endDate = _dateService.SelectedDate.Date.AddHours(23).AddMinutes(59).AddSeconds(59);
 
 
             var stopVisits = _repoManager.StopVisitRepository.BetweenDates(startDate, endDate);
@@ -138,7 +137,7 @@ namespace Tabi.ViewModels
                 ae.StopVisit = sv;
                 newActivityEntries.Add(ae);
 
-                if (sv.NextTrackId != Guid.Empty)
+                if (sv.NextTrackId != 0)
                 {
                     TrackEntry te = _repoManager.TrackEntryRepository.Get(sv.NextTrackId);
 
@@ -159,6 +158,7 @@ namespace Tabi.ViewModels
             }
 
             ActivityEntries.Clear();
+
             foreach (ActivityEntry e in newActivityEntries)
             {
                 ActivityEntries.Add(e);

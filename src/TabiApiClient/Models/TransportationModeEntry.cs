@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Tabi.DataObjects;
 
 namespace TabiApiClient.Models
 {
     public class TransportationMode
     {
-        public Guid TrackId { get; set; }
-
-        //public string Mode { get; set; }
+        public int Id { get; set; }
+        public int DeviceId { get; set; }
+        public int TrackId { get; set; }
+        public int LocalTrackId { get; set; }
 
         public bool Walk { get; set; }
         public bool Run { get; set; }

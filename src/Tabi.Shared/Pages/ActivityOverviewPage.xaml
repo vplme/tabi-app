@@ -17,7 +17,7 @@
         <StackLayout>
             <Label IsVisible="{Binding NoDataInOverviewVisible}" HorizontalTextAlignment="Center" Margin="20, 15, 20, 0"
                  Text="{i18n:Translate NoDataInOverview}" />
-            <ListView x:Name="ListViewOverview" HasUnevenRows="true" SeparatorVisibility="None" ItemsSource="{Binding ActivityEntries}"
+            <local:UnanimatedListView x:Name="ListViewOverview" HasUnevenRows="true" SeparatorVisibility="None" ItemsSource="{Binding ActivityEntries}"
                  IsPullToRefreshEnabled="true" IsRefreshing="{Binding ListIsRefreshing}" RefreshCommand="{Binding RefreshCommand}" ItemSelected="ItemSelected">
                 <ListView.Effects>
                     <local:NoDividerListViewEffect />
@@ -27,7 +27,7 @@
                         <local:ActivityOverviewCell />
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>
+            </local:UnanimatedListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -28,7 +28,6 @@ namespace TabiApiClient
         {
             this.apiLocation = apiLocation;
             client = new HttpClient();
-
         }
 
         private string PrefixApiPath(string path)
@@ -55,24 +54,12 @@ namespace TabiApiClient
             return new StringContent(content, Encoding.UTF8, "application/json");
         }
 
-        private HttpClientHandler GetCustomHandler()
+        private async Task<HttpContent> SerializeObjectAsync(object o)
         {
-            var httpClientHandler = new HttpClientHandler();
-
-            //httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => {
-            //    Debug.WriteLine(errors);
-
-            //    foreach(var e in chain.ChainElements)
-            //    {
-            //        Debug.WriteLine($"CERT CHAIN: {e.Certificate.Subject} {e.Certificate.GetCertHashString()}");
-            //    }
-
-            //    return errors == System.Net.Security.SslPolicyErrors.None;
-            //};
-
-            return httpClientHandler;
-
-
+            return await Task.Run(() =>
+            {
+                return SerializeObject(o);
+            });
         }
 
         public async Task<TokenResult> Authenticate(string username, string password)
@@ -98,9 +85,11 @@ namespace TabiApiClient
                     this.token = token.Token;
                     Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", this.token);
                 }
-            } catch(Exception e){
+            }
+            catch (Exception e)
+            {
                 Debug.WriteLine("ApiClient error" + e);
-            } 
+            }
 
             return token;
         }
@@ -123,12 +112,21 @@ namespace TabiApiClient
         public async Task<DeviceMessage> GetDevice(int id)
         {
             string path = PrefixApiPath($"/user/{userId}/device/{id}");
-            HttpResponseMessage response = await client.GetAsync(path);
             DeviceMessage dm = null;
-            if (response.IsSuccessStatusCode)
+
+            try
             {
-                string data = await response.Content.ReadAsStringAsync();
-                dm = JsonConvert.DeserializeObject<DeviceMessage>(data);
+                HttpResponseMessage response = await client.GetAsync(path);
+                if (response.IsSuccessStatusCode)
+                {
+                    string data = await response.Content.ReadAsStringAsync();
+                    dm = JsonConvert.DeserializeObject<DeviceMessage>(data);
+                }
+
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
             }
 
             return dm;
@@ -149,7 +147,7 @@ namespace TabiApiClient
         }
 
         public async Task<DeviceMessage> RegisterDevice(string model = "",
-                                              string os = "",
+                                                        string os = "", string osVersion = "",
                                                string manufacturer = "")
         {
             string path = PrefixApiPath($"/user/{userId}/device");
@@ -157,6 +155,7 @@ namespace TabiApiClient
             {
                 Model = model,
                 OperatingSystem = os,
+                OperatingSystemVersion = osVersion,
                 Manufacturer = manufacturer
             };
 
@@ -172,7 +171,7 @@ namespace TabiApiClient
         public async Task<bool> PostPositions(int deviceId, List<PositionEntry> positions)
         {
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/positionentry");
-            HttpContent httpContent = SerializeObject(positions);
+            HttpContent httpContent = await SerializeObjectAsync(positions);
             HttpResponseMessage response = await client.PostAsync(path, httpContent);
             return response.IsSuccessStatusCode;
         }
@@ -180,7 +179,7 @@ namespace TabiApiClient
         public async Task<bool> PostStopVisits(int deviceId, List<StopVisit> stopVisits)
         {
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/stopvisits");
-            HttpContent httpContent = SerializeObject(stopVisits);
+            HttpContent httpContent = await SerializeObjectAsync(stopVisits);
             HttpResponseMessage response = await client.PostAsync(path, httpContent);
             return response.IsSuccessStatusCode;
         }
@@ -188,7 +187,7 @@ namespace TabiApiClient
         public async Task<bool> PostLogs(int deviceId, List<LogEntry> messages)
         {
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/logs");
-            HttpContent httpContent = SerializeObject(messages);
+            HttpContent httpContent = await SerializeObjectAsync(messages);
             HttpResponseMessage response = await client.PostAsync(path, httpContent);
             return response.IsSuccessStatusCode;
         }
@@ -196,7 +195,7 @@ namespace TabiApiClient
         public async Task<bool> PostBatteryData(int deviceId, List<BatteryEntry> batteryEntries)
         {
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/battery");
-            HttpContent httpContent = SerializeObject(batteryEntries);
+            HttpContent httpContent = await SerializeObjectAsync(batteryEntries);
             HttpResponseMessage response = await client.PostAsync(path, httpContent);
             return response.IsSuccessStatusCode;
         }
@@ -205,7 +204,7 @@ namespace TabiApiClient
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track");
             try
             {
-                HttpContent httpContent = SerializeObject(trackEntries);
+                HttpContent httpContent = await SerializeObjectAsync(trackEntries);
                 HttpResponseMessage response = await client.PostAsync(path, httpContent);
                 return response.IsSuccessStatusCode;
             }
@@ -216,13 +215,13 @@ namespace TabiApiClient
             }
         }
 
-        public async Task<bool> PostTransportationModes(int deviceId, List<TabiApiClient.Models.TransportationMode> transportModes)
+        public async Task<bool> PostTransportationModes(int deviceId, IEnumerable<TabiApiClient.Models.TransportationMode> transportModes)
         {
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/mode");
 
             try
             {
-                HttpContent httpContent = SerializeObject(transportModes);
+                HttpContent httpContent = await SerializeObjectAsync(transportModes);
                 HttpResponseMessage response = await client.PostAsync(path, httpContent);
                 return response.IsSuccessStatusCode;
             }
@@ -238,7 +237,7 @@ namespace TabiApiClient
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/sensormeasurementsession");
             try
             {
-                HttpContent httpContent = SerializeObject(sensorMeasurementSessions);
+                HttpContent httpContent = await SerializeObjectAsync(sensorMeasurementSessions);
                 HttpResponseMessage response = await client.PostAsync(path, httpContent);
                 return response.IsSuccessStatusCode;
             }
@@ -247,7 +246,7 @@ namespace TabiApiClient
                 Console.WriteLine(e);
                 return false;
             }
-            
+
         }
 
         public async Task<bool> PostAccelerometerData(int deviceId, List<Accelerometer> accelerometerData)
@@ -255,7 +254,7 @@ namespace TabiApiClient
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/accelerometer");
             try
             {
-                HttpContent httpContent = SerializeObject(accelerometerData);
+                HttpContent httpContent = await SerializeObjectAsync(accelerometerData);
                 HttpResponseMessage response = await client.PostAsync(path, httpContent);
                 return response.IsSuccessStatusCode;
             }
@@ -271,7 +270,7 @@ namespace TabiApiClient
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/gyroscope");
             try
             {
-                HttpContent httpContent = SerializeObject(gyroscopeData);
+                HttpContent httpContent = await SerializeObjectAsync(gyroscopeData);
                 HttpResponseMessage response = await client.PostAsync(path, httpContent);
                 return response.IsSuccessStatusCode;
             }
@@ -280,7 +279,7 @@ namespace TabiApiClient
                 Console.WriteLine(e);
                 return false;
             }
-            
+
         }
 
         public async Task<bool> PostMagnetometerData(int deviceId, List<Magnetometer> magnetometerData)
@@ -288,7 +287,7 @@ namespace TabiApiClient
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/magnetometer");
             try
             {
-                HttpContent httpContent = SerializeObject(magnetometerData);
+                HttpContent httpContent = await SerializeObjectAsync(magnetometerData);
                 HttpResponseMessage response = await client.PostAsync(path, httpContent);
                 return response.IsSuccessStatusCode;
             }
@@ -304,7 +303,7 @@ namespace TabiApiClient
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/linearacceleration");
             try
             {
-                HttpContent httpContent = SerializeObject(linearAcceleration);
+                HttpContent httpContent = await SerializeObjectAsync(linearAcceleration);
                 HttpResponseMessage response = await client.PostAsync(path, httpContent);
                 return response.IsSuccessStatusCode;
             }
@@ -313,7 +312,7 @@ namespace TabiApiClient
                 Console.WriteLine(e);
                 return false;
             }
-            
+
         }
 
         public async Task<bool> PostGravityData(int deviceId, List<Gravity> gravity)
@@ -321,15 +320,16 @@ namespace TabiApiClient
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/gravity");
             try
             {
-                HttpContent httpContent = SerializeObject(gravity);
+                HttpContent httpContent = await SerializeObjectAsync(gravity);
                 HttpResponseMessage response = await client.PostAsync(path, httpContent);
                 return response.IsSuccessStatusCode;
             }
-            catch(Exception e){
+            catch (Exception e)
+            {
                 Console.WriteLine(e);
                 return false;
             }
-            
+
         }
 
         public async Task<bool> PostQuaternionData(int deviceId, List<Quaternion> quaternionData)
@@ -337,7 +337,7 @@ namespace TabiApiClient
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/quaternion");
             try
             {
-                HttpContent httpContent = SerializeObject(quaternionData);
+                HttpContent httpContent = await SerializeObjectAsync(quaternionData);
                 HttpResponseMessage response = await client.PostAsync(path, httpContent);
                 return response.IsSuccessStatusCode;
             }
@@ -346,7 +346,7 @@ namespace TabiApiClient
                 Console.WriteLine(e);
                 return false;
             }
-            
+
         }
 
         public async Task<bool> PostOrientationData(int deviceId, List<Orientation> orientationData)
@@ -354,7 +354,7 @@ namespace TabiApiClient
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/orientation");
             try
             {
-                HttpContent httpContent = SerializeObject(orientationData);
+                HttpContent httpContent = await SerializeObjectAsync(orientationData);
                 HttpResponseMessage response = await client.PostAsync(path, httpContent);
                 return response.IsSuccessStatusCode;
             }
@@ -363,7 +363,7 @@ namespace TabiApiClient
                 Console.WriteLine(e);
                 return false;
             }
-            
+
         }
 
         public async Task<bool> IsDeviceUnauthorized(int deviceId)

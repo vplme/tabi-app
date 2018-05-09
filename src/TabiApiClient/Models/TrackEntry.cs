@@ -6,7 +6,7 @@ namespace TabiApiClient.Models
 {
     public class TrackEntry
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         public DateTimeOffset StartTime { get; set; }
         public DateTimeOffset EndTime { get; set; }

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <developer>true</developer>
+    <mobileCenter>
+        <enabled>false</enabled>
+        <apiKey></apiKey>
+    </mobileCenter>
+    <apiUrl>http://localhost:8000</apiUrl>
+    <certificateKey></certificateKey>
+    <sensorMeasurements>
+        <enabled>true</enabled>
+        <userAdjustable>true</userAdjustable>
+    </sensorMeasurements>
+    <logging>
+        <logLevel>debug</logLevel>
+    </logging>
+</configuration>

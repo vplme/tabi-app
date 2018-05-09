@@ -10,6 +10,8 @@ using Plugin.Permissions;
 using Tabi.Droid.Helpers;
 using Autofac.Core;
 using Tabi.Droid.PlatformImplementations;
+using FFImageLoading.Forms.Droid;
+using FFImageLoading.Svg.Forms;
 
 namespace Tabi.Droid
 {
@@ -24,6 +26,11 @@ namespace Tabi.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+
+            CachedImageRenderer.Init(false);
+            // to avoid linking issues:
+            var ignore = typeof(SvgCachedImage);
+
             Toolkit.Init();
             Xamarin.FormsMaps.Init(this, bundle);
             UserDialogs.Init(() => CrossCurrentActivity.Current.Activity);

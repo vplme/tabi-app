@@ -24,6 +24,12 @@ using SQLite;
 using Tabi.ViewModels;
 using Tabi.Core;
 using TabiApiClient;
+using Tabi.Shared.Pages.OnBoarding;
+using Tabi.Shared.ViewModels;
+using System.Net;
+using Tabi.Shared.DataSync;
+using Tabi.Shared;
+using Tabi.Shared.Config;
 
 namespace Tabi
 {
@@ -33,11 +39,16 @@ namespace Tabi
 
         public static IContainer Container { get => _container; }
 
+        public static bool DebugMode
+        {
+            get; private set;
+        }
+
         public const string LogFilePath = "tabi.log";
         public static bool Developer;
         public static double ScreenHeight;
         public static double ScreenWidth;
-        public static readonly IConfigurationRoot Configuration;
+        public static TabiConfiguration TabiConfig;
         public static bool LocationPermissionsGranted;
 
         public static CollectionProfile CollectionProfile { get; private set; }
@@ -47,51 +58,64 @@ namespace Tabi
 
         static App()
         {
-            // Load configuration from embeddedresource file.
-            Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-            var builder = new ConfigurationBuilder().AddEmbeddedXmlFile(assembly, "tabi.config");
-            Configuration = builder.Build();
-
+            IConfiguration configuration = RetrieveConfiguration();
+            TabiConfig = ConvertTabiConfiguration(configuration);
         }
 
+        private static IConfiguration RetrieveConfiguration()
+        {
+            var builder = new ConfigurationBuilder().AddXmlFile(new ResourceFileProvider(), "config.xml", false, false);
+            return builder.Build();
+        }
+
+        private static TabiConfiguration ConvertTabiConfiguration(IConfiguration configuration)
+        {
+            return configuration.Get<TabiConfiguration>();
+        }
 
         public App(IModule[] platformSpecificModules)
         {
             PrepareContainer(platformSpecificModules);
 
-
             // Setup logging
             SetupLogging();
-
 
             CollectionProfile = CollectionProfile.GetDefaultProfile();
 
             InitializeComponent();
 
-
+            SetupCertificatePinningCheck();
             SetupLocationManager();
             SetupSensorManager();
 
-            Developer = Convert.ToBoolean(Configuration["developer"]);
+            Developer = TabiConfig.Developer;
+            DebugMode = Developer;
+#if DEBUG
+            DebugMode = true;
+#endif
 
-            string apiKey = Configuration["mobilecenter:apikey"];
-            bool mobileCenterEnabled = Convert.ToBoolean(Configuration["mobilecenter:enabled"]);
-           
-
-            if (!apiKey.Equals(""))
+            if (!string.IsNullOrEmpty(TabiConfig.MobileCenter.ApiKey))
             {
-                MobileCenter.Start(apiKey,
+                MobileCenter.Start(TabiConfig.MobileCenter.ApiKey,
                                    typeof(Analytics), typeof(Crashes), typeof(Distribute), typeof(Push));
                 Log.Debug("MobileCenter started with apikey");
-                MobileCenter.SetEnabledAsync(mobileCenterEnabled);
-                Log.Debug($"MobileCenter enabled: {mobileCenterEnabled}");
+
+                MobileCenter.SetEnabledAsync(TabiConfig.MobileCenter.Enabled);
+                Log.Debug($"MobileCenter enabled: {TabiConfig.MobileCenter.Enabled}");
             }
 
-            MainPage = new NavigationPage(new ActivityOverviewPage());
+            NavigationPage navigationPage = new NavigationPage();
+
             if (!Settings.Current.PermissionsGranted)
             {
-                MainPage.Navigation.PushModalAsync(new IntroPage());
+                navigationPage.PushAsync(new WelcomePage());
             }
+            else
+            {
+                navigationPage.PushAsync(new ActivityOverviewPage());
+            }
+
+            MainPage = navigationPage;
         }
 
         private void PrepareContainer(IModule[] platformSpecificModules)
@@ -103,7 +127,9 @@ namespace Tabi
             containerBuilder.RegisterType<SqliteNetRepoManager>().As<IRepoManager>().SingleInstance();
 
             containerBuilder.RegisterType<SyncService>();
-            containerBuilder.RegisterType<ApiClient>().WithParameter("apiLocation", Configuration["api-url"]);
+            containerBuilder.RegisterType<ApiClient>().WithParameter("apiLocation", TabiConfig.ApiUrl);
+
+            containerBuilder.RegisterInstance(TabiConfig).As<TabiConfiguration>();
 
             containerBuilder.RegisterType<DateService>().SingleInstance();
             containerBuilder.RegisterType<DataResolver>();
@@ -115,8 +141,23 @@ namespace Tabi
             containerBuilder.RegisterType<DaySelectorViewModel>();
             containerBuilder.RegisterType<StopDetailViewModel>();
             containerBuilder.RegisterType<TransportSelectionViewModel>();
+            containerBuilder.RegisterType<WelcomeViewModel>();
+            containerBuilder.RegisterType<LoginViewModel>();
+            containerBuilder.RegisterType<LocationAccessViewModel>();
+            containerBuilder.RegisterType<MotionAccessViewModel>();
+            containerBuilder.RegisterType<ThanksViewModel>();
+            containerBuilder.RegisterType<TrackDetailViewModel>();
+
 
             _container = containerBuilder.Build();
+        }
+
+        public static void SetupCertificatePinningCheck()
+        {
+            EndpointConfiguration.AddPublicKeyString(TabiConfig.CertificateKey);
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            ServicePointManager.DefaultConnectionLimit = 8;
+            ServicePointManager.ServerCertificateValidationCallback = EndpointConfiguration.ValidateServerCertificate;
         }
 
         private void RegisterPlatformSpecificModules(IModule[] platformSpecificModules, ContainerBuilder containerBuilder)
@@ -127,10 +168,9 @@ namespace Tabi
             }
         }
 
-
         private void SetupLogging()
         {
-            LogSeverity level = Log.SeverityFromString(Configuration["logging:level"]);
+            LogSeverity level = Log.SeverityFromString(TabiConfig.Logging.LogLevel);
             MultiLogger mLogger = new MultiLogger();
             mLogger.SetLogLevel(level);
 
@@ -191,71 +231,53 @@ namespace Tabi
 
             Settings.Current.PropertyChanged += (sender, e) =>
             {
-                if (e.PropertyName == "Tracking")
+                if (e.PropertyName == "Tracking" || e.PropertyName == "SensorMeasurements")
                 {
-                    if (Settings.Current.Tracking && !sensorManager.IsListening)
+                    bool enabled = TabiConfig.SensorMeasurements.Enabled && Settings.Current.Tracking;
+
+                    if (TabiConfig.SensorMeasurements.UserAdjustable)
+                    {
+                        enabled = enabled && Settings.Current.SensorMeasurements;
+                    }
+
+                    if (enabled && !sensorManager.IsListening)
                     {
                         sensorManager.StartSensorUpdates();
                     }
-                    else if (!Settings.Current.Tracking && sensorManager.IsListening)
+                    else if (!enabled && sensorManager.IsListening)
                     {
                         sensorManager.StopSensorUpdates();
                     }
                 }
-                if (e.PropertyName == "PermissionsGranted")
-                {
-                    if (Settings.Current.PermissionsGranted)
-                    {
-                        Settings.Current.Tracking = true;
-                    }
-                }
             };
-            if (Settings.Current.Tracking)
+
+            bool enabledOnStart = TabiConfig.SensorMeasurements.Enabled && Settings.Current.Tracking;
+
+            if (TabiConfig.SensorMeasurements.UserAdjustable)
+            {
+                enabledOnStart = enabledOnStart && Settings.Current.SensorMeasurements;
+            }
+
+            if (enabledOnStart)
             {
                 sensorManager.StartSensorUpdates();
             }
-
         }
-
 
         protected override void OnStart()
         {
             Log.Info("App.OnStart");
-            CheckAuthorization(Settings.Current.Device);
         }
-
-        async Task CheckAuthorization(int deviceId)
-        {
-            if (Settings.Current.PermissionsGranted)
-            {
-                TabiApiClient.ApiClient apiClient = Container.Resolve<ApiClient>();
-                await apiClient.Authenticate(Settings.Current.Username, Settings.Current.Password);
-                bool unauth = await apiClient.IsDeviceUnauthorized(deviceId);
-
-                if (unauth)
-                {
-                    Log.Debug("Unauthorized!");
-                    Settings.Current.PermissionsGranted = false;
-                    await MainPage.Navigation.PushModalAsync(new IntroPage());
-                }
-            }
-
-        }
-
 
         protected override void OnSleep()
         {
             Log.Info("App.OnSleep");
-            // Handle when your app sleeps
         }
 
         protected override void OnResume()
         {
             Log.Info("App.OnResume");
-            // Handle when your app resumes
-            CheckAuthorization(Settings.Current.Device);
         }
-
     }
 
 }

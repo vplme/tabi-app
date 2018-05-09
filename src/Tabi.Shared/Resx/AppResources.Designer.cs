@@ -490,5 +490,101 @@ namespace Tabi.Shared.Resx {
                 return ResourceManager.GetString("ServiceNotificationChannelLabel", resourceCulture);
             }
         }
+        
+        public static string LoggingInWaitMessage {
+            get {
+                return ResourceManager.GetString("LoggingInWaitMessage", resourceCulture);
+            }
+        }
+        
+        public static string WelcomeTitleLabel {
+            get {
+                return ResourceManager.GetString("WelcomeTitleLabel", resourceCulture);
+            }
+        }
+        
+        public static string LocationTitleLabel {
+            get {
+                return ResourceManager.GetString("LocationTitleLabel", resourceCulture);
+            }
+        }
+        
+        public static string LocationIntroLabel {
+            get {
+                return ResourceManager.GetString("LocationIntroLabel", resourceCulture);
+            }
+        }
+        
+        public static string LocationSpecificiOSLabel {
+            get {
+                return ResourceManager.GetString("LocationSpecificiOSLabel", resourceCulture);
+            }
+        }
+        
+        public static string LocationTryAgainLabel {
+            get {
+                return ResourceManager.GetString("LocationTryAgainLabel", resourceCulture);
+            }
+        }
+        
+        public static string EnableLocationServices {
+            get {
+                return ResourceManager.GetString("EnableLocationServices", resourceCulture);
+            }
+        }
+        
+        public static string LocationPermissionGiven {
+            get {
+                return ResourceManager.GetString("LocationPermissionGiven", resourceCulture);
+            }
+        }
+        
+        public static string MotionTitleLabel {
+            get {
+                return ResourceManager.GetString("MotionTitleLabel", resourceCulture);
+            }
+        }
+        
+        public static string MotionIntroLabel {
+            get {
+                return ResourceManager.GetString("MotionIntroLabel", resourceCulture);
+            }
+        }
+        
+        public static string MotionPermissionButton {
+            get {
+                return ResourceManager.GetString("MotionPermissionButton", resourceCulture);
+            }
+        }
+        
+        public static string ThanksTitleLabel {
+            get {
+                return ResourceManager.GetString("ThanksTitleLabel", resourceCulture);
+            }
+        }
+        
+        public static string ThanksText {
+            get {
+                return ResourceManager.GetString("ThanksText", resourceCulture);
+            }
+        }
+        
+        public static string Yesterday {
+            get {
+                return ResourceManager.GetString("Yesterday", resourceCulture);
+            }
+        }
+        
+        public static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        public static string SensorMeasurementsSwitchLabel {
+            get {
+                return ResourceManager.GetString("SensorMeasurementsSwitchLabel", resourceCulture);
+            }
+        }
     }
 }

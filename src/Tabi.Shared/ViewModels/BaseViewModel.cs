@@ -24,5 +24,18 @@ namespace Tabi
         }
 
         #endregion
+
+        public void SetProperty<T>(ref T field, T value, [CallerMemberName]string name = "")
+        {
+            if (value != null && !value.Equals(field))
+            {
+                field = value;
+
+                var changed = PropertyChanged;
+                if (changed == null)
+                    return;
+                changed(this, new PropertyChangedEventArgs(name));
+            }
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
 using Tabi.Shared;
@@ -30,6 +31,11 @@ namespace Tabi.Core
 
             _accuracy = 100;
             _groupDistance = 50;
+        }
+
+        public async Task ResolveDataAsync(DateTimeOffset begin, DateTimeOffset end)
+        {
+            await Task.Run(() => ResolveData(begin, end));
         }
 
         // Resolve data for period including
@@ -298,7 +304,7 @@ namespace Tabi.Core
                     _stopRepository.Add(sv.Stop);
                     sv.StopId = sv.Stop.Id;
                 }
-                if (sv.NextTrackId == Guid.Empty)
+                if (sv.NextTrackId == 0)
                 {
                     _trackEntryRepository.Add(sv.NextTrack);
                     sv.NextTrackId = sv.NextTrack.Id;

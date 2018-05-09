@@ -67,7 +67,6 @@ namespace Tabi.iOS.PlatformImplementations
                     _currentCoreLocationProfile.DeferredLocationUpdatesTimeout);
             }
 
-            Log.Debug($"LocationsUpdated called with {e.Locations.Length} locationUpdates");
             foreach (CLLocation l in e.Locations)
             {
                 PositionEntry p = l.ToPosition();

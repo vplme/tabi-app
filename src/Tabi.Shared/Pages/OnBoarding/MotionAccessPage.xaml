@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:local="clr-namespace:Tabi;assembly=Tabi.Shared" xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+     xmlns:control="clr-namespace:Tabi.Shared.Controls;assembly=Tabi.Shared" xmlns:i18n="clr-namespace:Tabi.Shared.Localization;assembly=Tabi.Shared"
+     ios:Page.UseSafeArea="true" NavigationPage.HasNavigationBar="False" x:Class="Tabi.Shared.Pages.OnBoarding.MotionAccessPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:NegateBoolConverter x:Key="inverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="Android" Value="0, 0, 0, 0" />
+                    <On Platform="iOS" Value="0, 20, 0, 0" />
+                </OnPlatform>
+            </StackLayout.Padding>
+            <StackLayout Padding="20, 0, 20, 0" VerticalOptions="FillAndExpand">
+                <ffimageloadingsvg:SvgCachedImage HorizontalOptions="Center" HeightRequest="60" Source="tabi.svg">
+                    <ffimageloadingsvg:SvgCachedImage.Margin>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="Android" Value="0, 20, 0, 0" />
+                            <On Platform="iOS" Value="0, 0, 0, 0" />
+                        </OnPlatform>
+                    </ffimageloadingsvg:SvgCachedImage.Margin>
+                </ffimageloadingsvg:SvgCachedImage>
+                <Label FontSize="30" HorizontalOptions="CenterAndExpand" Text="{i18n:Translate MotionTitleLabel}" />
+                <Label FontSize="Medium" Text="{i18n:Translate MotionIntroLabel}" />
+                <Button WidthRequest="180" Style="{Binding MotionButtonStyle}" Text="{i18n:Translate MotionPermissionButton}"
+                     Command="{Binding MotionAccessCommand}" />
+                <Label IsVisible="{Binding ExtraTextEnabled}" Text="{Binding ExtraText}" />
+            </StackLayout>
+            <StackLayout VerticalOptions="End">
+                <control:MaterialButton Margin="30, 0, 30, 30" Text="{i18n:Translate ContinueButton}" Style="{StaticResource defaultButtonStyle}"
+                     Command="{Binding ContinueCommand}" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -56,9 +56,9 @@
 	<string>Tabi requires motion access</string>
 	<key>CFBundleVersion</key>
 	<string>1.0.6</string>
-	<key>CFBundleIdentifier</key>
-	<string>nl.cbs.tabi</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.2</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.tabiapp.tabi</string>
 </dict>
 </plist>

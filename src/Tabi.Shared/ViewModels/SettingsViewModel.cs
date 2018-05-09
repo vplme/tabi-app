@@ -16,8 +16,8 @@ using Plugin.Connectivity;
 using FileAccess = PCLStorage.FileAccess;
 using Tabi.Shared.Resx;
 using Acr.UserDialogs;
-using Splat;
 using Tabi.iOS.Helpers;
+using Tabi.Shared;
 
 namespace Tabi
 {
@@ -26,12 +26,14 @@ namespace Tabi
         private readonly IRepoManager _repoManager;
         private readonly DataResolver _dataResolver;
         private readonly SyncService _syncService;
+        private readonly TabiConfiguration _config;
 
         public INavigation Navigation { get; set; }
 
 
-        public SettingsViewModel(IRepoManager repoManager, SyncService syncService, DataResolver dataResolver) : this()
+        public SettingsViewModel(TabiConfiguration config, IRepoManager repoManager, SyncService syncService, DataResolver dataResolver) : this()
         {
+            _config = config ?? throw new ArgumentNullException(nameof(config));
             _repoManager = repoManager ?? throw new ArgumentNullException(nameof(repoManager));
             _dataResolver = dataResolver ?? throw new ArgumentNullException(nameof(dataResolver));
             _syncService = syncService ?? throw new ArgumentNullException(nameof(syncService));
@@ -177,6 +179,7 @@ namespace Tabi
 
             UploadCommand = new Command(async () =>
             {
+
                 // Check if there is an active internet connection
                 if (CrossConnectivity.Current.IsConnected)
                 {
@@ -185,7 +188,6 @@ namespace Tabi
                     // Check if connected to WiFI
                     if (!(upload = CrossConnectivity.Current.ConnectionTypes.Contains(Plugin.Connectivity.Abstractions.ConnectionType.WiFi)))
                     {
-                        // Ask permission to use mobile data
                         upload = await UserDialogs.Instance.ConfirmAsync(AppResources.MobileDataUsageText,
                                                                          AppResources.MobileDataUsageTitle,
                                                                          AppResources.ContinueButton,
@@ -199,20 +201,10 @@ namespace Tabi
                         try
                         {
                             await _syncService.UploadAll(false);
+                   
                             UserDialogs.Instance.HideLoading();
-                            IBitmap img;
-                            if (Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.Android)
-                            {
-                                img = await Splat.BitmapLoader.Current.LoadFromResource("checkmark_white", null, null);
-                            }
-                            else
-                            {
-                                img = await Splat.BitmapLoader.Current.LoadFromResource("checkmark", null, null);
-                            }
 
-
-                            UserDialogs.Instance.ShowImage(img, AppResources.DataUploadSuccesful);
-
+                            UserDialogs.Instance.Toast(AppResources.DataUploadSuccesful);
                         }
                         catch (Exception e)
                         {
@@ -224,6 +216,7 @@ namespace Tabi
                 }
                 else
                 {
+                    UserDialogs.Instance.HideLoading();
                     // Show user a message that there is no internet connection
                     await UserDialogs.Instance.AlertAsync(AppResources.NoInternetConnectionText, AppResources.NoInternetConnectionTitle, AppResources.OkText);
                 }
@@ -256,13 +249,8 @@ namespace Tabi
 
         public ICommand UploadCommand { protected set; get; }
 
+        public bool ShowSensorMeasurements { get => _config.SensorMeasurements.UserAdjustable; }
 
         public int InfoCount { get; set; }
-
-        public bool Tracking
-        {
-            get { return Settings.Current.Tracking; }
-            set { Settings.Current.Tracking = value; }
-        }
     }
 }

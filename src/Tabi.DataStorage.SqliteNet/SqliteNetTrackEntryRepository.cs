@@ -23,7 +23,7 @@ namespace Tabi.DataStorage.SqliteNet
             return connection.Table<TrackEntry>().LastOrDefault();
         }
 
-        public TrackEntry GetWithChildren(Guid id)
+        public TrackEntry GetWithChildren(int id)
         {
             return connection.GetWithChildren<TrackEntry>(id);
         }
