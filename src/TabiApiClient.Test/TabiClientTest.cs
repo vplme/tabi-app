@@ -8,23 +8,26 @@ namespace TabiApiClient.Test
     public class TabiClientTest
     {
         [Fact]
-        public async Task Test1Async()
+        public async Task TestAuthenticateAsync()
         {
-            ApiClient client = new ApiClient();
-            client.MockHttpClient = SetupMockHttpClient();
-            client.Mock = true;
+            ApiClient client = new ApiClient("http://localhost:8000")
+            {
+                MockHttpClient = SetupMockHttpClient(),
+                Mock = true
+            };
 
             TokenResult token = await client.Authenticate("user", "password");
-            Assert.NotEqual("", token.Token);
-            Assert.NotEqual(0, token.UserId);
 
+            Assert.NotNull(token);
+            Assert.Equal("test_token", token.Token);
+            Assert.Equal(1, token.UserId);
         }
 
         private HttpClient SetupMockHttpClient()
         {
             var mockHttp = new MockHttpMessageHandler();
             mockHttp.When("http://localhost:8000/api/v1/token")
-                    .Respond("application/json", "{'user_id': 1, 'token': 'Test McGee'}");
+                    .Respond("application/json", "{'UserId': 1, 'Token': 'test_token'}");
 
             return mockHttp.ToHttpClient();
         }
