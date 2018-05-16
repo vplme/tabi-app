@@ -156,7 +156,7 @@ namespace Tabi
             containerBuilder.RegisterType<MotionAccessViewModel>();
             containerBuilder.RegisterType<ThanksViewModel>();
             containerBuilder.RegisterType<TrackDetailViewModel>();
-
+            containerBuilder.RegisterType<StopDetailNameViewModel>();
 
             _container = containerBuilder.Build();
         }

@@ -60,5 +60,7 @@
 	<string>1.0.2</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.tabiapp.tabi</string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

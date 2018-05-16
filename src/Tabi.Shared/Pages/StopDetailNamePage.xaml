@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:local="clr-namespace:Tabi;assembly=Tabi.Shared" xmlns:i18n="clr-namespace:Tabi.Shared.Localization;assembly=Tabi.Shared"
+     xmlns:control="clr-namespace:Tabi.Shared.Controls;assembly=Tabi.Shared" x:Class="Tabi.Shared.Pages.StopDetailNamePage"
+     Title="{i18n:Translate StopNamePageTitle}">
+    <ContentPage.ToolbarItems>
+        <!-- Added in code behind -->
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <TableView Intent="Settings">
+            <TableRoot>
+                <TableSection Title="{i18n:Translate StopNamePageTitle}">
+                    <EntryCell Placeholder="{i18n:Translate SetStopNameHint}">
+                        <EntryCell.Label>
+                            <OnPlatform x:TypeArguments="x:String" iOS="{i18n:Translate StopNameLabel}" />
+                        </EntryCell.Label>
+                    </EntryCell>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+    </ContentPage.Content>
+</ContentPage>

@@ -23,6 +23,9 @@
                 <Setter Property="BackgroundColor" Value="{DynamicResource redButtonColor}" />
                 <Setter Property="TextColor" Value="White" />
             </Style>
+            <OnPlatform x:TypeArguments="Color" iOS="#1896BC" x:Key="TintColor" />
+            <Color x:Key="CellNormalTextColor">#000000</Color>
+            <Color x:Key="CellDetailTextColor">#979797</Color>
             <Color x:Key="tabiBaseColor">#0299C3</Color>
             <Color x:Key="greyButtonColor">#DADADA</Color>
             <Color x:Key="blueButtonColor">#157EFA</Color>
@@ -45,6 +48,7 @@
             <Thickness x:Key="MediumPadding">8</Thickness>
             <Thickness x:Key="StandardPadding">16</Thickness>
             <OnPlatform x:TypeArguments="Thickness" Android="16,8,16,8" iOS="10,8,10,8" x:Key="NormalPadding" />
+            <OnPlatform x:TypeArguments="Thickness" Android="16,8,16,8" iOS="15,8,15,8" x:Key="ListViewInCardPadding" />
             <x:Double x:Key="SmallSpacing">4</x:Double>
             <x:Double x:Key="MediumSpacing">8</x:Double>
             <x:Double x:Key="StandardSpacing">16</x:Double>
@@ -55,49 +59,49 @@
             <Color x:Key="ListSeparator">#C8C7CC</Color>
             <OnPlatform x:TypeArguments="Thickness" Android="8,16" iOS="0,0,0,16" WinPhone="0,0,0,16" x:Key="CardPadding" />
             <OnPlatform x:TypeArguments="x:Double" Android="16" iOS="0" WinPhone="0" x:Key="CardSpacing" />
-            <OnPlatform x:TypeArguments="x:Double" Android="16" iOS="16" WinPhone="13" x:Key="EvolveListItemTextStyleSize" />
-            <OnPlatform x:TypeArguments="x:Double" Android="13" iOS="13" WinPhone="13" x:Key="EvolveListItemDetailTextStyleSize" />
+            <OnPlatform x:TypeArguments="x:Double" Android="16" iOS="16" WinPhone="13" x:Key="TabiListItemTextStyleSize" />
+            <OnPlatform x:TypeArguments="x:Double" Android="13" iOS="13" WinPhone="13" x:Key="TabiListItemDetailTextStyleSize" />
             <OnPlatform x:TypeArguments="x:Double" Android="18" iOS="13" WinPhone="13" x:Key="LabelSectionFontSize" />
-            <Style x:Key="EvolveListItemTextStyle" TargetType="Label" BaseResourceKey="ListItemTextStyle">
-                <Setter Property="FontSize" Value="{DynamicResource EvolveListItemTextStyleSize}" />
+            <Style x:Key="TabiListItemTextStyle" TargetType="Label" BaseResourceKey="ListItemTextStyle">
+                <Setter Property="FontSize" Value="{DynamicResource TabiListItemTextStyleSize}" />
             </Style>
-            <Style x:Key="EvolveDetailTextStyle" TargetType="Label" BaseResourceKey="ListItemDetailTextStyle">
-                <Setter Property="FontSize" Value="{DynamicResource EvolveListItemDetailTextStyleSize}" />
+            <Style x:Key="TabiDetailTextStyle" TargetType="Label" BaseResourceKey="ListItemDetailTextStyle">
+                <Setter Property="FontSize" Value="{DynamicResource TabiListItemDetailTextStyleSize}" />
             </Style>
             <Style x:Key="SectionLabelTextStyle" TargetType="Label" BaseResourceKey="ListItemDetailTextStyle">
                 <Setter Property="FontSize" Value="{DynamicResource LabelSectionFontSize}" />
                 <Setter Property="TextColor" Value="{DynamicResource LabelSectionText}" />
                 <Setter Property="FontFamily" Value="{DynamicResource SectionLabelFontFamily}" />
             </Style>
-            <Style x:Key="EvolveListItemDetailTextStyle" TargetType="Label" BaseResourceKey="ListItemDetailTextStyle">
-                <Setter Property="FontSize" Value="{DynamicResource EvolveListItemDetailTextStyleSize}" />
+            <Style x:Key="TabiListItemDetailTextStyle" TargetType="Label" BaseResourceKey="ListItemDetailTextStyle">
+                <Setter Property="FontSize" Value="{DynamicResource TabiListItemDetailTextStyleSize}" />
                 <Setter Property="TextColor" Value="{DynamicResource DetailTextColor}" />
             </Style>
-            <Style x:Key="EvolveListItemDetailPrimaryTextStyle" TargetType="Label" BaseResourceKey="ListItemDetailTextStyle">
-                <Setter Property="FontSize" Value="{DynamicResource EvolveListItemDetailTextStyleSize}" />
+            <Style x:Key="TabiListItemDetailPrimaryTextStyle" TargetType="Label" BaseResourceKey="ListItemDetailTextStyle">
+                <Setter Property="FontSize" Value="{DynamicResource TabiListItemDetailTextStyleSize}" />
                 <Setter Property="TextColor" Value="{DynamicResource Primary}" />
             </Style>
             <Style x:Key="EventTitleStyle" TargetType="Label">
-                <Setter Property="FontSize" Value="{DynamicResource EvolveListItemTextStyleSize}" />
+                <Setter Property="FontSize" Value="{DynamicResource TabiListItemTextStyleSize}" />
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="FontFamily" Value="{DynamicResource SectionLabelFontFamily}" />
                 <Setter Property="Font" Value="Semibold" />
             </Style>
-            <Style x:Key="EvolveListItemTextStyleBold" TargetType="Label" BaseResourceKey="ListItemTextStyle">
-                <Setter Property="FontSize" Value="{DynamicResource EvolveListItemTextStyleSize}" />
+            <Style x:Key="TabiListItemTextStyleBold" TargetType="Label" BaseResourceKey="ListItemTextStyle">
+                <Setter Property="FontSize" Value="{DynamicResource TabiListItemTextStyleSize}" />
                 <Setter Property="Font" Value="Semibold" />
             </Style>
-            <Style x:Key="EvolveDetailTextStyleBold" TargetType="Label" BaseResourceKey="ListItemDetailTextStyle">
-                <Setter Property="FontSize" Value="{DynamicResource EvolveListItemDetailTextStyleSize}" />
+            <Style x:Key="TabiDetailTextStyleBold" TargetType="Label" BaseResourceKey="ListItemDetailTextStyle">
+                <Setter Property="FontSize" Value="{DynamicResource TabiListItemDetailTextStyleSize}" />
                 <Setter Property="FontAttributes" Value="Bold" />
             </Style>
-            <Style x:Key="EvolveListItemDetailTextStyleBold" TargetType="Label" BaseResourceKey="ListItemDetailTextStyle">
-                <Setter Property="FontSize" Value="{DynamicResource EvolveListItemDetailTextStyleSize}" />
+            <Style x:Key="TabiListItemDetailTextStyleBold" TargetType="Label" BaseResourceKey="ListItemDetailTextStyle">
+                <Setter Property="FontSize" Value="{DynamicResource TabiListItemDetailTextStyleSize}" />
                 <Setter Property="TextColor" Value="{DynamicResource DetailTextColor}" />
                 <Setter Property="FontAttributes" Value="Bold" />
             </Style>
-            <Style x:Key="EvolveListItemDetailPrimaryTextStyleBold" TargetType="Label" BaseResourceKey="ListItemDetailTextStyle">
-                <Setter Property="FontSize" Value="{DynamicResource EvolveListItemDetailTextStyleSize}" />
+            <Style x:Key="TabiListItemDetailPrimaryTextStyleBold" TargetType="Label" BaseResourceKey="ListItemDetailTextStyle">
+                <Setter Property="FontSize" Value="{DynamicResource TabiListItemDetailTextStyleSize}" />
                 <Setter Property="TextColor" Value="{DynamicResource Primary}" />
                 <Setter Property="FontAttributes" Value="Bold" />
             </Style>

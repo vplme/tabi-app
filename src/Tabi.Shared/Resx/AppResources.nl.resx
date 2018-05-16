@@ -292,4 +292,28 @@
     <data name="Settings" xml:space="preserve">
         <value>Instellingen</value>
     </data>
+    <data name="StopNameLabel" xml:space="preserve">
+        <value>Naam</value>
+    </data>
+    <data name="StopMotiveLabel" xml:space="preserve">
+        <value>Motief</value>
+    </data>
+    <data name="DeviceIdLabel" xml:space="preserve">
+        <value>Device Identifier</value>
+    </data>
+    <data name="SaveText" xml:space="preserve">
+        <value>Opslaan</value>
+    </data>
+     <data name="SetStopNameHint" xml:space="preserve">
+        <value>Vul stopnaam in</value>
+    </data>
+    <data name="SetStopMotiveHint" xml:space="preserve">
+        <value>Vul stopmotief in</value>
+    </data>
+    <data name="StopDetailPageExplanation" xml:space="preserve">
+        <value>Vul de naam van de huidige stop in en vul de reden (motief) van de stop in.</value>
+    </data>
+     <data name="StopMotivePageTitle" xml:space="preserve">
+        <value>Stopmotief</value>
+    </data>
 </root>

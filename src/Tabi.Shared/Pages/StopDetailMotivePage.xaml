@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:local="clr-namespace:Tabi;assembly=Tabi.Shared" xmlns:i18n="clr-namespace:Tabi.Shared.Localization;assembly=Tabi.Shared"
+     xmlns:control="clr-namespace:Tabi.Shared.Controls;assembly=Tabi.Shared" x:Class="Tabi.Shared.Pages.StopDetailMotivePage"
+     Title="{i18n:Translate StopMotivePageTitle}">
+    <ContentPage.ToolbarItems>
+        <!-- Added in code behind -->
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <TableView Intent="Settings">
+            <TableRoot>
+                <TableSection Title="{i18n:Translate StopMotivePageTitle}">
+                    <EntryCell Placeholder="{i18n:Translate SetStopMotiveHint}">
+                        <EntryCell.Label>
+                            <OnPlatform x:TypeArguments="x:String" iOS="{i18n:Translate StopMotiveLabel}" />
+                        </EntryCell.Label>
+                    </EntryCell>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+    </ContentPage.Content>
+</ContentPage>

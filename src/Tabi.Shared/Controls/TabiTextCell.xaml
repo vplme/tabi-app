@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Tabi.Shared.Controls.TabiTextCell">
-	<ViewCell.View>
-        <Label Text="Test"/>
-	</ViewCell.View>
-</ViewCell>

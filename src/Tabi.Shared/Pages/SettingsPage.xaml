@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:i18n="clr-namespace:Tabi.Shared.Localization;assembly=Tabi.Shared" xmlns:control="clr-namespace:Tabi.Shared.Controls;assembly=Tabi.Shared" xmlns:local="clr-namespace:Tabi;assembly=Tabi.Shared" x:Class="Tabi.SettingsPage" Title="{i18n:Translate SettingsPageTitle}" BackgroundColor="{StaticResource WindowBackgroundTable}">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:i18n="clr-namespace:Tabi.Shared.Localization;assembly=Tabi.Shared" xmlns:control="clr-namespace:Tabi.Shared.Controls;assembly=Tabi.Shared"
+     xmlns:local="clr-namespace:Tabi;assembly=Tabi.Shared" x:Class="Tabi.SettingsPage" Title="{i18n:Translate SettingsPageTitle}"
+     BackgroundColor="{StaticResource WindowBackgroundTable}">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Spacing="0">
-                <StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}" Spacing="{DynamicResource CardSpacing}" Padding="{DynamicResource CardPadding}">
+                <StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}" Spacing="{DynamicResource CardSpacing}"
+                     Padding="{DynamicResource CardPadding}">
                     <control:CardView>
                         <control:CardView.IsVisible>
                             <OnPlatform x:TypeArguments="x:Boolean" Android="true" iOS="true" WinPhone="true" />
@@ -12,7 +16,8 @@
                             <control:LabelSection Text="{i18n:Translate TrackingSectionLabel}" />
                             <control:HeaderDivider />
                             <StackLayout BackgroundColor="White" Padding="{DynamicResource NormalPadding}">
-                                <Label Text="{i18n:Translate TrackingExplanation}" HorizontalOptions="Center" Style="{DynamicResource EvolveListItemDetailTextStyle}" />
+                                <Label Text="{i18n:Translate TrackingExplanation}" HorizontalOptions="Center"
+                                     Style="{DynamicResource TabiListItemDetailTextStyle}" />
                             </StackLayout>
                             <control:SettingsSectionDivider />
                             <Grid Padding="{DynamicResource NormalPadding}" ColumnSpacing="0" BackgroundColor="White">
@@ -20,16 +25,18 @@
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-                                <Label Style="{DynamicResource EvolveListItemTextStyle}" VerticalOptions="Center" Text="{i18n:Translate TrackingSwitchLabel}" />
+                                <Label Style="{DynamicResource TabiListItemTextStyle}" VerticalOptions="Center" Text="{i18n:Translate TrackingSwitchLabel}" />
                                 <Switch Grid.Column="1" HorizontalOptions="Fill" IsToggled="{Binding Settings.Tracking}" />
                             </Grid>
                             <control:SettingsSectionDivider IsVisible="{Binding ShowSensorMeasurements}" />
-                            <Grid IsVisible="{Binding ShowSensorMeasurements}" Padding="{DynamicResource NormalPadding}" ColumnSpacing="0" BackgroundColor="White">
+                            <Grid IsVisible="{Binding ShowSensorMeasurements}" Padding="{DynamicResource NormalPadding}" ColumnSpacing="0"
+                                 BackgroundColor="White">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-                                <Label Style="{DynamicResource EvolveListItemTextStyle}" VerticalOptions="Center" Text="{i18n:Translate SensorMeasurementsSwitchLabel}" />
+                                <Label Style="{DynamicResource TabiListItemTextStyle}" VerticalOptions="Center"
+                                     Text="{i18n:Translate SensorMeasurementsSwitchLabel}" />
                                 <Switch Grid.Column="1" HorizontalOptions="Fill" IsToggled="{Binding Settings.SensorMeasurements}" />
                             </Grid>
                             <control:SettingsSectionDivider />
@@ -38,8 +45,9 @@
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" Style="{DynamicResource EvolveListItemTextStyle}" VerticalOptions="Center" Text="{i18n:Translate UploadDataLabel}" />
-                                <Button Grid.Column="1" HorizontalOptions="Center" Text="{i18n:Translate UploadDataButton}" Command="{Binding UploadCommand}"/>
+                                <Label Grid.Column="0" Style="{DynamicResource TabiListItemTextStyle}" VerticalOptions="Center"
+                                     Text="{i18n:Translate UploadDataLabel}" />
+                                <Button Grid.Column="1" HorizontalOptions="Center" TextColor="{DynamicResource TintColor}" Text="{i18n:Translate UploadDataButton}" Command="{Binding UploadCommand}" />
                             </Grid>
                             <control:FooterDivider />
                         </StackLayout>
@@ -59,12 +67,23 @@
                                 <Label Text="{i18n:Translate VersionLabel}" x:Name="VersionInfo" />
                                 <Label Grid.Column="1" x:Name="VersionLabel" />
                             </Grid>
+                            <control:SettingsSectionDivider />
+                            <Grid Padding="{DynamicResource NormalPadding}" ColumnSpacing="0" BackgroundColor="White">
+                  
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{i18n:Translate DeviceIdLabel}" />
+                                <Label Grid.Column="1" Text="{Binding Settings.Device}" />
+                            </Grid>
                             <control:FooterDivider />
                             <StackLayout>
                                 <StackLayout.Padding>
                                     <OnPlatform x:TypeArguments="Thickness" iOS="16,8,16,0" Android="16,8" WinPhone="16,8" />
                                 </StackLayout.Padding>
-                                <Label IsVisible="{Binding Source={x:Static local:App.Developer}}" Text="Developer app version" Style="{DynamicResource EvolveListItemDetailTextStyle}" />
+                                <Label IsVisible="{Binding Source={x:Static local:App.Developer}}" Text="Developer app version"
+                                     Style="{DynamicResource TabiListItemDetailTextStyle}" />
                             </StackLayout>
                         </StackLayout>
                     </control:CardView>
@@ -111,7 +130,7 @@
                                 <StackLayout.Padding>
                                     <OnPlatform x:TypeArguments="Thickness" iOS="16,8,16,0" Android="16,8" WinPhone="16,8" />
                                 </StackLayout.Padding>
-                                <Label Text="A: 42" Style="{DynamicResource EvolveListItemDetailTextStyle}">
+                                <Label Text="A: 42" Style="{DynamicResource TabiListItemDetailTextStyle}">
                                 </Label>
                             </StackLayout>
                         </StackLayout>
