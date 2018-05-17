@@ -33,9 +33,13 @@ namespace Tabi.ViewModels
             _navigation = navigation ?? throw new ArgumentNullException(nameof(navigation));
 
             Motive stopMotive = _repoManager.MotiveRepository.GetByStopId(_stopVisit.StopId);
-            Motive = new MotiveViewModel(stopMotive);
-            StopVisit = new StopVisitViewModel(stopVisit);
 
+            // Initialize a new motive since the ViewModel needs one.
+            stopMotive = stopMotive ?? new Motive() { StopId = _stopVisit.StopId };
+
+            Motive = new MotiveViewModel(stopMotive);
+
+            StopVisit = new StopVisitViewModel(stopVisit);
 
             OpenStopNameCommand = new Command(async () =>
             {

@@ -32,7 +32,6 @@ namespace Tabi.Shared.Pages
 
             BindingContext = App.Container.Resolve<StopDetailNameViewModel>(new TypedParameter(typeof(INavigation), Navigation),
                                                                             new TypedParameter(typeof(StopVisitViewModel), stopVisitViewModel));
-            ViewModel.Navigation = Navigation;
         }
     }
 }

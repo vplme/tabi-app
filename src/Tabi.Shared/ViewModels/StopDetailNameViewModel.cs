@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Tabi.DataObjects;
 using Tabi.DataStorage;
 using Xamarin.Forms;
 
@@ -21,6 +22,16 @@ namespace Tabi.Shared.ViewModels
 
             SaveCommand = new Command(async () =>
             {
+                Stop newStop = StopVisit.SaveViewModelToStop();
+
+                repoManager.StopRepository.Add(newStop);
+
+                StopVisit sv = stopVisitViewModel.StopVisit;
+                sv.StopId = newStop.Id;
+                sv.Stop = newStop;
+
+                repoManager.StopVisitRepository.Update(sv);
+
                 await PopPageAsync();
             });
             CancelCommand = new Command(async () =>
@@ -33,19 +44,17 @@ namespace Tabi.Shared.ViewModels
 
         private async Task PopPageAsync()
         {
-            if (Device.RuntimePlatform == Device.iOS)
+            if (Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.iOS)
             {
-                await Navigation.PopModalAsync();
+                await _navigation.PopModalAsync();
             }
             else
             {
-                await Navigation.PopAsync();
+                await _navigation.PopAsync();
             }
         }
 
         public StopVisitViewModel StopVisit { get => _stopVisitViewModel; }
-
-        public INavigation Navigation { get; set; }
 
         public ICommand SaveCommand { get; set; }
 

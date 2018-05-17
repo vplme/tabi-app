@@ -1,4 +1,5 @@
-﻿using MvvmHelpers;
+﻿using System;
+using MvvmHelpers;
 using Newtonsoft.Json;
 using SQLite;
 namespace Tabi.DataObjects
@@ -8,25 +9,12 @@ namespace Tabi.DataObjects
         [PrimaryKey, AutoIncrement, JsonProperty("PhoneStopId")]
         public int Id { get; set; }
 
-        private string name;
-        public string Name
-        {
-            get => name;
-            set => SetProperty(ref name, value);
-        }
+        public string Name { get; set; }
 
-        private double latitude;
-        public double Latitude
-        {
-            get => latitude;
-            set => SetProperty(ref latitude, value);
-        }
+        public double Latitude { get; set; }
 
-        double longitude;
-        public double Longitude
-        {
-            get => longitude;
-            set => SetProperty(ref longitude, value);
-        }
+        public double Longitude { get; set; }
+
+        public DateTimeOffset Timestamp { get; set; }
     }
 }

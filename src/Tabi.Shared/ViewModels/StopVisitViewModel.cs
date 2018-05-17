@@ -15,6 +15,8 @@ namespace Tabi.Shared.ViewModels
             ResetViewModel();
         }
 
+        public StopVisit StopVisit { get => _stopVisit; }
+
         private string name;
 
         public string Name
@@ -36,6 +38,16 @@ namespace Tabi.Shared.ViewModels
         public void ResetViewModel()
         {
             Name = _stopVisit.Stop.Name ?? "";
+        }
+
+        public Stop SaveViewModelToStop()
+        {
+            Stop stop = _stopVisit.Stop;
+
+            stop.Name = name;
+            stop.Timestamp = DateTimeOffset.Now;
+
+            return stop;
         }
 
     }
