@@ -18,17 +18,17 @@ namespace Tabi
 
         public StopDetailPage(StopVisit sv)
         {
+            InitializeComponent();
+            BindingContext = App.Container.Resolve<StopDetailViewModel>(new TypedParameter(typeof(StopVisit), sv), new TypedParameter(typeof(INavigation), Navigation));
+
             Setup();
 
-            ViewModel.Stop = new StopViewModel(sv.Stop);
-            ViewModel.Navigation = Navigation;
-            SetMapLocation(ViewModel.Stop.Name, ViewModel.Stop.Latitude, ViewModel.Stop.Longitude);
+            SetMapLocation(ViewModel.Name, ViewModel.Latitude, ViewModel.Longitude);
         }
 
         void Setup()
         {
-            InitializeComponent();
-            BindingContext = App.Container.Resolve<StopDetailViewModel>();
+
             routeMap.HeightRequest = App.ScreenHeight * 0.30;
             routeMap.ClearMap();
         }
@@ -37,7 +37,7 @@ namespace Tabi
         {
             base.OnAppearing();
 
-            var adjust = Xamarin.Forms.Device.RuntimePlatform != Xamarin.Forms.Device.Android ? 1 : - ViewModel.DataItems.Count + 1;
+            var adjust = Xamarin.Forms.Device.RuntimePlatform != Xamarin.Forms.Device.Android ? 1 : -ViewModel.DataItems.Count + 1;
             ListViewStop.HeightRequest = (ViewModel.DataItems.Count * ListViewStop.RowHeight) - adjust;
         }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Autofac;
+using Tabi.DataObjects;
 using Tabi.Shared.Resx;
 using Tabi.Shared.ViewModels;
 
@@ -15,11 +16,11 @@ namespace Tabi.Shared.Pages
         StopDetailMotiveViewModel ViewModel => vm ?? (vm = BindingContext as StopDetailMotiveViewModel);
         StopDetailMotiveViewModel vm;
 
-        public StopDetailMotivePage()
+        public StopDetailMotivePage(MotiveViewModel motiveViewModel)
         {
             InitializeComponent();
 
-            if (Device.RuntimePlatform == Device.iOS)
+            if (Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.iOS)
             {
                 ExtendedToolbarItem cancelToolbarItem = new ExtendedToolbarItem() { Left = true, Text = AppResources.CancelText };
                 cancelToolbarItem.SetBinding(ExtendedToolbarItem.CommandProperty, "CancelCommand");
@@ -30,9 +31,7 @@ namespace Tabi.Shared.Pages
             saveToolbarItem.SetBinding(ExtendedToolbarItem.CommandProperty, "SaveCommand");
             ToolbarItems.Add(saveToolbarItem);
 
-            BindingContext = App.Container.Resolve<StopDetailMotiveViewModel>();
-
-            ViewModel.Navigation = Navigation;
+            BindingContext = App.Container.Resolve<StopDetailMotiveViewModel>(new TypedParameter(typeof(MotiveViewModel), motiveViewModel), new TypedParameter(typeof(INavigation), Navigation));
         }
     }
 }

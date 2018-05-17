@@ -1,16 +1,37 @@
 ﻿using System;
 using System.Windows.Input;
+using MvvmHelpers;
 
 namespace Tabi.Shared.Model
 {
-    public class ListItem
+    public class ListItem : ObservableObject
     {
-        public string Name { get; set; }
+        private string name;
+        public string Name
+        {
+            get => name;
+            set => SetProperty(ref name, value);
+        }
 
-        public string Subtitle { get; set; }
+        private string subtitle;
+        public string Subtitle
+        {
+            get => subtitle;
+            set => SetProperty(ref subtitle, value);
+        }
 
-        public ICommand Command { get; set; }
+        private ICommand command;
+        public ICommand Command
+        {
+            get => command;
+            set => SetProperty(ref command, value);
+        }
 
-        public object Parameter { get; set; }
+        private object parameter;
+        public object Parameter
+        {
+            get => parameter;
+            set => SetProperty(ref parameter, value);
+        }
     }
 }

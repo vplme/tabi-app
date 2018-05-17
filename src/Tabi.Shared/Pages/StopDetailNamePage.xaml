@@ -10,7 +10,7 @@
         <TableView Intent="Settings">
             <TableRoot>
                 <TableSection Title="{i18n:Translate StopNamePageTitle}">
-                    <EntryCell Placeholder="{i18n:Translate SetStopNameHint}">
+                    <EntryCell Placeholder="{i18n:Translate SetStopNameHint}" Text="{Binding StopVisit.Name}">
                         <EntryCell.Label>
                             <OnPlatform x:TypeArguments="x:String" iOS="{i18n:Translate StopNameLabel}" />
                         </EntryCell.Label>

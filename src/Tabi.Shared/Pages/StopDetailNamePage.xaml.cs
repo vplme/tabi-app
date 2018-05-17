@@ -15,7 +15,7 @@ namespace Tabi.Shared.Pages
         StopDetailNameViewModel ViewModel => vm ?? (vm = BindingContext as StopDetailNameViewModel);
         StopDetailNameViewModel vm;
 
-        public StopDetailNamePage()
+        public StopDetailNamePage(StopVisitViewModel stopVisitViewModel)
         {
             InitializeComponent();
 
@@ -30,7 +30,8 @@ namespace Tabi.Shared.Pages
             saveToolbarItem.SetBinding(ExtendedToolbarItem.CommandProperty, "SaveCommand");
             ToolbarItems.Add(saveToolbarItem);
 
-            BindingContext = App.Container.Resolve<StopDetailNameViewModel>();
+            BindingContext = App.Container.Resolve<StopDetailNameViewModel>(new TypedParameter(typeof(INavigation), Navigation),
+                                                                            new TypedParameter(typeof(StopVisitViewModel), stopVisitViewModel));
             ViewModel.Navigation = Navigation;
         }
     }

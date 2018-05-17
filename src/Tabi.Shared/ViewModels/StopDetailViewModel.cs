@@ -16,27 +16,82 @@ namespace Tabi.ViewModels
     {
         private readonly IRepoManager _repoManager;
 
-        public StopViewModel Stop { get; set; }
+        private readonly StopVisit _stopVisit;
 
-        public ObservableRangeCollection<ListItem> DataItems { get; set; }
+        private readonly INavigation _navigation;
 
-        public StopDetailViewModel(IRepoManager repoManager)
+        private ListItem _nameListItem;
+
+        private ListItem _motiveListItem;
+
+        public ObservableRangeCollection<ListItem> DataItems { get; private set; }
+
+        public StopDetailViewModel(IRepoManager repoManager, INavigation navigation, StopVisit stopVisit)
         {
             _repoManager = repoManager ?? throw new ArgumentNullException(nameof(repoManager));
+            _stopVisit = stopVisit ?? throw new ArgumentNullException(nameof(stopVisit));
+            _navigation = navigation ?? throw new ArgumentNullException(nameof(navigation));
 
-            DataItems = new ObservableRangeCollection<ListItem>();
+            Motive stopMotive = _repoManager.MotiveRepository.GetByStopId(_stopVisit.StopId);
+            Motive = new MotiveViewModel(stopMotive);
+            StopVisit = new StopVisitViewModel(stopVisit);
+
 
             OpenStopNameCommand = new Command(async () =>
             {
-                await OpenPage(new StopDetailNamePage());
+                StopDetailNamePage namePage = new StopDetailNamePage(StopVisit);
+                await OpenPage(namePage);
             });
 
             OpenStopMotiveCommand = new Command(async () =>
             {
-                await OpenPage(new StopDetailMotivePage());
+                StopDetailMotivePage motivePage = new StopDetailMotivePage(Motive);
+                await OpenPage(motivePage);
             });
 
-            SetListData();
+            DataItems = new ObservableRangeCollection<ListItem>();
+
+            _nameListItem = new ListItem()
+            {
+                Name = AppResources.StopNameLabel,
+                Subtitle = StopVisit.Name ?? AppResources.SetStopMotiveHint,
+                Command = OpenStopNameCommand
+            };
+
+            _motiveListItem = new ListItem()
+            {
+                Name = AppResources.StopMotiveLabel,
+                Subtitle = Motive.Text ?? AppResources.SetStopMotiveHint,
+                Command = OpenStopMotiveCommand
+            };
+
+            DataItems.Add(_nameListItem);
+            DataItems.Add(_motiveListItem);
+
+            Motive.PropertyChanged += MotiveViewModel_PropertyChanged;
+            StopVisit.PropertyChanged += StopVisit_PropertyChanged; ;
+
+        }
+
+
+
+        public MotiveViewModel Motive { get; private set; }
+
+        public StopVisitViewModel StopVisit { get; private set; }
+
+        public double Latitude
+        {
+            get => _stopVisit.Stop.Latitude;
+        }
+
+        public double Longitude
+        {
+            get => _stopVisit.Stop.Longitude;
+        }
+
+        public string Name
+        {
+            get => _stopVisit.Stop.Name;
         }
 
         private async Task OpenPage(Page page)
@@ -45,43 +100,37 @@ namespace Tabi.ViewModels
             if (Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.iOS)
             {
                 page = new NavigationPage(page);
-                await Navigation.PushModalAsync(page);
+                await _navigation.PushModalAsync(page);
             }
             else
             {
                 // On Android use existing NavigationPage/no modal. Since we can't have
                 // a back button on the left side easily.
-                await Navigation.PushAsync(page);
+                await _navigation.PushAsync(page);
             }
         }
 
-        private void SetListData()
-        {
-            DataItems.Clear();
-
-            string nameSubtitle = Stop?.Name ?? AppResources.SetStopNameHint;
-            string motiveSubtitle = Stop?.Motive ?? AppResources.SetStopMotiveHint;
-
-
-            DataItems.Add(new ListItem()
-            {
-                Name = AppResources.StopNameLabel,
-                Subtitle = nameSubtitle,
-                Command = OpenStopNameCommand
-            });
-
-            DataItems.Add(new ListItem()
-            {
-                Name = AppResources.StopMotiveLabel,
-                Subtitle = motiveSubtitle,
-                Command = OpenStopMotiveCommand
-            });
-        }
-
-        public INavigation Navigation { get; set; }
 
         public ICommand OpenStopNameCommand { get; set; }
         public ICommand OpenStopMotiveCommand { get; set; }
+
+        void StopVisit_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "Name")
+            {
+                _nameListItem.Subtitle = StopVisit.Name ?? AppResources.SetStopMotiveHint;
+            }
+        }
+
+        void MotiveViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "Text")
+            {
+                _motiveListItem.Subtitle = Motive.Text ?? AppResources.SetStopMotiveHint;
+            }
+        }
+
+
 
 
         private string title;

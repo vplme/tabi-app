@@ -3,21 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tabi.Shared", "Tabi.Shared\Tabi.Shared.csproj", "{E9A89179-62A6-4258-A773-8C871B906DBF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tabi.Shared", "Tabi.Shared\Tabi.Shared.csproj", "{E9A89179-62A6-4258-A773-8C871B906DBF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tabi.iOS", "Tabi.iOS\Tabi.iOS.csproj", "{AA35B178-D049-4789-91ED-960AE7CD22E6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tabi.Android", "Tabi.Android\Tabi.Android.csproj", "{CB7AD43D-04F2-42CA-8A26-A83DC6D5C3FA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tabi.DataStorage", "Tabi.DataStorage\Tabi.DataStorage.csproj", "{569732D5-C994-4F2D-A1B5-D6F13B4A5392}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tabi.DataStorage", "Tabi.DataStorage\Tabi.DataStorage.csproj", "{569732D5-C994-4F2D-A1B5-D6F13B4A5392}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tabi.DataStorage.SqliteNet", "Tabi.DataStorage.SqliteNet\Tabi.DataStorage.SqliteNet.csproj", "{24E617E8-D4F5-46EB-95DD-18E921375939}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tabi.DataStorage.SqliteNet", "Tabi.DataStorage.SqliteNet\Tabi.DataStorage.SqliteNet.csproj", "{24E617E8-D4F5-46EB-95DD-18E921375939}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TabiApiClient", "TabiApiClient\TabiApiClient.csproj", "{659317A6-EE67-419E-9D5D-8973F3AFCB0D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TabiApiClient", "TabiApiClient\TabiApiClient.csproj", "{659317A6-EE67-419E-9D5D-8973F3AFCB0D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TabiApiClient.Test", "TabiApiClient.Test\TabiApiClient.Test.csproj", "{D3FCD8B2-E48F-4FEC-B6E5-AEAACEE2B7F5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TabiApiClient.Test", "TabiApiClient.Test\TabiApiClient.Test.csproj", "{D3FCD8B2-E48F-4FEC-B6E5-AEAACEE2B7F5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tabi.DataObjects", "Tabi.DataObjects\Tabi.DataObjects.csproj", "{B9BF94B9-C02D-4216-9061-1255638E10C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tabi.DataObjects", "Tabi.DataObjects\Tabi.DataObjects.csproj", "{B9BF94B9-C02D-4216-9061-1255638E10C4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tabi.Test", "Tabi.Test\Tabi.Test.csproj", "{20EBA361-FF71-4850-BF20-6E3C94F7B8C6}"
 EndProject

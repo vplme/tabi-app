@@ -1,36 +1,54 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Tabi.DataObjects;
+using Tabi.DataStorage;
 using Xamarin.Forms;
 
 namespace Tabi.Shared.ViewModels
 {
     public class StopDetailMotiveViewModel : BaseViewModel
     {
-        public StopDetailMotiveViewModel()
+        private readonly IRepoManager _repoManager;
+        private readonly INavigation _navigation;
+
+
+        public StopDetailMotiveViewModel(IRepoManager repoManager, INavigation navigation, MotiveViewModel motiveViewModel)
         {
+            _repoManager = repoManager ?? throw new ArgumentNullException(nameof(repoManager));
+            Motive = motiveViewModel ?? throw new ArgumentNullException(nameof(motiveViewModel));
+            _navigation = navigation ?? throw new ArgumentNullException(nameof(navigation));
 
-            SaveCommand = new Command(async () => { await PopPageAsync(); });
-            CancelCommand = new Command(async () => { await PopPageAsync(); });
-
+            SaveCommand = new Command(async () =>
+            {
+                await PopPageAsync();
+                Motive newMotive = Motive.SaveViewModelToModel();
+                repoManager.MotiveRepository.Add(newMotive);
+            });
+            CancelCommand = new Command(async () =>
+            {
+                Motive.ResetViewModel();
+                await PopPageAsync();
+            });
         }
+
+        public MotiveViewModel Motive { get; private set; }
 
         private async Task PopPageAsync()
         {
-            if (Device.RuntimePlatform == Device.iOS)
+            if (Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.iOS)
             {
-                await Navigation.PopModalAsync();
+                await _navigation.PopModalAsync();
             }
             else
             {
-                await Navigation.PopAsync();
+                await _navigation.PopAsync();
             }
         }
-
-        public INavigation Navigation { get; set; }
 
         public ICommand SaveCommand { get; set; }
 
         public ICommand CancelCommand { get; set; }
+
     }
 }

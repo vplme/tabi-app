@@ -10,7 +10,7 @@
         <TableView Intent="Settings">
             <TableRoot>
                 <TableSection Title="{i18n:Translate StopMotivePageTitle}">
-                    <EntryCell Placeholder="{i18n:Translate SetStopMotiveHint}">
+                    <EntryCell Placeholder="{i18n:Translate SetStopMotiveHint}" Text="{Binding Motive.Text}">
                         <EntryCell.Label>
                             <OnPlatform x:TypeArguments="x:String" iOS="{i18n:Translate StopMotiveLabel}" />
                         </EntryCell.Label>
