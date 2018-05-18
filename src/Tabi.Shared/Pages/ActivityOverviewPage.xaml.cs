@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Autofac;
@@ -15,7 +16,8 @@ namespace Tabi
     {
         ActivityOverviewViewModel ViewModel => vm ?? (vm = BindingContext as ActivityOverviewViewModel);
         ActivityOverviewViewModel vm;
-        DateTimeOffset lastLoad;
+
+        Dictionary<DateTimeOffset, DateTimeOffset> lastLoads = new Dictionary<DateTimeOffset, DateTimeOffset>();
 
         public ActivityOverviewPage()
         {
@@ -42,8 +44,12 @@ namespace Tabi
 
         async Task UpdateAsync()
         {
+            ViewModel.IsBusy = true;
+            Task uiTask = Task.Delay(2000);
             await ViewModel.UpdateStopVisitsAsync();
-            lastLoad = DateTimeOffset.Now;
+            // Show the UI for at least a second..
+            await uiTask;
+            ViewModel.IsBusy = false;
         }
 
         async void ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)

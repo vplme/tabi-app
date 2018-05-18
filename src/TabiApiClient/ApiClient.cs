@@ -12,7 +12,7 @@ using TabiApiClient.Models;
 
 namespace TabiApiClient
 {
-    public class ApiClient
+    public class ApiClient : IApiClient
     {
         private static HttpClient client;
 
@@ -200,22 +200,22 @@ namespace TabiApiClient
             return response.IsSuccessStatusCode;
         }
 
-        public async Task<bool> PostLogs(int deviceId, List<LogEntry> messages)
+        public async Task<bool> PostLogs(int deviceId, List<Models.Log> logs)
         {
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/logs");
-            HttpContent httpContent = await SerializeObjectAsync(messages);
+            HttpContent httpContent = await SerializeObjectAsync(logs);
             HttpResponseMessage response = await client.PostAsync(path, httpContent);
             return response.IsSuccessStatusCode;
         }
 
-        public async Task<bool> PostBatteryData(int deviceId, List<BatteryEntry> batteryEntries)
+        public async Task<bool> PostBatteryData(int deviceId, List<Models.BatteryInfo> batteryEntries)
         {
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/battery");
             HttpContent httpContent = await SerializeObjectAsync(batteryEntries);
             HttpResponseMessage response = await client.PostAsync(path, httpContent);
             return response.IsSuccessStatusCode;
         }
-        public async Task<bool> PostTrackEntries(int deviceId, List<TabiApiClient.Models.TrackEntry> trackEntries)
+        public async Task<bool> PostTrackEntries(int deviceId, List<Models.TrackEntry> trackEntries)
         {
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track");
             try
@@ -231,7 +231,7 @@ namespace TabiApiClient
             }
         }
 
-        public async Task<bool> PostTransportationModes(int deviceId, IEnumerable<TabiApiClient.Models.TransportationMode> transportModes)
+        public async Task<bool> PostTransportationModes(int deviceId, IEnumerable<Models.TransportationMode> transportModes)
         {
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/mode");
 

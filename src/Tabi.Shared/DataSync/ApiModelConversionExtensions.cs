@@ -30,6 +30,64 @@ namespace Tabi.Shared.DataSync
 
         }
 
+        public static TabiApiClient.Models.Log ToApiModel(this LogEntry log)
+        {
+            return new TabiApiClient.Models.Log()
+            {
+                Event = log.Event,
+                Message = log.Message,
+            };
+        }
+
+
+        public static TabiApiClient.Models.TrackEntry ToApiModel(this TrackEntry trackEntry)
+        {
+            return new TabiApiClient.Models.TrackEntry()
+            {
+                Id = trackEntry.Id,
+                StartTime = trackEntry.StartTime,
+                EndTime = trackEntry.EndTime
+            };
+        }
+
+        public static TabiApiClient.Models.BatteryInfo ToApiModel(this BatteryEntry batteryEntry)
+        {
+            return new TabiApiClient.Models.BatteryInfo()
+            {
+                BatteryLevel = batteryEntry.BatteryLevel,
+                Timestamp = batteryEntry.Timestamp,
+                State = ConvertBatteryEntryStateToApiModel(batteryEntry.State)
+            };
+        }
+
+
+
+        private static TabiApiClient.Models.BatteryState ConvertBatteryEntryStateToApiModel(BatteryEntryState entryState)
+        {
+            TabiApiClient.Models.BatteryState apiState = TabiApiClient.Models.BatteryState.Unknown;
+
+            switch(entryState)
+            {
+                case BatteryEntryState.Charging:
+                    apiState = TabiApiClient.Models.BatteryState.Charging;
+                        break;
+                case BatteryEntryState.Discharging:
+                    apiState = TabiApiClient.Models.BatteryState.Discharging;
+                    break;
+                case BatteryEntryState.Full:
+                    apiState = TabiApiClient.Models.BatteryState.Full;
+                    break;
+                case BatteryEntryState.NotCharging:
+                    apiState = TabiApiClient.Models.BatteryState.NotCharging;
+                    break;
+                case BatteryEntryState.Unknown:
+                    apiState = TabiApiClient.Models.BatteryState.Unknown;
+                    break;
+            }
+
+            return apiState;
+        }
+
         public static TabiApiClient.Models.UserStopMotive ToUserStopMotiveApiModel(this Motive motive)
         {
             return new TabiApiClient.Models.UserStopMotive()

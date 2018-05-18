@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using System.Threading.Tasks;
 using MvvmHelpers;
 using Tabi.Core;
 using Tabi.DataObjects;
@@ -53,6 +54,23 @@ namespace Tabi.ViewModels
 
         public ICommand RefreshCommand { protected set; get; }
 
+        private bool isBusy;
+        public bool IsBusy
+        {
+            get => isBusy;
+
+            set => SetProperty(ref isBusy, value);
+        }
+
+        private bool refreshEnabled = true;
+
+        public bool RefreshEnabled
+        {
+            get => refreshEnabled;
+
+            set => SetProperty(ref refreshEnabled, value);
+        }
+
         private string title;
         public string Title
         {
@@ -86,8 +104,16 @@ namespace Tabi.ViewModels
 
             RefreshCommand = new Command(async () =>
             {
-                await UpdateStopVisitsAsync();
                 ListIsRefreshing = false;
+                IsBusy = true;
+                refreshEnabled = false;
+                Task uiTask = Task.Delay(2000);
+                await UpdateStopVisitsAsync();
+                // Show the UI for at least a second..
+                await uiTask;
+
+                IsBusy = false;
+                refreshEnabled = true;
             });
 
         }
@@ -104,12 +130,10 @@ namespace Tabi.ViewModels
             }
         }
 
+
         public async System.Threading.Tasks.Task UpdateStopVisitsAsync()
         {
             await _dataResolver.ResolveDataAsync(DateTimeOffset.MinValue, DateTimeOffset.Now);
-            //track maded
-            //TODO send notification for getting transportation mode
-
 
             List<ActivityEntry> newActivityEntries = new List<ActivityEntry>();
 

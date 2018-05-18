@@ -646,5 +646,11 @@ namespace Tabi.Shared.Resx {
                 return ResourceManager.GetString("StopMotivePageTitle", resourceCulture);
             }
         }
+        
+        public static string LoadingDataLabel {
+            get {
+                return ResourceManager.GetString("LoadingDataLabel", resourceCulture);
+            }
+        }
     }
 }

@@ -24,6 +24,7 @@
                 <Setter Property="TextColor" Value="White" />
             </Style>
             <OnPlatform x:TypeArguments="Color" iOS="#1896BC" x:Key="TintColor" />
+            <OnPlatform x:TypeArguments="Color" Android="gray" iOS="gray" x:Key="StatusTintColor" />
             <Color x:Key="CellNormalTextColor">#000000</Color>
             <Color x:Key="CellDetailTextColor">#979797</Color>
             <Color x:Key="tabiBaseColor">#0299C3</Color>

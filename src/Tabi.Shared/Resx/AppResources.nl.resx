@@ -316,4 +316,7 @@
      <data name="StopMotivePageTitle" xml:space="preserve">
         <value>Stopmotief</value>
     </data>
+    <data name="LoadingDataLabel" xml:space="preserve">
+        <value>Data laden...</value>
+    </data>
 </root>

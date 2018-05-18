@@ -36,8 +36,10 @@ namespace Tabi
     public partial class App : Application
     {
         private static IContainer _container;
-
+                    
         public static IContainer Container { get => _container; }
+
+        public const string AppIdentifier = "tabi/tabi-app";
 
         public static bool DebugMode
         {
@@ -130,7 +132,6 @@ namespace Tabi
         private void PrepareContainer(IModule[] platformSpecificModules)
         {
             var containerBuilder = new Autofac.ContainerBuilder();
-            RegisterPlatformSpecificModules(platformSpecificModules, containerBuilder);
 
             containerBuilder.RegisterInstance(GetSqliteConnection()).As<SQLiteConnection>();
             containerBuilder.RegisterType<SqliteNetRepoManager>().As<IRepoManager>().SingleInstance();
@@ -158,6 +159,8 @@ namespace Tabi
             containerBuilder.RegisterType<TrackDetailViewModel>();
             containerBuilder.RegisterType<StopDetailNameViewModel>();
             containerBuilder.RegisterType<StopDetailMotiveViewModel>();
+
+            RegisterPlatformSpecificModules(platformSpecificModules, containerBuilder);
 
             _container = containerBuilder.Build();
         }

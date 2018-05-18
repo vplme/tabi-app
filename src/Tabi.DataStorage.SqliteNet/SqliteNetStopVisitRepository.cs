@@ -22,13 +22,20 @@ namespace Tabi.DataStorage.SqliteNet
             return connection.Table<StopVisit>().Where(x => x.BeginTimestamp >= begin && x.BeginTimestamp <= end).OrderBy(sv => sv.BeginTimestamp);
         }
 
+        public IEnumerable<StopVisit> After(DateTimeOffset begin)
+        {
+            return connection.Table<StopVisit>()
+                             .Where(x => x.EndTimestamp > begin)
+                             .OrderBy(x => x.EndTimestamp);
+        }
+
         public void ClearAll()
         {
             connection.DeleteAll<StopVisit>();
         }
 
         public StopVisit LastStopVisit()
-        { 
+        {
             StopVisit visit = connection.Table<StopVisit>().OrderBy(sv => sv.BeginTimestamp).LastOrDefault();
 
             return visit;
