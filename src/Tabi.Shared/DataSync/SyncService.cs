@@ -9,6 +9,7 @@ using Tabi.Shared.Extensions;
 using Tabi.Shared.Helpers;
 using TabiApiClient;
 using TabiApiClient.Messages;
+using Tabi.Shared.DataSync;
 
 namespace Tabi.iOS.Helpers
 {
@@ -24,6 +25,24 @@ namespace Tabi.iOS.Helpers
         {
             _apiClient = apiClient ?? throw new ArgumentNullException(nameof(apiClient));
             _repoManager = repoManager ?? throw new ArgumentNullException(nameof(repoManager));
+        }
+
+        private ISyncTimeKeeper _timeKeeper;
+        public ISyncTimeKeeper TimeKeeper
+        {
+            get 
+            {
+                if (_timeKeeper == null)
+                {
+                    _timeKeeper = new SyncTimeKeeper(_repoManager);
+                }
+
+                return _timeKeeper;
+            };
+            set
+            {
+                _timeKeeper = value ?? throw new ArgumentNullException(nameof(value));
+            }
         }
 
         public async Task Login()
@@ -70,7 +89,9 @@ namespace Tabi.iOS.Helpers
                     UploadPositions(),
                     UploadLogs(),
                     UploadStopVisits(),
+                    UploadStops(),
                     UploadBatteryInfo(),
+                    UploadStopMotives(),
 
                     UploadAndRemoveTracks(),
                     UploadAndRemoveGravityData(),
@@ -121,6 +142,7 @@ namespace Tabi.iOS.Helpers
                 }
             }
         }
+
 
         private bool RemoveOldTracks()
         {
@@ -333,6 +355,8 @@ namespace Tabi.iOS.Helpers
                 if (success)
                 {
                     Settings.Current.LogsLastUpload = logs.Last().Timestamp.Ticks;
+                    TimeKeeper.SetDone(UploadType.LogEntry, logs.Last().Timestamp, logs.Count);
+
                     //_repoManager.LogEntryRepository.ClearLogsBefore(logs.Last().Timestamp);
 
                 }
@@ -351,16 +375,14 @@ namespace Tabi.iOS.Helpers
             bool success = false;
 
             List<StopVisit> stopVisits = _repoManager.StopVisitRepository.GetAll().ToList();
-            // Retrieve stops
-            foreach (StopVisit sv in stopVisits)
-            {
-                sv.Stop = _repoManager.StopRepository.Get(sv.StopId);
-            }
 
-            success = await _apiClient.PostStopVisits(Settings.Current.Device, stopVisits);
+            List<TabiApiClient.Models.StopVisit> apiStopVisits = stopVisits.Select(s => s.ToApiModel()).ToList();
+
+            success = await _apiClient.PostStopVisits(Settings.Current.Device, apiStopVisits);
             if (success)
             {
-                // TODO On success
+                TimeKeeper.SetDone(UploadType.StopVisit, apiStopVisits.Last().EndTimestamp, apiStopVisits.Count);
+
             }
             else
             {
@@ -370,17 +392,84 @@ namespace Tabi.iOS.Helpers
             return success;
         }
 
+
+        public async Task<bool> UploadStops()
+        {
+            bool success = false;
+
+            DateTimeOffset lastUpload = TimeKeeper.GetPreviousDone(UploadType.Stop);
+
+            List<Stop> stops = _repoManager.StopRepository.After(lastUpload);
+
+            List<TabiApiClient.Models.Stop> apiStops = stops.Select(s => s.ToApiModel()).ToList();
+
+            if (apiStops.Any())
+            {
+                success = await _apiClient.PostStops(Settings.Current.Device, apiStops);
+            }
+            if (success)
+            {
+                TimeKeeper.SetDone(UploadType.Stop, apiStops.Last().Timestamp, apiStops.Count);
+            }
+            else
+            {
+                Log.Error("Could not send stops");
+            }
+
+            return success;
+        }
+
+
+        public async Task<bool> UploadStopMotives()
+        {
+            bool success = false;
+
+            List<Motive> motives = _repoManager.MotiveRepository.GetAll().ToList();
+
+            List<TabiApiClient.Models.UserStopMotive> apiStopMotives = motives.Select(s => s.ToUserStopMotiveApiModel()).ToList();
+
+            success = await _apiClient.PostUserStopMotives(Settings.Current.Device, apiStopMotives);
+            if (success)
+            {
+                TimeKeeper.SetDone(UploadType.StopMotive, apiStopMotives.Last().Timestamp, apiStopMotives.Count);
+            }
+            else
+            {
+                Log.Error("Could not send stops");
+            }
+
+            return success;
+        }
+
+        private void TimeKeeper.SetDone(UploadType type, DateTimeOffset timestamp, int count)
+        {
+            Console.WriteLine($"done {type}: {timestamp} {count}");
+
+            _repoManager.UploadEntryRepository.Add(new UploadEntry() { Type = type, Timestamp = timestamp, Count = count });
+        }
+
+        private DateTimeOffset GetPreviousDone(UploadType type)
+        {
+            DateTimeOffset dto = _repoManager.UploadEntryRepository.GetLastUploadEntry(type).Timestamp;
+
+            Console.WriteLine($"{type}: {dto}");
+            return dto;
+        }
+
         public async Task<bool> UploadBatteryInfo()
         {
             bool success = false;
 
             DateTimeOffset lastUpload = new DateTimeOffset(Settings.Current.BatteryInfoLastUpload, TimeSpan.Zero);
+
             List<BatteryEntry> batteryEntries = _repoManager.BatteryEntryRepository.After(lastUpload);
             if (batteryEntries.Any())
             {
                 success = await _apiClient.PostBatteryData(Settings.Current.Device, batteryEntries);
                 if (success)
                 {
+                    TimeKeeper.SetDone(UploadType.BatteryEntry, batteryEntries.Last().Timestamp, batteryEntries.Count);
+
                     Settings.Current.BatteryInfoLastUpload = batteryEntries.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
                 }
                 else
@@ -405,6 +494,8 @@ namespace Tabi.iOS.Helpers
 
                 if (success)
                 {
+                    TimeKeeper.SetDone(UploadType.Accelerometer, accelerometerData.Last().Timestamp, accelerometerData.Count);
+
                     Settings.Current.AccelerometerLastUpload = accelerometerData.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
                 }
                 else
@@ -434,6 +525,8 @@ namespace Tabi.iOS.Helpers
 
                 if (success)
                 {
+                    TimeKeeper.SetDone(UploadType.Gyroscope, gyroscopeData.Last().Timestamp, gyroscopeData.Count);
+
                     Settings.Current.GyroscopeLastUpload = gyroscopeData.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
                 }
                 else
@@ -463,6 +556,8 @@ namespace Tabi.iOS.Helpers
 
                 if (success)
                 {
+                    TimeKeeper.SetDone(UploadType.Magnetometer, magnetometerData.Last().Timestamp, magnetometerData.Count);
+
                     Settings.Current.MagnetometerLastUpload = magnetometerData.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
                 }
                 else
@@ -490,6 +585,8 @@ namespace Tabi.iOS.Helpers
 
                 if (success)
                 {
+                    TimeKeeper.SetDone(UploadType.Quaternion, quaternionData.Last().Timestamp, quaternionData.Count);
+
                     Settings.Current.QuaternionLastUpload = quaternionData.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
                 }
                 else
@@ -519,6 +616,8 @@ namespace Tabi.iOS.Helpers
 
                 if (success)
                 {
+                    TimeKeeper.SetDone(UploadType.Orientation, orientationData.Last().Timestamp, orientationData.Count);
+
                     Settings.Current.OrientationLastUpload = orientationData.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
                 }
                 else
@@ -548,6 +647,9 @@ namespace Tabi.iOS.Helpers
 
                 if (success)
                 {
+                    TimeKeeper.SetDone(UploadType.Gravity, gravityData.Last().Timestamp, gravityData.Count);
+
+
                     Settings.Current.GravityLastUpload = gravityData.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
                 }
                 else
@@ -579,6 +681,8 @@ namespace Tabi.iOS.Helpers
 
                 if (success)
                 {
+                    TimeKeeper.SetDone(UploadType.LinearAcceleration, linearAccelerationData.Last().Timestamp, linearAccelerationData.Count);
+
                     Settings.Current.LinearAccelerationLastUpload = linearAccelerationData.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
                 }
                 else
@@ -609,6 +713,9 @@ namespace Tabi.iOS.Helpers
 
                 if (success)
                 {
+                    TimeKeeper.SetDone(UploadType.SensorMeasurementSession, sensorMeasurementSessions.Last().Timestamp, sensorMeasurementSessions.Count);
+
+
                     Settings.Current.SensorMeasurementSessionLastUpload = sensorMeasurementSessions.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
                 }
                 else
@@ -638,15 +745,18 @@ namespace Tabi.iOS.Helpers
                 //get transportmodes that are between lastuploaded and lasttrackentry
                 List<TransportationModeEntry> transportationModeEntries = _repoManager.TransportationModeRepository.GetRange(lastUpload, DateTimeOffset.MaxValue).ToList();
 
+                IEnumerable<TabiApiClient.Models.TransportationMode> apiModels = null;
                 if (transportationModeEntries.Any())
                 {
-                    IEnumerable<TabiApiClient.Models.TransportationMode> apiModels = transportationModeEntries.Select(entry => entry.ToApiModel());
+                    apiModels = transportationModeEntries.Select(entry => entry.ToApiModel());
 
                     success = await _apiClient.PostTransportationModes(Settings.Current.Device, transportModes);
                 }
 
                 if (success)
                 {
+                    TimeKeeper.SetDone(UploadType.TransportationMode, apiModels.Last().Timestamp, apiModels.Count());
+
                     Settings.Current.TransportModeLastUpload = transportationModeEntries.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
                 }
                 else
@@ -690,6 +800,8 @@ namespace Tabi.iOS.Helpers
 
                 if (success)
                 {
+                    TimeKeeper.SetDone(UploadType.TrackEntry, trackDTO.Last().EndTime, trackDTO.Count);
+
                     Settings.Current.TracksLastUpload = trackEntries.Last().EndTime.Ticks;
                 }
                 else

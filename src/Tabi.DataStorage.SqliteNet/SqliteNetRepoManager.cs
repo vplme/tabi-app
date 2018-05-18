@@ -27,6 +27,7 @@ namespace Tabi.DataStorage.SqliteNet
         public ILogEntryRepository LogEntryRepository { get; private set; }
         public ITransportationModeRepository TransportationModeRepository { get; private set; }
         public IMotiveRepository MotiveRepository { get; private set; }
+        public IUploadEntryRepository UploadEntryRepository { get; private set; }
 
         //sensor
         public ISensorMeasurementSessionRepository SensorMeasurementSessionRepository { get; private set; }
@@ -54,6 +55,7 @@ namespace Tabi.DataStorage.SqliteNet
             LogEntryRepository = new SqliteNetLogEntryRepository(_connection);
             TransportationModeRepository = new SqliteNetTransportationModeRepository(_connection);
             MotiveRepository = new SqliteNetMotiveRepository(_connection);
+            UploadEntryRepository = new SqliteNetUploadEntryRepository(_connection);
 
             //sensor
             SensorMeasurementSessionRepository = new SqliteNetSensorMeasurementSessionRepository(_connection);
@@ -81,6 +83,7 @@ namespace Tabi.DataStorage.SqliteNet
             _connection.DropTable<TransportationModeTracks>();
             _connection.DropTable<LogEntry>();
             _connection.DropTable<Motive>();
+            _connection.DropTable<UploadEntry>();
 
             _connection.DropTable<SensorMeasurementSession>();
             _connection.DropTable<Accelerometer>();
@@ -108,6 +111,7 @@ namespace Tabi.DataStorage.SqliteNet
             _connection.CreateTable<TransportationModeTracks>();
             _connection.CreateTable<LogEntry>();
             _connection.CreateTable<Motive>();
+            _connection.CreateTable<UploadEntry>();
 
             _connection.CreateTable<SensorMeasurementSession>();
             _connection.CreateTable<Accelerometer>();

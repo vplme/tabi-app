@@ -1,4 +1,7 @@
-﻿using SQLite;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using SQLite;
 using Tabi.DataObjects;
 
 namespace Tabi.DataStorage.SqliteNet
@@ -13,5 +16,10 @@ namespace Tabi.DataStorage.SqliteNet
         {
             connection.Update(s);
         }
+
+        public List<Stop> After(DateTimeOffset begin) => connection.Table<Stop>()
+                             .Where(x => x.Timestamp > begin)
+                             .OrderBy(x => x.Timestamp)
+                             .ToList();
     }
 }

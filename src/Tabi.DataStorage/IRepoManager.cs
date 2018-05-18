@@ -15,6 +15,7 @@ namespace Tabi.DataStorage
         ILogEntryRepository LogEntryRepository { get; }
         ITransportationModeRepository TransportationModeRepository { get; }
         IMotiveRepository MotiveRepository { get; }
+        IUploadEntryRepository UploadEntryRepository { get; }
 
         // session sensors
         ISensorMeasurementSessionRepository SensorMeasurementSessionRepository { get; }

@@ -176,7 +176,23 @@ namespace TabiApiClient
             return response.IsSuccessStatusCode;
         }
 
-        public async Task<bool> PostStopVisits(int deviceId, List<StopVisit> stopVisits)
+        public async Task<bool> PostStops(int deviceId, List<Models.Stop> stops)
+        {
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/stops");
+            HttpContent httpContent = await SerializeObjectAsync(stops);
+            HttpResponseMessage response = await client.PostAsync(path, httpContent);
+            return response.IsSuccessStatusCode;
+        }
+
+        public async Task<bool> PostUserStopMotives(int deviceId, List<Models.UserStopMotive> motives)
+        {
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/stops/motives");
+            HttpContent httpContent = await SerializeObjectAsync(motives);
+            HttpResponseMessage response = await client.PostAsync(path, httpContent);
+            return response.IsSuccessStatusCode;
+        }
+
+        public async Task<bool> PostStopVisits(int deviceId, List<Models.StopVisit> stopVisits)
         {
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/stopvisits");
             HttpContent httpContent = await SerializeObjectAsync(stopVisits);
