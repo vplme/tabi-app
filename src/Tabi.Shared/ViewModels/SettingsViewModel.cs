@@ -198,6 +198,18 @@ namespace Tabi
                     {
                         UserDialogs.Instance.ShowLoading(AppResources.UploadDataInProgress, MaskType.Black);
 
+                        // Check if the API is available (within 5 seconds).
+                        // Display message to user if api is unavailable. 
+                        bool available = await _syncService.Ping(5);
+
+                        if(!available)
+                        {
+                            UserDialogs.Instance.HideLoading();
+
+                            await UserDialogs.Instance.AlertAsync(AppResources.APIUnavailableText , AppResources.APIUnavailableTitle, AppResources.OkText);
+                            return;
+                        }
+
                         try
                         {
                             await _syncService.UploadAll(false);

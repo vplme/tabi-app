@@ -13,7 +13,9 @@ namespace Tabi.DataStorage
         IBatteryEntryRepository BatteryEntryRepository { get; }
         ITrackEntryRepository TrackEntryRepository { get; }
         ILogEntryRepository LogEntryRepository { get; }
-        ITransportationModeRepository TransportationModeRepository {get;}
+        ITransportationModeRepository TransportationModeRepository { get; }
+        IMotiveRepository MotiveRepository { get; }
+        IUploadEntryRepository UploadEntryRepository { get; }
 
         // session sensors
         ISensorMeasurementSessionRepository SensorMeasurementSessionRepository { get; }
@@ -26,7 +28,5 @@ namespace Tabi.DataStorage
         ISensorRepository<Quaternion> QuaternionRepository { get; }
         ISensorRepository<Gravity> GravityRepository { get; }
 
-
-        void SaveChanges();
     }
 }

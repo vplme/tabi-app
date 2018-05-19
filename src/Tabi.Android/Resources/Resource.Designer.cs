@@ -83,7 +83,6 @@ namespace Tabi.Droid
 			global::Microsoft.Azure.Mobile.Push.Android.Resource.String.library_name = global::Tabi.Droid.Resource.String.library_name;
 			global::PCLStorage.Resource.String.ApplicationName = global::Tabi.Droid.Resource.String.ApplicationName;
 			global::PCLStorage.Resource.String.Hello = global::Tabi.Droid.Resource.String.Hello;
-			global::Splat.Resource.String.library_name = global::Tabi.Droid.Resource.String.library_name;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::Tabi.Droid.Resource.Attribute.actionBarSize;
 		}
 		
@@ -4340,11 +4339,11 @@ namespace Tabi.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f090050
-			public const int ApplicationName = 2131296336;
-			
 			// aapt resource value: 0x7f09004f
-			public const int Hello = 2131296335;
+			public const int ApplicationName = 2131296335;
+			
+			// aapt resource value: 0x7f09004e
+			public const int Hello = 2131296334;
 			
 			// aapt resource value: 0x7f090027
 			public const int abc_action_bar_home_description = 2131296295;
@@ -4499,8 +4498,8 @@ namespace Tabi.Droid
 			// aapt resource value: 0x7f090060
 			public const int googleMapsKey = 2131296352;
 			
-			// aapt resource value: 0x7f09004e
-			public const int library_name = 2131296334;
+			// aapt resource value: 0x7f090050
+			public const int library_name = 2131296336;
 			
 			// aapt resource value: 0x7f090051
 			public const int mobile_center_distribute_dialog_actioned_on_disabled_toast = 2131296337;

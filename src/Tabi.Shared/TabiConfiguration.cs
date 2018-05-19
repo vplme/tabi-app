@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace Tabi.Shared
 {
     public class TabiConfiguration
@@ -9,6 +11,20 @@ namespace Tabi.Shared
         public string CertificateKey { get; set; }
         public SensorMeasurementsConfiguration SensorMeasurements { get; set; }
         public LoggingConfiguration Logging { get; set; }
+        public ApiConfiguration Api { get; set; }
+    }
+
+    public class ApiConfiguration 
+    {
+        public string Url { get; set; }
+
+        /// <summary>
+        /// Timeout in seconds
+        /// </summary>
+        /// <value>Timeout in seconds.</value>
+        public int Timeout { get; set; }
+        public List<string> CertificateKeys { get; set; }
+
     }
 
     public class MobileCenterConfiguration

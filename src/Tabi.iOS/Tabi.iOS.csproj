@@ -137,6 +137,8 @@
     <Compile Include="PlatformImplementations\PlatformContainerModule.cs" />
     <Compile Include="PlatformImplementations\ExtraPermission.cs" />
     <Compile Include="Renderers\UnanimatedListViewRenderer.cs" />
+    <Compile Include="Renderers\TabiTextCellRenderer.cs" />
+    <Compile Include="Effects\NoRefreshIndicatorEffect.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />

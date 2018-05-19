@@ -40,7 +40,10 @@ namespace Tabi.ViewModels
             {
                 PositionEntry avg = Util.AveragePosition(positions);
                 System.Diagnostics.Debug.WriteLine($"AVG {avg.Latitude} {avg.Longitude}");
-                result = MapSpan.FromCenterAndRadius(new Position(avg.Latitude, avg.Longitude), Distance.FromMeters(TrackEntry.DistanceTravelled));
+
+                double distance = TrackEntry.DistanceTravelled < 50000 ? TrackEntry.DistanceTravelled : 50000;
+
+                result = MapSpan.FromCenterAndRadius(new Position(avg.Latitude, avg.Longitude), Distance.FromMeters(distance));
             }
 
             return result;

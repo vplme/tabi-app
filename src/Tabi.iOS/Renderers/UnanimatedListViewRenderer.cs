@@ -13,7 +13,6 @@ namespace Tabi.iOS.Renderers
         {
             base.OnElementChanged(e);
             InsertRowsAnimation = UIKit.UITableViewRowAnimation.None;
-
         }
     }
 }

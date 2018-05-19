@@ -24,12 +24,13 @@ namespace Tabi.iOS
             List<MKPolyline> polylines = new List<MKPolyline>();
             foreach (Line line in formsMap.Lines)
             {
-                if(line.Color.Equals(Color.Red))
+                if (line.Color.Equals(Color.Red))
                 {
                     nativeMap.OverlayRenderer = GetOverlayRendererRed;
 
                 }
-                else{
+                else
+                {
                     nativeMap.OverlayRenderer = GetOverlayRendererBlue;
 
                 }
@@ -52,8 +53,10 @@ namespace Tabi.iOS
         public void Clear()
         {
             var nativeMap = Control as MKMapView;
-
-            nativeMap.RemoveOverlays(nativeMap.Overlays);
+            if(nativeMap.Overlays != null)
+            {
+                nativeMap.RemoveOverlays(nativeMap.Overlays);
+            }
         }
 
         protected override void OnElementChanged(ElementChangedEventArgs<View> e)
@@ -70,19 +73,20 @@ namespace Tabi.iOS
             {
                 formsMap = (RouteMap)e.NewElement;
                 formsMap.MapControl = this;
+                Clear();
                 Draw();
             }
         }
 
         MKOverlayRenderer GetOverlayRendererRed(MKMapView mapView, IMKOverlay overlay)
         {
-                var polylineRenderer = new MKPolylineRenderer(overlay as MKPolyline)
-                {
-                    FillColor = UIColor.Blue,
-                    StrokeColor = UIColor.Red,
-                    LineWidth = 3,
-                    Alpha = 0.4f
-                };
+            var polylineRenderer = new MKPolylineRenderer(overlay as MKPolyline)
+            {
+                FillColor = UIColor.Blue,
+                StrokeColor = UIColor.Red,
+                LineWidth = 3,
+                Alpha = 0.4f
+            };
             return polylineRenderer;
         }
 

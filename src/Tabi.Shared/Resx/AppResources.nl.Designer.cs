@@ -580,5 +580,71 @@ namespace Tabi.Shared.Resx {
                 return ResourceManager.GetString("Settings", resourceCulture);
             }
         }
+        
+        internal static string StopNameLabel {
+            get {
+                return ResourceManager.GetString("StopNameLabel", resourceCulture);
+            }
+        }
+        
+        internal static string StopMotiveLabel {
+            get {
+                return ResourceManager.GetString("StopMotiveLabel", resourceCulture);
+            }
+        }
+        
+        internal static string DeviceIdLabel {
+            get {
+                return ResourceManager.GetString("DeviceIdLabel", resourceCulture);
+            }
+        }
+        
+        internal static string SaveText {
+            get {
+                return ResourceManager.GetString("SaveText", resourceCulture);
+            }
+        }
+        
+        internal static string SetStopNameHint {
+            get {
+                return ResourceManager.GetString("SetStopNameHint", resourceCulture);
+            }
+        }
+        
+        internal static string SetStopMotiveHint {
+            get {
+                return ResourceManager.GetString("SetStopMotiveHint", resourceCulture);
+            }
+        }
+        
+        internal static string StopDetailPageExplanation {
+            get {
+                return ResourceManager.GetString("StopDetailPageExplanation", resourceCulture);
+            }
+        }
+        
+        internal static string StopMotivePageTitle {
+            get {
+                return ResourceManager.GetString("StopMotivePageTitle", resourceCulture);
+            }
+        }
+        
+        internal static string LoadingDataLabel {
+            get {
+                return ResourceManager.GetString("LoadingDataLabel", resourceCulture);
+            }
+        }
+        
+        internal static string APIUnavailableTitle {
+            get {
+                return ResourceManager.GetString("APIUnavailableTitle", resourceCulture);
+            }
+        }
+        
+        internal static string APIUnavailableText {
+            get {
+                return ResourceManager.GetString("APIUnavailableText", resourceCulture);
+            }
+        }
     }
 }

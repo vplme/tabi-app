@@ -36,8 +36,10 @@ namespace Tabi
     public partial class App : Application
     {
         private static IContainer _container;
-
+                    
         public static IContainer Container { get => _container; }
+
+        public const string AppIdentifier = "tabi/tabi-app";
 
         public static bool DebugMode
         {
@@ -70,12 +72,16 @@ namespace Tabi
 
         private static TabiConfiguration ConvertTabiConfiguration(IConfiguration configuration)
         {
-            return configuration.Get<TabiConfiguration>();
+            TabiConfiguration config = configuration.Get<TabiConfiguration>();
+            return config;
         }
 
         public App(IModule[] platformSpecificModules)
         {
             PrepareContainer(platformSpecificModules);
+            // Resolve repo manager immediately for setup
+            Container.Resolve<IRepoManager>();
+
 
             // Setup logging
             SetupLogging();
@@ -130,7 +136,6 @@ namespace Tabi
         private void PrepareContainer(IModule[] platformSpecificModules)
         {
             var containerBuilder = new Autofac.ContainerBuilder();
-            RegisterPlatformSpecificModules(platformSpecificModules, containerBuilder);
 
             containerBuilder.RegisterInstance(GetSqliteConnection()).As<SQLiteConnection>();
             containerBuilder.RegisterType<SqliteNetRepoManager>().As<IRepoManager>().SingleInstance();
@@ -156,13 +161,17 @@ namespace Tabi
             containerBuilder.RegisterType<MotionAccessViewModel>();
             containerBuilder.RegisterType<ThanksViewModel>();
             containerBuilder.RegisterType<TrackDetailViewModel>();
+            containerBuilder.RegisterType<StopDetailNameViewModel>();
+            containerBuilder.RegisterType<StopDetailMotiveViewModel>();
 
+            RegisterPlatformSpecificModules(platformSpecificModules, containerBuilder);
 
             _container = containerBuilder.Build();
         }
 
         public static void SetupCertificatePinningCheck()
         {
+            TabiConfig.Api?.CertificateKeys?.ForEach(key => EndpointConfiguration.AddPublicKeyString(key));
             EndpointConfiguration.AddPublicKeyString(TabiConfig.CertificateKey);
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             ServicePointManager.DefaultConnectionLimit = 8;

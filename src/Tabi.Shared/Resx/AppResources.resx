@@ -400,4 +400,43 @@
     <data name="SensorMeasurementsSwitchLabel" xml:space="preserve">
         <value>Sensors</value>
     </data>
+    <data name="StopSectionLabel" xml:space="preserve">
+        <value>Stop</value>
+    </data>
+    <data name="StopNameLabel" xml:space="preserve">
+        <value>Name</value>
+    </data>
+    <data name="StopMotiveLabel" xml:space="preserve">
+        <value>Motive</value>
+    </data>
+    <data name="DeviceIdLabel" xml:space="preserve">
+        <value>Device Identifier</value>
+    </data>
+    <data name="SaveText" xml:space="preserve">
+        <value>Save</value>
+    </data>
+    <data name="StopNamePageTitle" xml:space="preserve">
+        <value>Stop name</value>
+    </data>
+    <data name="SetStopNameHint" xml:space="preserve">
+        <value>Set a stop name</value>
+    </data>
+    <data name="SetStopMotiveHint" xml:space="preserve">
+        <value>Set a motive</value>
+    </data>
+    <data name="StopDetailPageExplanation" xml:space="preserve">
+        <value>Please fill in the name of your stop and the reason/motive why you were at the stop.</value>
+    </data>
+    <data name="StopMotivePageTitle" xml:space="preserve">
+        <value>Stop motive</value>
+    </data>
+    <data name="LoadingDataLabel" xml:space="preserve">
+        <value>Loading data...</value>
+    </data>
+    <data name="APIUnavailableTitle" xml:space="preserve">
+        <value>API Unavailable</value>
+    </data>
+    <data name="APIUnavailableText" xml:space="preserve">
+        <value>Could not connect to the API. Contact support if this persists.</value>
+    </data>
 </root>

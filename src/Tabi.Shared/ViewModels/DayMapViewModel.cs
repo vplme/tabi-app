@@ -96,10 +96,5 @@ namespace Tabi.Shared.ViewModels
             }
             return resultingsPins;
         }
-
-        public async Task<List<Pin>> GetPinsAsync()
-        {
-            return await Task.FromResult<List<Pin>>(GetPins());
-        }
     }
 }

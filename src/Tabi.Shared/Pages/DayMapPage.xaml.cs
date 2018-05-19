@@ -60,7 +60,7 @@ namespace Tabi
         async void ShowMap()
         {
             routeMap.Pins.Clear();
-            List<Pin> pins = await ViewModel.GetPinsAsync();
+            List<Pin> pins = await Task.Run(() => ViewModel.GetPins());
 
             pins.ForEach(p => routeMap.Pins.Add(p));
         }

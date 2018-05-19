@@ -1,4 +1,5 @@
 ﻿
+using System;
 using Autofac.Core;
 using FFImageLoading.Forms.Touch;
 using FFImageLoading.Svg.Forms;
@@ -32,6 +33,28 @@ namespace Tabi.iOS
 
             App.ScreenWidth = UIScreen.MainScreen.Bounds.Width;
             App.ScreenHeight = UIScreen.MainScreen.Bounds.Height;
+
+            //UINavigationBar.Appearance.BarTintColor = UIColor.FromRGB(24, 150, 188);
+            UIColor accentColor = UIColor.FromRGB(24, 150, 188);
+            UINavigationBar.Appearance.TintColor = accentColor;
+            UISwitch.Appearance.OnTintColor = accentColor;
+
+            UITextAttributes textAttributes = null;
+            if (UIDevice.CurrentDevice.CheckSystemVersion(9, 0))
+                textAttributes = new UITextAttributes()
+                {
+                    Font = UIFont.FromName("SanFrancisco", (nfloat)20f),
+                    TextColor = UIColor.White
+                };
+            else
+            {
+                textAttributes = new UITextAttributes()
+                {
+                    Font = UIFont.FromName("HelveticaNeue-Light", (nfloat)20f),
+                    TextColor = UIColor.White
+                };
+            }
+            UINavigationBar.Appearance.SetTitleTextAttributes(textAttributes);
 
             Distribute.DontCheckForUpdatesInDebug();
 

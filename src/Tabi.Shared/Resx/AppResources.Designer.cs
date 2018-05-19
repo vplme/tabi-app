@@ -586,5 +586,83 @@ namespace Tabi.Shared.Resx {
                 return ResourceManager.GetString("SensorMeasurementsSwitchLabel", resourceCulture);
             }
         }
+        
+        public static string StopSectionLabel {
+            get {
+                return ResourceManager.GetString("StopSectionLabel", resourceCulture);
+            }
+        }
+        
+        public static string StopNameLabel {
+            get {
+                return ResourceManager.GetString("StopNameLabel", resourceCulture);
+            }
+        }
+        
+        public static string StopMotiveLabel {
+            get {
+                return ResourceManager.GetString("StopMotiveLabel", resourceCulture);
+            }
+        }
+        
+        public static string DeviceIdLabel {
+            get {
+                return ResourceManager.GetString("DeviceIdLabel", resourceCulture);
+            }
+        }
+        
+        public static string SaveText {
+            get {
+                return ResourceManager.GetString("SaveText", resourceCulture);
+            }
+        }
+        
+        public static string StopNamePageTitle {
+            get {
+                return ResourceManager.GetString("StopNamePageTitle", resourceCulture);
+            }
+        }
+        
+        public static string SetStopNameHint {
+            get {
+                return ResourceManager.GetString("SetStopNameHint", resourceCulture);
+            }
+        }
+        
+        public static string SetStopMotiveHint {
+            get {
+                return ResourceManager.GetString("SetStopMotiveHint", resourceCulture);
+            }
+        }
+        
+        public static string StopDetailPageExplanation {
+            get {
+                return ResourceManager.GetString("StopDetailPageExplanation", resourceCulture);
+            }
+        }
+        
+        public static string StopMotivePageTitle {
+            get {
+                return ResourceManager.GetString("StopMotivePageTitle", resourceCulture);
+            }
+        }
+        
+        public static string LoadingDataLabel {
+            get {
+                return ResourceManager.GetString("LoadingDataLabel", resourceCulture);
+            }
+        }
+        
+        public static string APIUnavailableTitle {
+            get {
+                return ResourceManager.GetString("APIUnavailableTitle", resourceCulture);
+            }
+        }
+        
+        public static string APIUnavailableText {
+            get {
+                return ResourceManager.GetString("APIUnavailableText", resourceCulture);
+            }
+        }
     }
 }

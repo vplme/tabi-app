@@ -9,6 +9,7 @@ namespace Tabi.DataStorage
         IEnumerable<StopVisit> BetweenDates(DateTimeOffset begin, DateTimeOffset end);
         IEnumerable<StopVisit> AllSortedByTime();
         StopVisit LastStopVisit();
+        IEnumerable<StopVisit> After(DateTimeOffset begin);
         void Update(StopVisit sv);
         void ClearAll();
     }

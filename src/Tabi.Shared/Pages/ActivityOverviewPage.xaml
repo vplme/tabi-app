@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
      xmlns:local="clr-namespace:Tabi;assembly=Tabi.Shared" xmlns:i18n="clr-namespace:Tabi.Shared.Localization;assembly=Tabi.Shared"
-     x:Class="Tabi.ActivityOverviewPage" Title="{Binding Title}">
+     x:Class="Tabi.ActivityOverviewPage" Title="{Binding Title}" IsBusy="{Binding IsBusy}">
     <ContentPage.ToolbarItems>
         <local:ExtendedToolbarItem Left="True" Command="{Binding DaySelectorCommand}" Text="{i18n:Translate DaySelectorButton}" />
         <ToolbarItem Command="{Binding SettingsCommand}}">
@@ -14,13 +14,47 @@
         </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Spacing="0">
+            <BoxView Color="Black" HorizontalOptions="FillAndExpand" HeightRequest="0.5">
+                <BoxView.IsVisible>
+                       <OnPlatform x:TypeArguments="x:Boolean">
+                            <On Platform="Android" Value="true" />
+                            <On Platform="iOS" Value="false" />
+                        </OnPlatform>
+                </BoxView.IsVisible>
+                </BoxView>
+            <FlexLayout Wrap="Wrap" JustifyContent="Center" Direction="Row" IsVisible="{Binding IsBusy}" BackgroundColor="{DynamicResource StatusTintColor}">
+                <ActivityIndicator Color="White" Margin="0, 1, 0 ,0" IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}">
+                    <ActivityIndicator.Scale>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="Android" Value="0.7" />
+                            <On Platform="iOS" Value="1" />
+                        </OnPlatform>
+                    </ActivityIndicator.Scale>
+                </ActivityIndicator>
+                <Label TextColor="White" Text="{i18n:Translate LoadingDataLabel}">
+                    <Label.Margin>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="iOS" Value="10, 10, 0, 10" />
+                            <On Platform="Android" Value="10, 14, 0, 10" />
+                        </OnPlatform>
+                    </Label.Margin>
+                    <Label.FontSize>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="Android">15</On>
+                            <On Platform="iOS">15</On>
+                        </OnPlatform>
+                    </Label.FontSize>
+                </Label>
+            </FlexLayout>
             <Label IsVisible="{Binding NoDataInOverviewVisible}" HorizontalTextAlignment="Center" Margin="20, 15, 20, 0"
                  Text="{i18n:Translate NoDataInOverview}" />
             <local:UnanimatedListView x:Name="ListViewOverview" HasUnevenRows="true" SeparatorVisibility="None" ItemsSource="{Binding ActivityEntries}"
-                 IsPullToRefreshEnabled="true" IsRefreshing="{Binding ListIsRefreshing}" RefreshCommand="{Binding RefreshCommand}" ItemSelected="ItemSelected">
+                 IsPullToRefreshEnabled="{Binding RefreshEnabled}" IsRefreshing="{Binding ListIsRefreshing}" RefreshCommand="{Binding RefreshCommand}"
+                 ItemSelected="ItemSelected">
                 <ListView.Effects>
                     <local:NoDividerListViewEffect />
+                    <local:NoRefreshIndicatorEffect />
                 </ListView.Effects>
                 <ListView.ItemTemplate>
                     <DataTemplate>

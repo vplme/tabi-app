@@ -20,14 +20,14 @@
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" Style="{DynamicResource EvolveListItemTextStyle}" VerticalOptions="Center"
+                                <Label Grid.Column="0" Style="{DynamicResource TabiListItemTextStyle}" VerticalOptions="Center"
                                      Text="{i18n:Translate TransportModeLabel}" />
-                                <Button Grid.Column="1" HorizontalOptions="Center" Text="{i18n:Translate SelectTransportModeButton}" Command="{Binding TransportModeSelectionCommand}" />
+                                <Button Grid.Column="1" HorizontalOptions="Center" TextColor="{DynamicResource TintColor}" Text="{i18n:Translate SelectTransportModeButton}" Command="{Binding TransportModeSelectionCommand}" />
                             </Grid>
                             <control:SettingsSectionDivider />
                             <StackLayout BackgroundColor="White" Padding="{DynamicResource NormalPadding}">
                                 <Label Text="{i18n:Translate TransportModeSelectionExplanation}" HorizontalOptions="Center"
-                                     Style="{DynamicResource EvolveListItemDetailTextStyle}" />
+                                     Style="{DynamicResource TabiListItemDetailTextStyle}" />
                             </StackLayout>
                             <control:FooterDivider />
                         </StackLayout>
@@ -56,7 +56,7 @@
                                     <OnPlatform x:TypeArguments="Thickness" iOS="16,8,16,0" Android="16,8" WinPhone="16,8" />
                                 </StackLayout.Padding>
                                 <Label IsVisible="{Binding Source={x:Static local:App.Developer}}" Text="Developer app version"
-                                     Style="{DynamicResource EvolveListItemDetailTextStyle}" />
+                                     Style="{DynamicResource TabiListItemDetailTextStyle}" />
                             </StackLayout>
                         </StackLayout>
                     </control:CardView>

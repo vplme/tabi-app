@@ -35,6 +35,8 @@ namespace Tabi.Pages
 
         void ShowRoute()
         {
+            routeMap.ClearMap();
+
             routeMap.Lines.Add(ViewModel.GetMapLine());
 
             routeMap.MoveToRegion(ViewModel.AveragePosition());
