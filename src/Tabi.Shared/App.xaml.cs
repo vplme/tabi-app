@@ -171,8 +171,8 @@ namespace Tabi
 
         public static void SetupCertificatePinningCheck()
         {
+            TabiConfig.Api?.CertificateKeys?.ForEach(key => EndpointConfiguration.AddPublicKeyString(key));
             EndpointConfiguration.AddPublicKeyString(TabiConfig.CertificateKey);
-            TabiConfig.Api.CertificateKeys.ForEach(key => EndpointConfiguration.AddPublicKeyString(key));
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             ServicePointManager.DefaultConnectionLimit = 8;
             ServicePointManager.ServerCertificateValidationCallback = EndpointConfiguration.ValidateServerCertificate;
