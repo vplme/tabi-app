@@ -433,4 +433,10 @@
     <data name="LoadingDataLabel" xml:space="preserve">
         <value>Loading data...</value>
     </data>
+    <data name="APIUnavailableTitle" xml:space="preserve">
+        <value>API Unavailable</value>
+    </data>
+    <data name="APIUnavailableText" xml:space="preserve">
+        <value>Could not connect to the API. Contact support if this persists.</value>
+    </data>
 </root>

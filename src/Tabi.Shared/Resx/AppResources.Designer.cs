@@ -652,5 +652,17 @@ namespace Tabi.Shared.Resx {
                 return ResourceManager.GetString("LoadingDataLabel", resourceCulture);
             }
         }
+        
+        public static string APIUnavailableTitle {
+            get {
+                return ResourceManager.GetString("APIUnavailableTitle", resourceCulture);
+            }
+        }
+        
+        public static string APIUnavailableText {
+            get {
+                return ResourceManager.GetString("APIUnavailableText", resourceCulture);
+            }
+        }
     }
 }

@@ -72,12 +72,16 @@ namespace Tabi
 
         private static TabiConfiguration ConvertTabiConfiguration(IConfiguration configuration)
         {
-            return configuration.Get<TabiConfiguration>();
+            TabiConfiguration config = configuration.Get<TabiConfiguration>();
+            return config;
         }
 
         public App(IModule[] platformSpecificModules)
         {
             PrepareContainer(platformSpecificModules);
+            // Resolve repo manager immediately for setup
+            Container.Resolve<IRepoManager>();
+
 
             // Setup logging
             SetupLogging();
@@ -168,6 +172,7 @@ namespace Tabi
         public static void SetupCertificatePinningCheck()
         {
             EndpointConfiguration.AddPublicKeyString(TabiConfig.CertificateKey);
+            TabiConfig.Api.CertificateKeys.ForEach(key => EndpointConfiguration.AddPublicKeyString(key));
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             ServicePointManager.DefaultConnectionLimit = 8;
             ServicePointManager.ServerCertificateValidationCallback = EndpointConfiguration.ValidateServerCertificate;

@@ -44,7 +44,7 @@ namespace Tabi.Shared.DataSync
         {
             return new TabiApiClient.Models.TrackEntry()
             {
-                Id = trackEntry.Id,
+                LocalId = trackEntry.Id,
                 StartTime = trackEntry.StartTime,
                 EndTime = trackEntry.EndTime
             };
@@ -66,11 +66,11 @@ namespace Tabi.Shared.DataSync
         {
             TabiApiClient.Models.BatteryState apiState = TabiApiClient.Models.BatteryState.Unknown;
 
-            switch(entryState)
+            switch (entryState)
             {
                 case BatteryEntryState.Charging:
                     apiState = TabiApiClient.Models.BatteryState.Charging;
-                        break;
+                    break;
                 case BatteryEntryState.Discharging:
                     apiState = TabiApiClient.Models.BatteryState.Discharging;
                     break;
@@ -130,6 +130,113 @@ namespace Tabi.Shared.DataSync
                 Tram = entry.Tram,
                 Bus = entry.Bus,
                 Other = entry.Other
+            };
+        }
+
+        public static TabiApiClient.Models.PositionEntry ToApiModel(this PositionEntry position)
+        {
+            return new TabiApiClient.Models.PositionEntry()
+            {
+                Latitude = position.Latitude,
+                Longitude = position.Longitude,
+                Accuracy = position.Accuracy,
+                DesiredAccuracy = position.DesiredAccuracy,
+                Altitude = position.Altitude,
+                Speed = position.Speed,
+                DistanceBetweenPreviousPosition = position.DistanceBetweenPreviousPosition,
+                Timestamp = position.Timestamp
+            };
+        }
+
+        public static TabiApiClient.Models.MotionSensor ToApiModel(this Accelerometer accelerometer)
+        {
+            return new TabiApiClient.Models.MotionSensor()
+            {
+                X = accelerometer.X,
+                Y = accelerometer.Y,
+                Z = accelerometer.Z,
+                Timestamp = accelerometer.Timestamp
+            };
+        }
+
+        public static TabiApiClient.Models.MotionSensor ToApiModel(this Gyroscope gyroscope)
+        {
+            return new TabiApiClient.Models.MotionSensor()
+            {
+                X = gyroscope.X,
+                Y = gyroscope.Y,
+                Z = gyroscope.Z,
+                Timestamp = gyroscope.Timestamp
+            };
+        }
+
+        public static TabiApiClient.Models.MotionSensor ToApiModel(this Magnetometer magnetometer)
+        {
+            return new TabiApiClient.Models.MotionSensor()
+            {
+                X = magnetometer.X,
+                Y = magnetometer.Y,
+                Z = magnetometer.Z,
+                Timestamp = magnetometer.Timestamp
+            };
+        }
+
+        public static TabiApiClient.Models.MotionSensor ToApiModel(this LinearAcceleration linearAcceleration)
+        {
+            return new TabiApiClient.Models.MotionSensor()
+            {
+                X = linearAcceleration.X,
+                Y = linearAcceleration.Y,
+                Z = linearAcceleration.Z,
+                Timestamp = linearAcceleration.Timestamp
+            };
+        }
+
+        public static TabiApiClient.Models.MotionSensor ToApiModel(this Orientation orientation)
+        {
+            return new TabiApiClient.Models.MotionSensor()
+            {
+                X = orientation.X,
+                Y = orientation.Y,
+                Z = orientation.Z,
+                Timestamp = orientation.Timestamp
+            };
+        }
+
+        public static TabiApiClient.Models.MotionSensor ToApiModel(this Gravity gravity)
+        {
+            return new TabiApiClient.Models.MotionSensor()
+            {
+                X = gravity.X,
+                Y = gravity.Y,
+                Z = gravity.Z,
+                Timestamp = gravity.Timestamp
+            };
+        }
+
+        public static TabiApiClient.Models.Quaternion ToApiModel(this Quaternion quaternion)
+        {
+            return new TabiApiClient.Models.Quaternion()
+            {
+                X = quaternion.X,
+                Y = quaternion.Y,
+                Z = quaternion.Z,
+                W = quaternion.W,
+                Timestamp = quaternion.Timestamp
+            };
+        }
+
+        public static TabiApiClient.Models.SensorMeasurementSession ToApiModel(this SensorMeasurementSession session)
+        {
+            return new TabiApiClient.Models.SensorMeasurementSession()
+            {
+                AmbientLight = session.AmbientLight,
+                BatteryLevel = session.BatteryLevel,
+                BatteryState = (int)session.BatteryStatus,
+                Pedometer = session.Pedometer,
+                Proximity = session.Proximity,
+                Compass = session.Compass,
+                Timestamp = session.Timestamp
             };
         }
     }
