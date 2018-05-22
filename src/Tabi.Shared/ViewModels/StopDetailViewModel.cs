@@ -32,10 +32,10 @@ namespace Tabi.ViewModels
             _stopVisit = stopVisit ?? throw new ArgumentNullException(nameof(stopVisit));
             _navigation = navigation ?? throw new ArgumentNullException(nameof(navigation));
 
-            Motive stopMotive = _repoManager.MotiveRepository.GetByStopId(_stopVisit.StopId);
-
+            // Find an existing Motive for the current stopvisit.
+            Motive stopMotive = _repoManager.MotiveRepository.GetByStopVisitId(_stopVisit.Id);
             // Initialize a new motive since the ViewModel needs one.
-            stopMotive = stopMotive ?? new Motive() { StopId = _stopVisit.StopId };
+            stopMotive = stopMotive ?? new Motive() { StopVisitId = _stopVisit.Id };
 
             Motive = new MotiveViewModel(stopMotive);
 
@@ -100,18 +100,8 @@ namespace Tabi.ViewModels
 
         private async Task OpenPage(Page page)
         {
-            // On iOS wrap the page in a NavigationPage so we get a NavigationBar for the modalscreen.
-            if (Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.iOS)
-            {
-                page = new NavigationPage(page);
-                await _navigation.PushModalAsync(page);
-            }
-            else
-            {
-                // On Android use existing NavigationPage/no modal. Since we can't have
-                // a back button on the left side easily.
-                await _navigation.PushAsync(page);
-            }
+            page = new NavigationPage(page);
+            await _navigation.PushModalAsync(page);
         }
 
 

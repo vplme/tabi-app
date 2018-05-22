@@ -7,9 +7,9 @@ namespace TabiApiClient.Models
 
         public int DeviceId { get; set; }
 
-        public int StopId { get; set; }
+        public int StopVisitId { get; set; }
 
-        public int LocalStopId { get; set; }
+        public int LocalStopVisitId { get; set; }
 
         public string Motive { get; set; }
 

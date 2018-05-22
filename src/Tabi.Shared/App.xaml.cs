@@ -1,6 +1,4 @@
-﻿using System;
-using System.Reflection;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Azure.Mobile;
 using Microsoft.Azure.Mobile.Analytics;
@@ -8,11 +6,8 @@ using Microsoft.Azure.Mobile.Crashes;
 using Microsoft.Azure.Mobile.Distribute;
 using Microsoft.Azure.Mobile.Push;
 using PCLStorage;
-using Tabi.Shared.Extensions;
 using Tabi.DataStorage;
 using Tabi.Logging;
-using Tabi.Pages;
-using System.Threading.Tasks;
 using Tabi.iOS.Helpers;
 using Tabi.DataObjects.CollectionProfile;
 using Tabi.Shared.Helpers;
@@ -141,7 +136,7 @@ namespace Tabi
             containerBuilder.RegisterType<SqliteNetRepoManager>().As<IRepoManager>().SingleInstance();
 
             containerBuilder.RegisterType<SyncService>();
-            containerBuilder.RegisterType<ApiClient>().WithParameter("apiLocation", TabiConfig.ApiUrl);
+            containerBuilder.RegisterType<ApiClient>().WithParameter("apiLocation", TabiConfig.Api.Url);
 
             containerBuilder.RegisterInstance(TabiConfig).As<TabiConfiguration>();
 
@@ -172,7 +167,6 @@ namespace Tabi
         public static void SetupCertificatePinningCheck()
         {
             TabiConfig.Api?.CertificateKeys?.ForEach(key => EndpointConfiguration.AddPublicKeyString(key));
-            EndpointConfiguration.AddPublicKeyString(TabiConfig.CertificateKey);
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             ServicePointManager.DefaultConnectionLimit = 8;
             ServicePointManager.ServerCertificateValidationCallback = EndpointConfiguration.ValidateServerCertificate;

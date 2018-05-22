@@ -664,5 +664,11 @@ namespace Tabi.Shared.Resx {
                 return ResourceManager.GetString("APIUnavailableText", resourceCulture);
             }
         }
+        
+        public static string ApiUrlLabel {
+            get {
+                return ResourceManager.GetString("ApiUrlLabel", resourceCulture);
+            }
+        }
     }
 }

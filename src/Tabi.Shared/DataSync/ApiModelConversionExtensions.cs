@@ -92,7 +92,7 @@ namespace Tabi.Shared.DataSync
         {
             return new TabiApiClient.Models.UserStopMotive()
             {
-                LocalStopId = motive.StopId,
+                LocalStopVisitId = motive.StopVisitId,
                 Motive = motive.Text,
                 Timestamp = motive.Timestamp,
             };

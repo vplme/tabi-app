@@ -11,7 +11,7 @@ namespace Tabi.Shared.ViewModels
     {
         private readonly IRepoManager _repoManager;
         private readonly INavigation _navigation;
-
+        private bool saved;
 
         public StopDetailMotiveViewModel(IRepoManager repoManager, INavigation navigation, MotiveViewModel motiveViewModel)
         {
@@ -21,9 +21,12 @@ namespace Tabi.Shared.ViewModels
 
             SaveCommand = new Command(async () =>
             {
-                await PopPageAsync();
+                saved = true;
                 Motive newMotive = Motive.SaveViewModelToModel();
                 repoManager.MotiveRepository.Add(newMotive);
+
+                await PopPageAsync();
+
             });
             CancelCommand = new Command(async () =>
             {
@@ -36,19 +39,19 @@ namespace Tabi.Shared.ViewModels
 
         private async Task PopPageAsync()
         {
-            if (Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.iOS)
-            {
-                await _navigation.PopModalAsync();
-            }
-            else
-            {
-                await _navigation.PopAsync();
-            }
+            await _navigation.PopModalAsync();
         }
 
         public ICommand SaveCommand { get; set; }
 
         public ICommand CancelCommand { get; set; }
 
+        public void Disappear()
+        {
+            if (!saved)
+            {
+                Motive.ResetViewModel();
+            }
+        }
     }
 }

@@ -8,7 +8,7 @@ namespace Tabi.DataObjects
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 
-        public int StopId { get; set; }
+        public int StopVisitId { get; set; }
 
         public int TrackId { get; set; }
 

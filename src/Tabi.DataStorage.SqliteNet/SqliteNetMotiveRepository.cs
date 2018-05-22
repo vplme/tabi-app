@@ -12,9 +12,9 @@ namespace Tabi.DataStorage.SqliteNet
         {
         }
 
-        public Motive GetByStopId(int stopId)
+        public Motive GetByStopVisitId(int stopVisitId)
         {
-            return connection.Table<Motive>().Where(m => m.StopId == stopId).OrderBy(sv => sv.Timestamp).LastOrDefault();
+            return connection.Table<Motive>().Where(m => m.StopVisitId == stopVisitId).OrderBy(sv => sv.Timestamp).LastOrDefault();
         }
 
         public IEnumerable<Motive> After(DateTimeOffset begin)

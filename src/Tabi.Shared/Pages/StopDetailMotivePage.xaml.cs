@@ -22,16 +22,23 @@ namespace Tabi.Shared.Pages
 
             if (Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.iOS)
             {
-                ExtendedToolbarItem cancelToolbarItem = new ExtendedToolbarItem() { Left = true, Text = AppResources.CancelText };
-                cancelToolbarItem.SetBinding(ExtendedToolbarItem.CommandProperty, "CancelCommand");
-                ToolbarItems.Add(cancelToolbarItem);
+                ExtendedToolbarItem saveToolbarItem = new ExtendedToolbarItem() { Done = true, Text = AppResources.SaveText };
+                saveToolbarItem.SetBinding(ExtendedToolbarItem.CommandProperty, "SaveCommand");
+                ToolbarItems.Add(saveToolbarItem);
             }
 
-            ExtendedToolbarItem saveToolbarItem = new ExtendedToolbarItem() { Done = true, Text = AppResources.SaveText };
-            saveToolbarItem.SetBinding(ExtendedToolbarItem.CommandProperty, "SaveCommand");
-            ToolbarItems.Add(saveToolbarItem);
+            ExtendedToolbarItem cancelToolbarItem = new ExtendedToolbarItem() { Left = true, Text = AppResources.CancelText };
+            cancelToolbarItem.SetBinding(ExtendedToolbarItem.CommandProperty, "CancelCommand");
+            ToolbarItems.Add(cancelToolbarItem);
 
             BindingContext = App.Container.Resolve<StopDetailMotiveViewModel>(new TypedParameter(typeof(MotiveViewModel), motiveViewModel), new TypedParameter(typeof(INavigation), Navigation));
+        }
+
+        protected override void OnDisappearing()
+        {
+            ViewModel.Disappear();
+
+            base.OnDisappearing();
         }
     }
 }

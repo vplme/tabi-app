@@ -47,7 +47,8 @@
                                 </Grid.ColumnDefinitions>
                                 <Label Grid.Column="0" Style="{DynamicResource TabiListItemTextStyle}" VerticalOptions="Center"
                                      Text="{i18n:Translate UploadDataLabel}" />
-                                <Button Grid.Column="1" HorizontalOptions="Center" TextColor="{DynamicResource TintColor}" Text="{i18n:Translate UploadDataButton}" Command="{Binding UploadCommand}" />
+                                <Button Grid.Column="1" HorizontalOptions="Center" TextColor="{DynamicResource TintColor}"
+                                     Text="{i18n:Translate UploadDataButton}" Command="{Binding UploadCommand}" />
                             </Grid>
                             <control:FooterDivider />
                         </StackLayout>
@@ -65,17 +66,28 @@
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
                                 <Label Text="{i18n:Translate VersionLabel}" x:Name="VersionInfo" />
-                                <Label Grid.Column="1" x:Name="VersionLabel" />
+                                <Label Grid.Column="1" Style="{DynamicResource TabiListItemDetailTextStyle}" VerticalTextAlignment="Center"
+                                     x:Name="VersionLabel" />
                             </Grid>
                             <control:SettingsSectionDivider />
                             <Grid Padding="{DynamicResource NormalPadding}" ColumnSpacing="0" BackgroundColor="White">
-                  
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
                                 <Label Text="{i18n:Translate DeviceIdLabel}" />
-                                <Label Grid.Column="1" Text="{Binding Settings.Device}" />
+                                <Label Style="{DynamicResource TabiListItemDetailTextStyle}" VerticalTextAlignment="Center" Grid.Column="1"
+                                     Text="{Binding Settings.Device}" />
+                            </Grid>
+                            <control:SettingsSectionDivider />
+                            <Grid Padding="{DynamicResource NormalPadding}" ColumnSpacing="0" BackgroundColor="White">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{i18n:Translate ApiUrlLabel}" />
+                                <Label Grid.Column="1" VerticalTextAlignment="Center" Style="{DynamicResource TabiListItemDetailTextStyle}"
+                                     Text="{Binding ApiUrl}" />
                             </Grid>
                             <control:FooterDivider />
                             <StackLayout>
@@ -138,30 +150,5 @@
                 </StackLayout>
             </StackLayout>
         </ScrollView>
-        <!-- <TableView Intent="Settings">
-                <TableRoot x:Name="SettingsTable">
-                    <TableSection Title="{i18n:Translate GeneralLabel}">
-                        <SwitchCell Text="{i18n:Translate TrackingSwitchLabel}" On="{Binding Settings.Tracking}" />
-                    </TableSection>
-                    <TableSection Title="{i18n:Translate InfoLabel}">
-                        <TextCell Text="{i18n:Translate VersionLabel}" x:Name="VersionInfo" Command="{Binding InfoCommand}" />
-                    </TableSection>
-                    <TableSection x:Name="DeveloperSection" Title="Developer">
-                        <SwitchCell Text="Developer" On="{Binding Settings.Developer}" />
-                        <TextCell Text="Export SQLite database" Command="{Binding ExportDatabaseCommand}" />
-                        <TextCell Text="Clear SQLite database" Command="{Binding DropDatabaseCommand}" />
-                        <TextCell Text="Export KML" Command="{Binding ExportKMLCommand}" />
-                        <TextCell Text="Export CSV" Command="{Binding ExportCSVCommand}" />
-                        <TextCell Text="Show mockup" Command="{Binding ShowMockupCommand}" />
-                        <TextCell Text="Load Sample Database" Command="{Binding LoadSampleCommand}" />
-                        <TextCell Text="Generate stops" Command="{Binding GenerateStopsCommand}" />
-                        <TextCell Text="List stops" Command="{Binding ListStopsCommand}" />
-                        <TextCell Text="List latest positions" Command="{Binding ListPositionsCommand}" />
-                        <TextCell Text="Show page" Command="{Binding ShowPageCommand}" />
-                        <TextCell Text="Clear stops" Command="{Binding ClearStopsCommand}" />
-                        <TextCell Text="Logs" Command="{Binding OpenLogsCommand}" />
-                    </TableSection>
-                </TableRoot>
-            </TableView>-->
     </ContentPage.Content>
 </ContentPage>

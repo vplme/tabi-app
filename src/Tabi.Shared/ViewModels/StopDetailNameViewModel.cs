@@ -12,6 +12,7 @@ namespace Tabi.Shared.ViewModels
         private readonly IRepoManager _repoManager;
         private readonly INavigation _navigation;
         private readonly StopVisitViewModel _stopVisitViewModel;
+        private bool saved;
 
         public StopDetailNameViewModel(IRepoManager repoManager, INavigation navigation, StopVisitViewModel stopVisitViewModel)
 
@@ -22,15 +23,15 @@ namespace Tabi.Shared.ViewModels
 
             SaveCommand = new Command(async () =>
             {
+                saved = true;
                 Stop newStop = StopVisit.SaveViewModelToStop();
 
                 repoManager.StopRepository.Add(newStop);
 
-                StopVisit sv = stopVisitViewModel.StopVisit;
-                sv.StopId = newStop.Id;
-                sv.Stop = newStop;
+                stopVisitViewModel.StopVisit.StopId = newStop.Id;
+                stopVisitViewModel.StopVisit.Stop = newStop;
 
-                repoManager.StopVisitRepository.Update(sv);
+                repoManager.StopVisitRepository.Update(stopVisitViewModel.StopVisit);
 
                 await PopPageAsync();
             });
@@ -44,14 +45,7 @@ namespace Tabi.Shared.ViewModels
 
         private async Task PopPageAsync()
         {
-            if (Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.iOS)
-            {
-                await _navigation.PopModalAsync();
-            }
-            else
-            {
-                await _navigation.PopAsync();
-            }
+            await _navigation.PopModalAsync();
         }
 
         public StopVisitViewModel StopVisit { get => _stopVisitViewModel; }
@@ -59,5 +53,13 @@ namespace Tabi.Shared.ViewModels
         public ICommand SaveCommand { get; set; }
 
         public ICommand CancelCommand { get; set; }
+
+        public void Disappear()
+        {
+            if (!saved)
+            {
+                StopVisit.ResetViewModel();
+            }
+        }
     }
 }

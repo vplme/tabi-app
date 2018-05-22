@@ -7,16 +7,32 @@
         <!-- Added in code behind -->
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <TableView Intent="Settings">
-            <TableRoot>
-                <TableSection Title="{i18n:Translate StopNamePageTitle}">
-                    <EntryCell Placeholder="{i18n:Translate SetStopNameHint}" Text="{Binding StopVisit.Name}">
-                        <EntryCell.Label>
-                            <OnPlatform x:TypeArguments="x:String" iOS="{i18n:Translate StopNameLabel}" />
-                        </EntryCell.Label>
-                    </EntryCell>
-                </TableSection>
-            </TableRoot>
-        </TableView>
+        <StackLayout Orientation="Vertical">
+            <TableView Intent="Settings">
+                <TableView.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean">
+                        <On Platform="iOS" Value="true" />
+                    </OnPlatform>
+                </TableView.IsVisible>
+                <TableRoot>
+                    <TableSection Title="{i18n:Translate StopNamePageTitle}">
+                        <EntryCell Placeholder="{i18n:Translate SetStopNameHint}" Text="{Binding StopVisit.Name}">
+                            <EntryCell.Label>
+                                <OnPlatform x:TypeArguments="x:String" iOS="{i18n:Translate StopNameLabel}" />
+                            </EntryCell.Label>
+                        </EntryCell>
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+            <FlexLayout Margin="10, 10, 10, 10" Direction="Row" Wrap="Wrap">
+                <FlexLayout.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean">
+                        <On Platform="Android" Value="true" />
+                    </OnPlatform>
+                </FlexLayout.IsVisible>
+                <Entry FlexLayout.Basis="100%" Placeholder="{i18n:Translate SetStopNameHint}" Text="{Binding StopVisit.Name}" />
+                <Button FlexLayout.Basis="100%" Text="{i18n:Translate SaveText}" Command="{Binding SaveCommand}" />
+            </FlexLayout>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

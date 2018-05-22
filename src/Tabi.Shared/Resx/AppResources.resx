@@ -439,4 +439,7 @@
     <data name="APIUnavailableText" xml:space="preserve">
         <value>Could not connect to the API. Contact support if this persists.</value>
     </data>
+    <data name="ApiUrlLabel" xml:space="preserve">
+        <value>API URL</value>
+    </data>
 </root>

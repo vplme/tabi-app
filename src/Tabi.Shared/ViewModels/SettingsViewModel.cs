@@ -264,5 +264,8 @@ namespace Tabi
         public bool ShowSensorMeasurements { get => _config.SensorMeasurements.UserAdjustable; }
 
         public int InfoCount { get; set; }
+
+        public string ApiUrl { get => _config.Api.Url; }
+
     }
 }

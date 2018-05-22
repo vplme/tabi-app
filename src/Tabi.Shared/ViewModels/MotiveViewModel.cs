@@ -25,7 +25,7 @@ namespace Tabi.Shared.ViewModels
         public Motive SaveViewModelToModel()
         {
             Motive initialModel = _motive;
-
+            initialModel.StopVisitId = _motive.StopVisitId;
             initialModel.Text = text;
             initialModel.Timestamp = DateTimeOffset.Now;
 
