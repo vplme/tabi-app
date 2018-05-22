@@ -7,9 +7,11 @@
         <apiKey>
         </apiKey>
     </mobileCenter>
-    <apiUrl>http://localhost:8000</apiUrl>
-    <certificateKey>
-    </certificateKey>
+    <api>
+        <url>http://localhost:8080</url>
+        <certificateKeys>
+        </certificateKeys>
+    </api>
     <sensorMeasurements>
         <enabled>true</enabled>
         <userAdjustable>true</userAdjustable>
