@@ -9,13 +9,11 @@ namespace Tabi.iOS.PlatformImplementations
     {
         public string GetVersion()
         {
-            NSObject obj = NSBundle.MainBundle.InfoDictionary["CFBundleVersion"];
-            if(obj != null)
-            {
-                return obj as NSString;
-            }
+            
+            string shortString = NSBundle.MainBundle.InfoDictionary["CFBundleShortVersionString"] as NSString;
+            string version = NSBundle.MainBundle.InfoDictionary["CFBundleVersion"] as NSString;
 
-            return "";
+            return $"{shortString} ({version})";
         }
     }
 }
