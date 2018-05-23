@@ -442,4 +442,25 @@
     <data name="ApiUrlLabel" xml:space="preserve">
         <value>API URL</value>
     </data>
+    <data name="LastSyncLabel" xml:space="preserve">
+        <value>Last synced</value>
+    </data>
+     <data name="TimeAgoLessThanAMinute" xml:space="preserve">
+        <value>less than a minute ago</value>
+    </data>
+    <data name="TimeAgoMinutes" xml:space="preserve">
+        <value>minutes ago</value>
+    </data>
+    <data name="TimeAgoMinute" xml:space="preserve">
+        <value>minute ago</value>
+    </data>
+    <data name="TimeAgoHours" xml:space="preserve">
+        <value>hour ago</value>
+    </data>
+    <data name="TimeAgoHour" xml:space="preserve">
+        <value>hour ago</value>
+    </data>
+    <data name="TimeAgoNever" xml:space="preserve">
+        <value>never</value>
+    </data>
 </root>

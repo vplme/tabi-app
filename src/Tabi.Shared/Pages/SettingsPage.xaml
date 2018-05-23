@@ -40,6 +40,17 @@
                                 <Switch Grid.Column="1" HorizontalOptions="Fill" IsToggled="{Binding Settings.SensorMeasurements}" />
                             </Grid>
                             <control:SettingsSectionDivider />
+                            <Grid Padding="{DynamicResource LargerPadding}" ColumnSpacing="0" BackgroundColor="White">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Style="{DynamicResource TabiListItemTextStyle}" VerticalOptions="Center"
+                                     Text="{i18n:Translate LastSyncLabel}" />
+                                <Label Grid.Column="1" VerticalTextAlignment="Center" Style="{DynamicResource TabiListItemDetailTextStyle}"
+                                     Text="{Binding LastSynced}" />
+                            </Grid>
+                            <control:SettingsSectionDivider />
                             <Grid Padding="{DynamicResource NormalPadding}" ColumnSpacing="0" BackgroundColor="White">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
@@ -57,7 +68,7 @@
                         <StackLayout Spacing="0">
                             <control:LabelSection Text="{i18n:Translate AboutSectionLabel}" />
                             <control:HeaderDivider />
-                            <Grid Padding="{DynamicResource NormalPadding}" ColumnSpacing="0" BackgroundColor="White">
+                            <Grid Padding="{DynamicResource LargerPadding}" ColumnSpacing="0" BackgroundColor="White">
                                 <Grid.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding InfoCommand}" />
                                 </Grid.GestureRecognizers>
@@ -65,27 +76,27 @@
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-                                <Label Text="{i18n:Translate VersionLabel}" x:Name="VersionInfo" />
+                                <Label Grid.Column="0" Style="{DynamicResource TabiListItemTextStyle}" Text="{i18n:Translate VersionLabel}" x:Name="VersionInfo" />
                                 <Label Grid.Column="1" Style="{DynamicResource TabiListItemDetailTextStyle}" VerticalTextAlignment="Center"
                                      x:Name="VersionLabel" />
                             </Grid>
                             <control:SettingsSectionDivider />
-                            <Grid Padding="{DynamicResource NormalPadding}" ColumnSpacing="0" BackgroundColor="White">
+                            <Grid Padding="{DynamicResource LargerPadding}" ColumnSpacing="0" BackgroundColor="White">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-                                <Label Text="{i18n:Translate DeviceIdLabel}" />
-                                <Label Style="{DynamicResource TabiListItemDetailTextStyle}" VerticalTextAlignment="Center" Grid.Column="1"
+                                <Label Grid.Column="0" Style="{DynamicResource TabiListItemTextStyle}" Text="{i18n:Translate DeviceIdLabel}" />
+                                <Label Grid.Column="1" Style="{DynamicResource TabiListItemDetailTextStyle}" VerticalTextAlignment="Center"
                                      Text="{Binding Settings.Device}" />
                             </Grid>
                             <control:SettingsSectionDivider />
-                            <Grid Padding="{DynamicResource NormalPadding}" ColumnSpacing="0" BackgroundColor="White">
+                            <Grid Padding="{DynamicResource LargerPadding}" ColumnSpacing="0" BackgroundColor="White">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-                                <Label Text="{i18n:Translate ApiUrlLabel}" />
+                                <Label Grid.Column="0" Style="{DynamicResource TabiListItemTextStyle}" Text="{i18n:Translate ApiUrlLabel}" />
                                 <Label Grid.Column="1" VerticalTextAlignment="Center" Style="{DynamicResource TabiListItemDetailTextStyle}"
                                      Text="{Binding ApiUrl}" />
                             </Grid>

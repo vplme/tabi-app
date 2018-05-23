@@ -185,17 +185,17 @@ namespace Tabi.iOS.Helpers
                 return false;
             }
         }
-        private async Task<bool> RemoveOldSensorMeasurementSessions()
+        private bool RemoveOldSensorMeasurementSessions()
         {
             ISensorMeasurementSessionRepository sensorMeasurementRepository = _repoManager.SensorMeasurementSessionRepository;
-            return await Task.Run(() => sensorMeasurementRepository.RemoveRangeBeforeTimestamp(new DateTimeOffset(Settings.Current.SensorMeasurementSessionLastUpload, TimeSpan.Zero)));
+            return sensorMeasurementRepository.RemoveRangeBeforeTimestamp(TimeKeeper.GetPreviousDone(UploadType.SensorMeasurementSession));
         }
 
-        private async Task<bool> RemoveOldAccelerometerData()
+        private bool RemoveOldAccelerometerData()
         {
             ISensorRepository<Accelerometer> accelerometerRepository = _repoManager.AccelerometerRepository;
             Console.WriteLine("amount of accelerometerdata before: " + accelerometerRepository.Count());
-            var removedSuccessfully = await Task.Run(() => accelerometerRepository.RemoveRangeBeforeTimestamp(new DateTimeOffset(Settings.Current.AccelerometerLastUpload, TimeSpan.Zero)));
+            var removedSuccessfully = accelerometerRepository.RemoveRangeBeforeTimestamp(TimeKeeper.GetPreviousDone(UploadType.Accelerometer));
             if (removedSuccessfully)
             {
                 Console.WriteLine("amount of accelerometerdata after: " + accelerometerRepository.Count());
@@ -204,60 +204,60 @@ namespace Tabi.iOS.Helpers
             return removedSuccessfully;
         }
 
-        private async Task<bool> RemoveOldGyroscopeData()
+        private bool RemoveOldGyroscopeData()
         {
             ISensorRepository<Gyroscope> gyroscopeRepository = _repoManager.GyroscopeRepository;
 
-            return await Task.Run(() => gyroscopeRepository.RemoveRangeBeforeTimestamp(new DateTimeOffset(Settings.Current.GyroscopeLastUpload, TimeSpan.Zero)));
+            return gyroscopeRepository.RemoveRangeBeforeTimestamp(TimeKeeper.GetPreviousDone(UploadType.Gyroscope));
         }
 
-        private async Task<bool> RemoveOldMagnetometerData()
+        private bool RemoveOldMagnetometerData()
         {
             ISensorRepository<Magnetometer> magnetometerRepository = _repoManager.MagnetometerRepository;
 
-            return await Task.Run(() => magnetometerRepository.RemoveRangeBeforeTimestamp(new DateTimeOffset(Settings.Current.MagnetometerLastUpload, TimeSpan.Zero)));
+            return magnetometerRepository.RemoveRangeBeforeTimestamp(TimeKeeper.GetPreviousDone(UploadType.Magnetometer));
         }
 
-        private async Task<bool> RemoveOldLinearAccelerationData()
+        private bool RemoveOldLinearAccelerationData()
         {
             ISensorRepository<LinearAcceleration> linearAccelerationRepository = _repoManager.LinearAccelerationRepository;
 
-            return await Task.Run(() => linearAccelerationRepository.RemoveRangeBeforeTimestamp(new DateTimeOffset(Settings.Current.LinearAccelerationLastUpload, TimeSpan.Zero)));
+            return linearAccelerationRepository.RemoveRangeBeforeTimestamp(TimeKeeper.GetPreviousDone(UploadType.LinearAcceleration));
         }
 
-        private async Task<bool> RemoveOldGravityData()
+        private bool RemoveOldGravityData()
         {
             ISensorRepository<Gravity> gravityRepository = _repoManager.GravityRepository;
 
-            return await Task.Run(() => gravityRepository.RemoveRangeBeforeTimestamp(new DateTimeOffset(Settings.Current.GravityLastUpload, TimeSpan.Zero)));
+            return gravityRepository.RemoveRangeBeforeTimestamp(TimeKeeper.GetPreviousDone(UploadType.Gravity));
         }
 
-        private async Task<bool> RemoveOldOrientationData()
+        private bool RemoveOldOrientationData()
         {
             ISensorRepository<Orientation> orientationRepository = _repoManager.OrientationRepository;
 
-            return await Task.Run(() => orientationRepository.RemoveRangeBeforeTimestamp(new DateTimeOffset(Settings.Current.OrientationLastUpload, TimeSpan.Zero)));
+            return orientationRepository.RemoveRangeBeforeTimestamp(TimeKeeper.GetPreviousDone(UploadType.Orientation));
         }
 
-        private async Task<bool> RemoveOldQuaternionData()
+        private bool RemoveOldQuaternionData()
         {
             ISensorRepository<Quaternion> quaternionRepository = _repoManager.QuaternionRepository;
 
-            return await Task.Run(() => quaternionRepository.RemoveRangeBeforeTimestamp(new DateTimeOffset(Settings.Current.QuaternionLastUpload, TimeSpan.Zero)));
+            return quaternionRepository.RemoveRangeBeforeTimestamp(TimeKeeper.GetPreviousDone(UploadType.Quaternion));
         }
 
         private async Task UploadAndRemoveAccelerometerAsync()
         {
             var data = GatherAccelerometerData();
             await UploadAccelerometerData(data);
-            await RemoveOldAccelerometerData();
+            RemoveOldAccelerometerData();
         }
 
         private async Task UploadAndRemoveGyroscopeData()
         {
             var data = await Task.Run(() => GatherGyroscopeData());
             await UploadGyroscopeData(data);
-            await RemoveOldGyroscopeData();
+            RemoveOldGyroscopeData();
         }
 
         private async Task UploadAndRemoveMagnetometerData()
@@ -265,7 +265,7 @@ namespace Tabi.iOS.Helpers
             var data = await Task.Run(() => GatherMagnetometerData());
 
             await UploadMagnetometerData(data);
-            await RemoveOldMagnetometerData();
+            RemoveOldMagnetometerData();
         }
 
         private async Task UploadAndRemoveQuaternionData()
@@ -273,7 +273,7 @@ namespace Tabi.iOS.Helpers
             var data = await Task.Run(() => GatherQuaternionData());
 
             await UploadQuaternionData(data);
-            await RemoveOldQuaternionData();
+            RemoveOldQuaternionData();
         }
 
         private async Task UploadAndRemoveOrientationData()
@@ -281,7 +281,7 @@ namespace Tabi.iOS.Helpers
             var data = await Task.Run(() => GatherOrientationData());
 
             await UploadOrientationData(data);
-            await RemoveOldOrientationData();
+            RemoveOldOrientationData();
         }
 
         private async Task UploadAndRemoveGravityData()
@@ -289,7 +289,7 @@ namespace Tabi.iOS.Helpers
             var data = await Task.Run(() => GatherGravityData());
 
             await UploadGravityData(data);
-            await RemoveOldGravityData();
+            RemoveOldGravityData();
         }
 
         private async Task UploadAndRemoveLinearAcceleration()
@@ -297,7 +297,7 @@ namespace Tabi.iOS.Helpers
             var data = await Task.Run(() => GatherLinearAccelerationData());
 
             await UploadLinearAccelerationData(data);
-            await RemoveOldLinearAccelerationData();
+            RemoveOldLinearAccelerationData();
         }
 
         private async Task UploadAndRemoveSensorMeasurementSessions()
@@ -305,7 +305,7 @@ namespace Tabi.iOS.Helpers
             var data = await Task.Run(() => GatherSensorMeasurementSessions());
 
             await UploadSensorMeasurementSessions(data);
-            await RemoveOldSensorMeasurementSessions();
+            RemoveOldSensorMeasurementSessions();
         }
 
         private async Task UploadAndRemoveTransporationModes()
@@ -322,45 +322,6 @@ namespace Tabi.iOS.Helpers
 
             await UploadTracks(data);
             // dont remove tracks
-        }
-
-        public async Task<bool> ValidateCounts()
-        {
-            bool valid = true;
-
-            DateTimeOffset lastPositionUploaded = new DateTimeOffset(Settings.Current.PositionLastUpload, TimeSpan.Zero);
-            DateTimeOffset lastLogUploaded = new DateTimeOffset(Settings.Current.LogsLastUpload, TimeSpan.Zero);
-            DateTimeOffset lastBatteryInfoUploaded = new DateTimeOffset(Settings.Current.BatteryInfoLastUpload, TimeSpan.Zero);
-
-            int positionCount = _repoManager.PositionEntryRepository.CountBefore(lastPositionUploaded);
-            int logCount = _repoManager.LogEntryRepository.CountBefore(lastLogUploaded);
-            int batteryCount = _repoManager.BatteryEntryRepository.CountBefore(lastBatteryInfoUploaded);
-
-            DeviceCounts counts = await _apiClient.GetDeviceCounts(Settings.Current.Device);
-            if (counts != null)
-            {
-                if (counts.Positions != positionCount)
-                {
-                    Log.Error($"Position count invalid local {positionCount} remote {counts.Positions}");
-                    valid = false;
-                }
-                if (counts.Logs != logCount)
-                {
-                    Log.Error($"Log count invalid local {logCount} remote {counts.Logs}");
-                    valid = false;
-                }
-                if (counts.BatteryInfos != batteryCount)
-                {
-                    Log.Error($"Battery count invalid local {batteryCount} remote {counts.BatteryInfos}");
-                    valid = false;
-                }
-            }
-            else
-            {
-                Log.Error("Could not validate counts with remote server");
-            }
-
-            return valid;
         }
 
         public List<LogEntry> GatherLogs()
@@ -525,8 +486,6 @@ namespace Tabi.iOS.Helpers
                 if (success)
                 {
                     TimeKeeper.SetDone(UploadType.BatteryEntry, batteryEntries.Last().Timestamp, batteryEntries.Count);
-
-                    Settings.Current.BatteryInfoLastUpload = batteryEntries.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
                 }
                 else
                 {
@@ -610,8 +569,6 @@ namespace Tabi.iOS.Helpers
                 if (success)
                 {
                     TimeKeeper.SetDone(UploadType.Gyroscope, gyroscopeData.Last().Timestamp, gyroscopeData.Count);
-
-                    Settings.Current.GyroscopeLastUpload = gyroscopeData.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
                 }
                 else
                 {
@@ -654,8 +611,6 @@ namespace Tabi.iOS.Helpers
                 if (success)
                 {
                     TimeKeeper.SetDone(UploadType.Magnetometer, magnetometerData.Last().Timestamp, magnetometerData.Count);
-
-                    Settings.Current.MagnetometerLastUpload = magnetometerData.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
                 }
                 else
                 {
@@ -738,8 +693,6 @@ namespace Tabi.iOS.Helpers
                 if (success)
                 {
                     TimeKeeper.SetDone(UploadType.Orientation, orientationData.Last().Timestamp, orientationData.Count);
-
-                    Settings.Current.OrientationLastUpload = orientationData.OrderBy(x => x.Timestamp).Last().Timestamp.Ticks;
                 }
                 else
                 {

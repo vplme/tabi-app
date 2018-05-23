@@ -325,4 +325,28 @@
     <data name="APIUnavailableText" xml:space="preserve">
         <value>Kon geen verbinding maken met de api. Neem contact op met support als dit zo blijft.</value>
     </data>
+    <data name="ApiUrlLabel" xml:space="preserve">
+        <value>API URL</value>
+    </data>
+    <data name="LastSyncLabel" xml:space="preserve">
+        <value>Laatste sync</value>
+    </data>
+     <data name="TimeAgoLessThanAMinute" xml:space="preserve">
+        <value>minder dan 1 minuut geleden</value>
+    </data>
+    <data name="TimeAgoMinutes" xml:space="preserve">
+        <value>minuten geleden</value>
+    </data>
+    <data name="TimeAgoMinute" xml:space="preserve">
+        <value>minuut geleden</value>
+    </data>
+    <data name="TimeAgoHours" xml:space="preserve">
+        <value>uren geleden</value>
+    </data>
+    <data name="TimeAgoHour" xml:space="preserve">
+        <value>uur geleden</value>
+    </data>
+    <data name="TimeAgoNever" xml:space="preserve">
+        <value>nooit</value>
+    </data>
 </root>

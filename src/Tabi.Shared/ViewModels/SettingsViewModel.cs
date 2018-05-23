@@ -202,19 +202,21 @@ namespace Tabi
                         // Display message to user if api is unavailable. 
                         bool available = await _syncService.Ping(5);
 
-                        if(!available)
+                        if (!available)
                         {
                             UserDialogs.Instance.HideLoading();
 
-                            await UserDialogs.Instance.AlertAsync(AppResources.APIUnavailableText , AppResources.APIUnavailableTitle, AppResources.OkText);
+                            await UserDialogs.Instance.AlertAsync(AppResources.APIUnavailableText, AppResources.APIUnavailableTitle, AppResources.OkText);
                             return;
                         }
 
                         try
                         {
                             await _syncService.UploadAll(false);
-                   
+
                             UserDialogs.Instance.HideLoading();
+
+                            Settings.LastUpload = DateTime.Now.Ticks;
 
                             UserDialogs.Instance.Toast(AppResources.DataUploadSuccesful);
                         }
@@ -233,6 +235,15 @@ namespace Tabi
                     await UserDialogs.Instance.AlertAsync(AppResources.NoInternetConnectionText, AppResources.NoInternetConnectionTitle, AppResources.OkText);
                 }
             });
+
+
+            Settings.PropertyChanged += (sender, e) =>
+            {
+                if (e.PropertyName == "LastUpload")
+                {
+                    OnPropertyChanged(nameof(LastSynced));
+                }
+            };
         }
 
         public ICommand ExportDatabaseCommand { protected set; get; }
@@ -267,5 +278,37 @@ namespace Tabi
 
         public string ApiUrl { get => _config.Api.Url; }
 
+        public string LastSynced { get => TimeAgo(new DateTime(Settings.LastUpload)); }
+
+        private string TimeAgo(DateTime date)
+        {
+            DateTime now = DateTime.Now;
+
+            TimeSpan timeAgo = now.Subtract(date);
+
+            string result = "Unknown";
+            if (timeAgo.TotalMinutes <= 1)
+            {
+                result = AppResources.TimeAgoLessThanAMinute;
+            }
+            else if (timeAgo.TotalMinutes <= 59)
+            {
+                result = $"{(int)timeAgo.TotalMinutes} {AppResources.TimeAgoMinutes}";
+            }
+            else if (timeAgo.TotalHours <= 8)
+            {
+                return $"{(int)timeAgo.TotalHours} {AppResources.TimeAgoHours}";
+            }
+            else if(date == DateTime.MinValue)
+            {
+                result = AppResources.TimeAgoNever;
+            }
+            else
+            {
+                result = date.ToString("dd-MM-yy hh:mm:ss");
+            }
+
+            return result;
+        }
     }
 }

@@ -670,5 +670,47 @@ namespace Tabi.Shared.Resx {
                 return ResourceManager.GetString("ApiUrlLabel", resourceCulture);
             }
         }
+        
+        public static string LastSyncLabel {
+            get {
+                return ResourceManager.GetString("LastSyncLabel", resourceCulture);
+            }
+        }
+        
+        public static string TimeAgoLessThanAMinute {
+            get {
+                return ResourceManager.GetString("TimeAgoLessThanAMinute", resourceCulture);
+            }
+        }
+        
+        public static string TimeAgoMinutes {
+            get {
+                return ResourceManager.GetString("TimeAgoMinutes", resourceCulture);
+            }
+        }
+        
+        public static string TimeAgoMinute {
+            get {
+                return ResourceManager.GetString("TimeAgoMinute", resourceCulture);
+            }
+        }
+        
+        public static string TimeAgoHours {
+            get {
+                return ResourceManager.GetString("TimeAgoHours", resourceCulture);
+            }
+        }
+        
+        public static string TimeAgoHour {
+            get {
+                return ResourceManager.GetString("TimeAgoHour", resourceCulture);
+            }
+        }
+        
+        public static string TimeAgoNever {
+            get {
+                return ResourceManager.GetString("TimeAgoNever", resourceCulture);
+            }
+        }
     }
 }
