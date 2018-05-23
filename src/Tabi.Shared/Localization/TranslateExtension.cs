@@ -4,6 +4,7 @@ using System.Reflection;
 using System.Resources;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Autofac;
 
 namespace Tabi.Shared.Localization
 {
@@ -20,7 +21,7 @@ namespace Tabi.Shared.Localization
 		{
             if (Device.RuntimePlatform == Device.iOS || Device.RuntimePlatform == Device.Android)
 			{
-				ci = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
+                ci = App.Container.Resolve<ILocalize>().GetCurrentCultureInfo();
 			}
 		}
 

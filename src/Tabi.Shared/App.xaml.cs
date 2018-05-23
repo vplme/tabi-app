@@ -25,13 +25,16 @@ using System.Net;
 using Tabi.Shared.DataSync;
 using Tabi.Shared;
 using Tabi.Shared.Config;
+using System.Globalization;
+using Tabi.Shared.Resx;
+using System;
 
 namespace Tabi
 {
     public partial class App : Application
     {
         private static IContainer _container;
-                    
+
         public static IContainer Container { get => _container; }
 
         public const string AppIdentifier = "tabi/tabi-app";
@@ -77,6 +80,7 @@ namespace Tabi
             // Resolve repo manager immediately for setup
             Container.Resolve<IRepoManager>();
 
+            SetupLocalization();
 
             // Setup logging
             SetupLogging();
@@ -170,6 +174,18 @@ namespace Tabi
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             ServicePointManager.DefaultConnectionLimit = 8;
             ServicePointManager.ServerCertificateValidationCallback = EndpointConfiguration.ValidateServerCertificate;
+        }
+
+        private void SetupLocalization()
+        {
+            // This lookup NOT required for Windows platforms - the Culture will be automatically set
+            if (Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.iOS || Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.Android)
+            {
+                // determine the correct, supported .NET culture
+                var ci = App.Container.Resolve<ILocalize>().GetCurrentCultureInfo();
+                Shared.Resx.AppResources.Culture = ci; // set the RESX for resource localization
+                App.Container.Resolve<ILocalize>().SetLocale(ci); // set the Thread for locale-aware methods
+            }
         }
 
         private void RegisterPlatformSpecificModules(IModule[] platformSpecificModules, ContainerBuilder containerBuilder)

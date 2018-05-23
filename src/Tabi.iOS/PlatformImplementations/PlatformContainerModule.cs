@@ -3,6 +3,7 @@ using Autofac;
 using CoreLocation;
 using CoreMotion;
 using Tabi.DataObjects.CollectionProfile;
+using Tabi.iOS.Localization;
 using Tabi.Shared;
 using Tabi.Shared.Sensors;
 
@@ -15,6 +16,7 @@ namespace Tabi.iOS.PlatformImplementations
             base.Load(builder);
             builder.RegisterType<CLLocationManager>();
             builder.RegisterType<CMMotionActivityManager>();
+            builder.RegisterType<Localize>().As<ILocalize>().SingleInstance();
             builder.RegisterType<LocationManagerImplementation>().As<ILocationManager>().SingleInstance();
             builder.RegisterType<SensorManagerImplementation>().As<ISensorManager>().SingleInstance();
             builder.RegisterType<ExtraPermission>().As<IExtraPermission>().SingleInstance();
