@@ -23,10 +23,7 @@ namespace Tabi
         {
             InitializeComponent();
 
-            BindingContext = App.Container.Resolve<ActivityOverviewViewModel>();
-
-            ViewModel.Navigation = Navigation;
-            ViewModel.Title = AppResources.ActivityOverviewPageTitle;
+            BindingContext = App.Container.Resolve<ActivityOverviewViewModel>(new TypedParameter(typeof(INavigation), Navigation));
         }
 
         protected override void OnDisappearing()

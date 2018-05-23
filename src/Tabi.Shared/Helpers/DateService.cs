@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using Tabi.Model;
 
 namespace Tabi.Shared.Helpers
 {
@@ -9,20 +10,20 @@ namespace Tabi.Shared.Helpers
 
         public DateService()
         {
-            selectedDate = DateTime.Now;
+            SelectedDay = new Day { Time = DateTime.Now };
         }
 
-        private DateTime selectedDate;
-        public DateTime SelectedDate
+        private Day selectedDay;
+        public Day SelectedDay
         {
             get
             {
-                return selectedDate;
+                return selectedDay;
             }
             set
             {
-                selectedDate = value;
-                OnPropertyChanged("SelectedDate");
+                selectedDay = value;
+                OnPropertyChanged("SelectedDay");
             }
         }
 

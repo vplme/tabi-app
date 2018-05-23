@@ -25,9 +25,7 @@ using System.Net;
 using Tabi.Shared.DataSync;
 using Tabi.Shared;
 using Tabi.Shared.Config;
-using System.Globalization;
-using Tabi.Shared.Resx;
-using System;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 namespace Tabi
 {
@@ -118,8 +116,8 @@ namespace Tabi
                 Log.Debug($"MobileCenter enabled: {TabiConfig.MobileCenter.Enabled}");
             }
 
-            NavigationPage navigationPage = new NavigationPage();
-
+            Xamarin.Forms.NavigationPage navigationPage = new Xamarin.Forms.NavigationPage();
+            navigationPage.On<Xamarin.Forms.PlatformConfiguration.iOS>().SetPrefersLargeTitles(true);
             if (!Settings.Current.PermissionsGranted)
             {
                 navigationPage.PushAsync(new WelcomePage());

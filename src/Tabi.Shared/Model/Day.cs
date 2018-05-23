@@ -25,6 +25,25 @@ namespace Tabi.Model
             }
         }
 
+        public string CurrentDateShort
+        {
+            get
+            {
+                if (Time.Date == DateTime.Today)
+                {
+                    return AppResources.Today;
+                }
+                else if (Time.Date == DateTime.Today.Subtract(TimeSpan.FromDays(1)))
+                {
+                    return AppResources.Yesterday;
+                }
+
+                return ToUpper(Time.ToString("ddd d MMM"));
+
+            }
+        }
+
+
         private string ToUpper(string str)
         {
             string result = str;

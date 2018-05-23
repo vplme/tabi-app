@@ -41,19 +41,22 @@ namespace Tabi.iOS
 
             UITextAttributes textAttributes = null;
             if (UIDevice.CurrentDevice.CheckSystemVersion(9, 0))
+            {
                 textAttributes = new UITextAttributes()
                 {
                     Font = UIFont.FromName("SanFrancisco", (nfloat)20f),
-                    TextColor = UIColor.White
+                    TextShadowColor = UIColor.Clear,
                 };
+            }
             else
             {
                 textAttributes = new UITextAttributes()
                 {
                     Font = UIFont.FromName("HelveticaNeue-Light", (nfloat)20f),
-                    TextColor = UIColor.White
+                    TextShadowColor = UIColor.Clear,
                 };
             }
+
             UINavigationBar.Appearance.SetTitleTextAttributes(textAttributes);
 
             Distribute.DontCheckForUpdatesInDebug();

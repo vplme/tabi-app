@@ -17,6 +17,7 @@ namespace Tabi.ViewModels
     {
         public ObservableCollection<ActivityEntry> ActivityEntries { get; } = new ObservableCollection<ActivityEntry>();
 
+        private readonly INavigation _navigation;
         private readonly DataResolver _dataResolver;
         private readonly DateService _dateService;
         private readonly IRepoManager _repoManager;
@@ -84,22 +85,21 @@ namespace Tabi.ViewModels
             }
         }
 
-        public INavigation Navigation { get; set; }
-
-        public ActivityOverviewViewModel(DateService dateService, IRepoManager repoManager, DataResolver dataResolver)
+        public ActivityOverviewViewModel(INavigation navigation, DateService dateService, IRepoManager repoManager, DataResolver dataResolver)
         {
+            _navigation = navigation ?? throw new ArgumentNullException(nameof(navigation));
             _dataResolver = dataResolver ?? throw new ArgumentNullException(nameof(dataResolver));
             _dateService = dateService ?? throw new ArgumentNullException(nameof(dateService));
             _repoManager = repoManager ?? throw new ArgumentNullException(nameof(repoManager));
 
             SettingsCommand = new Command(async () =>
             {
-                await Navigation.PushAsync(new SettingsPage());
+                await _navigation.PushAsync(new SettingsPage());
             });
 
             DaySelectorCommand = new Command(async () =>
             {
-                await Navigation.PushAsync(new DaySelectorPage());
+                await _navigation.PushModalAsync(new NavigationPage(new DaySelectorPage()));
             });
 
             RefreshCommand = new Command(async () =>
@@ -107,7 +107,7 @@ namespace Tabi.ViewModels
                 ListIsRefreshing = false;
                 IsBusy = true;
                 refreshEnabled = false;
-                Task uiTask = Task.Delay(2000);
+                Task uiTask = Task.Delay(1200);
                 await UpdateStopVisitsAsync();
                 // Show the UI for at least a second..
                 await uiTask;
@@ -116,17 +116,22 @@ namespace Tabi.ViewModels
                 refreshEnabled = true;
             });
 
+            Title = _dateService.SelectedDay.CurrentDateShort;
+
+            _dateService.PropertyChanged += (sender, e) =>
+            {
+                if (e.PropertyName == "SelectedDay")
+                {
+                    Title = _dateService.SelectedDay.CurrentDateShort;
+                }
+            };
         }
 
         public DateTime SelectedDate
         {
             get
             {
-                return _dateService.SelectedDate.Date;
-            }
-            set
-            {
-                _dateService.SelectedDate = value;
+                return _dateService.SelectedDay.Time;
             }
         }
 
@@ -137,8 +142,8 @@ namespace Tabi.ViewModels
 
             List<ActivityEntry> newActivityEntries = new List<ActivityEntry>();
 
-            DateTimeOffset startDate = _dateService.SelectedDate.Date;
-            DateTimeOffset endDate = _dateService.SelectedDate.Date.AddHours(23).AddMinutes(59).AddSeconds(59);
+            DateTimeOffset startDate = _dateService.SelectedDay.Time.Date;
+            DateTimeOffset endDate = _dateService.SelectedDay.Time.Date.AddHours(23).AddMinutes(59).AddSeconds(59);
 
 
             var stopVisits = _repoManager.StopVisitRepository.BetweenDates(startDate, endDate);
