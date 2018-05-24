@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Tabi;assembly=Tabi.Shared" xmlns:i18n="clr-namespace:Tabi.Shared.Localization;assembly=Tabi.Shared"
+     xmlns:control="clr-namespace:Tabi.Shared.Controls;assembly=Tabi.Shared" x:Class="Tabi.TrackDetailMotivePage" Title="{i18n:Translate TrackMotivePageTitle}">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <TableView Intent="Settings">
+                <TableView.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean">
+                        <On Platform="iOS" Value="true" />
+                        <On Platform="Android" Value="false" />
+                    </OnPlatform>
+                </TableView.IsVisible>
+                <TableRoot>
+                    <TableSection Title="{i18n:Translate StopMotivePageTitle}">
+                        <EntryCell Placeholder="{i18n:Translate SetStopMotiveHint}" Text="{Binding Motive.Text}">
+                            <EntryCell.Label>
+                                <OnPlatform x:TypeArguments="x:String" iOS="{i18n:Translate TrackMotiveLabel}" />
+                            </EntryCell.Label>
+                        </EntryCell>
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+            <FlexLayout Margin="10, 10, 10, 10" Direction="Row" Wrap="Wrap">
+                <FlexLayout.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean">
+                        <On Platform="Android" Value="true" />
+                    </OnPlatform>
+                </FlexLayout.IsVisible>
+                <Entry FlexLayout.Basis="100%" Placeholder="{i18n:Translate SetTrackMotiveHint}" Text="{Binding Motive.Text}" />
+                <Button FlexLayout.Basis="100%" Text="{i18n:Translate SaveText}" Command="{Binding SaveCommand}" />
+            </FlexLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

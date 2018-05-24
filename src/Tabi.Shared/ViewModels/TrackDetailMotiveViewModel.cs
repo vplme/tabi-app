@@ -7,13 +7,13 @@ using Xamarin.Forms;
 
 namespace Tabi.Shared.ViewModels
 {
-    public class StopDetailMotiveViewModel : BaseViewModel
+    public class TrackDetailMotiveViewModel : BaseViewModel
     {
         private readonly IRepoManager _repoManager;
         private readonly INavigation _navigation;
         private bool saved;
 
-        public StopDetailMotiveViewModel(IRepoManager repoManager, INavigation navigation, StopMotiveViewModel motiveViewModel)
+        public TrackDetailMotiveViewModel(IRepoManager repoManager, INavigation navigation, TrackMotiveViewModel motiveViewModel)
         {
             _repoManager = repoManager ?? throw new ArgumentNullException(nameof(repoManager));
             Motive = motiveViewModel ?? throw new ArgumentNullException(nameof(motiveViewModel));
@@ -25,22 +25,17 @@ namespace Tabi.Shared.ViewModels
                 Motive newMotive = Motive.SaveViewModelToModel();
                 repoManager.MotiveRepository.Add(newMotive);
 
-                await PopPageAsync();
+                await _navigation.PopModalAsync();
 
             });
             CancelCommand = new Command(async () =>
             {
                 Motive.ResetViewModel();
-                await PopPageAsync();
+                await _navigation.PopModalAsync();
             });
         }
 
-        public StopMotiveViewModel Motive { get; private set; }
-
-        private async Task PopPageAsync()
-        {
-            await _navigation.PopModalAsync();
-        }
+        public TrackMotiveViewModel Motive { get; private set; }
 
         public ICommand SaveCommand { get; set; }
 

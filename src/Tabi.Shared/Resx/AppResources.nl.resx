@@ -355,4 +355,13 @@
     <data name="NextDay" xml:space="preserve">
         <value>volgende day</value>
     </data>
+    <data name="TrackMotiveLabel" xml:space="preserve">
+        <value>Motief</value>
+    </data>
+    <data name="SetTrackMotiveHint" xml:space="preserve">
+        <value>Geef een motief op</value>
+    </data>
+    <data name="TrackMotivePageTitle" xml:space="preserve">
+        <value>Tripmotief</value>
+    </data>
 </root>

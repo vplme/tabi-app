@@ -261,6 +261,14 @@ namespace TabiApiClient
             }
         }
 
+        public async Task<bool> PostTrackMotives(int deviceId, IEnumerable<TrackMotive> motives)
+        {
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/motives");
+            HttpContent httpContent = await SerializeObjectAsync(motives);
+            HttpResponseMessage response = await client.PostAsync(path, httpContent);
+            return response.IsSuccessStatusCode;
+        }
+
         public async Task<bool> PostTransportationModes(int deviceId, IEnumerable<TransportationMode> transportModes)
         {
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/mode");

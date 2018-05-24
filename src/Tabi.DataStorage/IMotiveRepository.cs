@@ -12,6 +12,9 @@ namespace Tabi.DataStorage
         /// <returns>Last motive or null if it could not be found.</returns>
         /// <param name="stopId">Stop identifier.</param>
         Motive GetByStopVisitId(int stopVisitId);
-        IEnumerable<Motive> After(DateTimeOffset begin);
+        Motive GetByTrackId(int trackId);
+        IEnumerable<Motive> StopMotivesAfter(DateTimeOffset begin);
+        IEnumerable<Motive> TrackMotivesAfter(DateTimeOffset begin);
+
     }
 }

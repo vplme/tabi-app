@@ -37,7 +37,7 @@ namespace Tabi.ViewModels
             // Initialize a new motive since the ViewModel needs one.
             stopMotive = stopMotive ?? new Motive() { StopVisitId = _stopVisit.Id };
 
-            Motive = new MotiveViewModel(stopMotive);
+            Motive = new StopMotiveViewModel(stopMotive);
 
             StopVisit = new StopVisitViewModel(stopVisit);
 
@@ -73,13 +73,13 @@ namespace Tabi.ViewModels
             DataItems.Add(_motiveListItem);
 
             Motive.PropertyChanged += MotiveViewModel_PropertyChanged;
-            StopVisit.PropertyChanged += StopVisit_PropertyChanged; ;
+            StopVisit.PropertyChanged += StopVisit_PropertyChanged;
 
         }
 
 
 
-        public MotiveViewModel Motive { get; private set; }
+        public StopMotiveViewModel Motive { get; private set; }
 
         public StopVisitViewModel StopVisit { get; private set; }
 

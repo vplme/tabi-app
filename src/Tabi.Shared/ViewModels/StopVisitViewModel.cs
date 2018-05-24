@@ -43,7 +43,6 @@ namespace Tabi.Shared.ViewModels
         public Stop SaveViewModelToStop()
         {
             Stop stop = _stopVisit.Stop;
-
             stop.Name = name;
             stop.Timestamp = DateTimeOffset.Now;
 

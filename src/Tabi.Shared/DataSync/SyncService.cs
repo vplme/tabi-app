@@ -87,14 +87,15 @@ namespace Tabi.iOS.Helpers
                 //}
 
                 Log.Info($"Login took: {timer.EndAndReturnTime()}");
+                await UploadStops(GatherStops());
+                await UploadStopVisits(GatherStopVisits());
 
                 List<Task> toBeUploaded = new List<Task> {
                     UploadPositions(GatherPositions()),
                     UploadLogs(GatherLogs()),
-                    UploadStopVisits(GatherStopVisits()),
-                    UploadStops(GatherStops()),
                     UploadBatteryInfo(GatherBatteryEntries()),
                     UploadStopMotives(GatherStopMotives()),
+                    UploadTrackMotives(GatherTrackMotives()),
 
                     UploadAndRemoveTracks(),
                     UploadAndRemoveGravityData(),
@@ -408,8 +409,6 @@ namespace Tabi.iOS.Helpers
 
             if (stops.Any())
             {
-                success = false;
-
                 List<TabiApiClient.Models.Stop> apiStops = stops.Select(s => s.ToApiModel()).ToList();
 
                 success = await _apiClient.PostStops(Settings.Current.Device, apiStops);
@@ -435,7 +434,7 @@ namespace Tabi.iOS.Helpers
         public List<Motive> GatherStopMotives()
         {
             DateTimeOffset lastUpload = TimeKeeper.GetPreviousDone(UploadType.StopMotive);
-            return _repoManager.MotiveRepository.After(lastUpload).ToList();
+            return _repoManager.MotiveRepository.StopMotivesAfter(lastUpload).ToList();
         }
 
         public async Task<bool> UploadStopMotives(List<Motive> motives)
@@ -452,6 +451,40 @@ namespace Tabi.iOS.Helpers
                 if (success)
                 {
                     TimeKeeper.SetDone(UploadType.StopMotive, apiStopMotives.Last().Timestamp, apiStopMotives.Count);
+                }
+                else
+                {
+                    Log.Error("Could not send stop motives");
+                }
+            }
+            else
+            {
+                success = true;
+            }
+
+            return success;
+        }
+
+        public List<Motive> GatherTrackMotives()
+        {
+            DateTimeOffset lastUpload = TimeKeeper.GetPreviousDone(UploadType.TrackMotive);
+            return _repoManager.MotiveRepository.TrackMotivesAfter(lastUpload).ToList();
+        }
+
+        public async Task<bool> UploadTrackMotives(List<Motive> motives)
+        {
+            bool success = false;
+
+            if (motives.Any())
+            {
+
+                List<TabiApiClient.Models.TrackMotive> apiTrackMotives = motives.Select(s => s.ToTrackMotiveMotiveApiModel()).ToList();
+
+                success = await _apiClient.PostTrackMotives(Settings.Current.Device, apiTrackMotives);
+
+                if (success)
+                {
+                    TimeKeeper.SetDone(UploadType.StopMotive, apiTrackMotives.Last().Timestamp, apiTrackMotives.Count);
                 }
                 else
                 {

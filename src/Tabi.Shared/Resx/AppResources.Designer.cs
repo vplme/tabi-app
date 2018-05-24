@@ -724,5 +724,23 @@ namespace Tabi.Shared.Resx {
                 return ResourceManager.GetString("NextDay", resourceCulture);
             }
         }
+        
+        public static string TrackMotiveLabel {
+            get {
+                return ResourceManager.GetString("TrackMotiveLabel", resourceCulture);
+            }
+        }
+        
+        public static string SetTrackMotiveHint {
+            get {
+                return ResourceManager.GetString("SetTrackMotiveHint", resourceCulture);
+            }
+        }
+        
+        public static string TrackMotivePageTitle {
+            get {
+                return ResourceManager.GetString("TrackMotivePageTitle", resourceCulture);
+            }
+        }
     }
 }

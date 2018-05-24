@@ -469,4 +469,13 @@
     <data name="NextDay" xml:space="preserve">
         <value>next day</value>
     </data>
+    <data name="TrackMotiveLabel" xml:space="preserve">
+        <value>Motive</value>
+    </data>
+    <data name="SetTrackMotiveHint" xml:space="preserve">
+        <value>Set a motive</value>
+    </data>
+    <data name="TrackMotivePageTitle" xml:space="preserve">
+        <value>Trip Motive</value>
+    </data>
 </root>

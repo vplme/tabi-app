@@ -1,22 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using Autofac;
-using Tabi.DataObjects;
 using Tabi.Shared.Resx;
 using Tabi.Shared.ViewModels;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Tabi.Shared.Pages
+namespace Tabi
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class StopDetailMotivePage : ContentPage
+    public partial class TrackDetailMotivePage : ContentPage
     {
-        StopDetailMotiveViewModel ViewModel => vm ?? (vm = BindingContext as StopDetailMotiveViewModel);
-        StopDetailMotiveViewModel vm;
+        TrackDetailMotiveViewModel ViewModel => vm ?? (vm = BindingContext as TrackDetailMotiveViewModel);
+        TrackDetailMotiveViewModel vm;
 
-        public StopDetailMotivePage(StopMotiveViewModel motiveViewModel)
+        public TrackDetailMotivePage(TrackMotiveViewModel motiveViewModel)
         {
             InitializeComponent();
 
@@ -31,7 +29,7 @@ namespace Tabi.Shared.Pages
             cancelToolbarItem.SetBinding(ExtendedToolbarItem.CommandProperty, "CancelCommand");
             ToolbarItems.Add(cancelToolbarItem);
 
-            BindingContext = App.Container.Resolve<StopDetailMotiveViewModel>(new TypedParameter(typeof(StopMotiveViewModel), motiveViewModel), new TypedParameter(typeof(INavigation), Navigation));
+            BindingContext = App.Container.Resolve<TrackDetailMotiveViewModel>(new TypedParameter(typeof(TrackMotiveViewModel), motiveViewModel), new TypedParameter(typeof(INavigation), Navigation));
         }
 
         protected override void OnDisappearing()

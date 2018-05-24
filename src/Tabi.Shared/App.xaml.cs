@@ -147,17 +147,21 @@ namespace Tabi
             containerBuilder.RegisterType<DbLogWriter>();
             containerBuilder.RegisterType<BatteryHelper>().SingleInstance();
 
-            containerBuilder.RegisterType<SettingsViewModel>();
-            containerBuilder.RegisterType<ActivityOverviewViewModel>();
-            containerBuilder.RegisterType<DaySelectorViewModel>();
-            containerBuilder.RegisterType<StopDetailViewModel>();
-            containerBuilder.RegisterType<TransportSelectionViewModel>();
             containerBuilder.RegisterType<WelcomeViewModel>();
             containerBuilder.RegisterType<LoginViewModel>();
             containerBuilder.RegisterType<LocationAccessViewModel>();
             containerBuilder.RegisterType<MotionAccessViewModel>();
             containerBuilder.RegisterType<ThanksViewModel>();
+
+            containerBuilder.RegisterType<ActivityOverviewViewModel>();
+            containerBuilder.RegisterType<DaySelectorViewModel>();
+            containerBuilder.RegisterType<SettingsViewModel>();
+
             containerBuilder.RegisterType<TrackDetailViewModel>();
+            containerBuilder.RegisterType<TrackDetailMotiveViewModel>();
+            containerBuilder.RegisterType<TransportSelectionViewModel>();
+
+            containerBuilder.RegisterType<StopDetailViewModel>();
             containerBuilder.RegisterType<StopDetailNameViewModel>();
             containerBuilder.RegisterType<StopDetailMotiveViewModel>();
 

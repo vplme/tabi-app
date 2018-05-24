@@ -3,11 +3,11 @@ using Tabi.DataObjects;
 
 namespace Tabi.Shared.ViewModels
 {
-    public class MotiveViewModel : BaseViewModel
+    public class StopMotiveViewModel : BaseViewModel
     {
         private readonly Motive _motive;
 
-        public MotiveViewModel(Motive motive)
+        public StopMotiveViewModel(Motive motive)
         {
             _motive = motive ?? throw new ArgumentNullException(nameof(motive));
 
