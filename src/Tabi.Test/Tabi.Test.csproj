@@ -11,6 +11,12 @@
     <PackageReference Include="xunit" Version="2.3.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
     <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
+    <PackageReference Include="Moq" Version="4.8.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Tabi.DataObjects\Tabi.DataObjects.csproj" />
+    <ProjectReference Include="..\Tabi.Shared\Tabi.Shared.csproj" />
+    <ProjectReference Include="..\Tabi.DataStorage\Tabi.DataStorage.csproj" />
+  </ItemGroup>
 </Project>
