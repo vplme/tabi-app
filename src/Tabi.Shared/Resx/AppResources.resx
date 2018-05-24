@@ -445,7 +445,7 @@
     <data name="LastSyncLabel" xml:space="preserve">
         <value>Last synced</value>
     </data>
-     <data name="TimeAgoLessThanAMinute" xml:space="preserve">
+    <data name="TimeAgoLessThanAMinute" xml:space="preserve">
         <value>less than a minute ago</value>
     </data>
     <data name="TimeAgoMinutes" xml:space="preserve">
@@ -462,5 +462,11 @@
     </data>
     <data name="TimeAgoNever" xml:space="preserve">
         <value>never</value>
+    </data>
+    <data name="PreviousDay" xml:space="preserve">
+        <value>previous day</value>
+    </data>
+    <data name="NextDay" xml:space="preserve">
+        <value>next day</value>
     </data>
 </root>

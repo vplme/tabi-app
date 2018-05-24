@@ -23,7 +23,7 @@
                 <Setter Property="BackgroundColor" Value="{DynamicResource redButtonColor}" />
                 <Setter Property="TextColor" Value="White" />
             </Style>
-            <OnPlatform x:TypeArguments="Color" iOS="#1896BC" x:Key="TintColor" />
+            <Color x:Key="TintColor">#1896BC</Color>
             <OnPlatform x:TypeArguments="Color" Android="gray" iOS="gray" x:Key="StatusTintColor" />
             <Color x:Key="CellNormalTextColor">#000000</Color>
             <Color x:Key="CellDetailTextColor">#979797</Color>

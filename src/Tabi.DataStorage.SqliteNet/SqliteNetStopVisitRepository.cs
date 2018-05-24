@@ -19,7 +19,7 @@ namespace Tabi.DataStorage.SqliteNet
 
         public IEnumerable<StopVisit> BetweenDates(DateTimeOffset begin, DateTimeOffset end)
         {
-            return connection.Table<StopVisit>().Where(x => x.BeginTimestamp >= begin && x.BeginTimestamp <= end).OrderBy(sv => sv.BeginTimestamp);
+            return connection.Table<StopVisit>().Where(x => (x.BeginTimestamp >= begin && x.BeginTimestamp <= end) || (x.EndTimestamp >= begin && x.EndTimestamp <= end)).OrderBy(sv => sv.BeginTimestamp);
         }
 
         public IEnumerable<StopVisit> After(DateTimeOffset begin)

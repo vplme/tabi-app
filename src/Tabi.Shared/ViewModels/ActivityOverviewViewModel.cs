@@ -10,6 +10,7 @@ using Tabi.DataStorage;
 using Tabi.Pages;
 using Tabi.Shared.Helpers;
 using Xamarin.Forms;
+using Tabi.Shared.Resx;
 
 namespace Tabi.ViewModels
 {
@@ -162,27 +163,51 @@ namespace Tabi.ViewModels
                     stopDictionary.Add(sv.StopId, sv.Stop);
                 }
                 sv.Stop.Name = string.IsNullOrEmpty(sv.Stop.Name) ? "Stop" : sv.Stop.Name;
-                ae.Time = $"{sv.BeginTimestamp.ToLocalTime():HH:mm} - {sv.EndTimestamp.ToLocalTime():HH:mm}";
+
+                bool stopEndsNextDay = startDate.Day < sv.EndTimestamp.Day;
+                bool stopBeginsPreviousDay = startDate.Day > sv.BeginTimestamp.Day;
+
+                if (stopEndsNextDay)
+                {
+                    ae.Time = $"{sv.BeginTimestamp.ToLocalTime():HH:mm} - {sv.EndTimestamp.ToLocalTime():HH:mm} ({AppResources.NextDay})";
+                }
+                else if (stopBeginsPreviousDay)
+                {
+
+                    ae.Time = $"{sv.BeginTimestamp.ToLocalTime():HH:mm} ({AppResources.PreviousDay}) - {sv.EndTimestamp.ToLocalTime():HH:mm}";
+                }
+                else
+                {
+                    ae.Time = $"{sv.BeginTimestamp.ToLocalTime():HH:mm} - {sv.EndTimestamp.ToLocalTime():HH:mm}";
+
+                }
+
                 ae.StopVisit = sv;
                 newActivityEntries.Add(ae);
 
-                if (sv.NextTrackId != 0)
+                if (sv.NextTrackId != 0 && !stopEndsNextDay)
                 {
                     TrackEntry te = _repoManager.TrackEntryRepository.Get(sv.NextTrackId);
-
-                    double minutes = te.TimeTravelled.TotalMinutes < 200 ? te.TimeTravelled.TotalMinutes : 200;
-
-                    ActivityEntry tAe = new ActivityEntry()
+                    try
                     {
-                        Track = new Track()
+                        double minutes = te.TimeTravelled.TotalMinutes < 200 ? te.TimeTravelled.TotalMinutes : 200;
+
+                        ActivityEntry tAe = new ActivityEntry()
                         {
-                            TrackEntry = te,
-                            Height = minutes,
-                            Color = Color.Blue,
-                            //Text = $"{te.StartTime} {te.EndTime} {te.DistanceTravelled}",
-                        },
-                    };
-                    newActivityEntries.Add(tAe);
+                            Track = new Track()
+                            {
+                                TrackEntry = te,
+                                Height = minutes,
+                                Color = (Color)Application.Current.Resources["TintColor"],
+                                Text = $"{Math.Round(te.DistanceTravelled / 1000, 1)} km",
+                            },
+                        };
+                        newActivityEntries.Add(tAe);
+                    }
+                    catch (Exception e)
+                    {
+                        Log.Error(e);
+                    }
                 }
             }
 

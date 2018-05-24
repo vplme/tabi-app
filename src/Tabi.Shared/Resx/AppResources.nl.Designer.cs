@@ -694,5 +694,17 @@ namespace Tabi.Shared.Resx {
                 return ResourceManager.GetString("TimeAgoNever", resourceCulture);
             }
         }
+        
+        internal static string PreviousDay {
+            get {
+                return ResourceManager.GetString("PreviousDay", resourceCulture);
+            }
+        }
+        
+        internal static string NextDay {
+            get {
+                return ResourceManager.GetString("NextDay", resourceCulture);
+            }
+        }
     }
 }
