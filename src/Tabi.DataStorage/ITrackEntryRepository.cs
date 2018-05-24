@@ -10,6 +10,7 @@ namespace Tabi.DataStorage
         TrackEntry LastTrackEntry();
         bool UpdateWithChildren(TrackEntry track);
         TrackEntry LastCompletedTrackEntry();
+        IEnumerable<TrackEntry> AfterByEndTime(DateTimeOffset date);
         IEnumerable<TrackEntry> GetRangeByEndTime(DateTimeOffset begin, DateTimeOffset end);
         void ClearAll();
     }

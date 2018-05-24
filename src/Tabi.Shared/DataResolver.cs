@@ -26,7 +26,6 @@ namespace Tabi.Core
             _positionEntryRepository = _repoManager.PositionEntryRepository;
             _trackEntryRepository = _repoManager.TrackEntryRepository;
             _stopVisitRepository = _repoManager.StopVisitRepository;
-            _trackEntryRepository = _repoManager.TrackEntryRepository;
             _stopRepository = _repoManager.StopRepository;
 
             _accuracy = 100;

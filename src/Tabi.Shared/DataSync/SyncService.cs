@@ -87,8 +87,11 @@ namespace Tabi.iOS.Helpers
                 //}
 
                 Log.Info($"Login took: {timer.EndAndReturnTime()}");
+                // Stops, StopVisits and Tracks have dependencies and must be
+                // uploaded first.
                 await UploadStops(GatherStops());
                 await UploadStopVisits(GatherStopVisits());
+                await UploadAndRemoveTracks();
 
                 List<Task> toBeUploaded = new List<Task> {
                     UploadPositions(GatherPositions()),
@@ -97,7 +100,6 @@ namespace Tabi.iOS.Helpers
                     UploadStopMotives(GatherStopMotives()),
                     UploadTrackMotives(GatherTrackMotives()),
 
-                    UploadAndRemoveTracks(),
                     UploadAndRemoveGravityData(),
                     UploadAndRemoveGyroscopeData(),
                     UploadAndRemoveQuaternionData(),
@@ -468,7 +470,12 @@ namespace Tabi.iOS.Helpers
         public List<Motive> GatherTrackMotives()
         {
             DateTimeOffset lastUpload = TimeKeeper.GetPreviousDone(UploadType.TrackMotive);
-            return _repoManager.MotiveRepository.TrackMotivesAfter(lastUpload).ToList();
+            IEnumerable<Motive> motives = _repoManager.MotiveRepository.TrackMotivesAfter(lastUpload);
+
+            // Don't add any motives matching the last trackid since
+            // the last track could still be updating
+            TrackEntry lastTrack = _repoManager.TrackEntryRepository.LastTrackEntry();
+            return motives.Where(m => m.TrackId != lastTrack.Id).ToList();
         }
 
         public async Task<bool> UploadTrackMotives(List<Motive> motives)
@@ -477,14 +484,13 @@ namespace Tabi.iOS.Helpers
 
             if (motives.Any())
             {
-
                 List<TabiApiClient.Models.TrackMotive> apiTrackMotives = motives.Select(s => s.ToTrackMotiveMotiveApiModel()).ToList();
 
                 success = await _apiClient.PostTrackMotives(Settings.Current.Device, apiTrackMotives);
 
                 if (success)
                 {
-                    TimeKeeper.SetDone(UploadType.StopMotive, apiTrackMotives.Last().Timestamp, apiTrackMotives.Count);
+                    TimeKeeper.SetDone(UploadType.TrackMotive, apiTrackMotives.Last().Timestamp, apiTrackMotives.Count);
                 }
                 else
                 {
@@ -904,7 +910,10 @@ namespace Tabi.iOS.Helpers
         public List<TrackEntry> GatherTracks()
         {
             DateTimeOffset lastUpload = TimeKeeper.GetPreviousDone(UploadType.TrackEntry);
-            return _repoManager.TrackEntryRepository.GetRangeByEndTime(lastUpload, DateTimeOffset.MaxValue).ToList();
+            List<TrackEntry> trackEntries = _repoManager.TrackEntryRepository.AfterByEndTime(lastUpload).ToList();
+            trackEntries.Remove(trackEntries.Last());
+
+            return trackEntries;
         }
 
         public async Task<bool> UploadTracks(List<TrackEntry> trackEntries)
@@ -914,7 +923,6 @@ namespace Tabi.iOS.Helpers
             if (trackEntries.Any())
             {
                 //gets tracks that are completed and between lastuploadtime and LastCompletedTrackEntry
-                trackEntries.Remove(trackEntries.Last());
 
                 // convert to trackDTO
                 List<TabiApiClient.Models.TrackEntry> apiModels = trackEntries.Select(entry => entry.ToApiModel()).ToList();

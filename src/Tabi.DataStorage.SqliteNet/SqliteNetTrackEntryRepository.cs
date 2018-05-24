@@ -55,6 +55,11 @@ namespace Tabi.DataStorage.SqliteNet
             }
         }
 
+        public IEnumerable<TrackEntry> AfterByEndTime(DateTimeOffset date)
+        {
+            return connection.Table<TrackEntry>().Where(x => x.EndTime > date);
+        }
+
         public IEnumerable<TrackEntry> GetRangeByEndTime(DateTimeOffset begin, DateTimeOffset end)
         {
             try
