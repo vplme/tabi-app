@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+     xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:local="clr-namespace:Tabi;assembly=Tabi.Shared"
+     ios:Page.UseSafeArea="true" x:Class="Tabi.SampleTourVideoPage">
+    <ContentPage.Content>
+        <FlexLayout BackgroundColor="Red" Direction="Column" JustifyContent="Center">
+            <ffimageloading:CachedImage x:Name="image" HorizontalOptions="FillAndExpand" Aspect="AspectFill" Source="image.gif" />
+            <Label Margin="10" FlexLayout.Grow="1" Text="Something something something" />
+            <Button Margin="10" BackgroundColor="Teal" Text="Continue" />
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>
