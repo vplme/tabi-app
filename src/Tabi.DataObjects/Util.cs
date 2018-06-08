@@ -58,6 +58,13 @@ namespace Tabi
             return 6376500.0 * (2.0 * Math.Atan2(Math.Sqrt(d3), Math.Sqrt(1.0 - d3)));
         }
 
-        
+        public static (double latitude, double longitude) AddMetersToPosition(double latitude, double longitude,
+           double distance)
+        {
+            const int radius = 6378137;
+            double dLat = distance / radius;
+            double dLon = distance / (radius * Math.Cos(Math.PI * latitude / 180));
+            return (latitude + dLat * 180 / Math.PI, longitude + dLon * 180 / Math.PI);
+        }
     }
 }

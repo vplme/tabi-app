@@ -7,6 +7,7 @@ namespace Tabi.DataStorage
     public interface IStopRepository : IRepository<Stop>
     {
         void Update(Stop s);
-        List<Stop> After(DateTimeOffset begin);
+        IList<Stop> After(DateTimeOffset begin);
+        IEnumerable<Stop> NearestStops(double latitude, double longitude, double radius);
     }
 }

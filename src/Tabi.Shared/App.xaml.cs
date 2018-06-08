@@ -26,6 +26,8 @@ using Tabi.Shared.DataSync;
 using Tabi.Shared;
 using Tabi.Shared.Config;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
+using Tabi.Logic;
+using System;
 
 namespace Tabi
 {
@@ -141,9 +143,19 @@ namespace Tabi
             containerBuilder.RegisterType<ApiClient>().WithParameter("apiLocation", TabiConfig.Api.Url);
 
             containerBuilder.RegisterInstance(TabiConfig).As<TabiConfiguration>();
+            containerBuilder.RegisterInstance(TabiConfig.UserInterface).As<UserInterfaceConfiguration>();
+
 
             containerBuilder.RegisterType<DateService>().SingleInstance();
             containerBuilder.RegisterType<DataResolver>();
+            containerBuilder.RegisterType<StopResolver>()
+                            .WithParameter("time", TimeSpan.FromMinutes(3))
+                            .WithParameter("groupRadius", 80)
+                            .WithParameter("minStopAccuracy", "80")
+                            .WithParameter("stopMergeRadius", 100)
+                            .WithParameter("stopMergeMaxTravelRadius", 300)
+                            .As<IStopResolver>();
+
             containerBuilder.RegisterType<DbLogWriter>();
             containerBuilder.RegisterType<BatteryHelper>().SingleInstance();
 

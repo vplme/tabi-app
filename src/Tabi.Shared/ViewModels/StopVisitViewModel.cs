@@ -35,6 +35,11 @@ namespace Tabi.Shared.ViewModels
             get => _stopVisit.Stop.Longitude;
         }
 
+        public double Accuracy
+        {
+            get => _stopVisit.StopAccuracy;
+        }
+
         public void ResetViewModel()
         {
             Name = _stopVisit.Stop.Name ?? "";

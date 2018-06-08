@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
+using Tabi.Shared.Helpers;
 using Tabi.Shared.Model;
 using Tabi.Shared.ViewModels;
 using Tabi.ViewModels;
@@ -21,14 +22,13 @@ namespace Tabi
             InitializeComponent();
             BindingContext = App.Container.Resolve<StopDetailViewModel>(new TypedParameter(typeof(StopVisit), sv), new TypedParameter(typeof(INavigation), Navigation));
 
-            Setup();
-
-            SetMapLocation(ViewModel.Name, ViewModel.Latitude, ViewModel.Longitude);
+            SetupMap();
+            SetMapLocation(ViewModel.Name, ViewModel.Latitude, ViewModel.Longitude, ViewModel.StopVisit.Accuracy);
+            AdjustListViewStopHeight();
         }
 
-        void Setup()
+        void SetupMap()
         {
-
             routeMap.HeightRequest = App.ScreenHeight * 0.30;
             routeMap.ClearMap();
         }
@@ -36,7 +36,10 @@ namespace Tabi
         protected override void OnAppearing()
         {
             base.OnAppearing();
+        }
 
+        void AdjustListViewStopHeight()
+        {
             var adjust = Xamarin.Forms.Device.RuntimePlatform != Xamarin.Forms.Device.Android ? 1 : -ViewModel.DataItems.Count + 1;
             ListViewStop.HeightRequest = (ViewModel.DataItems.Count * ListViewStop.RowHeight) - adjust;
         }
@@ -44,10 +47,9 @@ namespace Tabi
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
-            ViewModel.UpdateStop();
         }
 
-        private void SetMapLocation(string name, double latitude, double longitude)
+        private void SetMapLocation(string name, double latitude, double longitude, double accuracy)
         {
             var pos = new Xamarin.Forms.Maps.Position(latitude, longitude);
 
@@ -58,7 +60,15 @@ namespace Tabi
             }
 
             routeMap.Pins.Add(new Xamarin.Forms.Maps.Pin() { Label = labelPin, Position = pos });
+            routeMap.Circles.Add(new Circle()
+            {
+                Position = new Position(latitude, longitude),
+                Radius = accuracy,
+                FillColor = Color.Blue,
+                StrokeColor = Color.Red
+            });
             routeMap.MoveToRegion(MapSpan.FromCenterAndRadius(pos, Distance.FromMeters(300)));
+            routeMap.DrawRoute();
         }
 
         protected override void OnBindingContextChanged()
@@ -72,7 +82,7 @@ namespace Tabi
             // Only run on Android. iOS uses TextCell with Command property.
             if (Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.Android)
             {
-                ListItem item = e.SelectedItem as ListItem;
+                ICommandable item = e.SelectedItem as ICommandable;
                 if (item != null && item.Command != null && item.Command.CanExecute(null))
                 {
                     item.Command.Execute(null);

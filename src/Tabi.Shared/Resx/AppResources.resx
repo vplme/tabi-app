@@ -478,4 +478,19 @@
     <data name="TrackMotivePageTitle" xml:space="preserve">
         <value>Trip Motive</value>
     </data>
+    <data name="PossibleStopsSectionLabel" xml:space="preserve">
+        <value>Or select a nearby stop previously used</value>
+    </data>
+    <data name="ChangeAllStopNamesLabel" xml:space="preserve">
+        <value>Change name everywhere</value>
+    </data>
+    <data name="ReplaceWithExistingStopTitle" xml:space="preserve">
+        <value>Stop name change</value>
+    </data>
+     <data name="ReplaceWithExistingStopText" xml:space="preserve">
+        <value>Would you like to change the name to the previously visited stop {0}?</value>
+    </data>
+     <data name="ReplaceWithExistingStopOkText" xml:space="preserve">
+        <value>Change name</value>
+    </data>
 </root>

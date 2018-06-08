@@ -11,6 +11,7 @@ using Tabi.Pages;
 using Tabi.Shared.Helpers;
 using Xamarin.Forms;
 using Tabi.Shared.Resx;
+using Tabi.Logic;
 
 namespace Tabi.ViewModels
 {
@@ -137,9 +138,10 @@ namespace Tabi.ViewModels
         }
 
 
-        public async System.Threading.Tasks.Task UpdateStopVisitsAsync()
+        public async Task UpdateStopVisitsAsync()
         {
-            await _dataResolver.ResolveDataAsync(DateTimeOffset.MinValue, DateTimeOffset.Now);
+
+            await Task.Run(() => _dataResolver.ResolveData(DateTimeOffset.MinValue, DateTimeOffset.Now));
 
             List<ActivityEntry> newActivityEntries = new List<ActivityEntry>();
 

@@ -10,7 +10,7 @@ namespace Tabi.DataObjects
         public int Id { get; set; }
 
         [JsonIgnore]
-        public Guid DeviceId { get; set; }
+        public int DeviceId { get; set; }
 
         [Ignore]
         public Device Device { get; set; }

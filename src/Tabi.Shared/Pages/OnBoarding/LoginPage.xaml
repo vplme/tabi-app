@@ -37,28 +37,14 @@
                                 <local:BorderlessEntryEffect />
                             </Entry.Effects>
                         </Entry>
-                        <BoxView HeightRequest="0.5" Color="Black">
-                            <BoxView.IsVisible>
-                                <OnPlatform x:TypeArguments="x:Boolean">
-                                    <On Platform="Android" Value="false" />
-                                    <On Platform="iOS" Value="true" />
-                                </OnPlatform>
-                            </BoxView.IsVisible>
-                        </BoxView>
+                        <BoxView HeightRequest="0.5" Color="Black"/>
                         <Label FontSize="Small" Text="{i18n:Translate PasswordLabel}" />
                         <Entry x:Name="passwordEntry" Text="{Binding Password}" FontSize="20" Placeholder="{i18n:Translate PasswordLabel}" Completed="Handle_PasswordEntryCompletedAsync" IsPassword="true">
                             <Entry.Effects>
                                 <local:BorderlessEntryEffect />
                             </Entry.Effects>
                         </Entry>
-                        <BoxView HeightRequest="0.5" Color="Black">
-                            <BoxView.IsVisible>
-                                <OnPlatform x:TypeArguments="x:Boolean">
-                                    <On Platform="Android" Value="false" />
-                                    <On Platform="iOS" Value="true" />
-                                </OnPlatform>
-                            </BoxView.IsVisible>
-                        </BoxView>
+                        <BoxView HeightRequest="0.5" Color="Black"/>
                     </StackLayout>
                 </StackLayout>
                 <StackLayout VerticalOptions="End">

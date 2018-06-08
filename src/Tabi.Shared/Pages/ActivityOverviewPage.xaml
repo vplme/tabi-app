@@ -3,6 +3,15 @@
      xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:local="clr-namespace:Tabi;assembly=Tabi.Shared"
      xmlns:i18n="clr-namespace:Tabi.Shared.Localization;assembly=Tabi.Shared" x:Class="Tabi.ActivityOverviewPage" Title="{Binding Title}"
      ios:Page.LargeTitleDisplay="Always" IsBusy="{Binding IsBusy}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:NegateBoolConverter x:Key="inverter" />
+            <OnPlatform x:Key="statusBoxHeight" x:TypeArguments="x:Double">
+                <On Platform="Android" Value="40" />
+                <On Platform="iOS" Value="40" />
+            </OnPlatform>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.ToolbarItems>
         <local:ExtendedToolbarItem Left="True" Command="{Binding DaySelectorCommand}" Text="{i18n:Translate DaySelectorButton}" />
         <ToolbarItem Command="{Binding SettingsCommand}}">
@@ -24,7 +33,11 @@
                     </OnPlatform>
                 </BoxView.IsVisible>
             </BoxView>
-            <FlexLayout Wrap="Wrap" JustifyContent="Center" Direction="Row" IsVisible="{Binding IsBusy}" BackgroundColor="{DynamicResource StatusTintColor}">
+<!--            <BoxView Color="White" HorizontalOptions="FillAndExpand" IsVisible="{Binding IsBusy, Converter={StaticResource inverter}}"
+                 HeightRequest="{DynamicResource statusBoxHeight}">
+            </BoxView>-->
+            <FlexLayout Wrap="Wrap" JustifyContent="Center" Direction="Row" HeightRequest="{DynamicResource statusBoxHeight}" IsVisible="{Binding IsBusy}"
+                 BackgroundColor="{DynamicResource StatusTintColor}">
                 <ActivityIndicator Color="White" Margin="0, 1, 0 ,0" IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}">
                     <ActivityIndicator.Scale>
                         <OnPlatform x:TypeArguments="x:Double">

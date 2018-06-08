@@ -29,6 +29,12 @@ namespace Tabi.DataStorage.SqliteNet
                              .OrderBy(x => x.EndTimestamp);
         }
 
+        public IEnumerable<StopVisit> MatchingStop(Stop stop)
+        {
+            return connection.Table<StopVisit>()
+                             .Where(x => x.StopId == stop.Id);
+        }
+
         public void ClearAll()
         {
             connection.DeleteAll<StopVisit>();

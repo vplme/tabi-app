@@ -436,6 +436,7 @@
     <Compile Include="PlatformImplementations\PlatformContainerModule.cs" />
     <Compile Include="MainApplication.cs" />
     <Compile Include="Effects\NoScrollListViewEffect.cs" />
+    <Compile Include="Effects\BorderlessEntryEffect.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
