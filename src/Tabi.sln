@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tabi.Logic.Test", "Tabi.Log
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tabi.Console", "Tabi.Console\Tabi.Console.csproj", "{9F17A07C-B476-41C7-AC8C-A20342B5F5A3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{E90B8BE1-85E3-4038-BB6F-2BB88E84877B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
@@ -341,5 +343,11 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C3CF9555-64F7-4B35-B83E-EF882D59BE73}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CB7AD43D-04F2-42CA-8A26-A83DC6D5C3FA} = {E90B8BE1-85E3-4038-BB6F-2BB88E84877B}
+		{AA35B178-D049-4789-91ED-960AE7CD22E6} = {E90B8BE1-85E3-4038-BB6F-2BB88E84877B}
+		{E9A89179-62A6-4258-A773-8C871B906DBF} = {E90B8BE1-85E3-4038-BB6F-2BB88E84877B}
+		{20EBA361-FF71-4850-BF20-6E3C94F7B8C6} = {E90B8BE1-85E3-4038-BB6F-2BB88E84877B}
 	EndGlobalSection
 EndGlobal
