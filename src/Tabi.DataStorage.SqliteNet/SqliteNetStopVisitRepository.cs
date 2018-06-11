@@ -46,5 +46,10 @@ namespace Tabi.DataStorage.SqliteNet
 
             return visit;
         }
+
+        public StopVisit First()
+        {
+            return connection.Table<StopVisit>().OrderBy(x => x.BeginTimestamp).FirstOrDefault();
+        }
     }
 }
