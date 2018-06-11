@@ -21,16 +21,23 @@ namespace Tabi.Shared.DataSync
 
         public static StopVisit ToStopVisitAndStop(this ResolvedStop stop)
         {
-            return new StopVisit()
+            StopVisit sv = new StopVisit()
             {
                 BeginTimestamp = stop.BeginTimestamp,
                 EndTimestamp = stop.EndTimestamp,
                 StopAccuracy = stop.AverageAccuracy,
                 Latitude = stop.Latitude,
                 Longitude = stop.Longitude,
-                Stop = stop.ToStop()
+                Stop = stop.ToStop(),
+
             };
 
+            if (stop.NextTrip != null)
+            {
+                sv.NextTrack = stop.NextTrip.ToTrackEntry();
+            }
+
+            return sv;
         }
 
         public static Stop ToStop(this ResolvedStop stop)

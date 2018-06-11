@@ -64,8 +64,8 @@ namespace Tabi.Core
             StopVisit first = null;
             if (rStop != null)
             {
+                // Convert ResolvedStop to StopVisit (recursively)
                 first = rStop.ToStopVisitAndStop();
-                first.NextTrack = rStop.NextTrip.ToTrackEntry();
             }
 
             // Merge last StopVisit/Track from db and new stopvisits/tracks
