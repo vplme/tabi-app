@@ -52,6 +52,8 @@ namespace Tabi
 
         public double Radius { get; set; }
 
+        public double LineWidth { get; set; }
+
         public Color FillColor { get; set; } = Color.LightBlue;
 
         public Color StrokeColor { get; set; } = Color.DarkBlue;

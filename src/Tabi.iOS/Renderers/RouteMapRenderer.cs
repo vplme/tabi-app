@@ -20,6 +20,7 @@ namespace Tabi.iOS
 
         private UIColor currentFillColor;
         private UIColor currentStrokeColor;
+        private nfloat currentLineWidth;
 
         public void Draw()
         {
@@ -31,7 +32,6 @@ namespace Tabi.iOS
             {
                 currentFillColor = line.FillColor.ToUIColor();
                 currentStrokeColor = line.StrokeColor.ToUIColor();
-
 
                 CLLocationCoordinate2D[] cds = new CLLocationCoordinate2D[line.Positions.Count];
 
@@ -50,7 +50,8 @@ namespace Tabi.iOS
             foreach (Circle circle in formsMap.Circles)
             {
                 currentFillColor = circle.FillColor.ToUIColor();
-                currentStrokeColor = circle.FillColor.ToUIColor();
+                currentStrokeColor = circle.StrokeColor.ToUIColor();
+                currentLineWidth = (nfloat)circle.LineWidth;
 
                 MKCircle overlay = MKCircle.Circle(new CLLocationCoordinate2D(circle.Position.Latitude, circle.Position.Longitude), circle.Radius);
                 circles.Add(overlay);
@@ -98,12 +99,18 @@ namespace Tabi.iOS
             Type overlayType = overlayWrapper.GetType();
             if (overlayType == typeof(MKCircle))
             {
-                renderer = new MKCircleRenderer(overlay as MKCircle)
+                MKCircleRenderer circleRenderer = new MKCircleRenderer(overlay as MKCircle)
                 {
                     FillColor = currentFillColor.ColorWithAlpha(0.1f),
-                    StrokeColor = currentStrokeColor,
-                    LineWidth = 1,
                 };
+
+                if (currentLineWidth != 0)
+                {
+                    circleRenderer.StrokeColor = currentStrokeColor;
+                    circleRenderer.LineWidth = currentLineWidth;
+                }
+
+                renderer = circleRenderer;
             }
 
             else if (overlayType == typeof(MKPolyline))

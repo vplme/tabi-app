@@ -65,7 +65,8 @@ namespace Tabi
                 Position = new Position(latitude, longitude),
                 Radius = accuracy,
                 FillColor = Color.Blue,
-                StrokeColor = Color.Red
+                LineWidth = 0.0f,
+                StrokeColor = Color.Red,
             });
             routeMap.MoveToRegion(MapSpan.FromCenterAndRadius(pos, Distance.FromMeters(300)));
             routeMap.DrawRoute();
