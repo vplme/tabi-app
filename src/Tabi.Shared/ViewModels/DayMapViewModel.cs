@@ -40,7 +40,7 @@ namespace Tabi.Shared.ViewModels
                     {
                         line.Positions.Add(new Position(entry.Latitude, entry.Longitude));
                     }
-                    line.Color = Color.Blue;
+                    line.FillColor = Color.Blue;
                     resultingLines.Add(line);
                 }
             }

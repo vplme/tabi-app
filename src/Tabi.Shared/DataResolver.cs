@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
-using Tabi.Shared;
+using Tabi.Logic;
+using Tabi.Shared.DataSync;
 
 namespace Tabi.Core
 {
@@ -16,25 +16,34 @@ namespace Tabi.Core
         IStopVisitRepository _stopVisitRepository;
         IStopRepository _stopRepository;
         private readonly IRepoManager _repoManager;
+        private readonly IStopResolver _stopResolver;
+
 
         private double _accuracy;
-        private double _groupDistance;
-        public DataResolver(IRepoManager repoManager)
+
+        public DataResolver(IRepoManager repoManager, IStopResolver stopResolver)
         {
             _repoManager = repoManager ?? throw new ArgumentNullException(nameof(repoManager));
+            _stopResolver = stopResolver ?? throw new ArgumentNullException(nameof(stopResolver));
 
             _positionEntryRepository = _repoManager.PositionEntryRepository;
             _trackEntryRepository = _repoManager.TrackEntryRepository;
             _stopVisitRepository = _repoManager.StopVisitRepository;
             _stopRepository = _repoManager.StopRepository;
 
-            _accuracy = 100;
-            _groupDistance = 50;
+            _accuracy = 10000;
         }
 
-        public async Task ResolveDataAsync(DateTimeOffset begin, DateTimeOffset end)
+        public void ReplaceStopsWithExisting(StopVisit stopVisit, Action<StopVisit> action)
         {
-            await Task.Run(() => ResolveData(begin, end));
+            if (stopVisit != null)
+            {
+                if (stopVisit.NextTrack != null && stopVisit.NextTrack.NextStop != null)
+                {
+                    ReplaceStopsWithExisting(stopVisit.NextTrack.NextStop, action);
+                }
+                action.Invoke(stopVisit);
+            }
         }
 
         // Resolve data for period including
@@ -48,179 +57,55 @@ namespace Tabi.Core
 
             // Fetch Positions starting from beginning
             List<PositionEntry> fetchedPositions = _positionEntryRepository.FilterPeriodAccuracy(newBeginTime, end, _accuracy);
-            // Group Positions
-            IList<PositionGroup> positionGroups = GroupPositions(fetchedPositions, _groupDistance);
 
-            // fetch existing stops
-            IList<Stop> existingStops = _stopRepository.GetAll().ToList();
-            Log.Debug($"Existingstops size {existingStops.Count()}");
+            IList<ResolvedStop> resolvedStops = _stopResolver.ResolveStops(fetchedPositions);
 
-            // CreateStopVisits, Tracks
-            (TrackEntry firstTrack, IList<StopVisit> stopVisits) = DetermineStopVisits(positionGroups, existingStops);
-
-            // tracks will not be added unless there is a stopvisit, need fix....
-
-
-            Log.Debug($"after Existingstops size {existingStops.Count()}");
+            var rStop = resolvedStops.FirstOrDefault();
+            StopVisit first = null;
+            if (rStop != null)
+            {
+                // Convert ResolvedStop to StopVisit (recursively)
+                first = rStop.ToStopVisitAndStop();
+            }
 
             // Merge last StopVisit/Track from db and new stopvisits/tracks
-            StopVisit first = stopVisits.FirstOrDefault();
             if (first != null && first.BeginTimestamp == lastStopVisit?.BeginTimestamp)
             {
                 lastStopVisit.EndTimestamp = first.EndTimestamp;
-                if (first.NextTrack.TimeTravelled != TimeSpan.Zero){
+                lastStopVisit.StopAccuracy = first.StopAccuracy;
+                lastStopVisit.Latitude = first.Latitude;
+                lastStopVisit.Longitude = first.Longitude;
+
+                if (first.NextTrack != null && first.NextTrack.TimeTravelled != TimeSpan.Zero)
+                {
                     lastStopVisit.NextTrack = first.NextTrack;
                     _trackEntryRepository.Add(lastStopVisit.NextTrack);
                     lastStopVisit.NextTrackId = lastStopVisit.NextTrack.Id;
                 }
 
                 _stopVisitRepository.Update(lastStopVisit);
-                stopVisits.Remove(first);
+                first = first.NextTrack?.NextStop;
             }
+
+            // Replace StopVisits name if there is ONE stop nearby.
+            ReplaceStopsWithExisting(first, (s =>
+            {
+                if (s.Stop != null)
+                {
+                    IList<Stop> nearestStops = _stopRepository.NearestStops(s.Latitude, s.Longitude, 30).ToList();
+                    if (nearestStops.Count == 1)
+                    {
+                        s.Stop = nearestStops.First();
+                    }
+                }
+            }));
 
 
             // Store new StopVisits, Tracks
-            if (stopVisits.Count() > 0)
+            if (first != null)
             {
-                SaveStopVisitChain(stopVisits.First());
-
+                SaveStopVisitChain(first);
             }
-        }
-
-
-
-        /// <summary>
-        /// Divide positions up into groups based on the distance between the positions
-        /// </summary>
-        /// <param name="positions">positions that will be grouped</param>
-        /// <param name="groupDistance">the maximum distance of a position between another position in a group</param>
-        /// <returns>List of grouped positions</returns>
-        public IList<PositionGroup> GroupPositions(IList<PositionEntry> positions, double groupDistance)
-        {
-            IList<PositionGroup> groupedPositions = new List<PositionGroup>();
-            PositionGroup lastGroup = null;
-
-            foreach (PositionEntry pe in positions)
-            {
-                bool positionBelongsInGroup = false;
-                if (lastGroup != null)
-                {
-                    positionBelongsInGroup = true;
-
-                    // Check if the current positions is within the set distance of all positions in the group
-                    foreach (var positionInGroup in lastGroup)
-                    {
-                        if (positionInGroup.DistanceTo(pe) > groupDistance)
-                        {
-                            positionBelongsInGroup = false;
-                            break;
-                        }
-                    }
-                }
-
-                if (positionBelongsInGroup)
-                {
-                    // Add position to the last group
-                    lastGroup.Add(pe);
-                }
-                else
-                {
-                    // Create a new group with the current position
-                    PositionGroup newGroup = new PositionGroup();
-                    newGroup.Add(pe);
-                    groupedPositions.Add(newGroup);
-                    lastGroup = newGroup;
-                }
-            }
-
-            return groupedPositions;
-        }
-
-
-        /// <summary>
-        /// Create StopVisits based on a list of grouped positions.
-        /// </summary>
-        /// <param name="groupedPositionEntries"></param>
-        /// <returns></returns>
-        public (TrackEntry firstTrack, IList<StopVisit> stopVisits) DetermineStopVisits(IList<PositionGroup> groupedPositionEntries,
-            IList<Stop> existingStops)
-        {
-            IList<StopVisit> stopVisits = new List<StopVisit>();
-
-            int stopVisitPositionGroup = -1;
-            StopVisit previousStopVisit = null;
-
-            TrackEntry previousTrack = new TrackEntry();
-            TrackEntry firstLooseTrack = previousTrack;
-
-            for (int i = 0; i < groupedPositionEntries.Count; i++)
-            {
-                PositionGroup grp = groupedPositionEntries[i];
-
-                if (grp.TimeSpent > TimeSpan.FromMinutes(5))
-                {
-
-                    StopVisit sv = DetermineStopVisitFromGroup(grp, existingStops, 80);
-                    // If new stopvisit was near the previous stopvisit AND distance travelled < d then
-                    // update previous stopvisit.
-                    if (previousStopVisit?.Stop != null &&
-                        sv.Stop.Equals(previousStopVisit.Stop) &&
-                        previousTrack?.DistanceTravelled < 200)
-
-                    {
-                        Log.Debug("Fix previousstop");
-                        previousStopVisit.EndTimestamp = sv.EndTimestamp;
-                        previousStopVisit.NextTrack = new TrackEntry();
-                        previousTrack = previousStopVisit.NextTrack;
-                    }
-
-                    else
-                    {
-                        // TODO If new StopVisit:
-                        if (previousTrack != null)
-                        {
-                            previousTrack.NextStop = sv;
-                        }
-
-                        sv.NextTrack = new TrackEntry();
-                        previousTrack = sv.NextTrack;
-
-                        stopVisits.Add(sv);
-
-                        previousStopVisit = sv;
-                        stopVisitPositionGroup = i;
-                    }
-                }
-                else if (previousTrack != null)
-                {
-                    if (previousTrack.StartTime == default(DateTimeOffset))
-                    {
-                        PositionEntry first = grp.Positions.First();
-
-                        previousTrack.StartTime = first.Timestamp;
-                        previousTrack.FirstLatitude = first.Latitude;
-                        previousTrack.FirstLongitude = first.Longitude;
-                    }
-                    PositionEntry last = grp.Positions.Last();
-
-
-                    // TODO wrong 0 default val
-                    double lat = previousTrack.LastLatitude > 0 ? previousTrack.LastLatitude : previousTrack.FirstLatitude;
-                    double lon = previousTrack.LastLongitude > 0 ? previousTrack.LastLongitude : previousTrack.FirstLongitude;
-
-                    previousTrack.DistanceTravelled += Util.DistanceBetween(lat,
-                                                                            lon,
-                                                                            last.Latitude, 
-                                                                            last.Longitude);
-                    previousTrack.EndTime = last.Timestamp;
-                    previousTrack.LastLatitude = last.Latitude;
-                    previousTrack.LastLongitude = last.Longitude;
-
-                }
-
-            }
-
-            return (firstLooseTrack, stopVisits);
         }
 
         public StopVisit SaveStopVisitChain(StopVisit sv)
@@ -254,41 +139,7 @@ namespace Tabi.Core
             return te;
         }
 
-        public StopVisit DetermineStopVisitFromGroup(PositionGroup group, IList<Stop> existingStops, double stopDistance)
-        {
-            DateTimeOffset beginTimestamp = group.First().Timestamp;
-            DateTimeOffset endTimestamp = group.Last().Timestamp;
-            PositionEntry avg = Util.AveragePosition(group.Positions);
-            (double maximumLatitude, double maximumLongitude) =
-                AddMetersToPosition(avg.Latitude, avg.Longitude, stopDistance);
-            (double minimumLatitude, double minimumLongitude) =
-                AddMetersToPosition(avg.Latitude, avg.Longitude, -stopDistance);
 
-
-            Stop stop = existingStops?.FirstOrDefault(s => (s.Latitude >= minimumLatitude &&
-                                                           s.Latitude <= maximumLatitude &&
-                                                           s.Longitude >= minimumLongitude &&
-                                                           s.Longitude <= maximumLongitude));
-
-            if (stop == null)
-            {
-                stop = new Stop
-                {
-                    Latitude = avg.Latitude,
-                    Longitude = avg.Longitude
-                };
-                existingStops.Add(stop);
-            }
-
-            StopVisit sv = new StopVisit()
-            {
-                BeginTimestamp = beginTimestamp,
-                EndTimestamp = endTimestamp,
-                Stop = stop,
-            };
-
-            return sv;
-        }
 
         /// <summary>
         /// Save StopVisits to Repository
@@ -313,13 +164,5 @@ namespace Tabi.Core
             }
         }
 
-        public (double latitude, double longitude) AddMetersToPosition(double latitude, double longitude,
-            double distance)
-        {
-            const int radius = 6378137;
-            double dLat = distance / radius;
-            double dLon = distance / (radius * Math.Cos(Math.PI * latitude / 180));
-            return (latitude + dLat * 180 / Math.PI, longitude + dLon * 180 / Math.PI);
-        }
     }
 }

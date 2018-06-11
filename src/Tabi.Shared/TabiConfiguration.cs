@@ -10,6 +10,7 @@ namespace Tabi.Shared
         public string ApiUrl { get; set; }
         public string CertificateKey { get; set; }
         public SensorMeasurementsConfiguration SensorMeasurements { get; set; }
+        public UserInterfaceConfiguration UserInterface { get; set; } = new UserInterfaceConfiguration();
         public LoggingConfiguration Logging { get; set; }
         public ApiConfiguration Api { get; set; }
     }
@@ -39,6 +40,24 @@ namespace Tabi.Shared
     {
         public bool Enabled { get; set; }
         public bool UserAdjustable { get; set; }
+    }
+
+    public class StopResolverConfiguration
+    {
+        public bool Enabled { get; set; }
+        public bool UserAdjustable { get; set; }
+
+    }
+
+    public class UserInterfaceConfiguration
+    {
+        public bool StopNameReplaceAllEnabled { get; set; } = true;
+
+        public bool SuggestPossibleNearbyStopsEnabled { get; set; } = true;
+
+        public double SuggestPossibleNearbyStopsDistance { get; set; } = 200;
+
+        public double SuggestPossibleNearbyStopsCount { get; set; } = 2;
     }
 
     public class LoggingConfiguration

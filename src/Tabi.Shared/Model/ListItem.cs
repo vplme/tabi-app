@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Windows.Input;
 using MvvmHelpers;
+using Tabi.Shared.Helpers;
 
 namespace Tabi.Shared.Model
 {
-    public class ListItem : ObservableObject
+    public class ListItem : ObservableObject, ICommandable
     {
         private string name;
         public string Name

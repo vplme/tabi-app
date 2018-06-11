@@ -18,7 +18,7 @@ namespace Tabi
         public SettingsPage()
         {
             InitializeComponent();
-            BindingContext = App.Container.Resolve<SettingsViewModel>();
+            BindingContext = App.Container.Resolve<SettingsViewModel>(new TypedParameter(typeof(INavigation), Navigation));
 
             if (!ViewModel.Settings.Developer)
             {

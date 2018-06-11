@@ -5,10 +5,8 @@ using System.Threading.Tasks;
 using Plugin.Connectivity;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
-using Tabi.Shared.Extensions;
 using Tabi.Shared.Helpers;
 using TabiApiClient;
-using TabiApiClient.Messages;
 using Tabi.Shared.DataSync;
 
 namespace Tabi.iOS.Helpers
@@ -399,13 +397,13 @@ namespace Tabi.iOS.Helpers
             return success;
         }
 
-        public List<Stop> GatherStops()
+        public IList<Stop> GatherStops()
         {
             DateTimeOffset lastUpload = TimeKeeper.GetPreviousDone(UploadType.Stop);
             return _repoManager.StopRepository.After(lastUpload);
         }
 
-        public async Task<bool> UploadStops(List<Stop> stops)
+        public async Task<bool> UploadStops(IList<Stop> stops)
         {
             bool success = false;
 
@@ -911,7 +909,10 @@ namespace Tabi.iOS.Helpers
         {
             DateTimeOffset lastUpload = TimeKeeper.GetPreviousDone(UploadType.TrackEntry);
             List<TrackEntry> trackEntries = _repoManager.TrackEntryRepository.AfterByEndTime(lastUpload).ToList();
-            trackEntries.Remove(trackEntries.Last());
+            if(trackEntries.Any())
+            {
+                trackEntries.Remove(trackEntries.Last());
+            }
 
             return trackEntries;
         }

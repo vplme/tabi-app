@@ -35,6 +35,16 @@ namespace Tabi.DataObjects
             set => SetProperty(ref beginTimestamp, value);
         }
 
+        public double StopAccuracy { get; set; }
+
+        private double latitude;
+
+        public double Latitude { get => latitude; set => SetProperty(ref latitude, value); }
+
+        private double longitude;
+
+        public double Longitude { get => longitude; set => SetProperty(ref longitude, value); }
+
         private DateTimeOffset endTimestamp;
         public DateTimeOffset EndTimestamp
         {

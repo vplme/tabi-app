@@ -24,31 +24,28 @@ namespace Tabi
     public class SettingsViewModel : BaseViewModel
     {
         private readonly IRepoManager _repoManager;
+        private readonly INavigation _navigation;
         private readonly DataResolver _dataResolver;
         private readonly SyncService _syncService;
         private readonly TabiConfiguration _config;
 
-        public INavigation Navigation { get; set; }
-
-
-        public SettingsViewModel(TabiConfiguration config, IRepoManager repoManager, SyncService syncService, DataResolver dataResolver) : this()
+        public SettingsViewModel(TabiConfiguration config, INavigation navigation, IRepoManager repoManager, SyncService syncService, DataResolver dataResolver)
         {
+            _navigation = navigation ?? throw new ArgumentNullException(nameof(navigation));
             _config = config ?? throw new ArgumentNullException(nameof(config));
             _repoManager = repoManager ?? throw new ArgumentNullException(nameof(repoManager));
             _dataResolver = dataResolver ?? throw new ArgumentNullException(nameof(dataResolver));
             _syncService = syncService ?? throw new ArgumentNullException(nameof(syncService));
-        }
 
-        public SettingsViewModel()
-        {
+
             ExportDatabaseCommand = new Command(async key =>
-            {
-                Log.Info("Command: Exporting database");
+                {
+                    Log.Info("Command: Exporting database");
 
-                IFolder rootFolder = FileSystem.Current.LocalStorage;
-                var t = await rootFolder.GetFileAsync("tabi.db");
-                DependencyService.Get<IShareFile>().ShareFile(t.Path);
-            });
+                    IFolder rootFolder = FileSystem.Current.LocalStorage;
+                    var t = await rootFolder.GetFileAsync("tabi.db");
+                    DependencyService.Get<IShareFile>().ShareFile(t.Path);
+                });
 
             DropDatabaseCommand = new Command(async () =>
             {
@@ -144,7 +141,7 @@ namespace Tabi
             OpenLogsCommand = new Command((obj) =>
             {
                 LogsPage page = new LogsPage();
-                Navigation.PushAsync(page);
+                _navigation.PushAsync(page);
             });
 
             LoadSampleCommand = new Command(async () =>
@@ -173,8 +170,8 @@ namespace Tabi
             });
             ShowPageCommand = new Command(() =>
             {
-                PermissionsPage sPage = new PermissionsPage();
-                Navigation.PushModalAsync(sPage);
+                SampleTourVideoPage sPage = new SampleTourVideoPage();
+                _navigation.PushModalAsync(sPage);
             });
 
             UploadCommand = new Command(async () =>
@@ -299,7 +296,7 @@ namespace Tabi
             {
                 return $"{(int)timeAgo.TotalHours} {AppResources.TimeAgoHours}";
             }
-            else if(date == DateTime.MinValue)
+            else if (date == DateTime.MinValue)
             {
                 result = AppResources.TimeAgoNever;
             }

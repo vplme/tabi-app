@@ -724,5 +724,47 @@ namespace Tabi.Shared.Resx {
                 return ResourceManager.GetString("TrackMotivePageTitle", resourceCulture);
             }
         }
+        
+        internal static string PossibleStopsSectionLabel {
+            get {
+                return ResourceManager.GetString("PossibleStopsSectionLabel", resourceCulture);
+            }
+        }
+        
+        internal static string ChangeAllStopNamesLabel {
+            get {
+                return ResourceManager.GetString("ChangeAllStopNamesLabel", resourceCulture);
+            }
+        }
+        
+        internal static string ReplaceWithExistingStopTitle {
+            get {
+                return ResourceManager.GetString("ReplaceWithExistingStopTitle", resourceCulture);
+            }
+        }
+        
+        internal static string ReplaceWithExistingStopText {
+            get {
+                return ResourceManager.GetString("ReplaceWithExistingStopText", resourceCulture);
+            }
+        }
+        
+        internal static string ReplaceWithExistingStopOkText {
+            get {
+                return ResourceManager.GetString("ReplaceWithExistingStopOkText", resourceCulture);
+            }
+        }
+        
+        internal static string StartPin {
+            get {
+                return ResourceManager.GetString("StartPin", resourceCulture);
+            }
+        }
+        
+        internal static string EndPin {
+            get {
+                return ResourceManager.GetString("EndPin", resourceCulture);
+            }
+        }
     }
 }

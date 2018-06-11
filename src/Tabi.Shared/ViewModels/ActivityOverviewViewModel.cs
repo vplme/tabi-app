@@ -11,6 +11,8 @@ using Tabi.Pages;
 using Tabi.Shared.Helpers;
 using Xamarin.Forms;
 using Tabi.Shared.Resx;
+using Tabi.Logic;
+using System.Threading;
 
 namespace Tabi.ViewModels
 {
@@ -22,6 +24,13 @@ namespace Tabi.ViewModels
         private readonly DataResolver _dataResolver;
         private readonly DateService _dateService;
         private readonly IRepoManager _repoManager;
+
+        private readonly static SemaphoreSlim semaphore;
+
+        static ActivityOverviewViewModel()
+        {
+            semaphore = new SemaphoreSlim(1);
+        }
 
         private bool listIsRefreshing;
         public bool ListIsRefreshing
@@ -137,15 +146,20 @@ namespace Tabi.ViewModels
         }
 
 
-        public async System.Threading.Tasks.Task UpdateStopVisitsAsync()
+        public async Task UpdateStopVisitsAsync()
         {
-            await _dataResolver.ResolveDataAsync(DateTimeOffset.MinValue, DateTimeOffset.Now);
+            // Don't run this more than once at the same time.
+            // Could result in duplicate stops being saved.
+            await semaphore.WaitAsync();
+
+            await Task.Run(() => _dataResolver.ResolveData(DateTimeOffset.MinValue, DateTimeOffset.Now));
+
+            //semaphore.Release();
 
             List<ActivityEntry> newActivityEntries = new List<ActivityEntry>();
 
             DateTimeOffset startDate = _dateService.SelectedDay.Time.Date;
             DateTimeOffset endDate = _dateService.SelectedDay.Time.Date.AddHours(23).AddMinutes(59).AddSeconds(59);
-
 
             var stopVisits = _repoManager.StopVisitRepository.BetweenDates(startDate, endDate);
             Dictionary<int, Stop> stopDictionary = new Dictionary<int, Stop>();
@@ -164,21 +178,25 @@ namespace Tabi.ViewModels
                 }
                 sv.Stop.Name = string.IsNullOrEmpty(sv.Stop.Name) ? "Stop" : sv.Stop.Name;
 
-                bool stopEndsNextDay = startDate.Day < sv.EndTimestamp.Day;
-                bool stopBeginsPreviousDay = startDate.Day > sv.BeginTimestamp.Day;
+                DateTimeOffset beginTimestampLocal = sv.BeginTimestamp.ToLocalTime();
+                DateTimeOffset endTimestampLocal = sv.EndTimestamp.ToLocalTime();
+                DateTimeOffset startDateLocal = startDate.ToLocalTime();
+
+                bool stopEndsNextDay = startDateLocal.Day < endTimestampLocal.Day;
+                bool stopBeginsPreviousDay = startDateLocal.Day > beginTimestampLocal.Day;
 
                 if (stopEndsNextDay)
                 {
-                    ae.Time = $"{sv.BeginTimestamp.ToLocalTime():HH:mm} - {sv.EndTimestamp.ToLocalTime():HH:mm} ({AppResources.NextDay})";
+                    ae.Time = $"{beginTimestampLocal:HH:mm} - {endTimestampLocal:HH:mm} ({AppResources.NextDay})";
                 }
                 else if (stopBeginsPreviousDay)
                 {
 
-                    ae.Time = $"{sv.BeginTimestamp.ToLocalTime():HH:mm} ({AppResources.PreviousDay}) - {sv.EndTimestamp.ToLocalTime():HH:mm}";
+                    ae.Time = $"{beginTimestampLocal:HH:mm} ({AppResources.PreviousDay}) - {endTimestampLocal:HH:mm}";
                 }
                 else
                 {
-                    ae.Time = $"{sv.BeginTimestamp.ToLocalTime():HH:mm} - {sv.EndTimestamp.ToLocalTime():HH:mm}";
+                    ae.Time = $"{beginTimestampLocal:HH:mm} - {endTimestampLocal:HH:mm}";
 
                 }
 
@@ -220,7 +238,7 @@ namespace Tabi.ViewModels
 
             NoDataInOverviewVisible = (ActivityEntries.Count == 0);
 
+            semaphore.Release();
         }
-
     }
 }

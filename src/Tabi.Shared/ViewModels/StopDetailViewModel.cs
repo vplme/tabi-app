@@ -77,20 +77,26 @@ namespace Tabi.ViewModels
 
         }
 
-
-
         public StopMotiveViewModel Motive { get; private set; }
 
         public StopVisitViewModel StopVisit { get; private set; }
 
         public double Latitude
         {
-            get => _stopVisit.Stop.Latitude;
+            // Use StopVisit coords if possible. Old databases on phones
+            // may only have Stop.StopVisit.Lat/Long coords.
+            // Temporary fix, should be removed in the future.
+            // 0,0 is valid but in the ocean. Same for longitude
+            // TODO Remove in August 2018. 
+#pragma warning disable RECS0018 // Comparison of floating point numbers with equality operator
+
+            get => _stopVisit.Latitude != 0 && _stopVisit.Longitude != 0 ? _stopVisit.Latitude : _stopVisit.Stop.Latitude;
         }
 
         public double Longitude
         {
-            get => _stopVisit.Stop.Longitude;
+            get => _stopVisit.Latitude != 0 && _stopVisit.Longitude != 0 ? _stopVisit.Longitude : _stopVisit.Stop.Longitude;
+#pragma warning restore RECS0018 // Comparison of floating point numbers with equality operator
         }
 
         public string Name
@@ -124,9 +130,6 @@ namespace Tabi.ViewModels
             }
         }
 
-
-
-
         private string title;
 
         public string Title
@@ -140,11 +143,5 @@ namespace Tabi.ViewModels
                 SetProperty(ref title, value);
             }
         }
-
-        public void UpdateStop()
-        {
-            //_repoManager.StopRepository.Update(Stop);
-        }
-
     }
 }

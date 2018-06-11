@@ -89,6 +89,7 @@
     <ProjectReference Include="..\Tabi.DataStorage.SqliteNet\Tabi.DataStorage.SqliteNet.csproj" />
     <ProjectReference Include="..\Tabi.DataObjects\Tabi.DataObjects.csproj" />
     <ProjectReference Include="..\TabiApiClient\TabiApiClient.csproj" />
+    <ProjectReference Include="..\Tabi.Logic\Tabi.Logic.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Config\config.debug.sample.xml" />

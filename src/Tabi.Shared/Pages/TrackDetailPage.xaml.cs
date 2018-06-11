@@ -45,7 +45,12 @@ namespace Tabi.Pages
         {
             routeMap.ClearMap();
 
-            routeMap.Lines.Add(ViewModel.GetMapLine());
+            (Line line, Pin start, Pin end) = ViewModel.GetMapData();
+
+            routeMap.Lines.Add(line);
+
+            routeMap.Pins.Add(start);
+            routeMap.Pins.Add(end);
 
             routeMap.MoveToRegion(ViewModel.AveragePosition());
 

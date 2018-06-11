@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Autofac;
+using Tabi.Shared.Helpers;
 using Tabi.Shared.Resx;
 using Tabi.Shared.ViewModels;
 
@@ -33,6 +34,14 @@ namespace Tabi.Shared.Pages
 
             BindingContext = App.Container.Resolve<StopDetailNameViewModel>(new TypedParameter(typeof(INavigation), Navigation),
                                                                             new TypedParameter(typeof(StopVisitViewModel), stopVisitViewModel));
+
+            AdjustPossibleStopsListHeight();
+        }
+
+        void AdjustPossibleStopsListHeight()
+        {
+            //var adjust = Xamarin.Forms.Device.RuntimePlatform != Xamarin.Forms.Device.Android ? 1 : -ViewModel.PossibleStops.Count + 1;
+            //PossibleStopsList.HeightRequest = (ViewModel.PossibleStops.Count * PossibleStopsList.RowHeight) - adjust;
         }
 
         protected override void OnDisappearing()
@@ -40,6 +49,22 @@ namespace Tabi.Shared.Pages
             ViewModel.Disappear();
 
             base.OnDisappearing();
+        }
+
+        void Handle_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
+        {
+            // Only run on Android. iOS uses TextCell with Command property.
+            if (Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.Android)
+            {
+                ICommandable item = e.SelectedItem as ICommandable;
+                if (item != null && item.Command != null && item.Command.CanExecute(null))
+                {
+                    item.Command.Execute(null);
+                }
+            }
+
+            ListView listView = sender as ListView;
+            listView.SelectedItem = null;
         }
     }
 }

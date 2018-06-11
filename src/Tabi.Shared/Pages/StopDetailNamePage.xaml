@@ -7,32 +7,90 @@
         <!-- Added in code behind -->
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical">
-            <TableView Intent="Settings">
-                <TableView.IsVisible>
-                    <OnPlatform x:TypeArguments="x:Boolean">
-                        <On Platform="iOS" Value="true" />
-                    </OnPlatform>
-                </TableView.IsVisible>
-                <TableRoot>
-                    <TableSection Title="{i18n:Translate StopNamePageTitle}">
-                        <EntryCell Placeholder="{i18n:Translate SetStopNameHint}" Text="{Binding StopVisit.Name}">
-                            <EntryCell.Label>
-                                <OnPlatform x:TypeArguments="x:String" iOS="{i18n:Translate StopNameLabel}" />
-                            </EntryCell.Label>
-                        </EntryCell>
-                    </TableSection>
-                </TableRoot>
-            </TableView>
-            <FlexLayout Margin="10, 10, 10, 10" Direction="Row" Wrap="Wrap">
-                <FlexLayout.IsVisible>
-                    <OnPlatform x:TypeArguments="x:Boolean">
-                        <On Platform="Android" Value="true" />
-                    </OnPlatform>
-                </FlexLayout.IsVisible>
-                <Entry FlexLayout.Basis="100%" Placeholder="{i18n:Translate SetStopNameHint}" Text="{Binding StopVisit.Name}" />
-                <Button FlexLayout.Basis="100%" Text="{i18n:Translate SaveText}" Command="{Binding SaveCommand}" />
-            </FlexLayout>
+        <StackLayout Orientation="Vertical" BackgroundColor="{DynamicResource WindowBackgroundTable}" Spacing="{DynamicResource CardSpacing}"
+             Padding="{DynamicResource CardPadding}">
+            <control:CardView>
+                <StackLayout Spacing="0">
+                    <control:LabelSection Text="{i18n:Translate StopNamePageTitle}" />
+                    <control:HeaderDivider />
+                    <Grid Padding="{DynamicResource LargerPadding}" ColumnSpacing="0" BackgroundColor="White">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Style="{DynamicResource TabiListItemTextStyle}" VerticalOptions="Center" Margin="0,0,30,0"
+                             Text="{i18n:Translate StopNamePageTitle}}">
+                            <Label.IsVisible>
+                                <OnPlatform x:TypeArguments="x:Boolean" iOS="true" Android="false" />
+                            </Label.IsVisible>
+                        </Label>
+                        <Entry Grid.Column="1" Placeholder="{i18n:Translate SetStopNameHint}" Text="{Binding StopVisit.Name}">
+                            <Entry.Effects>
+                                <local:BorderlessEntryEffect />
+                            </Entry.Effects>
+                        </Entry>
+                    </Grid>
+                    <control:SettingsSectionDivider IsVisible="{Binding ChangeAllVisible}" />
+                    <Grid IsVisible="{Binding ChangeAllVisible}" Padding="{DynamicResource NormalPadding}" ColumnSpacing="0" BackgroundColor="White">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Style="{DynamicResource TabiListItemTextStyle}" VerticalOptions="Center" Text="{i18n:Translate ChangeAllStopNamesLabel}" />
+                        <Switch Grid.Column="1" HorizontalOptions="Fill" IsToggled="{Binding ChangeAll}" />
+                    </Grid>
+                </StackLayout>
+            </control:CardView>
+            <control:CardView IsVisible="{Binding PossibleStopsVisible}">
+                <StackLayout Spacing="0">
+                    <control:SettingsSectionDivider />
+                    <control:LabelSection Text="{i18n:Translate PossibleStopsSectionLabel}" />
+                    <control:HeaderDivider />
+                    <ListView x:Name="PossibleStopsList" Margin="0" ItemsSource="{Binding PossibleStops}" ItemSelected="Handle_ItemSelected">
+                        <ListView.SeparatorColor>
+                            <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}" />
+                        </ListView.SeparatorColor>
+                        <ListView.Effects>
+                            <local:NoScrollListViewEffect />
+                        </ListView.Effects>
+                        <ListView.RowHeight>
+                            <OnPlatform x:TypeArguments="x:Int32">
+                                <On Platform="iOS">44</On>
+                                <On Platform="Android">60</On>
+                            </OnPlatform>
+                        </ListView.RowHeight>
+                        <ListView.ItemTemplate>
+                            <OnPlatform x:TypeArguments="DataTemplate">
+                                <On Platform="iOS">
+                                    <DataTemplate>
+                                        <control:TabiTextCell Text="{Binding Name}" TextColor="{StaticResource CellNormalTextColor}"
+                                             DetailColor="{StaticResource CellDetailTextColor}" Command="{Binding Command}"
+                                             CommandParameter="{Binding Parameter}" UITableViewStyle="value1" UITableViewCellAccessory="disclosure"
+                                             Detail="{Binding Subtitle}">
+                                        </control:TabiTextCell>
+                                    </DataTemplate>
+                                </On>
+                                <On Platform="Android">
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout Spacing="0" Margin="{DynamicResource NormalPadding}" Orientation="Vertical">
+                                                <Label Style="{DynamicResource TabiListItemTextStyle}" Text="{Binding Name}" />
+                                                <Label Style="{DynamicResource TabiListItemDetailTextStyle}" Text="{Binding Subtitle}" />
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </On>
+                            </OnPlatform>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <control:SettingsSectionDivider />
+                </StackLayout>
+            </control:CardView>
+            <Button Text="{i18n:Translate SaveText}" Command="{Binding SaveCommand}" Margin="10,0,10,0" Style="{StaticResource defaultButtonStyle}">
+                <Button.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean" iOS="false" Android="true" />
+                </Button.IsVisible>
+            </Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

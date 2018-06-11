@@ -97,7 +97,7 @@ namespace Tabi.ViewModels
             return result;
         }
 
-        public Line GetMapLine()
+        public (Line, Pin, Pin) GetMapData()
         {
             Line line = new Line();
 
@@ -107,7 +107,24 @@ namespace Tabi.ViewModels
                 line.Positions.Add(new Position(pe.Latitude, pe.Longitude));
             }
 
-            return line;
+            PositionEntry firstPos = positions.First();
+            PositionEntry lastPos = positions.Last();
+
+            Pin startPin = new Pin()
+            {
+                Position = new Position(
+                firstPos.Latitude, firstPos.Longitude),
+                Label = "Start"
+            };
+            Pin endPin = new Pin()
+            {
+                Position = new Position(
+                lastPos.Latitude, lastPos.Longitude),
+                Label = "End",
+                Type = PinType.Generic
+            };
+
+            return (line, startPin, endPin);
         }
     }
 }
