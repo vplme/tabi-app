@@ -482,15 +482,21 @@
         <value>Or select a nearby stop previously used</value>
     </data>
     <data name="ChangeAllStopNamesLabel" xml:space="preserve">
-        <value>Change name everywhere</value>
+        <value>Change name in previous visits</value>
     </data>
     <data name="ReplaceWithExistingStopTitle" xml:space="preserve">
         <value>Stop name change</value>
     </data>
-     <data name="ReplaceWithExistingStopText" xml:space="preserve">
+    <data name="ReplaceWithExistingStopText" xml:space="preserve">
         <value>Would you like to change the name to the previously visited stop {0}?</value>
     </data>
-     <data name="ReplaceWithExistingStopOkText" xml:space="preserve">
+    <data name="ReplaceWithExistingStopOkText" xml:space="preserve">
         <value>Change name</value>
+    </data>
+    <data name="StartPin" xml:space="preserve">
+        <value>Start</value>
+    </data>
+    <data name="EndPin" xml:space="preserve">
+        <value>End</value>
     </data>
 </root>

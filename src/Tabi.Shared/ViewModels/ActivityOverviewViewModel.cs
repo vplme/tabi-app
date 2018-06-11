@@ -12,6 +12,7 @@ using Tabi.Shared.Helpers;
 using Xamarin.Forms;
 using Tabi.Shared.Resx;
 using Tabi.Logic;
+using System.Threading;
 
 namespace Tabi.ViewModels
 {
@@ -23,6 +24,13 @@ namespace Tabi.ViewModels
         private readonly DataResolver _dataResolver;
         private readonly DateService _dateService;
         private readonly IRepoManager _repoManager;
+
+        private readonly static SemaphoreSlim semaphore;
+
+        static ActivityOverviewViewModel()
+        {
+            semaphore = new SemaphoreSlim(1);
+        }
 
         private bool listIsRefreshing;
         public bool ListIsRefreshing
@@ -140,13 +148,18 @@ namespace Tabi.ViewModels
 
         public async Task UpdateStopVisitsAsync()
         {
+            // Don't run this more than once at the same time.
+            // Could result in duplicate stops being saved.
+            await semaphore.WaitAsync();
+
             await Task.Run(() => _dataResolver.ResolveData(DateTimeOffset.MinValue, DateTimeOffset.Now));
+
+            //semaphore.Release();
 
             List<ActivityEntry> newActivityEntries = new List<ActivityEntry>();
 
             DateTimeOffset startDate = _dateService.SelectedDay.Time.Date;
             DateTimeOffset endDate = _dateService.SelectedDay.Time.Date.AddHours(23).AddMinutes(59).AddSeconds(59);
-
 
             var stopVisits = _repoManager.StopVisitRepository.BetweenDates(startDate, endDate);
             Dictionary<int, Stop> stopDictionary = new Dictionary<int, Stop>();
@@ -225,7 +238,7 @@ namespace Tabi.ViewModels
 
             NoDataInOverviewVisible = (ActivityEntries.Count == 0);
 
+            semaphore.Release();
         }
-
     }
 }

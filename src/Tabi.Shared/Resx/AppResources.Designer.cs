@@ -772,5 +772,17 @@ namespace Tabi.Shared.Resx {
                 return ResourceManager.GetString("ReplaceWithExistingStopOkText", resourceCulture);
             }
         }
+        
+        public static string StartPin {
+            get {
+                return ResourceManager.GetString("StartPin", resourceCulture);
+            }
+        }
+        
+        public static string EndPin {
+            get {
+                return ResourceManager.GetString("EndPin", resourceCulture);
+            }
+        }
     }
 }

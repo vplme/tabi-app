@@ -53,7 +53,6 @@ namespace Tabi.Logic
         {
             double distance = DistanceBetweenPoints(position1, position2);
             double accuraciesDistance = position1.Accuracy + position2.Accuracy;
-            //Console.WriteLine($"Distance: {distance} Minacc {distance - accuraciesDistance}");
             return distance - accuraciesDistance;
         }
 
@@ -83,7 +82,6 @@ namespace Tabi.Logic
                         double distance = DistanceWithoutAccuracy(positionInGroup, pe);
                         if (distance > _groupRadius)
                         {
-                            Console.WriteLine("Not in group!");
                             positionBelongsInGroup = false;
                             break;
                         }
@@ -125,8 +123,6 @@ namespace Tabi.Logic
 
             (double average, double min, double max) = CalculateAccuracies(positions);
 
-
-
             ResolvedStop stop = new ResolvedStop()
             {
                 Latitude = avg.Latitude,
@@ -156,16 +152,36 @@ namespace Tabi.Logic
 
                 if (position.Accuracy < min)
                     min = position.Accuracy;
-                
+
                 average += position.Accuracy;
 
-             
                 count++;
             }
 
             return (average / count, min, max);
         }
 
+        private void MergeStop(ref ResolvedStop previousResolvedStop, ResolvedStop sv)
+        {
+            List<PositionEntry> averagePos = new List<PositionEntry>();
+            averagePos.Add(new PositionEntry()
+            {
+                Latitude = previousResolvedStop.Latitude,
+                Longitude = previousResolvedStop.Longitude
+            });
+            averagePos.Add(new PositionEntry()
+            {
+                Latitude = sv.Latitude,
+                Longitude = sv.Longitude
+            });
+
+            PositionEntry newAvg = Util.AveragePosition(averagePos);
+
+            previousResolvedStop.Latitude = newAvg.Latitude;
+            previousResolvedStop.Longitude = newAvg.Longitude;
+            previousResolvedStop.EndTimestamp = sv.EndTimestamp;
+            //previousResolvedStop.NextTrip = new ResolvedTrip();
+        }
 
         /// <summary>
         /// Create StopVisits based on a list of grouped positions.
@@ -178,11 +194,13 @@ namespace Tabi.Logic
 
             ResolvedStop previousResolvedStop = null;
 
-            ResolvedTrip previousResolvedTrip = new ResolvedTrip();
-            ResolvedTrip firstLooseTrack = previousResolvedTrip;
+            ResolvedTrip previousResolvedTrip = null;
+            ResolvedTrip firstTrip = null;
 
             foreach (PositionGroup grp in groupedPositionEntries)
             {
+
+                // Create Stop
                 if (grp.TimeSpent >= _time && grp.MinAccuracy <= _minStopAccuracy)
                 {
                     ResolvedStop sv = ResolvedStopFromPositions(grp.Positions);
@@ -194,39 +212,38 @@ namespace Tabi.Logic
                     mergePreviousStop = mergePreviousStop && CheckSameLocation(sv, previousResolvedStop, _stopMergeRadius);
 
                     // Travelled distance between previous stop and current stop is lower than the _stopMergeMaxTravelRadius
-                    mergePreviousStop = mergePreviousStop && previousResolvedTrip?.DistanceTravelled < _stopMergeMaxTravelRadius;
+                    if(previousResolvedTrip != null)
+                    {
+                        mergePreviousStop = mergePreviousStop && previousResolvedTrip?.DistanceTravelled < _stopMergeMaxTravelRadius;
+                    }
 
                     if (mergePreviousStop)
                     {
-                        List<PositionEntry> averagePos = new List<PositionEntry>();
-                        averagePos.Add(new PositionEntry()
-                        {
-                            Latitude = previousResolvedStop.Latitude,
-                            Longitude = previousResolvedStop.Longitude
-                        });
-                        averagePos.Add(new PositionEntry()
-                        {
-                            Latitude = sv.Latitude,
-                            Longitude = sv.Longitude
-                        });
-
-                        PositionEntry newAvg = Util.AveragePosition(averagePos);
-
-                        previousResolvedStop.Latitude = newAvg.Latitude;
-                        previousResolvedStop.Longitude = newAvg.Longitude;
-                        previousResolvedStop.EndTimestamp = sv.EndTimestamp;
-                        previousResolvedStop.NextTrip = new ResolvedTrip();
-                        previousResolvedTrip = previousResolvedStop.NextTrip;
+                        MergeStop(ref previousResolvedStop, sv);
                     }
 
-                    else
+
+                    else // Create new Stop
                     {
+                        if (previousResolvedStop != null && previousResolvedStop.NextTrip == null)
+                        {
+                            // If no trip was added; add a trip manually between the stops.
+                            previousResolvedTrip = previousResolvedStop.NextTrip = new ResolvedTrip()
+                            {
+                                StartTime = previousResolvedStop.EndTimestamp,
+                                EndTime = sv.BeginTimestamp,
+                                FirstLatitude = previousResolvedStop.Latitude,
+                                FirstLongitude = previousResolvedStop.Longitude,
+                                LastLatitude = sv.Latitude,
+                                LastLongitude = sv.Longitude,
+                                DistanceTravelled = Util.DistanceBetween(previousResolvedStop.Latitude, previousResolvedStop.Longitude, sv.Latitude, sv.Longitude),
+                            };
+                        }
+
                         if (previousResolvedTrip != null)
                         {
                             previousResolvedTrip.NextStop = sv;
                         }
-
-                        previousResolvedTrip = sv.NextTrip = new ResolvedTrip();
 
                         resolvedStops.Add(sv);
 
@@ -234,36 +251,55 @@ namespace Tabi.Logic
                     }
                 }
 
-                else if (previousResolvedTrip != null)
+
+                // Create Trip
+                else
                 {
-                    if (previousResolvedTrip.StartTime == default(DateTimeOffset))
+                    ResolvedTrip trip;
+
+                    // No first stop means we're adding to the firstTrip
+                    if (previousResolvedStop == null)
+                    {
+                        if (firstTrip == null)
+                        {
+                            firstTrip = new ResolvedTrip();
+                        }
+                        trip = firstTrip;
+                    }
+                    else if (previousResolvedStop.NextTrip == null)
+                    {
+                        trip = previousResolvedStop.NextTrip = new ResolvedTrip();
+                    }
+                    else
+                    {
+                        trip = previousResolvedStop.NextTrip;
+                    }
+
+
+                    if (trip.StartTime == default(DateTimeOffset))
                     {
                         PositionEntry first = grp.Positions.First();
 
-                        previousResolvedTrip.StartTime = first.Timestamp;
-                        previousResolvedTrip.FirstLatitude = first.Latitude;
-                        previousResolvedTrip.FirstLongitude = first.Longitude;
+                        trip.StartTime = first.Timestamp;
+                        trip.FirstLatitude = first.Latitude;
+                        trip.FirstLongitude = first.Longitude;
                     }
                     PositionEntry last = grp.Positions.Last();
 
-
                     // TODO wrong 0 default val
-                    double lat = previousResolvedTrip.LastLatitude > 0 ? previousResolvedTrip.LastLatitude : previousResolvedTrip.FirstLatitude;
-                    double lon = previousResolvedTrip.LastLongitude > 0 ? previousResolvedTrip.LastLongitude : previousResolvedTrip.FirstLongitude;
+                    double lat = trip.LastLatitude > 0 ? trip.LastLatitude : trip.FirstLatitude;
+                    double lon = trip.LastLongitude > 0 ? trip.LastLongitude : trip.FirstLongitude;
 
-                    previousResolvedTrip.DistanceTravelled += Util.DistanceBetween(lat,
-                                                                            lon,
-                                                                            last.Latitude,
-                                                                            last.Longitude);
-                    previousResolvedTrip.EndTime = last.Timestamp;
-                    previousResolvedTrip.LastLatitude = last.Latitude;
-                    previousResolvedTrip.LastLongitude = last.Longitude;
+                    trip.DistanceTravelled += Util.DistanceBetween(lat, lon, last.Latitude, last.Longitude);
+                    trip.EndTime = last.Timestamp;
+                    trip.LastLatitude = last.Latitude;
+                    trip.LastLongitude = last.Longitude;
 
+                    previousResolvedTrip = trip;
                 }
-
             }
 
-            return (firstLooseTrack, resolvedStops);
+            return (firstTrip, resolvedStops);
         }
 
         public (double latitude, double longitude) AddMetersToPosition(double latitude, double longitude,

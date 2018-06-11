@@ -76,7 +76,7 @@ namespace Tabi.Core
                 lastStopVisit.Latitude = first.Latitude;
                 lastStopVisit.Longitude = first.Longitude;
 
-                if (first.NextTrack.TimeTravelled != TimeSpan.Zero)
+                if (first.NextTrack != null && first.NextTrack.TimeTravelled != TimeSpan.Zero)
                 {
                     lastStopVisit.NextTrack = first.NextTrack;
                     _trackEntryRepository.Add(lastStopVisit.NextTrack);

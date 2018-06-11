@@ -50,7 +50,7 @@ namespace Tabi.Logic.Test
                 Console.WriteLine(s);
             }
 
-            Assert.Equal(5, stops.Count);
+            Assert.Equal(3, stops.Count);
         }
 
         [Fact]
