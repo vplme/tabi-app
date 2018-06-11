@@ -140,7 +140,6 @@ namespace Tabi.ViewModels
 
         public async Task UpdateStopVisitsAsync()
         {
-
             await Task.Run(() => _dataResolver.ResolveData(DateTimeOffset.MinValue, DateTimeOffset.Now));
 
             List<ActivityEntry> newActivityEntries = new List<ActivityEntry>();
@@ -166,21 +165,25 @@ namespace Tabi.ViewModels
                 }
                 sv.Stop.Name = string.IsNullOrEmpty(sv.Stop.Name) ? "Stop" : sv.Stop.Name;
 
-                bool stopEndsNextDay = startDate.Day < sv.EndTimestamp.Day;
-                bool stopBeginsPreviousDay = startDate.Day > sv.BeginTimestamp.Day;
+                DateTimeOffset beginTimestampLocal = sv.BeginTimestamp.ToLocalTime();
+                DateTimeOffset endTimestampLocal = sv.EndTimestamp.ToLocalTime();
+                DateTimeOffset startDateLocal = startDate.ToLocalTime();
+
+                bool stopEndsNextDay = startDateLocal.Day < endTimestampLocal.Day;
+                bool stopBeginsPreviousDay = startDateLocal.Day > beginTimestampLocal.Day;
 
                 if (stopEndsNextDay)
                 {
-                    ae.Time = $"{sv.BeginTimestamp.ToLocalTime():HH:mm} - {sv.EndTimestamp.ToLocalTime():HH:mm} ({AppResources.NextDay})";
+                    ae.Time = $"{beginTimestampLocal:HH:mm} - {endTimestampLocal:HH:mm} ({AppResources.NextDay})";
                 }
                 else if (stopBeginsPreviousDay)
                 {
 
-                    ae.Time = $"{sv.BeginTimestamp.ToLocalTime():HH:mm} ({AppResources.PreviousDay}) - {sv.EndTimestamp.ToLocalTime():HH:mm}";
+                    ae.Time = $"{beginTimestampLocal:HH:mm} ({AppResources.PreviousDay}) - {endTimestampLocal:HH:mm}";
                 }
                 else
                 {
-                    ae.Time = $"{sv.BeginTimestamp.ToLocalTime():HH:mm} - {sv.EndTimestamp.ToLocalTime():HH:mm}";
+                    ae.Time = $"{beginTimestampLocal:HH:mm} - {endTimestampLocal:HH:mm}";
 
                 }
 
