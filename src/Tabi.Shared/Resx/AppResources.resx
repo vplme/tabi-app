@@ -499,4 +499,7 @@
     <data name="EndPin" xml:space="preserve">
         <value>End</value>
     </data>
+    <data name="UnsetStopName" xml:space="preserve">
+        <value>Stop</value>
+    </data>
 </root>

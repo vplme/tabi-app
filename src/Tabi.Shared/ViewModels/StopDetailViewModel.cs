@@ -58,14 +58,14 @@ namespace Tabi.ViewModels
             _nameListItem = new ListItem()
             {
                 Name = AppResources.StopNameLabel,
-                Subtitle = StopVisit.Name ?? AppResources.SetStopMotiveHint,
+                Subtitle = StopNameFromString(StopVisit.Name),
                 Command = OpenStopNameCommand
             };
 
             _motiveListItem = new ListItem()
             {
                 Name = AppResources.StopMotiveLabel,
-                Subtitle = Motive.Text ?? AppResources.SetStopMotiveHint,
+                Subtitle = MotiveTextFromString(Motive.Text),
                 Command = OpenStopMotiveCommand
             };
 
@@ -118,7 +118,7 @@ namespace Tabi.ViewModels
         {
             if (e.PropertyName == "Name")
             {
-                _nameListItem.Subtitle = StopVisit.Name ?? AppResources.SetStopMotiveHint;
+                _nameListItem.Subtitle = StopNameFromString(StopVisit.Name);
             }
         }
 
@@ -126,8 +126,18 @@ namespace Tabi.ViewModels
         {
             if (e.PropertyName == "Text")
             {
-                _motiveListItem.Subtitle = Motive.Text ?? AppResources.SetStopMotiveHint;
+                _motiveListItem.Subtitle = MotiveTextFromString(Motive.Text);
             }
+        }
+
+        string StopNameFromString(string name)
+        {
+            return !string.IsNullOrEmpty(name) ? name : AppResources.SetStopNameHint;
+        }
+
+        string MotiveTextFromString(string motive)
+        {
+            return !string.IsNullOrEmpty(motive) ? motive : AppResources.SetStopMotiveHint;
         }
 
         private string title;

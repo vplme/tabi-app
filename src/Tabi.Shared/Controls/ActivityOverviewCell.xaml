@@ -6,7 +6,7 @@
         <StackLayout IsVisible="{Binding ShowStop}" Orientation="Horizontal" Padding="0, 10, 0, 10">
             <Image WidthRequest="50" HeightRequest="50" Source="noun_map_pin" />
             <StackLayout Padding="0, 5, 0, 0" Orientation="Vertical">
-                <Label x:Name="textLabel" VerticalOptions="Center" TextColor="#000000" FontSize="20" Text="{Binding StopVisit.Stop.Name}" />
+                <Label x:Name="textLabel" VerticalOptions="Center" TextColor="#000000" FontSize="20" Text="{Binding StopName}" />
                 <Label x:Name="detailLabel" VerticalOptions="Center" TextColor="#000000" FontSize="13" Text="{Binding Time}" />
             </StackLayout>
         </StackLayout>

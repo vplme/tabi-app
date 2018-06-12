@@ -385,4 +385,7 @@
     <data name="EndPin" xml:space="preserve">
         <value>Eindpunt</value>
     </data>
+    <data name="UnsetStopName" xml:space="preserve">
+        <value>Stop</value>
+    </data>
 </root>

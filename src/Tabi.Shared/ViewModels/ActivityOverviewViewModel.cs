@@ -176,7 +176,6 @@ namespace Tabi.ViewModels
                     sv.Stop = _repoManager.StopRepository.Get(sv.StopId);
                     stopDictionary.Add(sv.StopId, sv.Stop);
                 }
-                sv.Stop.Name = string.IsNullOrEmpty(sv.Stop.Name) ? "Stop" : sv.Stop.Name;
 
                 DateTimeOffset beginTimestampLocal = sv.BeginTimestamp.ToLocalTime();
                 DateTimeOffset endTimestampLocal = sv.EndTimestamp.ToLocalTime();

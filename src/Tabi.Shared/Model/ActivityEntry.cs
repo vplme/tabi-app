@@ -1,6 +1,7 @@
 ﻿using System.Windows.Input;
 using MvvmHelpers;
 using Tabi.DataObjects;
+using Tabi.Shared.Resx;
 
 namespace Tabi
 {
@@ -25,6 +26,18 @@ namespace Tabi
             set { SetProperty(ref name, value); }
         }
 
+        public string StopName
+        {
+            get
+            {
+                string result = AppResources.UnsetStopName;
+                if (stopVisit != null && !string.IsNullOrEmpty(stopVisit.Stop.Name) )
+                {
+                    result = stopVisit.Stop.Name;
+                }
+                return result;
+            }
+        }
         string time;
         public string Time
         {

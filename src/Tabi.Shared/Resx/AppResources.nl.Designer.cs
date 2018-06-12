@@ -766,5 +766,11 @@ namespace Tabi.Shared.Resx {
                 return ResourceManager.GetString("EndPin", resourceCulture);
             }
         }
+        
+        internal static string UnsetStopName {
+            get {
+                return ResourceManager.GetString("UnsetStopName", resourceCulture);
+            }
+        }
     }
 }
