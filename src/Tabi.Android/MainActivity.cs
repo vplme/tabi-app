@@ -15,7 +15,7 @@ using FFImageLoading.Svg.Forms;
 
 namespace Tabi.Droid
 {
-    [Activity(Label = "Tabi", Icon = "@drawable/icon", RoundIcon = "@drawable/ic_launcher_round", Theme = "@style/TabiTheme", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Tabi", Theme = "@style/TabiTheme", Icon = "@mipmap/ic_launcher", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)

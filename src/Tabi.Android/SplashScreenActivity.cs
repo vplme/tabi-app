@@ -5,7 +5,7 @@ using Android.Support.V7.App;
 
 namespace Tabi.Droid
 {
-    [Activity(Theme = "@style/TabiTheme.Splash", Label = "Tabi", Icon = "@drawable/icon", RoundIcon = "@drawable/ic_launcher_round", MainLauncher = true, NoHistory = true)]
+    [Activity(Theme = "@style/TabiTheme.Splash", Label = "Tabi", Icon = "@mipmap/ic_launcher", RoundIcon = "@mipmap/ic_launcher_round", MainLauncher = true, NoHistory = true)]
     public class SplashScreenActivity : AppCompatActivity
     {
         static readonly string TAG = "X:" + typeof(SplashScreenActivity).Name;
