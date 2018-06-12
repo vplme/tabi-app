@@ -8,6 +8,7 @@ using Tabi.Shared.Controls;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Maps.Android;
+using Xamarin.Forms.Platform.Android;
 
 [assembly: ExportRenderer(typeof(RouteMap), typeof(RouteMapRenderer))]
 namespace Tabi.Droid.Renderers
@@ -20,7 +21,7 @@ namespace Tabi.Droid.Renderers
 
         public RouteMapRenderer(Context context) : base(context)
         {
-           
+
         }
 
         public void Draw()
@@ -49,13 +50,25 @@ namespace Tabi.Droid.Renderers
                 googleMap.AddPolyline(po);
 
             }
+
+            foreach (Circle circle in formsMap.Circles)
+            {
+                CircleOptions circleOptions = new CircleOptions();
+                circleOptions.InvokeCenter(new LatLng(circle.Position.Latitude, circle.Position.Longitude));
+                circleOptions.InvokeRadius(circle.Radius);
+                circleOptions.InvokeFillColor(ColorExtensions.ToAndroid(circle.FillColor));
+                circleOptions.InvokeStrokeColor(ColorExtensions.ToAndroid(circle.StrokeColor));
+                circleOptions.InvokeStrokeWidth((float)circle.LineWidth);
+
+                googleMap.AddCircle(circleOptions);
+            }
         }
 
         public void Clear()
         {
             Log.Debug("RouteMap Cleared");
 
-            if(googleMap != null)
+            if (googleMap != null)
             {
                 googleMap.Clear();
             }

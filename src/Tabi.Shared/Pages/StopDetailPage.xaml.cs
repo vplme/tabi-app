@@ -64,7 +64,7 @@ namespace Tabi
             {
                 Position = new Position(latitude, longitude),
                 Radius = accuracy,
-                FillColor = Color.Blue,
+                FillColor = System.Drawing.Color.FromArgb(20, Color.Blue),
                 LineWidth = 0.0f,
                 StrokeColor = Color.Red,
             });
