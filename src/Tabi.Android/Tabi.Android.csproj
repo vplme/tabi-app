@@ -64,9 +64,6 @@
     <Reference Include="Microsoft.Azure.Mobile.Android.Bindings, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Azure.Mobile.0.17.1\lib\MonoAndroid403\Microsoft.Azure.Mobile.Android.Bindings.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Azure.Mobile.Push, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Azure.Mobile.Push.0.17.1\lib\MonoAndroid403\Microsoft.Azure.Mobile.Push.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Azure.Mobile.Push.Android.Bindings, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Azure.Mobile.Push.0.17.1\lib\MonoAndroid403\Microsoft.Azure.Mobile.Push.Android.Bindings.dll</HintPath>
     </Reference>
@@ -342,9 +339,6 @@
     <Reference Include="Plugin.Connectivity">
       <HintPath>..\packages\Xam.Plugin.Connectivity.3.1.1\lib\MonoAndroid10\Plugin.Connectivity.dll</HintPath>
     </Reference>
-    <Reference Include="Plugin.DeviceInfo">
-      <HintPath>..\packages\Xam.Plugin.DeviceInfo.4.0.0.5\lib\monoandroid71\Plugin.DeviceInfo.dll</HintPath>
-    </Reference>
     <Reference Include="Plugin.Settings">
       <HintPath>..\packages\Xam.Plugins.Settings.4.0.0.7\lib\monoandroid44\Plugin.Settings.dll</HintPath>
     </Reference>
@@ -398,6 +392,12 @@
     </Reference>
     <Reference Include="Xamarin.Firebase.Messaging">
       <HintPath>..\packages\Xamarin.Firebase.Messaging.60.1142.0-beta2\lib\MonoAndroid80\Xamarin.Firebase.Messaging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Mobile.Push, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.Mobile.Push.0.17.1\lib\MonoAndroid403\Microsoft.Azure.Mobile.Push.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.DeviceInfo">
+      <HintPath>..\packages\Xam.Plugin.DeviceInfo.4.0.0.5\lib\monoandroid71\Plugin.DeviceInfo.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -485,9 +485,7 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\checkmark_white.png" />
     <AndroidResource Include="Resources\values-v21\styles.xml" />
     <AndroidResource Include="Resources\values\colors.xml" />
-    <AndroidResource Include="Resources\drawable-mdpi\ic_launcher_round.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_launcher_round.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_launcher_round.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_refresh_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_refresh_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_refresh_white_24dp.png" />
@@ -510,6 +508,25 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_check_circle_black_24dp.png" />
     <AndroidResource Include="Resources\drawable\splash.png" />
     <AndroidResource Include="Resources\drawable\tabi.svg" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher.xml" />
+    <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\ic_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\ic_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\ic_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\ic_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-ldpi\ic_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-ldpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher_round.png" />
+    <AndroidResource Include="Resources\mipmap-ldpi\ic_launcher_round.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\ic_launcher_round.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\ic_launcher_round.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\ic_launcher_round.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_round.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Tabbar.axml" />
@@ -540,6 +557,9 @@
   <ItemGroup />
   <ItemGroup />
   <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Resources\mipmap-anydpi-v26\" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

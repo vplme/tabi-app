@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-	<color name="colorPrimary">#0296BF</color>
-	<color name="mapLine">#0296BF</color>
+    <color name="colorPrimary">#0296BF</color>
+    <color name="mapLine">#0296BF</color>
     <color name="splashBackground">#FFFFFF</color>
+    <color name="ic_background">#00A1CD</color>
 </resources>
