@@ -83,7 +83,6 @@ namespace Tabi.Shared.ViewModels
             }
 
             Navigation.InsertPageBefore(new LocationAccessPage(), Page);
-            Navigation.InsertPageBefore(new TourGifPage(), Page);
             await Navigation.PopAsync();
         }
 

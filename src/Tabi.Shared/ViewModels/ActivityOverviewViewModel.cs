@@ -16,7 +16,7 @@ using System.Threading;
 
 namespace Tabi.ViewModels
 {
-    public class ActivityOverviewViewModel : ObservableObject
+    public class ActivityOverviewViewModel : BaseViewModel
     {
         public ObservableCollection<ActivityEntry> ActivityEntries { get; } = new ObservableCollection<ActivityEntry>();
 
@@ -238,6 +238,15 @@ namespace Tabi.ViewModels
             NoDataInOverviewVisible = (ActivityEntries.Count == 0);
 
             semaphore.Release();
+        }
+
+        public async Task OnAppearing()
+        {
+            if (Settings.ShowTour)
+            {
+                await _navigation.PushModalAsync(new TourGifPage());
+                Settings.ShowTour = false;
+            }
         }
     }
 }

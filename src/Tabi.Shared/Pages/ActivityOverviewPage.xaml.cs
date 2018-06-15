@@ -35,7 +35,7 @@ namespace Tabi
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-
+            await ViewModel.OnAppearing();
             await UpdateAsync();
         }
 
