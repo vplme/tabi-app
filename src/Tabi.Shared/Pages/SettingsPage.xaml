@@ -61,6 +61,16 @@
                                 <Button Grid.Column="1" HorizontalOptions="Center" TextColor="{DynamicResource TintColor}"
                                      Text="{i18n:Translate UploadDataButton}" Command="{Binding UploadCommand}" />
                             </Grid>
+                            <control:SettingsSectionDivider />
+                            <Grid Padding="{DynamicResource LargerPadding}" ColumnSpacing="0" BackgroundColor="White">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding ShowTourCommand}" />
+                                </Grid.GestureRecognizers>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Style="{DynamicResource TabiListItemTextStyle}" Text="{i18n:Translate ShowTour}" />
+                            </Grid>
                             <control:FooterDivider />
                         </StackLayout>
                     </control:CardView>

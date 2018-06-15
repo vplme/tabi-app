@@ -185,6 +185,14 @@
     <BundleResource Include="Resources\ic_check_circle_3x.png" />
     <BundleResource Include="Resources\tabi.svg" />
     <BundleResource Include="Resources\image.gif" />
+    <BundleResource Include="Resources\motive_50_en.gif" />
+    <BundleResource Include="Resources\motive_50_nl.gif" />
+    <BundleResource Include="Resources\transport_50_en.gif" />
+    <BundleResource Include="Resources\transport_50_nl.gif" />
+    <BundleResource Include="Resources\settings_50_nl.gif" />
+    <BundleResource Include="Resources\settings_50_en.gif" />
+    <BundleResource Include="Resources\stop_50_en.gif" />
+    <BundleResource Include="Resources\stop_50_nl.gif" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Azure.Mobile, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -414,6 +422,18 @@
     </Reference>
     <Reference Include="Xamarin.Forms.Xaml">
       <HintPath>..\packages\Xamarin.Forms.3.0.0.482510\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.MediaManager.Abstractions">
+      <HintPath>..\packages\Plugin.MediaManager.0.4.5\lib\Xamarin.iOS10\Plugin.MediaManager.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.MediaManager">
+      <HintPath>..\packages\Plugin.MediaManager.0.4.5\lib\Xamarin.iOS10\Plugin.MediaManager.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.MediaManager.Forms">
+      <HintPath>..\packages\Plugin.MediaManager.Forms.0.4.5\lib\xamarinios\Plugin.MediaManager.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.MediaManager.Forms.iOS">
+      <HintPath>..\packages\Plugin.MediaManager.Forms.0.4.5\lib\xamarinios\Plugin.MediaManager.Forms.iOS.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
