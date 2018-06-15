@@ -59,6 +59,19 @@ namespace Tabi
             }
         }
 
+        public bool ShowTour
+        {
+            get => AppSettings.GetValueOrDefault(nameof(ShowTour), true);
+            set
+            {
+                if (value == ShowTour)
+                    return;
+
+                AppSettings.AddOrUpdateValue(nameof(ShowTour), value);
+                OnPropertyChanged();
+            }
+        }
+
         public bool Developer
         {
             get => AppSettings.GetValueOrDefault(nameof(Developer), false);

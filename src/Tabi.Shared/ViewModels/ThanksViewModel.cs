@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -12,14 +13,15 @@ namespace Tabi.Shared.ViewModels
 
         public ThanksViewModel()
         {
-            NextCommand = new Command(Next);
+            NextCommand = new Command(async () => { await Next(); });
         }
         public ICommand NextCommand { get; set; }
 
-        private void Next()
+        private async Task Next()
         {
             Settings.Current.PermissionsGranted = true;
             Application.Current.MainPage = new NavigationPage(new ActivityOverviewPage());
+            Settings.ShowTour = true;
         }
 
     }

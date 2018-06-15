@@ -31,7 +31,7 @@ namespace Tabi
             get
             {
                 string result = AppResources.UnsetStopName;
-                if (stopVisit != null && !string.IsNullOrEmpty(stopVisit.Stop.Name) )
+                if (!string.IsNullOrEmpty(stopVisit?.Stop?.Name))
                 {
                     result = stopVisit.Stop.Name;
                 }

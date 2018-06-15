@@ -772,5 +772,77 @@ namespace Tabi.Shared.Resx {
                 return ResourceManager.GetString("UnsetStopName", resourceCulture);
             }
         }
+        
+        internal static string SkipTour {
+            get {
+                return ResourceManager.GetString("SkipTour", resourceCulture);
+            }
+        }
+        
+        internal static string NextTour {
+            get {
+                return ResourceManager.GetString("NextTour", resourceCulture);
+            }
+        }
+        
+        internal static string StopTourTitle {
+            get {
+                return ResourceManager.GetString("StopTourTitle", resourceCulture);
+            }
+        }
+        
+        internal static string StopTourText {
+            get {
+                return ResourceManager.GetString("StopTourText", resourceCulture);
+            }
+        }
+        
+        internal static string MotiveTourTitle {
+            get {
+                return ResourceManager.GetString("MotiveTourTitle", resourceCulture);
+            }
+        }
+        
+        internal static string MotiveTourText {
+            get {
+                return ResourceManager.GetString("MotiveTourText", resourceCulture);
+            }
+        }
+        
+        internal static string TransportModeTourTitle {
+            get {
+                return ResourceManager.GetString("TransportModeTourTitle", resourceCulture);
+            }
+        }
+        
+        internal static string TransportModeTourText {
+            get {
+                return ResourceManager.GetString("TransportModeTourText", resourceCulture);
+            }
+        }
+        
+        internal static string SettingsTourTitle {
+            get {
+                return ResourceManager.GetString("SettingsTourTitle", resourceCulture);
+            }
+        }
+        
+        internal static string SettingsTourText {
+            get {
+                return ResourceManager.GetString("SettingsTourText", resourceCulture);
+            }
+        }
+        
+        internal static string LangCode {
+            get {
+                return ResourceManager.GetString("LangCode", resourceCulture);
+            }
+        }
+        
+        internal static string ShowTour {
+            get {
+                return ResourceManager.GetString("ShowTour", resourceCulture);
+            }
+        }
     }
 }

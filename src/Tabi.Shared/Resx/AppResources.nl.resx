@@ -388,4 +388,40 @@
     <data name="UnsetStopName" xml:space="preserve">
         <value>Stop</value>
     </data>
+    <data name="SkipTour" xml:space="preserve">
+        <value>Overslaan</value>
+    </data>
+    <data name="NextTour" xml:space="preserve">
+        <value>Volgende</value>
+    </data>
+    <data name="StopTourTitle" xml:space="preserve">
+        <value>Geef namen aan stops</value>
+    </data>
+    <data name="StopTourText" xml:space="preserve">
+        <value>Druk op een stop en geef een naam op</value>
+    </data>
+    <data name="MotiveTourTitle" xml:space="preserve">
+        <value>Vul een motief in</value>
+    </data>
+    <data name="MotiveTourText" xml:space="preserve">
+        <value>Druk op een stop of een trip en geef een motief aan</value>
+    </data>
+    <data name="TransportModeTourTitle" xml:space="preserve">
+        <value>Geef een vervoersmiddel op</value>
+    </data>
+    <data name="TransportModeTourText" xml:space="preserve">
+        <value>Open een trip en kies welke vervoersmiddelen er zijn gebruikt</value>
+    </data>
+    <data name="SettingsTourTitle" xml:space="preserve">
+        <value>Instellingen</value>
+    </data>
+    <data name="SettingsTourText" xml:space="preserve">
+        <value>Mogelijkheid om de datacollectie uit te zetten en upload data te starten</value>
+    </data>
+    <data name="LangCode" xml:space="preserve">
+        <value>nl</value>
+    </data>
+    <data name="ShowTour" xml:space="preserve">
+         <value>Bekijk introtour</value>
+    </data>
 </root>

@@ -170,7 +170,13 @@ namespace Tabi
             });
             ShowPageCommand = new Command(() =>
             {
-                SampleTourVideoPage sPage = new SampleTourVideoPage();
+                TourGifPage sPage = new TourGifPage();
+                _navigation.PushModalAsync(sPage);
+            });
+
+            ShowTourCommand = new Command(() =>
+            {
+                TourGifPage sPage = new TourGifPage();
                 _navigation.PushModalAsync(sPage);
             });
 
@@ -268,6 +274,8 @@ namespace Tabi
         public ICommand ShowPageCommand { protected set; get; }
 
         public ICommand UploadCommand { protected set; get; }
+
+        public ICommand ShowTourCommand { protected set; get; }
 
         public bool ShowSensorMeasurements { get => _config.SensorMeasurements.UserAdjustable; }
 
