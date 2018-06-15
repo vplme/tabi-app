@@ -165,6 +165,8 @@ namespace Tabi
             containerBuilder.RegisterType<MotionAccessViewModel>();
             containerBuilder.RegisterType<ThanksViewModel>();
 
+            containerBuilder.RegisterType<TourViewModel>();
+
             containerBuilder.RegisterType<ActivityOverviewViewModel>();
             containerBuilder.RegisterType<DaySelectorViewModel>();
             containerBuilder.RegisterType<SettingsViewModel>();
@@ -176,6 +178,7 @@ namespace Tabi
             containerBuilder.RegisterType<StopDetailViewModel>();
             containerBuilder.RegisterType<StopDetailNameViewModel>();
             containerBuilder.RegisterType<StopDetailMotiveViewModel>();
+
 
             RegisterPlatformSpecificModules(platformSpecificModules, containerBuilder);
 

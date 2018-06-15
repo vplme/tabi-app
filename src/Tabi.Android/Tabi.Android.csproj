@@ -527,6 +527,14 @@
     <AndroidResource Include="Resources\mipmap-xhdpi\ic_launcher_round.png" />
     <AndroidResource Include="Resources\mipmap-xxhdpi\ic_launcher_round.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_round.png" />
+    <AndroidResource Include="Resources\drawable\motive_50_en.gif" />
+    <AndroidResource Include="Resources\drawable\motive_50_nl.gif" />
+    <AndroidResource Include="Resources\drawable\settings_50_en.gif" />
+    <AndroidResource Include="Resources\drawable\settings_50_nl.gif" />
+    <AndroidResource Include="Resources\drawable\stop_50_en.gif" />
+    <AndroidResource Include="Resources\drawable\stop_50_nl.gif" />
+    <AndroidResource Include="Resources\drawable\transport_50_en.gif" />
+    <AndroidResource Include="Resources\drawable\transport_50_nl.gif" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Tabbar.axml" />

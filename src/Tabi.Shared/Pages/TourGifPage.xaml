@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+     xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+     xmlns:i18n="clr-namespace:Tabi.Shared.Localization;assembly=Tabi.Shared" ios:Page.UseSafeArea="true" x:Class="Tabi.TourGifPage">
+    <ContentPage.Content>
+        <RelativeLayout>
+            <StackLayout BackgroundColor="#0296BF" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}">
+                <Label HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" TextColor="White" Margin="10,10,10,0" FontSize="24" Text="{Binding Title}" />
+                <Label HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" TextColor="White" Margin="10,0,10,10" Text="{Binding Text}" />
+                <ffimageloading:CachedImage x:Name="image" Source="{Binding Gif}" />
+                <BoxView Margin="0" BackgroundColor="#0296BF" VerticalOptions="FillAndExpand" />
+            </StackLayout>
+            <Grid Margin="0" Padding="10,0,10,0" BackgroundColor="White" VerticalOptions="End"
+                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="100" />
+                </Grid.ColumnDefinitions>
+                <Button x:Name="LeftButton" Command="{Binding SkipCommand}" Text="{i18n:Translate SkipTour}" Grid.Row="0" Grid.Column="0" />
+                <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{Binding StatusText}" Grid.Row="0" Grid.Column="1" />
+                <Button x:Name="RightButton" Command="{Binding NextCommand}" Text="{i18n:Translate NextTour}" Grid.Row="0" Grid.Column="2" />
+            </Grid>
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>
