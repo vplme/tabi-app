@@ -5,7 +5,6 @@ using MvvmHelpers;
 using Tabi.DataStorage;
 using Tabi.Model;
 using Tabi.Shared.Helpers;
-using Tabi.Shared.Model;
 using Xamarin.Forms;
 
 namespace Tabi.ViewModels
@@ -24,9 +23,16 @@ namespace Tabi.ViewModels
             _repoManager = repoManager ?? throw new ArgumentNullException(nameof(repoManager));
             _dateService = dateService ?? throw new ArgumentNullException(nameof(dateService));
 
-            DateTimeOffset firstDate = repoManager.StopVisitRepository.First().BeginTimestamp;
+            DataObjects.StopVisit stopVisit = repoManager.StopVisitRepository.First();
 
-            double days = (DateTime.Today  - firstDate.Date).TotalDays;
+            DateTimeOffset firstDate = DateTime.Today;
+
+            if (stopVisit != null)
+            {
+                firstDate = stopVisit.BeginTimestamp;
+            }
+
+            double days = (DateTime.Today - firstDate.Date).TotalDays;
 
             for (int i = 0; i <= days; i++)
             {
