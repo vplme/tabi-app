@@ -380,7 +380,7 @@
         <value>Motion Data</value>
     </data>
     <data name="MotionIntroLabel" xml:space="preserve">
-        <value>This app needs your motion data.</value>
+        <value>This app needs your motion data. Your motion data (steps, transportmodes) are used to determine and collect the trips and stops you make.</value>
     </data>
     <data name="MotionPermissionButton" xml:space="preserve">
         <value>Allow motion access</value>
@@ -509,28 +509,28 @@
         <value>Next</value>
     </data>
     <data name="StopTourTitle" xml:space="preserve">
-        <value>Geef namen aan stops</value>
+        <value>Add names to stops</value>
     </data>
     <data name="StopTourText" xml:space="preserve">
-        <value>Druk op een stop en geef een naam op</value>
+        <value>Select a stop and set a name</value>
     </data>
     <data name="MotiveTourTitle" xml:space="preserve">
-        <value>Vul een motief in</value>
+        <value>Add a motive</value>
     </data>
     <data name="MotiveTourText" xml:space="preserve">
-        <value>Druk op een stop of een trip en geef een motief aan</value>
+        <value>Select a stop or trip and add a motive to it</value>
     </data>
     <data name="TransportModeTourTitle" xml:space="preserve">
-        <value>Geef een vervoersmiddel op</value>
+        <value>Add transport modes</value>
     </data>
     <data name="TransportModeTourText" xml:space="preserve">
-        <value>Open een trip en kies welke vervoersmiddelen er zijn gebruikt</value>
+        <value>Open a trip and select the transportation modes used</value>
     </data>
     <data name="SettingsTourTitle" xml:space="preserve">
-        <value>Instellingen</value>
+        <value>Settings</value>
     </data>
     <data name="SettingsTourText" xml:space="preserve">
-        <value>Mogelijkheid om de datacollectie uit te zetten en upload data te starten</value>
+        <value>You can disable data collection in Settings and/or upload your data</value>
     </data>
     <data name="LangCode" xml:space="preserve">
          <value>en</value>

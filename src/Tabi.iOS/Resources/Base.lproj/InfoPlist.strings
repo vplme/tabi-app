@@ -1,2 +1,3 @@
 ﻿"NSLocationAlwaysAndWhenInUseUsageDescription" = "Your location data is used to determine and collect your movements.";
 "NSLocationWhenInUseUsageDescription" = "Your location data is used to determine and collect your movements.";
+"NSMotionUsageDescription" = "Your motion data (steps, transportmodes) are used to determine and collect the trips and stops you make.";

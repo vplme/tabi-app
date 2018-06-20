@@ -1,2 +1,3 @@
 ﻿"NSLocationAlwaysAndWhenInUseUsageDescription" = "De locatiedata wordt gebruikt voor het bepalen en verzamelen van verplaatsingen.";
 "NSLocationWhenInUseUsageDescription" = "De locatiedata wordt gebruikt voor het bepalen en verzamelen van verplaatsingen.";
+"NSMotionUsageDescription" = "De bewegingsdata (stappen, type transport) worden gebruikt om trips en stops te bepalen.";

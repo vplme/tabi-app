@@ -275,7 +275,7 @@
         <value>Beweging en conditie</value>
     </data>
     <data name="MotionIntroLabel" xml:space="preserve">
-        <value>De app heeft toegang nodig tot de bewegingsdata van de telefoon.</value>
+        <value>De app heeft toegang nodig tot de bewegingsdata van de telefoon. De bewegingsdata (stappen, type transport) worden gebruikt om trips en stops te bepalen.</value>
     </data>
     <data name="MotionPermissionButton" xml:space="preserve">
         <value>Sta bewegingsdata toe</value>
