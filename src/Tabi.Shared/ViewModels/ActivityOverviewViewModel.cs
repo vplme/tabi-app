@@ -13,6 +13,7 @@ using Xamarin.Forms;
 using Tabi.Shared.Resx;
 using Tabi.Logic;
 using System.Threading;
+using System.Linq;
 
 namespace Tabi.ViewModels
 {
@@ -242,10 +243,12 @@ namespace Tabi.ViewModels
 
         public async Task OnAppearing()
         {
-            if (Settings.ShowTour)
+            if (Settings.ShowTour &&
+                // Don't show page if there is already a modalview with a TourGifPage
+                ( _navigation.ModalStack.Count == 0 || (_navigation.ModalStack.Count > 0 && _navigation.ModalStack.Last().GetType() != typeof(TourGifPage))))
             {
-                await _navigation.PushModalAsync(new TourGifPage());
                 Settings.ShowTour = false;
+                await _navigation.PushModalAsync(new TourGifPage());
             }
         }
     }

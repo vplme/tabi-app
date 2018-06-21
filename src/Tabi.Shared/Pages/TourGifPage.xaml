@@ -19,9 +19,9 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="120" />
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="120" />
                 </Grid.ColumnDefinitions>
                 <Button x:Name="LeftButton" Command="{Binding SkipCommand}" Text="{i18n:Translate SkipTour}" Grid.Row="0" Grid.Column="0" />
                 <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{Binding StatusText}" Grid.Row="0" Grid.Column="1" />
