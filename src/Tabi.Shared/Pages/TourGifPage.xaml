@@ -23,9 +23,9 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="120" />
                 </Grid.ColumnDefinitions>
-                <Button x:Name="LeftButton" Command="{Binding SkipCommand}" Text="{i18n:Translate SkipTour}" Grid.Row="0" Grid.Column="0" />
+                <Button x:Name="LeftButton" BorderWidth="0" BackgroundColor="Transparent" Command="{Binding SkipCommand}" Text="{i18n:Translate SkipTour}" Grid.Row="0" Grid.Column="0" />
                 <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{Binding StatusText}" Grid.Row="0" Grid.Column="1" />
-                <Button x:Name="RightButton" Command="{Binding NextCommand}" Text="{i18n:Translate NextTour}" Grid.Row="0" Grid.Column="2" />
+                <Button x:Name="RightButton"  BorderWidth="0" BackgroundColor="Transparent" Command="{Binding NextCommand}" Text="{i18n:Translate NextTour}" Grid.Row="0" Grid.Column="2" />
             </Grid>
         </RelativeLayout>
     </ContentPage.Content>
