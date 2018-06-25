@@ -20,8 +20,8 @@ namespace Tabi.Shared.ViewModels
         private async Task Next()
         {
             Settings.Current.PermissionsGranted = true;
-            Application.Current.MainPage = new NavigationPage(new ActivityOverviewPage());
             Settings.ShowTour = true;
+            Application.Current.MainPage = new NavigationPage(new ActivityOverviewPage());
         }
 
     }

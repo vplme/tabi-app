@@ -243,9 +243,7 @@ namespace Tabi.ViewModels
 
         public async Task OnAppearing()
         {
-            if (Settings.ShowTour &&
-                // Don't show page if there is already a modalview with a TourGifPage
-                ( _navigation.ModalStack.Count == 0 || (_navigation.ModalStack.Count > 0 && _navigation.ModalStack.Last().GetType() != typeof(TourGifPage))))
+            if (Settings.ShowTour)
             {
                 Settings.ShowTour = false;
                 await _navigation.PushModalAsync(new TourGifPage());

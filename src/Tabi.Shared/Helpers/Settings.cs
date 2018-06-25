@@ -61,7 +61,7 @@ namespace Tabi
 
         public bool ShowTour
         {
-            get => AppSettings.GetValueOrDefault(nameof(ShowTour), true);
+            get => AppSettings.GetValueOrDefault(nameof(ShowTour), false);
             set
             {
                 if (value == ShowTour)
