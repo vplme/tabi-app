@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
      xmlns:local="clr-namespace:Tabi;assembly=Tabi.Shared" xmlns:i18n="clr-namespace:Tabi.Shared.Localization;assembly=Tabi.Shared"
-     xmlns:control="clr-namespace:Tabi.Shared.Controls;assembly=Tabi.Shared" x:Class="Tabi.TrackDetailMotivePage" Title="{i18n:Translate TrackMotivePageTitle}">
+     xmlns:control="clr-namespace:Tabi.Shared.Controls;assembly=Tabi.Shared" x:Class="Tabi.Shared.Pages.SearchMotivePage">
     <ContentPage.Content>
         <ScrollView BackgroundColor="{DynamicResource WindowBackgroundTable}">
-            <StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}" Spacing="{DynamicResource CardSpacing}"
-                 Padding="{DynamicResource CardPadding}">
+            <StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}" Spacing="{DynamicResource CardSpacing}" Padding="{DynamicResource CardPadding}">
+                <Entry Text="{Binding SearchText}" Margin="10,10,10,10" FontSize="Medium" HorizontalTextAlignment="Center" Placeholder="Search here">
+                    <Entry.Effects>
+                        <local:BorderlessEntryEffect />
+                    </Entry.Effects>
+                </Entry>
+                <BoxView Color="Black" HeightRequest="1" HorizontalOptions="FillAndExpand" />
                 <control:CardView>
                     <StackLayout Spacing="0">
-                        <control:LabelSection Text="{i18n:Translate TrackMotiveLabel}" />
+                        <control:LabelSection Text="{i18n:Translate SearchMotivesLabel}" />
                         <control:HeaderDivider />
-                        <ListView Margin="0" x:Name="PossibleMotivesListView" ItemsSource="{Binding PossibleMotives}" ItemSelected="Handle_ItemSelected">
+                        <ListView IsVisible="{Binding OtherMotivesVisible}" Margin="0" x:Name="PossibleMotivesListView" ItemsSource="{Binding PossibleMotives}" ItemSelected="Handle_ItemSelected">
                             <ListView.SeparatorColor>
                                 <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}" />
                             </ListView.SeparatorColor>
@@ -41,6 +46,12 @@
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
+                        <StackLayout IsVisible="{Binding CustomMotiveVisible}" Padding="{DynamicResource LargerPadding}" BackgroundColor="White">
+                            <FlexLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding CustomMotiveCommand}" />
+                            </FlexLayout.GestureRecognizers>
+                            <Label Style="{DynamicResource TabiListItemTextStyle}" Text="{Binding CustomMotiveText}" />
+                        </StackLayout>
                         <control:SettingsSectionDivider />
                         <FlexLayout Margin="10, 10, 10, 10" Direction="Row" Wrap="Wrap">
                             <FlexLayout.IsVisible>

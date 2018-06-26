@@ -32,6 +32,13 @@ namespace Tabi.Shared.Pages
             ToolbarItems.Add(cancelToolbarItem);
 
             BindingContext = App.Container.Resolve<StopDetailMotiveViewModel>(new TypedParameter(typeof(StopMotiveViewModel), motiveViewModel), new TypedParameter(typeof(INavigation), Navigation));
+
+            ViewModel.PossibleMotives.CollectionChanged += (object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e) =>
+            {
+                AdjustListViewHeight();
+            };
+
+            AdjustListViewHeight();
         }
 
         protected override void OnDisappearing()
@@ -39,6 +46,21 @@ namespace Tabi.Shared.Pages
             ViewModel.Disappear();
 
             base.OnDisappearing();
+        }
+
+        void AdjustListViewHeight()
+        {
+            var adjust = Xamarin.Forms.Device.RuntimePlatform != Xamarin.Forms.Device.Android ? 1 : -ViewModel.PossibleMotives.Count + 1;
+            PossibleMotivesListView.HeightRequest = (ViewModel.PossibleMotives.Count * PossibleMotivesListView.RowHeight) - adjust;
+        }
+
+        void Handle_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem != null)
+            {
+                ViewModel.OptionSelected((MotiveOptionViewModel)e.SelectedItem);
+                ((ListView)sender).SelectedItem = null;
+            }
         }
     }
 }

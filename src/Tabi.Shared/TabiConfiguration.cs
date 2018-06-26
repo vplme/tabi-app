@@ -13,9 +13,10 @@ namespace Tabi.Shared
         public UserInterfaceConfiguration UserInterface { get; set; } = new UserInterfaceConfiguration();
         public LoggingConfiguration Logging { get; set; }
         public ApiConfiguration Api { get; set; }
+        public MotiveConfiguration Motive { get; set; }
     }
 
-    public class ApiConfiguration 
+    public class ApiConfiguration
     {
         public string Url { get; set; }
 
@@ -63,5 +64,21 @@ namespace Tabi.Shared
     public class LoggingConfiguration
     {
         public string LogLevel { get; set; }
+    }
+
+    public class MotiveConfiguration
+    {
+        public int ShowAmount { get; set; }
+
+        public List<MotiveOption> Options { get; set; }
+
+        public List<MotiveOption> OtherOptions { get; set; }
+    }
+
+    public class MotiveOption
+    {
+        public string Id { get; set; }
+
+        public string Text { get; set; }
     }
 }

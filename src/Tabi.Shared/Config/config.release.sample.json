@@ -1,0 +1,72 @@
+﻿{
+    "Developer": false,
+    "MobileCenter": {
+        "Enabled": true,
+        "Distribute": false,
+        "ApiKey": ""
+    },
+    "Api": {
+        "Url": "https://tabi.cbs.nl",
+        "CertificateKeys": []
+    },
+    "SensorMeasurements": {
+        "Enabled": true,
+        "UserAdjustable": true
+    },
+    "Logging": {
+        "LogLevel": "info"
+    },
+    "UserInterface": {
+        "StopNameReplaceAllEnabled": true
+    },
+    "Motive": {
+        "Options": [
+            {
+                "Id": "PaidWork",
+                "Text": "Paid work, business"
+            },
+            {
+                "id": "UnpaidWork",
+                "Text": "Unpaid work"
+            },
+            {
+                "id": "Eduction",
+                "Text": "Education, courses"
+            },
+            {
+                "id": "Shopping",
+                "Text": "Shopping, getting groceries"
+            },
+            {
+                "id": "Visit",
+                "Text": "Visit"
+            },
+            {
+                "id": "Sport",
+                "Text": "Sport (as player or as viewer)"
+            },
+            {
+                "id": "GetBringPersons",
+                "Text": "Get or bring persons"
+            },
+            {
+                "id": "GetBringGoods",
+                "Text": "Get or bring goods"
+            },
+            {
+                "id": "Other",
+                "Text": "Other"
+            }
+        ],
+        "OtherOptions": [
+            {
+                "Id": "one",
+                "Text": "Test stop 1"
+            },
+            {
+                "id": "two",
+                "Text": "Test stop 2"
+            }
+        ]
+    }
+}

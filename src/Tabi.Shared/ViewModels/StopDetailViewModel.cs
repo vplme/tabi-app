@@ -4,6 +4,7 @@ using System.Windows.Input;
 using MvvmHelpers;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
+using Tabi.Shared;
 using Tabi.Shared.Model;
 using Tabi.Shared.Pages;
 using Tabi.Shared.Resx;
@@ -26,7 +27,7 @@ namespace Tabi.ViewModels
 
         public ObservableRangeCollection<ListItem> DataItems { get; private set; }
 
-        public StopDetailViewModel(IRepoManager repoManager, INavigation navigation, StopVisit stopVisit)
+        public StopDetailViewModel(TabiConfiguration configuration, IRepoManager repoManager, INavigation navigation, StopVisit stopVisit)
         {
             _repoManager = repoManager ?? throw new ArgumentNullException(nameof(repoManager));
             _stopVisit = stopVisit ?? throw new ArgumentNullException(nameof(stopVisit));
@@ -37,7 +38,7 @@ namespace Tabi.ViewModels
             // Initialize a new motive since the ViewModel needs one.
             stopMotive = stopMotive ?? new Motive() { StopVisitId = _stopVisit.Id };
 
-            Motive = new StopMotiveViewModel(stopMotive);
+            Motive = new StopMotiveViewModel(stopMotive, configuration.Motive);
 
             StopVisit = new StopVisitViewModel(stopVisit);
 
@@ -65,7 +66,7 @@ namespace Tabi.ViewModels
             _motiveListItem = new ListItem()
             {
                 Name = AppResources.StopMotiveLabel,
-                Subtitle = MotiveTextFromString(Motive.Text),
+                Subtitle = MotiveTextFromString(Motive.ConvertedText),
                 Command = OpenStopMotiveCommand
             };
 
@@ -126,7 +127,7 @@ namespace Tabi.ViewModels
         {
             if (e.PropertyName == "Text")
             {
-                _motiveListItem.Subtitle = MotiveTextFromString(Motive.Text);
+                _motiveListItem.Subtitle = MotiveTextFromString(Motive.ConvertedText);
             }
         }
 

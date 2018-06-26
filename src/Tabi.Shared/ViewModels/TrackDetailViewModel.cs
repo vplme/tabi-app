@@ -6,6 +6,7 @@ using MvvmHelpers;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
 using Tabi.Pages;
+using Tabi.Shared;
 using Tabi.Shared.Model;
 using Tabi.Shared.Resx;
 using Tabi.Shared.ViewModels;
@@ -23,7 +24,7 @@ namespace Tabi.ViewModels
         private ListItem _motiveListItem;
 
 
-        public TrackDetailViewModel(IRepoManager repoManager, INavigation navigation, TrackEntry trackEntry)
+        public TrackDetailViewModel(IRepoManager repoManager, INavigation navigation, TabiConfiguration configuration, TrackEntry trackEntry)
         {
             _repoManager = repoManager ?? throw new ArgumentNullException(nameof(repoManager));
             _navigation = navigation ?? throw new ArgumentNullException(nameof(navigation));
@@ -34,7 +35,7 @@ namespace Tabi.ViewModels
             // Initialize a new motive since the ViewModel needs one.
             stopMotive = stopMotive ?? new Motive() { TrackId = _trackEntry.Id };
 
-            Motive = new TrackMotiveViewModel(stopMotive);
+            Motive = new TrackMotiveViewModel(stopMotive, configuration.Motive);
 
             TransportModeSelectionCommand = new Command(async () =>
             {
@@ -52,7 +53,7 @@ namespace Tabi.ViewModels
             _motiveListItem = new ListItem()
             {
                 Name = AppResources.TrackMotiveLabel,
-                Subtitle = Motive.Text ?? AppResources.SetTrackMotiveHint,
+                Subtitle = Motive.ConvertedText ?? AppResources.SetTrackMotiveHint,
                 Command = OpenTrackMotiveCommand
             };
 
@@ -75,7 +76,7 @@ namespace Tabi.ViewModels
         {
             if (e.PropertyName == "Text")
             {
-                _motiveListItem.Subtitle = Motive.Text ?? AppResources.SetTrackMotiveHint;
+                _motiveListItem.Subtitle = Motive.ConvertedText ?? AppResources.SetTrackMotiveHint;
             }
         }
 

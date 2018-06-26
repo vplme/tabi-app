@@ -538,4 +538,13 @@
     <data name="ShowTour" xml:space="preserve">
          <value>Show tour</value>
     </data>
+    <data name="OtherMotiveText" xml:space="preserve">
+        <value>Other...</value>
+    </data>
+    <data name="SearchMotivesLabel" xml:space="preserve">
+        <value>Search motives</value>
+    </data>
+    <data name="CreateCustomMotive" xml:space="preserve">
+        <value>Use "{0}"</value>
+    </data>
 </root>

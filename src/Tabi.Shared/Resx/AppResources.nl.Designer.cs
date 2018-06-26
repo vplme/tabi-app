@@ -844,5 +844,71 @@ namespace Tabi.Shared.Resx {
                 return ResourceManager.GetString("ShowTour", resourceCulture);
             }
         }
+        
+        internal static string PaidWorkMotiveText {
+            get {
+                return ResourceManager.GetString("PaidWorkMotiveText", resourceCulture);
+            }
+        }
+        
+        internal static string UnpaidWorkMotiveText {
+            get {
+                return ResourceManager.GetString("UnpaidWorkMotiveText", resourceCulture);
+            }
+        }
+        
+        internal static string EductionMotiveText {
+            get {
+                return ResourceManager.GetString("EductionMotiveText", resourceCulture);
+            }
+        }
+        
+        internal static string ShoppingMotiveText {
+            get {
+                return ResourceManager.GetString("ShoppingMotiveText", resourceCulture);
+            }
+        }
+        
+        internal static string VisitMotiveText {
+            get {
+                return ResourceManager.GetString("VisitMotiveText", resourceCulture);
+            }
+        }
+        
+        internal static string GetBringPersonsMotiveText {
+            get {
+                return ResourceManager.GetString("GetBringPersonsMotiveText", resourceCulture);
+            }
+        }
+        
+        internal static string SportMotiveText {
+            get {
+                return ResourceManager.GetString("SportMotiveText", resourceCulture);
+            }
+        }
+        
+        internal static string GetBringGoodsMotiveText {
+            get {
+                return ResourceManager.GetString("GetBringGoodsMotiveText", resourceCulture);
+            }
+        }
+        
+        internal static string OtherMotiveText {
+            get {
+                return ResourceManager.GetString("OtherMotiveText", resourceCulture);
+            }
+        }
+        
+        internal static string SearchMotivesLabel {
+            get {
+                return ResourceManager.GetString("SearchMotivesLabel", resourceCulture);
+            }
+        }
+        
+        internal static string CreateCustomMotive {
+            get {
+                return ResourceManager.GetString("CreateCustomMotive", resourceCulture);
+            }
+        }
     }
 }

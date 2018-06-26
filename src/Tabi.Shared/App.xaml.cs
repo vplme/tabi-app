@@ -64,7 +64,7 @@ namespace Tabi
 
         private static IConfiguration RetrieveConfiguration()
         {
-            var builder = new ConfigurationBuilder().AddXmlFile(new ResourceFileProvider(), "config.xml", false, false);
+            var builder = new ConfigurationBuilder().AddJsonFile(new ResourceFileProvider(), "config.json", false, false);
             return builder.Build();
         }
 
@@ -179,6 +179,8 @@ namespace Tabi
             containerBuilder.RegisterType<StopDetailNameViewModel>();
             containerBuilder.RegisterType<StopDetailMotiveViewModel>();
 
+            containerBuilder.RegisterType<SearchMotiveViewModel>();
+            containerBuilder.RegisterType<MotiveSelectionViewModel>();
 
             RegisterPlatformSpecificModules(platformSpecificModules, containerBuilder);
 
