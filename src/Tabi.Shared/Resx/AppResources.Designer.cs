@@ -875,6 +875,54 @@ namespace Tabi.Shared.Resx {
             }
         }
         
+        public static string PaidWorkMotiveText {
+            get {
+                return ResourceManager.GetString("PaidWorkMotiveText", resourceCulture);
+            }
+        }
+        
+        public static string UnpaidWorkMotiveText {
+            get {
+                return ResourceManager.GetString("UnpaidWorkMotiveText", resourceCulture);
+            }
+        }
+        
+        public static string EductionMotiveText {
+            get {
+                return ResourceManager.GetString("EductionMotiveText", resourceCulture);
+            }
+        }
+        
+        public static string ShoppingMotiveText {
+            get {
+                return ResourceManager.GetString("ShoppingMotiveText", resourceCulture);
+            }
+        }
+        
+        public static string VisitMotiveText {
+            get {
+                return ResourceManager.GetString("VisitMotiveText", resourceCulture);
+            }
+        }
+        
+        public static string SportMotiveText {
+            get {
+                return ResourceManager.GetString("SportMotiveText", resourceCulture);
+            }
+        }
+        
+        public static string GetBringPersonsMotiveText {
+            get {
+                return ResourceManager.GetString("GetBringPersonsMotiveText", resourceCulture);
+            }
+        }
+        
+        public static string GetBringGoodsMotiveText {
+            get {
+                return ResourceManager.GetString("GetBringGoodsMotiveText", resourceCulture);
+            }
+        }
+        
         public static string CreateCustomMotive {
             get {
                 return ResourceManager.GetString("CreateCustomMotive", resourceCulture);

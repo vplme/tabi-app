@@ -544,6 +544,33 @@
     <data name="SearchMotivesLabel" xml:space="preserve">
         <value>Search motives</value>
     </data>
+     <data name="PaidWorkMotiveText" xml:space="preserve">
+         <value>Paid work, business</value>
+    </data>
+    <data name="UnpaidWorkMotiveText" xml:space="preserve">
+         <value>Unpaid work</value>
+    </data>
+    <data name="EductionMotiveText" xml:space="preserve">
+         <value>Education, courses</value>
+    </data>
+    <data name="ShoppingMotiveText" xml:space="preserve">
+         <value>Shopping, getting groceries</value>
+    </data>
+    <data name="VisitMotiveText" xml:space="preserve">
+         <value>Visit</value>
+    </data>
+    <data name="SportMotiveText" xml:space="preserve">
+         <value>Sport (as player or viewer)</value>
+    </data>
+    <data name="GetBringPersonsMotiveText" xml:space="preserve">
+         <value>Get or bring persons</value>
+    </data>
+    <data name="GetBringGoodsMotiveText" xml:space="preserve">
+         <value>Get or bring goods</value>
+    </data>
+    <data name="OtherMotiveText" xml:space="preserve">
+         <value>Something else..</value>
+    </data>
     <data name="CreateCustomMotive" xml:space="preserve">
         <value>Use "{0}"</value>
     </data>

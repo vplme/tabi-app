@@ -48,7 +48,6 @@ namespace Tabi.Shared.ViewModels
                 await PopPageAsync();
             });
 
-
             _motiveSelectionViewModel.PropertyChanged += _motiveSelectionViewModel_PropertyChanged;
 
             PossibleMotives = new ObservableRangeCollection<MotiveOptionViewModel>();
@@ -82,7 +81,6 @@ namespace Tabi.Shared.ViewModels
                 }
             }
         }
-
 
         ObservableRangeCollection<MotiveOptionViewModel> possibleMotives;
 

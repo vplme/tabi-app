@@ -439,10 +439,10 @@
     <data name="VisitMotiveText" xml:space="preserve">
          <value>Visite, logeren</value>
     </data>
-    <data name="GetBringPersonsMotiveText" xml:space="preserve">
+    <data name="SportMotiveText" xml:space="preserve">
          <value>Sport (als deelnemer of toeschouwer)</value>
     </data>
-    <data name="SportMotiveText" xml:space="preserve">
+    <data name="GetBringPersonsMotiveText" xml:space="preserve">
          <value>Halen of brengen van personen</value>
     </data>
     <data name="GetBringGoodsMotiveText" xml:space="preserve">

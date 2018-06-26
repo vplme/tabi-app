@@ -875,15 +875,15 @@ namespace Tabi.Shared.Resx {
             }
         }
         
-        internal static string GetBringPersonsMotiveText {
-            get {
-                return ResourceManager.GetString("GetBringPersonsMotiveText", resourceCulture);
-            }
-        }
-        
         internal static string SportMotiveText {
             get {
                 return ResourceManager.GetString("SportMotiveText", resourceCulture);
+            }
+        }
+        
+        internal static string GetBringPersonsMotiveText {
+            get {
+                return ResourceManager.GetString("GetBringPersonsMotiveText", resourceCulture);
             }
         }
         
