@@ -862,5 +862,23 @@ namespace Tabi.Shared.Resx {
                 return ResourceManager.GetString("ShowTour", resourceCulture);
             }
         }
+        
+        public static string OtherMotiveText {
+            get {
+                return ResourceManager.GetString("OtherMotiveText", resourceCulture);
+            }
+        }
+        
+        public static string SearchMotivesLabel {
+            get {
+                return ResourceManager.GetString("SearchMotivesLabel", resourceCulture);
+            }
+        }
+        
+        public static string CreateCustomMotive {
+            get {
+                return ResourceManager.GetString("CreateCustomMotive", resourceCulture);
+            }
+        }
     }
 }

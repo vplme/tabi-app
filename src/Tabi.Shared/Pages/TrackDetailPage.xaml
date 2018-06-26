@@ -4,8 +4,8 @@
      xmlns:i18n="clr-namespace:Tabi.Shared.Localization;assembly=Tabi.Shared" xmlns:local="clr-namespace:Tabi;assembly=Tabi.Shared"
      xmlns:control="clr-namespace:Tabi.Shared.Controls;assembly=Tabi.Shared" ios:Page.LargeTitleDisplay="Never" x:Class="Tabi.Pages.TrackDetailPage">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout Spacing="0">
+        <ScrollView BackgroundColor="{DynamicResource WindowBackgroundTable}">
+            <StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}" Spacing="0">
                 <local:RouteMap x:Name="routeMap" MapType="Street" WidthRequest="{x:Static local:App.ScreenWidth}" VerticalOptions="FillAndExpand" />
                 <StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}" Spacing="{DynamicResource CardSpacing}"
                      Padding="{DynamicResource CardPadding}">

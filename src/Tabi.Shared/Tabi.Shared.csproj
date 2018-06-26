@@ -66,9 +66,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Remove="Config\*.xml" />
-    <EmbeddedResource Include="Config\config.debug.xml" Condition="'$(Configuration)'=='Debug'" LogicalName="config.xml" />
-    <EmbeddedResource Include="Config\config.release.xml" Condition="'$(Configuration)'!='Debug'" LogicalName="config.xml" />
+    <None Remove="Config\*.json" />
+    <EmbeddedResource Include="Config\config.debug.json" Condition="'$(Configuration)'=='Debug'" LogicalName="config.json" />
+    <EmbeddedResource Include="Config\config.release.json" Condition="'$(Configuration)'!='Debug'" LogicalName="config.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resx\" />
@@ -92,7 +92,7 @@
     <ProjectReference Include="..\Tabi.Logic\Tabi.Logic.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Config\config.debug.sample.xml" />
-    <None Include="Config\config.release.sample.xml" />
+    <None Include="Config\config.debug.sample.json" />
+    <None Include="Config\config.release.sample.json" />
   </ItemGroup>
 </Project>

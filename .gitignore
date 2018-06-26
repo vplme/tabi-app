@@ -247,3 +247,5 @@ src/Tabi\.Shared/Config/config\.debug\.xml
 src/Tabi\.Shared/Config/config\.release\.xml
 
 src/Tabi\.Console/export\.csv
+
+src/Tabi\.Shared/Config/config\.debug\.json

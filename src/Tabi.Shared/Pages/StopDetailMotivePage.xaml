@@ -7,33 +7,56 @@
         <!-- Added in code behind -->
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical">
-            <TableView Intent="Settings">
-                <TableView.IsVisible>
-                    <OnPlatform x:TypeArguments="x:Boolean">
-                        <On Platform="iOS" Value="true" />
-                        <On Platform="Android" Value="false" />
-                    </OnPlatform>
-                </TableView.IsVisible>
-                <TableRoot>
-                    <TableSection Title="{i18n:Translate StopMotivePageTitle}">
-                        <EntryCell Placeholder="{i18n:Translate SetStopMotiveHint}" Text="{Binding Motive.Text}">
-                            <EntryCell.Label>
-                                <OnPlatform x:TypeArguments="x:String" iOS="{i18n:Translate StopMotiveLabel}" />
-                            </EntryCell.Label>
-                        </EntryCell>
-                    </TableSection>
-                </TableRoot>
-            </TableView>
-            <FlexLayout Margin="10, 10, 10, 10" Direction="Row" Wrap="Wrap">
-                <FlexLayout.IsVisible>
-                    <OnPlatform x:TypeArguments="x:Boolean">
-                        <On Platform="Android" Value="true" />
-                    </OnPlatform>
-                </FlexLayout.IsVisible>
-                <Entry FlexLayout.Basis="100%" Placeholder="{i18n:Translate SetStopMotiveHint}" Text="{Binding Motive.Text}" />
-                <Button FlexLayout.Basis="100%" Text="{i18n:Translate SaveText}" Command="{Binding SaveCommand}" />
-            </FlexLayout>
-        </StackLayout>
+     <ScrollView BackgroundColor="{DynamicResource WindowBackgroundTable}">
+            <StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}" Spacing="{DynamicResource CardSpacing}"
+                 Padding="{DynamicResource CardPadding}">
+                <control:CardView>
+                    <StackLayout Spacing="0">
+                        <control:LabelSection Text="{i18n:Translate StopMotivePageTitle}" />
+                        <control:HeaderDivider />
+                        <ListView Margin="0" x:Name="PossibleMotivesListView" ItemsSource="{Binding PossibleMotives}" ItemSelected="Handle_ItemSelected">
+                            <ListView.SeparatorColor>
+                                <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}" />
+                            </ListView.SeparatorColor>
+                            <ListView.Effects>
+                                <local:NoScrollListViewEffect />
+                            </ListView.Effects>
+                            <ListView.RowHeight>
+                                <OnPlatform x:TypeArguments="x:Int32">
+                                    <On Platform="iOS">44</On>
+                                    <On Platform="Android">60</On>
+                                </OnPlatform>
+                            </ListView.RowHeight>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <FlexLayout AlignItems="Center" JustifyContent="Center">
+                                            <Label Margin="10,0,0,0" FlexLayout.Grow="1" Text="{Binding Text}" />
+                                            <Image Margin="0,0,10,0" IsVisible="{Binding Selected}" WidthRequest="20" HeightRequest="20">
+                                                <Image.Source>
+                                                    <OnPlatform x:TypeArguments="FileImageSource">
+                                                        <OnPlatform.iOS>ic_check_circle</OnPlatform.iOS>
+                                                        <OnPlatform.Android>ic_check_circle_black_24dp</OnPlatform.Android>
+                                                    </OnPlatform>
+                                                </Image.Source>
+                                            </Image>
+                                        </FlexLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        <control:SettingsSectionDivider />
+                        <FlexLayout Margin="10, 10, 10, 10" Direction="Row" Wrap="Wrap">
+                            <FlexLayout.IsVisible>
+                                <OnPlatform x:TypeArguments="x:Boolean">
+                                    <On Platform="Android" Value="true" />
+                                </OnPlatform>
+                            </FlexLayout.IsVisible>
+                            <Button FlexLayout.Basis="100%" Text="{i18n:Translate SaveText}" Command="{Binding SaveCommand}" />
+                        </FlexLayout>
+                    </StackLayout>
+                </control:CardView>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

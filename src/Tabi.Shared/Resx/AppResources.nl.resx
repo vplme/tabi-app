@@ -424,4 +424,37 @@
     <data name="ShowTour" xml:space="preserve">
          <value>Bekijk introtour</value>
     </data>
+    <data name="PaidWorkMotiveText" xml:space="preserve">
+         <value>Betaald werk, zakelijk</value>
+    </data>
+    <data name="UnpaidWorkMotiveText" xml:space="preserve">
+         <value>Onbetaald werk</value>
+    </data>
+    <data name="EductionMotiveText" xml:space="preserve">
+         <value>Onderwijs, cursus volgen</value>
+    </data>
+    <data name="ShoppingMotiveText" xml:space="preserve">
+         <value>Winkelen, boodschappen doen</value>
+    </data>
+    <data name="VisitMotiveText" xml:space="preserve">
+         <value>Visite, logeren</value>
+    </data>
+    <data name="GetBringPersonsMotiveText" xml:space="preserve">
+         <value>Sport (als deelnemer of toeschouwer)</value>
+    </data>
+    <data name="SportMotiveText" xml:space="preserve">
+         <value>Halen of brengen van personen</value>
+    </data>
+    <data name="GetBringGoodsMotiveText" xml:space="preserve">
+         <value>Halen of brengen van goederen</value>
+    </data>
+    <data name="OtherMotiveText" xml:space="preserve">
+         <value>Iets anders, namelijk..</value>
+    </data>
+      <data name="SearchMotivesLabel" xml:space="preserve">
+        <value>Zoek motieven</value>
+    </data>
+    <data name="CreateCustomMotive" xml:space="preserve">
+        <value>Gebruik "{0}"</value>
+    </data>
 </root>
