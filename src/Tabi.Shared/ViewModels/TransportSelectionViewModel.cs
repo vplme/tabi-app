@@ -16,14 +16,98 @@ namespace Tabi.ViewModels
     public class TransportSelectionViewModel : ObservableObject
     {
         private readonly IRepoManager _repoManager;
+        private readonly INavigation _navigation;
+        private readonly TrackEntry _trackEntry;
 
-        public TransportSelectionViewModel(IRepoManager repoManager)
+        public TransportSelectionViewModel(IRepoManager repoManager, INavigation navigation, TrackEntry trackEntry)
         {
             _repoManager = repoManager ?? throw new ArgumentNullException(nameof(repoManager));
-            Items = new SelectableObservableCollection<TransportModeItem>(TransportModeItem.GetPossibleTransportModes());
+            _navigation = navigation ?? throw new ArgumentNullException(nameof(navigation));
+            _trackEntry = trackEntry ?? throw new ArgumentNullException(nameof(trackEntry));
+
+            Items = new SelectableObservableCollection<TransportModeItem>();
+
+            SaveCommand = new Command(async () =>
+            {
+                FinishedTransportSelection();
+                await _navigation.PopModalAsync();
+
+            });
+
+            CancelCommand = new Command(async () =>
+            {
+                await _navigation.PopModalAsync();
+            });
+
+            SetActualTransportModes();
         }
 
-        public INavigation Navigation { get; set; }
+        public ICommand SaveCommand { get; set; }
+
+        public ICommand CancelCommand { get; set; }
+
+        private void SetActualTransportModes()
+        {
+            IList<TransportModeItem> transports = TransportModeItem.GetPossibleTransportModes();
+            TransportationModeEntry trackEntry = _repoManager.TransportationModeRepository.GetLastWithTrackEntry(_trackEntry.Id);
+
+            foreach (TransportModeItem mi in transports)
+            {
+                items.Add(mi, CheckModeIsInTransportEntry(mi.Mode, trackEntry));
+            }
+        }
+
+        private bool CheckModeIsInTransportEntry(TransportationMode mode, TransportationModeEntry entry)
+        {
+            bool result = false;
+
+            if (entry != null)
+            {
+                switch (mode)
+                {
+                    case TransportationMode.Bus:
+                        result = entry.Bus;
+                        break;
+                    case TransportationMode.Bike:
+                        result = entry.Bike;
+                        break;
+                    case TransportationMode.Car:
+                        result = entry.Car;
+                        break;
+                    case TransportationMode.MobilityScooter:
+                        result = entry.MobilityScooter;
+                        break;
+                    case TransportationMode.Moped:
+                        result = entry.Moped;
+                        break;
+                    case TransportationMode.Motorcycle:
+                        result = entry.Motorcycle;
+                        break;
+                    case TransportationMode.Other:
+                        result = entry.Other;
+                        break;
+                    case TransportationMode.Run:
+                        result = entry.Run;
+                        break;
+                    case TransportationMode.Scooter:
+                        result = entry.Scooter;
+                        break;
+                    case TransportationMode.Subway:
+                        result = entry.Subway;
+                        break;
+                    case TransportationMode.Train:
+                        result = entry.Train;
+                        break;
+                    case TransportationMode.Tram:
+                        result = entry.Tram;
+                        break;
+                    case TransportationMode.Walk:
+                        result = entry.Walk;
+                        break;
+                }
+            }
+            return result;
+        }
 
         private SelectableObservableCollection<TransportModeItem> items = new SelectableObservableCollection<TransportModeItem>();
 
@@ -38,8 +122,6 @@ namespace Tabi.ViewModels
                 SetProperty(ref items, value);
             }
         }
-
-        public TrackEntry TrackEntry { get; set; }
 
         public IList<TransportationMode> GetSelectedTransportModes()
         {
@@ -60,7 +142,7 @@ namespace Tabi.ViewModels
             TransportationModeEntry selectedTransportationModeEntry = new TransportationModeEntry
             {
                 Timestamp = Timestamp,
-                TrackId = TrackEntry.Id
+                TrackId = _trackEntry.Id
             };
 
             foreach (var transportMode in selectedTransportModes)

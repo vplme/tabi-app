@@ -21,7 +21,7 @@ namespace Tabi.Shared.ViewModels
 
         protected bool saved;
 
-        public DetailMotiveViewModel(IRepoManager repoManager,
+        protected DetailMotiveViewModel(IRepoManager repoManager,
                                          INavigation navigation,
                                          TabiConfiguration configuration,
                                      MotiveSelectionViewModel motiveSelectionViewModel)
@@ -46,12 +46,12 @@ namespace Tabi.Shared.ViewModels
             _motiveSelectionViewModel.PropertyChanged += _motiveSelectionViewModel_PropertyChanged;
 
             PossibleMotives = new ObservableRangeCollection<MotiveOptionViewModel>();
-
-        
         }
 
         protected void SetupMotives()
         {
+            bool foundMotive = false;
+
             // Setup possible motives
             foreach (MotiveOption mo in _configuration.Motive.Options)
             {
@@ -62,6 +62,7 @@ namespace Tabi.Shared.ViewModels
                 {
                     motive.Selected = true;
                     _motiveSelectionViewModel.SelectedMotiveOption = motive;
+                    foundMotive = true;
                 }
                 PossibleMotives.Add(motive);
             }
@@ -76,9 +77,18 @@ namespace Tabi.Shared.ViewModels
                     _motiveSelectionViewModel.SelectedMotiveOption = CustomMotiveOption;
                     CustomMotiveOption.Selected = true;
                     _motiveSelectionViewModel.CustomMotive = true;
-
+                    foundMotive = true;
                     break;
                 }
+            }
+
+            if (!foundMotive)
+            {
+                CustomMotiveOption = new MotiveOptionViewModel() { Text = MotiveText, Id = MotiveText };
+                _motiveSelectionViewModel.SelectedMotiveOption = CustomMotiveOption;
+                CustomMotiveOption.Selected = true;
+                _motiveSelectionViewModel.CustomMotive = true;
+                foundMotive = true;
             }
         }
 
@@ -94,7 +104,6 @@ namespace Tabi.Shared.ViewModels
             get => possibleMotives;
             set => SetProperty(ref possibleMotives, value);
         }
-
 
         private async Task PopPageAsync()
         {
