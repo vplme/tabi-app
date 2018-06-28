@@ -39,7 +39,7 @@ namespace Tabi.ViewModels
 
             TransportModeSelectionCommand = new Command(async () =>
             {
-                await _navigation.PushAsync(new TransportSelectionPage(_trackEntry));
+                await _navigation.PushModalAsync(new NavigationPage(new TransportSelectionPage(_trackEntry)));
             });
 
             OpenTrackMotiveCommand = new Command(async () =>

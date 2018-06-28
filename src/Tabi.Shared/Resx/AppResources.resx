@@ -544,7 +544,7 @@
     <data name="SearchMotivesLabel" xml:space="preserve">
         <value>Search motives</value>
     </data>
-     <data name="PaidWorkMotiveText" xml:space="preserve">
+    <data name="PaidWorkMotiveText" xml:space="preserve">
          <value>Paid work, business</value>
     </data>
     <data name="UnpaidWorkMotiveText" xml:space="preserve">
@@ -573,5 +573,8 @@
     </data>
     <data name="CreateCustomMotive" xml:space="preserve">
         <value>Use "{0}"</value>
+    </data>
+    <data name="TransportSelectionPageTitle" xml:space="preserve">
+        <value>Select transport modes</value>
     </data>
 </root>

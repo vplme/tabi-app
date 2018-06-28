@@ -1,29 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:local="clr-namespace:Tabi;assembly=Tabi.Shared" xmlns:i18n="clr-namespace:Tabi.Shared.Localization;assembly=Tabi.Shared"
      xmlns:control="clr-namespace:Tabi.Controls;assembly=Tabi.Shared" x:Class="Tabi.Pages.TransportSelectionPage"
-     BackgroundColor="{DynamicResource WindowBackgroundTable}">
+     BackgroundColor="{DynamicResource WindowBackgroundTable}" Title="{i18n:Translate TransportSelectionPageTitle}">
     <ContentPage.Content>
-        <ListView ItemsSource="{Binding Items}" control:MultiSelectListView.IsMultiSelect="true">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <control:SelectableViewCell>
-                        <!-- set the selected indicator (optional) -->
-                        <control:SelectableViewCell.CheckView>
-                            <Image WidthRequest="50" HeightRequest="50">
-                                <Image.Source>
-                                    <OnPlatform x:TypeArguments="FileImageSource">
-                                        <OnPlatform.iOS>ic_check_circle</OnPlatform.iOS>
-                                        <OnPlatform.Android>ic_check_circle_black_24dp</OnPlatform.Android>
-                                    </OnPlatform>
-                                </Image.Source>
-                            </Image>
-                        </control:SelectableViewCell.CheckView>
-                        <control:SelectableViewCell.DataView>
-                            <Label Text="{Binding Name}" />
-                        </control:SelectableViewCell.DataView>
-                    </control:SelectableViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            <StackLayout>
+                <ListView ItemsSource="{Binding Items}" control:MultiSelectListView.IsMultiSelect="true">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <control:SelectableViewCell>
+                                <!-- set the selected indicator (optional) -->
+                                <control:SelectableViewCell.CheckView>
+                                    <Image WidthRequest="50" HeightRequest="50">
+                                        <Image.Source>
+                                            <OnPlatform x:TypeArguments="FileImageSource">
+                                                <OnPlatform.iOS>ic_check_circle</OnPlatform.iOS>
+                                                <OnPlatform.Android>ic_check_circle_black_24dp</OnPlatform.Android>
+                                            </OnPlatform>
+                                        </Image.Source>
+                                    </Image>
+                                </control:SelectableViewCell.CheckView>
+                                <control:SelectableViewCell.DataView>
+                                    <Label Text="{Binding Name}" />
+                                </control:SelectableViewCell.DataView>
+                            </control:SelectableViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <FlexLayout Margin="10, 10, 10, 10" Direction="Row" Wrap="Wrap">
+                    <FlexLayout.IsVisible>
+                        <OnPlatform x:TypeArguments="x:Boolean">
+                            <On Platform="Android" Value="true" />
+                        </OnPlatform>
+                    </FlexLayout.IsVisible>
+                    <Button FlexLayout.Basis="100%" Text="{i18n:Translate SaveText}" Command="{Binding SaveCommand}" />
+                </FlexLayout>
+            </StackLayout>
     </ContentPage.Content>
 </ContentPage>

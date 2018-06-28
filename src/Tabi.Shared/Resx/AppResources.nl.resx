@@ -451,10 +451,13 @@
     <data name="OtherMotiveText" xml:space="preserve">
          <value>Iets anders, namelijk..</value>
     </data>
-      <data name="SearchMotivesLabel" xml:space="preserve">
+    <data name="SearchMotivesLabel" xml:space="preserve">
         <value>Zoek motieven</value>
     </data>
     <data name="CreateCustomMotive" xml:space="preserve">
         <value>Gebruik "{0}"</value>
+    </data>
+    <data name="TransportSelectionPageTitle" xml:space="preserve">
+        <value>Selecteer vervoersmiddel(en)</value>
     </data>
 </root>

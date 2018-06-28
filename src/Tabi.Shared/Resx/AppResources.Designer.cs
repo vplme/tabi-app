@@ -928,5 +928,11 @@ namespace Tabi.Shared.Resx {
                 return ResourceManager.GetString("CreateCustomMotive", resourceCulture);
             }
         }
+        
+        public static string TransportSelectionPageTitle {
+            get {
+                return ResourceManager.GetString("TransportSelectionPageTitle", resourceCulture);
+            }
+        }
     }
 }
