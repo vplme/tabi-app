@@ -4,6 +4,7 @@ using System.Linq;
 using Autofac;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
+using Tabi.Shared.Helpers;
 using Tabi.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
@@ -64,8 +65,17 @@ namespace Tabi.Pages
                 return;
             }
 
-            ListView listView = sender as ListView;
-            listView.SelectedItem = null;
+            // Only run on Android. iOS uses TextCell with Command property.
+            if (Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.Android)
+            {
+                ICommandable item = e.SelectedItem as ICommandable;
+                if (item != null && item.Command != null && item.Command.CanExecute(null))
+                {
+                    item.Command.Execute(null);
+                }
+            }
+
+            ((ListView)sender).SelectedItem = null;
         }
     }
 }
