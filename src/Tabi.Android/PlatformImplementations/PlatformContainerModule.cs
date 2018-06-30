@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Tabi.Droid.Localization;
 using Tabi.Shared;
+using Tabi.Shared.DataSync;
 using Tabi.Shared.Sensors;
 
 namespace Tabi.Droid.PlatformImplementations
@@ -14,6 +15,7 @@ namespace Tabi.Droid.PlatformImplementations
             builder.RegisterType<Localize>().As<ILocalize>().SingleInstance();
             builder.RegisterType<LocationManagerImplementation>().As<ILocationManager>().SingleInstance();
             builder.RegisterType<SensorManagerImplementation>().As<ISensorManager>().SingleInstance();
+            builder.RegisterType<DataUploadTask>().As<IDataUploadTask>();
         }
     }
 }

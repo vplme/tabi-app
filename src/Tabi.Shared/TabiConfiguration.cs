@@ -25,6 +25,13 @@ namespace Tabi.Shared
         /// </summary>
         /// <value>Timeout in seconds.</value>
         public int Timeout { get; set; }
+
+        /// <summary>
+        /// Gets or sets the sync interval in minutes.
+        /// </summary>
+        /// <value>Sync interval in minutes.</value>
+        public int SyncInterval { get; set; } = 30;
+
         public List<string> CertificateKeys { get; set; }
 
     }

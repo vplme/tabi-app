@@ -5,6 +5,7 @@ using CoreMotion;
 using Tabi.DataObjects.CollectionProfile;
 using Tabi.iOS.Localization;
 using Tabi.Shared;
+using Tabi.Shared.DataSync;
 using Tabi.Shared.Sensors;
 
 namespace Tabi.iOS.PlatformImplementations
@@ -23,6 +24,7 @@ namespace Tabi.iOS.PlatformImplementations
             builder.RegisterType<CMMotionManager>();
             builder.RegisterType<CMPedometer>();
             builder.RegisterInstance(CollectionProfile.GetDefaultProfile().iOSProfile).As<ProfileiOS>();
+            builder.RegisterType<DataUploadTask>().As<IDataUploadTask>();
         }
     }
 }

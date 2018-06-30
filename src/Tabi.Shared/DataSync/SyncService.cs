@@ -60,6 +60,7 @@ namespace Tabi.iOS.Helpers
                 {
                     await UploadAll(wifiOnly);
                     _lastAutoUpload = DateTimeOffset.Now;
+                    Settings.Current.LastUpload = _lastAutoUpload.Ticks;
                 }
                 catch (Exception e)
                 {
@@ -71,10 +72,12 @@ namespace Tabi.iOS.Helpers
 
         public async Task UploadAll(bool wifiOnly = true)
         {
+            bool available = await _apiClient.Ping();
+
             var wifi = Plugin.Connectivity.Abstractions.ConnectionType.WiFi;
             var connectionTypes = CrossConnectivity.Current.ConnectionTypes;
 
-            if (!wifiOnly || connectionTypes.Contains(wifi))
+            if (available && (!wifiOnly || connectionTypes.Contains(wifi)))
             {
                 Timer timer = new Timer();
                 timer.Start();
@@ -112,7 +115,6 @@ namespace Tabi.iOS.Helpers
                 timer.Start();
                 await Task.WhenAll(toBeUploaded);
                 Log.Info($"Total upload took: {timer.EndAndReturnTime()}");
-
             }
         }
 

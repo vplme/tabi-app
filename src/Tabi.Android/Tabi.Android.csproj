@@ -437,6 +437,8 @@
     <Compile Include="MainApplication.cs" />
     <Compile Include="Effects\NoScrollListViewEffect.cs" />
     <Compile Include="Effects\BorderlessEntryEffect.cs" />
+    <Compile Include="PlatformImplementations\DataUploadTask.cs" />
+    <Compile Include="PlatformImplementations\DataUploadService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

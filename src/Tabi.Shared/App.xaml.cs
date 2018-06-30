@@ -129,6 +129,18 @@ namespace Tabi
                 navigationPage.PushAsync(new ActivityOverviewPage());
             }
 
+            var timer = new System.Threading.Timer((o) =>
+            {
+                if (Settings.Current.PermissionsGranted)
+                {
+                    IDataUploadTask task = Container.Resolve<IDataUploadTask>();
+                    task.Start();
+                }
+
+            }, null, 0, 2 * 60000);
+            MessagingCenter.Send<DataSyncTaskMessage>(new DataSyncTaskMessage(), "UploadData");
+
+
             MainPage = navigationPage;
         }
 
@@ -139,7 +151,7 @@ namespace Tabi
             containerBuilder.RegisterInstance(GetSqliteConnection()).As<SQLiteConnection>();
             containerBuilder.RegisterType<SqliteNetRepoManager>().As<IRepoManager>().SingleInstance();
 
-            containerBuilder.RegisterType<SyncService>();
+            containerBuilder.RegisterType<SyncService>().SingleInstance();
             containerBuilder.RegisterType<ApiClient>().WithParameter("apiLocation", TabiConfig.Api.Url);
 
             containerBuilder.RegisterInstance(TabiConfig).As<TabiConfiguration>();

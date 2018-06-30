@@ -1,0 +1,27 @@
+﻿using System;
+using System.Threading.Tasks;
+using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Autofac;
+using Tabi.iOS.Helpers;
+
+namespace Tabi.Droid.PlatformImplementations
+{
+    [Service]
+    public class DataUploadService : IntentService
+    {
+        public DataUploadService() : base("DataUploadService")
+        {
+        }
+        
+        protected override async void OnHandleIntent(Intent intent)
+        {
+            int interval = intent.GetIntExtra("interval", 10);
+
+            SyncService sync = App.Container.Resolve<SyncService>();
+            await sync.AutoUpload(TimeSpan.FromMinutes(interval));
+        }
+    }
+}
