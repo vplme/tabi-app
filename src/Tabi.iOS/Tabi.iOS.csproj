@@ -436,6 +436,12 @@
     <Reference Include="Plugin.MediaManager.Forms.iOS">
       <HintPath>..\packages\Plugin.MediaManager.Forms.0.4.5\lib\xamarinios\Plugin.MediaManager.Forms.iOS.dll</HintPath>
     </Reference>
+    <Reference Include="Vpl.Xamarin.VideoPlayer">
+      <HintPath>..\packages\Vpl.Xamarin.VideoPlayer.0.0.7\lib\Xamarin.iOS10\Vpl.Xamarin.VideoPlayer.dll</HintPath>
+    </Reference>
+    <Reference Include="Vpl.Xamarin.VideoPlayer.iOS">
+      <HintPath>..\packages\Vpl.Xamarin.VideoPlayer.0.0.7\lib\Xamarin.iOS10\Vpl.Xamarin.VideoPlayer.iOS.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tabi.Shared\Tabi.Shared.csproj">
