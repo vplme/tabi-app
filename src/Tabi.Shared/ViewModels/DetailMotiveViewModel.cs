@@ -12,7 +12,7 @@ namespace Tabi.Shared.ViewModels
     public abstract class DetailMotiveViewModel : BaseViewModel
     {
 
-        protected readonly IRepoManager _repoManager; 
+        protected readonly IRepoManager _repoManager;
         protected readonly TabiConfiguration _configuration;
 
         protected readonly INavigation _navigation;
@@ -51,6 +51,7 @@ namespace Tabi.Shared.ViewModels
         protected void SetupMotives()
         {
             bool foundMotive = false;
+            bool motiveIsSet = !string.IsNullOrEmpty(MotiveText);
 
             // Setup possible motives
             foreach (MotiveOption mo in _configuration.Motive.Options)
@@ -58,7 +59,7 @@ namespace Tabi.Shared.ViewModels
                 string translatedText = typeof(AppResources).GetProperty($"{mo.Id}MotiveText")?.GetValue(null) as string;
                 string text = translatedText ?? mo.Text;
                 MotiveOptionViewModel motive = new MotiveOptionViewModel() { Text = text, Id = mo.Id };
-                if (motive.Id == MotiveText)
+                if (motiveIsSet && motive.Id == MotiveText)
                 {
                     motive.Selected = true;
                     _motiveSelectionViewModel.SelectedMotiveOption = motive;
@@ -71,7 +72,7 @@ namespace Tabi.Shared.ViewModels
             {
                 string translatedText = typeof(AppResources).GetProperty($"{mo.Id}MotiveText")?.GetValue(null) as string;
                 string text = translatedText ?? mo.Text;
-                if (mo.Id == MotiveText)
+                if (motiveIsSet && mo.Id == MotiveText)
                 {
                     CustomMotiveOption = new MotiveOptionViewModel() { Text = text, Id = mo.Id };
                     _motiveSelectionViewModel.SelectedMotiveOption = CustomMotiveOption;
@@ -82,7 +83,7 @@ namespace Tabi.Shared.ViewModels
                 }
             }
 
-            if (!foundMotive)
+            if (motiveIsSet && !foundMotive)
             {
                 CustomMotiveOption = new MotiveOptionViewModel() { Text = MotiveText, Id = MotiveText };
                 _motiveSelectionViewModel.SelectedMotiveOption = CustomMotiveOption;
