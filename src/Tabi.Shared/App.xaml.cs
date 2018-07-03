@@ -138,8 +138,6 @@ namespace Tabi
                 }
 
             }, null, 0, 2 * 60000);
-            MessagingCenter.Send<DataSyncTaskMessage>(new DataSyncTaskMessage(), "UploadData");
-
 
             MainPage = navigationPage;
         }
