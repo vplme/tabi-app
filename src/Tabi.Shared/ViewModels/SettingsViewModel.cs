@@ -18,6 +18,7 @@ using Tabi.Shared.Resx;
 using Acr.UserDialogs;
 using Tabi.iOS.Helpers;
 using Tabi.Shared;
+using Microsoft.AppCenter.Analytics;
 
 namespace Tabi
 {
@@ -186,11 +187,14 @@ namespace Tabi
                     tPage = new TourGifPage();
                 }
 
+                Analytics.TrackEvent("ShowTour clicked");
+
                 await _navigation.PushModalAsync(tPage);
             });
 
             UploadCommand = new Command(async () =>
             {
+                Analytics.TrackEvent("Upload clicked");
 
                 // Check if there is an active internet connection
                 if (CrossConnectivity.Current.IsConnected)
@@ -254,6 +258,10 @@ namespace Tabi
                 if (e.PropertyName == "LastUpload")
                 {
                     OnPropertyChanged(nameof(LastSynced));
+                }
+                else if (e.PropertyName == "Tracking")
+                {
+                    Analytics.TrackEvent("Tracking toggled", new Dictionary<string, string> { { "Value", Settings.Tracking.ToString() } });
                 }
             };
         }

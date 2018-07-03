@@ -3,6 +3,8 @@
     "MobileCenter": {
         "Enabled": true,
         "Distribute": false,
+        "Analytics": true,
+        "Crashes": true,
         "ApiKey": ""
     },
     "Api": {

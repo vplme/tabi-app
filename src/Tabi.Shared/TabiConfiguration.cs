@@ -39,7 +39,13 @@ namespace Tabi.Shared
     public class MobileCenterConfiguration
     {
         public bool Enabled { get; set; }
+
         public bool Distribute { get; set; }
+
+        public bool Crashes { get; set; }
+
+        public bool Analytics { get; set; }
+
         public string ApiKey { get; set; }
 
     }

@@ -1,10 +1,5 @@
 ﻿using Xamarin.Forms;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Azure.Mobile;
-using Microsoft.Azure.Mobile.Analytics;
-using Microsoft.Azure.Mobile.Crashes;
-using Microsoft.Azure.Mobile.Distribute;
-using Microsoft.Azure.Mobile.Push;
 using PCLStorage;
 using Tabi.DataStorage;
 using Tabi.Logging;
@@ -28,6 +23,11 @@ using Tabi.Shared.Config;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using Tabi.Logic;
 using System;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+using Microsoft.AppCenter.Distribute;
+using Microsoft.AppCenter.Push;
 
 namespace Tabi
 {
@@ -104,18 +104,29 @@ namespace Tabi
                 if (TabiConfig.MobileCenter.Distribute)
                 {
                     // Start with Distribute
-                    MobileCenter.Start(TabiConfig.MobileCenter.ApiKey,
+                    AppCenter.Start(TabiConfig.MobileCenter.ApiKey,
                                    typeof(Analytics), typeof(Crashes), typeof(Distribute), typeof(Push));
                 }
                 else
                 {
-                    MobileCenter.Start(TabiConfig.MobileCenter.ApiKey,
+                    AppCenter.Start(TabiConfig.MobileCenter.ApiKey,
                                       typeof(Analytics), typeof(Crashes), typeof(Push));
                 }
 
                 Log.Debug("MobileCenter started with apikey");
-                MobileCenter.SetEnabledAsync(TabiConfig.MobileCenter.Enabled);
+                AppCenter.SetEnabledAsync(TabiConfig.MobileCenter.Enabled);
+                Analytics.SetEnabledAsync(TabiConfig.MobileCenter.Analytics);
+                Crashes.SetEnabledAsync(TabiConfig.MobileCenter.Crashes);
+
                 Log.Debug($"MobileCenter enabled: {TabiConfig.MobileCenter.Enabled}");
+
+                Crashes.GetErrorAttachments = (ErrorReport report) =>
+                {
+                    return new ErrorAttachmentLog[]
+                    {
+                        ErrorAttachmentLog.AttachmentWithText("DeviceInfo", $"DeviceId: {Settings.Current.Device}"),
+                    };
+                };
             }
 
             Xamarin.Forms.NavigationPage navigationPage = new Xamarin.Forms.NavigationPage();
@@ -140,6 +151,8 @@ namespace Tabi
             }, null, 0, 2 * 60000);
 
             MainPage = navigationPage;
+
+            Analytics.TrackEvent("MainPage opened");
         }
 
         private void PrepareContainer(IModule[] platformSpecificModules)
@@ -244,10 +257,12 @@ namespace Tabi
         {
             IFolder rootFolder = FileSystem.Current.LocalStorage;
             var dbPath = PortablePath.Combine(rootFolder.Path, "tabi.db");
-            return new SQLiteConnection(
+            SQLiteConnection connection = new SQLiteConnection(
                 dbPath,
                     SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.Create | SQLiteOpenFlags.FullMutex,
                     false);
+
+            return connection;
         }
 
 

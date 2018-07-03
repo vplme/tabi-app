@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Autofac;
+using Microsoft.AppCenter.Analytics;
 using Tabi.Pages;
 using Tabi.Shared.Resx;
 using Tabi.ViewModels;
@@ -60,10 +61,12 @@ namespace Tabi
                     Page page = null;
                     if (ae.ShowStop)
                     {
+                        Analytics.TrackEvent("Stop clicked");
                         page = new StopDetailPage(ae.StopVisit);
                     }
                     else if (ae.ShowTrack)
                     {
+                        Analytics.TrackEvent("Track clicked");
                         page = new TrackDetailPage(ae.Track);
                     }
 

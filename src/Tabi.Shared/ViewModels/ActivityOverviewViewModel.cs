@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using System.Threading.Tasks;
-using MvvmHelpers;
 using Tabi.Core;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
@@ -11,9 +10,8 @@ using Tabi.Pages;
 using Tabi.Shared.Helpers;
 using Xamarin.Forms;
 using Tabi.Shared.Resx;
-using Tabi.Logic;
 using System.Threading;
-using System.Linq;
+using Microsoft.AppCenter.Analytics;
 
 namespace Tabi.ViewModels
 {
@@ -106,11 +104,14 @@ namespace Tabi.ViewModels
             SettingsCommand = new Command(async () =>
             {
                 await _navigation.PushAsync(new SettingsPage());
+                Analytics.TrackEvent("Settings clicked");
             });
 
             DaySelectorCommand = new Command(async () =>
             {
                 await _navigation.PushModalAsync(new NavigationPage(new DaySelectorPage()));
+                Analytics.TrackEvent("DaySelector clicked");
+
             });
 
             RefreshCommand = new Command(async () =>
@@ -125,6 +126,8 @@ namespace Tabi.ViewModels
 
                 IsBusy = false;
                 refreshEnabled = true;
+
+                Analytics.TrackEvent("Refresh pulled");
             });
 
             Title = _dateService.SelectedDay.CurrentDateShort;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Microsoft.AppCenter.Analytics;
 using MvvmHelpers;
 using Tabi.DataStorage;
 using Tabi.Model;
@@ -11,7 +12,6 @@ namespace Tabi.ViewModels
 {
     public class DaySelectorViewModel : ObservableObject
     {
-
         private ObservableRangeCollection<Day> items = new ObservableRangeCollection<Day>();
         private INavigation _navigation;
         private IRepoManager _repoManager;
@@ -42,6 +42,7 @@ namespace Tabi.ViewModels
 
             CancelCommand = new Command(async () =>
             {
+                Analytics.TrackEvent("Cancel dayselector clicked");
                 await _navigation.PopModalAsync();
             });
         }
@@ -79,6 +80,7 @@ namespace Tabi.ViewModels
         public async Task ListSelectedDay(Day day)
         {
             _dateService.SelectedDay = day;
+            Analytics.TrackEvent("Day selected");
             await _navigation.PopModalAsync();
         }
     }

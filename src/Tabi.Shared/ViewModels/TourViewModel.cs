@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Input;
+using Microsoft.AppCenter.Analytics;
 using Tabi.Shared.Resx;
 using Vpl.Xamarin.VideoPlayer;
 using Xamarin.Forms;
@@ -56,6 +57,7 @@ namespace Tabi.Shared.ViewModels
                 if (currentItem + 1 == tourItems.Count)
                 {
                     await _navigation.PopModalAsync();
+                    Analytics.TrackEvent("Tour finished");
                 }
                 else
                 {
@@ -68,6 +70,10 @@ namespace Tabi.Shared.ViewModels
 
             SkipCommand = new Command(async () =>
             {
+                Analytics.TrackEvent("Tour skip clicked", new Dictionary<string, string> {
+                    { "CurrentItem", currentItem.ToString() }
+                });
+
                 await _navigation.PopModalAsync();
             });
 
