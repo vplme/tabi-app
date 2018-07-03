@@ -249,3 +249,4 @@ src/Tabi\.Shared/Config/config\.release\.xml
 src/Tabi\.Console/export\.csv
 
 src/Tabi\.Shared/Config/config\.debug\.json
+/src/Tabi.Shared/Config/config.release.json

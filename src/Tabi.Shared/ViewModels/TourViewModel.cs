@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Input;
 using Tabi.Shared.Resx;
+using Vpl.Xamarin.VideoPlayer;
 using Xamarin.Forms;
 
 namespace Tabi.Shared.ViewModels
@@ -15,11 +16,15 @@ namespace Tabi.Shared.ViewModels
         {
             _navigation = navigation ?? throw new ArgumentNullException(nameof(navigation));
 
+            // P3 (screenshot iPhone) converted to --> Srgb
+            BackgroundColor = Color.FromHex("#0296BF");
+
             tourItems.Add(new TourItem()
             {
                 Title = AppResources.StopTourTitle,
                 Text = AppResources.StopTourText,
                 Gif = $"stop_50_{AppResources.LangCode}.gif",
+                Video = $"tour_video_ios_stop_name_{AppResources.LangCode}.mp4",
             });
 
             tourItems.Add(new TourItem()
@@ -27,6 +32,7 @@ namespace Tabi.Shared.ViewModels
                 Title = AppResources.MotiveTourTitle,
                 Text = AppResources.MotiveTourText,
                 Gif = $"motive_50_{AppResources.LangCode}.gif",
+                Video = $"tour_video_ios_stop_motive_{AppResources.LangCode}.mp4",
             });
 
             tourItems.Add(new TourItem()
@@ -34,6 +40,7 @@ namespace Tabi.Shared.ViewModels
                 Title = AppResources.TransportModeTourTitle,
                 Text = AppResources.TransportModeTourText,
                 Gif = $"transport_50_{AppResources.LangCode}.gif",
+                Video = $"tour_video_ios_transportmode_{AppResources.LangCode}.mp4"
             });
 
             tourItems.Add(new TourItem()
@@ -41,6 +48,7 @@ namespace Tabi.Shared.ViewModels
                 Title = AppResources.SettingsTourTitle,
                 Text = AppResources.SettingsTourText,
                 Gif = $"settings_50_{AppResources.LangCode}.gif",
+                Video = $"tour_video_ios_settings_{AppResources.LangCode}.mp4"
             });
 
             NextCommand = new Command(async () =>
@@ -72,6 +80,7 @@ namespace Tabi.Shared.ViewModels
             Title = item.Title;
             Text = item.Text;
             Gif = item.Gif;
+            VideoSource = new ResourceVideoSource() { Path = item.Video };
         }
 
         private List<TourItem> tourItems = new List<TourItem>();
@@ -81,6 +90,14 @@ namespace Tabi.Shared.ViewModels
         {
             get => statusText;
             set => SetProperty(ref statusText, value);
+        }
+
+        private Color backgroundColor;
+
+        public Color BackgroundColor
+        {
+            get => backgroundColor;
+            set => SetProperty(ref backgroundColor, value);
         }
 
         private string gif;
@@ -104,6 +121,12 @@ namespace Tabi.Shared.ViewModels
             set => SetProperty(ref text, value);
         }
 
+        private ResourceVideoSource videoSource;
+        public ResourceVideoSource VideoSource
+        {
+            get => videoSource;
+            set => SetProperty(ref videoSource, value);
+        }
 
         public ICommand NextCommand { get; set; }
 
@@ -117,5 +140,7 @@ namespace Tabi.Shared.ViewModels
         public string Text { get; set; }
 
         public string Gif { get; set; }
+
+        public string Video { get; set; }
     }
 }

@@ -174,10 +174,19 @@ namespace Tabi
                 _navigation.PushModalAsync(sPage);
             });
 
-            ShowTourCommand = new Command(() =>
+            ShowTourCommand = new Command(async () =>
             {
-                TourGifPage sPage = new TourGifPage();
-                _navigation.PushModalAsync(sPage);
+                Page tPage;
+                if (Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.iOS)
+                {
+                    tPage = new TourVideoPage();
+                }
+                else
+                {
+                    tPage = new TourGifPage();
+                }
+
+                await _navigation.PushModalAsync(tPage);
             });
 
             UploadCommand = new Command(async () =>

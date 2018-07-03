@@ -400,10 +400,10 @@
       <HintPath>..\packages\Xamarin.Forms.3.0.0.482510\lib\MonoAndroid10\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
     <Reference Include="Vpl.Xamarin.VideoPlayer.Android">
-      <HintPath>..\packages\Vpl.Xamarin.VideoPlayer.0.0.7\lib\MonoAndroid10\Vpl.Xamarin.VideoPlayer.Android.dll</HintPath>
+      <HintPath>..\packages\Vpl.Xamarin.VideoPlayer.0.0.9\lib\MonoAndroid10\Vpl.Xamarin.VideoPlayer.Android.dll</HintPath>
     </Reference>
     <Reference Include="Vpl.Xamarin.VideoPlayer">
-      <HintPath>..\packages\Vpl.Xamarin.VideoPlayer.0.0.7\lib\MonoAndroid10\Vpl.Xamarin.VideoPlayer.dll</HintPath>
+      <HintPath>..\packages\Vpl.Xamarin.VideoPlayer.0.0.9\lib\MonoAndroid10\Vpl.Xamarin.VideoPlayer.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -7,6 +7,7 @@ using Foundation;
 using Microsoft.Azure.Mobile.Distribute;
 using Tabi.iOS.PlatformImplementations;
 using UIKit;
+using Vpl.Xamarin.VideoPlayer;
 
 namespace Tabi.iOS
 {
@@ -25,11 +26,13 @@ namespace Tabi.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            global::Xamarin.Forms.Forms.Init();
-
             CachedImageRenderer.Init();
             // to avoid linking issues:
             var ignore = typeof(SvgCachedImage);
+
+            VideoPlayerKit.Init();
+
+            global::Xamarin.Forms.Forms.Init();
 
             App.ScreenWidth = UIScreen.MainScreen.Bounds.Width;
             App.ScreenHeight = UIScreen.MainScreen.Bounds.Height;

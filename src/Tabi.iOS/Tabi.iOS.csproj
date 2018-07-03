@@ -141,6 +141,7 @@
     <Compile Include="Renderers\TabiTextCellRenderer.cs" />
     <Compile Include="Effects\NoRefreshIndicatorEffect.cs" />
     <Compile Include="PlatformImplementations\DataUploadTask.cs" />
+    <Compile Include="PlatformImplementations\iOSHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
@@ -185,15 +186,14 @@
     <BundleResource Include="Resources\ic_check_circle_2x.png" />
     <BundleResource Include="Resources\ic_check_circle_3x.png" />
     <BundleResource Include="Resources\tabi.svg" />
-    <BundleResource Include="Resources\image.gif" />
-    <BundleResource Include="Resources\motive_50_en.gif" />
-    <BundleResource Include="Resources\motive_50_nl.gif" />
-    <BundleResource Include="Resources\transport_50_en.gif" />
-    <BundleResource Include="Resources\transport_50_nl.gif" />
-    <BundleResource Include="Resources\settings_50_nl.gif" />
-    <BundleResource Include="Resources\settings_50_en.gif" />
-    <BundleResource Include="Resources\stop_50_en.gif" />
-    <BundleResource Include="Resources\stop_50_nl.gif" />
+    <BundleResource Include="Resources\tour_video_ios_transportmode_nl.mp4" />
+    <BundleResource Include="Resources\tour_video_ios_transportmode_en.mp4" />
+    <BundleResource Include="Resources\tour_video_ios_stop_name_nl.mp4" />
+    <BundleResource Include="Resources\tour_video_ios_stop_name_en.mp4" />
+    <BundleResource Include="Resources\tour_video_ios_settings_nl.mp4" />
+    <BundleResource Include="Resources\tour_video_ios_settings_en.mp4" />
+    <BundleResource Include="Resources\tour_video_ios_stop_motive_en.mp4" />
+    <BundleResource Include="Resources\tour_video_ios_stop_motive_nl.mp4" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Azure.Mobile, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -437,10 +437,10 @@
       <HintPath>..\packages\Plugin.MediaManager.Forms.0.4.5\lib\xamarinios\Plugin.MediaManager.Forms.iOS.dll</HintPath>
     </Reference>
     <Reference Include="Vpl.Xamarin.VideoPlayer">
-      <HintPath>..\packages\Vpl.Xamarin.VideoPlayer.0.0.7\lib\Xamarin.iOS10\Vpl.Xamarin.VideoPlayer.dll</HintPath>
+      <HintPath>..\packages\Vpl.Xamarin.VideoPlayer.0.0.9\lib\Xamarin.iOS10\Vpl.Xamarin.VideoPlayer.dll</HintPath>
     </Reference>
     <Reference Include="Vpl.Xamarin.VideoPlayer.iOS">
-      <HintPath>..\packages\Vpl.Xamarin.VideoPlayer.0.0.7\lib\Xamarin.iOS10\Vpl.Xamarin.VideoPlayer.iOS.dll</HintPath>
+      <HintPath>..\packages\Vpl.Xamarin.VideoPlayer.0.0.9\lib\Xamarin.iOS10\Vpl.Xamarin.VideoPlayer.iOS.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

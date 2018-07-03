@@ -246,7 +246,17 @@ namespace Tabi.ViewModels
             if (Settings.ShowTour)
             {
                 Settings.ShowTour = false;
-                await _navigation.PushModalAsync(new TourGifPage());
+                Page tPage;
+                if (Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.iOS)
+                {
+                    tPage = new TourVideoPage();
+                }
+                else
+                {
+                    tPage = new TourGifPage();
+                }
+
+                await _navigation.PushModalAsync(tPage);
             }
         }
     }

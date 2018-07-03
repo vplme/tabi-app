@@ -37,7 +37,7 @@
     <PackageReference Include="FormsToolkit" Version="2.0.1" />
     <PackageReference Include="CsvHelper" Version="7.1.0" />
     <PackageReference Include="Autofac" Version="4.8.0" />
-    <PackageReference Include="Vpl.Xamarin.VideoPlayer" Version="0.0.7" />
+    <PackageReference Include="Vpl.Xamarin.VideoPlayer" Version="0.0.9" />
   </ItemGroup>
   <ItemGroup>
     <!-- https://bugzilla.xamarin.com/show_bug.cgi?id=55591 -->

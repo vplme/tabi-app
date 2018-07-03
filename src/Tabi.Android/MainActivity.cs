@@ -12,6 +12,7 @@ using Autofac.Core;
 using Tabi.Droid.PlatformImplementations;
 using FFImageLoading.Forms.Droid;
 using FFImageLoading.Svg.Forms;
+using Vpl.Xamarin.VideoPlayer;
 
 namespace Tabi.Droid
 {
@@ -30,6 +31,8 @@ namespace Tabi.Droid
             CachedImageRenderer.Init(false);
             // to avoid linking issues:
             var ignore = typeof(SvgCachedImage);
+
+            VideoPlayerKit.Init();
 
             Toolkit.Init();
             Xamarin.FormsMaps.Init(this, bundle);
