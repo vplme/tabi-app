@@ -4,7 +4,7 @@ using Autofac.Core;
 using FFImageLoading.Forms.Touch;
 using FFImageLoading.Svg.Forms;
 using Foundation;
-using Microsoft.Azure.Mobile.Distribute;
+using Microsoft.AppCenter.Distribute;
 using Tabi.iOS.PlatformImplementations;
 using UIKit;
 using Vpl.Xamarin.VideoPlayer;
