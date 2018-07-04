@@ -21,11 +21,22 @@ namespace Tabi
 
             BindingContext = App.Container.Resolve<TourViewModel>(new TypedParameter(typeof(INavigation), Navigation));
 
+        
+
             if (Device.RuntimePlatform == Device.iOS)
             {
                 // Video size: 750w x 1000h
-                VideoPlayer.WidthRequest = App.ScreenWidth;
-                VideoPlayer.HeightRequest = (VideoPlayer.WidthRequest / 750) * 1000;
+                double widthRequest = App.ScreenWidth;
+                double heightRequest = (widthRequest / 750) * 1000;
+
+                if (heightRequest > App.ScreenHeight * 0.85)
+                {
+                    heightRequest = App.ScreenHeight * 0.85;
+                    widthRequest = (heightRequest / 1000) * 750;
+                }
+
+                VideoPlayer.WidthRequest = widthRequest;
+                VideoPlayer.HeightRequest = heightRequest;
             }
 
             IIOSHelper iOSHelper = App.Container.ResolveOptional<IIOSHelper>();
