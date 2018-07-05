@@ -28,6 +28,7 @@ using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Microsoft.AppCenter.Distribute;
 using Microsoft.AppCenter.Push;
+using System.Collections.Generic;
 
 namespace Tabi
 {
@@ -119,14 +120,6 @@ namespace Tabi
                 Crashes.SetEnabledAsync(TabiConfig.MobileCenter.Crashes);
 
                 Log.Debug($"MobileCenter enabled: {TabiConfig.MobileCenter.Enabled}");
-
-                Crashes.GetErrorAttachments = (ErrorReport report) =>
-                {
-                    return new ErrorAttachmentLog[]
-                    {
-                        ErrorAttachmentLog.AttachmentWithText("DeviceInfo", $"DeviceId: {Settings.Current.Device}"),
-                    };
-                };
             }
 
             Xamarin.Forms.NavigationPage navigationPage = new Xamarin.Forms.NavigationPage();
@@ -152,7 +145,12 @@ namespace Tabi
 
             MainPage = navigationPage;
 
-            Analytics.TrackEvent("MainPage opened");
+            TimeSpan timeAgo = DateTime.Now - new DateTime(Settings.Current.LastUpload);
+
+            Analytics.TrackEvent("App loaded", new Dictionary<string, string>() {
+                { "Device ID", Settings.Current.Device.ToString() },
+                { "Last Upload Ago", Math.Round(timeAgo.TotalMinutes).ToString()}
+            });
         }
 
         private void PrepareContainer(IModule[] platformSpecificModules)
