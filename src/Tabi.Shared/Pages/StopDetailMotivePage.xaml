@@ -7,7 +7,7 @@
         <!-- Added in code behind -->
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-     <ScrollView BackgroundColor="{DynamicResource WindowBackgroundTable}">
+        <ScrollView BackgroundColor="{DynamicResource WindowBackgroundTable}">
             <StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}" Spacing="{DynamicResource CardSpacing}"
                  Padding="{DynamicResource CardPadding}">
                 <control:CardView>
@@ -45,7 +45,14 @@
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
-                        <control:SettingsSectionDivider />
+                        <control:SettingsSectionDivider>
+                            <control:SettingsSectionDivider.IsVisible>
+                                <OnPlatform x:TypeArguments="x:Boolean">
+                                    <On Platform="iOS" Value="true" />
+                                    <On Platform="Android" Value="false" />
+                                </OnPlatform>
+                            </control:SettingsSectionDivider.IsVisible>
+                        </control:SettingsSectionDivider>
                         <FlexLayout Margin="10, 10, 10, 10" Direction="Row" Wrap="Wrap">
                             <FlexLayout.IsVisible>
                                 <OnPlatform x:TypeArguments="x:Boolean">
