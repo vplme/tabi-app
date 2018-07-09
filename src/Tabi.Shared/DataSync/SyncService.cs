@@ -58,9 +58,12 @@ namespace Tabi.iOS.Helpers
             {
                 try
                 {
-                    await UploadAll(wifiOnly);
-                    _lastAutoUpload = DateTimeOffset.Now;
-                    Settings.Current.LastUpload = _lastAutoUpload.Ticks;
+                    bool success = await UploadAll(wifiOnly);
+                    if (success)
+                    {
+                        _lastAutoUpload = DateTimeOffset.Now;
+                        Settings.Current.LastUpload = _lastAutoUpload.Ticks;
+                    }
                 }
                 catch (Exception e)
                 {
@@ -70,8 +73,10 @@ namespace Tabi.iOS.Helpers
         }
 
 
-        public async Task UploadAll(bool wifiOnly = true)
+        public async Task<bool> UploadAll(bool wifiOnly = true)
         {
+            bool result = false;
+
             bool available = await _apiClient.Ping();
 
             var wifi = Plugin.Connectivity.Abstractions.ConnectionType.WiFi;
@@ -115,7 +120,11 @@ namespace Tabi.iOS.Helpers
                 timer.Start();
                 await Task.WhenAll(toBeUploaded);
                 Log.Info($"Total upload took: {timer.EndAndReturnTime()}");
+
+                result = true;
             }
+
+            return result;
         }
 
         public List<PositionEntry> GatherPositions()
@@ -911,7 +920,7 @@ namespace Tabi.iOS.Helpers
         {
             DateTimeOffset lastUpload = TimeKeeper.GetPreviousDone(UploadType.TrackEntry);
             List<TrackEntry> trackEntries = _repoManager.TrackEntryRepository.AfterByEndTime(lastUpload).ToList();
-            if(trackEntries.Any())
+            if (trackEntries.Any())
             {
                 trackEntries.Remove(trackEntries.Last());
             }
