@@ -28,6 +28,7 @@ namespace TabiApiClient
         {
             this.apiLocation = apiLocation;
             client = new HttpClient();
+            client.Timeout = TimeSpan.FromMinutes(5);
         }
 
         private string PrefixApiPath(string path)
