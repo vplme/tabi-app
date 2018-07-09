@@ -8,6 +8,8 @@ using Tabi.DataStorage;
 using Tabi.Shared.Helpers;
 using TabiApiClient;
 using Tabi.Shared.DataSync;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace Tabi.iOS.Helpers
 {
@@ -146,7 +148,8 @@ namespace Tabi.iOS.Helpers
                 }
                 catch (Exception e)
                 {
-                    Log.Error("Failed to upload logs: " + e);
+                    Log.Error("Failed to upload positions: " + e);
+                    Crashes.TrackError(e, new Dictionary<string, string>() { { "Device ID", Settings.Current.Device.ToString() } });
                 }
 
                 if (success)
@@ -192,6 +195,8 @@ namespace Tabi.iOS.Helpers
             }
             catch (Exception e)
             {
+                Crashes.TrackError(e, new Dictionary<string, string>() { { "Device ID", Settings.Current.Device.ToString() } });
+
                 Console.WriteLine(e);
                 Log.Error(e.ToString());
                 return false;
@@ -355,6 +360,7 @@ namespace Tabi.iOS.Helpers
                 }
                 catch (Exception e)
                 {
+                    Crashes.TrackError(e, new Dictionary<string, string>() { { "Device ID", Settings.Current.Device.ToString() } });
                     Log.Error("Failed to upload logs: " + e);
                 }
 
@@ -568,6 +574,7 @@ namespace Tabi.iOS.Helpers
                 }
                 catch (Exception e)
                 {
+                    Crashes.TrackError(e, new Dictionary<string, string>() { { "Device ID", Settings.Current.Device.ToString() } });
                     Log.Error("Could not upload accelerometerdata " + e);
                 }
 
@@ -611,6 +618,7 @@ namespace Tabi.iOS.Helpers
                 }
                 catch (Exception e)
                 {
+                    Crashes.TrackError(e, new Dictionary<string, string>() { { "Device ID", Settings.Current.Device.ToString() } });
                     Log.Error("Could not upload gyroscopedata " + e);
                 }
 
@@ -653,6 +661,7 @@ namespace Tabi.iOS.Helpers
                 }
                 catch (Exception e)
                 {
+                    Crashes.TrackError(e, new Dictionary<string, string>() { { "Device ID", Settings.Current.Device.ToString() } });
                     Log.Error("Could not upload magnetometerdata " + e);
                 }
 
@@ -697,6 +706,7 @@ namespace Tabi.iOS.Helpers
                 }
                 catch (Exception e)
                 {
+                    Crashes.TrackError(e, new Dictionary<string, string>() { { "Device ID", Settings.Current.Device.ToString() } });
                     Log.Error("Could not upload quaterniondata " + e);
                 }
 
@@ -736,6 +746,7 @@ namespace Tabi.iOS.Helpers
                 }
                 catch (Exception e)
                 {
+                    Crashes.TrackError(e, new Dictionary<string, string>() { { "Device ID", Settings.Current.Device.ToString() } });
                     Log.Error("Could not upload orientation " + e);
                 }
                 if (success)
@@ -776,6 +787,7 @@ namespace Tabi.iOS.Helpers
                 }
                 catch (Exception e)
                 {
+                    Crashes.TrackError(e, new Dictionary<string, string>() { { "Device ID", Settings.Current.Device.ToString() } });
                     Log.Error("Could not upload gravitydata " + e);
                 }
                 if (success)
@@ -816,6 +828,7 @@ namespace Tabi.iOS.Helpers
                 }
                 catch (Exception e)
                 {
+                    Crashes.TrackError(e, new Dictionary<string, string>() { { "Device ID", Settings.Current.Device.ToString() } });
                     Log.Error("Could not upload linearaccelerationdata " + e);
                 }
 
@@ -856,6 +869,7 @@ namespace Tabi.iOS.Helpers
                 }
                 catch (Exception e)
                 {
+                    Crashes.TrackError(e, new Dictionary<string, string>() { { "Device ID", Settings.Current.Device.ToString() } });
                     Log.Error("Could not upload sensormeasurementsessions " + e);
                 }
                 if (success)
@@ -894,6 +908,7 @@ namespace Tabi.iOS.Helpers
                 }
                 catch (Exception e)
                 {
+                    Crashes.TrackError(e, new Dictionary<string, string>() { { "Device ID", Settings.Current.Device.ToString() } });
                     Log.Error("Could not upload transportationModes " + e);
                     return false;
                 }
@@ -944,6 +959,7 @@ namespace Tabi.iOS.Helpers
                 }
                 catch (Exception e)
                 {
+                    Crashes.TrackError(e, new Dictionary<string, string>() { { "Device ID", Settings.Current.Device.ToString() } });
                     Log.Error("Could not upload tracks " + e);
                 }
                 if (success)
