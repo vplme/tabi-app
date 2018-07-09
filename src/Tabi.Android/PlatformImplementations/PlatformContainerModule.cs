@@ -1,4 +1,6 @@
 ﻿using Autofac;
+using SQLite;
+using Tabi.Droid.Helpers;
 using Tabi.Droid.Localization;
 using Tabi.Shared;
 using Tabi.Shared.DataSync;
@@ -11,7 +13,7 @@ namespace Tabi.Droid.PlatformImplementations
         protected override void Load(ContainerBuilder builder)
         {
             base.Load(builder);
-
+            builder.RegisterInstance(SQLiteCreatorHelper.Connection).As<SQLiteConnection>();
             builder.RegisterType<Localize>().As<ILocalize>().SingleInstance();
             builder.RegisterType<LocationManagerImplementation>().As<ILocationManager>().SingleInstance();
             builder.RegisterType<SensorManagerImplementation>().As<ISensorManager>().SingleInstance();

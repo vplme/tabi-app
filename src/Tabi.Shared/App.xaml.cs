@@ -157,15 +157,17 @@ namespace Tabi
         {
             var containerBuilder = new Autofac.ContainerBuilder();
 
-            containerBuilder.RegisterInstance(GetSqliteConnection()).As<SQLiteConnection>();
+            if (Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.iOS)
+            {
+                // Register if iOS, otherwise Android should have registered a specific Android one
+                containerBuilder.RegisterInstance(GetSqliteConnection()).As<SQLiteConnection>();
+            }
             containerBuilder.RegisterType<SqliteNetRepoManager>().As<IRepoManager>().SingleInstance();
-
             containerBuilder.RegisterType<SyncService>().SingleInstance();
             containerBuilder.RegisterType<ApiClient>().WithParameter("apiLocation", TabiConfig.Api.Url);
 
             containerBuilder.RegisterInstance(TabiConfig).As<TabiConfiguration>();
             containerBuilder.RegisterInstance(TabiConfig.UserInterface).As<UserInterfaceConfiguration>();
-
 
             containerBuilder.RegisterType<DateService>().SingleInstance();
             containerBuilder.RegisterType<DataResolver>();
