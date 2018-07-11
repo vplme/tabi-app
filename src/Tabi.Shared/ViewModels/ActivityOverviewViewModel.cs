@@ -130,15 +130,20 @@ namespace Tabi.ViewModels
                 Analytics.TrackEvent("Refresh pulled");
             });
 
-            Title = _dateService.SelectedDay.CurrentDateShort;
+            SetDataFromDateService();
 
             _dateService.PropertyChanged += (sender, e) =>
             {
                 if (e.PropertyName == "SelectedDay")
                 {
-                    Title = _dateService.SelectedDay.CurrentDateShort;
+                    SetDataFromDateService();
                 }
             };
+        }
+
+        private void SetDataFromDateService()
+        {
+            Title = _dateService.SelectedDay.CurrentDateShort;
         }
 
         public DateTime SelectedDate
@@ -261,6 +266,8 @@ namespace Tabi.ViewModels
 
                 await _navigation.PushModalAsync(tPage);
             }
+
+            SetDataFromDateService();
         }
     }
 }
