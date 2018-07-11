@@ -10,7 +10,6 @@ using Plugin.Permissions;
 using Tabi.Droid.Helpers;
 using Autofac.Core;
 using Tabi.Droid.PlatformImplementations;
-using FFImageLoading.Forms.Droid;
 using FFImageLoading.Svg.Forms;
 using Vpl.Xamarin.VideoPlayer;
 
@@ -28,7 +27,7 @@ namespace Tabi.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
-            CachedImageRenderer.Init(false);
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: true);           
             // to avoid linking issues:
             var ignore = typeof(SvgCachedImage);
 

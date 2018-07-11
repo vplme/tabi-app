@@ -1,7 +1,6 @@
 ﻿
 using System;
 using Autofac.Core;
-using FFImageLoading.Forms.Touch;
 using FFImageLoading.Svg.Forms;
 using Foundation;
 using Microsoft.AppCenter.Distribute;
@@ -26,7 +25,7 @@ namespace Tabi.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            CachedImageRenderer.Init();
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();           
             // to avoid linking issues:
             var ignore = typeof(SvgCachedImage);
 
