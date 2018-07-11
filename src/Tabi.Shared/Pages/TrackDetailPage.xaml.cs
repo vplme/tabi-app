@@ -49,9 +49,11 @@ namespace Tabi.Pages
             (Line line, Pin start, Pin end) = ViewModel.GetMapData();
 
             routeMap.Lines.Add(line);
-
-            routeMap.Pins.Add(start);
-            routeMap.Pins.Add(end);
+            if (start != null && end != null)
+            {
+                routeMap.Pins.Add(start);
+                routeMap.Pins.Add(end);
+            }
 
             routeMap.MoveToRegion(ViewModel.AveragePosition());
 
@@ -60,7 +62,7 @@ namespace Tabi.Pages
 
         void Handle_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
         {
-            if(e.SelectedItem == null)
+            if (e.SelectedItem == null)
             {
                 return;
             }

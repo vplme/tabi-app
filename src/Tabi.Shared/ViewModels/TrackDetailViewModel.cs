@@ -101,6 +101,8 @@ namespace Tabi.ViewModels
         public (Line, Pin, Pin) GetMapData()
         {
             Line line = new Line();
+            Pin startPin = null;
+            Pin endPin = null;
 
             List<PositionEntry> positions = _repoManager.PositionEntryRepository.FilterPeriodAccuracy(_trackEntry.StartTime, _trackEntry.EndTime, 100);
             foreach (PositionEntry pe in positions)
@@ -108,22 +110,25 @@ namespace Tabi.ViewModels
                 line.Positions.Add(new Position(pe.Latitude, pe.Longitude));
             }
 
-            PositionEntry firstPos = positions.First();
-            PositionEntry lastPos = positions.Last();
+            if (positions.Count >= 2)
+            {
+                PositionEntry firstPos = positions.First();
+                PositionEntry lastPos = positions.Last();
 
-            Pin startPin = new Pin()
-            {
-                Position = new Position(
-                firstPos.Latitude, firstPos.Longitude),
-                Label = "Start"
-            };
-            Pin endPin = new Pin()
-            {
-                Position = new Position(
-                lastPos.Latitude, lastPos.Longitude),
-                Label = "End",
-                Type = PinType.Generic
-            };
+                startPin = new Pin()
+                {
+                    Position = new Position(
+                    firstPos.Latitude, firstPos.Longitude),
+                    Label = "Start"
+                };
+                endPin = new Pin()
+                {
+                    Position = new Position(
+                    lastPos.Latitude, lastPos.Longitude),
+                    Label = "End",
+                    Type = PinType.Generic
+                };
+            }
 
             return (line, startPin, endPin);
         }
