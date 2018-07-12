@@ -42,7 +42,7 @@ namespace Tabi.Shared.ViewModels
 
         public void ResetViewModel()
         {
-            Name = _stopVisit.Stop.Name ?? "";
+            Name = _stopVisit?.Stop?.Name ?? "";
         }
 
         public Stop SaveViewModelToStop()

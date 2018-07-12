@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:i18n="clr-namespace:Tabi.Shared.Localization;assembly=Tabi.Shared" xmlns:control="clr-namespace:Tabi.Shared.Controls;assembly=Tabi.Shared"
+     xmlns:local="clr-namespace:Tabi;assembly=Tabi.Shared" Title="{i18n:Translate DataPrivacySettingsTitle}"
+     BackgroundColor="{StaticResource WindowBackgroundTable}" x:Class="Tabi.Shared.SettingsPrivacyPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}" Spacing="{DynamicResource CardSpacing}"
+                 Padding="{DynamicResource CardPadding}">
+                <control:CardView>
+                    <control:CardView.IsVisible>
+                        <OnPlatform x:TypeArguments="x:Boolean" Android="true" iOS="true" WinPhone="true" />
+                    </control:CardView.IsVisible>
+                    <StackLayout Spacing="0">
+                        <control:LabelSection Text="{i18n:Translate DataPrivacyDataSyncSectionLabel}" />
+                        <control:HeaderDivider />
+                        <Grid Padding="{DynamicResource NormalPadding}" ColumnSpacing="0" BackgroundColor="White">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Style="{DynamicResource TabiListItemTextStyle}" VerticalOptions="Center" Text="{i18n:Translate AutoDataUploadSwitchLabel}" />
+                            <Switch Grid.Column="1" HorizontalOptions="Fill" IsToggled="{Binding Settings.AutoUpload}" />
+                        </Grid>
+                        <control:SettingsSectionDivider />
+                        <Grid Padding="{DynamicResource NormalPadding}" ColumnSpacing="0" BackgroundColor="White">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Style="{DynamicResource TabiListItemTextStyle}" VerticalOptions="Center"
+                                 Text="{i18n:Translate DataUploadWifiOnlySwitchLabel}" />
+                            <Switch Grid.Column="1" HorizontalOptions="Fill" IsToggled="{Binding WifiOnly}" />
+                        </Grid>
+                        <control:FooterDivider />
+                    </StackLayout>
+                </control:CardView>
+                <control:CardView>
+                    <control:CardView.IsVisible>
+                        <OnPlatform x:TypeArguments="x:Boolean" Android="true" iOS="true" WinPhone="true" />
+                    </control:CardView.IsVisible>
+                    <StackLayout Spacing="0">
+                        <control:LabelSection Text="{i18n:Translate DataPrivacyAnalyticsSectionLabel}" />
+                        <control:HeaderDivider />
+                        <StackLayout BackgroundColor="White" Padding="{DynamicResource NormalPadding}">
+                            <Label Text="{i18n:Translate DataPrivacyAnalyticsSectionExplanation}" HorizontalOptions="Center"
+                                 Style="{DynamicResource TabiListItemDetailTextStyle}" />
+                        </StackLayout>
+                        <control:SettingsSectionDivider IsVisible="{Binding ShowAnalyticsOption}" />
+                        <Grid IsVisible="{Binding ShowAnalyticsOption}" Padding="{DynamicResource NormalPadding}" ColumnSpacing="0" BackgroundColor="White">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Style="{DynamicResource TabiListItemTextStyle}" VerticalOptions="Center" Text="{i18n:Translate AnalyticsSwitchLabel}" />
+                            <Switch Grid.Column="1" HorizontalOptions="Fill" IsToggled="{Binding Settings.AnalyticsGranted}" />
+                        </Grid>
+                        <control:FooterDivider />
+                    </StackLayout>
+                </control:CardView>
+                <control:CardView>
+                    <control:CardView.IsVisible>
+                        <OnPlatform x:TypeArguments="x:Boolean" Android="true" iOS="true" WinPhone="true" />
+                    </control:CardView.IsVisible>
+                    <StackLayout Spacing="0">
+                        <control:LabelSection Text="{i18n:Translate DataPrivacyCrashesSectionLabel}" />
+                        <control:HeaderDivider />
+                        <StackLayout BackgroundColor="White" Padding="{DynamicResource NormalPadding}">
+                            <Label Text="{i18n:Translate DataPrivacyCrashesSectionExplanation}" HorizontalOptions="Center"
+                                 Style="{DynamicResource TabiListItemDetailTextStyle}" />
+                        </StackLayout>
+                        <control:SettingsSectionDivider IsVisible="{Binding ShowCrashesOption}" />
+                        <Grid IsVisible="{Binding ShowCrashesOption}" Padding="{DynamicResource NormalPadding}" ColumnSpacing="0" BackgroundColor="White">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Style="{DynamicResource TabiListItemTextStyle}" VerticalOptions="Center" Text="{i18n:Translate CrashesSwitchLabel}" />
+                            <Switch Grid.Column="1" HorizontalOptions="Fill" IsToggled="{Binding Settings.CrashesGranted}" />
+                        </Grid>
+                        <control:FooterDivider />
+                    </StackLayout>
+                </control:CardView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
