@@ -934,5 +934,83 @@ namespace Tabi.Shared.Resx {
                 return ResourceManager.GetString("TransportSelectionPageTitle", resourceCulture);
             }
         }
+        
+        public static string StartAppReminderTitle {
+            get {
+                return ResourceManager.GetString("StartAppReminderTitle", resourceCulture);
+            }
+        }
+        
+        public static string StartAppReminderText {
+            get {
+                return ResourceManager.GetString("StartAppReminderText", resourceCulture);
+            }
+        }
+        
+        public static string AnalyticsSwitchLabel {
+            get {
+                return ResourceManager.GetString("AnalyticsSwitchLabel", resourceCulture);
+            }
+        }
+        
+        public static string CrashesSwitchLabel {
+            get {
+                return ResourceManager.GetString("CrashesSwitchLabel", resourceCulture);
+            }
+        }
+        
+        public static string DataPrivacySettings {
+            get {
+                return ResourceManager.GetString("DataPrivacySettings", resourceCulture);
+            }
+        }
+        
+        public static string DataPrivacyCrashesSectionLabel {
+            get {
+                return ResourceManager.GetString("DataPrivacyCrashesSectionLabel", resourceCulture);
+            }
+        }
+        
+        public static string DataPrivacyCrashesSectionExplanation {
+            get {
+                return ResourceManager.GetString("DataPrivacyCrashesSectionExplanation", resourceCulture);
+            }
+        }
+        
+        public static string DataPrivacyAnalyticsSectionLabel {
+            get {
+                return ResourceManager.GetString("DataPrivacyAnalyticsSectionLabel", resourceCulture);
+            }
+        }
+        
+        public static string DataPrivacyAnalyticsSectionExplanation {
+            get {
+                return ResourceManager.GetString("DataPrivacyAnalyticsSectionExplanation", resourceCulture);
+            }
+        }
+        
+        public static string DataPrivacySettingsTitle {
+            get {
+                return ResourceManager.GetString("DataPrivacySettingsTitle", resourceCulture);
+            }
+        }
+        
+        public static string DataPrivacyDataSyncSectionLabel {
+            get {
+                return ResourceManager.GetString("DataPrivacyDataSyncSectionLabel", resourceCulture);
+            }
+        }
+        
+        public static string AutoDataUploadSwitchLabel {
+            get {
+                return ResourceManager.GetString("AutoDataUploadSwitchLabel", resourceCulture);
+            }
+        }
+        
+        public static string DataUploadWifiOnlySwitchLabel {
+            get {
+                return ResourceManager.GetString("DataUploadWifiOnlySwitchLabel", resourceCulture);
+            }
+        }
     }
 }

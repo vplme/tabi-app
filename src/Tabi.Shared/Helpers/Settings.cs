@@ -59,6 +59,58 @@ namespace Tabi
             }
         }
 
+        public bool AnalyticsGranted
+        {
+            get => AppSettings.GetValueOrDefault(nameof(AnalyticsGranted), false);
+            set
+            {
+                if (value == AnalyticsGranted)
+                    return;
+
+                AppSettings.AddOrUpdateValue(nameof(AnalyticsGranted), value);
+                OnPropertyChanged();
+            }
+        }
+
+        public bool CrashesGranted
+        {
+            get => AppSettings.GetValueOrDefault(nameof(CrashesGranted), false);
+            set
+            {
+                if (value == CrashesGranted)
+                    return;
+
+                AppSettings.AddOrUpdateValue(nameof(CrashesGranted), value);
+                OnPropertyChanged();
+            }
+        }
+
+        public bool AutoUpload
+        {
+            get => AppSettings.GetValueOrDefault(nameof(AutoUpload), true);
+            set
+            {
+                if (value == AutoUpload)
+                    return;
+
+                AppSettings.AddOrUpdateValue(nameof(AutoUpload), value);
+                OnPropertyChanged();
+            }
+        }
+
+        public bool WifiOnly
+        {
+            get => AppSettings.GetValueOrDefault(nameof(WifiOnly), true);
+            set
+            {
+                if (value == WifiOnly)
+                    return;
+
+                AppSettings.AddOrUpdateValue(nameof(WifiOnly), value);
+                OnPropertyChanged();
+            }
+        }
+
         public bool ShowTour
         {
             get => AppSettings.GetValueOrDefault(nameof(ShowTour), false);

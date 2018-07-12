@@ -99,28 +99,8 @@ namespace Tabi
 #if DEBUG
             DebugMode = true;
 #endif
+            SetupAppCenter(TabiConfig.MobileCenter);
 
-            if (!string.IsNullOrEmpty(TabiConfig.MobileCenter.ApiKey))
-            {
-                if (TabiConfig.MobileCenter.Distribute)
-                {
-                    // Start with Distribute
-                    AppCenter.Start(TabiConfig.MobileCenter.ApiKey,
-                                   typeof(Analytics), typeof(Crashes), typeof(Distribute), typeof(Push));
-                }
-                else
-                {
-                    AppCenter.Start(TabiConfig.MobileCenter.ApiKey,
-                                      typeof(Analytics), typeof(Crashes), typeof(Push));
-                }
-
-                Log.Debug("MobileCenter started with apikey");
-                AppCenter.SetEnabledAsync(TabiConfig.MobileCenter.Enabled);
-                Analytics.SetEnabledAsync(TabiConfig.MobileCenter.Analytics);
-                Crashes.SetEnabledAsync(TabiConfig.MobileCenter.Crashes);
-
-                Log.Debug($"MobileCenter enabled: {TabiConfig.MobileCenter.Enabled}");
-            }
 
             Xamarin.Forms.NavigationPage navigationPage = new Xamarin.Forms.NavigationPage();
             navigationPage.On<Xamarin.Forms.PlatformConfiguration.iOS>().SetPrefersLargeTitles(true);
@@ -135,7 +115,7 @@ namespace Tabi
 
             var timer = new System.Threading.Timer((o) =>
             {
-                if (Settings.Current.PermissionsGranted)
+                if (Settings.Current.PermissionsGranted && Settings.Current.AutoUpload)
                 {
                     IDataUploadTask task = Container.Resolve<IDataUploadTask>();
                     task.Start();
@@ -227,6 +207,60 @@ namespace Tabi
                 var ci = App.Container.Resolve<ILocalize>().GetCurrentCultureInfo();
                 Shared.Resx.AppResources.Culture = ci; // set the RESX for resource localization
                 App.Container.Resolve<ILocalize>().SetLocale(ci); // set the Thread for locale-aware methods
+            }
+        }
+
+        private void SetupAppCenter(MobileCenterConfiguration mobileCenterConfiguration)
+        {
+            if (!string.IsNullOrEmpty(mobileCenterConfiguration.ApiKey))
+            {
+                if (mobileCenterConfiguration.Distribute)
+                {
+                    // Start with Distribute
+                    AppCenter.Start(mobileCenterConfiguration.ApiKey,
+                                   typeof(Analytics), typeof(Crashes), typeof(Distribute), typeof(Push));
+                }
+                else
+                {
+                    AppCenter.Start(mobileCenterConfiguration.ApiKey,
+                                      typeof(Analytics), typeof(Crashes), typeof(Push));
+                }
+
+                Log.Debug("MobileCenter started with apikey");
+                AppCenter.SetEnabledAsync(mobileCenterConfiguration.Enabled);
+
+                Analytics.SetEnabledAsync(Settings.Current.AnalyticsGranted);
+                Crashes.SetEnabledAsync(Settings.Current.CrashesGranted);
+
+                // Configuration overrides positive user preference
+                if (!mobileCenterConfiguration.Analytics)
+                {
+                    Analytics.SetEnabledAsync(false);
+                }
+                if (!mobileCenterConfiguration.Crashes)
+                {
+                    Crashes.SetEnabledAsync(false);
+                }
+
+                // Show a dialog if a crash occurs asking for user confirmation to send it
+                if (mobileCenterConfiguration.ShouldAskConfirmation)
+                {
+                    Crashes.ShouldAwaitUserConfirmation = CrashConfirmationHandler;
+                }
+
+                Settings.Current.PropertyChanged += (sender, e) =>
+                {
+                    if (e.PropertyName == nameof(Settings.CrashesGranted))
+                    {
+                        Crashes.SetEnabledAsync(Settings.Current.CrashesGranted);
+                    }
+                    else if (e.PropertyName == nameof(Settings.AnalyticsGranted))
+                    {
+                        Analytics.SetEnabledAsync(Settings.Current.AnalyticsGranted);
+                    }
+                };
+
+                Log.Debug($"MobileCenter enabled: {mobileCenterConfiguration.Enabled}");
             }
         }
 
@@ -334,6 +368,34 @@ namespace Tabi
             {
                 sensorManager.StartSensorUpdates();
             }
+        }
+
+        bool CrashConfirmationHandler()
+        {
+            Xamarin.Forms.Device.BeginInvokeOnMainThread(() =>
+            {
+                Current.MainPage.DisplayActionSheet("Crash detected. Send anonymous crash report?", null, null, "Send", "Always Send", "Don't Send").ContinueWith((arg) =>
+                {
+                    var answer = arg.Result;
+                    UserConfirmation userConfirmationSelection;
+                    if (answer == "Send")
+                    {
+                        userConfirmationSelection = UserConfirmation.Send;
+                    }
+                    else if (answer == "Always Send")
+                    {
+                        userConfirmationSelection = UserConfirmation.AlwaysSend;
+                    }
+                    else
+                    {
+                        userConfirmationSelection = UserConfirmation.DontSend;
+                    }
+                    Log.Info("User selected confirmation option: \"" + answer + "\"");
+                    Crashes.NotifyUserConfirmation(userConfirmationSelection);
+                });
+            });
+
+            return true;
         }
 
         protected override void OnStart()

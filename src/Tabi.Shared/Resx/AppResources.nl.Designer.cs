@@ -916,5 +916,17 @@ namespace Tabi.Shared.Resx {
                 return ResourceManager.GetString("TransportSelectionPageTitle", resourceCulture);
             }
         }
+        
+        internal static string StartAppReminderTitle {
+            get {
+                return ResourceManager.GetString("StartAppReminderTitle", resourceCulture);
+            }
+        }
+        
+        internal static string StartAppReminderText {
+            get {
+                return ResourceManager.GetString("StartAppReminderText", resourceCulture);
+            }
+        }
     }
 }

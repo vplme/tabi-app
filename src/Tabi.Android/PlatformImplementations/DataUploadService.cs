@@ -19,9 +19,10 @@ namespace Tabi.Droid.PlatformImplementations
         protected override async void OnHandleIntent(Intent intent)
         {
             int interval = intent.GetIntExtra("interval", 10);
+            bool wifiOnly = intent.GetBooleanExtra("autoUpload", true);
 
             SyncService sync = App.Container.Resolve<SyncService>();
-            await sync.AutoUpload(TimeSpan.FromMinutes(interval));
+            await sync.AutoUpload(TimeSpan.FromMinutes(interval), wifiOnly);
         }
     }
 }

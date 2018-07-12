@@ -19,6 +19,9 @@ using Acr.UserDialogs;
 using Tabi.iOS.Helpers;
 using Tabi.Shared;
 using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Crashes;
+using Tabi.Helpers;
 
 namespace Tabi
 {
@@ -66,6 +69,7 @@ namespace Tabi
                 if (InfoCount == 10 && App.Developer)
                 {
                     Settings.Developer = true;
+                    InfoCount = 0;
                 }
             });
 
@@ -192,6 +196,15 @@ namespace Tabi
                 await _navigation.PushModalAsync(tPage);
             });
 
+            PrivacyDataCommand = new Command(async () =>
+            {
+
+
+                Analytics.TrackEvent("Privacy & data settings clicked");
+
+                await _navigation.PushAsync(new SettingsPrivacyPage(this));
+            });
+
             UploadCommand = new Command(async () =>
             {
                 Analytics.TrackEvent("Upload clicked");
@@ -199,15 +212,13 @@ namespace Tabi
                 // Check if there is an active internet connection
                 if (CrossConnectivity.Current.IsConnected)
                 {
-                    bool upload = false;
+                    bool wifiAvailable = CrossConnectivity.Current.ConnectionTypes.Contains(Plugin.Connectivity.Abstractions.ConnectionType.WiFi);
+                    bool upload = !Settings.WifiOnly || wifiAvailable;
 
                     // Check if connected to WiFI
-                    if (!(upload = CrossConnectivity.Current.ConnectionTypes.Contains(Plugin.Connectivity.Abstractions.ConnectionType.WiFi)))
+                    if (!upload)
                     {
-                        upload = await UserDialogs.Instance.ConfirmAsync(AppResources.MobileDataUsageText,
-                                                                         AppResources.MobileDataUsageTitle,
-                                                                         AppResources.ContinueButton,
-                                                                         AppResources.CancelText);
+                        upload = await UserDialogs.Instance.ConfirmAsync(AppResources.MobileDataUsageText, AppResources.MobileDataUsageTitle, AppResources.ContinueButton, AppResources.CancelText);
                     }
 
                     if (upload)
@@ -252,18 +263,7 @@ namespace Tabi
                 }
             });
 
-
-            Settings.PropertyChanged += (sender, e) =>
-            {
-                if (e.PropertyName == "LastUpload")
-                {
-                    OnPropertyChanged(nameof(LastSynced));
-                }
-                else if (e.PropertyName == "Tracking")
-                {
-                    Analytics.TrackEvent("Tracking toggled", new Dictionary<string, string> { { "Value", Settings.Tracking.ToString() } });
-                }
-            };
+            Settings.PropertyChanged += Settings_PropertyChanged;
         }
 
         public ICommand ExportDatabaseCommand { protected set; get; }
@@ -294,13 +294,63 @@ namespace Tabi
 
         public ICommand ShowTourCommand { protected set; get; }
 
+        public ICommand PrivacyDataCommand { protected set; get; }
+
+        public TabiConfiguration Configuration { get => _config; }
+
         public bool ShowSensorMeasurements { get => _config.SensorMeasurements.UserAdjustable; }
+
+        public bool ShowAnalyticsOption { get => _config.MobileCenter.DisableAnalyticsOption; }
+
+        public bool ShowCrashesOption { get => _config.MobileCenter.DisableCrashesOption; }
 
         public int InfoCount { get; set; }
 
         public string ApiUrl { get => _config.Api.Url; }
 
         public string LastSynced { get => TimeAgo(new DateTime(Settings.LastUpload)); }
+
+        public string VersionText { get => DependencyService.Get<IVersion>().GetVersion(); }
+
+        void Settings_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            Console.WriteLine("Call propert!");
+            if (e.PropertyName == "LastUpload")
+            {
+                OnPropertyChanged(nameof(LastSynced));
+            }
+            else if (e.PropertyName == "Tracking")
+            {
+                Analytics.TrackEvent("Tracking toggled", new Dictionary<string, string> { { "Value", Settings.Tracking.ToString() } });
+            }
+        }
+
+        public bool WifiOnly
+        {
+            get => Settings.WifiOnly;
+            set
+            {
+                if (!value)
+                {
+                    UserDialogs.Instance.ConfirmAsync(AppResources.MobileDataUsageText, AppResources.MobileDataUsageTitle, AppResources.ContinueButton, AppResources.CancelText).ContinueWith((arg) =>
+                    {
+                        if (arg.Result)
+                        {
+                            Settings.WifiOnly = false;
+                        }
+                        else
+                        {
+                            // Refresh Binding
+                            OnPropertyChanged();
+                        }
+                    });
+                }
+                else
+                {
+                    Settings.WifiOnly = true;
+                }
+            }
+        }
 
         private string TimeAgo(DateTime date)
         {
@@ -332,5 +382,7 @@ namespace Tabi
 
             return result;
         }
+
+
     }
 }

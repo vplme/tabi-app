@@ -21,6 +21,7 @@ namespace Tabi.Droid.PlatformImplementations
         {
             Intent dataSyncIntent = new Intent(_androidContext, typeof(DataUploadService));
             dataSyncIntent.PutExtra("interval", _configuration.Api.SyncInterval);
+            dataSyncIntent.PutExtra("autoUpload", Settings.Current.WifiOnly);
             _androidContext.StartService(dataSyncIntent);
 
             return Task.CompletedTask;

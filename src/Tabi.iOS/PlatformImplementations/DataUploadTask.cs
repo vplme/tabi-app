@@ -27,7 +27,7 @@ namespace Tabi.iOS.PlatformImplementations
             {
                 SyncService syncService = App.Container.Resolve<SyncService>();
                 int interval = _configuration.Api.SyncInterval;
-                await syncService.AutoUpload(TimeSpan.FromMinutes(interval));
+                await syncService.AutoUpload(TimeSpan.FromMinutes(interval), Settings.Current.WifiOnly);
             });
 
             UIApplication.SharedApplication.EndBackgroundTask(_taskId);

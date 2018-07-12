@@ -460,4 +460,10 @@
     <data name="TransportSelectionPageTitle" xml:space="preserve">
         <value>Selecteer vervoersmiddel(en)</value>
     </data>
+    <data name="StartAppReminderTitle" xml:space="preserve">
+        <value>Verplaatsingen meten is niet actief</value>
+    </data>
+    <data name="StartAppReminderText" xml:space="preserve">
+        <value>Tabi moet open zijn om verplaatsingen te meten. Open alstublieft de Tabi Verplaatsingen.</value>
+    </data>
 </root>

@@ -48,6 +48,11 @@ namespace Tabi.Shared
 
         public string ApiKey { get; set; }
 
+        public bool DisableAnalyticsOption { get; set; } = true;
+
+        public bool DisableCrashesOption { get; set; } = true;
+
+        public bool ShouldAskConfirmation { get; set; } = true;
     }
 
     public class SensorMeasurementsConfiguration

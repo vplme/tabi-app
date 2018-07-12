@@ -5,7 +5,10 @@
         "Distribute": false,
         "Analytics": true,
         "Crashes": true,
-        "ApiKey": ""
+        "ApiKey": "",
+        "DisableAnalyticsOption":  true,
+        "DisableCrashesOption":  true,
+        "ShouldAskConfirmation":  false
     },
     "Api": {
         "Url": "https://tabi.cbs.nl",

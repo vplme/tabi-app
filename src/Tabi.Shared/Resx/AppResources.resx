@@ -577,4 +577,43 @@
     <data name="TransportSelectionPageTitle" xml:space="preserve">
         <value>Select transport modes</value>
     </data>
+    <data name="StartAppReminderTitle" xml:space="preserve">
+        <value>Movement tracking is not active</value>
+    </data>
+    <data name="StartAppReminderText" xml:space="preserve">
+        <value>Tabi needs to be open for it to track your movements. Please open the Tabi Verplaatsingen app.</value>
+    </data>
+    <data name="AnalyticsSwitchLabel" xml:space="preserve">
+        <value>Analytics</value>
+    </data>
+    <data name="CrashesSwitchLabel" xml:space="preserve">
+        <value>Send crash reports</value>
+    </data>
+    <data name="DataPrivacySettings" xml:space="preserve">
+        <value>Data and privacy settings</value>
+    </data>
+    <data name="DataPrivacyCrashesSectionLabel" xml:space="preserve">
+        <value>Crashes and errors</value>
+    </data>
+     <data name="DataPrivacyCrashesSectionExplanation" xml:space="preserve">
+        <value>Allow the app to send crashdata so that we can improve the app.</value>
+    </data>
+    <data name="DataPrivacyAnalyticsSectionLabel" xml:space="preserve">
+        <value>Analytics</value>
+    </data>
+     <data name="DataPrivacyAnalyticsSectionExplanation" xml:space="preserve">
+        <value>We use analytics to see which pages are opened, how many people are using the app. This data helps us during crashes so we can see what happened before the crash.</value>
+    </data>
+     <data name="DataPrivacySettingsTitle" xml:space="preserve">
+        <value>Data &amp; Privacy</value>
+    </data>
+    <data name="DataPrivacyDataSyncSectionLabel" xml:space="preserve">
+        <value>Data upload</value>
+    </data>
+     <data name="AutoDataUploadSwitchLabel" xml:space="preserve">
+        <value>Automatically send data</value>
+    </data>
+    <data name="DataUploadWifiOnlySwitchLabel" xml:space="preserve">
+        <value>Use WiFi only</value>
+    </data>
 </root>
