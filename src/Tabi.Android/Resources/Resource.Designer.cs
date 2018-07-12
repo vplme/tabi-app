@@ -3240,7 +3240,7 @@ namespace Tabi.Droid
 			public const int ic_work = 2130837808;
 			
 			// aapt resource value: 0x7f020131
-			public const int Icon = 2130837809;
+			public const int icon = 2130837809;
 			
 			// aapt resource value: 0x7f020132
 			public const int location = 2130837810;
