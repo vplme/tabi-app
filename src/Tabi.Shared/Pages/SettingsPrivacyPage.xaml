@@ -43,7 +43,7 @@
                         <control:LabelSection Text="{i18n:Translate DataPrivacyAnalyticsSectionLabel}" />
                         <control:HeaderDivider />
                         <StackLayout BackgroundColor="White" Padding="{DynamicResource NormalPadding}">
-                            <Label Text="{i18n:Translate DataPrivacyAnalyticsSectionExplanation}" HorizontalOptions="Center"
+                            <Label Text="{i18n:Translate DataPrivacyAnalyticsSectionExplanation}"
                                  Style="{DynamicResource TabiListItemDetailTextStyle}" />
                         </StackLayout>
                         <control:SettingsSectionDivider IsVisible="{Binding ShowAnalyticsOption}" />
@@ -66,7 +66,7 @@
                         <control:LabelSection Text="{i18n:Translate DataPrivacyCrashesSectionLabel}" />
                         <control:HeaderDivider />
                         <StackLayout BackgroundColor="White" Padding="{DynamicResource NormalPadding}">
-                            <Label Text="{i18n:Translate DataPrivacyCrashesSectionExplanation}" HorizontalOptions="Center"
+                            <Label Text="{i18n:Translate DataPrivacyCrashesSectionExplanation}"
                                  Style="{DynamicResource TabiListItemDetailTextStyle}" />
                         </StackLayout>
                         <control:SettingsSectionDivider IsVisible="{Binding ShowCrashesOption}" />
