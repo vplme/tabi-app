@@ -61,7 +61,7 @@ namespace Tabi
 
         public bool AnalyticsGranted
         {
-            get => AppSettings.GetValueOrDefault(nameof(AnalyticsGranted), false);
+            get => AppSettings.GetValueOrDefault(nameof(AnalyticsGranted), true);
             set
             {
                 if (value == AnalyticsGranted)
@@ -74,7 +74,7 @@ namespace Tabi
 
         public bool CrashesGranted
         {
-            get => AppSettings.GetValueOrDefault(nameof(CrashesGranted), false);
+            get => AppSettings.GetValueOrDefault(nameof(CrashesGranted), true);
             set
             {
                 if (value == CrashesGranted)
