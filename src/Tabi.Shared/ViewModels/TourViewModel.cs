@@ -12,6 +12,7 @@ namespace Tabi.Shared.ViewModels
     {
         private readonly INavigation _navigation;
         private int currentItem = 0;
+        bool finishedTour;
 
         public TourViewModel(INavigation navigation)
         {
@@ -54,12 +55,13 @@ namespace Tabi.Shared.ViewModels
 
             NextCommand = new Command(async () =>
             {
-                if (currentItem + 1 == tourItems.Count)
+                if (!finishedTour && currentItem + 1 == tourItems.Count)
                 {
+                    finishedTour = true; // Fast users could click twice
                     await _navigation.PopModalAsync();
                     Analytics.TrackEvent("Tour finished");
                 }
-                else
+                else if (!finishedTour)
                 {
                     currentItem++;
 
