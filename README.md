@@ -6,6 +6,12 @@ The Tabi App is written in [C#](https://docs.microsoft.com/en-us/dotnet/csharp/l
 As an Integrated Development Environment (IDE) we recommend Visual Studio for Windows or Mac, available for free in the [Xamarin Store](https://store.xamarin.com/). Other versions of Visual Studio -- i.e. Professional or Enterprise -- can be used as well.
 
 
+<!-- blank line -->
+<figure class="video_container">
+  <iframe src="https://www.youtube.com/embed/5j1-abSuQxI" frameborder="0" allowfullscreen="true"> </iframe>
+</figure>
+<!-- blank line -->
+
 ## Getting started
 
 ### Setup config files

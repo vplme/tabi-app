@@ -63,7 +63,12 @@ namespace Tabi.iOS
 
             Distribute.DontCheckForUpdatesInDebug();
 
-            LoadApplication(new Tabi.App(new IModule[] { new PlatformContainerModule() }));
+            LoadApplication(new App(new IModule[] { new PlatformContainerModule() }));
+
+            if (options != null && options.ContainsKey(UIApplication.LaunchOptionsLocationKey))
+            {
+                Log.Info("LaunchOptions contains locationkey");
+            } 
 
             return base.FinishedLaunching(app, options);
         }
