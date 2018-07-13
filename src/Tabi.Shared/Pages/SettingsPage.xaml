@@ -37,7 +37,7 @@
                                 </Grid.ColumnDefinitions>
                                 <Label Style="{DynamicResource TabiListItemTextStyle}" VerticalOptions="Center"
                                      Text="{i18n:Translate SensorMeasurementsSwitchLabel}" />
-                                <Switch Grid.Column="1" HorizontalOptions="Fill" IsToggled="{Binding Configuration.SensorMeasurements.UserAdjustable}" />
+                                <Switch Grid.Column="1" HorizontalOptions="Fill" IsToggled="{Binding Settings.SensorMeasurements}" />
                             </Grid>
                             <control:SettingsSectionDivider />
                             <Grid Padding="{DynamicResource LargerPadding}" ColumnSpacing="0" BackgroundColor="White">
