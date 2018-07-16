@@ -71,9 +71,8 @@
                                 </Grid.ColumnDefinitions>
                                 <Label Grid.Column="0" Style="{DynamicResource TabiListItemTextStyle}" Text="{i18n:Translate ShowTour}" />
                             </Grid>
-                                                        <control:SettingsSectionDivider />
-
-                             <Grid Padding="{DynamicResource LargerPadding}" ColumnSpacing="0" BackgroundColor="White">
+                            <control:SettingsSectionDivider />
+                            <Grid Padding="{DynamicResource LargerPadding}" ColumnSpacing="0" BackgroundColor="White">
                                 <Grid.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding PrivacyDataCommand}" />
                                 </Grid.GestureRecognizers>

@@ -7,7 +7,7 @@
         <StackLayout x:Name="ContentLayout" Spacing="0" BackgroundColor="{Binding BackgroundColor}">
             <Label HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" TextColor="White" Margin="10,30,10,0" FontSize="24" Text="{Binding Title}" />
             <Label VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" TextColor="White" Margin="10,0,10,0" Text="{Binding Text}" />
-            <video:VideoPlayer VerticalOptions="End" x:Name="VideoPlayer" Margin="0, 0, 0, 0" HorizontalOptions="Center"
+            <video:VideoPlayer x:Name="VideoPlayer" Margin="0, 0, 0, 0" VerticalOptions="End" HorizontalOptions="Center"
                  VideoBackgroundColor="{Binding BackgroundColor}" Interaction="false" Loop="true" AreTransportControlsEnabled="false"
                  Source="{Binding VideoSource}">
             </video:VideoPlayer>

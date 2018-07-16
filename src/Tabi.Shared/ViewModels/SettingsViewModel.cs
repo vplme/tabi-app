@@ -181,16 +181,7 @@ namespace Tabi
 
             ShowTourCommand = new Command(async () =>
             {
-                Page tPage;
-                if (Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.iOS)
-                {
-                    tPage = new TourVideoPage();
-                }
-                else
-                {
-                    tPage = new TourGifPage();
-                }
-
+                Page tPage = new TourVideoPage();
                 Analytics.TrackEvent("ShowTour clicked");
 
                 await _navigation.PushModalAsync(tPage);

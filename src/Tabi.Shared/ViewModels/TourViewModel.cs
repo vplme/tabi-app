@@ -26,7 +26,7 @@ namespace Tabi.Shared.ViewModels
                 Title = AppResources.StopTourTitle,
                 Text = AppResources.StopTourText,
                 Gif = $"stop_50_{AppResources.LangCode}.gif",
-                Video = $"tour_video_ios_stop_name_{AppResources.LangCode}.mp4",
+                Video = $"tour_video_stop_name_{AppResources.LangCode}.mp4",
             });
 
             tourItems.Add(new TourItem()
@@ -34,7 +34,7 @@ namespace Tabi.Shared.ViewModels
                 Title = AppResources.MotiveTourTitle,
                 Text = AppResources.MotiveTourText,
                 Gif = $"motive_50_{AppResources.LangCode}.gif",
-                Video = $"tour_video_ios_stop_motive_{AppResources.LangCode}.mp4",
+                Video = $"tour_video_stop_motive_{AppResources.LangCode}.mp4",
             });
 
             tourItems.Add(new TourItem()
@@ -42,7 +42,7 @@ namespace Tabi.Shared.ViewModels
                 Title = AppResources.TransportModeTourTitle,
                 Text = AppResources.TransportModeTourText,
                 Gif = $"transport_50_{AppResources.LangCode}.gif",
-                Video = $"tour_video_ios_transportmode_{AppResources.LangCode}.mp4"
+                Video = $"tour_video_transportmode_{AppResources.LangCode}.mp4"
             });
 
             tourItems.Add(new TourItem()
@@ -50,7 +50,7 @@ namespace Tabi.Shared.ViewModels
                 Title = AppResources.SettingsTourTitle,
                 Text = AppResources.SettingsTourText,
                 Gif = $"settings_50_{AppResources.LangCode}.gif",
-                Video = $"tour_video_ios_settings_{AppResources.LangCode}.mp4"
+                Video = $"tour_video_settings_{AppResources.LangCode}.mp4"
             });
 
             NextCommand = new Command(async () =>

@@ -21,38 +21,51 @@ namespace Tabi
 
             BindingContext = App.Container.Resolve<TourViewModel>(new TypedParameter(typeof(INavigation), Navigation));
 
-        
-
             if (Device.RuntimePlatform == Device.iOS)
             {
                 // Video size: 750w x 1000h
-                double widthRequest = App.ScreenWidth;
-                double heightRequest = (widthRequest / 750) * 1000;
+                (double widthRequest, double heightRequest) = CalculateVideoSize(750, 1000, 0.85, App.ScreenWidth, App.ScreenHeight);
 
-                if (heightRequest > App.ScreenHeight * 0.85)
+                VideoPlayer.WidthRequest = widthRequest;
+                VideoPlayer.HeightRequest = heightRequest;
+
+                IIOSHelper iOSHelper = App.Container.ResolveOptional<IIOSHelper>();
+
+                var safeInsets = On<Xamarin.Forms.PlatformConfiguration.iOS>().SafeAreaInsets();
+
+                Thickness margin = new Thickness(0, -20, 0, 0);
+                Thickness padding = new Thickness(0, 20, 0, 0);
+
+                if (iOSHelper != null && iOSHelper.IsiPhoneX)
                 {
-                    heightRequest = App.ScreenHeight * 0.85;
-                    widthRequest = (heightRequest / 1000) * 750;
+                    margin.Top = 0;
+                    padding.Top = 30;
                 }
+                ContentLayout.Margin = margin;
+                ContentLayout.Padding = padding;
+            }
+            else
+            {
+                (double widthRequest, double heightRequest) = CalculateVideoSize(916, 1874, 0.80, App.ScreenWidth, App.ScreenHeight);
 
                 VideoPlayer.WidthRequest = widthRequest;
                 VideoPlayer.HeightRequest = heightRequest;
             }
+        }
 
-            IIOSHelper iOSHelper = App.Container.ResolveOptional<IIOSHelper>();
 
-            var safeInsets = On<Xamarin.Forms.PlatformConfiguration.iOS>().SafeAreaInsets();
+        private (double width, double height) CalculateVideoSize(double videoWidth, double videoHeight, double maxHeightRatio, double screenWidth, double screenHeight)
+        {
+            double widthRequest = screenWidth;
+            double heightRequest = (widthRequest / videoWidth) * videoHeight;
 
-            Thickness margin = new Thickness(0, -20, 0, 0);
-            Thickness padding  = new Thickness(0, 20, 0, 0);
-
-            if (iOSHelper!= null && iOSHelper.IsiPhoneX)
+            if (heightRequest > screenHeight * maxHeightRatio)
             {
-                margin.Top = 0;
-                padding.Top = 30;
+                heightRequest = screenHeight * maxHeightRatio;
+                widthRequest = (heightRequest / videoHeight) * videoWidth;
             }
-            ContentLayout.Margin = margin;
-            ContentLayout.Padding = padding;
+
+            return (widthRequest, heightRequest);
         }
     }
 }

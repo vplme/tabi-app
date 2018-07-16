@@ -186,14 +186,14 @@
     <BundleResource Include="Resources\ic_check_circle_2x.png" />
     <BundleResource Include="Resources\ic_check_circle_3x.png" />
     <BundleResource Include="Resources\tabi.svg" />
-    <BundleResource Include="Resources\tour_video_ios_transportmode_nl.mp4" />
-    <BundleResource Include="Resources\tour_video_ios_transportmode_en.mp4" />
-    <BundleResource Include="Resources\tour_video_ios_stop_name_nl.mp4" />
-    <BundleResource Include="Resources\tour_video_ios_stop_name_en.mp4" />
-    <BundleResource Include="Resources\tour_video_ios_settings_nl.mp4" />
-    <BundleResource Include="Resources\tour_video_ios_settings_en.mp4" />
-    <BundleResource Include="Resources\tour_video_ios_stop_motive_en.mp4" />
-    <BundleResource Include="Resources\tour_video_ios_stop_motive_nl.mp4" />
+    <BundleResource Include="Resources\tour_video_transportmode_nl.mp4" />
+    <BundleResource Include="Resources\tour_video_transportmode_en.mp4" />
+    <BundleResource Include="Resources\tour_video_stop_name_nl.mp4" />
+    <BundleResource Include="Resources\tour_video_stop_name_en.mp4" />
+    <BundleResource Include="Resources\tour_video_settings_nl.mp4" />
+    <BundleResource Include="Resources\tour_video_settings_en.mp4" />
+    <BundleResource Include="Resources\tour_video_stop_motive_en.mp4" />
+    <BundleResource Include="Resources\tour_video_stop_motive_nl.mp4" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SQLiteNetExtensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
