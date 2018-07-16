@@ -531,17 +531,9 @@
     <AndroidResource Include="Resources\drawable-nodpi\home.png" />
     <AndroidResource Include="Resources\drawable-nodpi\icon.png" />
     <AndroidResource Include="Resources\drawable-nodpi\location.png" />
-    <AndroidResource Include="Resources\drawable-nodpi\motive_50_en.gif" />
-    <AndroidResource Include="Resources\drawable-nodpi\motive_50_nl.gif" />
-    <AndroidResource Include="Resources\drawable-nodpi\settings_50_en.gif" />
-    <AndroidResource Include="Resources\drawable-nodpi\settings_50_nl.gif" />
     <AndroidResource Include="Resources\drawable-nodpi\splash.png" />
     <AndroidResource Include="Resources\drawable-nodpi\splash_screen.xml" />
-    <AndroidResource Include="Resources\drawable-nodpi\stop_50_en.gif" />
-    <AndroidResource Include="Resources\drawable-nodpi\stop_50_nl.gif" />
     <AndroidResource Include="Resources\drawable-nodpi\tabi.svg" />
-    <AndroidResource Include="Resources\drawable-nodpi\transport_50_en.gif" />
-    <AndroidResource Include="Resources\drawable-nodpi\transport_50_nl.gif" />
     <AndroidResource Include="Resources\raw\tour_video_settings_en.mp4" />
     <AndroidResource Include="Resources\raw\tour_video_settings_nl.mp4" />
     <AndroidResource Include="Resources\raw\tour_video_stop_motive_en.mp4" />
