@@ -175,7 +175,7 @@ namespace Tabi
             });
             ShowPageCommand = new Command(() =>
             {
-                TourGifPage sPage = new TourGifPage();
+                TourVideoPage sPage = new TourVideoPage();
                 _navigation.PushModalAsync(sPage);
             });
 
