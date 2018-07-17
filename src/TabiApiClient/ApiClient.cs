@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using TabiApiClient.Http;
 using TabiApiClient.Messages;
 using TabiApiClient.Models;
 
@@ -49,18 +50,23 @@ namespace TabiApiClient
             }
         }
 
-        private HttpContent SerializeObject(object o)
+        private static HttpContent CreateHttpContent(object content, bool gzip = false)
         {
-            string content = JsonConvert.SerializeObject(o);
-            return new StringContent(content, Encoding.UTF8, "application/json");
-        }
+            HttpContent httpContent = null;
 
-        private async Task<HttpContent> SerializeObjectAsync(object o)
-        {
-            return await Task.Run(() =>
+            if (content != null)
             {
-                return SerializeObject(o);
-            });
+                if (gzip)
+                {
+                    httpContent = new GzipJsonContent(content);
+                }
+                else
+                {
+                    httpContent = new JsonContent(content);
+                }
+            }
+
+            return httpContent;
         }
 
         public async Task<TokenResult> Authenticate(string username, string password)
@@ -71,9 +77,9 @@ namespace TabiApiClient
                 Password = password
             };
 
-            TokenResult token = null;
+            TokenResult tokenResult = null;
             string path = PrefixApiPath("/token");
-            HttpContent httpContent = SerializeObject(um);
+            HttpContent httpContent = CreateHttpContent(um);
 
             try
             {
@@ -81,9 +87,9 @@ namespace TabiApiClient
                 if (response.IsSuccessStatusCode)
                 {
                     string data = await response.Content.ReadAsStringAsync();
-                    token = JsonConvert.DeserializeObject<TokenResult>(data);
-                    userId = token.UserId.ToString();
-                    this.token = token.Token;
+                    tokenResult = JsonConvert.DeserializeObject<TokenResult>(data);
+                    userId = tokenResult.UserId.ToString();
+                    this.token = tokenResult.Token;
                     Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", this.token);
                 }
             }
@@ -92,14 +98,14 @@ namespace TabiApiClient
                 Debug.WriteLine("ApiClient error" + e);
             }
 
-            return token;
+            return tokenResult;
         }
 
         public async Task<bool> Register(UserMessage user)
         {
             string path = PrefixApiPath("/register");
 
-            HttpContent httpContent = SerializeObject(user);
+            HttpContent httpContent = CreateHttpContent(user);
 
             HttpResponseMessage response = await client.PostAsync(path, httpContent);
             if (response.IsSuccessStatusCode)
@@ -190,7 +196,7 @@ namespace TabiApiClient
                 Manufacturer = manufacturer
             };
 
-            HttpContent httpContent = SerializeObject(dm);
+            HttpContent httpContent = CreateHttpContent(dm);
             HttpResponseMessage response = await client.PostAsync(path, httpContent);
             string content = await response.Content.ReadAsStringAsync();
 
@@ -199,10 +205,25 @@ namespace TabiApiClient
             return deviceResponse;
         }
 
+        public async Task<bool> PutAttribute(int deviceId, string key, string value)
+        {
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/attribute");
+
+            Models.Attribute attribute = new Models.Attribute()
+            {
+                Key = key,
+                Value = value
+            };
+
+            HttpContent httpContent = CreateHttpContent(attribute);
+            HttpResponseMessage response = await client.PutAsync(path, httpContent);
+            return response.IsSuccessStatusCode;
+        }
+
         public async Task<bool> PostPositions(int deviceId, IEnumerable<PositionEntry> positions)
         {
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/positionentry");
-            HttpContent httpContent = await SerializeObjectAsync(positions);
+            HttpContent httpContent = CreateHttpContent(positions);
             HttpResponseMessage response = await client.PostAsync(path, httpContent);
             return response.IsSuccessStatusCode;
         }
@@ -210,7 +231,7 @@ namespace TabiApiClient
         public async Task<bool> PostStops(int deviceId, IEnumerable<Stop> stops)
         {
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/stops");
-            HttpContent httpContent = await SerializeObjectAsync(stops);
+            HttpContent httpContent = CreateHttpContent(stops);
             HttpResponseMessage response = await client.PostAsync(path, httpContent);
             return response.IsSuccessStatusCode;
         }
@@ -218,7 +239,7 @@ namespace TabiApiClient
         public async Task<bool> PostUserStopMotives(int deviceId, IEnumerable<UserStopMotive> motives)
         {
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/stops/motives");
-            HttpContent httpContent = await SerializeObjectAsync(motives);
+            HttpContent httpContent = CreateHttpContent(motives);
             HttpResponseMessage response = await client.PostAsync(path, httpContent);
             return response.IsSuccessStatusCode;
         }
@@ -226,7 +247,7 @@ namespace TabiApiClient
         public async Task<bool> PostStopVisits(int deviceId, IEnumerable<StopVisit> stopVisits)
         {
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/stopvisits");
-            HttpContent httpContent = await SerializeObjectAsync(stopVisits);
+            HttpContent httpContent = CreateHttpContent(stopVisits);
             HttpResponseMessage response = await client.PostAsync(path, httpContent);
             return response.IsSuccessStatusCode;
         }
@@ -234,7 +255,7 @@ namespace TabiApiClient
         public async Task<bool> PostLogs(int deviceId, IEnumerable<Log> logs)
         {
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/logs");
-            HttpContent httpContent = await SerializeObjectAsync(logs);
+            HttpContent httpContent = CreateHttpContent(logs);
             HttpResponseMessage response = await client.PostAsync(path, httpContent);
             return response.IsSuccessStatusCode;
         }
@@ -242,7 +263,7 @@ namespace TabiApiClient
         public async Task<bool> PostBatteryData(int deviceId, IEnumerable<BatteryInfo> batteryEntries)
         {
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/battery");
-            HttpContent httpContent = await SerializeObjectAsync(batteryEntries);
+            HttpContent httpContent = CreateHttpContent(batteryEntries);
             HttpResponseMessage response = await client.PostAsync(path, httpContent);
             return response.IsSuccessStatusCode;
         }
@@ -251,7 +272,7 @@ namespace TabiApiClient
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track");
             try
             {
-                HttpContent httpContent = await SerializeObjectAsync(trackEntries);
+                HttpContent httpContent = CreateHttpContent(trackEntries);
                 HttpResponseMessage response = await client.PostAsync(path, httpContent);
                 return response.IsSuccessStatusCode;
             }
@@ -265,7 +286,7 @@ namespace TabiApiClient
         public async Task<bool> PostTrackMotives(int deviceId, IEnumerable<TrackMotive> motives)
         {
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/track/motives");
-            HttpContent httpContent = await SerializeObjectAsync(motives);
+            HttpContent httpContent = CreateHttpContent(motives);
             HttpResponseMessage response = await client.PostAsync(path, httpContent);
             return response.IsSuccessStatusCode;
         }
@@ -276,7 +297,7 @@ namespace TabiApiClient
 
             try
             {
-                HttpContent httpContent = await SerializeObjectAsync(transportModes);
+                HttpContent httpContent = CreateHttpContent(transportModes);
                 HttpResponseMessage response = await client.PostAsync(path, httpContent);
                 return response.IsSuccessStatusCode;
             }
@@ -292,7 +313,7 @@ namespace TabiApiClient
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/sensormeasurementsession");
             try
             {
-                HttpContent httpContent = await SerializeObjectAsync(sensorMeasurementSessions);
+                HttpContent httpContent = CreateHttpContent(sensorMeasurementSessions);
                 HttpResponseMessage response = await client.PostAsync(path, httpContent);
                 return response.IsSuccessStatusCode;
             }
@@ -309,7 +330,7 @@ namespace TabiApiClient
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/accelerometer");
             try
             {
-                HttpContent httpContent = await SerializeObjectAsync(accelerometerData);
+                HttpContent httpContent = CreateHttpContent(accelerometerData);
                 HttpResponseMessage response = await client.PostAsync(path, httpContent);
                 return response.IsSuccessStatusCode;
             }
@@ -325,7 +346,7 @@ namespace TabiApiClient
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/gyroscope");
             try
             {
-                HttpContent httpContent = await SerializeObjectAsync(gyroscopeData);
+                HttpContent httpContent = CreateHttpContent(gyroscopeData);
                 HttpResponseMessage response = await client.PostAsync(path, httpContent);
                 return response.IsSuccessStatusCode;
             }
@@ -342,7 +363,7 @@ namespace TabiApiClient
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/magnetometer");
             try
             {
-                HttpContent httpContent = await SerializeObjectAsync(magnetometerData);
+                HttpContent httpContent = CreateHttpContent(magnetometerData);
                 HttpResponseMessage response = await client.PostAsync(path, httpContent);
                 return response.IsSuccessStatusCode;
             }
@@ -358,7 +379,7 @@ namespace TabiApiClient
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/linearacceleration");
             try
             {
-                HttpContent httpContent = await SerializeObjectAsync(linearAcceleration);
+                HttpContent httpContent = CreateHttpContent(linearAcceleration);
                 HttpResponseMessage response = await client.PostAsync(path, httpContent);
                 return response.IsSuccessStatusCode;
             }
@@ -375,7 +396,7 @@ namespace TabiApiClient
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/gravity");
             try
             {
-                HttpContent httpContent = await SerializeObjectAsync(gravity);
+                HttpContent httpContent = CreateHttpContent(gravity);
                 HttpResponseMessage response = await client.PostAsync(path, httpContent);
                 return response.IsSuccessStatusCode;
             }
@@ -392,7 +413,7 @@ namespace TabiApiClient
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/quaternion");
             try
             {
-                HttpContent httpContent = await SerializeObjectAsync(quaternionData);
+                HttpContent httpContent = CreateHttpContent(quaternionData);
                 HttpResponseMessage response = await client.PostAsync(path, httpContent);
                 return response.IsSuccessStatusCode;
             }
@@ -409,7 +430,7 @@ namespace TabiApiClient
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/orientation");
             try
             {
-                HttpContent httpContent = await SerializeObjectAsync(orientationData);
+                HttpContent httpContent = CreateHttpContent(orientationData);
                 HttpResponseMessage response = await client.PostAsync(path, httpContent);
                 return response.IsSuccessStatusCode;
             }
@@ -418,7 +439,6 @@ namespace TabiApiClient
                 Console.WriteLine(e);
                 return false;
             }
-
         }
 
         public async Task<bool> IsDeviceUnauthorized(int deviceId)
