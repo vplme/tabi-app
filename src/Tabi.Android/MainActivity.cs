@@ -12,6 +12,7 @@ using Autofac.Core;
 using Tabi.Droid.PlatformImplementations;
 using FFImageLoading.Svg.Forms;
 using Vpl.Xamarin.VideoPlayer;
+using Firebase.Iid;
 
 namespace Tabi.Droid
 {
@@ -48,6 +49,13 @@ namespace Tabi.Droid
             notificationChannelHelper.SetupNotificationChannels();
 
             LoadApplication(new App(new IModule[] { new PlatformContainerModule() }));
+
+            if (App.TabiConfig.Notifications.Enabled)
+            {
+                string deviceToken = FirebaseInstanceId.Instance.Token;
+                Settings.Current.DeviceToken = deviceToken;
+                Log.Debug("InstanceID token: " + deviceToken);
+            }
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

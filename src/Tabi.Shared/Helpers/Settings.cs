@@ -176,6 +176,19 @@ namespace Tabi
             }
         }
 
+        public string DeviceToken
+        {
+            get => AppSettings.GetValueOrDefault(nameof(DeviceToken), string.Empty);
+            set
+            {
+                if (value == DeviceToken)
+                    return;
+
+                AppSettings.AddOrUpdateValue(nameof(DeviceToken), value);
+                OnPropertyChanged();
+            }
+        }
+
         public long LastUpload
         {
             get => AppSettings.GetValueOrDefault(nameof(LastUpload), (long)0);

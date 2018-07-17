@@ -70,7 +70,22 @@ namespace Tabi.iOS
                 Log.Info("LaunchOptions contains locationkey");
             } 
 
+            if (App.TabiConfig.Notifications.Enabled)
+            {
+                UIApplication.SharedApplication.RegisterForRemoteNotifications();
+            }
+
             return base.FinishedLaunching(app, options);
+        }
+
+        public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
+        {
+            Settings.Current.DeviceToken = deviceToken.ToString();
+        }
+
+        public override void FailedToRegisterForRemoteNotifications(UIApplication application, NSError error)
+        {
+            Log.Error("Failed to register for remote notifications " + error);
         }
     }
 }
