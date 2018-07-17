@@ -385,12 +385,6 @@
     <Reference Include="Plugin.MediaManager.Forms.iOS">
       <HintPath>..\packages\Plugin.MediaManager.Forms.0.4.5\lib\xamarinios\Plugin.MediaManager.Forms.iOS.dll</HintPath>
     </Reference>
-    <Reference Include="Vpl.Xamarin.VideoPlayer">
-      <HintPath>..\packages\Vpl.Xamarin.VideoPlayer.0.0.9\lib\Xamarin.iOS10\Vpl.Xamarin.VideoPlayer.dll</HintPath>
-    </Reference>
-    <Reference Include="Vpl.Xamarin.VideoPlayer.iOS">
-      <HintPath>..\packages\Vpl.Xamarin.VideoPlayer.0.0.9\lib\Xamarin.iOS10\Vpl.Xamarin.VideoPlayer.iOS.dll</HintPath>
-    </Reference>
     <Reference Include="FFImageLoading">
       <HintPath>..\packages\Xamarin.FFImageLoading.2.4.3.840\lib\Xamarin.iOS10\FFImageLoading.dll</HintPath>
     </Reference>
@@ -441,6 +435,12 @@
     </Reference>
     <Reference Include="Microsoft.AppCenter.Crashes.iOS.Bindings">
       <HintPath>..\packages\Microsoft.AppCenter.Crashes.1.7.0\lib\Xamarin.iOS10\Microsoft.AppCenter.Crashes.iOS.Bindings.dll</HintPath>
+    </Reference>
+    <Reference Include="Vpl.Xamarin.VideoPlayer">
+      <HintPath>..\packages\Vpl.Xamarin.VideoPlayer.0.0.10\lib\Xamarin.iOS10\Vpl.Xamarin.VideoPlayer.dll</HintPath>
+    </Reference>
+    <Reference Include="Vpl.Xamarin.VideoPlayer.iOS">
+      <HintPath>..\packages\Vpl.Xamarin.VideoPlayer.0.0.10\lib\Xamarin.iOS10\Vpl.Xamarin.VideoPlayer.iOS.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

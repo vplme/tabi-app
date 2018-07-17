@@ -29,7 +29,6 @@
     <PackageReference Include="FormsToolkit" Version="2.0.1" />
     <PackageReference Include="CsvHelper" Version="7.1.0" />
     <PackageReference Include="Autofac" Version="4.8.0" />
-    <PackageReference Include="Vpl.Xamarin.VideoPlayer" Version="0.0.9" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.3.840" />
     <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.3.840" />
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.3.840" />
@@ -38,6 +37,7 @@
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="1.7.0" />
     <PackageReference Include="Microsoft.AppCenter.Distribute" Version="1.7.0" />
     <PackageReference Include="Microsoft.AppCenter.Push" Version="1.7.0" />
+    <PackageReference Include="Vpl.Xamarin.VideoPlayer" Version="0.0.10" />
   </ItemGroup>
   <ItemGroup>
     <!-- https://bugzilla.xamarin.com/show_bug.cgi?id=55591 -->
