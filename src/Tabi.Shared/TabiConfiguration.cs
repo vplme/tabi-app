@@ -7,6 +7,7 @@ namespace Tabi.Shared
     {
         public bool Developer { get; set; }
         public MobileCenterConfiguration MobileCenter { get; set; }
+        public NotificationsConfiguration Notifications { get; set; } = new NotificationsConfiguration();
         public string ApiUrl { get; set; }
         public string CertificateKey { get; set; }
         public SensorMeasurementsConfiguration SensorMeasurements { get; set; }
@@ -32,8 +33,15 @@ namespace Tabi.Shared
         /// <value>Sync interval in minutes.</value>
         public int SyncInterval { get; set; } = 30;
 
+        public bool GzipRequests { get; set; }
+
         public List<string> CertificateKeys { get; set; }
 
+    }
+
+    public class NotificationsConfiguration
+    {
+        public bool Enabled { get; set; }
     }
 
     public class MobileCenterConfiguration

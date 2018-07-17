@@ -12,7 +12,9 @@
     },
     "Api": {
         "Url": "https://tabi.cbs.nl",
-        "CertificateKeys": []
+        "CertificateKeys": [],
+        "SyncInterval": 15,
+        "GzipRequests": true
     },
     "SensorMeasurements": {
         "Enabled": true,

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -23,13 +25,16 @@ namespace TabiApiClient
         private string apiLocation;
         const string apiRoot = "/api/v1";
         private string token;
+        private bool gzipEnabled;
         private string userId;
 
-        public ApiClient(string apiLocation = "https://tabi.0x2a.site")
+        public ApiClient(string apiLocation = "https://tabi.0x2a.site", bool gzip = false)
         {
             this.apiLocation = apiLocation;
-            client = new HttpClient();
+            HttpClientHandler handler = new HttpClientHandler() { AutomaticDecompression = DecompressionMethods.GZip };
+            client = new HttpClient(handler);
             client.Timeout = TimeSpan.FromMinutes(5);
+            gzipEnabled = gzip;
         }
 
         private string PrefixApiPath(string path)
@@ -50,13 +55,13 @@ namespace TabiApiClient
             }
         }
 
-        private static HttpContent CreateHttpContent(object content, bool gzip = false)
+        private HttpContent CreateHttpContent(object content)
         {
             HttpContent httpContent = null;
 
             if (content != null)
             {
-                if (gzip)
+                if (gzipEnabled)
                 {
                     httpContent = new GzipJsonContent(content);
                 }
