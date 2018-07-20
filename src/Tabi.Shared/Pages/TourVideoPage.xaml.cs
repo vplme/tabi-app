@@ -46,7 +46,7 @@ namespace Tabi
             }
             else
             {
-                (double widthRequest, double heightRequest) = CalculateVideoSize(916, 1874, 0.80, App.ScreenWidth, App.ScreenHeight);
+                (double widthRequest, double heightRequest) = CalculateVideoSize(916, 1874, 0.70, App.ScreenWidth, App.ScreenHeight);
 
                 VideoPlayer.WidthRequest = widthRequest;
                 VideoPlayer.HeightRequest = heightRequest;
