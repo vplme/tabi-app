@@ -28,6 +28,12 @@ namespace Tabi.DataStorage.SqliteNet
             }
         }
 
+        public IEnumerable<MotionSensor> After(DateTimeOffset begin)
+        {
+            return connection.Table<MotionSensor>().Where(x => x.Timestamp > begin);
+
+        }
+
         public bool RemoveRangeBeforeTimestamp(DateTimeOffset timestamp)
         {
             try

@@ -132,7 +132,7 @@ namespace Tabi.iOS.Helpers
         public List<PositionEntry> GatherPositions()
         {
             DateTimeOffset lastUpload = TimeKeeper.GetPreviousDone(UploadType.PositionEntry);
-            return _repoManager.PositionEntryRepository.After(lastUpload);
+            return _repoManager.PositionEntryRepository.After(lastUpload).ToList();
         }
 
 
@@ -344,7 +344,7 @@ namespace Tabi.iOS.Helpers
         public List<LogEntry> GatherLogs()
         {
             DateTimeOffset lastUpload = TimeKeeper.GetPreviousDone(UploadType.LogEntry);
-            return _repoManager.LogEntryRepository.After(lastUpload);
+            return _repoManager.LogEntryRepository.After(lastUpload).ToList();
         }
 
         public async Task<bool> UploadLogs(List<LogEntry> logs)
@@ -417,7 +417,7 @@ namespace Tabi.iOS.Helpers
         public IList<Stop> GatherStops()
         {
             DateTimeOffset lastUpload = TimeKeeper.GetPreviousDone(UploadType.Stop);
-            return _repoManager.StopRepository.After(lastUpload);
+            return _repoManager.StopRepository.After(lastUpload).ToList();
         }
 
         public async Task<bool> UploadStops(IList<Stop> stops)
@@ -524,7 +524,7 @@ namespace Tabi.iOS.Helpers
         {
             DateTimeOffset lastUpload = TimeKeeper.GetPreviousDone(UploadType.BatteryEntry);
 
-            return _repoManager.BatteryEntryRepository.After(lastUpload);
+            return _repoManager.BatteryEntryRepository.After(lastUpload).ToList();
         }
 
         public async Task<bool> UploadBatteryInfo(List<BatteryEntry> batteryEntries)

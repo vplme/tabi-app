@@ -12,12 +12,11 @@ namespace Tabi.DataStorage.SqliteNet
         {
         }
 
-        public List<BatteryEntry> After(DateTimeOffset begin)
+        public IEnumerable<BatteryEntry> After(DateTimeOffset begin)
         {
             return connection.Table<BatteryEntry>()
                              .Where(x => x.Timestamp > begin)
-                             .OrderBy(x => x.Timestamp)
-                             .ToList();
+                             .OrderBy(x => x.Timestamp);
         }
 
         public int CountBefore(DateTimeOffset dto)

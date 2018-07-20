@@ -17,12 +17,11 @@ namespace Tabi.DataStorage.SqliteNet
             connection.Execute("DELETE FROM LogEntry WHERE timestamp <= ?", before);
         }
 
-        public List<LogEntry> After(DateTimeOffset begin)
+        public IEnumerable<LogEntry> After(DateTimeOffset begin)
         {
             return connection.Table<LogEntry>()
                              .Where(x => x.Timestamp > begin)
-                             .OrderBy(x => x.Timestamp)
-                             .ToList();
+                             .OrderBy(x => x.Timestamp);
         }
 
         public int CountBefore(DateTimeOffset dto)

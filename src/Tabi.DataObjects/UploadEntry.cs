@@ -1,4 +1,6 @@
 ﻿using System;
+using SQLite;
+
 namespace Tabi.DataObjects
 {
     public class UploadEntry

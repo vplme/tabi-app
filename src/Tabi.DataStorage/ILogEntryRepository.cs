@@ -7,7 +7,7 @@ namespace Tabi.DataStorage
     public interface ILogEntryRepository : IRepository<LogEntry>
     {
         void ClearLogsBefore(DateTimeOffset before);
-        List<LogEntry> After(DateTimeOffset begin);
+        IEnumerable<LogEntry> After(DateTimeOffset begin);
         int CountBefore(DateTimeOffset dto);
     }
 }

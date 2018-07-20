@@ -17,10 +17,9 @@ namespace Tabi.DataStorage.SqliteNet
             connection.Update(s);
         }
 
-        public IList<Stop> After(DateTimeOffset begin) => connection.Table<Stop>()
+        public IEnumerable<Stop> After(DateTimeOffset begin) => connection.Table<Stop>()
                              .Where(x => x.Timestamp > begin)
-                             .OrderBy(x => x.Timestamp)
-                             .ToList();
+                           .OrderBy(x => x.Timestamp);
 
         public IEnumerable<Stop> NearestStops(double latitude, double longitude, double radius)
         {

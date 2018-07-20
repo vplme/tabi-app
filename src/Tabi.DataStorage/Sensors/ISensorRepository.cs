@@ -8,6 +8,7 @@ namespace Tabi.DataStorage
     public interface ISensorRepository<TEntity> : IRepository<TEntity> where TEntity : MotionSensor, new()
     {
         IEnumerable<TEntity> GetRange(DateTimeOffset begin, DateTimeOffset end);
+        IEnumerable<TEntity> After(DateTimeOffset begin);
         bool RemoveRangeBeforeTimestamp(DateTimeOffset timestamp);
         bool UpdateTrackKey(TrackEntry trackEntry, string tableName);
     }

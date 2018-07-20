@@ -6,7 +6,7 @@ namespace Tabi.DataStorage
 {
     public interface IBatteryEntryRepository : IRepository<BatteryEntry>
     {
-        List<BatteryEntry> After(DateTimeOffset begin);
+        IEnumerable<BatteryEntry> After(DateTimeOffset begin);
         int CountBefore(DateTimeOffset dto);
     }
 }
