@@ -36,6 +36,7 @@ namespace Tabi.Shared.DataSync
             {
                 Event = log.Event,
                 Message = log.Message,
+                Timestamp = log.Timestamp
             };
         }
 
