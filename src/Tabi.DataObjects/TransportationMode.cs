@@ -27,6 +27,7 @@ namespace Tabi.DataObjects
         public bool Bus { get; set; }
         public bool Other { get; set; }
 
+        [Indexed]
         public DateTimeOffset Timestamp { get; set; }
 
     }

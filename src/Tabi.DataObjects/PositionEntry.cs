@@ -27,6 +27,7 @@ namespace Tabi.DataObjects
 
         public string Comment { get; set; }
 
+        [Indexed]
         public DateTimeOffset Timestamp { get; set; }
 
         public double DistanceTo(PositionEntry other)

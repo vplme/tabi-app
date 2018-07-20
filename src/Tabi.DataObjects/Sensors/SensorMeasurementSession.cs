@@ -9,6 +9,7 @@ namespace Tabi.DataObjects
         [PrimaryKey, AutoIncrement, JsonIgnore]
         public int Id { get; set; }
 
+        [Indexed]
         public DateTimeOffset Timestamp { get; set; }
         public int AmbientLight { get; set; }
         public int Pedometer { get; set; }

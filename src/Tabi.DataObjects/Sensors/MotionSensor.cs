@@ -10,6 +10,7 @@ namespace Tabi.DataObjects
         [PrimaryKey, AutoIncrement, JsonIgnore]
         public long Id { get; set; }
 
+        [Indexed]
         public DateTimeOffset Timestamp { get; set; }
 
         public float X { get; set; }

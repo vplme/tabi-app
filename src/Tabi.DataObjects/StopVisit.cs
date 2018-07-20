@@ -29,6 +29,8 @@ namespace Tabi.DataObjects
         }
 
         private DateTimeOffset beginTimestamp;
+
+        [Indexed]
         public DateTimeOffset BeginTimestamp
         {
             get => beginTimestamp;
@@ -46,6 +48,8 @@ namespace Tabi.DataObjects
         public double Longitude { get => longitude; set => SetProperty(ref longitude, value); }
 
         private DateTimeOffset endTimestamp;
+
+        [Indexed]
         public DateTimeOffset EndTimestamp
         {
             get => endTimestamp;

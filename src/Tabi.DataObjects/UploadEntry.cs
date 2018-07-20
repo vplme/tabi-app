@@ -9,6 +9,7 @@ namespace Tabi.DataObjects
 
         public int Count { get; set; }
 
+        [Indexed]
         public DateTimeOffset Timestamp { get; set; }
     }
 
