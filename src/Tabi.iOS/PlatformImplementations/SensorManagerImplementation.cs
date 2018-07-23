@@ -155,16 +155,26 @@ namespace Tabi.iOS.PlatformImplementations
         public void StartSensorUpdates()
         {
             // Raw accelerometer
-            _motionManager.StartAccelerometerUpdates(_queue, HandleCMAccelerometerHandler);
+            if (_motionManager.AccelerometerAvailable)
+            {
+                _motionManager.StartAccelerometerUpdates(_queue, HandleCMAccelerometerHandler);
+            }
 
-            _motionManager.StartGyroUpdates(_queue, HandleCMGyroHandler);
+            if (_motionManager.GyroAvailable)
+            {
+                _motionManager.StartGyroUpdates(_queue, HandleCMGyroHandler);
+            }
 
-            // Raw magnetometer
-            _motionManager.StartMagnetometerUpdates(_queue, HandleCMMagnetometerHandler);
+            if (_motionManager.MagnetometerAvailable)
+            {
+                _motionManager.StartMagnetometerUpdates(_queue, HandleCMMagnetometerHandler);
+            }
 
-            _motionManager.StartDeviceMotionUpdates(_queue, HandleCMDeviceMotionHandler);
-
-            _pedometer.StartPedometerUpdates(NSDate.Now, HandleCMPedometer);
+            if (_motionManager.DeviceMotionAvailable)
+            {
+                _motionManager.StartDeviceMotionUpdates(_queue, HandleCMDeviceMotionHandler);
+                _pedometer.StartPedometerUpdates(NSDate.Now, HandleCMPedometer);
+            }
 
             //start updating headings
             _locationManager.StartUpdatingHeading();
@@ -231,10 +241,26 @@ namespace Tabi.iOS.PlatformImplementations
 
         public void StopSensorUpdates()
         {
-            _motionManager.StopAccelerometerUpdates();
-            _motionManager.StopMagnetometerUpdates();
-            _motionManager.StopGyroUpdates();
-            _motionManager.StopDeviceMotionUpdates();
+            if (_motionManager.AccelerometerAvailable)
+            {
+                _motionManager.StopAccelerometerUpdates();
+            }
+
+            if (_motionManager.GyroAvailable)
+            {
+                _motionManager.StopGyroUpdates();
+            }
+
+            if (_motionManager.MagnetometerAvailable)
+            {
+                _motionManager.StopMagnetometerUpdates();
+            }
+
+            if (_motionManager.DeviceMotionAvailable)
+            {
+                _motionManager.StopDeviceMotionUpdates();
+                _pedometer.StopPedometerUpdates();
+            }
 
             IsListening = false;
         }

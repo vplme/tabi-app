@@ -95,10 +95,16 @@ namespace Tabi.Shared.ViewModels
 
         private async void Next()
         {
+            PermissionStatus status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Sensors);
+
             // iOS needs to request motion access:
-            if (Device.RuntimePlatform == Device.iOS)
+            if (Device.RuntimePlatform == Device.iOS && status != PermissionStatus.Disabled)
             {
                 Navigation.InsertPageBefore(new MotionAccessPage(), Page);
+            }
+            else if(Device.RuntimePlatform == Device.iOS)
+            {
+                Navigation.InsertPageBefore(new ThanksPage(), Page);
             }
             else if (Device.RuntimePlatform == Device.Android)
             {
