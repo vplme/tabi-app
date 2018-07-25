@@ -20,13 +20,6 @@ namespace Tabi.Shared.Pages
         {
             InitializeComponent();
 
-            if (Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.iOS)
-            {
-                ExtendedToolbarItem saveToolbarItem = new ExtendedToolbarItem() { Done = true, Text = AppResources.SaveText };
-                saveToolbarItem.SetBinding(ExtendedToolbarItem.CommandProperty, "SaveCommand");
-                ToolbarItems.Add(saveToolbarItem);
-            }
-
             ExtendedToolbarItem cancelToolbarItem = new ExtendedToolbarItem() { Left = true, Text = AppResources.CancelText };
             cancelToolbarItem.SetBinding(ExtendedToolbarItem.CommandProperty, "CancelCommand");
             ToolbarItems.Add(cancelToolbarItem);
@@ -37,8 +30,6 @@ namespace Tabi.Shared.Pages
             {
                 AdjustListViewHeight();
             };
-
-            AdjustListViewHeight();
         }
 
         protected override void OnDisappearing()
@@ -48,17 +39,23 @@ namespace Tabi.Shared.Pages
             base.OnDisappearing();
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            ViewModel.CheckSave();
+        }
+
         void AdjustListViewHeight()
         {
             var adjust = Xamarin.Forms.Device.RuntimePlatform != Xamarin.Forms.Device.Android ? 1 : -ViewModel.PossibleMotives.Count + 1;
             PossibleMotivesListView.HeightRequest = (ViewModel.PossibleMotives.Count * PossibleMotivesListView.RowHeight) - adjust;
         }
 
-        void Handle_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
+        async void Handle_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem != null)
             {
-                ViewModel.OptionSelected((MotiveOptionViewModel)e.SelectedItem);
+                await ViewModel.OptionSelected((MotiveOptionViewModel)e.SelectedItem);
                 ((ListView)sender).SelectedItem = null;
             }
         }

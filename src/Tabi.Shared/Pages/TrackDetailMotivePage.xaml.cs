@@ -44,13 +44,19 @@ namespace Tabi
             PossibleMotivesListView.HeightRequest = (ViewModel.PossibleMotives.Count * PossibleMotivesListView.RowHeight) - adjust;
         }
 
-        void Handle_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
+        async void Handle_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem != null)
             {
-                ViewModel.OptionSelected((MotiveOptionViewModel)e.SelectedItem);
+                await ViewModel.OptionSelected((MotiveOptionViewModel)e.SelectedItem);
                 ((ListView)sender).SelectedItem = null;
             }
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            ViewModel.CheckSave();
         }
 
         protected override void OnDisappearing()

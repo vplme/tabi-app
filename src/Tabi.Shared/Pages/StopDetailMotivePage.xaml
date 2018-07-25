@@ -45,22 +45,6 @@
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
-                        <control:SettingsSectionDivider>
-                            <control:SettingsSectionDivider.IsVisible>
-                                <OnPlatform x:TypeArguments="x:Boolean">
-                                    <On Platform="iOS" Value="true" />
-                                    <On Platform="Android" Value="false" />
-                                </OnPlatform>
-                            </control:SettingsSectionDivider.IsVisible>
-                        </control:SettingsSectionDivider>
-                        <FlexLayout Margin="10, 10, 10, 10" Direction="Row" Wrap="Wrap">
-                            <FlexLayout.IsVisible>
-                                <OnPlatform x:TypeArguments="x:Boolean">
-                                    <On Platform="Android" Value="true" />
-                                </OnPlatform>
-                            </FlexLayout.IsVisible>
-                            <Button FlexLayout.Basis="100%" Text="{i18n:Translate SaveText}" Command="{Binding SaveCommand}" />
-                        </FlexLayout>
                     </StackLayout>
                 </control:CardView>
             </StackLayout>

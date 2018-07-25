@@ -32,7 +32,7 @@ namespace Tabi.Shared.ViewModels
             Motive.ResetViewModel();
         }
 
-        protected override void SaveViewModel()
+        protected override bool SaveViewModel()
         {
             if (_motiveSelectionViewModel.ShouldSave)
             {
@@ -41,6 +41,8 @@ namespace Tabi.Shared.ViewModels
                 Motive newMotive = Motive.SaveViewModelToModel();
                 _repoManager.MotiveRepository.Add(newMotive);
             }
+
+            return _motiveSelectionViewModel.ShouldSave;
         }
 
         protected override string MotiveText => Motive?.Text;

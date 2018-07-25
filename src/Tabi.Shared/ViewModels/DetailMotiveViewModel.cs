@@ -31,12 +31,7 @@ namespace Tabi.Shared.ViewModels
             _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
             _repoManager = repoManager ?? throw new ArgumentNullException(nameof(repoManager));
 
-            SaveCommand = new Command(async () =>
-            {
-                SaveViewModel();
-                await _navigation.PopModalAsync();
-
-            });
+            SaveCommand = new Command(Save);
             CancelCommand = new Command(async () =>
             {
                 ResetViewModel();
@@ -93,10 +88,24 @@ namespace Tabi.Shared.ViewModels
             }
         }
 
+        private async void Save()
+        {
+            SaveViewModel();
+            await _navigation.PopModalAsync();
+        }
+
+        public async void CheckSave()
+        {
+            if (SaveViewModel())
+            {
+                await _navigation.PopModalAsync();
+            }
+        }
+
         protected abstract string MotiveText { get; }
         protected abstract void ResetViewModel();
 
-        protected abstract void SaveViewModel();
+        protected abstract bool SaveViewModel();
 
         ObservableRangeCollection<MotiveOptionViewModel> possibleMotives;
 
@@ -115,7 +124,7 @@ namespace Tabi.Shared.ViewModels
 
         public ICommand CancelCommand { get; set; }
 
-        public void OptionSelected(MotiveOptionViewModel motive)
+        public async Task OptionSelected(MotiveOptionViewModel motive)
         {
             if (motive.Id == "Other")
             {
@@ -125,13 +134,13 @@ namespace Tabi.Shared.ViewModels
                     _motiveSelectionViewModel.CustomMotive = false;
                 }
 
-                _navigation.PushAsync(new SearchMotivePage(_motiveSelectionViewModel));
+                await _navigation.PushAsync(new SearchMotivePage(_motiveSelectionViewModel));
                 _motiveSelectionViewModel.SelectedMotiveOption = null;
 
             }
             else if (motive == CustomMotiveOption)
             {
-                _navigation.PushAsync(new SearchMotivePage(_motiveSelectionViewModel));
+                await _navigation.PushAsync(new SearchMotivePage(_motiveSelectionViewModel));
             }
             else if (_motiveSelectionViewModel.SelectedMotiveOption != motive)
             {
@@ -145,6 +154,7 @@ namespace Tabi.Shared.ViewModels
                 }
                 motive.Selected = true;
                 _motiveSelectionViewModel.SelectedMotiveOption = motive;
+                Save();
             }
             else
             {

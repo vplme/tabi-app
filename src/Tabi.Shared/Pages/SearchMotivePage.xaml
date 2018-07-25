@@ -4,7 +4,8 @@
      xmlns:control="clr-namespace:Tabi.Shared.Controls;assembly=Tabi.Shared" x:Class="Tabi.Shared.Pages.SearchMotivePage">
     <ContentPage.Content>
         <ScrollView BackgroundColor="{DynamicResource WindowBackgroundTable}">
-            <StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}" Spacing="{DynamicResource CardSpacing}" Padding="{DynamicResource CardPadding}">
+            <StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}" Spacing="{DynamicResource CardSpacing}"
+                 Padding="{DynamicResource CardPadding}">
                 <Entry Text="{Binding SearchText}" Margin="10,10,10,10" FontSize="Medium" HorizontalTextAlignment="Center" Placeholder="Search here">
                     <Entry.Effects>
                         <local:BorderlessEntryEffect />
@@ -15,7 +16,8 @@
                     <StackLayout Spacing="0">
                         <control:LabelSection Text="{i18n:Translate SearchMotivesLabel}" />
                         <control:HeaderDivider />
-                        <ListView IsVisible="{Binding OtherMotivesVisible}" Margin="0" x:Name="PossibleMotivesListView" ItemsSource="{Binding PossibleMotives}" ItemSelected="Handle_ItemSelected">
+                        <ListView IsVisible="{Binding OtherMotivesVisible}" Margin="0" x:Name="PossibleMotivesListView" ItemsSource="{Binding PossibleMotives}"
+                             ItemSelected="Handle_ItemSelected">
                             <ListView.SeparatorColor>
                                 <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}" />
                             </ListView.SeparatorColor>
@@ -50,17 +52,8 @@
                             <FlexLayout.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding CustomMotiveCommand}" />
                             </FlexLayout.GestureRecognizers>
-                            <Label Style="{DynamicResource TabiListItemTextStyle}" Text="{Binding CustomMotiveText}" />
+                            <Label Margin="0" Style="{DynamicResource TabiListItemTextStyle}" Text="{Binding CustomMotiveText}" />
                         </StackLayout>
-                        <control:SettingsSectionDivider />
-                        <FlexLayout Margin="10, 10, 10, 10" Direction="Row" Wrap="Wrap">
-                            <FlexLayout.IsVisible>
-                                <OnPlatform x:TypeArguments="x:Boolean">
-                                    <On Platform="Android" Value="true" />
-                                </OnPlatform>
-                            </FlexLayout.IsVisible>
-                            <Button FlexLayout.Basis="100%" Text="{i18n:Translate SaveText}" Command="{Binding SaveCommand}" />
-                        </FlexLayout>
                     </StackLayout>
                 </control:CardView>
             </StackLayout>
