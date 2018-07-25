@@ -457,2205 +457,2206 @@
     <data name="CreateCustomMotive" xml:space="preserve">
         <value>Gebruik "{0}"</value>
     </data>
-    <data name="110001MotiveText" xml:space="preserve">
+    <data name="CBS110001MotiveText" xml:space="preserve">
         <value>Activiteiten in eigen huis/woning/appartement</value>
     </data>
-    <data name="110005MotiveText" xml:space="preserve">
+    <data name="CBS110005MotiveText" xml:space="preserve">
         <value>Activiteiten in nieuwe/toekomstige woning</value>
     </data>
-    <data name="110006MotiveText" xml:space="preserve">
+    <data name="CBS110006MotiveText" xml:space="preserve">
         <value>Activiteiten in oude woning</value>
     </data>
-    <data name="110009MotiveText" xml:space="preserve">
+    <data name="CBS110009MotiveText" xml:space="preserve">
         <value>Activiteiten in studentenkamer/-woning</value>
     </data>
-    <data name="110013MotiveText" xml:space="preserve">
+    <data name="CBS110013MotiveText" xml:space="preserve">
         <value>Activiteiten in tweede huis/woning</value>
     </data>
-    <data name="110015MotiveText" xml:space="preserve">
+    <data name="CBS110015MotiveText" xml:space="preserve">
         <value>Activiteiten in vakantiewoning in eigendom</value>
     </data>
-    <data name="110020MotiveText" xml:space="preserve">
+    <data name="CBS110020MotiveText" xml:space="preserve">
         <value>Activiteiten op (semi-permanent) thuis-/verblijfsadres</value>
     </data>
-    <data name="110022MotiveText" xml:space="preserve">
+    <data name="CBS110022MotiveText" xml:space="preserve">
         <value>Activiteiten in (tijdelijke) vakantiewoning</value>
     </data>
-    <data name="120001MotiveText" xml:space="preserve">
+    <data name="CBS120001MotiveText" xml:space="preserve">
         <value>Werk: Betaalde werkzaamheden</value>
     </data>
-    <data name="120002MotiveText" xml:space="preserve">
+    <data name="CBS120002MotiveText" xml:space="preserve">
         <value>Bijverdiensten</value>
     </data>
-    <data name="120041MotiveText" xml:space="preserve">
+    <data name="CBS120041MotiveText" xml:space="preserve">
         <value>Iemand begeleiden (betaald)</value>
     </data>
-    <data name="120101MotiveText" xml:space="preserve">
+    <data name="CBS120101MotiveText" xml:space="preserve">
         <value>Werk op het land als agrariër/veehouder e.d.</value>
     </data>
-    <data name="120103MotiveText" xml:space="preserve">
+    <data name="CBS120103MotiveText" xml:space="preserve">
         <value>Vee verzorgen, koeien melken e.d.</value>
     </data>
-    <data name="120121MotiveText" xml:space="preserve">
+    <data name="CBS120121MotiveText" xml:space="preserve">
         <value>Werk voor kerk/moskee/synagoge e.d.</value>
     </data>
-    <data name="120141MotiveText" xml:space="preserve">
+    <data name="CBS120141MotiveText" xml:space="preserve">
         <value>Les, cursus, voorlichting e.d. geven</value>
     </data>
-    <data name="120142MotiveText" xml:space="preserve">
+    <data name="CBS120142MotiveText" xml:space="preserve">
         <value>Instructie, training e.d. geven</value>
     </data>
-    <data name="120161MotiveText" xml:space="preserve">
+    <data name="CBS120161MotiveText" xml:space="preserve">
         <value>Model zijn (show, kapper etc.)</value>
     </data>
-    <data name="120171MotiveText" xml:space="preserve">
+    <data name="CBS120171MotiveText" xml:space="preserve">
         <value>Babysitten/Oppassen (ook als gastouder)</value>
     </data>
-    <data name="120181MotiveText" xml:space="preserve">
+    <data name="CBS120181MotiveText" xml:space="preserve">
         <value>Patiënt/cliënt/zieke bezoeken vanwege werk</value>
     </data>
-    <data name="120192MotiveText" xml:space="preserve">
+    <data name="CBS120192MotiveText" xml:space="preserve">
         <value>Sollicitatiegesprek als sollicitant</value>
     </data>
-    <data name="120201MotiveText" xml:space="preserve">
+    <data name="CBS120201MotiveText" xml:space="preserve">
         <value>Verkeer regelen (ook als vrijwilliger)</value>
     </data>
-    <data name="120221MotiveText" xml:space="preserve">
+    <data name="CBS120221MotiveText" xml:space="preserve">
         <value>Donateurs werven op straat</value>
     </data>
-    <data name="120222MotiveText" xml:space="preserve">
+    <data name="CBS120222MotiveText" xml:space="preserve">
         <value>Op de markt staan als verkoper</value>
     </data>
-    <data name="120242MotiveText" xml:space="preserve">
+    <data name="CBS120242MotiveText" xml:space="preserve">
         <value>Iemand verplegen (ook als vrijwillger)</value>
     </data>
-    <data name="120243MotiveText" xml:space="preserve">
+    <data name="CBS120243MotiveText" xml:space="preserve">
         <value>Iemand verzorgen (ook als vrijwillger)</value>
     </data>
-    <data name="120244MotiveText" xml:space="preserve">
+    <data name="CBS120244MotiveText" xml:space="preserve">
         <value>Mantelzorg verlenen</value>
     </data>
-    <data name="120246MotiveText" xml:space="preserve">
+    <data name="CBS120246MotiveText" xml:space="preserve">
         <value>Werken als PGB'er</value>
     </data>
-    <data name="120261MotiveText" xml:space="preserve">
+    <data name="CBS120261MotiveText" xml:space="preserve">
         <value>Vrijwilligerswerk (wijk/sport/school/natuur etc.)</value>
     </data>
-    <data name="120401MotiveText" xml:space="preserve">
+    <data name="CBS120401MotiveText" xml:space="preserve">
         <value>Beveiligingstaken (op vast werkadres)</value>
     </data>
-    <data name="120402MotiveText" xml:space="preserve">
+    <data name="CBS120402MotiveText" xml:space="preserve">
         <value>Bijeenkomst/vergadering op het werk</value>
     </data>
-    <data name="120403MotiveText" xml:space="preserve">
+    <data name="CBS120403MotiveText" xml:space="preserve">
         <value>Inspectie-/controlewerk (op vast werkadres)</value>
     </data>
-    <data name="120404MotiveText" xml:space="preserve">
+    <data name="CBS120404MotiveText" xml:space="preserve">
         <value>Foto(reportage)/Interview</value>
     </data>
-    <data name="120405MotiveText" xml:space="preserve">
+    <data name="CBS120405MotiveText" xml:space="preserve">
         <value>Overleg/bespreking/afspraak op het werk</value>
     </data>
-    <data name="120413MotiveText" xml:space="preserve">
+    <data name="CBS120413MotiveText" xml:space="preserve">
         <value>Vakantiewerk</value>
     </data>
-    <data name="120414MotiveText" xml:space="preserve">
+    <data name="CBS120414MotiveText" xml:space="preserve">
         <value>Surveillance uitvoeren (op vast werkadres)</value>
     </data>
-    <data name="120415MotiveText" xml:space="preserve">
+    <data name="CBS120415MotiveText" xml:space="preserve">
         <value>Deelnemen aan staking</value>
     </data>
-    <data name="120416MotiveText" xml:space="preserve">
+    <data name="CBS120416MotiveText" xml:space="preserve">
         <value>Evenemententerrein opbouwen</value>
     </data>
-    <data name="120417MotiveText" xml:space="preserve">
+    <data name="CBS120417MotiveText" xml:space="preserve">
         <value>Tijdelijk werk</value>
     </data>
-    <data name="130001MotiveText" xml:space="preserve">
+    <data name="CBS130001MotiveText" xml:space="preserve">
         <value>Ophalen/wegbrengen kind(eren) als oppas/gastouder</value>
     </data>
-    <data name="130002MotiveText" xml:space="preserve">
+    <data name="CBS130002MotiveText" xml:space="preserve">
         <value>Begeleiden persoon/personen (betaald)</value>
     </data>
-    <data name="130041MotiveText" xml:space="preserve">
+    <data name="CBS130041MotiveText" xml:space="preserve">
         <value>Afnemen sollicitatie elders</value>
     </data>
-    <data name="130061MotiveText" xml:space="preserve">
+    <data name="CBS130061MotiveText" xml:space="preserve">
         <value>Huisbezoek/ziekenbezoek (betaald)</value>
     </data>
-    <data name="130101MotiveText" xml:space="preserve">
+    <data name="CBS130101MotiveText" xml:space="preserve">
         <value>Overleg/bespreking/afspraak elders ivm werk</value>
     </data>
-    <data name="130103MotiveText" xml:space="preserve">
+    <data name="CBS130103MotiveText" xml:space="preserve">
         <value>Klant/cliënt bezoeken ivm werk</value>
     </data>
-    <data name="130107MotiveText" xml:space="preserve">
+    <data name="CBS130107MotiveText" xml:space="preserve">
         <value>Werkbezoek, zakelijk diner, zakenlunch e.d.</value>
     </data>
-    <data name="130201MotiveText" xml:space="preserve">
+    <data name="CBS130201MotiveText" xml:space="preserve">
         <value>Beurs/congres bezoeken ivm werk</value>
     </data>
-    <data name="130301MotiveText" xml:space="preserve">
+    <data name="CBS130301MotiveText" xml:space="preserve">
         <value>Ivm werk boodschappen of inkopen doen</value>
     </data>
-    <data name="130305MotiveText" xml:space="preserve">
+    <data name="CBS130305MotiveText" xml:space="preserve">
         <value>Veiling bezoeken ivm werk</value>
     </data>
-    <data name="130401MotiveText" xml:space="preserve">
+    <data name="CBS130401MotiveText" xml:space="preserve">
         <value>Gastcollege/gastles geven</value>
     </data>
-    <data name="130501MotiveText" xml:space="preserve">
+    <data name="CBS130501MotiveText" xml:space="preserve">
         <value>Werken op bestemming dienstreis/zakenreis</value>
     </data>
-    <data name="130504MotiveText" xml:space="preserve">
+    <data name="CBS130504MotiveText" xml:space="preserve">
         <value>Iets bezorgen/rondbrengen/ophalen voor het werk</value>
     </data>
-    <data name="130601MotiveText" xml:space="preserve">
+    <data name="CBS130601MotiveText" xml:space="preserve">
         <value>Bijeenkomst/vergadering elders ivm werk</value>
     </data>
-    <data name="130701MotiveText" xml:space="preserve">
+    <data name="CBS130701MotiveText" xml:space="preserve">
         <value>Inspectie-/controlewerk (1 locatie deze dag)</value>
     </data>
-    <data name="130702MotiveText" xml:space="preserve">
+    <data name="CBS130702MotiveText" xml:space="preserve">
         <value>Zakelijke opdracht/werkzaamheden elders</value>
     </data>
-    <data name="130704MotiveText" xml:space="preserve">
+    <data name="CBS130704MotiveText" xml:space="preserve">
         <value>Beveiligingswerk (1 locatie elders deze dag) </value>
     </data>
-    <data name="130705MotiveText" xml:space="preserve">
+    <data name="CBS130705MotiveText" xml:space="preserve">
         <value>Surveillance-werk (1 locatie elders deze dag) </value>
     </data>
-    <data name="140001MotiveText" xml:space="preserve">
+    <data name="CBS140001MotiveText" xml:space="preserve">
         <value>Boodschappen bezorgen als werk</value>
     </data>
-    <data name="140002MotiveText" xml:space="preserve">
+    <data name="CBS140002MotiveText" xml:space="preserve">
         <value>Bezorgen/rondbrengen/ophalen als werk</value>
     </data>
-    <data name="140003MotiveText" xml:space="preserve">
+    <data name="CBS140003MotiveText" xml:space="preserve">
         <value>Eten/maaltijden bezorgen (als werk)</value>
     </data>
-    <data name="140010MotiveText" xml:space="preserve">
+    <data name="CBS140010MotiveText" xml:space="preserve">
         <value>Krantenwijk lopen</value>
     </data>
-    <data name="140012MotiveText" xml:space="preserve">
+    <data name="CBS140012MotiveText" xml:space="preserve">
         <value>Post/folders/kranten bezorgen als werk</value>
     </data>
-    <data name="140051MotiveText" xml:space="preserve">
+    <data name="CBS140051MotiveText" xml:space="preserve">
         <value>Personen ophalen/wegbrengen (chauffeur als beroep)</value>
     </data>
-    <data name="140053MotiveText" xml:space="preserve">
+    <data name="CBS140053MotiveText" xml:space="preserve">
         <value>Naar remise/garage ivm werk als chauffeur/conducteur</value>
     </data>
-    <data name="140101MotiveText" xml:space="preserve">
+    <data name="CBS140101MotiveText" xml:space="preserve">
         <value>Huis-aan-huis werven/collecteren/verkopen</value>
     </data>
-    <data name="140104MotiveText" xml:space="preserve">
+    <data name="CBS140104MotiveText" xml:space="preserve">
         <value>Kinderpostzegels verkopen</value>
     </data>
-    <data name="140201MotiveText" xml:space="preserve">
+    <data name="CBS140201MotiveText" xml:space="preserve">
         <value>Inbraakpreventie-ronde maken door wijk(en)</value>
     </data>
-    <data name="140202MotiveText" xml:space="preserve">
+    <data name="CBS140202MotiveText" xml:space="preserve">
         <value>Surveillance-ronde (div. locaties deze dag) </value>
     </data>
-    <data name="140203MotiveText" xml:space="preserve">
+    <data name="CBS140203MotiveText" xml:space="preserve">
         <value>Weginspectie uitvoeren</value>
     </data>
-    <data name="140204MotiveText" xml:space="preserve">
+    <data name="CBS140204MotiveText" xml:space="preserve">
         <value>Wijkschouw uitvoeren</value>
     </data>
-    <data name="140205MotiveText" xml:space="preserve">
+    <data name="CBS140205MotiveText" xml:space="preserve">
         <value>Inspectie-/controleronde (div. locaties deze dag)</value>
     </data>
-    <data name="140206MotiveText" xml:space="preserve">
+    <data name="CBS140206MotiveText" xml:space="preserve">
         <value>Beveiligingsronde (div. locaties deze dag) </value>
     </data>
-    <data name="140301MotiveText" xml:space="preserve">
+    <data name="CBS140301MotiveText" xml:space="preserve">
         <value>Opnemen meterstanden</value>
     </data>
-    <data name="150001MotiveText" xml:space="preserve">
+    <data name="CBS150001MotiveText" xml:space="preserve">
         <value>Iemand ophalen/wegbrengen (niet als werk)</value>
     </data>
-    <data name="150007MotiveText" xml:space="preserve">
+    <data name="CBS150007MotiveText" xml:space="preserve">
         <value>Kind(eren) ophalen/wegbrengen (niet als werk)</value>
     </data>
-    <data name="150008MotiveText" xml:space="preserve">
+    <data name="CBS150008MotiveText" xml:space="preserve">
         <value>Kind(eren) ophalen van logeeradres</value>
     </data>
-    <data name="150014MotiveText" xml:space="preserve">
+    <data name="CBS150014MotiveText" xml:space="preserve">
         <value>Meegegaan met iemand om deze te vervoeren</value>
     </data>
-    <data name="150101MotiveText" xml:space="preserve">
+    <data name="CBS150101MotiveText" xml:space="preserve">
         <value>Kind(eren) ophalen bij oppas/gastouder (niet als werk)</value>
     </data>
-    <data name="150102MotiveText" xml:space="preserve">
+    <data name="CBS150102MotiveText" xml:space="preserve">
         <value>Kind(eren) ophalen van opvang/bso (niet als werk)</value>
     </data>
-    <data name="150103MotiveText" xml:space="preserve">
+    <data name="CBS150103MotiveText" xml:space="preserve">
         <value>Kind(eren) ophalen van creche/dagverblijf (niet als werk)</value>
     </data>
-    <data name="150109MotiveText" xml:space="preserve">
+    <data name="CBS150109MotiveText" xml:space="preserve">
         <value>Kind(eren) ophalen van school (niet als werk)</value>
     </data>
-    <data name="150112MotiveText" xml:space="preserve">
+    <data name="CBS150112MotiveText" xml:space="preserve">
         <value>Kind(eren) ophalen van sport e.d. (niet als werk)</value>
     </data>
-    <data name="150201MotiveText" xml:space="preserve">
+    <data name="CBS150201MotiveText" xml:space="preserve">
         <value>Iemand thuisbrengen (niet als werk)</value>
     </data>
-    <data name="150228MotiveText" xml:space="preserve">
+    <data name="CBS150228MotiveText" xml:space="preserve">
         <value>Kind(eren) naar logeeradres brengen</value>
     </data>
-    <data name="150301MotiveText" xml:space="preserve">
+    <data name="CBS150301MotiveText" xml:space="preserve">
         <value>Kind(eren) naar creche/dagverblijf brengen (niet als werk)</value>
     </data>
-    <data name="150303MotiveText" xml:space="preserve">
+    <data name="CBS150303MotiveText" xml:space="preserve">
         <value>Kind(eren) naar opvang brengen (niet als werk)</value>
     </data>
-    <data name="150305MotiveText" xml:space="preserve">
+    <data name="CBS150305MotiveText" xml:space="preserve">
         <value>Kind(eren) naar oppas/gastouder brengen (niet als werk)</value>
     </data>
-    <data name="150308MotiveText" xml:space="preserve">
+    <data name="CBS150308MotiveText" xml:space="preserve">
         <value>Kind(eren) naar school brengen (niet als werk)</value>
     </data>
-    <data name="150311MotiveText" xml:space="preserve">
+    <data name="CBS150311MotiveText" xml:space="preserve">
         <value>Kind(eren) naar sport e.d. brengen (niet als werk)</value>
     </data>
-    <data name="160001MotiveText" xml:space="preserve">
+    <data name="CBS160001MotiveText" xml:space="preserve">
         <value>Afval/vuilnis wegbrengen (niet als werk)</value>
     </data>
-    <data name="160003MotiveText" xml:space="preserve">
+    <data name="CBS160003MotiveText" xml:space="preserve">
         <value>Boodschappen ophalen/wegbrengen (niet als werk)</value>
     </data>
-    <data name="160007MotiveText" xml:space="preserve">
+    <data name="CBS160007MotiveText" xml:space="preserve">
         <value>Caravan/aanhanger e.d. ophalen of wegbrengen</value>
     </data>
-    <data name="160009MotiveText" xml:space="preserve">
+    <data name="CBS160009MotiveText" xml:space="preserve">
         <value>Collectebus ophalen of wegbrengen</value>
     </data>
-    <data name="160010MotiveText" xml:space="preserve">
+    <data name="CBS160010MotiveText" xml:space="preserve">
         <value>Eten weg-/rondbrengen (niet als werk)</value>
     </data>
-    <data name="160011MotiveText" xml:space="preserve">
+    <data name="CBS160011MotiveText" xml:space="preserve">
         <value>Te lenen fiets van particulier ophalen</value>
     </data>
-    <data name="160013MotiveText" xml:space="preserve">
+    <data name="CBS160013MotiveText" xml:space="preserve">
         <value>Te lenen auto van particulier ophalen</value>
     </data>
-    <data name="160015MotiveText" xml:space="preserve">
+    <data name="CBS160015MotiveText" xml:space="preserve">
         <value>Goederen ophalen/wegbrengen (niet als werk)</value>
     </data>
-    <data name="160017MotiveText" xml:space="preserve">
+    <data name="CBS160017MotiveText" xml:space="preserve">
         <value>Huisdier ophalen/wegbrengen (hond, kat e.d.)</value>
     </data>
-    <data name="160018MotiveText" xml:space="preserve">
+    <data name="CBS160018MotiveText" xml:space="preserve">
         <value>Iets ophalen/wegbrengen (niet als werk)</value>
     </data>
-    <data name="160021MotiveText" xml:space="preserve">
+    <data name="CBS160021MotiveText" xml:space="preserve">
         <value>Post/krant/pakje e.d. ophalen/wegbrengen (niet als werk)</value>
     </data>
-    <data name="160022MotiveText" xml:space="preserve">
+    <data name="CBS160022MotiveText" xml:space="preserve">
         <value>Oud papier ophalen/wegbrengen (niet als werk)</value>
     </data>
-    <data name="160025MotiveText" xml:space="preserve">
+    <data name="CBS160025MotiveText" xml:space="preserve">
         <value>Sleutels ophalen/wegbrengen/afgeven</value>
     </data>
-    <data name="160026MotiveText" xml:space="preserve">
+    <data name="CBS160026MotiveText" xml:space="preserve">
         <value>Spullen ophalen/wegbrengen (niet als werk)</value>
     </data>
-    <data name="160027MotiveText" xml:space="preserve">
+    <data name="CBS160027MotiveText" xml:space="preserve">
         <value>Te lenen aanhanger van particulier ophalen</value>
     </data>
-    <data name="160029MotiveText" xml:space="preserve">
+    <data name="CBS160029MotiveText" xml:space="preserve">
         <value>Verhuisspullen ophalen/wegbrengen (niet als werk)</value>
     </data>
-    <data name="160101MotiveText" xml:space="preserve">
+    <data name="CBS160101MotiveText" xml:space="preserve">
         <value>Post/krant/pakje e.d. afgeven (niet als werk)</value>
     </data>
-    <data name="160112MotiveText" xml:space="preserve">
+    <data name="CBS160112MotiveText" xml:space="preserve">
         <value>Iets overhandigen</value>
     </data>
-    <data name="160113MotiveText" xml:space="preserve">
+    <data name="CBS160113MotiveText" xml:space="preserve">
         <value>Brief e.d. posten/op de bus doen</value>
     </data>
-    <data name="160116MotiveText" xml:space="preserve">
+    <data name="CBS160116MotiveText" xml:space="preserve">
         <value>Kaarten/folders e.d. rondbrengen (niet als werk)</value>
     </data>
-    <data name="160209MotiveText" xml:space="preserve">
+    <data name="CBS160209MotiveText" xml:space="preserve">
         <value>Geleende fiets terugbrengen</value>
     </data>
-    <data name="160210MotiveText" xml:space="preserve">
+    <data name="CBS160210MotiveText" xml:space="preserve">
         <value>Geleende aanhanger van particulier terugbrengen</value>
     </data>
-    <data name="160211MotiveText" xml:space="preserve">
+    <data name="CBS160211MotiveText" xml:space="preserve">
         <value>Geleende auto van particulier terugbrengen</value>
     </data>
-    <data name="160212MotiveText" xml:space="preserve">
+    <data name="CBS160212MotiveText" xml:space="preserve">
         <value>Glas, blik etc. wegbrengen naar container/milieustation e.d.</value>
     </data>
-    <data name="160301MotiveText" xml:space="preserve">
+    <data name="CBS160301MotiveText" xml:space="preserve">
         <value>Omruilen auto</value>
     </data>
-    <data name="160302MotiveText" xml:space="preserve">
+    <data name="CBS160302MotiveText" xml:space="preserve">
         <value>Omruilen fiets</value>
     </data>
-    <data name="170001MotiveText" xml:space="preserve">
+    <data name="CBS170001MotiveText" xml:space="preserve">
         <value>Cursus/les volgen (muziek, taal, vaardigheid etc.)</value>
     </data>
-    <data name="170002MotiveText" xml:space="preserve">
+    <data name="CBS170002MotiveText" xml:space="preserve">
         <value>EHBO-/reanimatiecursus e.d.</value>
     </data>
-    <data name="170007MotiveText" xml:space="preserve">
+    <data name="CBS170007MotiveText" xml:space="preserve">
         <value>Taalcurcus/Taalles</value>
     </data>
-    <data name="170010MotiveText" xml:space="preserve">
+    <data name="CBS170010MotiveText" xml:space="preserve">
         <value>Zwangerschapscursus</value>
     </data>
-    <data name="170101MotiveText" xml:space="preserve">
+    <data name="CBS170101MotiveText" xml:space="preserve">
         <value>Muziekles (piano, viool, blokfluit, gitaar etc.)</value>
     </data>
-    <data name="170105MotiveText" xml:space="preserve">
+    <data name="CBS170105MotiveText" xml:space="preserve">
         <value>Muziekschool voor onderwijs/les/cursus</value>
     </data>
-    <data name="170108MotiveText" xml:space="preserve">
+    <data name="CBS170108MotiveText" xml:space="preserve">
         <value>Zangles</value>
     </data>
-    <data name="170201MotiveText" xml:space="preserve">
+    <data name="CBS170201MotiveText" xml:space="preserve">
         <value>Basisschool voor volgen onderwijs</value>
     </data>
-    <data name="170203MotiveText" xml:space="preserve">
+    <data name="CBS170203MotiveText" xml:space="preserve">
         <value>Bijles volgen</value>
     </data>
-    <data name="170205MotiveText" xml:space="preserve">
+    <data name="CBS170205MotiveText" xml:space="preserve">
         <value>Conservatorium voor volgen onderwijs</value>
     </data>
-    <data name="170207MotiveText" xml:space="preserve">
+    <data name="CBS170207MotiveText" xml:space="preserve">
         <value>School-/onderwijsexamen doen</value>
     </data>
-    <data name="170209MotiveText" xml:space="preserve">
+    <data name="CBS170209MotiveText" xml:space="preserve">
         <value>Huiswerkbegeleiding</value>
     </data>
-    <data name="170213MotiveText" xml:space="preserve">
+    <data name="CBS170213MotiveText" xml:space="preserve">
         <value>Kappersopleiding voor volgen onderwijs</value>
     </data>
-    <data name="170215MotiveText" xml:space="preserve">
+    <data name="CBS170215MotiveText" xml:space="preserve">
         <value>Kinderdagcentrum (KDC) voor volgen onderwijs</value>
     </data>
-    <data name="170217MotiveText" xml:space="preserve">
+    <data name="CBS170217MotiveText" xml:space="preserve">
         <value>Kunstacademie voor volgen onderwijs</value>
     </data>
-    <data name="170219MotiveText" xml:space="preserve">
+    <data name="CBS170219MotiveText" xml:space="preserve">
         <value>Leren/studeren/lessen op school</value>
     </data>
-    <data name="170223MotiveText" xml:space="preserve">
+    <data name="CBS170223MotiveText" xml:space="preserve">
         <value>Middelbare school voor volgen onderwijs</value>
     </data>
-    <data name="170225MotiveText" xml:space="preserve">
+    <data name="CBS170225MotiveText" xml:space="preserve">
         <value>Mytylschool voor volgen onderwijs</value>
     </data>
-    <data name="170229MotiveText" xml:space="preserve">
+    <data name="CBS170229MotiveText" xml:space="preserve">
         <value>Onderwijs/opleiding volgen (alle vormen)</value>
     </data>
-    <data name="170231MotiveText" xml:space="preserve">
+    <data name="CBS170231MotiveText" xml:space="preserve">
         <value>Peuterspeelzaal voor volgen onderwijs</value>
     </data>
-    <data name="170233MotiveText" xml:space="preserve">
+    <data name="CBS170233MotiveText" xml:space="preserve">
         <value>Popacademie voor volgen onderwijs</value>
     </data>
-    <data name="170235MotiveText" xml:space="preserve">
+    <data name="CBS170235MotiveText" xml:space="preserve">
         <value>Schoolopdracht/-project uitvoeren</value>
     </data>
-    <data name="170239MotiveText" xml:space="preserve">
+    <data name="CBS170239MotiveText" xml:space="preserve">
         <value>Speciaal (voortgezet) onderwijs volgen</value>
     </data>
-    <data name="170243MotiveText" xml:space="preserve">
+    <data name="CBS170243MotiveText" xml:space="preserve">
         <value>Studeren/colleges op universiteit</value>
     </data>
-    <data name="170245MotiveText" xml:space="preserve">
+    <data name="CBS170245MotiveText" xml:space="preserve">
         <value>Toneelacademie/-school voor volgen onderwijs</value>
     </data>
-    <data name="170249MotiveText" xml:space="preserve">
+    <data name="CBS170249MotiveText" xml:space="preserve">
         <value>Tyltylschool voor volgen onderwijs</value>
     </data>
-    <data name="170251MotiveText" xml:space="preserve">
+    <data name="CBS170251MotiveText" xml:space="preserve">
         <value>Universiteit voor volgen onderwijs</value>
     </data>
-    <data name="170301MotiveText" xml:space="preserve">
+    <data name="CBS170301MotiveText" xml:space="preserve">
         <value>Overblijven op school</value>
     </data>
-    <data name="170302MotiveText" xml:space="preserve">
+    <data name="CBS170302MotiveText" xml:space="preserve">
         <value>Verblijf bij opvang/bso</value>
     </data>
-    <data name="170303MotiveText" xml:space="preserve">
+    <data name="CBS170303MotiveText" xml:space="preserve">
         <value>Verblijf bij gastouder/oppas</value>
     </data>
-    <data name="170308MotiveText" xml:space="preserve">
+    <data name="CBS170308MotiveText" xml:space="preserve">
         <value>Verblijf bij peuterspeelzaal/creche</value>
     </data>
-    <data name="170401MotiveText" xml:space="preserve">
+    <data name="CBS170401MotiveText" xml:space="preserve">
         <value>Bijbelkring, koranles e.d.</value>
     </data>
-    <data name="170402MotiveText" xml:space="preserve">
+    <data name="CBS170402MotiveText" xml:space="preserve">
         <value>Godsdienstles, catechisatie e.d.</value>
     </data>
-    <data name="170502MotiveText" xml:space="preserve">
+    <data name="CBS170502MotiveText" xml:space="preserve">
         <value>Schoolgym</value>
     </data>
-    <data name="170503MotiveText" xml:space="preserve">
+    <data name="CBS170503MotiveText" xml:space="preserve">
         <value>Meedoen aan musical/optreden op school</value>
     </data>
-    <data name="170601MotiveText" xml:space="preserve">
+    <data name="CBS170601MotiveText" xml:space="preserve">
         <value>Meedoen aan toneelstuk/voorstelling op school</value>
     </data>
-    <data name="170602MotiveText" xml:space="preserve">
+    <data name="CBS170602MotiveText" xml:space="preserve">
         <value>Meedoen in schoolmusical</value>
     </data>
-    <data name="170604MotiveText" xml:space="preserve">
+    <data name="CBS170604MotiveText" xml:space="preserve">
         <value>Sportdag van school</value>
     </data>
-    <data name="170606MotiveText" xml:space="preserve">
+    <data name="CBS170606MotiveText" xml:space="preserve">
         <value>Schoolkamp</value>
     </data>
-    <data name="170621MotiveText" xml:space="preserve">
+    <data name="CBS170621MotiveText" xml:space="preserve">
         <value>Schoolexcursie/-uitje</value>
     </data>
-    <data name="170622MotiveText" xml:space="preserve">
+    <data name="CBS170622MotiveText" xml:space="preserve">
         <value>Schoolreis(je)</value>
     </data>
-    <data name="170624MotiveText" xml:space="preserve">
+    <data name="CBS170624MotiveText" xml:space="preserve">
         <value>Studiereis</value>
     </data>
-    <data name="170625MotiveText" xml:space="preserve">
+    <data name="CBS170625MotiveText" xml:space="preserve">
         <value>Uitstapje met school/opvang e.d.</value>
     </data>
-    <data name="170642MotiveText" xml:space="preserve">
+    <data name="CBS170642MotiveText" xml:space="preserve">
         <value>Schoolzwemmen/Zwemmen met school</value>
     </data>
-    <data name="170701MotiveText" xml:space="preserve">
+    <data name="CBS170701MotiveText" xml:space="preserve">
         <value>Stage lopen/Maatschappelijke stage</value>
     </data>
-    <data name="170703MotiveText" xml:space="preserve">
+    <data name="CBS170703MotiveText" xml:space="preserve">
         <value>Leerwerktraject volgen</value>
     </data>
-    <data name="170801MotiveText" xml:space="preserve">
+    <data name="CBS170801MotiveText" xml:space="preserve">
         <value>Afrijden/praktijkexamen voor rijbewijs</value>
     </data>
-    <data name="170802MotiveText" xml:space="preserve">
+    <data name="CBS170802MotiveText" xml:space="preserve">
         <value>Auto-/motorrijles e.d.</value>
     </data>
-    <data name="170803MotiveText" xml:space="preserve">
+    <data name="CBS170803MotiveText" xml:space="preserve">
         <value>Autorijschool e.d.</value>
     </data>
-    <data name="170804MotiveText" xml:space="preserve">
+    <data name="CBS170804MotiveText" xml:space="preserve">
         <value>Rijexamen (auto, motor, bromfiets e.d.)</value>
     </data>
-    <data name="170809MotiveText" xml:space="preserve">
+    <data name="CBS170809MotiveText" xml:space="preserve">
         <value>Theorie-examen voor rijbewijs</value>
     </data>
-    <data name="170810MotiveText" xml:space="preserve">
+    <data name="CBS170810MotiveText" xml:space="preserve">
         <value>Verkeersexamen, fietsexamen e.d.</value>
     </data>
-    <data name="170811MotiveText" xml:space="preserve">
+    <data name="CBS170811MotiveText" xml:space="preserve">
         <value>Verkeersles</value>
     </data>
-    <data name="180101MotiveText" xml:space="preserve">
+    <data name="CBS180101MotiveText" xml:space="preserve">
         <value>Bakker (iets kopen)</value>
     </data>
-    <data name="180102MotiveText" xml:space="preserve">
+    <data name="CBS180102MotiveText" xml:space="preserve">
         <value>Boodschappen doen</value>
     </data>
-    <data name="180104MotiveText" xml:space="preserve">
+    <data name="CBS180104MotiveText" xml:space="preserve">
         <value>Groente- en/of fruitwinkel (iets kopen)</value>
     </data>
-    <data name="180106MotiveText" xml:space="preserve">
+    <data name="CBS180106MotiveText" xml:space="preserve">
         <value>Iets kopen in winkel/zaak</value>
     </data>
-    <data name="180109MotiveText" xml:space="preserve">
+    <data name="CBS180109MotiveText" xml:space="preserve">
         <value>Supermarkt (iets kopen)</value>
     </data>
-    <data name="180110MotiveText" xml:space="preserve">
+    <data name="CBS180110MotiveText" xml:space="preserve">
         <value>Slager (iets kopen)</value>
     </data>
-    <data name="180111MotiveText" xml:space="preserve">
+    <data name="CBS180111MotiveText" xml:space="preserve">
         <value>Viswinkel (iets kopen)</value>
     </data>
-    <data name="180113MotiveText" xml:space="preserve">
+    <data name="CBS180113MotiveText" xml:space="preserve">
         <value>Slijterij (iets kopen)</value>
     </data>
-    <data name="180201MotiveText" xml:space="preserve">
+    <data name="CBS180201MotiveText" xml:space="preserve">
         <value>Grote aankoop doen, inkopen doen e.d.</value>
     </data>
-    <data name="180202MotiveText" xml:space="preserve">
+    <data name="CBS180202MotiveText" xml:space="preserve">
         <value>Auto kopen</value>
     </data>
-    <data name="180203MotiveText" xml:space="preserve">
+    <data name="CBS180203MotiveText" xml:space="preserve">
         <value>Autodealer voor bekijken/aanschaffen auto</value>
     </data>
-    <data name="180206MotiveText" xml:space="preserve">
+    <data name="CBS180206MotiveText" xml:space="preserve">
         <value>Autodealer of -garage ivm maken proefrit</value>
     </data>
-    <data name="180211MotiveText" xml:space="preserve">
+    <data name="CBS180211MotiveText" xml:space="preserve">
         <value>Autoshowroom bezoeken</value>
     </data>
-    <data name="180212MotiveText" xml:space="preserve">
+    <data name="CBS180212MotiveText" xml:space="preserve">
         <value>Caravan of aanhanger kopen</value>
     </data>
-    <data name="180214MotiveText" xml:space="preserve">
+    <data name="CBS180214MotiveText" xml:space="preserve">
         <value>Beddenspeciaalzaak (iets kopen)</value>
     </data>
-    <data name="180215MotiveText" xml:space="preserve">
+    <data name="CBS180215MotiveText" xml:space="preserve">
         <value>Keukenzaak (iets kopen)</value>
     </data>
-    <data name="180217MotiveText" xml:space="preserve">
+    <data name="CBS180217MotiveText" xml:space="preserve">
         <value>Meubelzaak (iets kopen)</value>
     </data>
-    <data name="180219MotiveText" xml:space="preserve">
+    <data name="CBS180219MotiveText" xml:space="preserve">
         <value>Badkamerwinkel (iets kopen)</value>
     </data>
-    <data name="180221MotiveText" xml:space="preserve">
+    <data name="CBS180221MotiveText" xml:space="preserve">
         <value>Sanitairwinkel (iets kopen)</value>
     </data>
-    <data name="180302MotiveText" xml:space="preserve">
+    <data name="CBS180302MotiveText" xml:space="preserve">
         <value>Antiek- of boekenmarkt e.d. bezoeken</value>
     </data>
-    <data name="180304MotiveText" xml:space="preserve">
+    <data name="CBS180304MotiveText" xml:space="preserve">
         <value>Braderie bezoeken</value>
     </data>
-    <data name="180306MotiveText" xml:space="preserve">
+    <data name="CBS180306MotiveText" xml:space="preserve">
         <value>Markt bezoeken</value>
     </data>
-    <data name="180307MotiveText" xml:space="preserve">
+    <data name="CBS180307MotiveText" xml:space="preserve">
         <value>Kofferbakverkoop of garageverkoop bezoeken</value>
     </data>
-    <data name="180308MotiveText" xml:space="preserve">
+    <data name="CBS180308MotiveText" xml:space="preserve">
         <value>Jaar-, kerst of paasmarkt e.d. bezoeken</value>
     </data>
-    <data name="180315MotiveText" xml:space="preserve">
+    <data name="CBS180315MotiveText" xml:space="preserve">
         <value>Brocante, vlooien- of rommelmarkt bezoeken</value>
     </data>
-    <data name="180316MotiveText" xml:space="preserve">
+    <data name="CBS180316MotiveText" xml:space="preserve">
         <value>Vrij-, oranje- of koningsmarkt bezoeken</value>
     </data>
-    <data name="180319MotiveText" xml:space="preserve">
+    <data name="CBS180319MotiveText" xml:space="preserve">
         <value>Zwarte markt bezoeken</value>
     </data>
-    <data name="180402MotiveText" xml:space="preserve">
+    <data name="CBS180402MotiveText" xml:space="preserve">
         <value>Tanken of iets kopen bij tankstation</value>
     </data>
-    <data name="180502MotiveText" xml:space="preserve">
+    <data name="CBS180502MotiveText" xml:space="preserve">
         <value>Bloemen- of plantenwinkel (iets kopen)</value>
     </data>
-    <data name="180503MotiveText" xml:space="preserve">
+    <data name="CBS180503MotiveText" xml:space="preserve">
         <value>Boekenwinkel of -handel (iets kopen)</value>
     </data>
-    <data name="180506MotiveText" xml:space="preserve">
+    <data name="CBS180506MotiveText" xml:space="preserve">
         <value>Bouwmarkt/Doe-het-zelfzaak (iets kopen)</value>
     </data>
-    <data name="180507MotiveText" xml:space="preserve">
+    <data name="CBS180507MotiveText" xml:space="preserve">
         <value>Brillenwinkel (iets kopen)</value>
     </data>
-    <data name="180509MotiveText" xml:space="preserve">
+    <data name="CBS180509MotiveText" xml:space="preserve">
         <value>Electronicawinkel (iets kopen)</value>
     </data>
-    <data name="180511MotiveText" xml:space="preserve">
+    <data name="CBS180511MotiveText" xml:space="preserve">
         <value>Fietsenwinkel (iets kopen)</value>
     </data>
-    <data name="180513MotiveText" xml:space="preserve">
+    <data name="CBS180513MotiveText" xml:space="preserve">
         <value>Fotowinkel (iets kopen)</value>
     </data>
-    <data name="180514MotiveText" xml:space="preserve">
+    <data name="CBS180514MotiveText" xml:space="preserve">
         <value>Hobbywinkel (iets kopen)</value>
     </data>
-    <data name="180515MotiveText" xml:space="preserve">
+    <data name="CBS180515MotiveText" xml:space="preserve">
         <value>Iets kopen bij particulier</value>
     </data>
-    <data name="180519MotiveText" xml:space="preserve">
+    <data name="CBS180519MotiveText" xml:space="preserve">
         <value>Dierenspeciaalzaak of -winkel (iets kopen)</value>
     </data>
-    <data name="180522MotiveText" xml:space="preserve">
+    <data name="CBS180522MotiveText" xml:space="preserve">
         <value>Muziekwinkel (iets kopen)</value>
     </data>
-    <data name="180523MotiveText" xml:space="preserve">
+    <data name="CBS180523MotiveText" xml:space="preserve">
         <value>Verfwinkel (iets kopen)</value>
     </data>
-    <data name="180524MotiveText" xml:space="preserve">
+    <data name="CBS180524MotiveText" xml:space="preserve">
         <value>Warenhuis (iets kopen)</value>
     </data>
-    <data name="180527MotiveText" xml:space="preserve">
+    <data name="CBS180527MotiveText" xml:space="preserve">
         <value>Kerstboom kopen</value>
     </data>
-    <data name="180528MotiveText" xml:space="preserve">
+    <data name="CBS180528MotiveText" xml:space="preserve">
         <value>Kringloopwinkel (iets kopen)</value>
     </data>
-    <data name="180529MotiveText" xml:space="preserve">
+    <data name="CBS180529MotiveText" xml:space="preserve">
         <value>Kwekerij, tuincentrum e.d. (iets kopen)</value>
     </data>
-    <data name="180531MotiveText" xml:space="preserve">
+    <data name="CBS180531MotiveText" xml:space="preserve">
         <value>Outlet bezoeken</value>
     </data>
-    <data name="180532MotiveText" xml:space="preserve">
+    <data name="CBS180532MotiveText" xml:space="preserve">
         <value>Speelgoedwinkel (iets kopen)</value>
     </data>
-    <data name="180533MotiveText" xml:space="preserve">
+    <data name="CBS180533MotiveText" xml:space="preserve">
         <value>Sportwinkel (iets kopen)</value>
     </data>
-    <data name="180535MotiveText" xml:space="preserve">
+    <data name="CBS180535MotiveText" xml:space="preserve">
         <value>Telefoonwinkel (iets kopen)</value>
     </data>
-    <data name="180537MotiveText" xml:space="preserve">
+    <data name="CBS180537MotiveText" xml:space="preserve">
         <value>Tweedehandswinkel (iets kopen)</value>
     </data>
-    <data name="180539MotiveText" xml:space="preserve">
+    <data name="CBS180539MotiveText" xml:space="preserve">
         <value>Videotheek bezoeken</value>
     </data>
-    <data name="180540MotiveText" xml:space="preserve">
+    <data name="CBS180540MotiveText" xml:space="preserve">
         <value>Vuurwerk kopen</value>
     </data>
-    <data name="180542MotiveText" xml:space="preserve">
+    <data name="CBS180542MotiveText" xml:space="preserve">
         <value>Winkelen, shoppen (alle soorten winkels)</value>
     </data>
-    <data name="180544MotiveText" xml:space="preserve">
+    <data name="CBS180544MotiveText" xml:space="preserve">
         <value>Kledingwinkel of -zaak (iets kopen)</value>
     </data>
-    <data name="190101MotiveText" xml:space="preserve">
+    <data name="CBS190101MotiveText" xml:space="preserve">
         <value>Familiebijeenkomst bij familie thuis</value>
     </data>
-    <data name="190201MotiveText" xml:space="preserve">
+    <data name="CBS190201MotiveText" xml:space="preserve">
         <value>Logeren bij familie, vrienden, bekende etc.</value>
     </data>
-    <data name="190208MotiveText" xml:space="preserve">
+    <data name="CBS190208MotiveText" xml:space="preserve">
         <value>Overnachten bij familie, vrienden, bekende etc.</value>
     </data>
-    <data name="190214MotiveText" xml:space="preserve">
+    <data name="CBS190214MotiveText" xml:space="preserve">
         <value>Slapen bij familie, vrienden, bekende etc.</value>
     </data>
-    <data name="190220MotiveText" xml:space="preserve">
+    <data name="CBS190220MotiveText" xml:space="preserve">
         <value>Weekendverblijf bij vader/moeder/ouder(s)</value>
     </data>
-    <data name="190221MotiveText" xml:space="preserve">
+    <data name="CBS190221MotiveText" xml:space="preserve">
         <value>Bij moeder verblijven (tweede thuis)</value>
     </data>
-    <data name="190223MotiveText" xml:space="preserve">
+    <data name="CBS190223MotiveText" xml:space="preserve">
         <value>Bij vader verblijven (tweede thuis)</value>
     </data>
-    <data name="190301MotiveText" xml:space="preserve">
+    <data name="CBS190301MotiveText" xml:space="preserve">
         <value>Afspraak/overleg/bespreking bij iemand thuis</value>
     </data>
-    <data name="190305MotiveText" xml:space="preserve">
+    <data name="CBS190305MotiveText" xml:space="preserve">
         <value>Op bezoek bij buren/buurman/-vrouw</value>
     </data>
-    <data name="190310MotiveText" xml:space="preserve">
+    <data name="CBS190310MotiveText" xml:space="preserve">
         <value>Op bezoek bij ex</value>
     </data>
-    <data name="190311MotiveText" xml:space="preserve">
+    <data name="CBS190311MotiveText" xml:space="preserve">
         <value>Familie bezoeken (opa, oma, vader, moeder etc.)</value>
     </data>
-    <data name="190330MotiveText" xml:space="preserve">
+    <data name="CBS190330MotiveText" xml:space="preserve">
         <value>Condoleancebezoek bij iemand thuis</value>
     </data>
-    <data name="190331MotiveText" xml:space="preserve">
+    <data name="CBS190331MotiveText" xml:space="preserve">
         <value>Op bezoek bij iemand thuis</value>
     </data>
-    <data name="190338MotiveText" xml:space="preserve">
+    <data name="CBS190338MotiveText" xml:space="preserve">
         <value>Op bezoek bij vriend(in)/partner e.d.</value>
     </data>
-    <data name="190340MotiveText" xml:space="preserve">
+    <data name="CBS190340MotiveText" xml:space="preserve">
         <value>Eten, koffie/thee drinken bij iemand thuis</value>
     </data>
-    <data name="190367MotiveText" xml:space="preserve">
+    <data name="CBS190367MotiveText" xml:space="preserve">
         <value>Feest/viering bij iemand thuis</value>
     </data>
-    <data name="190368MotiveText" xml:space="preserve">
+    <data name="CBS190368MotiveText" xml:space="preserve">
         <value>Kinderfeestje bij iemand thuis</value>
     </data>
-    <data name="190369MotiveText" xml:space="preserve">
+    <data name="CBS190369MotiveText" xml:space="preserve">
         <value>Nieuwjaar/oud en nieuw vieren bij iemand thuis</value>
     </data>
-    <data name="190375MotiveText" xml:space="preserve">
+    <data name="CBS190375MotiveText" xml:space="preserve">
         <value>Film kijken bij iemand thuis</value>
     </data>
-    <data name="190376MotiveText" xml:space="preserve">
+    <data name="CBS190376MotiveText" xml:space="preserve">
         <value>Huiswerk maken bij vriend(in) thuis</value>
     </data>
-    <data name="190377MotiveText" xml:space="preserve">
+    <data name="CBS190377MotiveText" xml:space="preserve">
         <value>Op kraamvisite</value>
     </data>
-    <data name="190378MotiveText" xml:space="preserve">
+    <data name="CBS190378MotiveText" xml:space="preserve">
         <value>Spelen bij vriend(in) thuis</value>
     </data>
-    <data name="190380MotiveText" xml:space="preserve">
+    <data name="CBS190380MotiveText" xml:space="preserve">
         <value>Op visite bij familie/vrienden/kennissen etc.</value>
     </data>
-    <data name="190413MotiveText" xml:space="preserve">
+    <data name="CBS190413MotiveText" xml:space="preserve">
         <value>Op ziekenbezoek bij familie/vrienden/kennissen etc.</value>
     </data>
-    <data name="200201MotiveText" xml:space="preserve">
+    <data name="CBS200201MotiveText" xml:space="preserve">
         <value>Fietsen tbv revalidatie</value>
     </data>
-    <data name="200202MotiveText" xml:space="preserve">
+    <data name="CBS200202MotiveText" xml:space="preserve">
         <value>Recreatief fietsen (fietsroute/-tocht)</value>
     </data>
-    <data name="200204MotiveText" xml:space="preserve">
+    <data name="CBS200204MotiveText" xml:space="preserve">
         <value>Fietsvierdaagse fietsen</value>
     </data>
-    <data name="200205MotiveText" xml:space="preserve">
+    <data name="CBS200205MotiveText" xml:space="preserve">
         <value>Oefenen met fietsen</value>
     </data>
-    <data name="200206MotiveText" xml:space="preserve">
+    <data name="CBS200206MotiveText" xml:space="preserve">
         <value>Stukje/rondje fietsen</value>
     </data>
-    <data name="200208MotiveText" xml:space="preserve">
+    <data name="CBS200208MotiveText" xml:space="preserve">
         <value>Wandelen (wandeling, wandelroute/-tocht)</value>
     </data>
-    <data name="200301MotiveText" xml:space="preserve">
+    <data name="CBS200301MotiveText" xml:space="preserve">
         <value>Wandelvierdaagse lopen</value>
     </data>
-    <data name="200303MotiveText" xml:space="preserve">
+    <data name="CBS200303MotiveText" xml:space="preserve">
         <value>Stukje of rondje lopen</value>
     </data>
-    <data name="200307MotiveText" xml:space="preserve">
+    <data name="CBS200307MotiveText" xml:space="preserve">
         <value>Lopen tbv revalidatie/oefenen</value>
     </data>
-    <data name="200312MotiveText" xml:space="preserve">
+    <data name="CBS200312MotiveText" xml:space="preserve">
         <value>Ommetje maken / blokje om lopen</value>
     </data>
-    <data name="200313MotiveText" xml:space="preserve">
+    <data name="CBS200313MotiveText" xml:space="preserve">
         <value>Pauze- of lunchwandeling</value>
     </data>
-    <data name="200401MotiveText" xml:space="preserve">
+    <data name="CBS200401MotiveText" xml:space="preserve">
         <value>Hond uitlaten / rondje met de hond</value>
     </data>
-    <data name="200421MotiveText" xml:space="preserve">
+    <data name="CBS200421MotiveText" xml:space="preserve">
         <value>Zelf (een rondje) varen/roeien</value>
     </data>
-    <data name="200503MotiveText" xml:space="preserve">
+    <data name="CBS200503MotiveText" xml:space="preserve">
         <value>Toeren/rondrijden met auto/motor e.d. </value>
     </data>
-    <data name="200542MotiveText" xml:space="preserve">
+    <data name="CBS200542MotiveText" xml:space="preserve">
         <value>Autoroute rijden</value>
     </data>
-    <data name="210001MotiveText" xml:space="preserve">
+    <data name="CBS210001MotiveText" xml:space="preserve">
         <value>Beurs vanwege hobby</value>
     </data>
-    <data name="210002MotiveText" xml:space="preserve">
+    <data name="CBS210002MotiveText" xml:space="preserve">
         <value>Club vanwege hobby</value>
     </data>
-    <data name="210004MotiveText" xml:space="preserve">
+    <data name="CBS210004MotiveText" xml:space="preserve">
         <value>Hobby uitoefenen</value>
     </data>
-    <data name="210009MotiveText" xml:space="preserve">
+    <data name="CBS210009MotiveText" xml:space="preserve">
         <value>Bingo, kienen e.d.</value>
     </data>
-    <data name="210014MotiveText" xml:space="preserve">
+    <data name="CBS210014MotiveText" xml:space="preserve">
         <value>Deelname hondenshow, vogeltentoonstelling e.d.</value>
     </data>
-    <data name="210015MotiveText" xml:space="preserve">
+    <data name="CBS210015MotiveText" xml:space="preserve">
         <value>Hondentraining, puppycursus e.d.</value>
     </data>
-    <data name="210018MotiveText" xml:space="preserve">
+    <data name="CBS210018MotiveText" xml:space="preserve">
         <value>Vissen, hengelsport, viswedstrijd e.d.</value>
     </data>
-    <data name="210020MotiveText" xml:space="preserve">
+    <data name="CBS210020MotiveText" xml:space="preserve">
         <value>Kunstschilderen, boetseren e.d. (ook cursus)</value>
     </data>
-    <data name="210022MotiveText" xml:space="preserve">
+    <data name="CBS210022MotiveText" xml:space="preserve">
         <value>Filmen, fotograferen, fotocursus e.d.</value>
     </data>
-    <data name="210026MotiveText" xml:space="preserve">
+    <data name="CBS210026MotiveText" xml:space="preserve">
         <value>Knutselen e.d.</value>
     </data>
-    <data name="210033MotiveText" xml:space="preserve">
+    <data name="CBS210033MotiveText" xml:space="preserve">
         <value>Padvinderij/Scouting</value>
     </data>
-    <data name="210040MotiveText" xml:space="preserve">
+    <data name="CBS210040MotiveText" xml:space="preserve">
         <value>Kijken naar sportwedstrijd/-toernooi/-competitie</value>
     </data>
-    <data name="210043MotiveText" xml:space="preserve">
+    <data name="CBS210043MotiveText" xml:space="preserve">
         <value>Kaarten, bridge, poker, klaverjassen e.d.</value>
     </data>
-    <data name="210049MotiveText" xml:space="preserve">
+    <data name="CBS210049MotiveText" xml:space="preserve">
         <value>Yoga, meditatie, tai chi e.d.</value>
     </data>
-    <data name="210051MotiveText" xml:space="preserve">
+    <data name="CBS210051MotiveText" xml:space="preserve">
         <value>Concert geven of dirigeren</value>
     </data>
-    <data name="210052MotiveText" xml:space="preserve">
+    <data name="CBS210052MotiveText" xml:space="preserve">
         <value>Concert van familielid, kennis e.d. bijwonen</value>
     </data>
-    <data name="210054MotiveText" xml:space="preserve">
+    <data name="CBS210054MotiveText" xml:space="preserve">
         <value>Muziek spelen (gitaar, piano, viool e.d.)</value>
     </data>
-    <data name="210057MotiveText" xml:space="preserve">
+    <data name="CBS210057MotiveText" xml:space="preserve">
         <value>Spelen in fanfare, harmonie, drumband e.d.</value>
     </data>
-    <data name="210061MotiveText" xml:space="preserve">
+    <data name="CBS210061MotiveText" xml:space="preserve">
         <value>Zingen, (kerk)koor, zangles e.d.</value>
     </data>
-    <data name="210064MotiveText" xml:space="preserve">
+    <data name="CBS210064MotiveText" xml:space="preserve">
         <value>Muziekoptreden van familielid, kennis e.d. </value>
     </data>
-    <data name="210065MotiveText" xml:space="preserve">
+    <data name="CBS210065MotiveText" xml:space="preserve">
         <value>Spelen in muziekband, orkest, popgroep e.d.</value>
     </data>
-    <data name="210066MotiveText" xml:space="preserve">
+    <data name="CBS210066MotiveText" xml:space="preserve">
         <value>Muziekuitvoering van familielid, kennis e.d. </value>
     </data>
-    <data name="210075MotiveText" xml:space="preserve">
+    <data name="CBS210075MotiveText" xml:space="preserve">
         <value>Paardensport, paardrijles e.d. (ook toekijken)</value>
     </data>
-    <data name="210081MotiveText" xml:space="preserve">
+    <data name="CBS210081MotiveText" xml:space="preserve">
         <value>Toneelvoorstelling/toneel spelen (ook toekijken)</value>
     </data>
-    <data name="210085MotiveText" xml:space="preserve">
+    <data name="CBS210085MotiveText" xml:space="preserve">
         <value>Werken in groentetuin/volkstuin/moestuin</value>
     </data>
-    <data name="210501MotiveText" xml:space="preserve">
+    <data name="CBS210501MotiveText" xml:space="preserve">
         <value>Bewegen ivm gezondheid, revalidatie e.d.</value>
     </data>
-    <data name="210506MotiveText" xml:space="preserve">
+    <data name="CBS210506MotiveText" xml:space="preserve">
         <value>Deelnemen aan sporttraining/-les</value>
     </data>
-    <data name="210517MotiveText" xml:space="preserve">
+    <data name="CBS210517MotiveText" xml:space="preserve">
         <value>Sporten (ook met dieren)</value>
     </data>
-    <data name="210521MotiveText" xml:space="preserve">
+    <data name="CBS210521MotiveText" xml:space="preserve">
         <value>Atletieksport (hardlopen, verspringen e.d.)</value>
     </data>
-    <data name="210525MotiveText" xml:space="preserve">
+    <data name="CBS210525MotiveText" xml:space="preserve">
         <value>Deelnemen aan sportwedstrijd/-toernooi e.d.</value>
     </data>
-    <data name="210527MotiveText" xml:space="preserve">
+    <data name="CBS210527MotiveText" xml:space="preserve">
         <value>Kijken naar sporttraining/-les</value>
     </data>
-    <data name="210533MotiveText" xml:space="preserve">
+    <data name="CBS210533MotiveText" xml:space="preserve">
         <value>Triatlon/Zeskamp/Marathon e.d. (ook toekijken)</value>
     </data>
-    <data name="210538MotiveText" xml:space="preserve">
+    <data name="CBS210538MotiveText" xml:space="preserve">
         <value>Motor- en autosport (ook toekijken)</value>
     </data>
-    <data name="210543MotiveText" xml:space="preserve">
+    <data name="CBS210543MotiveText" xml:space="preserve">
         <value>Handballen (ook toekijken)</value>
     </data>
-    <data name="210551MotiveText" xml:space="preserve">
+    <data name="CBS210551MotiveText" xml:space="preserve">
         <value>Rugbyen (ook toekijken)</value>
     </data>
-    <data name="210556MotiveText" xml:space="preserve">
+    <data name="CBS210556MotiveText" xml:space="preserve">
         <value>Volleyballen (ook toekijken)</value>
     </data>
-    <data name="210563MotiveText" xml:space="preserve">
+    <data name="CBS210563MotiveText" xml:space="preserve">
         <value>Basketballen (ook toekijken)</value>
     </data>
-    <data name="210570MotiveText" xml:space="preserve">
+    <data name="CBS210570MotiveText" xml:space="preserve">
         <value>Korfballen (ook toekijken)</value>
     </data>
-    <data name="210577MotiveText" xml:space="preserve">
+    <data name="CBS210577MotiveText" xml:space="preserve">
         <value>Biljarten, snookeren e.d. (ook toekijken)</value>
     </data>
-    <data name="210582MotiveText" xml:space="preserve">
+    <data name="CBS210582MotiveText" xml:space="preserve">
         <value>Boksen, kickboksen e.d. (ook toekijken)</value>
     </data>
-    <data name="210589MotiveText" xml:space="preserve">
+    <data name="CBS210589MotiveText" xml:space="preserve">
         <value>Bowlen, kegelen e.d. (ook toekijken)</value>
     </data>
-    <data name="210599MotiveText" xml:space="preserve">
+    <data name="CBS210599MotiveText" xml:space="preserve">
         <value>Ballet/balletles (ook toekijken)</value>
     </data>
-    <data name="210603MotiveText" xml:space="preserve">
+    <data name="CBS210603MotiveText" xml:space="preserve">
         <value>Dansen/dansles (ook toekijken)</value>
     </data>
-    <data name="210615MotiveText" xml:space="preserve">
+    <data name="CBS210615MotiveText" xml:space="preserve">
         <value>Schaken, dammen e.d. (ook toekijken)</value>
     </data>
-    <data name="210623MotiveText" xml:space="preserve">
+    <data name="CBS210623MotiveText" xml:space="preserve">
         <value>Fietssport (ook toekijken)</value>
     </data>
-    <data name="210624MotiveText" xml:space="preserve">
+    <data name="CBS210624MotiveText" xml:space="preserve">
         <value>Mountainbiken, atb, fietscross e.d.</value>
     </data>
-    <data name="210625MotiveText" xml:space="preserve">
+    <data name="CBS210625MotiveText" xml:space="preserve">
         <value>Sportief fietsen</value>
     </data>
-    <data name="210627MotiveText" xml:space="preserve">
+    <data name="CBS210627MotiveText" xml:space="preserve">
         <value>Wielrennen (ook toekijken)</value>
     </data>
-    <data name="210628MotiveText" xml:space="preserve">
+    <data name="CBS210628MotiveText" xml:space="preserve">
         <value>Aerobics, spinnen, zumba e.d.</value>
     </data>
-    <data name="210630MotiveText" xml:space="preserve">
+    <data name="CBS210630MotiveText" xml:space="preserve">
         <value>Fitness, krachttraining e.d.</value>
     </data>
-    <data name="210633MotiveText" xml:space="preserve">
+    <data name="CBS210633MotiveText" xml:space="preserve">
         <value>Golfen (ook toekijken)</value>
     </data>
-    <data name="210642MotiveText" xml:space="preserve">
+    <data name="CBS210642MotiveText" xml:space="preserve">
         <value>Gymmen (niet met school)</value>
     </data>
-    <data name="210646MotiveText" xml:space="preserve">
+    <data name="CBS210646MotiveText" xml:space="preserve">
         <value>Hockeyen (ook toekijken)</value>
     </data>
-    <data name="210653MotiveText" xml:space="preserve">
+    <data name="CBS210653MotiveText" xml:space="preserve">
         <value>Honkballen (ook toekijken)</value>
     </data>
-    <data name="210660MotiveText" xml:space="preserve">
+    <data name="CBS210660MotiveText" xml:space="preserve">
         <value>Softballen (ook toekijken)</value>
     </data>
-    <data name="210667MotiveText" xml:space="preserve">
+    <data name="CBS210667MotiveText" xml:space="preserve">
         <value>Hardlopen, joggen, trimmen, rennen e.d.</value>
     </data>
-    <data name="210669MotiveText" xml:space="preserve">
+    <data name="CBS210669MotiveText" xml:space="preserve">
         <value>Nordic walking</value>
     </data>
-    <data name="210670MotiveText" xml:space="preserve">
+    <data name="CBS210670MotiveText" xml:space="preserve">
         <value>Sponsorloop, wandelvierdaagse e.d.</value>
     </data>
-    <data name="210671MotiveText" xml:space="preserve">
+    <data name="CBS210671MotiveText" xml:space="preserve">
         <value>Badmintonnen (ook toekijken)</value>
     </data>
-    <data name="210678MotiveText" xml:space="preserve">
+    <data name="CBS210678MotiveText" xml:space="preserve">
         <value>Squashen (ook toekijken)</value>
     </data>
-    <data name="210679MotiveText" xml:space="preserve">
+    <data name="CBS210679MotiveText" xml:space="preserve">
         <value>Tennissen (ook toekijken)</value>
     </data>
-    <data name="210688MotiveText" xml:space="preserve">
+    <data name="CBS210688MotiveText" xml:space="preserve">
         <value>Roeisport (incl. kanoën e.d.) (ook toekijken)</value>
     </data>
-    <data name="210691MotiveText" xml:space="preserve">
+    <data name="CBS210691MotiveText" xml:space="preserve">
         <value>IJshockey (ook toekijken)</value>
     </data>
-    <data name="210698MotiveText" xml:space="preserve">
+    <data name="CBS210698MotiveText" xml:space="preserve">
         <value>Kunstrijden/-schaatsen (ook toekijken)</value>
     </data>
-    <data name="210705MotiveText" xml:space="preserve">
+    <data name="CBS210705MotiveText" xml:space="preserve">
         <value>Schaatsen (ook toekijken)</value>
     </data>
-    <data name="210706MotiveText" xml:space="preserve">
+    <data name="CBS210706MotiveText" xml:space="preserve">
         <value>Skaten, skeeleren, rolschaatsen e.d.</value>
     </data>
-    <data name="210710MotiveText" xml:space="preserve">
+    <data name="CBS210710MotiveText" xml:space="preserve">
         <value>Turnen (ook toekijken)</value>
     </data>
-    <data name="210717MotiveText" xml:space="preserve">
+    <data name="CBS210717MotiveText" xml:space="preserve">
         <value>Judo, karate, jiu-jitsu e.d. (ook toekijken)</value>
     </data>
-    <data name="210732MotiveText" xml:space="preserve">
+    <data name="CBS210732MotiveText" xml:space="preserve">
         <value>Schoolvoetbal- of sporttoernooi van school</value>
     </data>
-    <data name="210733MotiveText" xml:space="preserve">
+    <data name="CBS210733MotiveText" xml:space="preserve">
         <value>Voetbal/Zaalvoetbal (ook toekijken)</value>
     </data>
-    <data name="210747MotiveText" xml:space="preserve">
+    <data name="CBS210747MotiveText" xml:space="preserve">
         <value>Zeilsport (zeilen, surfen e.d.) (ook toekijken)</value>
     </data>
-    <data name="210748MotiveText" xml:space="preserve">
+    <data name="CBS210748MotiveText" xml:space="preserve">
         <value>Wintersporten (skieën, snowboarden e.d.)</value>
     </data>
-    <data name="210753MotiveText" xml:space="preserve">
+    <data name="CBS210753MotiveText" xml:space="preserve">
         <value>Aquajoggen</value>
     </data>
-    <data name="210754MotiveText" xml:space="preserve">
+    <data name="CBS210754MotiveText" xml:space="preserve">
         <value>Zwemsport, zwemmen (ook toekijken)</value>
     </data>
-    <data name="210756MotiveText" xml:space="preserve">
+    <data name="CBS210756MotiveText" xml:space="preserve">
         <value>Waterpolo (ook toekijken)</value>
     </data>
-    <data name="210763MotiveText" xml:space="preserve">
+    <data name="CBS210763MotiveText" xml:space="preserve">
         <value>Diplomazwemmen, zwemles e.d. (niet via school)</value>
     </data>
-    <data name="220001MotiveText" xml:space="preserve">
+    <data name="CBS220001MotiveText" xml:space="preserve">
         <value>Stappen, avondje uit, uitgaan etc.</value>
     </data>
-    <data name="220004MotiveText" xml:space="preserve">
+    <data name="CBS220004MotiveText" xml:space="preserve">
         <value>Café, bar, kroeg e.d. bezoeken</value>
     </data>
-    <data name="220008MotiveText" xml:space="preserve">
+    <data name="CBS220008MotiveText" xml:space="preserve">
         <value>Eten/drinken in broodjeszaak, lunchroom e.d.</value>
     </data>
-    <data name="220009MotiveText" xml:space="preserve">
+    <data name="CBS220009MotiveText" xml:space="preserve">
         <value>Brunchen in of bij horeca-gelegenheid</value>
     </data>
-    <data name="220013MotiveText" xml:space="preserve">
+    <data name="CBS220013MotiveText" xml:space="preserve">
         <value>Casino bezoeken</value>
     </data>
-    <data name="220014MotiveText" xml:space="preserve">
+    <data name="CBS220014MotiveText" xml:space="preserve">
         <value>Chinees halen</value>
     </data>
-    <data name="220015MotiveText" xml:space="preserve">
+    <data name="CBS220015MotiveText" xml:space="preserve">
         <value>Coffeeshop, shishabar e.d. bezoeken</value>
     </data>
-    <data name="220016MotiveText" xml:space="preserve">
+    <data name="CBS220016MotiveText" xml:space="preserve">
         <value>Dineren in of bij horeca-gelegenheid</value>
     </data>
-    <data name="220018MotiveText" xml:space="preserve">
+    <data name="CBS220018MotiveText" xml:space="preserve">
         <value>Drive-in restaurant bezoeken</value>
     </data>
-    <data name="220020MotiveText" xml:space="preserve">
+    <data name="CBS220020MotiveText" xml:space="preserve">
         <value>Eet-, drink- of horeca-gelegenheid bezoeken</value>
     </data>
-    <data name="220024MotiveText" xml:space="preserve">
+    <data name="CBS220024MotiveText" xml:space="preserve">
         <value>Eten halen (bij afhaalrestaurant e.d.)</value>
     </data>
-    <data name="220029MotiveText" xml:space="preserve">
+    <data name="CBS220029MotiveText" xml:space="preserve">
         <value>Eten/drinken in café, bar, kroeg e.d.</value>
     </data>
-    <data name="220030MotiveText" xml:space="preserve">
+    <data name="CBS220030MotiveText" xml:space="preserve">
         <value>Eten/drinken in restaurant, eetcafé, bistro e.d.</value>
     </data>
-    <data name="220031MotiveText" xml:space="preserve">
+    <data name="CBS220031MotiveText" xml:space="preserve">
         <value>Friet/patat halen bij snackbar, frietkraam e.d.</value>
     </data>
-    <data name="220032MotiveText" xml:space="preserve">
+    <data name="CBS220032MotiveText" xml:space="preserve">
         <value>Eten/drinken halen bij snackbar, frietkraam e.d.</value>
     </data>
-    <data name="220038MotiveText" xml:space="preserve">
+    <data name="CBS220038MotiveText" xml:space="preserve">
         <value>High tea in of bij horeca-gelegenheid</value>
     </data>
-    <data name="220040MotiveText" xml:space="preserve">
+    <data name="CBS220040MotiveText" xml:space="preserve">
         <value>Horeca-gelegenheid bezoeken</value>
     </data>
-    <data name="220047MotiveText" xml:space="preserve">
+    <data name="CBS220047MotiveText" xml:space="preserve">
         <value>IJsje eten/halen (ijssalon, ijscowagen e.d.)</value>
     </data>
-    <data name="220049MotiveText" xml:space="preserve">
+    <data name="CBS220049MotiveText" xml:space="preserve">
         <value>Koffie/thee drinken in of bij horeca-gelegenheid</value>
     </data>
-    <data name="220053MotiveText" xml:space="preserve">
+    <data name="CBS220053MotiveText" xml:space="preserve">
         <value>Lunchen in of bij horeca-gelegenheid</value>
     </data>
-    <data name="220055MotiveText" xml:space="preserve">
+    <data name="CBS220055MotiveText" xml:space="preserve">
         <value>Ontbijten in of bij horeca-gelegenheid</value>
     </data>
-    <data name="220057MotiveText" xml:space="preserve">
+    <data name="CBS220057MotiveText" xml:space="preserve">
         <value>Pannenkoekrestaurant bezoeken</value>
     </data>
-    <data name="220061MotiveText" xml:space="preserve">
+    <data name="CBS220061MotiveText" xml:space="preserve">
         <value>Eten/drinken bij pizzaria</value>
     </data>
-    <data name="220062MotiveText" xml:space="preserve">
+    <data name="CBS220062MotiveText" xml:space="preserve">
         <value>Eten/drinken bij shoarmazaak</value>
     </data>
-    <data name="220065MotiveText" xml:space="preserve">
+    <data name="CBS220065MotiveText" xml:space="preserve">
         <value>Terras bezoeken, terrasje pakken e.d.</value>
     </data>
-    <data name="220101MotiveText" xml:space="preserve">
+    <data name="CBS220101MotiveText" xml:space="preserve">
         <value>Afscheidsfeest, -borrel of -receptie e.d.</value>
     </data>
-    <data name="220104MotiveText" xml:space="preserve">
+    <data name="CBS220104MotiveText" xml:space="preserve">
         <value>Afspraak met iemand buitenshuis (niet voor het werk)</value>
     </data>
-    <data name="220105MotiveText" xml:space="preserve">
+    <data name="CBS220105MotiveText" xml:space="preserve">
         <value>Afspraak met familie(lid) (niet bij familie thuis)</value>
     </data>
-    <data name="220111MotiveText" xml:space="preserve">
+    <data name="CBS220111MotiveText" xml:space="preserve">
         <value>Bespreking/gesprek buitenshuis (niet voor het werk)</value>
     </data>
-    <data name="220114MotiveText" xml:space="preserve">
+    <data name="CBS220114MotiveText" xml:space="preserve">
         <value>Bijeenkomst, afspreken met, vergadering (niet voor werk)</value>
     </data>
-    <data name="220115MotiveText" xml:space="preserve">
+    <data name="CBS220115MotiveText" xml:space="preserve">
         <value>Buurtvergadering e.d. bijwonen</value>
     </data>
-    <data name="220116MotiveText" xml:space="preserve">
+    <data name="CBS220116MotiveText" xml:space="preserve">
         <value>Bijeenkomst serviceclub (Lions, Rotary e.d.)</value>
     </data>
-    <data name="220122MotiveText" xml:space="preserve">
+    <data name="CBS220122MotiveText" xml:space="preserve">
         <value>Bijeenkomst van vereniging e.d. bijwonen</value>
     </data>
-    <data name="220135MotiveText" xml:space="preserve">
+    <data name="CBS220135MotiveText" xml:space="preserve">
         <value>Deelnemen aan protest, demonstratie, betoging e.d.</value>
     </data>
-    <data name="220136MotiveText" xml:space="preserve">
+    <data name="CBS220136MotiveText" xml:space="preserve">
         <value>Deelnemen aan onderzoek</value>
     </data>
-    <data name="220138MotiveText" xml:space="preserve">
+    <data name="CBS220138MotiveText" xml:space="preserve">
         <value>Deelnemen aan vrijwilligersdag</value>
     </data>
-    <data name="220140MotiveText" xml:space="preserve">
+    <data name="CBS220140MotiveText" xml:space="preserve">
         <value>Vergadering/overleg bijwonen (niet voor het werk)</value>
     </data>
-    <data name="220144MotiveText" xml:space="preserve">
+    <data name="CBS220144MotiveText" xml:space="preserve">
         <value>Opening van winkel e.d. bijwonen</value>
     </data>
-    <data name="220146MotiveText" xml:space="preserve">
+    <data name="CBS220146MotiveText" xml:space="preserve">
         <value>Paasvuur e.d. kijken</value>
     </data>
-    <data name="220147MotiveText" xml:space="preserve">
+    <data name="CBS220147MotiveText" xml:space="preserve">
         <value>Politiek café, politieke bijeenkomst e.d. bezoeken</value>
     </data>
-    <data name="220152MotiveText" xml:space="preserve">
+    <data name="CBS220152MotiveText" xml:space="preserve">
         <value>Receptie bezoeken</value>
     </data>
-    <data name="220153MotiveText" xml:space="preserve">
+    <data name="CBS220153MotiveText" xml:space="preserve">
         <value>Sinterklaasintocht bezoeken</value>
     </data>
-    <data name="220160MotiveText" xml:space="preserve">
+    <data name="CBS220160MotiveText" xml:space="preserve">
         <value>Familie-uitje of -weekend (niet bij familie thuis)</value>
     </data>
-    <data name="220162MotiveText" xml:space="preserve">
+    <data name="CBS220162MotiveText" xml:space="preserve">
         <value>Afscheid nemen in crematorium, kerk, uitvaartcentrum e.d.</value>
     </data>
-    <data name="220166MotiveText" xml:space="preserve">
+    <data name="CBS220166MotiveText" xml:space="preserve">
         <value>Avondwake bezoeken</value>
     </data>
-    <data name="220176MotiveText" xml:space="preserve">
+    <data name="CBS220176MotiveText" xml:space="preserve">
         <value>Begrafenis of crematie bijwonen</value>
     </data>
-    <data name="220178MotiveText" xml:space="preserve">
+    <data name="CBS220178MotiveText" xml:space="preserve">
         <value>Herdenkingsdienst, dodenherdenking e.d. bijwonen</value>
     </data>
-    <data name="220180MotiveText" xml:space="preserve">
+    <data name="CBS220180MotiveText" xml:space="preserve">
         <value>Koffietafel ivm begrafenis, crematie of uitvaart</value>
     </data>
-    <data name="220183MotiveText" xml:space="preserve">
+    <data name="CBS220183MotiveText" xml:space="preserve">
         <value>Mortuarium bezoeken</value>
     </data>
-    <data name="220185MotiveText" xml:space="preserve">
+    <data name="CBS220185MotiveText" xml:space="preserve">
         <value>Rouwdienst of uitvaart bijwonen</value>
     </data>
-    <data name="220193MotiveText" xml:space="preserve">
+    <data name="CBS220193MotiveText" xml:space="preserve">
         <value>Optocht of processie (meelopen/toekijken)</value>
     </data>
-    <data name="220203MotiveText" xml:space="preserve">
+    <data name="CBS220203MotiveText" xml:space="preserve">
         <value>Meelopen in stille tocht</value>
     </data>
-    <data name="220208MotiveText" xml:space="preserve">
+    <data name="CBS220208MotiveText" xml:space="preserve">
         <value>Reünie (van school, werk , familie e.d.)</value>
     </data>
-    <data name="220212MotiveText" xml:space="preserve">
+    <data name="CBS220212MotiveText" xml:space="preserve">
         <value>Prijsuitreiking, huldiging e.d. bijwonen</value>
     </data>
-    <data name="220213MotiveText" xml:space="preserve">
+    <data name="CBS220213MotiveText" xml:space="preserve">
         <value>Bevrijdingsfeest of -festival e.d. bezoeken</value>
     </data>
-    <data name="220217MotiveText" xml:space="preserve">
+    <data name="CBS220217MotiveText" xml:space="preserve">
         <value>Vrijgezellenfeest</value>
     </data>
-    <data name="220220MotiveText" xml:space="preserve">
+    <data name="CBS220220MotiveText" xml:space="preserve">
         <value>Feest bezoeken (buurt, dorp, communie e.d.)</value>
     </data>
-    <data name="220223MotiveText" xml:space="preserve">
+    <data name="CBS220223MotiveText" xml:space="preserve">
         <value>Galabal bezoeken</value>
     </data>
-    <data name="220227MotiveText" xml:space="preserve">
+    <data name="CBS220227MotiveText" xml:space="preserve">
         <value>Jubilieum vieren, jubileumfeest e.d.</value>
     </data>
-    <data name="220230MotiveText" xml:space="preserve">
+    <data name="CBS220230MotiveText" xml:space="preserve">
         <value>Kinderfeestje/-partijtje niet bij iemand thuis</value>
     </data>
-    <data name="220232MotiveText" xml:space="preserve">
+    <data name="CBS220232MotiveText" xml:space="preserve">
         <value>Koningsdag vieren</value>
     </data>
-    <data name="220233MotiveText" xml:space="preserve">
+    <data name="CBS220233MotiveText" xml:space="preserve">
         <value>Nieuwjaar vieren, nieuwjaarsbijeenkomst e.d.</value>
     </data>
-    <data name="220237MotiveText" xml:space="preserve">
+    <data name="CBS220237MotiveText" xml:space="preserve">
         <value>Oud en nieuw, oudjaar vieren, oudjaarsfeest e.d</value>
     </data>
-    <data name="220240MotiveText" xml:space="preserve">
+    <data name="CBS220240MotiveText" xml:space="preserve">
         <value>Sinterklaasfeest bezoeken</value>
     </data>
-    <data name="220241MotiveText" xml:space="preserve">
+    <data name="CBS220241MotiveText" xml:space="preserve">
         <value>Sint-maarten (optocht, langs de deuren e.d.)</value>
     </data>
-    <data name="220242MotiveText" xml:space="preserve">
+    <data name="CBS220242MotiveText" xml:space="preserve">
         <value>Verjaardagsfeest/-partij niet bij iemand thuis</value>
     </data>
-    <data name="220243MotiveText" xml:space="preserve">
+    <data name="CBS220243MotiveText" xml:space="preserve">
         <value>Vuurwerk afsteken, vuurwerk kijken e.d.</value>
     </data>
-    <data name="220247MotiveText" xml:space="preserve">
+    <data name="CBS220247MotiveText" xml:space="preserve">
         <value>Carnaval vieren, carnavalsoptocht e.d.</value>
     </data>
-    <data name="220250MotiveText" xml:space="preserve">
+    <data name="CBS220250MotiveText" xml:space="preserve">
         <value>Familiefeest niet bij familie thuis</value>
     </data>
-    <data name="220252MotiveText" xml:space="preserve">
+    <data name="CBS220252MotiveText" xml:space="preserve">
         <value>Huwelijk, bruiloft, trouwerij e.d. </value>
     </data>
-    <data name="220291MotiveText" xml:space="preserve">
+    <data name="CBS220291MotiveText" xml:space="preserve">
         <value>Afstuderen, buluitreiking, oratie e.d. bijwonen</value>
     </data>
-    <data name="220294MotiveText" xml:space="preserve">
+    <data name="CBS220294MotiveText" xml:space="preserve">
         <value>Diploma-uitreiking bijwonen</value>
     </data>
-    <data name="220297MotiveText" xml:space="preserve">
+    <data name="CBS220297MotiveText" xml:space="preserve">
         <value>Promotie bijwonen</value>
     </data>
-    <data name="220301MotiveText" xml:space="preserve">
+    <data name="CBS220301MotiveText" xml:space="preserve">
         <value>Cultureel centrum bezoeken</value>
     </data>
-    <data name="220303MotiveText" xml:space="preserve">
+    <data name="CBS220303MotiveText" xml:space="preserve">
         <value>Balletuitvoering bezoeken in theater, schouwburg e.d.</value>
     </data>
-    <data name="220306MotiveText" xml:space="preserve">
+    <data name="CBS220306MotiveText" xml:space="preserve">
         <value>Dansvoorstelling bezoeken in theater, schouwburg e.d.</value>
     </data>
-    <data name="220308MotiveText" xml:space="preserve">
+    <data name="CBS220308MotiveText" xml:space="preserve">
         <value>Bioscoop, cinema, filmhuis/-festival e.d. bezoeken</value>
     </data>
-    <data name="220314MotiveText" xml:space="preserve">
+    <data name="CBS220314MotiveText" xml:space="preserve">
         <value>Atelier, kunstroute, kunstproject e.d. bezoeken</value>
     </data>
-    <data name="220316MotiveText" xml:space="preserve">
+    <data name="CBS220316MotiveText" xml:space="preserve">
         <value>Museum bezoeken</value>
     </data>
-    <data name="220319MotiveText" xml:space="preserve">
+    <data name="CBS220319MotiveText" xml:space="preserve">
         <value>Concertzaal, muziekcentrum e.d. bezoeken</value>
     </data>
-    <data name="220321MotiveText" xml:space="preserve">
+    <data name="CBS220321MotiveText" xml:space="preserve">
         <value>Dancefeest, pop- of muziekfestival e.d. bezoeken</value>
     </data>
-    <data name="220322MotiveText" xml:space="preserve">
+    <data name="CBS220322MotiveText" xml:space="preserve">
         <value>Discotheek, danszaal e.d. bezoeken</value>
     </data>
-    <data name="220323MotiveText" xml:space="preserve">
+    <data name="CBS220323MotiveText" xml:space="preserve">
         <value>Kerst-, nieuwjaarsconcert e.d.bezoeken</value>
     </data>
-    <data name="220324MotiveText" xml:space="preserve">
+    <data name="CBS220324MotiveText" xml:space="preserve">
         <value>Kijken naar optreden fanfare, harmonie e.d.</value>
     </data>
-    <data name="220328MotiveText" xml:space="preserve">
+    <data name="CBS220328MotiveText" xml:space="preserve">
         <value>Concert in stadion, park e.d bezoeken</value>
     </data>
-    <data name="220332MotiveText" xml:space="preserve">
+    <data name="CBS220332MotiveText" xml:space="preserve">
         <value>Tentoonstelling, expositie e.d. bezoeken</value>
     </data>
-    <data name="220334MotiveText" xml:space="preserve">
+    <data name="CBS220334MotiveText" xml:space="preserve">
         <value>Cabaretvoortstelling bijwonen</value>
     </data>
-    <data name="220335MotiveText" xml:space="preserve">
+    <data name="CBS220335MotiveText" xml:space="preserve">
         <value>Musical bezoeken in theater, schouwburg e.d.</value>
     </data>
-    <data name="220336MotiveText" xml:space="preserve">
+    <data name="CBS220336MotiveText" xml:space="preserve">
         <value>Openluchttheater bezoeken</value>
     </data>
-    <data name="220337MotiveText" xml:space="preserve">
+    <data name="CBS220337MotiveText" xml:space="preserve">
         <value>Opera bezoeken</value>
     </data>
-    <data name="220339MotiveText" xml:space="preserve">
+    <data name="CBS220339MotiveText" xml:space="preserve">
         <value>Theater, schouwburg e.d bezoeken</value>
     </data>
-    <data name="220340MotiveText" xml:space="preserve">
+    <data name="CBS220340MotiveText" xml:space="preserve">
         <value>Toneelstuk bezoeken in theater, schouwburg e.d.</value>
     </data>
-    <data name="220401MotiveText" xml:space="preserve">
+    <data name="CBS220401MotiveText" xml:space="preserve">
         <value>Boodschappen voor iemand doen</value>
     </data>
-    <data name="220402MotiveText" xml:space="preserve">
+    <data name="CBS220402MotiveText" xml:space="preserve">
         <value>Vrienden- of burendienst verlenen</value>
     </data>
-    <data name="220404MotiveText" xml:space="preserve">
+    <data name="CBS220404MotiveText" xml:space="preserve">
         <value>Helpen op school/in kerk e.d.</value>
     </data>
-    <data name="220409MotiveText" xml:space="preserve">
+    <data name="CBS220409MotiveText" xml:space="preserve">
         <value>Iemand helpen, assisteren, ondersteunen e.d.</value>
     </data>
-    <data name="220423MotiveText" xml:space="preserve">
+    <data name="CBS220423MotiveText" xml:space="preserve">
         <value>Klussen bij iemand (grasmaaien, opruimen e.d.)</value>
     </data>
-    <data name="220424MotiveText" xml:space="preserve">
+    <data name="CBS220424MotiveText" xml:space="preserve">
         <value>Koken bij en voor iemand anders</value>
     </data>
-    <data name="220437MotiveText" xml:space="preserve">
+    <data name="CBS220437MotiveText" xml:space="preserve">
         <value>Verzorgen planten/dieren/tuin/post van iemand</value>
     </data>
-    <data name="220441MotiveText" xml:space="preserve">
+    <data name="CBS220441MotiveText" xml:space="preserve">
         <value>Op huis van iemand/vakantieganger passen</value>
     </data>
-    <data name="220448MotiveText" xml:space="preserve">
+    <data name="CBS220448MotiveText" xml:space="preserve">
         <value>Afwikkelen nalatenschap ivm sterfgeval</value>
     </data>
-    <data name="220451MotiveText" xml:space="preserve">
+    <data name="CBS220451MotiveText" xml:space="preserve">
         <value>Hond uitlaten van iemand anders</value>
     </data>
-    <data name="220501MotiveText" xml:space="preserve">
+    <data name="CBS220501MotiveText" xml:space="preserve">
         <value>Begraafplaats/graf/kerkhof bezoeken</value>
     </data>
-    <data name="220504MotiveText" xml:space="preserve">
+    <data name="CBS220504MotiveText" xml:space="preserve">
         <value>Urnenveld/-muur bezoeken</value>
     </data>
-    <data name="220506MotiveText" xml:space="preserve">
+    <data name="CBS220506MotiveText" xml:space="preserve">
         <value>Bidden of gebedsdienst (in kerk, moskee e.d.)</value>
     </data>
-    <data name="220513MotiveText" xml:space="preserve">
+    <data name="CBS220513MotiveText" xml:space="preserve">
         <value>Dienst in kerk, moskee, tempel, synagoge e.d.</value>
     </data>
-    <data name="220516MotiveText" xml:space="preserve">
+    <data name="CBS220516MotiveText" xml:space="preserve">
         <value>Viering in de kerk bijwonen</value>
     </data>
-    <data name="220517MotiveText" xml:space="preserve">
+    <data name="CBS220517MotiveText" xml:space="preserve">
         <value>Biddag of dankdag in de kerk</value>
     </data>
-    <data name="220518MotiveText" xml:space="preserve">
+    <data name="CBS220518MotiveText" xml:space="preserve">
         <value>Religeuze/godsdienstige samenkomst</value>
     </data>
-    <data name="220519MotiveText" xml:space="preserve">
+    <data name="CBS220519MotiveText" xml:space="preserve">
         <value>Doop, communie of vormsel in kerk</value>
     </data>
-    <data name="220522MotiveText" xml:space="preserve">
+    <data name="CBS220522MotiveText" xml:space="preserve">
         <value>Eredienst in kerk</value>
     </data>
-    <data name="220523MotiveText" xml:space="preserve">
+    <data name="CBS220523MotiveText" xml:space="preserve">
         <value>Evangeliewerk</value>
     </data>
-    <data name="220527MotiveText" xml:space="preserve">
+    <data name="CBS220527MotiveText" xml:space="preserve">
         <value>Geloofsbijeenkomst/-vergadering</value>
     </data>
-    <data name="220532MotiveText" xml:space="preserve">
+    <data name="CBS220532MotiveText" xml:space="preserve">
         <value>Heilige mis</value>
     </data>
-    <data name="220533MotiveText" xml:space="preserve">
+    <data name="CBS220533MotiveText" xml:space="preserve">
         <value>Kapel(letje) bezoeken</value>
     </data>
-    <data name="220536MotiveText" xml:space="preserve">
+    <data name="CBS220536MotiveText" xml:space="preserve">
         <value>Kerkelijke activiteiten</value>
     </data>
-    <data name="220538MotiveText" xml:space="preserve">
+    <data name="CBS220538MotiveText" xml:space="preserve">
         <value>Kerkgang</value>
     </data>
-    <data name="220539MotiveText" xml:space="preserve">
+    <data name="CBS220539MotiveText" xml:space="preserve">
         <value>Kerstnachtdienst/nachtmis in de kerk</value>
     </data>
-    <data name="220544MotiveText" xml:space="preserve">
+    <data name="CBS220544MotiveText" xml:space="preserve">
         <value>Paaswake bijwonen</value>
     </data>
-    <data name="220550MotiveText" xml:space="preserve">
+    <data name="CBS220550MotiveText" xml:space="preserve">
         <value>Vrijdaggebed</value>
     </data>
-    <data name="220551MotiveText" xml:space="preserve">
+    <data name="CBS220551MotiveText" xml:space="preserve">
         <value>Kerkbestuur, kerkenraad e.d.</value>
     </data>
-    <data name="220552MotiveText" xml:space="preserve">
+    <data name="CBS220552MotiveText" xml:space="preserve">
         <value>Belijdenis</value>
     </data>
-    <data name="220601MotiveText" xml:space="preserve">
+    <data name="CBS220601MotiveText" xml:space="preserve">
         <value>Auto wassen</value>
     </data>
-    <data name="220602MotiveText" xml:space="preserve">
+    <data name="CBS220602MotiveText" xml:space="preserve">
         <value>Beesten voeren, verzorgen, controleren e.d.</value>
     </data>
-    <data name="220603MotiveText" xml:space="preserve">
+    <data name="CBS220603MotiveText" xml:space="preserve">
         <value>Boot (onderhouden, te water laten e.d.)</value>
     </data>
-    <data name="220607MotiveText" xml:space="preserve">
+    <data name="CBS220607MotiveText" xml:space="preserve">
         <value>Praal- of carnavalswagen bouwen</value>
     </data>
-    <data name="220609MotiveText" xml:space="preserve">
+    <data name="CBS220609MotiveText" xml:space="preserve">
         <value>Huis van iemand versieren</value>
     </data>
-    <data name="220610MotiveText" xml:space="preserve">
+    <data name="CBS220610MotiveText" xml:space="preserve">
         <value>Klussen/klusjes (onbetaald)</value>
     </data>
-    <data name="220611MotiveText" xml:space="preserve">
+    <data name="CBS220611MotiveText" xml:space="preserve">
         <value>Onderhoud uitvoeren (onbetaald)</value>
     </data>
-    <data name="220613MotiveText" xml:space="preserve">
+    <data name="CBS220613MotiveText" xml:space="preserve">
         <value>Paard(en) bezoeken, voeren, verzorgen e.d.</value>
     </data>
-    <data name="220614MotiveText" xml:space="preserve">
+    <data name="CBS220614MotiveText" xml:space="preserve">
         <value>Pony bezoeken, voeren, verzorgen e.d.</value>
     </data>
-    <data name="220616MotiveText" xml:space="preserve">
+    <data name="CBS220616MotiveText" xml:space="preserve">
         <value>Iets repareren (onbetaald)</value>
     </data>
-    <data name="220617MotiveText" xml:space="preserve">
+    <data name="CBS220617MotiveText" xml:space="preserve">
         <value>Schoonmaken eigendommen</value>
     </data>
-    <data name="220618MotiveText" xml:space="preserve">
+    <data name="CBS220618MotiveText" xml:space="preserve">
         <value>Tuinieren (onbetaald)</value>
     </data>
-    <data name="220620MotiveText" xml:space="preserve">
+    <data name="CBS220620MotiveText" xml:space="preserve">
         <value>Verhuizen</value>
     </data>
-    <data name="220651MotiveText" xml:space="preserve">
+    <data name="CBS220651MotiveText" xml:space="preserve">
         <value>Conferentie/congres/symposium bezoeken (niet ivm werk)</value>
     </data>
-    <data name="220652MotiveText" xml:space="preserve">
+    <data name="CBS220652MotiveText" xml:space="preserve">
         <value>Excursie (niet van school of werk)</value>
     </data>
-    <data name="220653MotiveText" xml:space="preserve">
+    <data name="CBS220653MotiveText" xml:space="preserve">
         <value>Bezoek aan beursevenement (bijv. in Jaarbeurs)</value>
     </data>
-    <data name="220655MotiveText" xml:space="preserve">
+    <data name="CBS220655MotiveText" xml:space="preserve">
         <value>Informatiebijeenkomst/-markt e.d.</value>
     </data>
-    <data name="220661MotiveText" xml:space="preserve">
+    <data name="CBS220661MotiveText" xml:space="preserve">
         <value>Lezing bijwonen</value>
     </data>
-    <data name="220662MotiveText" xml:space="preserve">
+    <data name="CBS220662MotiveText" xml:space="preserve">
         <value>Open dag bezoeken</value>
     </data>
-    <data name="220665MotiveText" xml:space="preserve">
+    <data name="CBS220665MotiveText" xml:space="preserve">
         <value>Informatiedag universiteit, school e.d.</value>
     </data>
-    <data name="220666MotiveText" xml:space="preserve">
+    <data name="CBS220666MotiveText" xml:space="preserve">
         <value>Informatiebijeenkomst onderwijs, school e.d.</value>
     </data>
-    <data name="220669MotiveText" xml:space="preserve">
+    <data name="CBS220669MotiveText" xml:space="preserve">
         <value>Introductiedag cursus/opleiding</value>
     </data>
-    <data name="220672MotiveText" xml:space="preserve">
+    <data name="CBS220672MotiveText" xml:space="preserve">
         <value>Open dag onderwijs, school e.d</value>
     </data>
-    <data name="220678MotiveText" xml:space="preserve">
+    <data name="CBS220678MotiveText" xml:space="preserve">
         <value>Voorlichting school/opleiding</value>
     </data>
-    <data name="220703MotiveText" xml:space="preserve">
+    <data name="CBS220703MotiveText" xml:space="preserve">
         <value>Dieren voeren, verzorgen, controleren e.d.</value>
     </data>
-    <data name="220712MotiveText" xml:space="preserve">
+    <data name="CBS220712MotiveText" xml:space="preserve">
         <value>Archeologische opgraving bezoeken</value>
     </data>
-    <data name="220713MotiveText" xml:space="preserve">
+    <data name="CBS220713MotiveText" xml:space="preserve">
         <value>Bezoek aan autoshow</value>
     </data>
-    <data name="220714MotiveText" xml:space="preserve">
+    <data name="CBS220714MotiveText" xml:space="preserve">
         <value>Bouwproject bekijken</value>
     </data>
-    <data name="220715MotiveText" xml:space="preserve">
+    <data name="CBS220715MotiveText" xml:space="preserve">
         <value>Bezoek aan modeshow</value>
     </data>
-    <data name="220716MotiveText" xml:space="preserve">
+    <data name="CBS220716MotiveText" xml:space="preserve">
         <value>Woning bezichtigen</value>
     </data>
-    <data name="220717MotiveText" xml:space="preserve">
+    <data name="CBS220717MotiveText" xml:space="preserve">
         <value>Brand gekeken</value>
     </data>
-    <data name="220718MotiveText" xml:space="preserve">
+    <data name="CBS220718MotiveText" xml:space="preserve">
         <value>Deelname activiteiten</value>
     </data>
-    <data name="220719MotiveText" xml:space="preserve">
+    <data name="CBS220719MotiveText" xml:space="preserve">
         <value>Gesprek voeren</value>
     </data>
-    <data name="220720MotiveText" xml:space="preserve">
+    <data name="CBS220720MotiveText" xml:space="preserve">
         <value>Kantine sportlocatie</value>
     </data>
-    <data name="220721MotiveText" xml:space="preserve">
+    <data name="CBS220721MotiveText" xml:space="preserve">
         <value>Kantine werk</value>
     </data>
-    <data name="220722MotiveText" xml:space="preserve">
+    <data name="CBS220722MotiveText" xml:space="preserve">
         <value>Kievitseieren zoeken</value>
     </data>
-    <data name="220724MotiveText" xml:space="preserve">
+    <data name="CBS220724MotiveText" xml:space="preserve">
         <value>Middagpauze, pauzeren e.d.</value>
     </data>
-    <data name="220725MotiveText" xml:space="preserve">
+    <data name="CBS220725MotiveText" xml:space="preserve">
         <value>Nieuwjaar wensen buitenshuis</value>
     </data>
-    <data name="220727MotiveText" xml:space="preserve">
+    <data name="CBS220727MotiveText" xml:space="preserve">
         <value>Partycentrum bezoeken</value>
     </data>
-    <data name="220728MotiveText" xml:space="preserve">
+    <data name="CBS220728MotiveText" xml:space="preserve">
         <value>Bessen, bramen, paddestoelen e.d. plukken</value>
     </data>
-    <data name="220730MotiveText" xml:space="preserve">
+    <data name="CBS220730MotiveText" xml:space="preserve">
         <value>Kastanjes rapen</value>
     </data>
-    <data name="220731MotiveText" xml:space="preserve">
+    <data name="CBS220731MotiveText" xml:space="preserve">
         <value>Paaseieren zoeken</value>
     </data>
-    <data name="220801MotiveText" xml:space="preserve">
+    <data name="CBS220801MotiveText" xml:space="preserve">
         <value>Buiten (rond)hangen, chillen, relaxen e.d.</value>
     </data>
-    <data name="220803MotiveText" xml:space="preserve">
+    <data name="CBS220803MotiveText" xml:space="preserve">
         <value>Buiten spelen, op straat spelen e.d.</value>
     </data>
-    <data name="220804MotiveText" xml:space="preserve">
+    <data name="CBS220804MotiveText" xml:space="preserve">
         <value>Uitwaaien</value>
     </data>
-    <data name="220810MotiveText" xml:space="preserve">
+    <data name="CBS220810MotiveText" xml:space="preserve">
         <value>Circus bezoeken</value>
     </data>
-    <data name="220811MotiveText" xml:space="preserve">
+    <data name="CBS220811MotiveText" xml:space="preserve">
         <value>Indoorspeeltuin/-paradijs bezoeken</value>
     </data>
-    <data name="220813MotiveText" xml:space="preserve">
+    <data name="CBS220813MotiveText" xml:space="preserve">
         <value>Kermisbezoek</value>
     </data>
-    <data name="220814MotiveText" xml:space="preserve">
+    <data name="CBS220814MotiveText" xml:space="preserve">
         <value>Dieren bekijken op kinderboerderij</value>
     </data>
-    <data name="220817MotiveText" xml:space="preserve">
+    <data name="CBS220817MotiveText" xml:space="preserve">
         <value>Meedoen aan nieuwjaarsduik</value>
     </data>
-    <data name="220818MotiveText" xml:space="preserve">
+    <data name="CBS220818MotiveText" xml:space="preserve">
         <value>Puzzel-/speurtocht</value>
     </data>
-    <data name="220821MotiveText" xml:space="preserve">
+    <data name="CBS220821MotiveText" xml:space="preserve">
         <value>Naar de boot</value>
     </data>
-    <data name="220825MotiveText" xml:space="preserve">
+    <data name="CBS220825MotiveText" xml:space="preserve">
         <value>Nieuwjaarsduik deelnemen of toekijken</value>
     </data>
-    <data name="220826MotiveText" xml:space="preserve">
+    <data name="CBS220826MotiveText" xml:space="preserve">
         <value>(Jeugd)kamp</value>
     </data>
-    <data name="220828MotiveText" xml:space="preserve">
+    <data name="CBS220828MotiveText" xml:space="preserve">
         <value>Park bezoeken</value>
     </data>
-    <data name="220829MotiveText" xml:space="preserve">
+    <data name="CBS220829MotiveText" xml:space="preserve">
         <value>Picknicken</value>
     </data>
-    <data name="220830MotiveText" xml:space="preserve">
+    <data name="CBS220830MotiveText" xml:space="preserve">
         <value>Bezoek aan recreatiegebied/-terrein</value>
     </data>
-    <data name="220831MotiveText" xml:space="preserve">
+    <data name="CBS220831MotiveText" xml:space="preserve">
         <value>Bezoek aan recreactieplas/meer/bosven</value>
     </data>
-    <data name="220833MotiveText" xml:space="preserve">
+    <data name="CBS220833MotiveText" xml:space="preserve">
         <value>Stacaravan bezoeken</value>
     </data>
-    <data name="220834MotiveText" xml:space="preserve">
+    <data name="CBS220834MotiveText" xml:space="preserve">
         <value>Naar het strand</value>
     </data>
-    <data name="220835MotiveText" xml:space="preserve">
+    <data name="CBS220835MotiveText" xml:space="preserve">
         <value>Strandjutten</value>
     </data>
-    <data name="220836MotiveText" xml:space="preserve">
+    <data name="CBS220836MotiveText" xml:space="preserve">
         <value>Varen met de boot</value>
     </data>
-    <data name="220838MotiveText" xml:space="preserve">
+    <data name="CBS220838MotiveText" xml:space="preserve">
         <value>Naar zee</value>
     </data>
-    <data name="220839MotiveText" xml:space="preserve">
+    <data name="CBS220839MotiveText" xml:space="preserve">
         <value>Zorgboerderij bezoeken</value>
     </data>
-    <data name="220842MotiveText" xml:space="preserve">
+    <data name="CBS220842MotiveText" xml:space="preserve">
         <value>Korte/lange vakantie</value>
     </data>
-    <data name="220844MotiveText" xml:space="preserve">
+    <data name="CBS220844MotiveText" xml:space="preserve">
         <value>Overnachten in bungalowpark, vakantiehuisje e.d.</value>
     </data>
-    <data name="220845MotiveText" xml:space="preserve">
+    <data name="CBS220845MotiveText" xml:space="preserve">
         <value>Overnachten in hotel, pension e.d.</value>
     </data>
-    <data name="220846MotiveText" xml:space="preserve">
+    <data name="CBS220846MotiveText" xml:space="preserve">
         <value>Overnachten op camping (kamperen)</value>
     </data>
-    <data name="220849MotiveText" xml:space="preserve">
+    <data name="CBS220849MotiveText" xml:space="preserve">
         <value>Naar vakantieadres/-huisje</value>
     </data>
-    <data name="220851MotiveText" xml:space="preserve">
+    <data name="CBS220851MotiveText" xml:space="preserve">
         <value>Naar weekendadres/-huisje</value>
     </data>
-    <data name="220853MotiveText" xml:space="preserve">
+    <data name="CBS220853MotiveText" xml:space="preserve">
         <value>Weekendje weg</value>
     </data>
-    <data name="220901MotiveText" xml:space="preserve">
+    <data name="CBS220901MotiveText" xml:space="preserve">
         <value>Beroepenvoorlichting</value>
     </data>
-    <data name="220905MotiveText" xml:space="preserve">
+    <data name="CBS220905MotiveText" xml:space="preserve">
         <value>School-/onderwijsbeurs bezoeken</value>
     </data>
-    <data name="220910MotiveText" xml:space="preserve">
+    <data name="CBS220910MotiveText" xml:space="preserve">
         <value>10-minutengesprek op school</value>
     </data>
-    <data name="220912MotiveText" xml:space="preserve">
+    <data name="CBS220912MotiveText" xml:space="preserve">
         <value>Afsluiting schooljaar</value>
     </data>
-    <data name="220913MotiveText" xml:space="preserve">
+    <data name="CBS220913MotiveText" xml:space="preserve">
         <value>Afspraak of bijeenkomst op school van kind</value>
     </data>
-    <data name="220915MotiveText" xml:space="preserve">
+    <data name="CBS220915MotiveText" xml:space="preserve">
         <value>Schoolvoorstelling/toneelstuk van kind</value>
     </data>
-    <data name="220916MotiveText" xml:space="preserve">
+    <data name="CBS220916MotiveText" xml:space="preserve">
         <value>Creche/opvang van kind bezoeken</value>
     </data>
-    <data name="220918MotiveText" xml:space="preserve">
+    <data name="CBS220918MotiveText" xml:space="preserve">
         <value>Gesprek met juf/meester/leraar/lerares</value>
     </data>
-    <data name="220919MotiveText" xml:space="preserve">
+    <data name="CBS220919MotiveText" xml:space="preserve">
         <value>Gesprek op school van kind</value>
     </data>
-    <data name="220920MotiveText" xml:space="preserve">
+    <data name="CBS220920MotiveText" xml:space="preserve">
         <value>Kijken naar schooloptreden kind/zoon/dochter</value>
     </data>
-    <data name="220921MotiveText" xml:space="preserve">
+    <data name="CBS220921MotiveText" xml:space="preserve">
         <value>Kijken op school</value>
     </data>
-    <data name="220923MotiveText" xml:space="preserve">
+    <data name="CBS220923MotiveText" xml:space="preserve">
         <value>Ouderavond op school van kind</value>
     </data>
-    <data name="220926MotiveText" xml:space="preserve">
+    <data name="CBS220926MotiveText" xml:space="preserve">
         <value>Rapportbespreking op school kind</value>
     </data>
-    <data name="220927MotiveText" xml:space="preserve">
+    <data name="CBS220927MotiveText" xml:space="preserve">
         <value>School van kind/zoon/dochter bezoeken</value>
     </data>
-    <data name="220930MotiveText" xml:space="preserve">
+    <data name="CBS220930MotiveText" xml:space="preserve">
         <value>Schooladviesgesprek</value>
     </data>
-    <data name="220931MotiveText" xml:space="preserve">
+    <data name="CBS220931MotiveText" xml:space="preserve">
         <value>Expositie/workshop op school van kind bezoeken</value>
     </data>
-    <data name="220933MotiveText" xml:space="preserve">
+    <data name="CBS220933MotiveText" xml:space="preserve">
         <value>Schoolmusical/-uitvoering kind bezoeken</value>
     </data>
-    <data name="220935MotiveText" xml:space="preserve">
+    <data name="CBS220935MotiveText" xml:space="preserve">
         <value>Vergadering op school van kind</value>
     </data>
-    <data name="220942MotiveText" xml:space="preserve">
+    <data name="CBS220942MotiveText" xml:space="preserve">
         <value>Viering/feest op school van kind</value>
     </data>
-    <data name="220982MotiveText" xml:space="preserve">
+    <data name="CBS220982MotiveText" xml:space="preserve">
         <value>Eind- of afscheidsfeest op school</value>
     </data>
-    <data name="220983MotiveText" xml:space="preserve">
+    <data name="CBS220983MotiveText" xml:space="preserve">
         <value>Schoolfeest/Klassenfeest</value>
     </data>
-    <data name="221003MotiveText" xml:space="preserve">
+    <data name="CBS221003MotiveText" xml:space="preserve">
         <value>Activiteitencentrum bezoeken</value>
     </data>
-    <data name="221004MotiveText" xml:space="preserve">
+    <data name="CBS221004MotiveText" xml:space="preserve">
         <value>Buurthuis/-centrum bezoeken</value>
     </data>
-    <data name="221006MotiveText" xml:space="preserve">
+    <data name="CBS221006MotiveText" xml:space="preserve">
         <value>Clubhuis (niet sport gerelateerd)</value>
     </data>
-    <data name="221007MotiveText" xml:space="preserve">
+    <data name="CBS221007MotiveText" xml:space="preserve">
         <value>Bezoek aan dorps-/gemeenschapshuis</value>
     </data>
-    <data name="221009MotiveText" xml:space="preserve">
+    <data name="CBS221009MotiveText" xml:space="preserve">
         <value>Jeugdsoos/jongerencentrum bezoeken</value>
     </data>
-    <data name="221011MotiveText" xml:space="preserve">
+    <data name="CBS221011MotiveText" xml:space="preserve">
         <value>Ouderensoos/bejaardencentrum bezoeken</value>
     </data>
-    <data name="221012MotiveText" xml:space="preserve">
+    <data name="CBS221012MotiveText" xml:space="preserve">
         <value>Societeit/studentenvereniging bezoeken</value>
     </data>
-    <data name="221061MotiveText" xml:space="preserve">
+    <data name="CBS221061MotiveText" xml:space="preserve">
         <value>Buitenspeeldag</value>
     </data>
-    <data name="221063MotiveText" xml:space="preserve">
+    <data name="CBS221063MotiveText" xml:space="preserve">
         <value>Speelafspraakje, spelen bij vriend/vriendin e.d.</value>
     </data>
-    <data name="221064MotiveText" xml:space="preserve">
+    <data name="CBS221064MotiveText" xml:space="preserve">
         <value>Buitenspeeltuin bezoeken</value>
     </data>
-    <data name="221101MotiveText" xml:space="preserve">
+    <data name="CBS221101MotiveText" xml:space="preserve">
         <value>Bedrijf/fabriek/veiling e.d. bezichtigen</value>
     </data>
-    <data name="221102MotiveText" xml:space="preserve">
+    <data name="CBS221102MotiveText" xml:space="preserve">
         <value>Bezoekers-/informatiecentrum bezoeken</value>
     </data>
-    <data name="221103MotiveText" xml:space="preserve">
+    <data name="CBS221103MotiveText" xml:space="preserve">
         <value>Rondleiding volgen</value>
     </data>
-    <data name="221105MotiveText" xml:space="preserve">
+    <data name="CBS221105MotiveText" xml:space="preserve">
         <value>Dierentuin bezoeken</value>
     </data>
-    <data name="221106MotiveText" xml:space="preserve">
+    <data name="CBS221106MotiveText" xml:space="preserve">
         <value>Efteling bezoeken</value>
     </data>
-    <data name="221107MotiveText" xml:space="preserve">
+    <data name="CBS221107MotiveText" xml:space="preserve">
         <value>Hertenkamp bezoeken</value>
     </data>
-    <data name="221108MotiveText" xml:space="preserve">
+    <data name="CBS221108MotiveText" xml:space="preserve">
         <value>Pretpark bezoeken</value>
     </data>
-    <data name="221109MotiveText" xml:space="preserve">
+    <data name="CBS221109MotiveText" xml:space="preserve">
         <value>(Jacht)haven bezoeken</value>
     </data>
-    <data name="221111MotiveText" xml:space="preserve">
+    <data name="CBS221111MotiveText" xml:space="preserve">
         <value>Proeflokaal/wijnproeverij</value>
     </data>
-    <data name="221112MotiveText" xml:space="preserve">
+    <data name="CBS221112MotiveText" xml:space="preserve">
         <value>Rondvaart of boottocht maken</value>
     </data>
-    <data name="221113MotiveText" xml:space="preserve">
+    <data name="CBS221113MotiveText" xml:space="preserve">
         <value>Ballonvlucht/rondvlucht maken</value>
     </data>
-    <data name="221115MotiveText" xml:space="preserve">
+    <data name="CBS221115MotiveText" xml:space="preserve">
         <value>Bezienswaardigheid bezichtigen</value>
     </data>
-    <data name="221116MotiveText" xml:space="preserve">
+    <data name="CBS221116MotiveText" xml:space="preserve">
         <value>Bloemencorso bekijken</value>
     </data>
-    <data name="221119MotiveText" xml:space="preserve">
+    <data name="CBS221119MotiveText" xml:space="preserve">
         <value>(Bier)brouwerij bezoeken</value>
     </data>
-    <data name="221120MotiveText" xml:space="preserve">
+    <data name="CBS221120MotiveText" xml:space="preserve">
         <value>Camping/vakantiepark bezoeken</value>
     </data>
-    <data name="221121MotiveText" xml:space="preserve">
+    <data name="CBS221121MotiveText" xml:space="preserve">
         <value>Dagje eropuit/dagje weg/dagtrip</value>
     </data>
-    <data name="221122MotiveText" xml:space="preserve">
+    <data name="CBS221122MotiveText" xml:space="preserve">
         <value>Dagje naar het strand</value>
     </data>
-    <data name="221124MotiveText" xml:space="preserve">
+    <data name="CBS221124MotiveText" xml:space="preserve">
         <value>Evenement bijwonen</value>
     </data>
-    <data name="221129MotiveText" xml:space="preserve">
+    <data name="CBS221129MotiveText" xml:space="preserve">
         <value>Kasteel, fort, ruïne e.d. bezichtigen</value>
     </data>
-    <data name="221130MotiveText" xml:space="preserve">
+    <data name="CBS221130MotiveText" xml:space="preserve">
         <value>Kerk, moskee, tempel e.d. bezichtigen</value>
     </data>
-    <data name="221131MotiveText" xml:space="preserve">
+    <data name="CBS221131MotiveText" xml:space="preserve">
         <value>Kweker, tuinkassen, boerderij e.d. bezichtigen</value>
     </data>
-    <data name="221133MotiveText" xml:space="preserve">
+    <data name="CBS221133MotiveText" xml:space="preserve">
         <value>Natuurgebied, bos e.d. bezoeken</value>
     </data>
-    <data name="221134MotiveText" xml:space="preserve">
+    <data name="CBS221134MotiveText" xml:space="preserve">
         <value>Sightseeing/stad bezichtigen e.d.</value>
     </data>
-    <data name="221136MotiveText" xml:space="preserve">
+    <data name="CBS221136MotiveText" xml:space="preserve">
         <value>Stadswandeling lopen</value>
     </data>
-    <data name="221137MotiveText" xml:space="preserve">
+    <data name="CBS221137MotiveText" xml:space="preserve">
         <value>Strand-, boswandeling e.d. maken</value>
     </data>
-    <data name="221139MotiveText" xml:space="preserve">
+    <data name="CBS221139MotiveText" xml:space="preserve">
         <value>Taptoe bezoeken</value>
     </data>
-    <data name="221141MotiveText" xml:space="preserve">
+    <data name="CBS221141MotiveText" xml:space="preserve">
         <value>IJssculpturen bekijken</value>
     </data>
-    <data name="221201MotiveText" xml:space="preserve">
+    <data name="CBS221201MotiveText" xml:space="preserve">
         <value>Bedrijfs-/afdelingsuitje</value>
     </data>
-    <data name="221202MotiveText" xml:space="preserve">
+    <data name="CBS221202MotiveText" xml:space="preserve">
         <value>Bedrijfsbarbecue/bbq werk</value>
     </data>
-    <data name="221203MotiveText" xml:space="preserve">
+    <data name="CBS221203MotiveText" xml:space="preserve">
         <value>Personeels-/bedrijfsfeest</value>
     </data>
-    <data name="221205MotiveText" xml:space="preserve">
+    <data name="CBS221205MotiveText" xml:space="preserve">
         <value>Carrièrebeurs bezoeken</value>
     </data>
-    <data name="221206MotiveText" xml:space="preserve">
+    <data name="CBS221206MotiveText" xml:space="preserve">
         <value>Excursie van het werk</value>
     </data>
-    <data name="221207MotiveText" xml:space="preserve">
+    <data name="CBS221207MotiveText" xml:space="preserve">
         <value>Feest van baas/werk</value>
     </data>
-    <data name="221209MotiveText" xml:space="preserve">
+    <data name="CBS221209MotiveText" xml:space="preserve">
         <value>Jubileumfeest dienstverband</value>
     </data>
-    <data name="221210MotiveText" xml:space="preserve">
+    <data name="CBS221210MotiveText" xml:space="preserve">
         <value>Personeelsdag</value>
     </data>
-    <data name="221212MotiveText" xml:space="preserve">
+    <data name="CBS221212MotiveText" xml:space="preserve">
         <value>Teamuitje, werkuitstapje e.d.</value>
     </data>
-    <data name="230001MotiveText" xml:space="preserve">
+    <data name="CBS230001MotiveText" xml:space="preserve">
         <value>Dagbesteding, dagopvang e.d</value>
     </data>
-    <data name="230004MotiveText" xml:space="preserve">
+    <data name="CBS230004MotiveText" xml:space="preserve">
         <value>Dagbesteding op zorgboerderij</value>
     </data>
-    <data name="230101MotiveText" xml:space="preserve">
+    <data name="CBS230101MotiveText" xml:space="preserve">
         <value>Dierenarts, veearts, dierenkliniek e.d. bezoeken</value>
     </data>
-    <data name="230102MotiveText" xml:space="preserve">
+    <data name="CBS230102MotiveText" xml:space="preserve">
         <value>Dierenopvang/-asiel/-pension bezoeken</value>
     </data>
-    <data name="230106MotiveText" xml:space="preserve">
+    <data name="CBS230106MotiveText" xml:space="preserve">
         <value>Trimsalon, hondentrimmer e.d. bezoeken</value>
     </data>
-    <data name="230201MotiveText" xml:space="preserve">
+    <data name="CBS230201MotiveText" xml:space="preserve">
         <value>Accountant, belastingadviseur e.d. bezoeken</value>
     </data>
-    <data name="230202MotiveText" xml:space="preserve">
+    <data name="CBS230202MotiveText" xml:space="preserve">
         <value>Assurantiekantoor bezoeken</value>
     </data>
-    <data name="230203MotiveText" xml:space="preserve">
+    <data name="CBS230203MotiveText" xml:space="preserve">
         <value>Bank bezoeken</value>
     </data>
-    <data name="230206MotiveText" xml:space="preserve">
+    <data name="CBS230206MotiveText" xml:space="preserve">
         <value>Belastingkantoor bezoeken</value>
     </data>
-    <data name="230207MotiveText" xml:space="preserve">
+    <data name="CBS230207MotiveText" xml:space="preserve">
         <value>Boekhouder, financieel adviseur bezoeken</value>
     </data>
-    <data name="230209MotiveText" xml:space="preserve">
+    <data name="CBS230209MotiveText" xml:space="preserve">
         <value>Pinnen, geld opnemen/storten/wisselen e.d.</value>
     </data>
-    <data name="230213MotiveText" xml:space="preserve">
+    <data name="CBS230213MotiveText" xml:space="preserve">
         <value>Hypotheekadviseur bezoeken</value>
     </data>
-    <data name="230216MotiveText" xml:space="preserve">
+    <data name="CBS230216MotiveText" xml:space="preserve">
         <value>Schuldhulpverlener bezoeken</value>
     </data>
-    <data name="230217MotiveText" xml:space="preserve">
+    <data name="CBS230217MotiveText" xml:space="preserve">
         <value>Schuldsaneringsbureau bezoeken</value>
     </data>
-    <data name="230218MotiveText" xml:space="preserve">
+    <data name="CBS230218MotiveText" xml:space="preserve">
         <value>Verzekeringsadviseur/-kantoor bezoeken</value>
     </data>
-    <data name="230281MotiveText" xml:space="preserve">
+    <data name="CBS230281MotiveText" xml:space="preserve">
         <value>Advocaat, juridisch adviseur e.d. bezoeken</value>
     </data>
-    <data name="230301MotiveText" xml:space="preserve">
+    <data name="CBS230301MotiveText" xml:space="preserve">
         <value>Bibliotheek, speel-o-theek e.d. bezoeken</value>
     </data>
-    <data name="230308MotiveText" xml:space="preserve">
+    <data name="CBS230308MotiveText" xml:space="preserve">
         <value>Studeren in bibliotheek (ook computeren)</value>
     </data>
-    <data name="230401MotiveText" xml:space="preserve">
+    <data name="CBS230401MotiveText" xml:space="preserve">
         <value>Aanhanger huren (ophalen/terugbrengen)</value>
     </data>
-    <data name="230402MotiveText" xml:space="preserve">
+    <data name="CBS230402MotiveText" xml:space="preserve">
         <value>Auto brengen ivm bandenwissel</value>
     </data>
-    <data name="230403MotiveText" xml:space="preserve">
+    <data name="CBS230403MotiveText" xml:space="preserve">
         <value>Auto brengen ivm APK</value>
     </data>
-    <data name="230404MotiveText" xml:space="preserve">
+    <data name="CBS230404MotiveText" xml:space="preserve">
         <value>Auto brengen ivm onderhoudsbeurt</value>
     </data>
-    <data name="230405MotiveText" xml:space="preserve">
+    <data name="CBS230405MotiveText" xml:space="preserve">
         <value>Auto brengen ivm reparatie</value>
     </data>
-    <data name="230406MotiveText" xml:space="preserve">
+    <data name="CBS230406MotiveText" xml:space="preserve">
         <value>Autowasstraat, autowasbox e.d. bezoeken</value>
     </data>
-    <data name="230407MotiveText" xml:space="preserve">
+    <data name="CBS230407MotiveText" xml:space="preserve">
         <value>Auto ophalen na bandenwissel</value>
     </data>
-    <data name="230408MotiveText" xml:space="preserve">
+    <data name="CBS230408MotiveText" xml:space="preserve">
         <value>Auto ophalen na APK</value>
     </data>
-    <data name="230409MotiveText" xml:space="preserve">
+    <data name="CBS230409MotiveText" xml:space="preserve">
         <value>Auto ophalen na onderhoudsbeurt</value>
     </data>
-    <data name="230410MotiveText" xml:space="preserve">
+    <data name="CBS230410MotiveText" xml:space="preserve">
         <value>Auto ophalen na reparatie</value>
     </data>
-    <data name="230411MotiveText" xml:space="preserve">
+    <data name="CBS230411MotiveText" xml:space="preserve">
         <value>Auto huren (ophalen/terugbrengen)</value>
     </data>
-    <data name="230414MotiveText" xml:space="preserve">
+    <data name="CBS230414MotiveText" xml:space="preserve">
         <value>Auto ophalen van garagebedrijf</value>
     </data>
-    <data name="230417MotiveText" xml:space="preserve">
+    <data name="CBS230417MotiveText" xml:space="preserve">
         <value>Auto brengen naar garagebedrijf</value>
     </data>
-    <data name="230420MotiveText" xml:space="preserve">
+    <data name="CBS230420MotiveText" xml:space="preserve">
         <value>Met auto naar garagebedrijf</value>
     </data>
-    <data name="230423MotiveText" xml:space="preserve">
+    <data name="CBS230423MotiveText" xml:space="preserve">
         <value>Schadeherstelbedrijf bezoeken</value>
     </data>
-    <data name="230424MotiveText" xml:space="preserve">
+    <data name="CBS230424MotiveText" xml:space="preserve">
         <value>Boedelbak huren (ophalen/terugbrengen)</value>
     </data>
-    <data name="230425MotiveText" xml:space="preserve">
+    <data name="CBS230425MotiveText" xml:space="preserve">
         <value>Copyshop, drukkerij, kopieën maken e.d.</value>
     </data>
-    <data name="230426MotiveText" xml:space="preserve">
+    <data name="CBS230426MotiveText" xml:space="preserve">
         <value>Deelauto ophalen/wegbrengen</value>
     </data>
-    <data name="230429MotiveText" xml:space="preserve">
+    <data name="CBS230429MotiveText" xml:space="preserve">
         <value>Fiets ophalen/terugbrengen ivm reparatie</value>
     </data>
-    <data name="230430MotiveText" xml:space="preserve">
+    <data name="CBS230430MotiveText" xml:space="preserve">
         <value>Fiets huren (ophalen/terugbrengen)</value>
     </data>
-    <data name="230432MotiveText" xml:space="preserve">
+    <data name="CBS230432MotiveText" xml:space="preserve">
         <value>Fietsenmaker bezoeken ivm reparatie</value>
     </data>
-    <data name="230433MotiveText" xml:space="preserve">
+    <data name="CBS230433MotiveText" xml:space="preserve">
         <value>Fotograaf, fotostudio e.d. bezoeken</value>
     </data>
-    <data name="230434MotiveText" xml:space="preserve">
+    <data name="CBS230434MotiveText" xml:space="preserve">
         <value>Pasfoto's laten maken, fotoshoot e.d.</value>
     </data>
-    <data name="230436MotiveText" xml:space="preserve">
+    <data name="CBS230436MotiveText" xml:space="preserve">
         <value>Garagebedrijf bezoeken</value>
     </data>
-    <data name="230442MotiveText" xml:space="preserve">
+    <data name="CBS230442MotiveText" xml:space="preserve">
         <value>Leenauto terugbrengen</value>
     </data>
-    <data name="230443MotiveText" xml:space="preserve">
+    <data name="CBS230443MotiveText" xml:space="preserve">
         <value>Leenfiets terugbrengen</value>
     </data>
-    <data name="230444MotiveText" xml:space="preserve">
+    <data name="CBS230444MotiveText" xml:space="preserve">
         <value>Makelaar bezoeken</value>
     </data>
-    <data name="230445MotiveText" xml:space="preserve">
+    <data name="CBS230445MotiveText" xml:space="preserve">
         <value>OV-chipkaart opladen</value>
     </data>
-    <data name="230447MotiveText" xml:space="preserve">
+    <data name="CBS230447MotiveText" xml:space="preserve">
         <value>Postkantoor, postbus legen, servicepunt post e.d.</value>
     </data>
-    <data name="230449MotiveText" xml:space="preserve">
+    <data name="CBS230449MotiveText" xml:space="preserve">
         <value>Reisbureau bezoeken</value>
     </data>
-    <data name="230451MotiveText" xml:space="preserve">
+    <data name="CBS230451MotiveText" xml:space="preserve">
         <value>Schoen-, sleutelmaker e.d. bezoeken</value>
     </data>
-    <data name="230453MotiveText" xml:space="preserve">
+    <data name="CBS230453MotiveText" xml:space="preserve">
         <value>Stomerij, wassalon, wasserette e.d. bezoeken</value>
     </data>
-    <data name="230457MotiveText" xml:space="preserve">
+    <data name="CBS230457MotiveText" xml:space="preserve">
         <value>Voedselbank bezoeken</value>
     </data>
-    <data name="230460MotiveText" xml:space="preserve">
+    <data name="CBS230460MotiveText" xml:space="preserve">
         <value>Iets laten repareren</value>
     </data>
-    <data name="230502MotiveText" xml:space="preserve">
+    <data name="CBS230502MotiveText" xml:space="preserve">
         <value>Dokter, arts, huisarts, GGD e.d. bezoeken</value>
     </data>
-    <data name="230503MotiveText" xml:space="preserve">
+    <data name="CBS230503MotiveText" xml:space="preserve">
         <value>Bloed laten prikken tbv onderzoek</value>
     </data>
-    <data name="230504MotiveText" xml:space="preserve">
+    <data name="CBS230504MotiveText" xml:space="preserve">
         <value>Medisch onderzoek laten doen</value>
     </data>
-    <data name="230505MotiveText" xml:space="preserve">
+    <data name="CBS230505MotiveText" xml:space="preserve">
         <value>Cardioloog, dermatoloog, etc. bezoeken</value>
     </data>
-    <data name="230508MotiveText" xml:space="preserve">
+    <data name="CBS230508MotiveText" xml:space="preserve">
         <value>Dialyse-centrum bezoeken</value>
     </data>
-    <data name="230512MotiveText" xml:space="preserve">
+    <data name="CBS230512MotiveText" xml:space="preserve">
         <value>Psychiater, GGZ e.d. bezoeken</value>
     </data>
-    <data name="230518MotiveText" xml:space="preserve">
+    <data name="CBS230518MotiveText" xml:space="preserve">
         <value>Chirurg, internist e.d. bezoeken</value>
     </data>
-    <data name="230524MotiveText" xml:space="preserve">
+    <data name="CBS230524MotiveText" xml:space="preserve">
         <value>Medisch specialist bezoeken</value>
     </data>
-    <data name="230530MotiveText" xml:space="preserve">
+    <data name="CBS230530MotiveText" xml:space="preserve">
         <value>Ziekenhuis, poli(-kliniek) e.d. bezoeken</value>
     </data>
-    <data name="230542MotiveText" xml:space="preserve">
+    <data name="CBS230542MotiveText" xml:space="preserve">
         <value>Spoedeisende hulp, huisartsenpost bezoeken</value>
     </data>
-    <data name="230543MotiveText" xml:space="preserve">
+    <data name="CBS230543MotiveText" xml:space="preserve">
         <value>Tandarts, mondhygiënist e.d. bezoeken</value>
     </data>
-    <data name="230544MotiveText" xml:space="preserve">
+    <data name="CBS230544MotiveText" xml:space="preserve">
         <value>Trombosedienst bezoeken</value>
     </data>
-    <data name="230546MotiveText" xml:space="preserve">
+    <data name="CBS230546MotiveText" xml:space="preserve">
         <value>Verloskundige (praktijk), vroedvrouw bezoeken</value>
     </data>
-    <data name="230603MotiveText" xml:space="preserve">
+    <data name="CBS230603MotiveText" xml:space="preserve">
         <value>Ambassade, consulaat bezoeken</value>
     </data>
-    <data name="230604MotiveText" xml:space="preserve">
+    <data name="CBS230604MotiveText" xml:space="preserve">
         <value>Rechtbank, gerechtsgebouw e.d. bezoeken</value>
     </data>
-    <data name="230609MotiveText" xml:space="preserve">
+    <data name="CBS230609MotiveText" xml:space="preserve">
         <value>UWV, sociale dienst, CWI e.d. bezoeken</value>
     </data>
-    <data name="230610MotiveText" xml:space="preserve">
+    <data name="CBS230610MotiveText" xml:space="preserve">
         <value>Gemeentehuis, gemeentekantoor bezoeken</value>
     </data>
-    <data name="230615MotiveText" xml:space="preserve">
+    <data name="CBS230615MotiveText" xml:space="preserve">
         <value>ID kaart, paspoort aanvragen of ophalen</value>
     </data>
-    <data name="230618MotiveText" xml:space="preserve">
+    <data name="CBS230618MotiveText" xml:space="preserve">
         <value>Politiebureau, politiepost bezoeken</value>
     </data>
-    <data name="230620MotiveText" xml:space="preserve">
+    <data name="CBS230620MotiveText" xml:space="preserve">
         <value>Reclassering bezoeken</value>
     </data>
-    <data name="230623MotiveText" xml:space="preserve">
+    <data name="CBS230623MotiveText" xml:space="preserve">
         <value>Stadhuis, stadsdeelkantoor bezoeken</value>
     </data>
-    <data name="230626MotiveText" xml:space="preserve">
+    <data name="CBS230626MotiveText" xml:space="preserve">
         <value>Stembureau, stemmen</value>
     </data>
-    <data name="230628MotiveText" xml:space="preserve">
+    <data name="CBS230628MotiveText" xml:space="preserve">
         <value>Bedrijfsarts, UWV-arts bezoeken</value>
     </data>
-    <data name="230702MotiveText" xml:space="preserve">
+    <data name="CBS230702MotiveText" xml:space="preserve">
         <value>Alternatieve genezer, natuurgenezer e.d. bezoeken</value>
     </data>
-    <data name="230703MotiveText" xml:space="preserve">
+    <data name="CBS230703MotiveText" xml:space="preserve">
         <value>Apotheek bezoeken</value>
     </data>
-    <data name="230705MotiveText" xml:space="preserve">
+    <data name="CBS230705MotiveText" xml:space="preserve">
         <value>Bloedbank, bloed doneren</value>
     </data>
-    <data name="230707MotiveText" xml:space="preserve">
+    <data name="CBS230707MotiveText" xml:space="preserve">
         <value>Borstvoedingscentrum bezoeken</value>
     </data>
-    <data name="230709MotiveText" xml:space="preserve">
+    <data name="CBS230709MotiveText" xml:space="preserve">
         <value>Chiropractor, osteopaat e.d. bezoeken</value>
     </data>
-    <data name="230710MotiveText" xml:space="preserve">
+    <data name="CBS230710MotiveText" xml:space="preserve">
         <value>Consultatiebureau e.d. bezoeken</value>
     </data>
-    <data name="230711MotiveText" xml:space="preserve">
+    <data name="CBS230711MotiveText" xml:space="preserve">
         <value>Diëtist, afslankinstituut e.d. bezoeken</value>
     </data>
-    <data name="230712MotiveText" xml:space="preserve">
+    <data name="CBS230712MotiveText" xml:space="preserve">
         <value>Dyslexiecentrum bezoeken</value>
     </data>
-    <data name="230714MotiveText" xml:space="preserve">
+    <data name="CBS230714MotiveText" xml:space="preserve">
         <value>Hoorspecialist, hoorwinkel, audiciën bezoeken</value>
     </data>
-    <data name="230715MotiveText" xml:space="preserve">
+    <data name="CBS230715MotiveText" xml:space="preserve">
         <value>Homeopaat, accupuncturist e.d. bezoeken</value>
     </data>
-    <data name="230719MotiveText" xml:space="preserve">
+    <data name="CBS230719MotiveText" xml:space="preserve">
         <value>Logopedist bezoeken</value>
     </data>
-    <data name="230720MotiveText" xml:space="preserve">
+    <data name="CBS230720MotiveText" xml:space="preserve">
         <value>Medische keuring</value>
     </data>
-    <data name="230725MotiveText" xml:space="preserve">
+    <data name="CBS230725MotiveText" xml:space="preserve">
         <value>Orthodontist bezoeken</value>
     </data>
-    <data name="230729MotiveText" xml:space="preserve">
+    <data name="CBS230729MotiveText" xml:space="preserve">
         <value>Podoloog, pedicure e.d. bezoeken</value>
     </data>
-    <data name="230733MotiveText" xml:space="preserve">
+    <data name="CBS230733MotiveText" xml:space="preserve">
         <value>Psycholoog, mental coach e.d. bezoeken</value>
     </data>
-    <data name="230737MotiveText" xml:space="preserve">
+    <data name="CBS230737MotiveText" xml:space="preserve">
         <value>Therapeut bezoeken</value>
     </data>
-    <data name="230739MotiveText" xml:space="preserve">
+    <data name="CBS230739MotiveText" xml:space="preserve">
         <value>Verpleegkundige, doktersassistent e.d. bezoeken</value>
     </data>
-    <data name="230740MotiveText" xml:space="preserve">
+    <data name="CBS230740MotiveText" xml:space="preserve">
         <value>Zwangersschapsgym</value>
     </data>
-    <data name="230801MotiveText" xml:space="preserve">
+    <data name="CBS230801MotiveText" xml:space="preserve">
         <value>Aannemer, bouwadviseur e.d. bezoeken</value>
     </data>
-    <data name="230802MotiveText" xml:space="preserve">
+    <data name="CBS230802MotiveText" xml:space="preserve">
         <value>Adviseur/adviesbureau bezoeken</value>
     </data>
-    <data name="230804MotiveText" xml:space="preserve">
+    <data name="CBS230804MotiveText" xml:space="preserve">
         <value>Arbodienst bezoeken</value>
     </data>
-    <data name="230805MotiveText" xml:space="preserve">
+    <data name="CBS230805MotiveText" xml:space="preserve">
         <value>Architect, binnenhuisarchitect e.d. bezoeken</value>
     </data>
-    <data name="230808MotiveText" xml:space="preserve">
+    <data name="CBS230808MotiveText" xml:space="preserve">
         <value>Notaris bezoeken</value>
     </data>
-    <data name="230809MotiveText" xml:space="preserve">
+    <data name="CBS230809MotiveText" xml:space="preserve">
         <value>Sleuteloverdracht woning</value>
     </data>
-    <data name="230810MotiveText" xml:space="preserve">
+    <data name="CBS230810MotiveText" xml:space="preserve">
         <value>Uitzendbureau bezoeken</value>
     </data>
-    <data name="230811MotiveText" xml:space="preserve">
+    <data name="CBS230811MotiveText" xml:space="preserve">
         <value>VVV bezoeken</value>
     </data>
-    <data name="230861MotiveText" xml:space="preserve">
+    <data name="CBS230861MotiveText" xml:space="preserve">
         <value>Asielzoekerscentrum (AZC) bezoeken</value>
     </data>
-    <data name="230863MotiveText" xml:space="preserve">
+    <data name="CBS230863MotiveText" xml:space="preserve">
         <value>Revalidatiecentrum/-oord bezoeken</value>
     </data>
-    <data name="230864MotiveText" xml:space="preserve">
+    <data name="CBS230864MotiveText" xml:space="preserve">
         <value>Vakbondscentrum bezoeken</value>
     </data>
-    <data name="230866MotiveText" xml:space="preserve">
+    <data name="CBS230866MotiveText" xml:space="preserve">
         <value>Zorginstelling (ouderen/gehandicapten) bezoeken</value>
     </data>
-    <data name="230867MotiveText" xml:space="preserve">
+    <data name="CBS230867MotiveText" xml:space="preserve">
         <value>Huis/woning bezichtigen ivm kopen/huren</value>
     </data>
-    <data name="230904MotiveText" xml:space="preserve">
+    <data name="CBS230904MotiveText" xml:space="preserve">
         <value>Opticiën, contactlens-/brillenzaak bezoeken</value>
     </data>
-    <data name="230905MotiveText" xml:space="preserve">
+    <data name="CBS230905MotiveText" xml:space="preserve">
         <value>Kapper, hairstylist e.d. bezoeken</value>
     </data>
-    <data name="230906MotiveText" xml:space="preserve">
+    <data name="CBS230906MotiveText" xml:space="preserve">
         <value>Manicure, nagelstylist e.d. bezoeken</value>
     </data>
-    <data name="230907MotiveText" xml:space="preserve">
+    <data name="CBS230907MotiveText" xml:space="preserve">
         <value>Massage, masseur e.d.</value>
     </data>
-    <data name="230914MotiveText" xml:space="preserve">
+    <data name="CBS230914MotiveText" xml:space="preserve">
         <value>Zonnestudio, sauna, wellness e.d. bezoeken</value>
     </data>
-    <data name="230915MotiveText" xml:space="preserve">
+    <data name="CBS230915MotiveText" xml:space="preserve">
         <value>Schoonheidsspecialist, visagist e.d. bezoeken</value>
     </data>
-    <data name="230918MotiveText" xml:space="preserve">
+    <data name="CBS230918MotiveText" xml:space="preserve">
         <value>Tatooshop bezoeken</value>
     </data>
-    <data name="240001MotiveText" xml:space="preserve">
+    <data name="CBS240001MotiveText" xml:space="preserve">
         <value>Auto ophalen uit parkeergarage</value>
     </data>
-    <data name="240002MotiveText" xml:space="preserve">
+    <data name="CBS240002MotiveText" xml:space="preserve">
         <value>Auto ophalen van parkeerplaats</value>
     </data>
-    <data name="240003MotiveText" xml:space="preserve">
+    <data name="CBS240003MotiveText" xml:space="preserve">
         <value>Geparkeerde auto ophalen</value>
     </data>
-    <data name="240051MotiveText" xml:space="preserve">
+    <data name="CBS240051MotiveText" xml:space="preserve">
         <value>Auto parkeren in parkeergarage</value>
     </data>
-    <data name="240052MotiveText" xml:space="preserve">
+    <data name="CBS240052MotiveText" xml:space="preserve">
         <value>Auto parkeren op parkeerplaats</value>
     </data>
-    <data name="240053MotiveText" xml:space="preserve">
+    <data name="CBS240053MotiveText" xml:space="preserve">
         <value>Auto wegzetten</value>
     </data>
-    <data name="240054MotiveText" xml:space="preserve">
+    <data name="CBS240054MotiveText" xml:space="preserve">
         <value>Auto verplaatsen</value>
     </data>
-    <data name="240105MotiveText" xml:space="preserve">
+    <data name="CBS240105MotiveText" xml:space="preserve">
         <value>Met iemand meegegaan als begeleider/ondersteuner</value>
     </data>
-    <data name="240151MotiveText" xml:space="preserve">
+    <data name="CBS240151MotiveText" xml:space="preserve">
         <value>Carpoolen: Overstappen ivm carpoolen</value>
     </data>
-    <data name="240152MotiveText" xml:space="preserve">
+    <data name="CBS240152MotiveText" xml:space="preserve">
         <value>Carpoolen: Iemand oppikken ivm carpoolen</value>
     </data>
-    <data name="240201MotiveText" xml:space="preserve">
+    <data name="CBS240201MotiveText" xml:space="preserve">
         <value>Fiets ophalen (ook uit stalling)</value>
     </data>
-    <data name="240202MotiveText" xml:space="preserve">
+    <data name="CBS240202MotiveText" xml:space="preserve">
         <value>Fiets parkeren/wegzetten (ook in stalling)</value>
     </data>
-    <data name="240302MotiveText" xml:space="preserve">
+    <data name="CBS240302MotiveText" xml:space="preserve">
         <value>Meegegaan met ouders, gezinslid e.d.</value>
     </data>
-    <data name="240303MotiveText" xml:space="preserve">
+    <data name="CBS240303MotiveText" xml:space="preserve">
         <value>Meegegaan met begeleider/iemand die mij begeleide</value>
     </data>
-    <data name="240307MotiveText" xml:space="preserve">
+    <data name="CBS240307MotiveText" xml:space="preserve">
         <value>Meegegaan met partner</value>
     </data>
-    <data name="240401MotiveText" xml:space="preserve">
+    <data name="CBS240401MotiveText" xml:space="preserve">
         <value>Overstappen op (andere) bus, tram, metro e.d.</value>
     </data>
-    <data name="240404MotiveText" xml:space="preserve">
+    <data name="CBS240404MotiveText" xml:space="preserve">
         <value>Overstappen op (andere) trein</value>
     </data>
-    <data name="240405MotiveText" xml:space="preserve">
+    <data name="CBS240405MotiveText" xml:space="preserve">
         <value>Overstappen op andere vlucht</value>
     </data>
-    <data name="240501MotiveText" xml:space="preserve">
+    <data name="CBS240501MotiveText" xml:space="preserve">
         <value>Wachten bij halte (bus, tram, metro e.d.)</value>
     </data>
-    <data name="240504MotiveText" xml:space="preserve">
+    <data name="CBS240504MotiveText" xml:space="preserve">
         <value>Wachten bij opstap-/verzamelplaats voor busreis</value>
     </data>
-    <data name="240509MotiveText" xml:space="preserve">
+    <data name="CBS240509MotiveText" xml:space="preserve">
         <value>Wachten op pontje, veerboot, ferry e.d.</value>
     </data>
-    <data name="240513MotiveText" xml:space="preserve">
+    <data name="CBS240513MotiveText" xml:space="preserve">
         <value>Wachten op station (metro, trein e.d.)</value>
     </data>
-    <data name="240514MotiveText" xml:space="preserve">
+    <data name="CBS240514MotiveText" xml:space="preserve">
         <value>Wachten op vliegveld/vlucht</value>
     </data>
-    <data name="240516MotiveText" xml:space="preserve">
+    <data name="CBS240516MotiveText" xml:space="preserve">
         <value>Wachten op rondvaartboot e.d.</value>
     </data>
-    <data name="999990MotiveText" xml:space="preserve">
+    <data name="CBS999990MotiveText" xml:space="preserve">
         <value>Iets anders (een andere activiteit)</value>
     </data>
+
     <data name="TransportSelectionPageTitle" xml:space="preserve">
         <value>Selecteer vervoersmiddel(en)</value>
     </data>
@@ -2664,5 +2665,38 @@
     </data>
     <data name="StartAppReminderText" xml:space="preserve">
         <value>Tabi moet open zijn om verplaatsingen te meten. Open alstublieft de Tabi Verplaatsingen.</value>
+    </data>
+    <data name="AnalyticsSwitchLabel" xml:space="preserve">
+        <value>Analytics</value>
+    </data>
+    <data name="CrashesSwitchLabel" xml:space="preserve">
+        <value>Stuur crashes</value>
+    </data>
+    <data name="DataPrivacySettings" xml:space="preserve">
+        <value>Data en privacy</value>
+    </data>
+    <data name="DataPrivacyCrashesSectionLabel" xml:space="preserve">
+        <value>Crashes en errors</value>
+    </data>
+    <data name="DataPrivacyCrashesSectionExplanation" xml:space="preserve">
+        <value>Sta toe om crashrapportages te versturen. Hiermee kunnen wij de app verbeteren.</value>
+    </data>
+    <data name="DataPrivacyAnalyticsSectionLabel" xml:space="preserve">
+        <value>Analytics</value>
+    </data>
+    <data name="DataPrivacyAnalyticsSectionExplanation" xml:space="preserve">
+        <value>Analytics wordt gebruikt om te kijken hoe de app gebruikt wordt. Dit helpt ons vooral bij crashes.</value>
+    </data>
+    <data name="DataPrivacySettingsTitle" xml:space="preserve">
+        <value>Data &amp; Privacy</value>
+    </data>
+    <data name="DataPrivacyDataSyncSectionLabel" xml:space="preserve">
+        <value>Data upload</value>
+    </data>
+    <data name="AutoDataUploadSwitchLabel" xml:space="preserve">
+        <value>Automatisch data versturen</value>
+    </data>
+    <data name="DataUploadWifiOnlySwitchLabel" xml:space="preserve">
+        <value>Gebruik alleen WiFi</value>
     </data>
 </root>

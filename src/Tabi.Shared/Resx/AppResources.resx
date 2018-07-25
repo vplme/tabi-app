@@ -577,2205 +577,2206 @@
     <data name="CreateCustomMotive" xml:space="preserve">
         <value>Use "{0}"</value>
     </data>
-    <data name="110001MotiveText" xml:space="preserve">
+    <data name="CBS110001MotiveText" xml:space="preserve">
         <value>Activities in house / house / apartment</value>
     </data>
-    <data name="110005MotiveText" xml:space="preserve">
+    <data name="CBS110005MotiveText" xml:space="preserve">
         <value>Activities in new / future home</value>
     </data>
-    <data name="110006MotiveText" xml:space="preserve">
+    <data name="CBS110006MotiveText" xml:space="preserve">
         <value>Activities in old house</value>
     </data>
-    <data name="110009MotiveText" xml:space="preserve">
+    <data name="CBS110009MotiveText" xml:space="preserve">
         <value>Activities in student room / house</value>
     </data>
-    <data name="110013MotiveText" xml:space="preserve">
+    <data name="CBS110013MotiveText" xml:space="preserve">
         <value>Activities in second house / house</value>
     </data>
-    <data name="110015MotiveText" xml:space="preserve">
+    <data name="CBS110015MotiveText" xml:space="preserve">
         <value>Activities in a holiday home</value>
     </data>
-    <data name="110020MotiveText" xml:space="preserve">
+    <data name="CBS110020MotiveText" xml:space="preserve">
         <value>Activities at (semi-permanent) home / residence address</value>
     </data>
-    <data name="110022MotiveText" xml:space="preserve">
+    <data name="CBS110022MotiveText" xml:space="preserve">
         <value>Activities in (temporary) holiday home</value>
     </data>
-    <data name="120001MotiveText" xml:space="preserve">
+    <data name="CBS120001MotiveText" xml:space="preserve">
         <value>Work: Paid work</value>
     </data>
-    <data name="120002MotiveText" xml:space="preserve">
+    <data name="CBS120002MotiveText" xml:space="preserve">
         <value>Extra earnings</value>
     </data>
-    <data name="120041MotiveText" xml:space="preserve">
+    <data name="CBS120041MotiveText" xml:space="preserve">
         <value>Guiding someone (paid)</value>
     </data>
-    <data name="120101MotiveText" xml:space="preserve">
+    <data name="CBS120101MotiveText" xml:space="preserve">
         <value>Work on the land as farmer / livestock farmer and the like.</value>
     </data>
-    <data name="120103MotiveText" xml:space="preserve">
+    <data name="CBS120103MotiveText" xml:space="preserve">
         <value>Caring for cattle, milking cows and the like.</value>
     </data>
-    <data name="120121MotiveText" xml:space="preserve">
+    <data name="CBS120121MotiveText" xml:space="preserve">
         <value>Work for church / mosque / synagogue and the like.</value>
     </data>
-    <data name="120141MotiveText" xml:space="preserve">
+    <data name="CBS120141MotiveText" xml:space="preserve">
         <value>Teaching a lesson, course, information and the like</value>
     </data>
-    <data name="120142MotiveText" xml:space="preserve">
+    <data name="CBS120142MotiveText" xml:space="preserve">
         <value>Provide instruction, training and the like</value>
     </data>
-    <data name="120161MotiveText" xml:space="preserve">
+    <data name="CBS120161MotiveText" xml:space="preserve">
         <value>Model (show, hairdresser etc.)</value>
     </data>
-    <data name="120171MotiveText" xml:space="preserve">
+    <data name="CBS120171MotiveText" xml:space="preserve">
         <value>Babysitting / Babysitting (also as a childminder)</value>
     </data>
-    <data name="120181MotiveText" xml:space="preserve">
+    <data name="CBS120181MotiveText" xml:space="preserve">
         <value>Patient / client / sick visits due to work</value>
     </data>
-    <data name="120192MotiveText" xml:space="preserve">
+    <data name="CBS120192MotiveText" xml:space="preserve">
         <value>Job interview as an applicant</value>
     </data>
-    <data name="120201MotiveText" xml:space="preserve">
+    <data name="CBS120201MotiveText" xml:space="preserve">
         <value>Arrange traffic (also as a volunteer)</value>
     </data>
-    <data name="120221MotiveText" xml:space="preserve">
+    <data name="CBS120221MotiveText" xml:space="preserve">
         <value>Donors recruit on the street</value>
     </data>
-    <data name="120222MotiveText" xml:space="preserve">
+    <data name="CBS120222MotiveText" xml:space="preserve">
         <value>Being on the market as a seller</value>
     </data>
-    <data name="120242MotiveText" xml:space="preserve">
+    <data name="CBS120242MotiveText" xml:space="preserve">
         <value>Caring for someone (also as a volunteer)</value>
     </data>
-    <data name="120243MotiveText" xml:space="preserve">
+    <data name="CBS120243MotiveText" xml:space="preserve">
         <value>Taking care of someone (also as a volunteer)</value>
     </data>
-    <data name="120244MotiveText" xml:space="preserve">
+    <data name="CBS120244MotiveText" xml:space="preserve">
         <value>Providing informal care</value>
     </data>
-    <data name="120246MotiveText" xml:space="preserve">
+    <data name="CBS120246MotiveText" xml:space="preserve">
         <value>Working as a PGB employee</value>
     </data>
-    <data name="120261MotiveText" xml:space="preserve">
+    <data name="CBS120261MotiveText" xml:space="preserve">
         <value>Voluntary work (neighborhood / sports / school / nature etc.)</value>
     </data>
-    <data name="120401MotiveText" xml:space="preserve">
+    <data name="CBS120401MotiveText" xml:space="preserve">
         <value>Security tasks (at fixed work address)</value>
     </data>
-    <data name="120402MotiveText" xml:space="preserve">
+    <data name="CBS120402MotiveText" xml:space="preserve">
         <value>Meeting / meeting at work</value>
     </data>
-    <data name="120403MotiveText" xml:space="preserve">
+    <data name="CBS120403MotiveText" xml:space="preserve">
         <value>Inspection / inspection work (at fixed work address)</value>
     </data>
-    <data name="120404MotiveText" xml:space="preserve">
+    <data name="CBS120404MotiveText" xml:space="preserve">
         <value>Photo (reportage) / Interview</value>
     </data>
-    <data name="120405MotiveText" xml:space="preserve">
+    <data name="CBS120405MotiveText" xml:space="preserve">
         <value>Consultation / discussion / appointment at work</value>
     </data>
-    <data name="120413MotiveText" xml:space="preserve">
+    <data name="CBS120413MotiveText" xml:space="preserve">
         <value>Holidayjob</value>
     </data>
-    <data name="120414MotiveText" xml:space="preserve">
+    <data name="CBS120414MotiveText" xml:space="preserve">
         <value>Conduct surveillance (at fixed work address)</value>
     </data>
-    <data name="120415MotiveText" xml:space="preserve">
+    <data name="CBS120415MotiveText" xml:space="preserve">
         <value>Participate in a strike</value>
     </data>
-    <data name="120416MotiveText" xml:space="preserve">
+    <data name="CBS120416MotiveText" xml:space="preserve">
         <value>Build event grounds</value>
     </data>
-    <data name="120417MotiveText" xml:space="preserve">
+    <data name="CBS120417MotiveText" xml:space="preserve">
         <value>Temporary job</value>
     </data>
-    <data name="130001MotiveText" xml:space="preserve">
+    <data name="CBS130001MotiveText" xml:space="preserve">
         <value>Collecting / bringing child (ren) as a babysitter / childminder</value>
     </data>
-    <data name="130002MotiveText" xml:space="preserve">
+    <data name="CBS130002MotiveText" xml:space="preserve">
         <value>Accompany person / persons (paid)</value>
     </data>
-    <data name="130041MotiveText" xml:space="preserve">
+    <data name="CBS130041MotiveText" xml:space="preserve">
         <value>Decline application elsewhere</value>
     </data>
-    <data name="130061MotiveText" xml:space="preserve">
+    <data name="CBS130061MotiveText" xml:space="preserve">
         <value>House visit / patient visit (paid)</value>
     </data>
-    <data name="130101MotiveText" xml:space="preserve">
+    <data name="CBS130101MotiveText" xml:space="preserve">
         <value>Consultation / discussion / appointment elsewhere concerning work</value>
     </data>
-    <data name="130103MotiveText" xml:space="preserve">
+    <data name="CBS130103MotiveText" xml:space="preserve">
         <value>Customer / client visits due to work</value>
     </data>
-    <data name="130107MotiveText" xml:space="preserve">
+    <data name="CBS130107MotiveText" xml:space="preserve">
         <value>Working visit, business dinner, business lunch and the like.</value>
     </data>
-    <data name="130201MotiveText" xml:space="preserve">
+    <data name="CBS130201MotiveText" xml:space="preserve">
         <value>Visit exhibition / congress for work</value>
     </data>
-    <data name="130301MotiveText" xml:space="preserve">
+    <data name="CBS130301MotiveText" xml:space="preserve">
         <value>Because of work to do shopping or shopping</value>
     </data>
-    <data name="130305MotiveText" xml:space="preserve">
+    <data name="CBS130305MotiveText" xml:space="preserve">
         <value>Visit an auction because of work</value>
     </data>
-    <data name="130401MotiveText" xml:space="preserve">
+    <data name="CBS130401MotiveText" xml:space="preserve">
         <value>Giving guest lectures / guest lectures</value>
     </data>
-    <data name="130501MotiveText" xml:space="preserve">
+    <data name="CBS130501MotiveText" xml:space="preserve">
         <value>Working on destination business trip / business trip</value>
     </data>
-    <data name="130504MotiveText" xml:space="preserve">
+    <data name="CBS130504MotiveText" xml:space="preserve">
         <value>Deliver / pick up / pick up something for the work</value>
     </data>
-    <data name="130601MotiveText" xml:space="preserve">
+    <data name="CBS130601MotiveText" xml:space="preserve">
         <value>Meeting / meeting elsewhere concerning work</value>
     </data>
-    <data name="130701MotiveText" xml:space="preserve">
+    <data name="CBS130701MotiveText" xml:space="preserve">
         <value>Inspection / control work (1 location this day)</value>
     </data>
-    <data name="130702MotiveText" xml:space="preserve">
+    <data name="CBS130702MotiveText" xml:space="preserve">
         <value>Business assignment / work elsewhere</value>
     </data>
-    <data name="130704MotiveText" xml:space="preserve">
+    <data name="CBS130704MotiveText" xml:space="preserve">
         <value>Security work (1 location elsewhere this day)</value>
     </data>
-    <data name="130705MotiveText" xml:space="preserve">
+    <data name="CBS130705MotiveText" xml:space="preserve">
         <value>Surveillance work (1 location elsewhere this day)</value>
     </data>
-    <data name="140001MotiveText" xml:space="preserve">
+    <data name="CBS140001MotiveText" xml:space="preserve">
         <value>Delivering groceries as work</value>
     </data>
-    <data name="140002MotiveText" xml:space="preserve">
+    <data name="CBS140002MotiveText" xml:space="preserve">
         <value>Delivery / delivery / collection as work</value>
     </data>
-    <data name="140003MotiveText" xml:space="preserve">
+    <data name="CBS140003MotiveText" xml:space="preserve">
         <value>Food / meals delivery (as work)</value>
     </data>
-    <data name="140010MotiveText" xml:space="preserve">
+    <data name="CBS140010MotiveText" xml:space="preserve">
         <value>Walk the newspaper district</value>
     </data>
-    <data name="140012MotiveText" xml:space="preserve">
+    <data name="CBS140012MotiveText" xml:space="preserve">
         <value>Provide post / brochures / newspapers as work</value>
     </data>
-    <data name="140051MotiveText" xml:space="preserve">
+    <data name="CBS140051MotiveText" xml:space="preserve">
         <value>Collecting / bringing people (driver as profession)</value>
     </data>
-    <data name="140053MotiveText" xml:space="preserve">
+    <data name="CBS140053MotiveText" xml:space="preserve">
         <value>To depot / garage for work as a driver / conductor</value>
     </data>
-    <data name="140101MotiveText" xml:space="preserve">
+    <data name="CBS140101MotiveText" xml:space="preserve">
         <value>Collecting door-to-door / collecting / selling</value>
     </data>
-    <data name="140104MotiveText" xml:space="preserve">
+    <data name="CBS140104MotiveText" xml:space="preserve">
         <value>Sell ​​children stamps</value>
     </data>
-    <data name="140201MotiveText" xml:space="preserve">
+    <data name="CBS140201MotiveText" xml:space="preserve">
         <value>Making burglary prevention round by neighborhood (s)</value>
     </data>
-    <data name="140202MotiveText" xml:space="preserve">
+    <data name="CBS140202MotiveText" xml:space="preserve">
         <value>Surveillance round (various locations this day)</value>
     </data>
-    <data name="140203MotiveText" xml:space="preserve">
+    <data name="CBS140203MotiveText" xml:space="preserve">
         <value>Carry out road inspection</value>
     </data>
-    <data name="140204MotiveText" xml:space="preserve">
+    <data name="CBS140204MotiveText" xml:space="preserve">
         <value>Performing a chimney inspection</value>
     </data>
-    <data name="140205MotiveText" xml:space="preserve">
+    <data name="CBS140205MotiveText" xml:space="preserve">
         <value>Inspection / inspection round (several locations this day)</value>
     </data>
-    <data name="140206MotiveText" xml:space="preserve">
+    <data name="CBS140206MotiveText" xml:space="preserve">
         <value>Security round (various locations this day)</value>
     </data>
-    <data name="140301MotiveText" xml:space="preserve">
+    <data name="CBS140301MotiveText" xml:space="preserve">
         <value>Record meter readings</value>
     </data>
-    <data name="150001MotiveText" xml:space="preserve">
+    <data name="CBS150001MotiveText" xml:space="preserve">
         <value>Pick up / drop someone (not as work)</value>
     </data>
-    <data name="150007MotiveText" xml:space="preserve">
+    <data name="CBS150007MotiveText" xml:space="preserve">
         <value>Collecting / bringing child (ren) (not as work)</value>
     </data>
-    <data name="150008MotiveText" xml:space="preserve">
+    <data name="CBS150008MotiveText" xml:space="preserve">
         <value>Retrieve child (ren) from a guest address</value>
     </data>
-    <data name="150014MotiveText" xml:space="preserve">
+    <data name="CBS150014MotiveText" xml:space="preserve">
         <value>Gone with someone to transport them</value>
     </data>
-    <data name="150101MotiveText" xml:space="preserve">
+    <data name="CBS150101MotiveText" xml:space="preserve">
         <value>Retrieving child (ren) at babysitter / childminder (not as work)</value>
     </data>
-    <data name="150102MotiveText" xml:space="preserve">
+    <data name="CBS150102MotiveText" xml:space="preserve">
         <value>Retrieving child (ren) from reception / bso (not as work)</value>
     </data>
-    <data name="150103MotiveText" xml:space="preserve">
+    <data name="CBS150103MotiveText" xml:space="preserve">
         <value>Retrieving child (ren) from nursery / daycare (not as work)</value>
     </data>
-    <data name="150109MotiveText" xml:space="preserve">
+    <data name="CBS150109MotiveText" xml:space="preserve">
         <value>Retrieving child (ren) from school (not as work)</value>
     </data>
-    <data name="150112MotiveText" xml:space="preserve">
+    <data name="CBS150112MotiveText" xml:space="preserve">
         <value>Child (ren) pick up of sport and the like (not as work)</value>
     </data>
-    <data name="150201MotiveText" xml:space="preserve">
+    <data name="CBS150201MotiveText" xml:space="preserve">
         <value>Bring someone home (not as work)</value>
     </data>
-    <data name="150228MotiveText" xml:space="preserve">
+    <data name="CBS150228MotiveText" xml:space="preserve">
         <value>Bring the child (ren) to a guest address</value>
     </data>
-    <data name="150301MotiveText" xml:space="preserve">
+    <data name="CBS150301MotiveText" xml:space="preserve">
         <value>Bring child (ren) to nursery / daycare (not as work)</value>
     </data>
-    <data name="150303MotiveText" xml:space="preserve">
+    <data name="CBS150303MotiveText" xml:space="preserve">
         <value>Bring child (ren) to shelter (not as work)</value>
     </data>
-    <data name="150305MotiveText" xml:space="preserve">
+    <data name="CBS150305MotiveText" xml:space="preserve">
         <value>Bring child (ren) to babysitter / childminder (not as work)</value>
     </data>
-    <data name="150308MotiveText" xml:space="preserve">
+    <data name="CBS150308MotiveText" xml:space="preserve">
         <value>Bringing child (ren) to school (not as work)</value>
     </data>
-    <data name="150311MotiveText" xml:space="preserve">
+    <data name="CBS150311MotiveText" xml:space="preserve">
         <value>Bring child (ren) to sport and the like (not as work)</value>
     </data>
-    <data name="160001MotiveText" xml:space="preserve">
+    <data name="CBS160001MotiveText" xml:space="preserve">
         <value>Waste / garbage bringing (not as work)</value>
     </data>
-    <data name="160003MotiveText" xml:space="preserve">
+    <data name="CBS160003MotiveText" xml:space="preserve">
         <value>Collecting / bringing back groceries (not as work)</value>
     </data>
-    <data name="160007MotiveText" xml:space="preserve">
+    <data name="CBS160007MotiveText" xml:space="preserve">
         <value>Collecting or bringing a trailer / trailer or similar</value>
     </data>
-    <data name="160009MotiveText" xml:space="preserve">
+    <data name="CBS160009MotiveText" xml:space="preserve">
         <value>Collecting or bringing collection bus</value>
     </data>
-    <data name="160010MotiveText" xml:space="preserve">
+    <data name="CBS160010MotiveText" xml:space="preserve">
         <value>Eating away / bringing around (not as work)</value>
     </data>
-    <data name="160011MotiveText" xml:space="preserve">
+    <data name="CBS160011MotiveText" xml:space="preserve">
         <value>To borrow bicycle from private pick up</value>
     </data>
-    <data name="160013MotiveText" xml:space="preserve">
+    <data name="CBS160013MotiveText" xml:space="preserve">
         <value>To borrow car from private pick up</value>
     </data>
-    <data name="160015MotiveText" xml:space="preserve">
+    <data name="CBS160015MotiveText" xml:space="preserve">
         <value>Collecting / bringing goods (not as work)</value>
     </data>
-    <data name="160017MotiveText" xml:space="preserve">
+    <data name="CBS160017MotiveText" xml:space="preserve">
         <value>Collecting / bringing pets (dog, cat, etc.)</value>
     </data>
-    <data name="160018MotiveText" xml:space="preserve">
+    <data name="CBS160018MotiveText" xml:space="preserve">
         <value>Pick up / drop something (not as work)</value>
     </data>
-    <data name="160021MotiveText" xml:space="preserve">
+    <data name="CBS160021MotiveText" xml:space="preserve">
         <value>Collecting / bringing post / newspaper / package etc. (not as work)</value>
     </data>
-    <data name="160022MotiveText" xml:space="preserve">
+    <data name="CBS160022MotiveText" xml:space="preserve">
         <value>Collecting / bringing old paper (not as work)</value>
     </data>
-    <data name="160025MotiveText" xml:space="preserve">
+    <data name="CBS160025MotiveText" xml:space="preserve">
         <value>Retrieve / release / issue keys</value>
     </data>
-    <data name="160026MotiveText" xml:space="preserve">
+    <data name="CBS160026MotiveText" xml:space="preserve">
         <value>Collecting / bringing stuff (not as work)</value>
     </data>
-    <data name="160027MotiveText" xml:space="preserve">
+    <data name="CBS160027MotiveText" xml:space="preserve">
         <value>To lend trailer of private pick up</value>
     </data>
-    <data name="160029MotiveText" xml:space="preserve">
+    <data name="CBS160029MotiveText" xml:space="preserve">
         <value>Collecting / bringing removal gear (not as work)</value>
     </data>
-    <data name="160101MotiveText" xml:space="preserve">
+    <data name="CBS160101MotiveText" xml:space="preserve">
         <value>Send post / newspaper / parcel and the like (not as work)</value>
     </data>
-    <data name="160112MotiveText" xml:space="preserve">
+    <data name="CBS160112MotiveText" xml:space="preserve">
         <value>Hand over something</value>
     </data>
-    <data name="160113MotiveText" xml:space="preserve">
+    <data name="CBS160113MotiveText" xml:space="preserve">
         <value>Write letter and / or post on the bus</value>
     </data>
-    <data name="160116MotiveText" xml:space="preserve">
+    <data name="CBS160116MotiveText" xml:space="preserve">
         <value>Transfer cards / folders and the like (not as work)</value>
     </data>
-    <data name="160209MotiveText" xml:space="preserve">
+    <data name="CBS160209MotiveText" xml:space="preserve">
         <value>Return a borrowed bicycle</value>
     </data>
-    <data name="160210MotiveText" xml:space="preserve">
+    <data name="CBS160210MotiveText" xml:space="preserve">
         <value>Borrow a loaned private person</value>
     </data>
-    <data name="160211MotiveText" xml:space="preserve">
+    <data name="CBS160211MotiveText" xml:space="preserve">
         <value>Borrow borrowed car from private</value>
     </data>
-    <data name="160212MotiveText" xml:space="preserve">
+    <data name="CBS160212MotiveText" xml:space="preserve">
         <value>Bring glass, cans etc. to container / environmental station e.d.</value>
     </data>
-    <data name="160301MotiveText" xml:space="preserve">
+    <data name="CBS160301MotiveText" xml:space="preserve">
         <value>Exchange car</value>
     </data>
-    <data name="160302MotiveText" xml:space="preserve">
+    <data name="CBS160302MotiveText" xml:space="preserve">
         <value>Exchange bike</value>
     </data>
-    <data name="170001MotiveText" xml:space="preserve">
+    <data name="CBS170001MotiveText" xml:space="preserve">
         <value>Course / class follow (music, language, skills etc.)</value>
     </data>
-    <data name="170002MotiveText" xml:space="preserve">
+    <data name="CBS170002MotiveText" xml:space="preserve">
         <value>First aid / resuscitation course and the like.</value>
     </data>
-    <data name="170007MotiveText" xml:space="preserve">
+    <data name="CBS170007MotiveText" xml:space="preserve">
         <value>Language curriculum / Language lesson</value>
     </data>
-    <data name="170010MotiveText" xml:space="preserve">
+    <data name="CBS170010MotiveText" xml:space="preserve">
         <value>Pregnancy course</value>
     </data>
-    <data name="170101MotiveText" xml:space="preserve">
+    <data name="CBS170101MotiveText" xml:space="preserve">
         <value>Music lessons (piano, violin, recorder, guitar etc.)</value>
     </data>
-    <data name="170105MotiveText" xml:space="preserve">
+    <data name="CBS170105MotiveText" xml:space="preserve">
         <value>Music school for education / lesson / course</value>
     </data>
-    <data name="170108MotiveText" xml:space="preserve">
+    <data name="CBS170108MotiveText" xml:space="preserve">
         <value>Singing lessons</value>
     </data>
-    <data name="170201MotiveText" xml:space="preserve">
+    <data name="CBS170201MotiveText" xml:space="preserve">
         <value>Primary school for following education</value>
     </data>
-    <data name="170203MotiveText" xml:space="preserve">
+    <data name="CBS170203MotiveText" xml:space="preserve">
         <value>Follow tutoring</value>
     </data>
-    <data name="170205MotiveText" xml:space="preserve">
+    <data name="CBS170205MotiveText" xml:space="preserve">
         <value>Conservatory for following education</value>
     </data>
-    <data name="170207MotiveText" xml:space="preserve">
+    <data name="CBS170207MotiveText" xml:space="preserve">
         <value>Doing school / education exam</value>
     </data>
-    <data name="170209MotiveText" xml:space="preserve">
+    <data name="CBS170209MotiveText" xml:space="preserve">
         <value>Homework support</value>
     </data>
-    <data name="170213MotiveText" xml:space="preserve">
+    <data name="CBS170213MotiveText" xml:space="preserve">
         <value>Hairdressing training for following education</value>
     </data>
-    <data name="170215MotiveText" xml:space="preserve">
+    <data name="CBS170215MotiveText" xml:space="preserve">
         <value>Children's Day Center (KDC) for following education</value>
     </data>
-    <data name="170217MotiveText" xml:space="preserve">
+    <data name="CBS170217MotiveText" xml:space="preserve">
         <value>Art academy for following education</value>
     </data>
-    <data name="170219MotiveText" xml:space="preserve">
+    <data name="CBS170219MotiveText" xml:space="preserve">
         <value>Learning / studying / lessons at school</value>
     </data>
-    <data name="170223MotiveText" xml:space="preserve">
+    <data name="CBS170223MotiveText" xml:space="preserve">
         <value>Secondary school for following education</value>
     </data>
-    <data name="170225MotiveText" xml:space="preserve">
+    <data name="CBS170225MotiveText" xml:space="preserve">
         <value>Mytylschool for following education</value>
     </data>
-    <data name="170229MotiveText" xml:space="preserve">
+    <data name="CBS170229MotiveText" xml:space="preserve">
         <value>Follow education / training (all forms)</value>
     </data>
-    <data name="170231MotiveText" xml:space="preserve">
+    <data name="CBS170231MotiveText" xml:space="preserve">
         <value>Preschool for following education</value>
     </data>
-    <data name="170233MotiveText" xml:space="preserve">
+    <data name="CBS170233MotiveText" xml:space="preserve">
         <value>Pop Academy for following education</value>
     </data>
-    <data name="170235MotiveText" xml:space="preserve">
+    <data name="CBS170235MotiveText" xml:space="preserve">
         <value>Perform school assignment / project</value>
     </data>
-    <data name="170239MotiveText" xml:space="preserve">
+    <data name="CBS170239MotiveText" xml:space="preserve">
         <value>Follow special (secondary) education</value>
     </data>
-    <data name="170243MotiveText" xml:space="preserve">
+    <data name="CBS170243MotiveText" xml:space="preserve">
         <value>Studying / lecturing at university</value>
     </data>
-    <data name="170245MotiveText" xml:space="preserve">
+    <data name="CBS170245MotiveText" xml:space="preserve">
         <value>Drama academy / school for following education</value>
     </data>
-    <data name="170249MotiveText" xml:space="preserve">
+    <data name="CBS170249MotiveText" xml:space="preserve">
         <value>Tyltylschool for following education</value>
     </data>
-    <data name="170251MotiveText" xml:space="preserve">
+    <data name="CBS170251MotiveText" xml:space="preserve">
         <value>University for following education</value>
     </data>
-    <data name="170301MotiveText" xml:space="preserve">
+    <data name="CBS170301MotiveText" xml:space="preserve">
         <value>Staying at school</value>
     </data>
-    <data name="170302MotiveText" xml:space="preserve">
+    <data name="CBS170302MotiveText" xml:space="preserve">
         <value>Stay at reception / bso</value>
     </data>
-    <data name="170303MotiveText" xml:space="preserve">
+    <data name="CBS170303MotiveText" xml:space="preserve">
         <value>Stay with childminder / babysitter</value>
     </data>
-    <data name="170308MotiveText" xml:space="preserve">
+    <data name="CBS170308MotiveText" xml:space="preserve">
         <value>Stay at playgroup / nursery</value>
     </data>
-    <data name="170401MotiveText" xml:space="preserve">
+    <data name="CBS170401MotiveText" xml:space="preserve">
         <value>Bible circle, Quranles and the like.</value>
     </data>
-    <data name="170402MotiveText" xml:space="preserve">
+    <data name="CBS170402MotiveText" xml:space="preserve">
         <value>Religious teaching, catechism and the like.</value>
     </data>
-    <data name="170502MotiveText" xml:space="preserve">
+    <data name="CBS170502MotiveText" xml:space="preserve">
         <value>School gym</value>
     </data>
-    <data name="170503MotiveText" xml:space="preserve">
+    <data name="CBS170503MotiveText" xml:space="preserve">
         <value>Participate in musical / performance at school</value>
     </data>
-    <data name="170601MotiveText" xml:space="preserve">
+    <data name="CBS170601MotiveText" xml:space="preserve">
         <value>Participate in a play / performance at school</value>
     </data>
-    <data name="170602MotiveText" xml:space="preserve">
+    <data name="CBS170602MotiveText" xml:space="preserve">
         <value>Participate in school musical</value>
     </data>
-    <data name="170604MotiveText" xml:space="preserve">
+    <data name="CBS170604MotiveText" xml:space="preserve">
         <value>Sports day from school</value>
     </data>
-    <data name="170606MotiveText" xml:space="preserve">
+    <data name="CBS170606MotiveText" xml:space="preserve">
         <value>School camp</value>
     </data>
-    <data name="170621MotiveText" xml:space="preserve">
+    <data name="CBS170621MotiveText" xml:space="preserve">
         <value>School excursion / outing</value>
     </data>
-    <data name="170622MotiveText" xml:space="preserve">
+    <data name="CBS170622MotiveText" xml:space="preserve">
         <value>School trip)</value>
     </data>
-    <data name="170624MotiveText" xml:space="preserve">
+    <data name="CBS170624MotiveText" xml:space="preserve">
         <value>Study trip</value>
     </data>
-    <data name="170625MotiveText" xml:space="preserve">
+    <data name="CBS170625MotiveText" xml:space="preserve">
         <value>Excursion with school / reception and the like.</value>
     </data>
-    <data name="170642MotiveText" xml:space="preserve">
+    <data name="CBS170642MotiveText" xml:space="preserve">
         <value>School swimming / Swimming with school</value>
     </data>
-    <data name="170701MotiveText" xml:space="preserve">
+    <data name="CBS170701MotiveText" xml:space="preserve">
         <value>Internship / Social internship</value>
     </data>
-    <data name="170703MotiveText" xml:space="preserve">
+    <data name="CBS170703MotiveText" xml:space="preserve">
         <value>Follow learning path</value>
     </data>
-    <data name="170801MotiveText" xml:space="preserve">
+    <data name="CBS170801MotiveText" xml:space="preserve">
         <value>Driving / practical exam for driving license</value>
     </data>
-    <data name="170802MotiveText" xml:space="preserve">
+    <data name="CBS170802MotiveText" xml:space="preserve">
         <value>Car / motorcycle lessons and the like.</value>
     </data>
-    <data name="170803MotiveText" xml:space="preserve">
+    <data name="CBS170803MotiveText" xml:space="preserve">
         <value>Autorijschool e.d.</value>
     </data>
-    <data name="170804MotiveText" xml:space="preserve">
+    <data name="CBS170804MotiveText" xml:space="preserve">
         <value>Driving test (car, motorcycle, moped etc.)</value>
     </data>
-    <data name="170809MotiveText" xml:space="preserve">
+    <data name="CBS170809MotiveText" xml:space="preserve">
         <value>Theory exam for driving license</value>
     </data>
-    <data name="170810MotiveText" xml:space="preserve">
+    <data name="CBS170810MotiveText" xml:space="preserve">
         <value>Traffic exam, cycling exam and the like.</value>
     </data>
-    <data name="170811MotiveText" xml:space="preserve">
+    <data name="CBS170811MotiveText" xml:space="preserve">
         <value>Traffic lesson</value>
     </data>
-    <data name="180101MotiveText" xml:space="preserve">
+    <data name="CBS180101MotiveText" xml:space="preserve">
         <value>Bakker (buy something)</value>
     </data>
-    <data name="180102MotiveText" xml:space="preserve">
+    <data name="CBS180102MotiveText" xml:space="preserve">
         <value>Shopping</value>
     </data>
-    <data name="180104MotiveText" xml:space="preserve">
+    <data name="CBS180104MotiveText" xml:space="preserve">
         <value>Fruit and vegetable shop (buy something)</value>
     </data>
-    <data name="180106MotiveText" xml:space="preserve">
+    <data name="CBS180106MotiveText" xml:space="preserve">
         <value>Buy something in store / store</value>
     </data>
-    <data name="180109MotiveText" xml:space="preserve">
+    <data name="CBS180109MotiveText" xml:space="preserve">
         <value>Supermarket (buy something)</value>
     </data>
-    <data name="180110MotiveText" xml:space="preserve">
+    <data name="CBS180110MotiveText" xml:space="preserve">
         <value>Butcher (buy something)</value>
     </data>
-    <data name="180111MotiveText" xml:space="preserve">
+    <data name="CBS180111MotiveText" xml:space="preserve">
         <value>Fish store (buy something)</value>
     </data>
-    <data name="180113MotiveText" xml:space="preserve">
+    <data name="CBS180113MotiveText" xml:space="preserve">
         <value>Liquor store (buy something)</value>
     </data>
-    <data name="180201MotiveText" xml:space="preserve">
+    <data name="CBS180201MotiveText" xml:space="preserve">
         <value>Great purchase, shopping, etc.</value>
     </data>
-    <data name="180202MotiveText" xml:space="preserve">
+    <data name="CBS180202MotiveText" xml:space="preserve">
         <value>Buy a car</value>
     </data>
-    <data name="180203MotiveText" xml:space="preserve">
+    <data name="CBS180203MotiveText" xml:space="preserve">
         <value>Car dealer for viewing / purchasing car</value>
     </data>
-    <data name="180206MotiveText" xml:space="preserve">
+    <data name="CBS180206MotiveText" xml:space="preserve">
         <value>Car dealer or garage due to make test drive</value>
     </data>
-    <data name="180211MotiveText" xml:space="preserve">
+    <data name="CBS180211MotiveText" xml:space="preserve">
         <value>Visit car showroom</value>
     </data>
-    <data name="180212MotiveText" xml:space="preserve">
+    <data name="CBS180212MotiveText" xml:space="preserve">
         <value>Buy caravan or trailer</value>
     </data>
-    <data name="180214MotiveText" xml:space="preserve">
+    <data name="CBS180214MotiveText" xml:space="preserve">
         <value>Bedding shop (buy something)</value>
     </data>
-    <data name="180215MotiveText" xml:space="preserve">
+    <data name="CBS180215MotiveText" xml:space="preserve">
         <value>Kitchen shop (buy something)</value>
     </data>
-    <data name="180217MotiveText" xml:space="preserve">
+    <data name="CBS180217MotiveText" xml:space="preserve">
         <value>Furniture store (buy something)</value>
     </data>
-    <data name="180219MotiveText" xml:space="preserve">
+    <data name="CBS180219MotiveText" xml:space="preserve">
         <value>Bathroom store (buy something)</value>
     </data>
-    <data name="180221MotiveText" xml:space="preserve">
+    <data name="CBS180221MotiveText" xml:space="preserve">
         <value>Sanitary store (buy something)</value>
     </data>
-    <data name="180302MotiveText" xml:space="preserve">
+    <data name="CBS180302MotiveText" xml:space="preserve">
         <value>Visiting an antique or book market and the like</value>
     </data>
-    <data name="180304MotiveText" xml:space="preserve">
+    <data name="CBS180304MotiveText" xml:space="preserve">
         <value>Visit the fair</value>
     </data>
-    <data name="180306MotiveText" xml:space="preserve">
+    <data name="CBS180306MotiveText" xml:space="preserve">
         <value>Visit market</value>
     </data>
-    <data name="180307MotiveText" xml:space="preserve">
+    <data name="CBS180307MotiveText" xml:space="preserve">
         <value>Visit car boot sales or garage sales</value>
     </data>
-    <data name="180308MotiveText" xml:space="preserve">
+    <data name="CBS180308MotiveText" xml:space="preserve">
         <value>Visiting the annual, Christmas or Easter market and the like</value>
     </data>
-    <data name="180315MotiveText" xml:space="preserve">
+    <data name="CBS180315MotiveText" xml:space="preserve">
         <value>Brocante, flea or flea market visits</value>
     </data>
-    <data name="180316MotiveText" xml:space="preserve">
+    <data name="CBS180316MotiveText" xml:space="preserve">
         <value>Visit the free, orange or royal market</value>
     </data>
-    <data name="180319MotiveText" xml:space="preserve">
+    <data name="CBS180319MotiveText" xml:space="preserve">
         <value>Visit black market</value>
     </data>
-    <data name="180402MotiveText" xml:space="preserve">
+    <data name="CBS180402MotiveText" xml:space="preserve">
         <value>Refueling or buying something at gas station</value>
     </data>
-    <data name="180502MotiveText" xml:space="preserve">
+    <data name="CBS180502MotiveText" xml:space="preserve">
         <value>Flower or plant store (buy something)</value>
     </data>
-    <data name="180503MotiveText" xml:space="preserve">
+    <data name="CBS180503MotiveText" xml:space="preserve">
         <value>Bookstore or trade (buy something)</value>
     </data>
-    <data name="180506MotiveText" xml:space="preserve">
+    <data name="CBS180506MotiveText" xml:space="preserve">
         <value>DIY store / Do-it-yourself shop (buy something)</value>
     </data>
-    <data name="180507MotiveText" xml:space="preserve">
+    <data name="CBS180507MotiveText" xml:space="preserve">
         <value>Glasses store (buy something)</value>
     </data>
-    <data name="180509MotiveText" xml:space="preserve">
+    <data name="CBS180509MotiveText" xml:space="preserve">
         <value>Electronic store (buy something)</value>
     </data>
-    <data name="180511MotiveText" xml:space="preserve">
+    <data name="CBS180511MotiveText" xml:space="preserve">
         <value>Bike shop (buy something)</value>
     </data>
-    <data name="180513MotiveText" xml:space="preserve">
+    <data name="CBS180513MotiveText" xml:space="preserve">
         <value>Photo shop (buy something)</value>
     </data>
-    <data name="180514MotiveText" xml:space="preserve">
+    <data name="CBS180514MotiveText" xml:space="preserve">
         <value>Hobby shop (buy something)</value>
     </data>
-    <data name="180515MotiveText" xml:space="preserve">
+    <data name="CBS180515MotiveText" xml:space="preserve">
         <value>Buy something from private</value>
     </data>
-    <data name="180519MotiveText" xml:space="preserve">
+    <data name="CBS180519MotiveText" xml:space="preserve">
         <value>Pet store or shop (buy something)</value>
     </data>
-    <data name="180522MotiveText" xml:space="preserve">
+    <data name="CBS180522MotiveText" xml:space="preserve">
         <value>Music Store (buy something)</value>
     </data>
-    <data name="180523MotiveText" xml:space="preserve">
+    <data name="CBS180523MotiveText" xml:space="preserve">
         <value>Paint store (buy something)</value>
     </data>
-    <data name="180524MotiveText" xml:space="preserve">
+    <data name="CBS180524MotiveText" xml:space="preserve">
         <value>Department store (buy something)</value>
     </data>
-    <data name="180527MotiveText" xml:space="preserve">
+    <data name="CBS180527MotiveText" xml:space="preserve">
         <value>Buy Christmas tree</value>
     </data>
-    <data name="180528MotiveText" xml:space="preserve">
+    <data name="CBS180528MotiveText" xml:space="preserve">
         <value>Recycling store (buy something)</value>
     </data>
-    <data name="180529MotiveText" xml:space="preserve">
+    <data name="CBS180529MotiveText" xml:space="preserve">
         <value>Nursery, garden center, etc. (buy something)</value>
     </data>
-    <data name="180531MotiveText" xml:space="preserve">
+    <data name="CBS180531MotiveText" xml:space="preserve">
         <value>Visit Outlet</value>
     </data>
-    <data name="180532MotiveText" xml:space="preserve">
+    <data name="CBS180532MotiveText" xml:space="preserve">
         <value>Toy store (buy something)</value>
     </data>
-    <data name="180533MotiveText" xml:space="preserve">
+    <data name="CBS180533MotiveText" xml:space="preserve">
         <value>Sports store (buy something)</value>
     </data>
-    <data name="180535MotiveText" xml:space="preserve">
+    <data name="CBS180535MotiveText" xml:space="preserve">
         <value>Telephone store (buy something)</value>
     </data>
-    <data name="180537MotiveText" xml:space="preserve">
+    <data name="CBS180537MotiveText" xml:space="preserve">
         <value>Second hand store (buy something)</value>
     </data>
-    <data name="180539MotiveText" xml:space="preserve">
+    <data name="CBS180539MotiveText" xml:space="preserve">
         <value>Visit a video library</value>
     </data>
-    <data name="180540MotiveText" xml:space="preserve">
+    <data name="CBS180540MotiveText" xml:space="preserve">
         <value>Buy fireworks</value>
     </data>
-    <data name="180542MotiveText" xml:space="preserve">
+    <data name="CBS180542MotiveText" xml:space="preserve">
         <value>Shopping, shopping (all types of shops)</value>
     </data>
-    <data name="180544MotiveText" xml:space="preserve">
+    <data name="CBS180544MotiveText" xml:space="preserve">
         <value>Clothing store or store (buy something)</value>
     </data>
-    <data name="190101MotiveText" xml:space="preserve">
+    <data name="CBS190101MotiveText" xml:space="preserve">
         <value>Family gathering at family home</value>
     </data>
-    <data name="190201MotiveText" xml:space="preserve">
+    <data name="CBS190201MotiveText" xml:space="preserve">
         <value>Staying with family, friends, acquaintances etc.</value>
     </data>
-    <data name="190208MotiveText" xml:space="preserve">
+    <data name="CBS190208MotiveText" xml:space="preserve">
         <value>Spending the night with family, friends, acquaintances etc.</value>
     </data>
-    <data name="190214MotiveText" xml:space="preserve">
+    <data name="CBS190214MotiveText" xml:space="preserve">
         <value>Sleeping with family, friends, acquaintances etc.</value>
     </data>
-    <data name="190220MotiveText" xml:space="preserve">
+    <data name="CBS190220MotiveText" xml:space="preserve">
         <value>Weekend stay with father / mother / parent (s)</value>
     </data>
-    <data name="190221MotiveText" xml:space="preserve">
+    <data name="CBS190221MotiveText" xml:space="preserve">
         <value>Staying with mother (second home)</value>
     </data>
-    <data name="190223MotiveText" xml:space="preserve">
+    <data name="CBS190223MotiveText" xml:space="preserve">
         <value>Stay with father (second home)</value>
     </data>
-    <data name="190301MotiveText" xml:space="preserve">
+    <data name="CBS190301MotiveText" xml:space="preserve">
         <value>Appointment / consultation / discussion at someone's home</value>
     </data>
-    <data name="190305MotiveText" xml:space="preserve">
+    <data name="CBS190305MotiveText" xml:space="preserve">
         <value>Visiting neighbors / neighbor / woman</value>
     </data>
-    <data name="190310MotiveText" xml:space="preserve">
+    <data name="CBS190310MotiveText" xml:space="preserve">
         <value>Visiting ex</value>
     </data>
-    <data name="190311MotiveText" xml:space="preserve">
+    <data name="CBS190311MotiveText" xml:space="preserve">
         <value>Family visits (grandfather, grandmother, father, mother etc.)</value>
     </data>
-    <data name="190330MotiveText" xml:space="preserve">
+    <data name="CBS190330MotiveText" xml:space="preserve">
         <value>Condolence visit at someone's home</value>
     </data>
-    <data name="190331MotiveText" xml:space="preserve">
+    <data name="CBS190331MotiveText" xml:space="preserve">
         <value>Visiting someone at home</value>
     </data>
-    <data name="190338MotiveText" xml:space="preserve">
+    <data name="CBS190338MotiveText" xml:space="preserve">
         <value>Visiting friend (partner) / partner and the like.</value>
     </data>
-    <data name="190340MotiveText" xml:space="preserve">
+    <data name="CBS190340MotiveText" xml:space="preserve">
         <value>Eating, drinking coffee / tea at someone's home</value>
     </data>
-    <data name="190367MotiveText" xml:space="preserve">
+    <data name="CBS190367MotiveText" xml:space="preserve">
         <value>Party / celebration at someone's home</value>
     </data>
-    <data name="190368MotiveText" xml:space="preserve">
+    <data name="CBS190368MotiveText" xml:space="preserve">
         <value>Children's party at someone's home</value>
     </data>
-    <data name="190369MotiveText" xml:space="preserve">
+    <data name="CBS190369MotiveText" xml:space="preserve">
         <value>Celebrate New Year's / New Year's Eve at someone's home</value>
     </data>
-    <data name="190375MotiveText" xml:space="preserve">
+    <data name="CBS190375MotiveText" xml:space="preserve">
         <value>Watching a movie at someone's home</value>
     </data>
-    <data name="190376MotiveText" xml:space="preserve">
+    <data name="CBS190376MotiveText" xml:space="preserve">
         <value>Making homework with friends at home</value>
     </data>
-    <data name="190377MotiveText" xml:space="preserve">
+    <data name="CBS190377MotiveText" xml:space="preserve">
         <value>On maternity visit</value>
     </data>
-    <data name="190378MotiveText" xml:space="preserve">
+    <data name="CBS190378MotiveText" xml:space="preserve">
         <value>Playing at friend's home</value>
     </data>
-    <data name="190380MotiveText" xml:space="preserve">
+    <data name="CBS190380MotiveText" xml:space="preserve">
         <value>Visiting family / friends / acquaintances etc.</value>
     </data>
-    <data name="190413MotiveText" xml:space="preserve">
+    <data name="CBS190413MotiveText" xml:space="preserve">
         <value>On a visit to a family with friends / acquaintances etc.</value>
     </data>
-    <data name="200201MotiveText" xml:space="preserve">
+    <data name="CBS200201MotiveText" xml:space="preserve">
         <value>Bicycles for rehabilitation</value>
     </data>
-    <data name="200202MotiveText" xml:space="preserve">
+    <data name="CBS200202MotiveText" xml:space="preserve">
         <value>Recreational cycling (cycle route / route)</value>
     </data>
-    <data name="200204MotiveText" xml:space="preserve">
+    <data name="CBS200204MotiveText" xml:space="preserve">
         <value>Bicycle four-day cycling</value>
     </data>
-    <data name="200205MotiveText" xml:space="preserve">
+    <data name="CBS200205MotiveText" xml:space="preserve">
         <value>Practicing cycling</value>
     </data>
-    <data name="200206MotiveText" xml:space="preserve">
+    <data name="CBS200206MotiveText" xml:space="preserve">
         <value>Piece / circle cycling</value>
     </data>
-    <data name="200208MotiveText" xml:space="preserve">
+    <data name="CBS200208MotiveText" xml:space="preserve">
         <value>Walking (walk, hiking trail / trip)</value>
     </data>
-    <data name="200301MotiveText" xml:space="preserve">
+    <data name="CBS200301MotiveText" xml:space="preserve">
         <value>Walking four-day walk</value>
     </data>
-    <data name="200303MotiveText" xml:space="preserve">
+    <data name="CBS200303MotiveText" xml:space="preserve">
         <value>Piece or walk around</value>
     </data>
-    <data name="200307MotiveText" xml:space="preserve">
+    <data name="CBS200307MotiveText" xml:space="preserve">
         <value>Walk for rehabilitation / exercise</value>
     </data>
-    <data name="200312MotiveText" xml:space="preserve">
+    <data name="CBS200312MotiveText" xml:space="preserve">
         <value>Make a walk / block around</value>
     </data>
-    <data name="200313MotiveText" xml:space="preserve">
+    <data name="CBS200313MotiveText" xml:space="preserve">
         <value>Pause or lunch walk</value>
     </data>
-    <data name="200401MotiveText" xml:space="preserve">
+    <data name="CBS200401MotiveText" xml:space="preserve">
         <value>Walking the dog / round with the dog</value>
     </data>
-    <data name="200421MotiveText" xml:space="preserve">
+    <data name="CBS200421MotiveText" xml:space="preserve">
         <value>Self (a round) boating / rowing</value>
     </data>
-    <data name="200503MotiveText" xml:space="preserve">
+    <data name="CBS200503MotiveText" xml:space="preserve">
         <value>Driving / driving around with car / motorcycle and the like.</value>
     </data>
-    <data name="200542MotiveText" xml:space="preserve">
+    <data name="CBS200542MotiveText" xml:space="preserve">
         <value>Driving a car route</value>
     </data>
-    <data name="210001MotiveText" xml:space="preserve">
+    <data name="CBS210001MotiveText" xml:space="preserve">
         <value>Fair because of hobby</value>
     </data>
-    <data name="210002MotiveText" xml:space="preserve">
+    <data name="CBS210002MotiveText" xml:space="preserve">
         <value>Club because of hobby</value>
     </data>
-    <data name="210004MotiveText" xml:space="preserve">
+    <data name="CBS210004MotiveText" xml:space="preserve">
         <value>Exercise Hobby</value>
     </data>
-    <data name="210009MotiveText" xml:space="preserve">
+    <data name="CBS210009MotiveText" xml:space="preserve">
         <value>Bingo, kienen and the like.</value>
     </data>
-    <data name="210014MotiveText" xml:space="preserve">
+    <data name="CBS210014MotiveText" xml:space="preserve">
         <value>Participation in a dogshow, bird exhibition and the like.</value>
     </data>
-    <data name="210015MotiveText" xml:space="preserve">
+    <data name="CBS210015MotiveText" xml:space="preserve">
         <value>Dog training, puppy course e.d.</value>
     </data>
-    <data name="210018MotiveText" xml:space="preserve">
+    <data name="CBS210018MotiveText" xml:space="preserve">
         <value>Fishing, angling, fishing competition, etc.</value>
     </data>
-    <data name="210020MotiveText" xml:space="preserve">
+    <data name="CBS210020MotiveText" xml:space="preserve">
         <value>Art painting, modeling and the like (also course)</value>
     </data>
-    <data name="210022MotiveText" xml:space="preserve">
+    <data name="CBS210022MotiveText" xml:space="preserve">
         <value>Filming, photographing, photocourse e.d.</value>
     </data>
-    <data name="210026MotiveText" xml:space="preserve">
+    <data name="CBS210026MotiveText" xml:space="preserve">
         <value>Crafts and the like.</value>
     </data>
-    <data name="210033MotiveText" xml:space="preserve">
+    <data name="CBS210033MotiveText" xml:space="preserve">
         <value>Scouting / Scouting</value>
     </data>
-    <data name="210040MotiveText" xml:space="preserve">
+    <data name="CBS210040MotiveText" xml:space="preserve">
         <value>Watching sports match / tournament / competition</value>
     </data>
-    <data name="210043MotiveText" xml:space="preserve">
+    <data name="CBS210043MotiveText" xml:space="preserve">
         <value>Cards, bridge, poker, clover jackets and the like.</value>
     </data>
-    <data name="210049MotiveText" xml:space="preserve">
+    <data name="CBS210049MotiveText" xml:space="preserve">
         <value>Yoga, meditation, tai chi and the like.</value>
     </data>
-    <data name="210051MotiveText" xml:space="preserve">
+    <data name="CBS210051MotiveText" xml:space="preserve">
         <value>Conducting or conducting concerts</value>
     </data>
-    <data name="210052MotiveText" xml:space="preserve">
+    <data name="CBS210052MotiveText" xml:space="preserve">
         <value>Attend concert of family member, knowledge and the like</value>
     </data>
-    <data name="210054MotiveText" xml:space="preserve">
+    <data name="CBS210054MotiveText" xml:space="preserve">
         <value>Playing music (guitar, piano, violin, etc.)</value>
     </data>
-    <data name="210057MotiveText" xml:space="preserve">
+    <data name="CBS210057MotiveText" xml:space="preserve">
         <value>Playing in brass band, harmony, drum band and the like.</value>
     </data>
-    <data name="210061MotiveText" xml:space="preserve">
+    <data name="CBS210061MotiveText" xml:space="preserve">
         <value>Singing, (church) choir, singing lessons and the like.</value>
     </data>
-    <data name="210064MotiveText" xml:space="preserve">
+    <data name="CBS210064MotiveText" xml:space="preserve">
         <value>Music performance of family member, knowledge e.d.</value>
     </data>
-    <data name="210065MotiveText" xml:space="preserve">
+    <data name="CBS210065MotiveText" xml:space="preserve">
         <value>Playing in music band, orchestra, pop group, etc.</value>
     </data>
-    <data name="210066MotiveText" xml:space="preserve">
+    <data name="CBS210066MotiveText" xml:space="preserve">
         <value>Music performance of family member, knowledge e.d.</value>
     </data>
-    <data name="210075MotiveText" xml:space="preserve">
+    <data name="CBS210075MotiveText" xml:space="preserve">
         <value>Equestrian sport, riding lessons etc. (also watching)</value>
     </data>
-    <data name="210081MotiveText" xml:space="preserve">
+    <data name="CBS210081MotiveText" xml:space="preserve">
         <value>Play theater / stage play (also watch)</value>
     </data>
-    <data name="210085MotiveText" xml:space="preserve">
+    <data name="CBS210085MotiveText" xml:space="preserve">
         <value>Working in vegetable garden / allotment / vegetable garden</value>
     </data>
-    <data name="210501MotiveText" xml:space="preserve">
+    <data name="CBS210501MotiveText" xml:space="preserve">
         <value>Exercise in connection with health, rehabilitation and the like.</value>
     </data>
-    <data name="210506MotiveText" xml:space="preserve">
+    <data name="CBS210506MotiveText" xml:space="preserve">
         <value>Participate in sports training / class</value>
     </data>
-    <data name="210517MotiveText" xml:space="preserve">
+    <data name="CBS210517MotiveText" xml:space="preserve">
         <value>Sports (also with animals)</value>
     </data>
-    <data name="210521MotiveText" xml:space="preserve">
+    <data name="CBS210521MotiveText" xml:space="preserve">
         <value>Athletic sports (running, jumping, etc.)</value>
     </data>
-    <data name="210525MotiveText" xml:space="preserve">
+    <data name="CBS210525MotiveText" xml:space="preserve">
         <value>Participate in sports competition / tournament e.d.</value>
     </data>
-    <data name="210527MotiveText" xml:space="preserve">
+    <data name="CBS210527MotiveText" xml:space="preserve">
         <value>Watch sports training / lesson</value>
     </data>
-    <data name="210533MotiveText" xml:space="preserve">
+    <data name="CBS210533MotiveText" xml:space="preserve">
         <value>Triathlon / Zeskamp / Marathon and the like (also watching)</value>
     </data>
-    <data name="210538MotiveText" xml:space="preserve">
+    <data name="CBS210538MotiveText" xml:space="preserve">
         <value>Motor and motor sport (also watching)</value>
     </data>
-    <data name="210543MotiveText" xml:space="preserve">
+    <data name="CBS210543MotiveText" xml:space="preserve">
         <value>Handball (also watch)</value>
     </data>
-    <data name="210551MotiveText" xml:space="preserve">
+    <data name="CBS210551MotiveText" xml:space="preserve">
         <value>Rugby (also watching)</value>
     </data>
-    <data name="210556MotiveText" xml:space="preserve">
+    <data name="CBS210556MotiveText" xml:space="preserve">
         <value>Volleyball (also watch)</value>
     </data>
-    <data name="210563MotiveText" xml:space="preserve">
+    <data name="CBS210563MotiveText" xml:space="preserve">
         <value>Basketball (also watching)</value>
     </data>
-    <data name="210570MotiveText" xml:space="preserve">
+    <data name="CBS210570MotiveText" xml:space="preserve">
         <value>Korfball (also watching)</value>
     </data>
-    <data name="210577MotiveText" xml:space="preserve">
+    <data name="CBS210577MotiveText" xml:space="preserve">
         <value>Billiards, snooker etc. (also watching)</value>
     </data>
-    <data name="210582MotiveText" xml:space="preserve">
+    <data name="CBS210582MotiveText" xml:space="preserve">
         <value>Boxing, kickboxing and the like (also watching)</value>
     </data>
-    <data name="210589MotiveText" xml:space="preserve">
+    <data name="CBS210589MotiveText" xml:space="preserve">
         <value>Bowling, bowling and the like (also watching)</value>
     </data>
-    <data name="210599MotiveText" xml:space="preserve">
+    <data name="CBS210599MotiveText" xml:space="preserve">
         <value>Ballet / ballet class (also watching)</value>
     </data>
-    <data name="210603MotiveText" xml:space="preserve">
+    <data name="CBS210603MotiveText" xml:space="preserve">
         <value>Dancing / dance class (also watching)</value>
     </data>
-    <data name="210615MotiveText" xml:space="preserve">
+    <data name="CBS210615MotiveText" xml:space="preserve">
         <value>Chess, checkers etc. (also watching)</value>
     </data>
-    <data name="210623MotiveText" xml:space="preserve">
+    <data name="CBS210623MotiveText" xml:space="preserve">
         <value>Cycling (also watching)</value>
     </data>
-    <data name="210624MotiveText" xml:space="preserve">
+    <data name="CBS210624MotiveText" xml:space="preserve">
         <value>Mountain biking, atb, bicycle cross and the like.</value>
     </data>
-    <data name="210625MotiveText" xml:space="preserve">
+    <data name="CBS210625MotiveText" xml:space="preserve">
         <value>Sporty cycling</value>
     </data>
-    <data name="210627MotiveText" xml:space="preserve">
+    <data name="CBS210627MotiveText" xml:space="preserve">
         <value>Cycling (also watching)</value>
     </data>
-    <data name="210628MotiveText" xml:space="preserve">
+    <data name="CBS210628MotiveText" xml:space="preserve">
         <value>Aerobics, spinning, zumba and the like.</value>
     </data>
-    <data name="210630MotiveText" xml:space="preserve">
+    <data name="CBS210630MotiveText" xml:space="preserve">
         <value>Fitness, strength training and the like.</value>
     </data>
-    <data name="210633MotiveText" xml:space="preserve">
+    <data name="CBS210633MotiveText" xml:space="preserve">
         <value>Golfing (also watching)</value>
     </data>
-    <data name="210642MotiveText" xml:space="preserve">
+    <data name="CBS210642MotiveText" xml:space="preserve">
         <value>Gymmen (not with school)</value>
     </data>
-    <data name="210646MotiveText" xml:space="preserve">
+    <data name="CBS210646MotiveText" xml:space="preserve">
         <value>Hockey (also watching)</value>
     </data>
-    <data name="210653MotiveText" xml:space="preserve">
+    <data name="CBS210653MotiveText" xml:space="preserve">
         <value>Baseball (also watching)</value>
     </data>
-    <data name="210660MotiveText" xml:space="preserve">
+    <data name="CBS210660MotiveText" xml:space="preserve">
         <value>Softball (also watching)</value>
     </data>
-    <data name="210667MotiveText" xml:space="preserve">
+    <data name="CBS210667MotiveText" xml:space="preserve">
         <value>Running, jogging, trimming, running etc.</value>
     </data>
-    <data name="210669MotiveText" xml:space="preserve">
+    <data name="CBS210669MotiveText" xml:space="preserve">
         <value>Nordic walking</value>
     </data>
-    <data name="210670MotiveText" xml:space="preserve">
+    <data name="CBS210670MotiveText" xml:space="preserve">
         <value>Sponsor run, walking four-day event and the like.</value>
     </data>
-    <data name="210671MotiveText" xml:space="preserve">
+    <data name="CBS210671MotiveText" xml:space="preserve">
         <value>Badminton (also watching)</value>
     </data>
-    <data name="210678MotiveText" xml:space="preserve">
+    <data name="CBS210678MotiveText" xml:space="preserve">
         <value>Squash (also watch)</value>
     </data>
-    <data name="210679MotiveText" xml:space="preserve">
+    <data name="CBS210679MotiveText" xml:space="preserve">
         <value>Playing tennis (also watching)</value>
     </data>
-    <data name="210688MotiveText" xml:space="preserve">
+    <data name="CBS210688MotiveText" xml:space="preserve">
         <value>Rowing (including canoeing and similar) (also watching)</value>
     </data>
-    <data name="210691MotiveText" xml:space="preserve">
+    <data name="CBS210691MotiveText" xml:space="preserve">
         <value>Ice hockey (also watching)</value>
     </data>
-    <data name="210698MotiveText" xml:space="preserve">
+    <data name="CBS210698MotiveText" xml:space="preserve">
         <value>Figure skating / skating (also watching)</value>
     </data>
-    <data name="210705MotiveText" xml:space="preserve">
+    <data name="CBS210705MotiveText" xml:space="preserve">
         <value>Skating (also watching)</value>
     </data>
-    <data name="210706MotiveText" xml:space="preserve">
+    <data name="CBS210706MotiveText" xml:space="preserve">
         <value>Skating, inline skating, roller skating and the like.</value>
     </data>
-    <data name="210710MotiveText" xml:space="preserve">
+    <data name="CBS210710MotiveText" xml:space="preserve">
         <value>Gymnastics (also watching)</value>
     </data>
-    <data name="210717MotiveText" xml:space="preserve">
+    <data name="CBS210717MotiveText" xml:space="preserve">
         <value>Judo, karate, jiu-jitsu and the like (also watching)</value>
     </data>
-    <data name="210732MotiveText" xml:space="preserve">
+    <data name="CBS210732MotiveText" xml:space="preserve">
         <value>School football or sports tournament from school</value>
     </data>
-    <data name="210733MotiveText" xml:space="preserve">
+    <data name="CBS210733MotiveText" xml:space="preserve">
         <value>Football / Indoor football (also watching)</value>
     </data>
-    <data name="210747MotiveText" xml:space="preserve">
+    <data name="CBS210747MotiveText" xml:space="preserve">
         <value>Sailing (sailing, surfing, etc.) (also watching)</value>
     </data>
-    <data name="210748MotiveText" xml:space="preserve">
+    <data name="CBS210748MotiveText" xml:space="preserve">
         <value>Winter sports (skiing, snowboarding, etc.)</value>
     </data>
-    <data name="210753MotiveText" xml:space="preserve">
+    <data name="CBS210753MotiveText" xml:space="preserve">
         <value>Aquajogging</value>
     </data>
-    <data name="210754MotiveText" xml:space="preserve">
+    <data name="CBS210754MotiveText" xml:space="preserve">
         <value>Swimming, swimming (also watching)</value>
     </data>
-    <data name="210756MotiveText" xml:space="preserve">
+    <data name="CBS210756MotiveText" xml:space="preserve">
         <value>Water polo (also watching)</value>
     </data>
-    <data name="210763MotiveText" xml:space="preserve">
+    <data name="CBS210763MotiveText" xml:space="preserve">
         <value>Diplomazwemmen, swimming lessons etc. (not via school)</value>
     </data>
-    <data name="220001MotiveText" xml:space="preserve">
+    <data name="CBS220001MotiveText" xml:space="preserve">
         <value>Steps, night out, going out etc.</value>
     </data>
-    <data name="220004MotiveText" xml:space="preserve">
+    <data name="CBS220004MotiveText" xml:space="preserve">
         <value>Visit café, bar, pub and the like</value>
     </data>
-    <data name="220008MotiveText" xml:space="preserve">
+    <data name="CBS220008MotiveText" xml:space="preserve">
         <value>Food / drinks in sandwich shop, lunchroom and the like.</value>
     </data>
-    <data name="220009MotiveText" xml:space="preserve">
+    <data name="CBS220009MotiveText" xml:space="preserve">
         <value>Brunching in or at catering facilities</value>
     </data>
-    <data name="220013MotiveText" xml:space="preserve">
+    <data name="CBS220013MotiveText" xml:space="preserve">
         <value>Visit casino</value>
     </data>
-    <data name="220014MotiveText" xml:space="preserve">
+    <data name="CBS220014MotiveText" xml:space="preserve">
         <value>Pick up Chinese</value>
     </data>
-    <data name="220015MotiveText" xml:space="preserve">
+    <data name="CBS220015MotiveText" xml:space="preserve">
         <value>Visit coffeeshop, shishabar and the like</value>
     </data>
-    <data name="220016MotiveText" xml:space="preserve">
+    <data name="CBS220016MotiveText" xml:space="preserve">
         <value>Dining in or at catering</value>
     </data>
-    <data name="220018MotiveText" xml:space="preserve">
+    <data name="CBS220018MotiveText" xml:space="preserve">
         <value>Visit Drive-in restaurant</value>
     </data>
-    <data name="220020MotiveText" xml:space="preserve">
+    <data name="CBS220020MotiveText" xml:space="preserve">
         <value>Visiting a food, drink or catering occasion</value>
     </data>
-    <data name="220024MotiveText" xml:space="preserve">
+    <data name="CBS220024MotiveText" xml:space="preserve">
         <value>Get food (at takeaway restaurant etc.)</value>
     </data>
-    <data name="220029MotiveText" xml:space="preserve">
+    <data name="CBS220029MotiveText" xml:space="preserve">
         <value>Eating / drinking in cafe, bar, pub, etc.</value>
     </data>
-    <data name="220030MotiveText" xml:space="preserve">
+    <data name="CBS220030MotiveText" xml:space="preserve">
         <value>Food / drinks in restaurant, eatery, bistro e.d.</value>
     </data>
-    <data name="220031MotiveText" xml:space="preserve">
+    <data name="CBS220031MotiveText" xml:space="preserve">
         <value>Picking chips / fries at snack bar, chip shop and the like.</value>
     </data>
-    <data name="220032MotiveText" xml:space="preserve">
+    <data name="CBS220032MotiveText" xml:space="preserve">
         <value>Food / drink pick up at snack bar, chip shop and the like.</value>
     </data>
-    <data name="220038MotiveText" xml:space="preserve">
+    <data name="CBS220038MotiveText" xml:space="preserve">
         <value>High tea in or at catering</value>
     </data>
-    <data name="220040MotiveText" xml:space="preserve">
+    <data name="CBS220040MotiveText" xml:space="preserve">
         <value>Visit the catering occasion</value>
     </data>
-    <data name="220047MotiveText" xml:space="preserve">
+    <data name="CBS220047MotiveText" xml:space="preserve">
         <value>Ice cream / food (ice cream parlor, ice cream truck, etc.)</value>
     </data>
-    <data name="220049MotiveText" xml:space="preserve">
+    <data name="CBS220049MotiveText" xml:space="preserve">
         <value>Drinking coffee / tea in or at catering</value>
     </data>
-    <data name="220053MotiveText" xml:space="preserve">
+    <data name="CBS220053MotiveText" xml:space="preserve">
         <value>Lunch in or at the catering industry</value>
     </data>
-    <data name="220055MotiveText" xml:space="preserve">
+    <data name="CBS220055MotiveText" xml:space="preserve">
         <value>Breakfast in or at catering</value>
     </data>
-    <data name="220057MotiveText" xml:space="preserve">
+    <data name="CBS220057MotiveText" xml:space="preserve">
         <value>Visit pancake restaurant</value>
     </data>
-    <data name="220061MotiveText" xml:space="preserve">
+    <data name="CBS220061MotiveText" xml:space="preserve">
         <value>Eating / drinking at pizzaria</value>
     </data>
-    <data name="220062MotiveText" xml:space="preserve">
+    <data name="CBS220062MotiveText" xml:space="preserve">
         <value>Eating / drinking at shoarma shop</value>
     </data>
-    <data name="220065MotiveText" xml:space="preserve">
+    <data name="CBS220065MotiveText" xml:space="preserve">
         <value>Visiting terrace, grabbing a terrace and the like.</value>
     </data>
-    <data name="220101MotiveText" xml:space="preserve">
+    <data name="CBS220101MotiveText" xml:space="preserve">
         <value>Farewell party, drink or reception e.d.</value>
     </data>
-    <data name="220104MotiveText" xml:space="preserve">
+    <data name="CBS220104MotiveText" xml:space="preserve">
         <value>Meeting with someone outdoors (not for work)</value>
     </data>
-    <data name="220105MotiveText" xml:space="preserve">
+    <data name="CBS220105MotiveText" xml:space="preserve">
         <value>Appointment with family member (not at family home)</value>
     </data>
-    <data name="220111MotiveText" xml:space="preserve">
+    <data name="CBS220111MotiveText" xml:space="preserve">
         <value>Talk / conversation outdoors (not for work)</value>
     </data>
-    <data name="220114MotiveText" xml:space="preserve">
+    <data name="CBS220114MotiveText" xml:space="preserve">
         <value>Meeting, meeting with, meeting (not for work)</value>
     </data>
-    <data name="220115MotiveText" xml:space="preserve">
+    <data name="CBS220115MotiveText" xml:space="preserve">
         <value>Attending a neighborhood meeting and the like</value>
     </data>
-    <data name="220116MotiveText" xml:space="preserve">
+    <data name="CBS220116MotiveText" xml:space="preserve">
         <value>Service club meeting (Lions, Rotary and the like)</value>
     </data>
-    <data name="220122MotiveText" xml:space="preserve">
+    <data name="CBS220122MotiveText" xml:space="preserve">
         <value>Attend association of association and the like</value>
     </data>
-    <data name="220135MotiveText" xml:space="preserve">
+    <data name="CBS220135MotiveText" xml:space="preserve">
         <value>Participate in protest, demonstration, demonstration and the like.</value>
     </data>
-    <data name="220136MotiveText" xml:space="preserve">
+    <data name="CBS220136MotiveText" xml:space="preserve">
         <value>Participate in research</value>
     </data>
-    <data name="220138MotiveText" xml:space="preserve">
+    <data name="CBS220138MotiveText" xml:space="preserve">
         <value>Participating in volunteer day</value>
     </data>
-    <data name="220140MotiveText" xml:space="preserve">
+    <data name="CBS220140MotiveText" xml:space="preserve">
         <value>Attending a meeting / consultation (not for work)</value>
     </data>
-    <data name="220144MotiveText" xml:space="preserve">
+    <data name="CBS220144MotiveText" xml:space="preserve">
         <value>Attend opening of store and the like</value>
     </data>
-    <data name="220146MotiveText" xml:space="preserve">
+    <data name="CBS220146MotiveText" xml:space="preserve">
         <value>To watch Easter fire and the like</value>
     </data>
-    <data name="220147MotiveText" xml:space="preserve">
+    <data name="CBS220147MotiveText" xml:space="preserve">
         <value>Visit political café, political meeting and the like</value>
     </data>
-    <data name="220152MotiveText" xml:space="preserve">
+    <data name="CBS220152MotiveText" xml:space="preserve">
         <value>Visiting a reception</value>
     </data>
-    <data name="220153MotiveText" xml:space="preserve">
+    <data name="CBS220153MotiveText" xml:space="preserve">
         <value>Sinterklaas tour</value>
     </data>
-    <data name="220160MotiveText" xml:space="preserve">
+    <data name="CBS220160MotiveText" xml:space="preserve">
         <value>Family getaway or weekend (not at family home)</value>
     </data>
-    <data name="220162MotiveText" xml:space="preserve">
+    <data name="CBS220162MotiveText" xml:space="preserve">
         <value>Saying goodbye in crematorium, church, funeral home and the like.</value>
     </data>
-    <data name="220166MotiveText" xml:space="preserve">
+    <data name="CBS220166MotiveText" xml:space="preserve">
         <value>Visiting an evening watch</value>
     </data>
-    <data name="220176MotiveText" xml:space="preserve">
+    <data name="CBS220176MotiveText" xml:space="preserve">
         <value>Attending funeral or cremation</value>
     </data>
-    <data name="220178MotiveText" xml:space="preserve">
+    <data name="CBS220178MotiveText" xml:space="preserve">
         <value>Attend commemoration service, commemoration of the dead and so on</value>
     </data>
-    <data name="220180MotiveText" xml:space="preserve">
+    <data name="CBS220180MotiveText" xml:space="preserve">
         <value>Coffee table for funeral, cremation or funeral</value>
     </data>
-    <data name="220183MotiveText" xml:space="preserve">
+    <data name="CBS220183MotiveText" xml:space="preserve">
         <value>Visiting a mortuary</value>
     </data>
-    <data name="220185MotiveText" xml:space="preserve">
+    <data name="CBS220185MotiveText" xml:space="preserve">
         <value>Attending a funeral service or funeral</value>
     </data>
-    <data name="220193MotiveText" xml:space="preserve">
+    <data name="CBS220193MotiveText" xml:space="preserve">
         <value>Procession or procession (walking / watching)</value>
     </data>
-    <data name="220203MotiveText" xml:space="preserve">
+    <data name="CBS220203MotiveText" xml:space="preserve">
         <value>Walk in silent tour</value>
     </data>
-    <data name="220208MotiveText" xml:space="preserve">
+    <data name="CBS220208MotiveText" xml:space="preserve">
         <value>Reunion (from school, work, family, etc.)</value>
     </data>
-    <data name="220212MotiveText" xml:space="preserve">
+    <data name="CBS220212MotiveText" xml:space="preserve">
         <value>Attending a prize ceremony, honoring and the like</value>
     </data>
-    <data name="220213MotiveText" xml:space="preserve">
+    <data name="CBS220213MotiveText" xml:space="preserve">
         <value>Liberation party or festival and the like visit</value>
     </data>
-    <data name="220217MotiveText" xml:space="preserve">
+    <data name="CBS220217MotiveText" xml:space="preserve">
         <value>Bachelor party</value>
     </data>
-    <data name="220220MotiveText" xml:space="preserve">
+    <data name="CBS220220MotiveText" xml:space="preserve">
         <value>Feast visit (neighborhood, village, communion, etc.)</value>
     </data>
-    <data name="220223MotiveText" xml:space="preserve">
+    <data name="CBS220223MotiveText" xml:space="preserve">
         <value>Visit Galabal</value>
     </data>
-    <data name="220227MotiveText" xml:space="preserve">
+    <data name="CBS220227MotiveText" xml:space="preserve">
         <value>Celebrating a jubilee, anniversary celebration and the like.</value>
     </data>
-    <data name="220230MotiveText" xml:space="preserve">
+    <data name="CBS220230MotiveText" xml:space="preserve">
         <value>Children's party / party not at someone's home</value>
     </data>
-    <data name="220232MotiveText" xml:space="preserve">
+    <data name="CBS220232MotiveText" xml:space="preserve">
         <value>Celebrate King's Day</value>
     </data>
-    <data name="220233MotiveText" xml:space="preserve">
+    <data name="CBS220233MotiveText" xml:space="preserve">
         <value>Celebrating New Year, New Year's Eve, etc.</value>
     </data>
-    <data name="220237MotiveText" xml:space="preserve">
+    <data name="CBS220237MotiveText" xml:space="preserve">
         <value>Celebrating New Year's Eve, New Year's Eve, New Year's Eve and the like</value>
     </data>
-    <data name="220240MotiveText" xml:space="preserve">
+    <data name="CBS220240MotiveText" xml:space="preserve">
         <value>Sinterklaas celebration</value>
     </data>
-    <data name="220241MotiveText" xml:space="preserve">
+    <data name="CBS220241MotiveText" xml:space="preserve">
         <value>Sint-maarten (procession, past the doors, etc.)</value>
     </data>
-    <data name="220242MotiveText" xml:space="preserve">
+    <data name="CBS220242MotiveText" xml:space="preserve">
         <value>Birthday party / party not at someone's home</value>
     </data>
-    <data name="220243MotiveText" xml:space="preserve">
+    <data name="CBS220243MotiveText" xml:space="preserve">
         <value>Lighting fireworks, watching fireworks etc.</value>
     </data>
-    <data name="220247MotiveText" xml:space="preserve">
+    <data name="CBS220247MotiveText" xml:space="preserve">
         <value>Celebrating carnival, carnival parade and the like.</value>
     </data>
-    <data name="220250MotiveText" xml:space="preserve">
+    <data name="CBS220250MotiveText" xml:space="preserve">
         <value>Family celebration not at family home</value>
     </data>
-    <data name="220252MotiveText" xml:space="preserve">
+    <data name="CBS220252MotiveText" xml:space="preserve">
         <value>Marriage, wedding, wedding, etc.</value>
     </data>
-    <data name="220291MotiveText" xml:space="preserve">
+    <data name="CBS220291MotiveText" xml:space="preserve">
         <value>Attending graduation, graduation ceremony, oration, etc.</value>
     </data>
-    <data name="220294MotiveText" xml:space="preserve">
+    <data name="CBS220294MotiveText" xml:space="preserve">
         <value>Attending a graduation ceremony</value>
     </data>
-    <data name="220297MotiveText" xml:space="preserve">
+    <data name="CBS220297MotiveText" xml:space="preserve">
         <value>Attend promotion</value>
     </data>
-    <data name="220301MotiveText" xml:space="preserve">
+    <data name="CBS220301MotiveText" xml:space="preserve">
         <value>Visit cultural center</value>
     </data>
-    <data name="220303MotiveText" xml:space="preserve">
+    <data name="CBS220303MotiveText" xml:space="preserve">
         <value>Ballet performance visits in theater, theater and the like.</value>
     </data>
-    <data name="220306MotiveText" xml:space="preserve">
+    <data name="CBS220306MotiveText" xml:space="preserve">
         <value>Visiting a dance performance in theater, theater and the like.</value>
     </data>
-    <data name="220308MotiveText" xml:space="preserve">
+    <data name="CBS220308MotiveText" xml:space="preserve">
         <value>Visit cinema, cinema, film house / festival and the like</value>
     </data>
-    <data name="220314MotiveText" xml:space="preserve">
+    <data name="CBS220314MotiveText" xml:space="preserve">
         <value>Visit atelier, art route, art project and the like</value>
     </data>
-    <data name="220316MotiveText" xml:space="preserve">
+    <data name="CBS220316MotiveText" xml:space="preserve">
         <value>To visit a museum</value>
     </data>
-    <data name="220319MotiveText" xml:space="preserve">
+    <data name="CBS220319MotiveText" xml:space="preserve">
         <value>Attend a concert hall, music center and the like</value>
     </data>
-    <data name="220321MotiveText" xml:space="preserve">
+    <data name="CBS220321MotiveText" xml:space="preserve">
         <value>Dance party, pop or music festival etc. to visit</value>
     </data>
-    <data name="220322MotiveText" xml:space="preserve">
+    <data name="CBS220322MotiveText" xml:space="preserve">
         <value>Visiting a disco, a dance hall and the like</value>
     </data>
-    <data name="220323MotiveText" xml:space="preserve">
+    <data name="CBS220323MotiveText" xml:space="preserve">
         <value>Christmas-, New Year's concert and e-mail</value>
     </data>
-    <data name="220324MotiveText" xml:space="preserve">
+    <data name="CBS220324MotiveText" xml:space="preserve">
         <value>Watch performance brass band, harmony e.d.</value>
     </data>
-    <data name="220328MotiveText" xml:space="preserve">
+    <data name="CBS220328MotiveText" xml:space="preserve">
         <value>Attend concert in stadium, park and the like</value>
     </data>
-    <data name="220332MotiveText" xml:space="preserve">
+    <data name="CBS220332MotiveText" xml:space="preserve">
         <value>Exhibition, exhibition and the like</value>
     </data>
-    <data name="220334MotiveText" xml:space="preserve">
+    <data name="CBS220334MotiveText" xml:space="preserve">
         <value>Attend Cabaret Exhibition</value>
     </data>
-    <data name="220335MotiveText" xml:space="preserve">
+    <data name="CBS220335MotiveText" xml:space="preserve">
         <value>Musical visits in theater, theater and the like.</value>
     </data>
-    <data name="220336MotiveText" xml:space="preserve">
+    <data name="CBS220336MotiveText" xml:space="preserve">
         <value>Visiting open-air theater</value>
     </data>
-    <data name="220337MotiveText" xml:space="preserve">
+    <data name="CBS220337MotiveText" xml:space="preserve">
         <value>Visit Opera</value>
     </data>
-    <data name="220339MotiveText" xml:space="preserve">
+    <data name="CBS220339MotiveText" xml:space="preserve">
         <value>Visit theater, theater and the like</value>
     </data>
-    <data name="220340MotiveText" xml:space="preserve">
+    <data name="CBS220340MotiveText" xml:space="preserve">
         <value>Play theater in theater, theater and the like.</value>
     </data>
-    <data name="220401MotiveText" xml:space="preserve">
+    <data name="CBS220401MotiveText" xml:space="preserve">
         <value>Messages for someone to do</value>
     </data>
-    <data name="220402MotiveText" xml:space="preserve">
+    <data name="CBS220402MotiveText" xml:space="preserve">
         <value>Providing friends or bureaus</value>
     </data>
-    <data name="220404MotiveText" xml:space="preserve">
+    <data name="CBS220404MotiveText" xml:space="preserve">
         <value>Helping at school / in church e.d.</value>
     </data>
-    <data name="220409MotiveText" xml:space="preserve">
+    <data name="CBS220409MotiveText" xml:space="preserve">
         <value>Helping someone, assisting, supporting and the like.</value>
     </data>
-    <data name="220423MotiveText" xml:space="preserve">
+    <data name="CBS220423MotiveText" xml:space="preserve">
         <value>Work with someone (lawn mowing, cleaning up, etc.)</value>
     </data>
-    <data name="220424MotiveText" xml:space="preserve">
+    <data name="CBS220424MotiveText" xml:space="preserve">
         <value>Cooking with and for someone else</value>
     </data>
-    <data name="220437MotiveText" xml:space="preserve">
+    <data name="CBS220437MotiveText" xml:space="preserve">
         <value>Take care of plants / animals / garden / mail from someone</value>
     </data>
-    <data name="220441MotiveText" xml:space="preserve">
+    <data name="CBS220441MotiveText" xml:space="preserve">
         <value>Fit someone / holidaymaker's house</value>
     </data>
-    <data name="220448MotiveText" xml:space="preserve">
+    <data name="CBS220448MotiveText" xml:space="preserve">
         <value>Unrolling inheritance due to death</value>
     </data>
-    <data name="220451MotiveText" xml:space="preserve">
+    <data name="CBS220451MotiveText" xml:space="preserve">
         <value>Letting dog out of someone else</value>
     </data>
-    <data name="220501MotiveText" xml:space="preserve">
+    <data name="CBS220501MotiveText" xml:space="preserve">
         <value>Visit cemetery / grave / graveyard</value>
     </data>
-    <data name="220504MotiveText" xml:space="preserve">
+    <data name="CBS220504MotiveText" xml:space="preserve">
         <value>Visiting the Urnsveld / Wall</value>
     </data>
-    <data name="220506MotiveText" xml:space="preserve">
+    <data name="CBS220506MotiveText" xml:space="preserve">
         <value>Prayer or prayer service (in church, mosque, etc.)</value>
     </data>
-    <data name="220513MotiveText" xml:space="preserve">
+    <data name="CBS220513MotiveText" xml:space="preserve">
         <value>Service in church, mosque, temple, synagogue and the like.</value>
     </data>
-    <data name="220516MotiveText" xml:space="preserve">
+    <data name="CBS220516MotiveText" xml:space="preserve">
         <value>Attending a celebration in the church</value>
     </data>
-    <data name="220517MotiveText" xml:space="preserve">
+    <data name="CBS220517MotiveText" xml:space="preserve">
         <value>Bidday or thanksgiving day in the church</value>
     </data>
-    <data name="220518MotiveText" xml:space="preserve">
+    <data name="CBS220518MotiveText" xml:space="preserve">
         <value>Religeous / religious gathering</value>
     </data>
-    <data name="220519MotiveText" xml:space="preserve">
+    <data name="CBS220519MotiveText" xml:space="preserve">
         <value>Baptism, communion or confirmation in church</value>
     </data>
-    <data name="220522MotiveText" xml:space="preserve">
+    <data name="CBS220522MotiveText" xml:space="preserve">
         <value>Worship service in church</value>
     </data>
-    <data name="220523MotiveText" xml:space="preserve">
+    <data name="CBS220523MotiveText" xml:space="preserve">
         <value>Gospel work</value>
     </data>
-    <data name="220527MotiveText" xml:space="preserve">
+    <data name="CBS220527MotiveText" xml:space="preserve">
         <value>Faith meeting / meeting</value>
     </data>
-    <data name="220532MotiveText" xml:space="preserve">
+    <data name="CBS220532MotiveText" xml:space="preserve">
         <value>Holy Mass</value>
     </data>
-    <data name="220533MotiveText" xml:space="preserve">
+    <data name="CBS220533MotiveText" xml:space="preserve">
         <value>Visit chapel (letje)</value>
     </data>
-    <data name="220536MotiveText" xml:space="preserve">
+    <data name="CBS220536MotiveText" xml:space="preserve">
         <value>Church activities</value>
     </data>
-    <data name="220538MotiveText" xml:space="preserve">
+    <data name="CBS220538MotiveText" xml:space="preserve">
         <value>Church walk</value>
     </data>
-    <data name="220539MotiveText" xml:space="preserve">
+    <data name="CBS220539MotiveText" xml:space="preserve">
         <value>Christmas night service / night mass in the church</value>
     </data>
-    <data name="220544MotiveText" xml:space="preserve">
+    <data name="CBS220544MotiveText" xml:space="preserve">
         <value>Attending Easter vigil</value>
     </data>
-    <data name="220550MotiveText" xml:space="preserve">
+    <data name="CBS220550MotiveText" xml:space="preserve">
         <value>Friday prayer</value>
     </data>
-    <data name="220551MotiveText" xml:space="preserve">
+    <data name="CBS220551MotiveText" xml:space="preserve">
         <value>Church administration, church council and the like.</value>
     </data>
-    <data name="220552MotiveText" xml:space="preserve">
+    <data name="CBS220552MotiveText" xml:space="preserve">
         <value>Confession</value>
     </data>
-    <data name="220601MotiveText" xml:space="preserve">
+    <data name="CBS220601MotiveText" xml:space="preserve">
         <value>Washing a car</value>
     </data>
-    <data name="220602MotiveText" xml:space="preserve">
+    <data name="CBS220602MotiveText" xml:space="preserve">
         <value>Feeding, caring for, controlling, etc.</value>
     </data>
-    <data name="220603MotiveText" xml:space="preserve">
+    <data name="CBS220603MotiveText" xml:space="preserve">
         <value>Boat (maintained, launched etc.)</value>
     </data>
-    <data name="220607MotiveText" xml:space="preserve">
+    <data name="CBS220607MotiveText" xml:space="preserve">
         <value>Build a bead or carnival car</value>
     </data>
-    <data name="220609MotiveText" xml:space="preserve">
+    <data name="CBS220609MotiveText" xml:space="preserve">
         <value>Decorate someone's house</value>
     </data>
-    <data name="220610MotiveText" xml:space="preserve">
+    <data name="CBS220610MotiveText" xml:space="preserve">
         <value>DIY / chores (unpaid)</value>
     </data>
-    <data name="220611MotiveText" xml:space="preserve">
+    <data name="CBS220611MotiveText" xml:space="preserve">
         <value>Carry out maintenance (unpaid)</value>
     </data>
-    <data name="220613MotiveText" xml:space="preserve">
+    <data name="CBS220613MotiveText" xml:space="preserve">
         <value>Horse (s) visiting, feeding, caring and the like.</value>
     </data>
-    <data name="220614MotiveText" xml:space="preserve">
+    <data name="CBS220614MotiveText" xml:space="preserve">
         <value>Pony visiting, feeding, caring and the like.</value>
     </data>
-    <data name="220616MotiveText" xml:space="preserve">
+    <data name="CBS220616MotiveText" xml:space="preserve">
         <value>Repairing something (unpaid)</value>
     </data>
-    <data name="220617MotiveText" xml:space="preserve">
+    <data name="CBS220617MotiveText" xml:space="preserve">
         <value>Cleaning property</value>
     </data>
-    <data name="220618MotiveText" xml:space="preserve">
+    <data name="CBS220618MotiveText" xml:space="preserve">
         <value>Gardening (unpaid)</value>
     </data>
-    <data name="220620MotiveText" xml:space="preserve">
+    <data name="CBS220620MotiveText" xml:space="preserve">
         <value>Moving away</value>
     </data>
-    <data name="220651MotiveText" xml:space="preserve">
+    <data name="CBS220651MotiveText" xml:space="preserve">
         <value>Attending a conference / congress / symposium (not for work)</value>
     </data>
-    <data name="220652MotiveText" xml:space="preserve">
+    <data name="CBS220652MotiveText" xml:space="preserve">
         <value>Excursion (not from school or work)</value>
     </data>
-    <data name="220653MotiveText" xml:space="preserve">
+    <data name="CBS220653MotiveText" xml:space="preserve">
         <value>Visit to trade fair event (eg in Jaarbeurs)</value>
     </data>
-    <data name="220655MotiveText" xml:space="preserve">
+    <data name="CBS220655MotiveText" xml:space="preserve">
         <value>Information meeting / market e.d.</value>
     </data>
-    <data name="220661MotiveText" xml:space="preserve">
+    <data name="CBS220661MotiveText" xml:space="preserve">
         <value>Attend reading</value>
     </data>
-    <data name="220662MotiveText" xml:space="preserve">
+    <data name="CBS220662MotiveText" xml:space="preserve">
         <value>Visiting an open day</value>
     </data>
-    <data name="220665MotiveText" xml:space="preserve">
+    <data name="CBS220665MotiveText" xml:space="preserve">
         <value>Information day university, school e.d.</value>
     </data>
-    <data name="220666MotiveText" xml:space="preserve">
+    <data name="CBS220666MotiveText" xml:space="preserve">
         <value>Information meeting education, school e.d.</value>
     </data>
-    <data name="220669MotiveText" xml:space="preserve">
+    <data name="CBS220669MotiveText" xml:space="preserve">
         <value>Introduction day course / training</value>
     </data>
-    <data name="220672MotiveText" xml:space="preserve">
+    <data name="CBS220672MotiveText" xml:space="preserve">
         <value>Open day education, school e.d</value>
     </data>
-    <data name="220678MotiveText" xml:space="preserve">
+    <data name="CBS220678MotiveText" xml:space="preserve">
         <value>Information school / training</value>
     </data>
-    <data name="220703MotiveText" xml:space="preserve">
+    <data name="CBS220703MotiveText" xml:space="preserve">
         <value>Feeding, caring for, controlling, etc.</value>
     </data>
-    <data name="220712MotiveText" xml:space="preserve">
+    <data name="CBS220712MotiveText" xml:space="preserve">
         <value>Visit archaeological excavation</value>
     </data>
-    <data name="220713MotiveText" xml:space="preserve">
+    <data name="CBS220713MotiveText" xml:space="preserve">
         <value>Visit to car show</value>
     </data>
-    <data name="220714MotiveText" xml:space="preserve">
+    <data name="CBS220714MotiveText" xml:space="preserve">
         <value>View construction project</value>
     </data>
-    <data name="220715MotiveText" xml:space="preserve">
+    <data name="CBS220715MotiveText" xml:space="preserve">
         <value>Visit to fashion show</value>
     </data>
-    <data name="220716MotiveText" xml:space="preserve">
+    <data name="CBS220716MotiveText" xml:space="preserve">
         <value>View property</value>
     </data>
-    <data name="220717MotiveText" xml:space="preserve">
+    <data name="CBS220717MotiveText" xml:space="preserve">
         <value>Fire looked</value>
     </data>
-    <data name="220718MotiveText" xml:space="preserve">
+    <data name="CBS220718MotiveText" xml:space="preserve">
         <value>Participation activities</value>
     </data>
-    <data name="220719MotiveText" xml:space="preserve">
+    <data name="CBS220719MotiveText" xml:space="preserve">
         <value>Having a conversation</value>
     </data>
-    <data name="220720MotiveText" xml:space="preserve">
+    <data name="CBS220720MotiveText" xml:space="preserve">
         <value>Canteen sports venue</value>
     </data>
-    <data name="220721MotiveText" xml:space="preserve">
+    <data name="CBS220721MotiveText" xml:space="preserve">
         <value>Canteen work</value>
     </data>
-    <data name="220722MotiveText" xml:space="preserve">
+    <data name="CBS220722MotiveText" xml:space="preserve">
         <value>Find Kievit eggs</value>
     </data>
-    <data name="220724MotiveText" xml:space="preserve">
+    <data name="CBS220724MotiveText" xml:space="preserve">
         <value>Lunch break, pause and the like.</value>
     </data>
-    <data name="220725MotiveText" xml:space="preserve">
+    <data name="CBS220725MotiveText" xml:space="preserve">
         <value>New year wishes outdoors</value>
     </data>
-    <data name="220727MotiveText" xml:space="preserve">
+    <data name="CBS220727MotiveText" xml:space="preserve">
         <value>Visit party center</value>
     </data>
-    <data name="220728MotiveText" xml:space="preserve">
+    <data name="CBS220728MotiveText" xml:space="preserve">
         <value>Picking berries, blackberries, mushrooms and the like</value>
     </data>
-    <data name="220730MotiveText" xml:space="preserve">
+    <data name="CBS220730MotiveText" xml:space="preserve">
         <value>Pick up chestnuts</value>
     </data>
-    <data name="220731MotiveText" xml:space="preserve">
+    <data name="CBS220731MotiveText" xml:space="preserve">
         <value>To look for Easter eggs</value>
     </data>
-    <data name="220801MotiveText" xml:space="preserve">
+    <data name="CBS220801MotiveText" xml:space="preserve">
         <value>Hanging outside (around), chilling, relaxing and the like.</value>
     </data>
-    <data name="220803MotiveText" xml:space="preserve">
+    <data name="CBS220803MotiveText" xml:space="preserve">
         <value>Playing outside, playing on the street and the like.</value>
     </data>
-    <data name="220804MotiveText" xml:space="preserve">
+    <data name="CBS220804MotiveText" xml:space="preserve">
         <value>Blow away</value>
     </data>
-    <data name="220810MotiveText" xml:space="preserve">
+    <data name="CBS220810MotiveText" xml:space="preserve">
         <value>Visiting a circus</value>
     </data>
-    <data name="220811MotiveText" xml:space="preserve">
+    <data name="CBS220811MotiveText" xml:space="preserve">
         <value>Visit indoor playground / paradise</value>
     </data>
-    <data name="220813MotiveText" xml:space="preserve">
+    <data name="CBS220813MotiveText" xml:space="preserve">
         <value>Fair visit</value>
     </data>
-    <data name="220814MotiveText" xml:space="preserve">
+    <data name="CBS220814MotiveText" xml:space="preserve">
         <value>Viewing animals on a petting zoo</value>
     </data>
-    <data name="220817MotiveText" xml:space="preserve">
+    <data name="CBS220817MotiveText" xml:space="preserve">
         <value>Participate in New Year's dive</value>
     </data>
-    <data name="220818MotiveText" xml:space="preserve">
+    <data name="CBS220818MotiveText" xml:space="preserve">
         <value>Puzzle / quest</value>
     </data>
-    <data name="220821MotiveText" xml:space="preserve">
+    <data name="CBS220821MotiveText" xml:space="preserve">
         <value>To the boat</value>
     </data>
-    <data name="220825MotiveText" xml:space="preserve">
+    <data name="CBS220825MotiveText" xml:space="preserve">
         <value>Participate in New Year's Dive or watch</value>
     </data>
-    <data name="220826MotiveText" xml:space="preserve">
+    <data name="CBS220826MotiveText" xml:space="preserve">
         <value>(Youth) camp</value>
     </data>
-    <data name="220828MotiveText" xml:space="preserve">
+    <data name="CBS220828MotiveText" xml:space="preserve">
         <value>Park visit</value>
     </data>
-    <data name="220829MotiveText" xml:space="preserve">
+    <data name="CBS220829MotiveText" xml:space="preserve">
         <value>Have a picnic</value>
     </data>
-    <data name="220830MotiveText" xml:space="preserve">
+    <data name="CBS220830MotiveText" xml:space="preserve">
         <value>Visit to recreation area / terrain</value>
     </data>
-    <data name="220831MotiveText" xml:space="preserve">
+    <data name="CBS220831MotiveText" xml:space="preserve">
         <value>Visit to recreaction lake / lake / forest</value>
     </data>
-    <data name="220833MotiveText" xml:space="preserve">
+    <data name="CBS220833MotiveText" xml:space="preserve">
         <value>Visit the mobile home</value>
     </data>
-    <data name="220834MotiveText" xml:space="preserve">
+    <data name="CBS220834MotiveText" xml:space="preserve">
         <value>To the beach</value>
     </data>
-    <data name="220835MotiveText" xml:space="preserve">
+    <data name="CBS220835MotiveText" xml:space="preserve">
         <value>Beachcombing</value>
     </data>
-    <data name="220836MotiveText" xml:space="preserve">
+    <data name="CBS220836MotiveText" xml:space="preserve">
         <value>Sailing with the boat</value>
     </data>
-    <data name="220838MotiveText" xml:space="preserve">
+    <data name="CBS220838MotiveText" xml:space="preserve">
         <value>To the sea</value>
     </data>
-    <data name="220839MotiveText" xml:space="preserve">
+    <data name="CBS220839MotiveText" xml:space="preserve">
         <value>Visit the care farm</value>
     </data>
-    <data name="220842MotiveText" xml:space="preserve">
+    <data name="CBS220842MotiveText" xml:space="preserve">
         <value>Short / long vacation</value>
     </data>
-    <data name="220844MotiveText" xml:space="preserve">
+    <data name="CBS220844MotiveText" xml:space="preserve">
         <value>Overnight in bungalow park, cottage e.d.</value>
     </data>
-    <data name="220845MotiveText" xml:space="preserve">
+    <data name="CBS220845MotiveText" xml:space="preserve">
         <value>Overnight stay in hotel, guest house e.d.</value>
     </data>
-    <data name="220846MotiveText" xml:space="preserve">
+    <data name="CBS220846MotiveText" xml:space="preserve">
         <value>Overnight camping (camping)</value>
     </data>
-    <data name="220849MotiveText" xml:space="preserve">
+    <data name="CBS220849MotiveText" xml:space="preserve">
         <value>To holiday address / house</value>
     </data>
-    <data name="220851MotiveText" xml:space="preserve">
+    <data name="CBS220851MotiveText" xml:space="preserve">
         <value>To weekend address / house</value>
     </data>
-    <data name="220853MotiveText" xml:space="preserve">
+    <data name="CBS220853MotiveText" xml:space="preserve">
         <value>Weekend trip</value>
     </data>
-    <data name="220901MotiveText" xml:space="preserve">
+    <data name="CBS220901MotiveText" xml:space="preserve">
         <value>Professions education</value>
     </data>
-    <data name="220905MotiveText" xml:space="preserve">
+    <data name="CBS220905MotiveText" xml:space="preserve">
         <value>Attend school / education fair</value>
     </data>
-    <data name="220910MotiveText" xml:space="preserve">
+    <data name="CBS220910MotiveText" xml:space="preserve">
         <value>10-minute conversation at school</value>
     </data>
-    <data name="220912MotiveText" xml:space="preserve">
+    <data name="CBS220912MotiveText" xml:space="preserve">
         <value>Closing school year</value>
     </data>
-    <data name="220913MotiveText" xml:space="preserve">
+    <data name="CBS220913MotiveText" xml:space="preserve">
         <value>Appointment or meeting at school of child</value>
     </data>
-    <data name="220915MotiveText" xml:space="preserve">
+    <data name="CBS220915MotiveText" xml:space="preserve">
         <value>School performance / play of child</value>
     </data>
-    <data name="220916MotiveText" xml:space="preserve">
+    <data name="CBS220916MotiveText" xml:space="preserve">
         <value>Visiting a creche / childcare</value>
     </data>
-    <data name="220918MotiveText" xml:space="preserve">
+    <data name="CBS220918MotiveText" xml:space="preserve">
         <value>Conversation with teacher / master / teacher / teacher</value>
     </data>
-    <data name="220919MotiveText" xml:space="preserve">
+    <data name="CBS220919MotiveText" xml:space="preserve">
         <value>Conversation at school of child</value>
     </data>
-    <data name="220920MotiveText" xml:space="preserve">
+    <data name="CBS220920MotiveText" xml:space="preserve">
         <value>Watching school performance child / son / daughter</value>
     </data>
-    <data name="220921MotiveText" xml:space="preserve">
+    <data name="CBS220921MotiveText" xml:space="preserve">
         <value>Watching at school</value>
     </data>
-    <data name="220923MotiveText" xml:space="preserve">
+    <data name="CBS220923MotiveText" xml:space="preserve">
         <value>Parents evening at school of child</value>
     </data>
-    <data name="220926MotiveText" xml:space="preserve">
+    <data name="CBS220926MotiveText" xml:space="preserve">
         <value>Report discussion at school child</value>
     </data>
-    <data name="220927MotiveText" xml:space="preserve">
+    <data name="CBS220927MotiveText" xml:space="preserve">
         <value>School of child / son / daughter visits</value>
     </data>
-    <data name="220930MotiveText" xml:space="preserve">
+    <data name="CBS220930MotiveText" xml:space="preserve">
         <value>School consultation</value>
     </data>
-    <data name="220931MotiveText" xml:space="preserve">
+    <data name="CBS220931MotiveText" xml:space="preserve">
         <value>Visit exhibition / workshop at school of child</value>
     </data>
-    <data name="220933MotiveText" xml:space="preserve">
+    <data name="CBS220933MotiveText" xml:space="preserve">
         <value>School musical / performance visit child</value>
     </data>
-    <data name="220935MotiveText" xml:space="preserve">
+    <data name="CBS220935MotiveText" xml:space="preserve">
         <value>Meeting at school of child</value>
     </data>
-    <data name="220942MotiveText" xml:space="preserve">
+    <data name="CBS220942MotiveText" xml:space="preserve">
         <value>Celebration / celebration at school of child</value>
     </data>
-    <data name="220982MotiveText" xml:space="preserve">
+    <data name="CBS220982MotiveText" xml:space="preserve">
         <value>Final or farewell party at school</value>
     </data>
-    <data name="220983MotiveText" xml:space="preserve">
+    <data name="CBS220983MotiveText" xml:space="preserve">
         <value>School party / class party</value>
     </data>
-    <data name="221003MotiveText" xml:space="preserve">
+    <data name="CBS221003MotiveText" xml:space="preserve">
         <value>Visit the activity center</value>
     </data>
-    <data name="221004MotiveText" xml:space="preserve">
+    <data name="CBS221004MotiveText" xml:space="preserve">
         <value>Visiting a community center / center</value>
     </data>
-    <data name="221006MotiveText" xml:space="preserve">
+    <data name="CBS221006MotiveText" xml:space="preserve">
         <value>Clubhouse (not sports related)</value>
     </data>
-    <data name="221007MotiveText" xml:space="preserve">
+    <data name="CBS221007MotiveText" xml:space="preserve">
         <value>Visit to village / community house</value>
     </data>
-    <data name="221009MotiveText" xml:space="preserve">
+    <data name="CBS221009MotiveText" xml:space="preserve">
         <value>Visit youth center / youth center</value>
     </data>
-    <data name="221011MotiveText" xml:space="preserve">
+    <data name="CBS221011MotiveText" xml:space="preserve">
         <value>Visiting a parent / elderly center</value>
     </data>
-    <data name="221012MotiveText" xml:space="preserve">
+    <data name="CBS221012MotiveText" xml:space="preserve">
         <value>Visiting a society / student association</value>
     </data>
-    <data name="221061MotiveText" xml:space="preserve">
+    <data name="CBS221061MotiveText" xml:space="preserve">
         <value>Outdoor play day</value>
     </data>
-    <data name="221063MotiveText" xml:space="preserve">
+    <data name="CBS221063MotiveText" xml:space="preserve">
         <value>Play date, play with friend / girlfriend and the like.</value>
     </data>
-    <data name="221064MotiveText" xml:space="preserve">
+    <data name="CBS221064MotiveText" xml:space="preserve">
         <value>Visit outdoor playground</value>
     </data>
-    <data name="221101MotiveText" xml:space="preserve">
+    <data name="CBS221101MotiveText" xml:space="preserve">
         <value>Company / factory / auction etc. to view</value>
     </data>
-    <data name="221102MotiveText" xml:space="preserve">
+    <data name="CBS221102MotiveText" xml:space="preserve">
         <value>Visit visitor / information center</value>
     </data>
-    <data name="221103MotiveText" xml:space="preserve">
+    <data name="CBS221103MotiveText" xml:space="preserve">
         <value>Take a tour</value>
     </data>
-    <data name="221105MotiveText" xml:space="preserve">
+    <data name="CBS221105MotiveText" xml:space="preserve">
         <value>Visiting Zoo</value>
     </data>
-    <data name="221106MotiveText" xml:space="preserve">
+    <data name="CBS221106MotiveText" xml:space="preserve">
         <value>Visit Efteling</value>
     </data>
-    <data name="221107MotiveText" xml:space="preserve">
+    <data name="CBS221107MotiveText" xml:space="preserve">
         <value>Visit deer camp</value>
     </data>
-    <data name="221108MotiveText" xml:space="preserve">
+    <data name="CBS221108MotiveText" xml:space="preserve">
         <value>Visit the amusement park</value>
     </data>
-    <data name="221109MotiveText" xml:space="preserve">
+    <data name="CBS221109MotiveText" xml:space="preserve">
         <value>Visit (yacht) port</value>
     </data>
-    <data name="221111MotiveText" xml:space="preserve">
+    <data name="CBS221111MotiveText" xml:space="preserve">
         <value>Tasting room / wine tasting</value>
     </data>
-    <data name="221112MotiveText" xml:space="preserve">
+    <data name="CBS221112MotiveText" xml:space="preserve">
         <value>Take a boat trip or boat trip</value>
     </data>
-    <data name="221113MotiveText" xml:space="preserve">
+    <data name="CBS221113MotiveText" xml:space="preserve">
         <value>Balloon flight / sightseeing flight</value>
     </data>
-    <data name="221115MotiveText" xml:space="preserve">
+    <data name="CBS221115MotiveText" xml:space="preserve">
         <value>Sightseeing</value>
     </data>
-    <data name="221116MotiveText" xml:space="preserve">
+    <data name="CBS221116MotiveText" xml:space="preserve">
         <value>View floral corso</value>
     </data>
-    <data name="221119MotiveText" xml:space="preserve">
+    <data name="CBS221119MotiveText" xml:space="preserve">
         <value>Visit (beer) brewery</value>
     </data>
-    <data name="221120MotiveText" xml:space="preserve">
+    <data name="CBS221120MotiveText" xml:space="preserve">
         <value>Visiting a camping / holiday park</value>
     </data>
-    <data name="221121MotiveText" xml:space="preserve">
+    <data name="CBS221121MotiveText" xml:space="preserve">
         <value>Day out / day out / day trip</value>
     </data>
-    <data name="221122MotiveText" xml:space="preserve">
+    <data name="CBS221122MotiveText" xml:space="preserve">
         <value>Day to the beach</value>
     </data>
-    <data name="221124MotiveText" xml:space="preserve">
+    <data name="CBS221124MotiveText" xml:space="preserve">
         <value>Attend an event</value>
     </data>
-    <data name="221129MotiveText" xml:space="preserve">
+    <data name="CBS221129MotiveText" xml:space="preserve">
         <value>Visit castle, fort, ruin and the like</value>
     </data>
-    <data name="221130MotiveText" xml:space="preserve">
+    <data name="CBS221130MotiveText" xml:space="preserve">
         <value>Visiting church, mosque, temple and the like</value>
     </data>
-    <data name="221131MotiveText" xml:space="preserve">
+    <data name="CBS221131MotiveText" xml:space="preserve">
         <value>Growers, greenhouses, farm and the like</value>
     </data>
-    <data name="221133MotiveText" xml:space="preserve">
+    <data name="CBS221133MotiveText" xml:space="preserve">
         <value>Visit nature reserve, forest and the like</value>
     </data>
-    <data name="221134MotiveText" xml:space="preserve">
+    <data name="CBS221134MotiveText" xml:space="preserve">
         <value>Sightseeing / city touring and the like.</value>
     </data>
-    <data name="221136MotiveText" xml:space="preserve">
+    <data name="CBS221136MotiveText" xml:space="preserve">
         <value>Walking city walk</value>
     </data>
-    <data name="221137MotiveText" xml:space="preserve">
+    <data name="CBS221137MotiveText" xml:space="preserve">
         <value>Beach, forest walk and the like</value>
     </data>
-    <data name="221139MotiveText" xml:space="preserve">
+    <data name="CBS221139MotiveText" xml:space="preserve">
         <value>Visiting tattoo</value>
     </data>
-    <data name="221141MotiveText" xml:space="preserve">
+    <data name="CBS221141MotiveText" xml:space="preserve">
         <value>View ice sculptures</value>
     </data>
-    <data name="221201MotiveText" xml:space="preserve">
+    <data name="CBS221201MotiveText" xml:space="preserve">
         <value>Company / department outing</value>
     </data>
-    <data name="221202MotiveText" xml:space="preserve">
+    <data name="CBS221202MotiveText" xml:space="preserve">
         <value>Business barbecue / bbq work</value>
     </data>
-    <data name="221203MotiveText" xml:space="preserve">
+    <data name="CBS221203MotiveText" xml:space="preserve">
         <value>Staff / company party</value>
     </data>
-    <data name="221205MotiveText" xml:space="preserve">
+    <data name="CBS221205MotiveText" xml:space="preserve">
         <value>Career visit</value>
     </data>
-    <data name="221206MotiveText" xml:space="preserve">
+    <data name="CBS221206MotiveText" xml:space="preserve">
         <value>Excursion of the work</value>
     </data>
-    <data name="221207MotiveText" xml:space="preserve">
+    <data name="CBS221207MotiveText" xml:space="preserve">
         <value>Feast of boss / work</value>
     </data>
-    <data name="221209MotiveText" xml:space="preserve">
+    <data name="CBS221209MotiveText" xml:space="preserve">
         <value>Anniversary party employment</value>
     </data>
-    <data name="221210MotiveText" xml:space="preserve">
+    <data name="CBS221210MotiveText" xml:space="preserve">
         <value>Staff day</value>
     </data>
-    <data name="221212MotiveText" xml:space="preserve">
+    <data name="CBS221212MotiveText" xml:space="preserve">
         <value>Team outing, work outing etc.</value>
     </data>
-    <data name="230001MotiveText" xml:space="preserve">
+    <data name="CBS230001MotiveText" xml:space="preserve">
         <value>Day care, day care and so on</value>
     </data>
-    <data name="230004MotiveText" xml:space="preserve">
+    <data name="CBS230004MotiveText" xml:space="preserve">
         <value>Day care on care farm</value>
     </data>
-    <data name="230101MotiveText" xml:space="preserve">
+    <data name="CBS230101MotiveText" xml:space="preserve">
         <value>Veterinarian, veterinary surgeon, veterinary clinic etc. to visit</value>
     </data>
-    <data name="230102MotiveText" xml:space="preserve">
+    <data name="CBS230102MotiveText" xml:space="preserve">
         <value>Visit the animal shelter / -asiel / -pension</value>
     </data>
-    <data name="230106MotiveText" xml:space="preserve">
+    <data name="CBS230106MotiveText" xml:space="preserve">
         <value>Visit the grooming salon, dog groomer and the like</value>
     </data>
-    <data name="230201MotiveText" xml:space="preserve">
+    <data name="CBS230201MotiveText" xml:space="preserve">
         <value>Consultant, tax advisor and the like</value>
     </data>
-    <data name="230202MotiveText" xml:space="preserve">
+    <data name="CBS230202MotiveText" xml:space="preserve">
         <value>Visiting the insurance office</value>
     </data>
-    <data name="230203MotiveText" xml:space="preserve">
+    <data name="CBS230203MotiveText" xml:space="preserve">
         <value>Visiting the bank</value>
     </data>
-    <data name="230206MotiveText" xml:space="preserve">
+    <data name="CBS230206MotiveText" xml:space="preserve">
         <value>Visit tax office</value>
     </data>
-    <data name="230207MotiveText" xml:space="preserve">
+    <data name="CBS230207MotiveText" xml:space="preserve">
         <value>Bookkeeper, visiting financial advisor</value>
     </data>
-    <data name="230209MotiveText" xml:space="preserve">
+    <data name="CBS230209MotiveText" xml:space="preserve">
         <value>PIN, withdraw / deposit / exchange money, etc.</value>
     </data>
-    <data name="230213MotiveText" xml:space="preserve">
+    <data name="CBS230213MotiveText" xml:space="preserve">
         <value>Visiting a mortgage advisor</value>
     </data>
-    <data name="230216MotiveText" xml:space="preserve">
+    <data name="CBS230216MotiveText" xml:space="preserve">
         <value>Attend debt counselor</value>
     </data>
-    <data name="230217MotiveText" xml:space="preserve">
+    <data name="CBS230217MotiveText" xml:space="preserve">
         <value>Visit debt restructuring agency</value>
     </data>
-    <data name="230218MotiveText" xml:space="preserve">
+    <data name="CBS230218MotiveText" xml:space="preserve">
         <value>Visiting insurance advisor / office</value>
     </data>
-    <data name="230281MotiveText" xml:space="preserve">
+    <data name="CBS230281MotiveText" xml:space="preserve">
         <value>Attend a lawyer, legal advisor and the like</value>
     </data>
-    <data name="230301MotiveText" xml:space="preserve">
+    <data name="CBS230301MotiveText" xml:space="preserve">
         <value>Visit library, play-o-tea and the like</value>
     </data>
-    <data name="230308MotiveText" xml:space="preserve">
+    <data name="CBS230308MotiveText" xml:space="preserve">
         <value>Studying in library (also computing)</value>
     </data>
-    <data name="230401MotiveText" xml:space="preserve">
+    <data name="CBS230401MotiveText" xml:space="preserve">
         <value>Trailer rental (pick up / return)</value>
     </data>
-    <data name="230402MotiveText" xml:space="preserve">
+    <data name="CBS230402MotiveText" xml:space="preserve">
         <value>Car bring due to tire change</value>
     </data>
-    <data name="230403MotiveText" xml:space="preserve">
+    <data name="CBS230403MotiveText" xml:space="preserve">
         <value>Car bringing about APK</value>
     </data>
-    <data name="230404MotiveText" xml:space="preserve">
+    <data name="CBS230404MotiveText" xml:space="preserve">
         <value>Car bringing maintenance</value>
     </data>
-    <data name="230405MotiveText" xml:space="preserve">
+    <data name="CBS230405MotiveText" xml:space="preserve">
         <value>Car bring in connection with repair</value>
     </data>
-    <data name="230406MotiveText" xml:space="preserve">
+    <data name="CBS230406MotiveText" xml:space="preserve">
         <value>Car wash, car wash and the like visit</value>
     </data>
-    <data name="230407MotiveText" xml:space="preserve">
+    <data name="CBS230407MotiveText" xml:space="preserve">
         <value>Pick up a car after a tire change</value>
     </data>
-    <data name="230408MotiveText" xml:space="preserve">
+    <data name="CBS230408MotiveText" xml:space="preserve">
         <value>Pick up car after APK</value>
     </data>
-    <data name="230409MotiveText" xml:space="preserve">
+    <data name="CBS230409MotiveText" xml:space="preserve">
         <value>Pick up car after maintenance</value>
     </data>
-    <data name="230410MotiveText" xml:space="preserve">
+    <data name="CBS230410MotiveText" xml:space="preserve">
         <value>Get car after repair</value>
     </data>
-    <data name="230411MotiveText" xml:space="preserve">
+    <data name="CBS230411MotiveText" xml:space="preserve">
         <value>Car hire (pick up / return)</value>
     </data>
-    <data name="230414MotiveText" xml:space="preserve">
+    <data name="CBS230414MotiveText" xml:space="preserve">
         <value>Pick up a car from a garage</value>
     </data>
-    <data name="230417MotiveText" xml:space="preserve">
+    <data name="CBS230417MotiveText" xml:space="preserve">
         <value>Car bring to garage</value>
     </data>
-    <data name="230420MotiveText" xml:space="preserve">
+    <data name="CBS230420MotiveText" xml:space="preserve">
         <value>With car to garage</value>
     </data>
-    <data name="230423MotiveText" xml:space="preserve">
+    <data name="CBS230423MotiveText" xml:space="preserve">
         <value>Visiting the damage repair company</value>
     </data>
-    <data name="230424MotiveText" xml:space="preserve">
+    <data name="CBS230424MotiveText" xml:space="preserve">
         <value>Renting (collecting / returning)</value>
     </data>
-    <data name="230425MotiveText" xml:space="preserve">
+    <data name="CBS230425MotiveText" xml:space="preserve">
         <value>Copyshop, printing shop, making copies and the like.</value>
     </data>
-    <data name="230426MotiveText" xml:space="preserve">
+    <data name="CBS230426MotiveText" xml:space="preserve">
         <value>Collecting / dropping a car</value>
     </data>
-    <data name="230429MotiveText" xml:space="preserve">
+    <data name="CBS230429MotiveText" xml:space="preserve">
         <value>Collecting / returning a bike due to repair</value>
     </data>
-    <data name="230430MotiveText" xml:space="preserve">
+    <data name="CBS230430MotiveText" xml:space="preserve">
         <value>Bike rental (pick up / return)</value>
     </data>
-    <data name="230432MotiveText" xml:space="preserve">
+    <data name="CBS230432MotiveText" xml:space="preserve">
         <value>Visiting a bicycle mechanic for repair</value>
     </data>
-    <data name="230433MotiveText" xml:space="preserve">
+    <data name="CBS230433MotiveText" xml:space="preserve">
         <value>Visiting photographer, photo studio and the like</value>
     </data>
-    <data name="230434MotiveText" xml:space="preserve">
+    <data name="CBS230434MotiveText" xml:space="preserve">
         <value>Making passport photos, photoshoot and the like.</value>
     </data>
-    <data name="230436MotiveText" xml:space="preserve">
+    <data name="CBS230436MotiveText" xml:space="preserve">
         <value>Visiting a garage company</value>
     </data>
-    <data name="230442MotiveText" xml:space="preserve">
+    <data name="CBS230442MotiveText" xml:space="preserve">
         <value>Return the rental car</value>
     </data>
-    <data name="230443MotiveText" xml:space="preserve">
+    <data name="CBS230443MotiveText" xml:space="preserve">
         <value>Return loan bike</value>
     </data>
-    <data name="230444MotiveText" xml:space="preserve">
+    <data name="CBS230444MotiveText" xml:space="preserve">
         <value>Visit a broker</value>
     </data>
-    <data name="230445MotiveText" xml:space="preserve">
+    <data name="CBS230445MotiveText" xml:space="preserve">
         <value>Recharge OV chip card</value>
     </data>
-    <data name="230447MotiveText" xml:space="preserve">
+    <data name="CBS230447MotiveText" xml:space="preserve">
         <value>Post office, empty mailbox, service post post e.d.</value>
     </data>
-    <data name="230449MotiveText" xml:space="preserve">
+    <data name="CBS230449MotiveText" xml:space="preserve">
         <value>Travel agency visit</value>
     </data>
-    <data name="230451MotiveText" xml:space="preserve">
+    <data name="CBS230451MotiveText" xml:space="preserve">
         <value>Visit shoe, key maker and the like</value>
     </data>
-    <data name="230453MotiveText" xml:space="preserve">
+    <data name="CBS230453MotiveText" xml:space="preserve">
         <value>Dry cleaning, laundry, laundry and the like</value>
     </data>
-    <data name="230457MotiveText" xml:space="preserve">
+    <data name="CBS230457MotiveText" xml:space="preserve">
         <value>Visiting a food bank</value>
     </data>
-    <data name="230460MotiveText" xml:space="preserve">
+    <data name="CBS230460MotiveText" xml:space="preserve">
         <value>Have something repaired</value>
     </data>
-    <data name="230502MotiveText" xml:space="preserve">
+    <data name="CBS230502MotiveText" xml:space="preserve">
         <value>Visit doctor, doctor, general practitioner, GGD and the like</value>
     </data>
-    <data name="230503MotiveText" xml:space="preserve">
+    <data name="CBS230503MotiveText" xml:space="preserve">
         <value>Let blood puncture for research</value>
     </data>
-    <data name="230504MotiveText" xml:space="preserve">
+    <data name="CBS230504MotiveText" xml:space="preserve">
         <value>Have medical research done</value>
     </data>
-    <data name="230505MotiveText" xml:space="preserve">
+    <data name="CBS230505MotiveText" xml:space="preserve">
         <value>Visit cardiologist, dermatologist, etc.</value>
     </data>
-    <data name="230508MotiveText" xml:space="preserve">
+    <data name="CBS230508MotiveText" xml:space="preserve">
         <value>Visit the dialysis center</value>
     </data>
-    <data name="230512MotiveText" xml:space="preserve">
+    <data name="CBS230512MotiveText" xml:space="preserve">
         <value>Psychiatrist, GGZ and the like visit</value>
     </data>
-    <data name="230518MotiveText" xml:space="preserve">
+    <data name="CBS230518MotiveText" xml:space="preserve">
         <value>Visiting surgeon, internist and the like</value>
     </data>
-    <data name="230524MotiveText" xml:space="preserve">
+    <data name="CBS230524MotiveText" xml:space="preserve">
         <value>Visit a medical specialist</value>
     </data>
-    <data name="230530MotiveText" xml:space="preserve">
+    <data name="CBS230530MotiveText" xml:space="preserve">
         <value>Hospital, clinic (clinic) and the like</value>
     </data>
-    <data name="230542MotiveText" xml:space="preserve">
+    <data name="CBS230542MotiveText" xml:space="preserve">
         <value>Urgent assistance, visit GP's post</value>
     </data>
-    <data name="230543MotiveText" xml:space="preserve">
+    <data name="CBS230543MotiveText" xml:space="preserve">
         <value>Visit dentist, dental hygienist and the like</value>
     </data>
-    <data name="230544MotiveText" xml:space="preserve">
+    <data name="CBS230544MotiveText" xml:space="preserve">
         <value>Visit thrombosis service</value>
     </data>
-    <data name="230546MotiveText" xml:space="preserve">
+    <data name="CBS230546MotiveText" xml:space="preserve">
         <value>Obstetrician (practice), midwife visits</value>
     </data>
-    <data name="230603MotiveText" xml:space="preserve">
+    <data name="CBS230603MotiveText" xml:space="preserve">
         <value>Embassy, ​​consulate visit</value>
     </data>
-    <data name="230604MotiveText" xml:space="preserve">
+    <data name="CBS230604MotiveText" xml:space="preserve">
         <value>Court, courthouse and the like visit</value>
     </data>
-    <data name="230609MotiveText" xml:space="preserve">
+    <data name="CBS230609MotiveText" xml:space="preserve">
         <value>UWV, social service, CWI and the like</value>
     </data>
-    <data name="230610MotiveText" xml:space="preserve">
+    <data name="CBS230610MotiveText" xml:space="preserve">
         <value>Town hall, municipal office visits</value>
     </data>
-    <data name="230615MotiveText" xml:space="preserve">
+    <data name="CBS230615MotiveText" xml:space="preserve">
         <value>Request an ID card, passport or pick up</value>
     </data>
-    <data name="230618MotiveText" xml:space="preserve">
+    <data name="CBS230618MotiveText" xml:space="preserve">
         <value>Police station, visit police station</value>
     </data>
-    <data name="230620MotiveText" xml:space="preserve">
+    <data name="CBS230620MotiveText" xml:space="preserve">
         <value>Visiting a probation service</value>
     </data>
-    <data name="230623MotiveText" xml:space="preserve">
+    <data name="CBS230623MotiveText" xml:space="preserve">
         <value>Visit the city hall, district office</value>
     </data>
-    <data name="230626MotiveText" xml:space="preserve">
+    <data name="CBS230626MotiveText" xml:space="preserve">
         <value>Elections office, vote</value>
     </data>
-    <data name="230628MotiveText" xml:space="preserve">
+    <data name="CBS230628MotiveText" xml:space="preserve">
         <value>Visit the company doctor, UWV doctor</value>
     </data>
-    <data name="230702MotiveText" xml:space="preserve">
+    <data name="CBS230702MotiveText" xml:space="preserve">
         <value>Alternative healer, natural healer and the like visit</value>
     </data>
-    <data name="230703MotiveText" xml:space="preserve">
+    <data name="CBS230703MotiveText" xml:space="preserve">
         <value>Visit pharmacy</value>
     </data>
-    <data name="230705MotiveText" xml:space="preserve">
+    <data name="CBS230705MotiveText" xml:space="preserve">
         <value>Blood bank, donate blood</value>
     </data>
-    <data name="230707MotiveText" xml:space="preserve">
+    <data name="CBS230707MotiveText" xml:space="preserve">
         <value>Breast feeding center</value>
     </data>
-    <data name="230709MotiveText" xml:space="preserve">
+    <data name="CBS230709MotiveText" xml:space="preserve">
         <value>Chiropractor, osteopath and the like visit</value>
     </data>
-    <data name="230710MotiveText" xml:space="preserve">
+    <data name="CBS230710MotiveText" xml:space="preserve">
         <value>Consult the visiting office and the like</value>
     </data>
-    <data name="230711MotiveText" xml:space="preserve">
+    <data name="CBS230711MotiveText" xml:space="preserve">
         <value>Dietician, slimming institute and the like visit</value>
     </data>
-    <data name="230712MotiveText" xml:space="preserve">
+    <data name="CBS230712MotiveText" xml:space="preserve">
         <value>Visit the dyslexia center</value>
     </data>
-    <data name="230714MotiveText" xml:space="preserve">
+    <data name="CBS230714MotiveText" xml:space="preserve">
         <value>Hearing specialist, hearing store, hearing aids</value>
     </data>
-    <data name="230715MotiveText" xml:space="preserve">
+    <data name="CBS230715MotiveText" xml:space="preserve">
         <value>Homeopath, accupuncturist and the like</value>
     </data>
-    <data name="230719MotiveText" xml:space="preserve">
+    <data name="CBS230719MotiveText" xml:space="preserve">
         <value>Speech therapist visits</value>
     </data>
-    <data name="230720MotiveText" xml:space="preserve">
+    <data name="CBS230720MotiveText" xml:space="preserve">
         <value>Medical test</value>
     </data>
-    <data name="230725MotiveText" xml:space="preserve">
+    <data name="CBS230725MotiveText" xml:space="preserve">
         <value>Visit Orthodontist</value>
     </data>
-    <data name="230729MotiveText" xml:space="preserve">
+    <data name="CBS230729MotiveText" xml:space="preserve">
         <value>Visiting a podiatrist, pedicure and the like</value>
     </data>
-    <data name="230733MotiveText" xml:space="preserve">
+    <data name="CBS230733MotiveText" xml:space="preserve">
         <value>Psychologist, mental coach and the like visit</value>
     </data>
-    <data name="230737MotiveText" xml:space="preserve">
+    <data name="CBS230737MotiveText" xml:space="preserve">
         <value>Attending a therapist</value>
     </data>
-    <data name="230739MotiveText" xml:space="preserve">
+    <data name="CBS230739MotiveText" xml:space="preserve">
         <value>Visiting a nurse, doctor's assistant, etc.</value>
     </data>
-    <data name="230740MotiveText" xml:space="preserve">
+    <data name="CBS230740MotiveText" xml:space="preserve">
         <value>Zwangership gym</value>
     </data>
-    <data name="230801MotiveText" xml:space="preserve">
+    <data name="CBS230801MotiveText" xml:space="preserve">
         <value>Contractor, building consultant and the like</value>
     </data>
-    <data name="230802MotiveText" xml:space="preserve">
+    <data name="CBS230802MotiveText" xml:space="preserve">
         <value>Visit adviser / consultancy</value>
     </data>
-    <data name="230804MotiveText" xml:space="preserve">
+    <data name="CBS230804MotiveText" xml:space="preserve">
         <value>Visiting the occupational health service</value>
     </data>
-    <data name="230805MotiveText" xml:space="preserve">
+    <data name="CBS230805MotiveText" xml:space="preserve">
         <value>Visit architect, interior designer and the like</value>
     </data>
-    <data name="230808MotiveText" xml:space="preserve">
+    <data name="CBS230808MotiveText" xml:space="preserve">
         <value>Visit the notary</value>
     </data>
-    <data name="230809MotiveText" xml:space="preserve">
+    <data name="CBS230809MotiveText" xml:space="preserve">
         <value>Key transfer house</value>
     </data>
-    <data name="230810MotiveText" xml:space="preserve">
+    <data name="CBS230810MotiveText" xml:space="preserve">
         <value>Visit employment agency</value>
     </data>
-    <data name="230811MotiveText" xml:space="preserve">
+    <data name="CBS230811MotiveText" xml:space="preserve">
         <value>Visit VVV</value>
     </data>
-    <data name="230861MotiveText" xml:space="preserve">
+    <data name="CBS230861MotiveText" xml:space="preserve">
         <value>Visit asylum seekers center (AZC)</value>
     </data>
-    <data name="230863MotiveText" xml:space="preserve">
+    <data name="CBS230863MotiveText" xml:space="preserve">
         <value>Visit the rehabilitation center / city</value>
     </data>
-    <data name="230864MotiveText" xml:space="preserve">
+    <data name="CBS230864MotiveText" xml:space="preserve">
         <value>Visit the trade union center</value>
     </data>
-    <data name="230866MotiveText" xml:space="preserve">
+    <data name="CBS230866MotiveText" xml:space="preserve">
         <value>Visit health care institution (elderly / disabled)</value>
     </data>
-    <data name="230867MotiveText" xml:space="preserve">
+    <data name="CBS230867MotiveText" xml:space="preserve">
         <value>View house / house related to buying / renting</value>
     </data>
-    <data name="230904MotiveText" xml:space="preserve">
+    <data name="CBS230904MotiveText" xml:space="preserve">
         <value>Optician, contact lens / eyewear visit</value>
     </data>
-    <data name="230905MotiveText" xml:space="preserve">
+    <data name="CBS230905MotiveText" xml:space="preserve">
         <value>Visit hairdresser, hairstylist and the like</value>
     </data>
-    <data name="230906MotiveText" xml:space="preserve">
+    <data name="CBS230906MotiveText" xml:space="preserve">
         <value>Visit manicure, nail stylist and the like</value>
     </data>
-    <data name="230907MotiveText" xml:space="preserve">
+    <data name="CBS230907MotiveText" xml:space="preserve">
         <value>Massage, masseur and the like.</value>
     </data>
-    <data name="230914MotiveText" xml:space="preserve">
+    <data name="CBS230914MotiveText" xml:space="preserve">
         <value>Visiting a tanning salon, sauna, wellness and the like</value>
     </data>
-    <data name="230915MotiveText" xml:space="preserve">
+    <data name="CBS230915MotiveText" xml:space="preserve">
         <value>Visit beautician, make-up artist and the like</value>
     </data>
-    <data name="230918MotiveText" xml:space="preserve">
+    <data name="CBS230918MotiveText" xml:space="preserve">
         <value>Visiting Tatooshop</value>
     </data>
-    <data name="240001MotiveText" xml:space="preserve">
+    <data name="CBS240001MotiveText" xml:space="preserve">
         <value>Pick up car from parking garage</value>
     </data>
-    <data name="240002MotiveText" xml:space="preserve">
+    <data name="CBS240002MotiveText" xml:space="preserve">
         <value>Car pick up parking space</value>
     </data>
-    <data name="240003MotiveText" xml:space="preserve">
+    <data name="CBS240003MotiveText" xml:space="preserve">
         <value>Retrieve parked car</value>
     </data>
-    <data name="240051MotiveText" xml:space="preserve">
+    <data name="CBS240051MotiveText" xml:space="preserve">
         <value>Car parking in parking garage</value>
     </data>
-    <data name="240052MotiveText" xml:space="preserve">
+    <data name="CBS240052MotiveText" xml:space="preserve">
         <value>Car parking in parking lot</value>
     </data>
-    <data name="240053MotiveText" xml:space="preserve">
+    <data name="CBS240053MotiveText" xml:space="preserve">
         <value>Put the car away</value>
     </data>
-    <data name="240054MotiveText" xml:space="preserve">
+    <data name="CBS240054MotiveText" xml:space="preserve">
         <value>Moving the car</value>
     </data>
-    <data name="240105MotiveText" xml:space="preserve">
+    <data name="CBS240105MotiveText" xml:space="preserve">
         <value>With someone as a supervisor / supporter</value>
     </data>
-    <data name="240151MotiveText" xml:space="preserve">
+    <data name="CBS240151MotiveText" xml:space="preserve">
         <value>Carpooling: Switching about carpooling</value>
     </data>
-    <data name="240152MotiveText" xml:space="preserve">
+    <data name="CBS240152MotiveText" xml:space="preserve">
         <value>Carpooling: Pick someone up because of carpooling</value>
     </data>
-    <data name="240201MotiveText" xml:space="preserve">
+    <data name="CBS240201MotiveText" xml:space="preserve">
         <value>Collecting a bike (also from storage)</value>
     </data>
-    <data name="240202MotiveText" xml:space="preserve">
+    <data name="CBS240202MotiveText" xml:space="preserve">
         <value>Bike parking / putting away (also in storage)</value>
     </data>
-    <data name="240302MotiveText" xml:space="preserve">
+    <data name="CBS240302MotiveText" xml:space="preserve">
         <value>Along with parents, family member e.d.</value>
     </data>
-    <data name="240303MotiveText" xml:space="preserve">
+    <data name="CBS240303MotiveText" xml:space="preserve">
         <value>Gone with a supervisor / someone who guided me</value>
     </data>
-    <data name="240307MotiveText" xml:space="preserve">
+    <data name="CBS240307MotiveText" xml:space="preserve">
         <value>Gone with partner</value>
     </data>
-    <data name="240401MotiveText" xml:space="preserve">
+    <data name="CBS240401MotiveText" xml:space="preserve">
         <value>Transition to (other) bus, tram, metro and the like.</value>
     </data>
-    <data name="240404MotiveText" xml:space="preserve">
+    <data name="CBS240404MotiveText" xml:space="preserve">
         <value>Switching to (other) train</value>
     </data>
-    <data name="240405MotiveText" xml:space="preserve">
+    <data name="CBS240405MotiveText" xml:space="preserve">
         <value>Transfer to another flight</value>
     </data>
-    <data name="240501MotiveText" xml:space="preserve">
+    <data name="CBS240501MotiveText" xml:space="preserve">
         <value>Wait at stop (bus, tram, metro, etc.)</value>
     </data>
-    <data name="240504MotiveText" xml:space="preserve">
+    <data name="CBS240504MotiveText" xml:space="preserve">
         <value>Waiting at boarding / assembly point for bus trip</value>
     </data>
-    <data name="240509MotiveText" xml:space="preserve">
+    <data name="CBS240509MotiveText" xml:space="preserve">
         <value>Waiting for ferry, ferry, ferry and similar.</value>
     </data>
-    <data name="240513MotiveText" xml:space="preserve">
+    <data name="CBS240513MotiveText" xml:space="preserve">
         <value>Waiting for station (metro, train, etc.)</value>
     </data>
-    <data name="240514MotiveText" xml:space="preserve">
+    <data name="CBS240514MotiveText" xml:space="preserve">
         <value>Waiting for airport / flight</value>
     </data>
-    <data name="240516MotiveText" xml:space="preserve">
+    <data name="CBS240516MotiveText" xml:space="preserve">
         <value>Waiting for tour boat e.d.</value>
     </data>
-    <data name="999990MotiveText" xml:space="preserve">
+    <data name="CBS999990MotiveText" xml:space="preserve">
         <value>Something different (another activity)</value>
     </data>
+
     <data name="TransportSelectionPageTitle" xml:space="preserve">
         <value>Select transport modes</value>
     </data>
