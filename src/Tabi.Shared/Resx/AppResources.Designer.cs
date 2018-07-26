@@ -5327,6 +5327,72 @@ namespace Tabi.Shared.Resx {
             }
         }
         
+        public static string volunteeringMotiveText {
+            get {
+                return ResourceManager.GetString("volunteeringMotiveText", resourceCulture);
+            }
+        }
+        
+        public static string informal_careMotiveText {
+            get {
+                return ResourceManager.GetString("informal_careMotiveText", resourceCulture);
+            }
+        }
+        
+        public static string personal_careMotiveText {
+            get {
+                return ResourceManager.GetString("personal_careMotiveText", resourceCulture);
+            }
+        }
+        
+        public static string doctorMotiveText {
+            get {
+                return ResourceManager.GetString("doctorMotiveText", resourceCulture);
+            }
+        }
+        
+        public static string religionMotiveText {
+            get {
+                return ResourceManager.GetString("religionMotiveText", resourceCulture);
+            }
+        }
+        
+        public static string tourMotiveText {
+            get {
+                return ResourceManager.GetString("tourMotiveText", resourceCulture);
+            }
+        }
+        
+        public static string hobbyMotiveText {
+            get {
+                return ResourceManager.GetString("hobbyMotiveText", resourceCulture);
+            }
+        }
+        
+        public static string going_outMotiveText {
+            get {
+                return ResourceManager.GetString("going_outMotiveText", resourceCulture);
+            }
+        }
+        
+        public static string cateringMotiveText {
+            get {
+                return ResourceManager.GetString("cateringMotiveText", resourceCulture);
+            }
+        }
+        
+        public static string holidaysMotiveText {
+            get {
+                return ResourceManager.GetString("holidaysMotiveText", resourceCulture);
+            }
+        }
+        
+        public static string HomeMotiveText {
+            get {
+                return ResourceManager.GetString("HomeMotiveText", resourceCulture);
+            }
+        }
+        
         public static string TransportSelectionPageTitle {
             get {
                 return ResourceManager.GetString("TransportSelectionPageTitle", resourceCulture);

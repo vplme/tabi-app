@@ -2656,7 +2656,39 @@
     <data name="CBS999990MotiveText" xml:space="preserve">
         <value>Iets anders (een andere activiteit)</value>
     </data>
-
+    <data name="volunteeringMotiveText" xml:space="preserve">
+        <value>Vrijwilligerswerk</value>
+    </data>
+    <data name="informal_careMotiveText" xml:space="preserve">
+        <value>Mantelzorg</value>
+    </data>
+    <data name="personal_careMotiveText" xml:space="preserve">
+        <value>Persoonlijke verzorging (kapper, schoonheidsspecialist)</value>
+    </data>
+    <data name="doctorMotiveText" xml:space="preserve">
+        <value>Bezoek aan arts, therapeut of medisch specialist</value>
+    </data>
+    <data name="religionMotiveText" xml:space="preserve">
+        <value>Dienst of bijeenkomst in kerk, moskee, tempel</value>
+    </data>
+    <data name="tourMotiveText" xml:space="preserve">
+        <value>Touren, wandelen, rondje fietsen</value>
+    </data>
+    <data name="hobbyMotiveText" xml:space="preserve">
+        <value>Hobby</value>
+    </data>
+    <data name="going_outMotiveText" xml:space="preserve">
+        <value>Uitgaan, museum, bioscoop, concert, festival</value>
+    </data>
+    <data name="cateringMotiveText" xml:space="preserve">
+        <value>Horeca (ook afhaal)</value>
+    </data>
+    <data name="holidaysMotiveText" xml:space="preserve">
+        <value>Vakantie</value>
+    </data>
+    <data name="HomeMotiveText" xml:space="preserve">
+        <value>Thuis (niet van toepassing)</value>
+    </data>
     <data name="TransportSelectionPageTitle" xml:space="preserve">
         <value>Selecteer vervoersmiddel(en)</value>
     </data>
