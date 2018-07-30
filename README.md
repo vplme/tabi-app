@@ -16,7 +16,7 @@ As an Integrated Development Environment (IDE) we recommend Visual Studio for Wi
 
 ### Setup config files
 In `src/Tabi.Shared/Config` duplicate and rename the following files:
--  `config.debug.sample.xml` to `config.debug.xml`
--  `config.release.sample.xml` to `config.release.xml`
+-  `config.debug.sample.json` to `config.debug.json`
+-  `config.release.sample.json` to `config.release.json`
 
 For setting up the backend api visit the repository: [`tabi-backend`](https://gitlab.com/tabi/tabi-backend)
