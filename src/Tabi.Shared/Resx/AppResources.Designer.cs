@@ -5476,5 +5476,59 @@ namespace Tabi.Shared.Resx {
                 return ResourceManager.GetString("DataUploadWifiOnlySwitchLabel", resourceCulture);
             }
         }
+        
+        public static string AboutSettings {
+            get {
+                return ResourceManager.GetString("AboutSettings", resourceCulture);
+            }
+        }
+        
+        public static string AboutSettingsTitle {
+            get {
+                return ResourceManager.GetString("AboutSettingsTitle", resourceCulture);
+            }
+        }
+        
+        public static string SendSupportCallLabel {
+            get {
+                return ResourceManager.GetString("SendSupportCallLabel", resourceCulture);
+            }
+        }
+        
+        public static string SendSupportEmailLabel {
+            get {
+                return ResourceManager.GetString("SendSupportEmailLabel", resourceCulture);
+            }
+        }
+        
+        public static string OpenSupportWebsiteLabel {
+            get {
+                return ResourceManager.GetString("OpenSupportWebsiteLabel", resourceCulture);
+            }
+        }
+        
+        public static string DeviceUnsupportedTitle {
+            get {
+                return ResourceManager.GetString("DeviceUnsupportedTitle", resourceCulture);
+            }
+        }
+        
+        public static string DeviceUnsupportedText {
+            get {
+                return ResourceManager.GetString("DeviceUnsupportedText", resourceCulture);
+            }
+        }
+        
+        public static string SupportSectionLabel {
+            get {
+                return ResourceManager.GetString("SupportSectionLabel", resourceCulture);
+            }
+        }
+        
+        public static string LicensesLabel {
+            get {
+                return ResourceManager.GetString("LicensesLabel", resourceCulture);
+            }
+        }
     }
 }

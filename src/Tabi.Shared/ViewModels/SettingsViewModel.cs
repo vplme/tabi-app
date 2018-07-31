@@ -22,6 +22,9 @@ using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Crashes;
 using Tabi.Helpers;
+using Xamarin.Essentials;
+using System.Text;
+using Tabi.Shared.Pages;
 
 namespace Tabi
 {
@@ -46,7 +49,7 @@ namespace Tabi
                 {
                     Log.Info("Command: Exporting database");
 
-                    IFolder rootFolder = FileSystem.Current.LocalStorage;
+                    IFolder rootFolder = PCLStorage.FileSystem.Current.LocalStorage;
                     var t = await rootFolder.GetFileAsync("tabi.db");
                     DependencyService.Get<IShareFile>().ShareFile(t.Path);
                 });
@@ -94,7 +97,7 @@ namespace Tabi
             {
                 Log.Info("Command: Export CSV");
 
-                IFolder rootFolder = FileSystem.Current.LocalStorage;
+                IFolder rootFolder = PCLStorage.FileSystem.Current.LocalStorage;
 
                 string fileName = "Tabi-Export.txt";
                 string path = PortablePath.Combine(rootFolder.Path, fileName);
@@ -114,7 +117,7 @@ namespace Tabi
             {
                 Log.Info("Command: Export Battery CSV");
 
-                IFolder rootFolder = FileSystem.Current.LocalStorage;
+                IFolder rootFolder = PCLStorage.FileSystem.Current.LocalStorage;
 
                 string fileName = "Tabi-Export-Battery.txt";
                 string path = PortablePath.Combine(rootFolder.Path, fileName);
@@ -194,6 +197,81 @@ namespace Tabi
                 Analytics.TrackEvent("Privacy & data settings clicked");
 
                 await _navigation.PushAsync(new SettingsPrivacyPage(this));
+            });
+
+            AppAboutCommand = new Command(async () =>
+            {
+                Analytics.TrackEvent("Privacy & data settings clicked");
+
+                await _navigation.PushAsync(new AboutSettings(this));
+            });
+
+            SendSupportCallCommand = new Command(async () =>
+            {
+                try
+                {
+                    PhoneDialer.Open(_config.Support.PhoneNumber);
+                }
+                catch (ArgumentNullException ex)
+                {
+                    await UserDialogs.Instance.AlertAsync(AppResources.ErrorOccurredTitle, okText: AppResources.OkText);
+                    Log.Error(ex);
+                }
+                catch (FeatureNotSupportedException ex)
+                {
+                    await UserDialogs.Instance.AlertAsync(AppResources.DeviceUnsupportedText, AppResources.DeviceUnsupportedTitle, AppResources.OkText);
+                    Log.Error(ex);
+                }
+                catch (Exception ex)
+                {
+                    await UserDialogs.Instance.AlertAsync(AppResources.ErrorOccurredTitle, AppResources.OkText);
+                    Log.Error(ex);
+                }
+            });
+
+            SendSupportEmailCommand = new Command(async () =>
+            {
+                string subject = _config.Support.EmailSubject ?? "Tabi app";
+
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.AppendLine(" ");
+                stringBuilder.AppendLine("==========================");
+                stringBuilder.AppendLine("Tabi Verplaatsingen app");
+                stringBuilder.AppendLine($"Version: {VersionTracking.CurrentVersion} ({VersionTracking.CurrentBuild})");
+                stringBuilder.AppendLine($"Device ID: {Settings.Device}");
+
+                List<string> to = new List<string>() { _config.Support.Email };
+
+                try
+                {
+                    var message = new EmailMessage
+                    {
+                        Subject = subject,
+                        Body = stringBuilder.ToString(),
+                        To = to,
+                    };
+
+                    await Email.ComposeAsync(message);
+                }
+                catch (FeatureNotSupportedException ex)
+                {
+                    await UserDialogs.Instance.AlertAsync(AppResources.DeviceUnsupportedText, AppResources.DeviceUnsupportedTitle, AppResources.OkText);
+                    Log.Error(ex);
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex);
+                }
+            });
+
+            OpenSupportWebsiteCommand = new Command(async () =>
+            {
+                await Browser.OpenAsync(_config.Support.Url, BrowserLaunchType.SystemPreferred);
+            });
+
+            LicensesCommand = new Command(async () =>
+            {
+                await Browser.OpenAsync(_config.LicensesUrl, BrowserLaunchType.SystemPreferred);
             });
 
             UploadCommand = new Command(async () =>
@@ -286,6 +364,16 @@ namespace Tabi
         public ICommand ShowTourCommand { protected set; get; }
 
         public ICommand PrivacyDataCommand { protected set; get; }
+
+        public ICommand AppAboutCommand { protected set; get; }
+
+        public ICommand SendSupportEmailCommand { protected set; get; }
+
+        public ICommand SendSupportCallCommand { protected set; get; }
+
+        public ICommand OpenSupportWebsiteCommand { protected set; get; }
+
+        public ICommand LicensesCommand { protected set; get; }
 
         public TabiConfiguration Configuration { get => _config; }
 

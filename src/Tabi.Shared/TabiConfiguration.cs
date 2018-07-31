@@ -8,8 +8,10 @@ namespace Tabi.Shared
         public bool Developer { get; set; }
         public MobileCenterConfiguration MobileCenter { get; set; }
         public NotificationsConfiguration Notifications { get; set; } = new NotificationsConfiguration();
+        public SupportConfiguration Support { get; set; } = new SupportConfiguration();
         public string ApiUrl { get; set; }
         public string CertificateKey { get; set; }
+        public string LicensesUrl { get; set; }
         public SensorMeasurementsConfiguration SensorMeasurements { get; set; }
         public UserInterfaceConfiguration UserInterface { get; set; } = new UserInterfaceConfiguration();
         public LoggingConfiguration Logging { get; set; }
@@ -37,6 +39,23 @@ namespace Tabi.Shared
 
         public List<string> CertificateKeys { get; set; }
 
+    }
+
+    public class SupportConfiguration
+    {
+        public bool Available { get; set; }
+
+        public string PhoneNumber { get; set; }
+
+        public string DisplayPhoneNumber { get; set; }
+
+        public string Email { get; set; }
+
+        public string EmailSubject { get; set; }
+
+        public string Url { get; set; }
+
+        public string DisplayUrl { get; set; }
     }
 
     public class NotificationsConfiguration

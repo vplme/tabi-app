@@ -2731,4 +2731,28 @@
     <data name="DataUploadWifiOnlySwitchLabel" xml:space="preserve">
         <value>Gebruik alleen WiFi</value>
     </data>
+    <data name="AboutSettings" xml:space="preserve">
+        <value>Meer informatie</value>
+    </data>
+    <data name="AboutSettingsTitle" xml:space="preserve">
+        <value>Over de app</value>
+    </data>
+    <data name="SendSupportCallLabel" xml:space="preserve">
+        <value>Bel support desk</value>
+    </data>
+    <data name="SendSupportEmailLabel" xml:space="preserve">
+        <value>Email support desk</value>
+    </data>
+    <data name="OpenSupportWebsiteLabel" xml:space="preserve">
+        <value>Open support website</value>
+    </data>
+    <data name="DeviceUnsupportedTitle" xml:space="preserve">
+        <value>Niet ondersteund</value>
+    </data>
+    <data name="DeviceUnsupportedText" xml:space="preserve">
+        <value>Uw apparaat ondersteunt deze functionaliteit niet.</value>
+    </data>
+    <data name="SupportSectionLabel" xml:space="preserve">
+        <value>Support</value>
+    </data>
 </root>
