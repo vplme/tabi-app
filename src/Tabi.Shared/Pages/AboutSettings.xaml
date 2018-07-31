@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:i18n="clr-namespace:Tabi.Shared.Localization;assembly=Tabi.Shared" xmlns:control="clr-namespace:Tabi.Shared.Controls;assembly=Tabi.Shared"
+     xmlns:local="clr-namespace:Tabi;assembly=Tabi.Shared" Title="{i18n:Translate AboutSettingsTitle}" x:Class="Tabi.Shared.Pages.AboutSettings">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}" Spacing="{DynamicResource CardSpacing}"
+                 Padding="{DynamicResource CardPadding}">
+                <control:CardView>
+                    <control:CardView.IsVisible>
+                        <OnPlatform x:TypeArguments="x:Boolean" Android="true" iOS="true" WinPhone="true" />
+                    </control:CardView.IsVisible>
+                    <StackLayout Spacing="0">
+                        <control:LabelSection Text=" " />
+                        <control:HeaderDivider />
+                        <Grid Padding="{DynamicResource LargerPadding}" ColumnSpacing="0" BackgroundColor="White">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Style="{DynamicResource TabiListItemTextStyle}" Text="{i18n:Translate ApiUrlLabel}" />
+                            <Label Grid.Column="1" VerticalTextAlignment="Center" Style="{DynamicResource TabiListItemDetailTextStyle}" Text="{Binding ApiUrl}" />
+                        </Grid>
+                        <control:SettingsSectionDivider />
+                        <Grid Padding="{DynamicResource LargerPadding}" ColumnSpacing="0" BackgroundColor="White">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Style="{DynamicResource TabiListItemTextStyle}" Text="{i18n:Translate DeviceIdLabel}" />
+                            <Label Grid.Column="1" Style="{DynamicResource TabiListItemDetailTextStyle}" VerticalTextAlignment="Center"
+                                 Text="{Binding Settings.Device}" />
+                        </Grid>
+                        <control:SettingsSectionDivider />
+                        <Grid Padding="{DynamicResource LargerPadding}" ColumnSpacing="0" BackgroundColor="White">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Style="{DynamicResource TabiListItemTextStyle}" Text="{i18n:Translate UsernameLabel}" />
+                            <Label Grid.Column="1" Style="{DynamicResource TabiListItemDetailTextStyle}" VerticalTextAlignment="Center"
+                                 Text="{Binding Settings.Username}" />
+                        </Grid>
+                        <control:SettingsSectionDivider />
+                        <Grid Padding="{DynamicResource LargerPadding}" ColumnSpacing="0" BackgroundColor="White">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding LicensesCommand}" />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Style="{DynamicResource TabiListItemTextStyle}" Text="{i18n:Translate LicensesLabel}" />
+                        </Grid>
+                        <control:FooterDivider />
+                    </StackLayout>
+                </control:CardView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
