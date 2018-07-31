@@ -1,22 +1,65 @@
 ﻿using System;
 using System.Collections.Generic;
+using Autofac;
 
 namespace Tabi.Shared
 {
     public class TabiConfiguration
     {
-        public bool Developer { get; set; }
+        public AppConfiguration App { get; set; }
+
         public MobileCenterConfiguration MobileCenter { get; set; }
-        public NotificationsConfiguration Notifications { get; set; } = new NotificationsConfiguration();
-        public SupportConfiguration Support { get; set; } = new SupportConfiguration();
-        public string ApiUrl { get; set; }
-        public string CertificateKey { get; set; }
-        public string LicensesUrl { get; set; }
+
+        public NotificationsConfiguration Notifications { get; set; }
+
+        public SupportConfiguration Support { get; set; }
+
         public SensorMeasurementsConfiguration SensorMeasurements { get; set; }
-        public UserInterfaceConfiguration UserInterface { get; set; } = new UserInterfaceConfiguration();
+
+        public UserInterfaceConfiguration UserInterface { get; set; }
+
         public LoggingConfiguration Logging { get; set; }
+
         public ApiConfiguration Api { get; set; }
+
         public MotiveConfiguration Motive { get; set; }
+
+        public TransportationModeConfiguration TransportMode { get; set; }
+
+        public TabiConfiguration()
+        {
+            App = new AppConfiguration();
+            MobileCenter = new MobileCenterConfiguration();
+            Notifications = new NotificationsConfiguration();
+            Support = new SupportConfiguration();
+            SensorMeasurements = new SensorMeasurementsConfiguration();
+            UserInterface = new UserInterfaceConfiguration();
+            Logging = new LoggingConfiguration();
+            Api = new ApiConfiguration();
+            Motive = new MotiveConfiguration();
+            TransportMode = new TransportationModeConfiguration();
+        }
+
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            builder.RegisterInstance(this);
+            builder.RegisterInstance(MobileCenter);
+            builder.RegisterInstance(Notifications);
+            builder.RegisterInstance(Support);
+            builder.RegisterInstance(SensorMeasurements);
+            builder.RegisterInstance(UserInterface);
+            builder.RegisterInstance(Logging);
+            builder.RegisterInstance(Api);
+            builder.RegisterInstance(Motive);
+            builder.RegisterInstance(TransportMode);
+        }
+    }
+
+    public class AppConfiguration
+    {
+        public bool Developer { get; set; }
+
+        public string LicensesUrl { get; set; }
     }
 
     public class ApiConfiguration
@@ -121,6 +164,18 @@ namespace Tabi.Shared
     }
 
     public class MotiveOption
+    {
+        public string Id { get; set; }
+
+        public string Text { get; set; }
+    }
+
+    public class TransportationModeConfiguration
+    {
+        public List<TransportOption> Options { get; set; }
+    }
+
+    public class TransportOption
     {
         public string Id { get; set; }
 

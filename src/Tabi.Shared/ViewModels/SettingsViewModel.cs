@@ -271,7 +271,7 @@ namespace Tabi
 
             LicensesCommand = new Command(async () =>
             {
-                await Browser.OpenAsync(_config.LicensesUrl, BrowserLaunchType.SystemPreferred);
+                await Browser.OpenAsync(_config.App.LicensesUrl, BrowserLaunchType.SystemPreferred);
             });
 
             UploadCommand = new Command(async () =>
