@@ -1,20 +1,65 @@
 ﻿using System;
 using System.Collections.Generic;
+using Autofac;
 
 namespace Tabi.Shared
 {
     public class TabiConfiguration
     {
-        public bool Developer { get; set; }
+        public AppConfiguration App { get; set; }
+
         public MobileCenterConfiguration MobileCenter { get; set; }
-        public NotificationsConfiguration Notifications { get; set; } = new NotificationsConfiguration();
-        public string ApiUrl { get; set; }
-        public string CertificateKey { get; set; }
+
+        public NotificationsConfiguration Notifications { get; set; }
+
+        public SupportConfiguration Support { get; set; }
+
         public SensorMeasurementsConfiguration SensorMeasurements { get; set; }
-        public UserInterfaceConfiguration UserInterface { get; set; } = new UserInterfaceConfiguration();
+
+        public UserInterfaceConfiguration UserInterface { get; set; }
+
         public LoggingConfiguration Logging { get; set; }
+
         public ApiConfiguration Api { get; set; }
+
         public MotiveConfiguration Motive { get; set; }
+
+        public TransportationModeConfiguration TransportMode { get; set; }
+
+        public TabiConfiguration()
+        {
+            App = new AppConfiguration();
+            MobileCenter = new MobileCenterConfiguration();
+            Notifications = new NotificationsConfiguration();
+            Support = new SupportConfiguration();
+            SensorMeasurements = new SensorMeasurementsConfiguration();
+            UserInterface = new UserInterfaceConfiguration();
+            Logging = new LoggingConfiguration();
+            Api = new ApiConfiguration();
+            Motive = new MotiveConfiguration();
+            TransportMode = new TransportationModeConfiguration();
+        }
+
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            builder.RegisterInstance(this);
+            builder.RegisterInstance(MobileCenter);
+            builder.RegisterInstance(Notifications);
+            builder.RegisterInstance(Support);
+            builder.RegisterInstance(SensorMeasurements);
+            builder.RegisterInstance(UserInterface);
+            builder.RegisterInstance(Logging);
+            builder.RegisterInstance(Api);
+            builder.RegisterInstance(Motive);
+            builder.RegisterInstance(TransportMode);
+        }
+    }
+
+    public class AppConfiguration
+    {
+        public bool Developer { get; set; }
+
+        public string LicensesUrl { get; set; }
     }
 
     public class ApiConfiguration
@@ -37,6 +82,23 @@ namespace Tabi.Shared
 
         public List<string> CertificateKeys { get; set; }
 
+    }
+
+    public class SupportConfiguration
+    {
+        public bool Available { get; set; }
+
+        public string PhoneNumber { get; set; }
+
+        public string DisplayPhoneNumber { get; set; }
+
+        public string Email { get; set; }
+
+        public string EmailSubject { get; set; }
+
+        public string Url { get; set; }
+
+        public string DisplayUrl { get; set; }
     }
 
     public class NotificationsConfiguration
@@ -94,6 +156,18 @@ namespace Tabi.Shared
 
     public class MotiveConfiguration
     {
+        /// <summary>
+        /// Determines if motives are shown for stops
+        /// </summary>
+        /// <value><c>true</c> if stops should have motives; otherwise, <c>false</c>.</value>
+        public bool Stops { get; set; }
+
+        /// <summary>
+        /// Determines if motives are shown for tracks
+        /// </summary>
+        /// <value><c>true</c> if tracks should have motives; otherwise, <c>false</c>.</value>
+        public bool Tracks { get; set; }
+
         public int ShowAmount { get; set; }
 
         public List<MotiveOption> Options { get; set; }
@@ -102,6 +176,20 @@ namespace Tabi.Shared
     }
 
     public class MotiveOption
+    {
+        public string Id { get; set; }
+
+        public string Text { get; set; }
+    }
+
+    public class TransportationModeConfiguration
+    {
+        public bool CustomTransportModes { get; set; }
+
+        public List<TransportOption> Options { get; set; }
+    }
+
+    public class TransportOption
     {
         public string Id { get; set; }
 

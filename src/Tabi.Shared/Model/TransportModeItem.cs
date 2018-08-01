@@ -9,98 +9,44 @@ namespace Tabi.Shared.Model
     public class TransportModeItem
     {
         public string Name { get; set; }
-        public TransportationMode Mode { get; set; }
+        public string Id { get; set; }
 
         public TransportModeItem()
         {
 
         }
 
-
-
-        public static IList<TransportModeItem> GetPossibleTransportModes()
+        public static List<TransportModeItem> GetPossibleTransportModes(TransportationModeConfiguration configuration)
         {
             List<TransportModeItem> items = new List<TransportModeItem>();
 
-            foreach (TransportationMode mode in Enum.GetValues(typeof(TransportationMode)))
+            if (configuration.Options != null)
             {
-                TransportModeItem newItem = new TransportModeItem() { Name = GetTranslationForEnum(mode), Mode = mode };
-                items.Add(newItem);
+                foreach (TransportOption mode in configuration.Options)
+                {
+                    string translatedText = typeof(AppResources).GetProperty($"{mode.Id}TransportText")?.GetValue(null) as string;
+                    string text = translatedText ?? mode.Text;
+
+                    TransportModeItem newItem = new TransportModeItem() { Name = text, Id = mode.Id };
+                    items.Add(newItem);
+                }
             }
 
             return items;
         }
 
-
-        /// <summary>
-        /// Gets the translation for a transportationmode enum.
-        /// </summary>
-        /// <returns>The translation for enum.</returns>
-        /// <param name="mode">Transportmode enum</param>
-        private static string GetTranslationForEnum(TransportationMode mode)
-        {
-            string result = "";
-
-            switch (mode)
-            {
-                case TransportationMode.Bike:
-                    result = AppResources.BikeLabel;
-                    break;
-                case TransportationMode.Bus:
-                    result = AppResources.BusLabel;
-                    break;
-                case TransportationMode.Car:
-                    result = AppResources.CarLabel;
-                    break;
-                case TransportationMode.MobilityScooter:
-                    result = AppResources.MobilityScooterLabel;
-                    break;
-                case TransportationMode.Run:
-                    result = AppResources.RunLabel;
-                    break;
-                case TransportationMode.Tram:
-                    result = AppResources.TramLabel;
-                    break;
-                case TransportationMode.Walk:
-                    result = AppResources.WalkLabel;
-                    break;
-                case TransportationMode.Moped:
-                    result = AppResources.MopedLabel;
-                    break;
-                case TransportationMode.Motorcycle:
-                    result = AppResources.MotorcycleLabel;
-                    break;
-                case TransportationMode.Other:
-                    result = AppResources.OtherLabel;
-                    break;
-                case TransportationMode.Scooter:
-                    result = AppResources.ScooterLabel;
-                    break;
-                case TransportationMode.Subway:
-                    result = AppResources.SubwayLabel;
-                    break;
-                case TransportationMode.Train:
-                    result = AppResources.TrainLabel;
-                    break;
-                default:
-                    throw new ArgumentException($"{nameof(mode)} is not setup for translation.");
-            }
-
-
-            return result;
-        }
         /// <summary>
         /// Retrieves the actual enums from a list of TransportModeItems. Which is a wrapper for the enums
         /// for the UI.
         /// </summary>
         /// <returns>List of transportmode enums that are in the list given to the method</returns>
         /// <param name="items">List of TransportModeItems (wrapped TransportationModeItems)</param>
-        public static IList<TransportationMode> GetTransportModeEnums(IEnumerable<TransportModeItem> items)
+        public static IList<string> GetTransportModeEnums(IEnumerable<TransportModeItem> items)
         {
-            List<TransportationMode> resultEnums = new List<TransportationMode>();
+            List<string> resultEnums = new List<string>();
             foreach (TransportModeItem item in items)
             {
-                resultEnums.Add(item.Mode);
+                resultEnums.Add(item.Id);
             }
 
             return resultEnums;

@@ -2851,4 +2851,82 @@
     <data name="DataUploadWifiOnlySwitchLabel" xml:space="preserve">
         <value>Use WiFi only</value>
     </data>
+    <data name="AboutSettings" xml:space="preserve">
+        <value>More information</value>
+    </data>
+    <data name="AboutSettingsTitle" xml:space="preserve">
+        <value>About the app</value>
+    </data>
+    <data name="SendSupportCallLabel" xml:space="preserve">
+        <value>Call support desk</value>
+    </data>
+    <data name="SendSupportEmailLabel" xml:space="preserve">
+        <value>Email support desk</value>
+    </data>
+    <data name="OpenSupportWebsiteLabel" xml:space="preserve">
+        <value>Open support website</value>
+    </data>
+    <data name="DeviceUnsupportedTitle" xml:space="preserve">
+        <value>Not Supported</value>
+    </data>
+    <data name="DeviceUnsupportedText" xml:space="preserve">
+        <value>Your device does not support this feature.</value>
+    </data>
+    <data name="SupportSectionLabel" xml:space="preserve">
+        <value>Support</value>
+    </data>
+    <data name="LicensesLabel" xml:space="preserve">
+        <value>Open Source Licenses</value>
+    </data>
+    <data name="CustomTransportModeText" xml:space="preserve">
+        <value>Something else</value>
+    </data>
+    <data name="SetCustomTransportModeHint" xml:space="preserve">
+        <value>Horse, airplane, boat</value>
+    </data>
+    <data name="SetCustomTransportModeTitle" xml:space="preserve">
+        <value>Add new transport mode</value>
+    </data>
+    <data name="SetCustomTransportModeLabel" xml:space="preserve">
+        <value>Transport mode</value>
+    </data>
+    <data name="CommaRestrictionTitle" xml:space="preserve">
+        <value>Text is restricted</value>
+    </data>
+    <data name="CommaRestrictionText" xml:space="preserve">
+        <value>You can not use a ',' in your transportation mode</value>
+    </data>
+    <data name="WalkTransportText" xml:space="preserve">
+        <value>Walking</value>
+    </data>
+    <data name="BikeNonElectricTransportText" xml:space="preserve">
+        <value>Bike, non electric</value>
+    </data>
+    <data name="BikeElectricTransportText" xml:space="preserve">
+        <value>Bike, electric</value>
+    </data>
+    <data name="PublicBusTransportText" xml:space="preserve">
+        <value>Bus (public transport only)</value>
+    </data>
+    <data name="TramTransportText" xml:space="preserve">
+        <value>Tram</value>
+    </data>
+    <data name="MetroTransportText" xml:space="preserve">
+        <value>Metro</value>
+    </data>
+    <data name="TrainTransportText" xml:space="preserve">
+        <value>Train</value>
+    </data>
+    <data name="CarDriverTransportText" xml:space="preserve">
+        <value>Car as driver</value>
+    </data>
+    <data name="CarPassengerTransportText" xml:space="preserve">
+        <value>Car as passenger</value>
+    </data>
+    <data name="VanTransportText" xml:space="preserve">
+        <value>Van</value>
+    </data>
+    <data name="MotorbikeTransportText" xml:space="preserve">
+        <value>Motorbike</value>
+    </data>
 </root>

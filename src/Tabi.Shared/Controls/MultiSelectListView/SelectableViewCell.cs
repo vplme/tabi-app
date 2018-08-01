@@ -1,7 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 
-namespace Tabi.Controls
+namespace Tabi.Shared.Controls
 {
     [ContentProperty(nameof(DataView))]
     public class SelectableViewCell : ViewCell

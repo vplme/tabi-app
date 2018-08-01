@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using MvvmHelpers;
-using Tabi.Controls;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
-using Tabi.Pages;
+using Tabi.Shared;
+using Tabi.Shared.Controls;
 using Tabi.Shared.Model;
+using Tabi.Shared.Pages;
 using Xamarin.Forms;
-using static Tabi.ViewModels.TrackDetailViewModel;
 
 namespace Tabi.ViewModels
 {
@@ -18,12 +20,14 @@ namespace Tabi.ViewModels
         private readonly IRepoManager _repoManager;
         private readonly INavigation _navigation;
         private readonly TrackEntry _trackEntry;
+        private readonly TransportationModeConfiguration _transportConfig;
 
-        public TransportSelectionViewModel(IRepoManager repoManager, INavigation navigation, TrackEntry trackEntry)
+        public TransportSelectionViewModel(IRepoManager repoManager, INavigation navigation, TransportationModeConfiguration transportConfiguration, TrackEntry trackEntry)
         {
             _repoManager = repoManager ?? throw new ArgumentNullException(nameof(repoManager));
             _navigation = navigation ?? throw new ArgumentNullException(nameof(navigation));
             _trackEntry = trackEntry ?? throw new ArgumentNullException(nameof(trackEntry));
+            _transportConfig = transportConfiguration ?? throw new ArgumentNullException(nameof(transportConfiguration));
 
             Items = new SelectableObservableCollection<TransportModeItem>();
 
@@ -31,7 +35,6 @@ namespace Tabi.ViewModels
             {
                 FinishedTransportSelection();
                 await _navigation.PopModalAsync();
-
             });
 
             CancelCommand = new Command(async () =>
@@ -39,73 +42,55 @@ namespace Tabi.ViewModels
                 await _navigation.PopModalAsync();
             });
 
+            CustomTransportModeCommand = new Command(async () =>
+            {
+                await _navigation.PushModalAsync(new NavigationPage(new CustomTransportSelectionPage(Items)));
+            });
+
             SetActualTransportModes();
         }
 
+        public TransportationModeConfiguration TransportModeConfiguration => _transportConfig;
+
         public ICommand SaveCommand { get; set; }
+
+        public ICommand CustomTransportModeCommand { get; set; }
 
         public ICommand CancelCommand { get; set; }
 
         private void SetActualTransportModes()
         {
-            IList<TransportModeItem> transports = TransportModeItem.GetPossibleTransportModes();
+            List<TransportModeItem> transports = TransportModeItem.GetPossibleTransportModes(_transportConfig);
             TransportationModeEntry trackEntry = _repoManager.TransportationModeRepository.GetLastWithTrackEntry(_trackEntry.Id);
 
+            IList<string> activeModes = new List<string>();
+            if (trackEntry?.ActiveModes != null)
+            {
+                activeModes = trackEntry.ActiveModes.Split(',').ToList();
+            }
+
+            // Add the default transport modes, while removing them from (ref) activeModes
             foreach (TransportModeItem mi in transports)
             {
-                items.Add(mi, CheckModeIsInTransportEntry(mi.Mode, trackEntry));
+                items.Add(mi, CheckModeIsInTransportEntry(mi.Id, ref activeModes));
+            }
+
+            // Add any remaining activemodes
+            foreach (string aMode in activeModes)
+            {
+                items.Add(new TransportModeItem() { Id = aMode, Name = aMode }, true);
             }
         }
 
-        private bool CheckModeIsInTransportEntry(TransportationMode mode, TransportationModeEntry entry)
+        private bool CheckModeIsInTransportEntry(string id, ref IList<string> activeModes)
         {
             bool result = false;
-
-            if (entry != null)
+            if (activeModes.Contains(id))
             {
-                switch (mode)
-                {
-                    case TransportationMode.Bus:
-                        result = entry.Bus;
-                        break;
-                    case TransportationMode.Bike:
-                        result = entry.Bike;
-                        break;
-                    case TransportationMode.Car:
-                        result = entry.Car;
-                        break;
-                    case TransportationMode.MobilityScooter:
-                        result = entry.MobilityScooter;
-                        break;
-                    case TransportationMode.Moped:
-                        result = entry.Moped;
-                        break;
-                    case TransportationMode.Motorcycle:
-                        result = entry.Motorcycle;
-                        break;
-                    case TransportationMode.Other:
-                        result = entry.Other;
-                        break;
-                    case TransportationMode.Run:
-                        result = entry.Run;
-                        break;
-                    case TransportationMode.Scooter:
-                        result = entry.Scooter;
-                        break;
-                    case TransportationMode.Subway:
-                        result = entry.Subway;
-                        break;
-                    case TransportationMode.Train:
-                        result = entry.Train;
-                        break;
-                    case TransportationMode.Tram:
-                        result = entry.Tram;
-                        break;
-                    case TransportationMode.Walk:
-                        result = entry.Walk;
-                        break;
-                }
+                activeModes.Remove(id);
+                result = true;
             }
+
             return result;
         }
 
@@ -123,13 +108,13 @@ namespace Tabi.ViewModels
             }
         }
 
-        public IList<TransportationMode> GetSelectedTransportModes()
+        public IEnumerable<string> GetSelectedTransportModes()
         {
             var selectedItems = Items.Where(x => x.IsSelected).Select(x => x.Data);
-            IList<TransportationMode> selectedModes = TransportModeItem.GetTransportModeEnums(selectedItems);
+            //IList<string> selectedModes = TransportModeItem.GetTransportModeEnums(selectedItems);
 
 
-            return selectedModes;
+            return selectedItems.Select(x => x.Id);
         }
 
         public void FinishedTransportSelection()
@@ -145,53 +130,19 @@ namespace Tabi.ViewModels
                 TrackId = _trackEntry.Id
             };
 
-            foreach (var transportMode in selectedTransportModes)
+            StringBuilder stringBuilder = new StringBuilder();
+
+
+            foreach (var sel in selectedTransportModes)
             {
-                switch (transportMode)
+                if (stringBuilder.Length != 0)
                 {
-                    case TransportationMode.Walk:
-                        selectedTransportationModeEntry.Walk = true;
-                        break;
-                    case TransportationMode.Run:
-                        selectedTransportationModeEntry.Run = true;
-                        break;
-                    case TransportationMode.MobilityScooter:
-                        selectedTransportationModeEntry.MobilityScooter = true;
-                        break;
-                    case TransportationMode.Car:
-                        selectedTransportationModeEntry.Car = true;
-                        break;
-                    case TransportationMode.Bike:
-                        selectedTransportationModeEntry.Bike = true;
-                        break;
-                    case TransportationMode.Moped:
-                        selectedTransportationModeEntry.Moped = true;
-                        break;
-                    case TransportationMode.Scooter:
-                        selectedTransportationModeEntry.Scooter = true;
-                        break;
-                    case TransportationMode.Motorcycle:
-                        selectedTransportationModeEntry.Motorcycle = true;
-                        break;
-                    case TransportationMode.Train:
-                        selectedTransportationModeEntry.Train = true;
-                        break;
-                    case TransportationMode.Subway:
-                        selectedTransportationModeEntry.Subway = true;
-                        break;
-                    case TransportationMode.Tram:
-                        selectedTransportationModeEntry.Tram = true;
-                        break;
-                    case TransportationMode.Bus:
-                        selectedTransportationModeEntry.Bus = true;
-                        break;
-                    case TransportationMode.Other:
-                        selectedTransportationModeEntry.Other = true;
-                        break;
-                    default:
-                        break;
+                    stringBuilder.Append(",");
                 }
+                stringBuilder.Append(sel);
             }
+
+            selectedTransportationModeEntry.ActiveModes = stringBuilder.ToString();
 
             _repoManager.TransportationModeRepository.Add(selectedTransportationModeEntry);
         }

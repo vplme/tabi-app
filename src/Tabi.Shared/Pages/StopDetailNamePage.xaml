@@ -39,6 +39,7 @@
                         <Label Style="{DynamicResource TabiListItemTextStyle}" VerticalOptions="Center" Text="{i18n:Translate ChangeAllStopNamesLabel}" />
                         <Switch Grid.Column="1" HorizontalOptions="Fill" IsToggled="{Binding ChangeAll}" />
                     </Grid>
+                    <control:FooterDivider />
                 </StackLayout>
             </control:CardView>
             <control:CardView IsVisible="{Binding PossibleStopsVisible}">

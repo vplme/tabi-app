@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using MvvmHelpers;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
-using Tabi.Shared.Pages;
-using Tabi.Shared.Resx;
 using Xamarin.Forms;
 
 namespace Tabi.Shared.ViewModels

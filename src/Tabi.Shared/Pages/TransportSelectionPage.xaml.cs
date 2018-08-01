@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using Autofac;
 using Tabi.DataObjects;
+using Tabi.Shared.Controls;
+using Tabi.Shared.Model;
 using Tabi.Shared.Resx;
 using Tabi.ViewModels;
 using Xamarin.Forms;
@@ -32,6 +34,19 @@ namespace Tabi.Pages
             ExtendedToolbarItem cancelToolbarItem = new ExtendedToolbarItem() { Left = true, Text = AppResources.CancelText };
             cancelToolbarItem.SetBinding(ExtendedToolbarItem.CommandProperty, "CancelCommand");
             ToolbarItems.Add(cancelToolbarItem);
+
+            AdjustListViewHeight();
+
+            ViewModel.Items.CollectionChanged += (object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e) =>
+            {
+                AdjustListViewHeight();
+            };
+        }
+
+        void AdjustListViewHeight()
+        {
+            var adjust = Xamarin.Forms.Device.RuntimePlatform != Xamarin.Forms.Device.Android ? 1 : -ViewModel.Items.Count + 1;
+            TransportModeListView.HeightRequest = (ViewModel.Items.Count * TransportModeListView.RowHeight) - adjust;
         }
 
         protected override void OnDisappearing()

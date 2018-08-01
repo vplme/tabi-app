@@ -2731,4 +2731,82 @@
     <data name="DataUploadWifiOnlySwitchLabel" xml:space="preserve">
         <value>Gebruik alleen WiFi</value>
     </data>
+    <data name="AboutSettings" xml:space="preserve">
+        <value>Meer informatie</value>
+    </data>
+    <data name="AboutSettingsTitle" xml:space="preserve">
+        <value>Over de app</value>
+    </data>
+    <data name="SendSupportCallLabel" xml:space="preserve">
+        <value>Bel support desk</value>
+    </data>
+    <data name="SendSupportEmailLabel" xml:space="preserve">
+        <value>Email support desk</value>
+    </data>
+    <data name="OpenSupportWebsiteLabel" xml:space="preserve">
+        <value>Open support website</value>
+    </data>
+    <data name="DeviceUnsupportedTitle" xml:space="preserve">
+        <value>Niet ondersteund</value>
+    </data>
+    <data name="DeviceUnsupportedText" xml:space="preserve">
+        <value>Uw apparaat ondersteunt deze functionaliteit niet.</value>
+    </data>
+    <data name="SupportSectionLabel" xml:space="preserve">
+        <value>Support</value>
+    </data>
+    <data name="LicensesLabel" xml:space="preserve">
+        <value>Opensource licenties</value>
+    </data>
+    <data name="CustomTransportModeText" xml:space="preserve">
+        <value>Iets anders, namelijk...</value>
+    </data>
+    <data name="SetCustomTransportModeHint" xml:space="preserve">
+        <value>Paard, vliegtuig, boot</value>
+    </data>
+    <data name="SetCustomTransportModeTitle" xml:space="preserve">
+        <value>Voeg transportmode toe</value>
+    </data>
+    <data name="SetCustomTransportModeLabel" xml:space="preserve">
+        <value>Transport mode</value>
+    </data>
+    <data name="CommaRestrictionTitle" xml:space="preserve">
+        <value>Tekst is gelimiteerd</value>
+    </data>
+    <data name="CommaRestrictionText" xml:space="preserve">
+        <value>U mag geen ',' gebruiken in dit tekst veld</value>
+    </data>
+    <data name="WalkTransportText" xml:space="preserve">
+        <value>Te voet</value>
+    </data>
+    <data name="BikeNonElectricTransportText" xml:space="preserve">
+        <value>Fiets, niet elektrisch</value>
+    </data>
+    <data name="BikeElectricTransportText" xml:space="preserve">
+        <value>Fiets, elektrisch</value>
+    </data>
+    <data name="PublicBusTransportText" xml:space="preserve">
+        <value>Bus (alleen openbaar vervoer)</value>
+    </data>
+    <data name="TramTransportText" xml:space="preserve">
+        <value>Tram</value>
+    </data>
+    <data name="MetroTransportText" xml:space="preserve">
+        <value>Metro</value>
+    </data>
+    <data name="TrainTransportText" xml:space="preserve">
+        <value>Trein</value>
+    </data>
+    <data name="CarDriverTransportText" xml:space="preserve">
+        <value>Personenauto als bestuurder</value>
+    </data>
+    <data name="CarPassengerTransportText" xml:space="preserve">
+        <value>Personenauto als passagier</value>
+    </data>
+    <data name="VanTransportText" xml:space="preserve">
+        <value>Bestelauto</value>
+    </data>
+    <data name="MotorbikeTransportText" xml:space="preserve">
+        <value>Motorfiets</value>
+    </data>
 </root>
