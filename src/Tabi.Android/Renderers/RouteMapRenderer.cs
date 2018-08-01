@@ -3,12 +3,14 @@ using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
 using Android.Support.V4.Content;
 using Tabi;
+using Tabi.Controls;
 using Tabi.Droid.Renderers;
-using Tabi.Shared.Controls;
+using Tabi.Logging;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Maps.Android;
 using Xamarin.Forms.Platform.Android;
+using Circle = Tabi.Controls.Circle;
 
 [assembly: ExportRenderer(typeof(RouteMap), typeof(RouteMapRenderer))]
 namespace Tabi.Droid.Renderers

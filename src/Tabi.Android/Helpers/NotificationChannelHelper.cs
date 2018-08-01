@@ -2,7 +2,7 @@
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Tabi.Shared.Resx;
+using Tabi.Resx;
 
 namespace Tabi.Droid.Helpers
 {

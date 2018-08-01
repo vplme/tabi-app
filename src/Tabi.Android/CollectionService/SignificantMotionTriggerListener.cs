@@ -1,5 +1,6 @@
 ﻿using System;
 using Android.Hardware;
+using Tabi.Logging;
 
 namespace Tabi.Droid.CollectionService
 {

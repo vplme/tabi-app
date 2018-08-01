@@ -3,6 +3,8 @@ using PCLStorage;
 using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
 using Tabi.Droid;
+using Tabi.Helpers;
+using Tabi.Logging;
 using FileAccess = PCLStorage.FileAccess;
 using Permission = Plugin.Permissions.Abstractions.Permission;
 

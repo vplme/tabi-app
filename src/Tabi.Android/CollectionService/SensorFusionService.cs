@@ -11,6 +11,7 @@ using Android.Runtime;
 using Autofac;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
+using Tabi.Logging;
 using static Android.OS.PowerManager;
 
 namespace Tabi.Droid.CollectionService

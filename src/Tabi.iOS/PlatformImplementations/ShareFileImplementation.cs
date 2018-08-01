@@ -1,6 +1,8 @@
 ﻿using System.Threading.Tasks;
 using Foundation;
+using Tabi.Helpers;
 using Tabi.iOS;
+using Tabi.Logging;
 using UIKit;
 
 [assembly: Xamarin.Forms.Dependency(typeof(ShareFileImplementation))]

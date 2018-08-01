@@ -6,12 +6,13 @@ using Android.Gms.Location;
 using Android.Locations;
 using Android.OS;
 using Autofac;
+using Tabi.Collection;
 using Tabi.DataObjects;
 using Tabi.DataObjects.CollectionProfile;
 using Tabi.DataStorage;
 using Tabi.Droid.CollectionService;
-using Tabi.Shared.Collection;
-using Tabi.Shared.Helpers;
+using Tabi.Helpers;
+using Tabi.Logging;
 using ILocationListener = Android.Gms.Location.ILocationListener;
 using Object = Java.Lang.Object;
 

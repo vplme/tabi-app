@@ -1,10 +1,10 @@
 ﻿using Autofac;
 using SQLite;
+using Tabi.DataSync;
 using Tabi.Droid.Helpers;
 using Tabi.Droid.Localization;
-using Tabi.Shared;
-using Tabi.Shared.DataSync;
-using Tabi.Shared.Sensors;
+using Tabi.Localization;
+using Tabi.Sensors;
 
 namespace Tabi.Droid.PlatformImplementations
 {

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:local="clr-namespace:Tabi;assembly=Tabi" xmlns:i18n="clr-namespace:Tabi.Localization;assembly=Tabi"
+     xmlns:control="clr-namespace:Tabi.Controls;assembly=Tabi"
+     xmlns:effects="clr-namespace:Tabi.Effects;assembly=Tabi"
+     x:Class="Tabi.Pages.SearchMotivePage">
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="{DynamicResource WindowBackgroundTable}">
+            <StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}" Spacing="{DynamicResource CardSpacing}"
+                 Padding="{DynamicResource CardPadding}">
+                <Entry Text="{Binding SearchText}" Margin="10,10,10,10" FontSize="Medium" HorizontalTextAlignment="Center" Placeholder="Search here">
+                    <Entry.Effects>
+                        <effects:BorderlessEntryEffect />
+                    </Entry.Effects>
+                </Entry>
+                <BoxView Color="Black" HeightRequest="1" HorizontalOptions="FillAndExpand" />
+                <control:CardView>
+                    <StackLayout Spacing="0">
+                        <control:LabelSection Text="{i18n:Translate SearchMotivesLabel}" />
+                        <control:HeaderDivider />
+                        <ListView IsVisible="{Binding OtherMotivesVisible}" Margin="0" x:Name="PossibleMotivesListView" ItemsSource="{Binding PossibleMotives}"
+                             ItemSelected="Handle_ItemSelected">
+                            <ListView.SeparatorColor>
+                                <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}" />
+                            </ListView.SeparatorColor>
+                            <ListView.Effects>
+                                <effects:NoScrollListViewEffect />
+                            </ListView.Effects>
+                            <ListView.RowHeight>
+                                <OnPlatform x:TypeArguments="x:Int32">
+                                    <On Platform="iOS">44</On>
+                                    <On Platform="Android">60</On>
+                                </OnPlatform>
+                            </ListView.RowHeight>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <FlexLayout AlignItems="Center" JustifyContent="Center">
+                                            <Label Margin="10,0,0,0" FlexLayout.Grow="1" Text="{Binding Text}" />
+                                            <Image Margin="0,0,10,0" IsVisible="{Binding Selected}" WidthRequest="20" HeightRequest="20">
+                                                <Image.Source>
+                                                    <OnPlatform x:TypeArguments="FileImageSource">
+                                                        <OnPlatform.iOS>ic_check_circle</OnPlatform.iOS>
+                                                        <OnPlatform.Android>ic_check_circle_black_24dp</OnPlatform.Android>
+                                                    </OnPlatform>
+                                                </Image.Source>
+                                            </Image>
+                                        </FlexLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        <StackLayout IsVisible="{Binding CustomMotiveVisible}" Padding="{DynamicResource LargerPadding}" BackgroundColor="White">
+                            <FlexLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding CustomMotiveCommand}" />
+                            </FlexLayout.GestureRecognizers>
+                            <Label Margin="0" Style="{DynamicResource TabiListItemTextStyle}" Text="{Binding CustomMotiveText}" />
+                        </StackLayout>
+                    </StackLayout>
+                </control:CardView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

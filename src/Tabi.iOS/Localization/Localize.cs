@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using System.Threading;
 using Foundation;
-using Tabi.Shared;
+using Tabi.Localization;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(Tabi.iOS.Localization.Localize))]

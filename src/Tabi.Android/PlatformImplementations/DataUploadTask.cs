@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Android.Content;
-using Tabi.Shared;
-using Tabi.Shared.DataSync;
+using Tabi.DataSync;
+using Tabi.Helpers;
 
 namespace Tabi.Droid.PlatformImplementations
 {

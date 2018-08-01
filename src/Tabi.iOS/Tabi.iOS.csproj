@@ -448,10 +448,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Tabi.Shared\Tabi.Shared.csproj">
-      <Project>{E9A89179-62A6-4258-A773-8C871B906DBF}</Project>
-      <Name>Tabi.Shared</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Tabi.DataStorage\Tabi.DataStorage.csproj">
       <Project>{569732D5-C994-4F2D-A1B5-D6F13B4A5392}</Project>
       <Name>Tabi.DataStorage</Name>
@@ -459,6 +455,10 @@
     <ProjectReference Include="..\Tabi.DataObjects\Tabi.DataObjects.csproj">
       <Project>{B9BF94B9-C02D-4216-9061-1255638E10C4}</Project>
       <Name>Tabi.DataObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tabi\Tabi.csproj">
+      <Project>{e9a89179-62a6-4258-a773-8c871b906dbf}</Project>
+      <Name>Tabi</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

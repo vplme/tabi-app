@@ -6,7 +6,7 @@ using Foundation;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
 using Tabi.iOS.PlatformImplementations;
-using Tabi.Shared.Sensors;
+using Tabi.Sensors;
 using UIKit;
 using Xamarin.Forms;
 

@@ -2,7 +2,7 @@
 using Android.Content;
 using Tabi.Droid.CollectionService;
 using Tabi.Droid.PlatformImplementations;
-using Tabi.Shared.Sensors;
+using Tabi.Sensors;
 
 [assembly: Xamarin.Forms.Dependency(typeof(SensorManagerImplementation))]
 namespace Tabi.Droid.PlatformImplementations

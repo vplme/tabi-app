@@ -5,7 +5,7 @@ using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Autofac;
-using Tabi.iOS.Helpers;
+using Tabi.DataSync;
 
 namespace Tabi.Droid.PlatformImplementations
 {

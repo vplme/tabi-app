@@ -1,14 +1,15 @@
 ﻿using System;
 using CoreLocation;
 using Foundation;
+using Tabi.Collection;
 using Tabi.DataObjects;
 using Tabi.DataObjects.CollectionProfile;
 using Tabi.DataStorage;
+using Tabi.Helpers;
 using Tabi.iOS.Helpers;
 using Tabi.iOS.PlatformImplementations;
-using Tabi.Shared.Collection;
-using Tabi.Shared.Helpers;
-using Tabi.Shared.Resx;
+using Tabi.Logging;
+using Tabi.Resx;
 using UserNotifications;
 using Xamarin.Forms;
 

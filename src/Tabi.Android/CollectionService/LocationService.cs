@@ -7,7 +7,8 @@ using Android.Support.V4.App;
 using Plugin.CurrentActivity;
 using Tabi.Droid.CollectionService;
 using Tabi.Droid.Helpers;
-using Tabi.Shared.Resx;
+using Tabi.Logging;
+using Tabi.Resx;
 
 namespace Tabi.Droid
 {

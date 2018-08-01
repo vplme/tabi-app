@@ -9,6 +9,7 @@ using Tabi.DataObjects;
 using System.Threading.Tasks;
 using static Android.OS.PowerManager;
 using Autofac;
+using Tabi.Logging;
 
 namespace Tabi.Droid.CollectionService
 {

@@ -7,9 +7,9 @@ using Xamarin.Forms.Platform.iOS;
 using CoreLocation;
 using UIKit;
 using System.Collections.Generic;
-using Tabi.Shared.Controls;
 using ObjCRuntime;
 using System;
+using Tabi.Controls;
 
 [assembly: ExportRenderer(typeof(RouteMap), typeof(RouteMapRenderer))]
 namespace Tabi.iOS

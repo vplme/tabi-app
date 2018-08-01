@@ -4,7 +4,9 @@ using Autofac.Core;
 using FFImageLoading.Svg.Forms;
 using Foundation;
 using Microsoft.AppCenter.Distribute;
+using Tabi.Helpers;
 using Tabi.iOS.PlatformImplementations;
+using Tabi.Logging;
 using UIKit;
 using Vpl.Xamarin.VideoPlayer;
 

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:i18n="clr-namespace:Tabi.Localization;assembly=Tabi" xmlns:control="clr-namespace:Tabi.Controls;assembly=Tabi"
+     xmlns:local="clr-namespace:Tabi;assembly=Tabi"
+     xmlns:effects="clr-namespace:Tabi.Effects;assembly=Tabi"
+     x:Class="Tabi.Pages.SettingsPage" Title="{i18n:Translate SettingsPageTitle}"
+     BackgroundColor="{StaticResource WindowBackgroundTable}">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="0">
+                <StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}" Spacing="{DynamicResource CardSpacing}"
+                     Padding="{DynamicResource CardPadding}">
+                    <control:CardView>
+                        <control:CardView.IsVisible>
+                            <OnPlatform x:TypeArguments="x:Boolean" Android="true" iOS="true" WinPhone="true" />
+                        </control:CardView.IsVisible>
+                        <StackLayout Spacing="0">
+                            <control:LabelSection Text="{i18n:Translate TrackingSectionLabel}" />
+                            <control:HeaderDivider />
+                            <StackLayout BackgroundColor="White" Padding="{DynamicResource NormalPadding}">
+                                <Label Text="{i18n:Translate TrackingExplanation}" HorizontalOptions="Center"
+                                     Style="{DynamicResource TabiListItemDetailTextStyle}" />
+                            </StackLayout>
+                            <control:SettingsSectionDivider />
+                            <Grid Padding="{DynamicResource NormalPadding}" ColumnSpacing="0" BackgroundColor="White">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Style="{DynamicResource TabiListItemTextStyle}" VerticalOptions="Center" Text="{i18n:Translate TrackingSwitchLabel}" />
+                                <Switch Grid.Column="1" HorizontalOptions="Fill" IsToggled="{Binding Settings.Tracking}" />
+                            </Grid>
+                            <control:SettingsSectionDivider IsVisible="{Binding ShowSensorMeasurements}" />
+                            <Grid IsVisible="{Binding ShowSensorMeasurements}" Padding="{DynamicResource NormalPadding}" ColumnSpacing="0"
+                                 BackgroundColor="White">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Style="{DynamicResource TabiListItemTextStyle}" VerticalOptions="Center"
+                                     Text="{i18n:Translate SensorMeasurementsSwitchLabel}" />
+                                <Switch Grid.Column="1" HorizontalOptions="Fill" IsToggled="{Binding Settings.SensorMeasurements}" />
+                            </Grid>
+                            <control:SettingsSectionDivider />
+                            <Grid Padding="{DynamicResource LargerPadding}" ColumnSpacing="0" BackgroundColor="White">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Style="{DynamicResource TabiListItemTextStyle}" VerticalOptions="Center"
+                                     Text="{i18n:Translate LastSyncLabel}" />
+                                <Label Grid.Column="1" VerticalTextAlignment="Center" Style="{DynamicResource TabiListItemDetailTextStyle}"
+                                     Text="{Binding LastSynced}" />
+                            </Grid>
+                            <control:SettingsSectionDivider />
+                            <Grid Padding="{DynamicResource NormalPadding}" ColumnSpacing="0" BackgroundColor="White">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Style="{DynamicResource TabiListItemTextStyle}" VerticalOptions="Center"
+                                     Text="{i18n:Translate UploadDataLabel}" />
+                                <Button Grid.Column="1" HorizontalOptions="Center" TextColor="{DynamicResource TintColor}"
+                                     Text="{i18n:Translate UploadDataButton}" Command="{Binding UploadCommand}" />
+                            </Grid>
+                            <control:SettingsSectionDivider />
+                            <Grid Padding="{DynamicResource LargerPadding}" ColumnSpacing="0" BackgroundColor="White">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding ShowTourCommand}" />
+                                </Grid.GestureRecognizers>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Style="{DynamicResource TabiListItemTextStyle}" Text="{i18n:Translate ShowTour}" />
+                            </Grid>
+                            <control:SettingsSectionDivider />
+                            <Grid Padding="{DynamicResource LargerPadding}" ColumnSpacing="0" BackgroundColor="White">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding PrivacyDataCommand}" />
+                                </Grid.GestureRecognizers>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Style="{DynamicResource TabiListItemTextStyle}" Text="{i18n:Translate DataPrivacySettings}" />
+                            </Grid>
+                            <control:FooterDivider />
+                        </StackLayout>
+                    </control:CardView>
+                    <control:CardView IsVisible="{Binding Configuration.Support.Available}">
+                        <StackLayout Spacing="0">
+                            <control:LabelSection Text="{i18n:Translate SupportSectionLabel}" />
+                            <control:HeaderDivider />
+                            <Grid Padding="{DynamicResource LargerPadding}" ColumnSpacing="0" BackgroundColor="White">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SendSupportEmailCommand}" />
+                                </Grid.GestureRecognizers>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Style="{DynamicResource TabiListItemTextStyle}" Text="{i18n:Translate SendSupportEmailLabel}" />
+                                <Label Grid.Column="1" VerticalTextAlignment="Center" Style="{DynamicResource TabiListItemDetailTextStyle}"
+                                     Text="{Binding Configuration.Support.Email}" />
+                            </Grid>
+                            <control:SettingsSectionDivider />
+                            <Grid Padding="{DynamicResource LargerPadding}" ColumnSpacing="0" BackgroundColor="White">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SendSupportCallCommand}" />
+                                </Grid.GestureRecognizers>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Style="{DynamicResource TabiListItemTextStyle}" Text="{i18n:Translate SendSupportCallLabel}" />
+                                <Label Grid.Column="1" VerticalTextAlignment="Center" Style="{DynamicResource TabiListItemDetailTextStyle}"
+                                     Text="{Binding Configuration.Support.DisplayPhoneNumber}" />
+                            </Grid>
+                            <control:SettingsSectionDivider />
+                            <Grid Padding="{DynamicResource LargerPadding}" ColumnSpacing="0" BackgroundColor="White">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding OpenSupportWebsiteCommand}" />
+                                </Grid.GestureRecognizers>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Style="{DynamicResource TabiListItemTextStyle}" Text="{i18n:Translate OpenSupportWebsiteLabel}" />
+                                <Label Grid.Column="1" VerticalTextAlignment="Center" Style="{DynamicResource TabiListItemDetailTextStyle}"
+                                     Text="{Binding Configuration.Support.DisplayUrl}" />
+                            </Grid>
+                            <control:FooterDivider />
+                        </StackLayout>
+                    </control:CardView>
+                    <control:CardView>
+                        <StackLayout Spacing="0">
+                            <control:LabelSection Text="{i18n:Translate AboutSectionLabel}" />
+                            <control:HeaderDivider />
+                            <Grid Padding="{DynamicResource LargerPadding}" ColumnSpacing="0" BackgroundColor="White">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding InfoCommand}" />
+                                </Grid.GestureRecognizers>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Style="{DynamicResource TabiListItemTextStyle}" Text="{i18n:Translate VersionLabel}" />
+                                <Label Grid.Column="1" Style="{DynamicResource TabiListItemDetailTextStyle}" VerticalTextAlignment="Center"
+                                     Text="{Binding VersionText}" />
+                            </Grid>                           
+                            <control:SettingsSectionDivider />
+                            <Grid Padding="{DynamicResource LargerPadding}" ColumnSpacing="0" BackgroundColor="White">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding AppAboutCommand}" />
+                                </Grid.GestureRecognizers>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Style="{DynamicResource TabiListItemTextStyle}" Text="{i18n:Translate AboutSettings}" />
+                            </Grid>
+                            <control:FooterDivider />
+                            <StackLayout>
+                                <StackLayout.Padding>
+                                    <OnPlatform x:TypeArguments="Thickness" iOS="16,8,16,0" Android="16,8" WinPhone="16,8" />
+                                </StackLayout.Padding>
+                                <Label IsVisible="{Binding Source={x:Static local:App.Developer}}" Text="Developer app version"
+                                     Style="{DynamicResource TabiListItemDetailTextStyle}" />
+                            </StackLayout>
+                        </StackLayout>
+                    </control:CardView>
+                    <control:CardView IsVisible="{Binding Settings.Developer}" x:Name="DeveloperSection">
+                        <StackLayout Spacing="0">
+                            <control:LabelSection Text="Developer" />
+                            <Button Command="{Binding OpenLogsCommand}" Text="Logs" />
+                            <control:HeaderDivider />
+                            <!--                  <ListView x:Name="ListViewTechnology" ItemsSource="{Binding TechnologyItems}" RowHeight="44">
+                                <ListView.Effects>
+                                    <local:NoScrollListViewEffect />
+                                </ListView.Effects>
+                                <ListView.SeparatorColor>
+                                    <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}" />
+                                </ListView.SeparatorColor>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextCell Text="{Binding Name}" Detail="{Binding Subtitle}" Command="{Binding Command}" CommandParameter="{Binding Parameter}" StyleId="disclosure" />
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>-->
+                            <control:DynamicHeightTableView>
+                                <control:DynamicHeightTableView.Effects>
+                                    <effects:NoScrollListViewEffect />
+                                    <!--                                    <local:NoSelectionListViewEffect />-->
+                                </control:DynamicHeightTableView.Effects>
+                                <TableSection>
+                                    <SwitchCell x:Name="one" Text="Developer" On="{Binding Settings.Developer}" />
+                                    <TextCell x:Name="two" Text="Export SQLite database" Command="{Binding ExportDatabaseCommand}" />
+                                    <TextCell Text="Clear SQLite database" Command="{Binding DropDatabaseCommand}" />
+                                    <TextCell Text="Export KML" Command="{Binding ExportKMLCommand}" />
+                                    <TextCell Text="Export CSV" Command="{Binding ExportCSVCommand}" />
+                                    <TextCell Text="Export Battery CSV" Command="{Binding ExportBatteryCSVCommand}" />
+                                    <TextCell Text="Show mockup" Command="{Binding ShowMockupCommand}" />
+                                    <TextCell Text="Load Sample Database" Command="{Binding LoadSampleCommand}" />
+                                    <TextCell Text="Generate stops" Command="{Binding GenerateStopsCommand}" />
+                                    <TextCell Text="Show page" Command="{Binding ShowPageCommand}" />
+                                    <TextCell Text="Clear stops" Command="{Binding ClearStopsCommand}" />
+                                    <TextCell Text="Logs" Command="{Binding OpenLogsCommand}" />
+                                </TableSection>
+                            </control:DynamicHeightTableView>
+                            <control:FooterDivider />
+                            <StackLayout>
+                                <StackLayout.Padding>
+                                    <OnPlatform x:TypeArguments="Thickness" iOS="16,8,16,0" Android="16,8" WinPhone="16,8" />
+                                </StackLayout.Padding>
+                                <Label Text="A: 42" Style="{DynamicResource TabiListItemDetailTextStyle}">
+                                </Label>
+                            </StackLayout>
+                        </StackLayout>
+                    </control:CardView>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

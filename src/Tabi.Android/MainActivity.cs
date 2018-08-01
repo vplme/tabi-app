@@ -13,6 +13,8 @@ using Tabi.Droid.PlatformImplementations;
 using FFImageLoading.Svg.Forms;
 using Vpl.Xamarin.VideoPlayer;
 using Firebase.Iid;
+using Tabi.Helpers;
+using Tabi.Logging;
 
 namespace Tabi.Droid
 {

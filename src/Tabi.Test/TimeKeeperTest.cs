@@ -2,7 +2,7 @@ using System;
 using Moq;
 using Tabi.DataObjects;
 using Tabi.DataStorage;
-using Tabi.Shared.DataSync;
+using Tabi.DataSync;
 using Xunit;
 
 namespace Tabi.Test

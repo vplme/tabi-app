@@ -1,7 +1,6 @@
 ﻿using System;
 using CoreMotion;
 using Foundation;
-using Tabi.Shared;
 using UIKit;
 using Xamarin.Forms;
 

@@ -1,12 +1,12 @@
 ﻿using System.Globalization;
 using System.Threading;
-using Tabi.Shared;
+using Tabi.Localization;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(Tabi.Droid.Localization.Localize))]
 namespace Tabi.Droid.Localization
 {
-    public class Localize : Tabi.Shared.ILocalize
+    public class Localize : ILocalize
     {
         public void SetLocale(CultureInfo ci)
         {

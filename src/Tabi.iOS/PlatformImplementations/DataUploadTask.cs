@@ -2,9 +2,9 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Autofac;
+using Tabi.DataSync;
+using Tabi.Helpers;
 using Tabi.iOS.Helpers;
-using Tabi.Shared;
-using Tabi.Shared.DataSync;
 using UIKit;
 using Xamarin.Forms;
 

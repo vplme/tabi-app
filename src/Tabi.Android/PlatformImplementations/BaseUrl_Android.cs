@@ -1,4 +1,5 @@
 ﻿using Tabi.Droid.PlatformImplementations;
+using Tabi.Helpers;
 using Xamarin.Forms;
 
 [assembly: Dependency (typeof(BaseUrl_Android))]

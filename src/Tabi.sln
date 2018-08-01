@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tabi.Shared", "Tabi.Shared\Tabi.Shared.csproj", "{E9A89179-62A6-4258-A773-8C871B906DBF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tabi", "Tabi\Tabi.csproj", "{E9A89179-62A6-4258-A773-8C871B906DBF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tabi.iOS", "Tabi.iOS\Tabi.iOS.csproj", "{AA35B178-D049-4789-91ED-960AE7CD22E6}"
 EndProject

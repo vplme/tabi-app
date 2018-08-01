@@ -1,5 +1,6 @@
 ﻿using System;
 using Tabi;
+using Tabi.Controls;
 using Tabi.iOS.Renderers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;

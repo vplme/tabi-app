@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Tabi;assembly=Tabi" xmlns:control="clr-namespace:Tabi.Controls;assembly=Tabi" x:Class="Tabi.Controls.TabiRaisedButton">
+    <ContentView.Content>
+        <control:MaterialFrame x:Name="frame" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="#2196F3" Padding="10,10,10,10">
+            <control:MaterialFrame.GestureRecognizers>
+                <TapGestureRecognizer
+                Tapped="OnTapGestureRecognizerTapped"
+                NumberOfTapsRequired="1" />
+            </control:MaterialFrame.GestureRecognizers>
+            <Label TextColor="White" Text="Button"/>
+        </control:MaterialFrame>
+    </ContentView.Content>
+</ContentView>

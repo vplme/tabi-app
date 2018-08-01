@@ -1,5 +1,5 @@
 ﻿using System;
-using Tabi.Shared.Helpers;
+using Tabi.Helpers;
 using UIKit;
 
 namespace Tabi.iOS.PlatformImplementations

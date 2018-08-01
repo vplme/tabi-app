@@ -3,11 +3,11 @@ using Autofac;
 using CoreLocation;
 using CoreMotion;
 using Tabi.DataObjects.CollectionProfile;
+using Tabi.DataSync;
+using Tabi.Helpers;
 using Tabi.iOS.Localization;
-using Tabi.Shared;
-using Tabi.Shared.DataSync;
-using Tabi.Shared.Helpers;
-using Tabi.Shared.Sensors;
+using Tabi.Localization;
+using Tabi.Sensors;
 
 namespace Tabi.iOS.PlatformImplementations
 {
