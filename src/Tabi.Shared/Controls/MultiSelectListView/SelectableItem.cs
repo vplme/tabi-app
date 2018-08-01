@@ -1,7 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 
-namespace Tabi.Controls
+namespace Tabi.Shared.Controls
 {
     public class SelectableItem : BindableObject
     {

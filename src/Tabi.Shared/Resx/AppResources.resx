@@ -2878,4 +2878,55 @@
     <data name="LicensesLabel" xml:space="preserve">
         <value>Open Source Licenses</value>
     </data>
+    <data name="CustomTransportModeText" xml:space="preserve">
+        <value>Something else</value>
+    </data>
+    <data name="SetCustomTransportModeHint" xml:space="preserve">
+        <value>Horse, airplane, boat</value>
+    </data>
+    <data name="SetCustomTransportModeTitle" xml:space="preserve">
+        <value>Add new transport mode</value>
+    </data>
+    <data name="SetCustomTransportModeLabel" xml:space="preserve">
+        <value>Transport mode</value>
+    </data>
+    <data name="CommaRestrictionTitle" xml:space="preserve">
+        <value>Text is restricted</value>
+    </data>
+    <data name="CommaRestrictionText" xml:space="preserve">
+        <value>You can not use a ',' in your transportation mode</value>
+    </data>
+    <data name="WalkTransportText" xml:space="preserve">
+        <value>Walking</value>
+    </data>
+    <data name="BikeNonElectricTransportText" xml:space="preserve">
+        <value>Bike, non electric</value>
+    </data>
+    <data name="BikeElectricTransportText" xml:space="preserve">
+        <value>Bike, electric</value>
+    </data>
+    <data name="PublicBusTransportText" xml:space="preserve">
+        <value>Bus (public transport only)</value>
+    </data>
+    <data name="TramTransportText" xml:space="preserve">
+        <value>Tram</value>
+    </data>
+    <data name="MetroTransportText" xml:space="preserve">
+        <value>Metro</value>
+    </data>
+    <data name="TrainTransportText" xml:space="preserve">
+        <value>Train</value>
+    </data>
+    <data name="CarDriverTransportText" xml:space="preserve">
+        <value>Car as driver</value>
+    </data>
+    <data name="CarPassengerTransportText" xml:space="preserve">
+        <value>Car as passenger</value>
+    </data>
+    <data name="VanTransportText" xml:space="preserve">
+        <value>Van</value>
+    </data>
+    <data name="MotorbikeTransportText" xml:space="preserve">
+        <value>Motorbike</value>
+    </data>
 </root>

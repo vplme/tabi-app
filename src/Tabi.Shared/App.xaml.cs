@@ -178,6 +178,7 @@ namespace Tabi
             containerBuilder.RegisterType<TrackDetailViewModel>();
             containerBuilder.RegisterType<TrackDetailMotiveViewModel>();
             containerBuilder.RegisterType<TransportSelectionViewModel>();
+            containerBuilder.RegisterType<CustomTransportSelectionViewModel>();
 
             containerBuilder.RegisterType<StopDetailViewModel>();
             containerBuilder.RegisterType<StopDetailNameViewModel>();

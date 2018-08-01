@@ -20,22 +20,17 @@ namespace Tabi.ViewModels
         private readonly IRepoManager _repoManager;
         private readonly INavigation _navigation;
         private readonly TrackEntry _trackEntry;
+        private readonly MotiveConfiguration _motiveConfig;
 
         private ListItem _motiveListItem;
 
 
-        public TrackDetailViewModel(IRepoManager repoManager, INavigation navigation, TabiConfiguration configuration, TrackEntry trackEntry)
+        public TrackDetailViewModel(IRepoManager repoManager, INavigation navigation, MotiveConfiguration motiveConfig, TrackEntry trackEntry)
         {
             _repoManager = repoManager ?? throw new ArgumentNullException(nameof(repoManager));
             _navigation = navigation ?? throw new ArgumentNullException(nameof(navigation));
             _trackEntry = trackEntry ?? throw new ArgumentNullException(nameof(trackEntry));
-
-            // Find an existing Motive for the current track.
-            Motive stopMotive = _repoManager.MotiveRepository.GetByTrackId(_trackEntry.Id);
-            // Initialize a new motive since the ViewModel needs one.
-            stopMotive = stopMotive ?? new Motive() { TrackId = _trackEntry.Id };
-
-            Motive = new TrackMotiveViewModel(stopMotive, configuration.Motive);
+            _motiveConfig = motiveConfig ?? throw new ArgumentNullException(nameof(Motive));
 
             TransportModeSelectionCommand = new Command(async () =>
             {
@@ -50,6 +45,21 @@ namespace Tabi.ViewModels
 
             DataItems = new ObservableRangeCollection<ListItem>();
 
+            if (_motiveConfig.Tracks)
+            {
+                PrepareForMotive();
+            }
+        }
+
+        private void PrepareForMotive()
+        {
+            // Find an existing Motive for the current track.
+            Motive stopMotive = _repoManager.MotiveRepository.GetByTrackId(_trackEntry.Id);
+            // Initialize a new motive since the ViewModel needs one.
+            stopMotive = stopMotive ?? new Motive() { TrackId = _trackEntry.Id };
+
+            Motive = new TrackMotiveViewModel(stopMotive, _motiveConfig);
+
             _motiveListItem = new ListItem()
             {
                 Name = AppResources.TrackMotiveLabel,
@@ -60,8 +70,6 @@ namespace Tabi.ViewModels
             DataItems.Add(_motiveListItem);
 
             Motive.PropertyChanged += Motive_PropertyChanged; ;
-
-
         }
 
         public ICommand TransportModeSelectionCommand { get; protected set; }

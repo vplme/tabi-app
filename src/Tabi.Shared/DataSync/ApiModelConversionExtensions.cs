@@ -118,19 +118,7 @@ namespace Tabi.Shared.DataSync
                 LocalTrackId = entry.TrackId,
                 DeviceId = Settings.Current.Device,
                 Timestamp = entry.Timestamp,
-                Walk = entry.Walk,
-                Run = entry.Run,
-                MobilityScooter = entry.MobilityScooter,
-                Car = entry.Car,
-                Bike = entry.Bike,
-                Moped = entry.Moped,
-                Scooter = entry.Scooter,
-                Motorcycle = entry.Motorcycle,
-                Train = entry.Train,
-                Subway = entry.Subway,
-                Tram = entry.Tram,
-                Bus = entry.Bus,
-                Other = entry.Other
+                ActiveModes = entry.ActiveModes.Split(','),
             };
         }
 

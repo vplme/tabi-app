@@ -5506,5 +5506,113 @@ namespace Tabi.Shared.Resx {
                 return ResourceManager.GetString("SupportSectionLabel", resourceCulture);
             }
         }
+        
+        internal static string LicensesLabel {
+            get {
+                return ResourceManager.GetString("LicensesLabel", resourceCulture);
+            }
+        }
+        
+        internal static string CustomTransportModeText {
+            get {
+                return ResourceManager.GetString("CustomTransportModeText", resourceCulture);
+            }
+        }
+        
+        internal static string SetCustomTransportModeHint {
+            get {
+                return ResourceManager.GetString("SetCustomTransportModeHint", resourceCulture);
+            }
+        }
+        
+        internal static string SetCustomTransportModeTitle {
+            get {
+                return ResourceManager.GetString("SetCustomTransportModeTitle", resourceCulture);
+            }
+        }
+        
+        internal static string SetCustomTransportModeLabel {
+            get {
+                return ResourceManager.GetString("SetCustomTransportModeLabel", resourceCulture);
+            }
+        }
+        
+        internal static string CommaRestrictionTitle {
+            get {
+                return ResourceManager.GetString("CommaRestrictionTitle", resourceCulture);
+            }
+        }
+        
+        internal static string CommaRestrictionText {
+            get {
+                return ResourceManager.GetString("CommaRestrictionText", resourceCulture);
+            }
+        }
+        
+        internal static string WalkTransportText {
+            get {
+                return ResourceManager.GetString("WalkTransportText", resourceCulture);
+            }
+        }
+        
+        internal static string BikeNonElectricTransportText {
+            get {
+                return ResourceManager.GetString("BikeNonElectricTransportText", resourceCulture);
+            }
+        }
+        
+        internal static string BikeElectricTransportText {
+            get {
+                return ResourceManager.GetString("BikeElectricTransportText", resourceCulture);
+            }
+        }
+        
+        internal static string PublicBusTransportText {
+            get {
+                return ResourceManager.GetString("PublicBusTransportText", resourceCulture);
+            }
+        }
+        
+        internal static string TramTransportText {
+            get {
+                return ResourceManager.GetString("TramTransportText", resourceCulture);
+            }
+        }
+        
+        internal static string MetroTransportText {
+            get {
+                return ResourceManager.GetString("MetroTransportText", resourceCulture);
+            }
+        }
+        
+        internal static string TrainTransportText {
+            get {
+                return ResourceManager.GetString("TrainTransportText", resourceCulture);
+            }
+        }
+        
+        internal static string CarDriverTransportText {
+            get {
+                return ResourceManager.GetString("CarDriverTransportText", resourceCulture);
+            }
+        }
+        
+        internal static string CarPassengerTransportText {
+            get {
+                return ResourceManager.GetString("CarPassengerTransportText", resourceCulture);
+            }
+        }
+        
+        internal static string VanTransportText {
+            get {
+                return ResourceManager.GetString("VanTransportText", resourceCulture);
+            }
+        }
+        
+        internal static string MotorbikeTransportText {
+            get {
+                return ResourceManager.GetString("MotorbikeTransportText", resourceCulture);
+            }
+        }
     }
 }

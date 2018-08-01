@@ -156,6 +156,18 @@ namespace Tabi.Shared
 
     public class MotiveConfiguration
     {
+        /// <summary>
+        /// Determines if motives are shown for stops
+        /// </summary>
+        /// <value><c>true</c> if stops should have motives; otherwise, <c>false</c>.</value>
+        public bool Stops { get; set; }
+
+        /// <summary>
+        /// Determines if motives are shown for tracks
+        /// </summary>
+        /// <value><c>true</c> if tracks should have motives; otherwise, <c>false</c>.</value>
+        public bool Tracks { get; set; }
+
         public int ShowAmount { get; set; }
 
         public List<MotiveOption> Options { get; set; }
@@ -172,6 +184,8 @@ namespace Tabi.Shared
 
     public class TransportationModeConfiguration
     {
+        public bool CustomTransportModes { get; set; }
+
         public List<TransportOption> Options { get; set; }
     }
 
