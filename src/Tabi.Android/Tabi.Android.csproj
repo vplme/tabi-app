@@ -558,10 +558,6 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Tabi.Shared\Tabi.Shared.csproj">
-      <Project>{E9A89179-62A6-4258-A773-8C871B906DBF}</Project>
-      <Name>Tabi.Shared</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Tabi.DataStorage.SqliteNet\Tabi.DataStorage.SqliteNet.csproj">
       <Project>{24E617E8-D4F5-46EB-95DD-18E921375939}</Project>
       <Name>Tabi.DataStorage.SqliteNet</Name>
@@ -573,6 +569,10 @@
     <ProjectReference Include="..\Tabi.DataObjects\Tabi.DataObjects.csproj">
       <Project>{B9BF94B9-C02D-4216-9061-1255638E10C4}</Project>
       <Name>Tabi.DataObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tabi\Tabi.csproj">
+      <Project>{E9A89179-62A6-4258-A773-8C871B906DBF}</Project>
+      <Name>Tabi</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
