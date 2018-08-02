@@ -508,10 +508,10 @@
         <value>Add names to locations</value>
     </data>
     <data name="StopTourText" xml:space="preserve">
-        <value>Select a location and set a name, for example 'home', 'work', 'school (kids)', 'supermarket'. This name is meant as an aid for yourself.</value>
+        <value>Select a location and set a name.</value>
     </data>
     <data name="MotiveTourTitle" xml:space="preserve">
-        <value>Select what you did there.</value>
+        <value>Motive.</value>
     </data>
     <data name="MotiveTourText" xml:space="preserve">
         <value>Select a location and specify what you did there.</value>

@@ -403,10 +403,10 @@
         <value>Geef namen aan locaties</value>
     </data>
     <data name="StopTourText" xml:space="preserve">
-        <value>Druk op een locatie en geef deze een naam, bijvoorbeeld ‘thuis’, ‘werk’, ‘school kinderen’, ‘supermarkt’. Deze naam is slechts bedoeld als hulpmiddel voor uzelf.</value>
+        <value>Druk op een locatie en geef deze een naam.</value>
     </data>
     <data name="MotiveTourTitle" xml:space="preserve">
-        <value>Klik aan wat u daar bent gaan doen.</value>
+        <value>Uw motief</value>
     </data>
     <data name="MotiveTourText" xml:space="preserve">
         <value>Druk op een locatie en geef aan wat u daar bent gaan doen.</value>
