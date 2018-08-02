@@ -415,13 +415,13 @@
         <value>Location name</value>
     </data>
     <data name="SetStopNameHint" xml:space="preserve">
-        <value>Location name, for example 'work', 'home', 'supermarket'. This name is meant as an aid for yourself.</value>
+        <value>Work, home, supermarket</value>
     </data>
     <data name="SetStopMotiveHint" xml:space="preserve">
         <value>What did you do there?</value>
     </data>
     <data name="StopDetailPageExplanation" xml:space="preserve">
-        <value>Please fill in the name of your location and the reason/motive why you were at the location.</value>
+        <value>Please fill in the name of your location and the reason/motive why you were at the location. The name is meant as an aid for yourself.</value>
     </data>
     <data name="StopMotivePageTitle" xml:space="preserve">
         <value>Location motive</value>

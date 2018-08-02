@@ -310,13 +310,13 @@
         <value>Locatie naam</value>
     </data>
     <data name="SetStopNameHint" xml:space="preserve">
-        <value>Naam van de locatie, bv. ‘werk’, ‘thuis’, ‘supermarkt’. Deze naam is slechts beodeld als hulpmiddel voor uzelf.</value>
+        <value>Werk, thuis, supermarkt. </value>
     </data>
     <data name="SetStopMotiveHint" xml:space="preserve">
         <value>Wat bent u daar gaan doen?</value>
     </data>
     <data name="StopDetailPageExplanation" xml:space="preserve">
-        <value>Vul de naam van de huidige locatie in en vul de reden (motief) van de locatie in.</value>
+        <value>Vul de naam van de huidige locatie in en vul de reden (motief) van de locatie in. Deze naam is slechts bedoeld als hulpmiddel voor uzelf.</value>
     </data>
     <data name="StopMotivePageTitle" xml:space="preserve">
         <value>Locatiemotief</value>
