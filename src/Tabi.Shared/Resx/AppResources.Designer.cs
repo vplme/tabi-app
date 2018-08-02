@@ -47,12 +47,6 @@ namespace Tabi.Shared.Resx {
             }
         }
         
-        public static string NotesLabel {
-            get {
-                return ResourceManager.GetString("NotesLabel", resourceCulture);
-            }
-        }
-        
         public static string SettingsPageTitle {
             get {
                 return ResourceManager.GetString("SettingsPageTitle", resourceCulture);
@@ -863,18 +857,6 @@ namespace Tabi.Shared.Resx {
             }
         }
         
-        public static string OtherMotiveText {
-            get {
-                return ResourceManager.GetString("OtherMotiveText", resourceCulture);
-            }
-        }
-        
-        public static string SearchMotivesLabel {
-            get {
-                return ResourceManager.GetString("SearchMotivesLabel", resourceCulture);
-            }
-        }
-        
         public static string PaidWorkMotiveText {
             get {
                 return ResourceManager.GetString("PaidWorkMotiveText", resourceCulture);
@@ -920,6 +902,18 @@ namespace Tabi.Shared.Resx {
         public static string GetBringGoodsMotiveText {
             get {
                 return ResourceManager.GetString("GetBringGoodsMotiveText", resourceCulture);
+            }
+        }
+        
+        public static string OtherMotiveText {
+            get {
+                return ResourceManager.GetString("OtherMotiveText", resourceCulture);
+            }
+        }
+        
+        public static string SearchMotivesLabel {
+            get {
+                return ResourceManager.GetString("SearchMotivesLabel", resourceCulture);
             }
         }
         

@@ -47,12 +47,6 @@ namespace Tabi.Shared.Resx {
             }
         }
         
-        internal static string NotesLabel {
-            get {
-                return ResourceManager.GetString("NotesLabel", resourceCulture);
-            }
-        }
-        
         internal static string SettingsPageTitle {
             get {
                 return ResourceManager.GetString("SettingsPageTitle", resourceCulture);
@@ -581,6 +575,18 @@ namespace Tabi.Shared.Resx {
             }
         }
         
+        internal static string SensorMeasurementsSwitchLabel {
+            get {
+                return ResourceManager.GetString("SensorMeasurementsSwitchLabel", resourceCulture);
+            }
+        }
+        
+        internal static string StopSectionLabel {
+            get {
+                return ResourceManager.GetString("StopSectionLabel", resourceCulture);
+            }
+        }
+        
         internal static string StopNameLabel {
             get {
                 return ResourceManager.GetString("StopNameLabel", resourceCulture);
@@ -602,6 +608,12 @@ namespace Tabi.Shared.Resx {
         internal static string SaveText {
             get {
                 return ResourceManager.GetString("SaveText", resourceCulture);
+            }
+        }
+        
+        internal static string StopNamePageTitle {
+            get {
+                return ResourceManager.GetString("StopNamePageTitle", resourceCulture);
             }
         }
         
