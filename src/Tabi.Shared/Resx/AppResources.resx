@@ -1,64 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
     <!-- 
-		Microsoft ResX Schema 
+        Microsoft ResX Schema 
 
-		Version 2.0
+        Version 2.0
 
-		The primary goals of this format is to allow a simple XML format 
-		that is mostly human readable. The generation and parsing of the 
-		various data types are done through the TypeConverter classes 
-		associated with the data types.
+        The primary goals of this format is to allow a simple XML format 
+        that is mostly human readable. The generation and parsing of the 
+        various data types are done through the TypeConverter classes 
+        associated with the data types.
 
-		Example:
+        Example:
 
-		... ado.net/XML headers & schema ...
-		<resheader name="resmimetype">text/microsoft-resx</resheader>
-		<resheader name="version">2.0</resheader>
-		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-		<data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-				<value>[base64 mime encoded serialized .NET Framework object]</value>
-		</data>
-		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-				<value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-				<comment>This is a comment</comment>
-		</data>
+        ... ado.net/XML headers & schema ...
+        <resheader name="resmimetype">text/microsoft-resx</resheader>
+        <resheader name="version">2.0</resheader>
+        <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+        <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+        <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+        <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+        <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+                <value>[base64 mime encoded serialized .NET Framework object]</value>
+        </data>
+        <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+                <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+                <comment>This is a comment</comment>
+        </data>
 
-		There are any number of "resheader" rows that contain simple 
-		name/value pairs.
+        There are any number of "resheader" rows that contain simple 
+        name/value pairs.
 
-		Each data row contains a name, and value. The row also contains a 
-		type or mimetype. Type corresponds to a .NET class that support 
-		text/value conversion through the TypeConverter architecture. 
-		Classes that don't support this are serialized and stored with the 
-		mimetype set.
+        Each data row contains a name, and value. The row also contains a 
+        type or mimetype. Type corresponds to a .NET class that support 
+        text/value conversion through the TypeConverter architecture. 
+        Classes that don't support this are serialized and stored with the 
+        mimetype set.
 
-		The mimetype is used for serialized objects, and tells the 
-		ResXResourceReader how to depersist the object. This is currently not 
-		extensible. For a given mimetype the value must be set accordingly:
+        The mimetype is used for serialized objects, and tells the 
+        ResXResourceReader how to depersist the object. This is currently not 
+        extensible. For a given mimetype the value must be set accordingly:
 
-		Note - application/x-microsoft.net.object.binary.base64 is the format 
-		that the ResXResourceWriter will generate, however the reader can 
-		read any of the formats listed below.
+        Note - application/x-microsoft.net.object.binary.base64 is the format 
+        that the ResXResourceWriter will generate, however the reader can 
+        read any of the formats listed below.
 
-		mimetype: application/x-microsoft.net.object.binary.base64
-		value   : The object must be serialized with 
-						: System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-						: and then encoded with base64 encoding.
+        mimetype: application/x-microsoft.net.object.binary.base64
+        value   : The object must be serialized with 
+                        : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+                        : and then encoded with base64 encoding.
 
-		mimetype: application/x-microsoft.net.object.soap.base64
-		value   : The object must be serialized with 
-						: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-						: and then encoded with base64 encoding.
+        mimetype: application/x-microsoft.net.object.soap.base64
+        value   : The object must be serialized with 
+                        : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+                        : and then encoded with base64 encoding.
 
-		mimetype: application/x-microsoft.net.object.bytearray.base64
-		value   : The object must be serialized into a byte array 
-						: using a System.ComponentModel.TypeConverter
-						: and then encoded with base64 encoding.
-		-->
+        mimetype: application/x-microsoft.net.object.bytearray.base64
+        value   : The object must be serialized into a byte array 
+                        : using a System.ComponentModel.TypeConverter
+                        : and then encoded with base64 encoding.
+        -->
     <xsd:schema id="root" 
         xmlns="" 
         xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
@@ -120,10 +120,6 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-    <data name="NotesLabel" xml:space="preserve">
-        <value>Hiii:</value>
-        <comment>label for input field</comment>
-    </data>
     <data name="SettingsPageTitle" xml:space="preserve">
         <value>Settings</value>
         <comment>Label for the SettingsPage</comment>
@@ -200,7 +196,7 @@
         <value>Tabi</value>
     </data>
     <data name="IntroWelcomeText" xml:space="preserve">
-        <value>Welcome to the Tabi Verplaatsingen app. You will need to login with your credentials on the next screen.</value>
+        <value>Welcome to the Tabi Verplaatsingen app.</value>
     </data>
     <data name="ErrorOccurredTitle" xml:space="preserve">
         <value>Error</value>
@@ -212,16 +208,16 @@
         <value>Please check your username and password.</value>
     </data>
     <data name="LoginIntroTitle" xml:space="preserve">
-        <value>Login with credentials</value>
+        <value>Login with credentials from the letter</value>
     </data>
     <data name="LoginIntroText" xml:space="preserve">
-        <value>You need to login with the provided username and password to continue.</value>
+        <value>You need to login with the username and password provided in the letter to continue.</value>
     </data>
     <data name="LocationPermissionButton" xml:space="preserve">
         <value>Allow location access</value>
     </data>
     <data name="LocationPermissionTitle" xml:space="preserve">
-        <value>Location permission required</value>
+        <value>Location permissions</value>
     </data>
     <data name="LocationPermissionText" xml:space="preserve">
         <value>You need to give location access to the app so that we can use this to track your movements.</value>
@@ -251,7 +247,7 @@
         <value>No Internet Connection</value>
     </data>
     <data name="NoInternetConnectionText" xml:space="preserve">
-        <value>Tabi could not connect to the internet</value>
+        <value>The app could not connect to the internet</value>
     </data>
     <data name="CancelText" xml:space="preserve">
         <value>Cancel</value>
@@ -263,7 +259,7 @@
         <value>This will use your mobile connection to upload data. This may result in fees from your mobile operator.</value>
     </data>
     <data name="UploadDataErrorText" xml:space="preserve">
-        <value>Could not upload data. If this problem keeps occuring please contact support.</value>
+        <value>Could not upload data. Please contact WINhelpdesk@cbs.nl if this problem persists.</value>
     </data>
     <data name="UploadDataInProgress" xml:space="preserve">
         <value>Uploading data...</value>
@@ -290,7 +286,7 @@
         <value>Select transport modes</value>
     </data>
     <data name="TransportModeSelectionExplanation" xml:space="preserve">
-        <value>Please click the button above to fill in the transport mode(s) used during the trip currently on display. You can select multiple transport modes. </value>
+        <value>Please click the button 'Select transport modes' to fill in the transport mode(s) used during the trip currently on display. You can select multiple transport modes. This list may extend beyond your phone screen.</value>
     </data>
     <data name="BikeLabel" xml:space="preserve">
         <value>Bike</value>
@@ -332,7 +328,7 @@
         <value>Train</value>
     </data>
     <data name="NoDataInOverview" xml:space="preserve">
-        <value>There is no data available to show you. If this is today; wait a few minutes and pull to refresh the page.</value>
+        <value>There are no measurements from today. Have you been out already? Please wait a moment until we process your data and swipe down to refresh the page.</value>
     </data>
     <data name="DaySelectorPageTitle" xml:space="preserve">
         <value>Select day</value>
@@ -365,7 +361,7 @@
         <value>Your Location</value>
     </data>
     <data name="LocationIntroLabel" xml:space="preserve">
-        <value>This app needs your location.</value>
+        <value>This app needs your location to determine your trips.</value>
     </data>
     <data name="LocationSpecificiOSLabel" xml:space="preserve">
         <value>Please select "Always allow" for the app to function.</value>
@@ -383,7 +379,7 @@
         <value>Motion Data</value>
     </data>
     <data name="MotionIntroLabel" xml:space="preserve">
-        <value>This app needs your motion data. Your motion data (steps, transportmodes) are used to determine and collect the trips and stops you make.</value>
+        <value>This app needs your motion data. Your motion data (steps, transportmodes) are used to determine and collect your trips and the locations you visit.</value>
     </data>
     <data name="MotionPermissionButton" xml:space="preserve">
         <value>Allow motion access</value>
@@ -392,7 +388,7 @@
         <value>Thank you!</value>
     </data>
     <data name="ThanksText" xml:space="preserve">
-        <value>If you have any questions you can contact us here: winhelpdesk@cbs.nl</value>
+        <value>If you have any questions you can contact us here: WINhelpdesk@cbs.nl</value>
     </data>
     <data name="Yesterday" xml:space="preserve">
         <value>Yesterday</value>
@@ -404,7 +400,7 @@
         <value>Sensors</value>
     </data>
     <data name="StopSectionLabel" xml:space="preserve">
-        <value>Stop</value>
+        <value>Location</value>
     </data>
     <data name="StopNameLabel" xml:space="preserve">
         <value>Name</value>
@@ -419,28 +415,28 @@
         <value>Save</value>
     </data>
     <data name="StopNamePageTitle" xml:space="preserve">
-        <value>Stop name</value>
+        <value>Location name</value>
     </data>
     <data name="SetStopNameHint" xml:space="preserve">
-        <value>Set a stop name</value>
+        <value>Location name, for example 'work', 'home', 'supermarket'. This name is meant as an aid for yourself.</value>
     </data>
     <data name="SetStopMotiveHint" xml:space="preserve">
-        <value>Set a motive</value>
+        <value>What did you do there?</value>
     </data>
     <data name="StopDetailPageExplanation" xml:space="preserve">
-        <value>Please fill in the name of your stop and the reason/motive why you were at the stop.</value>
+        <value>Please fill in the name of your location and the reason/motive why you were at the location.</value>
     </data>
     <data name="StopMotivePageTitle" xml:space="preserve">
-        <value>Stop motive</value>
+        <value>Location motive</value>
     </data>
     <data name="LoadingDataLabel" xml:space="preserve">
         <value>Loading data...</value>
     </data>
     <data name="APIUnavailableTitle" xml:space="preserve">
-        <value>API Unavailable</value>
+        <value>Connection error</value>
     </data>
     <data name="APIUnavailableText" xml:space="preserve">
-        <value>Could not connect to the API. Contact support if this persists.</value>
+        <value>Could not connect. Please contact WINhelpdesk@cbs if this persists.</value>
     </data>
     <data name="ApiUrlLabel" xml:space="preserve">
         <value>API URL</value>
@@ -476,22 +472,22 @@
         <value>Motive</value>
     </data>
     <data name="SetTrackMotiveHint" xml:space="preserve">
-        <value>Set a motive</value>
+        <value>What did you do there?</value>
     </data>
     <data name="TrackMotivePageTitle" xml:space="preserve">
-        <value>Trip Motive</value>
+        <value>Motive</value>
     </data>
     <data name="PossibleStopsSectionLabel" xml:space="preserve">
-        <value>Or select a nearby stop previously used</value>
+        <value>Or select a nearby location previously used</value>
     </data>
     <data name="ChangeAllStopNamesLabel" xml:space="preserve">
         <value>Change name in previous visits</value>
     </data>
     <data name="ReplaceWithExistingStopTitle" xml:space="preserve">
-        <value>Stop name change</value>
+        <value>Location name change</value>
     </data>
     <data name="ReplaceWithExistingStopText" xml:space="preserve">
-        <value>Would you like to change the name to the previously visited stop {0}?</value>
+        <value>Would you like to change the name to the previously visited location {0}?</value>
     </data>
     <data name="ReplaceWithExistingStopOkText" xml:space="preserve">
         <value>Change name</value>
@@ -503,7 +499,7 @@
         <value>End</value>
     </data>
     <data name="UnsetStopName" xml:space="preserve">
-        <value>Stop</value>
+        <value>Location</value>
     </data>
     <data name="SkipTour" xml:space="preserve">
         <value>Skip</value>
@@ -512,40 +508,34 @@
         <value>Next</value>
     </data>
     <data name="StopTourTitle" xml:space="preserve">
-        <value>Add names to stops</value>
+        <value>Add names to locations</value>
     </data>
     <data name="StopTourText" xml:space="preserve">
-        <value>Select a stop and set a name</value>
+        <value>Select a location and set a name, for example 'home', 'work', 'school (kids)', 'supermarket'. This name is meant as an aid for yourself.</value>
     </data>
     <data name="MotiveTourTitle" xml:space="preserve">
-        <value>Add a motive</value>
+        <value>Select what you did there.</value>
     </data>
     <data name="MotiveTourText" xml:space="preserve">
-        <value>Select a stop or trip and add a motive to it</value>
+        <value>Select a location and specify what you did there.</value>
     </data>
     <data name="TransportModeTourTitle" xml:space="preserve">
         <value>Add transport modes</value>
     </data>
     <data name="TransportModeTourText" xml:space="preserve">
-        <value>Open a trip and select the transportation modes used</value>
+        <value>Click on a vertical bar and specify which transportation modes you used.</value>
     </data>
     <data name="SettingsTourTitle" xml:space="preserve">
         <value>Settings</value>
     </data>
     <data name="SettingsTourText" xml:space="preserve">
-        <value>You can disable data collection in Settings and/or upload your data</value>
+        <value>Pause and resume app.</value>
     </data>
     <data name="LangCode" xml:space="preserve">
         <value>en</value>
     </data>
     <data name="ShowTour" xml:space="preserve">
-        <value>Show tour</value>
-    </data>
-    <data name="OtherMotiveText" xml:space="preserve">
-        <value>Other...</value>
-    </data>
-    <data name="SearchMotivesLabel" xml:space="preserve">
-        <value>Search motives</value>
+        <value>Show short manual</value>
     </data>
     <data name="PaidWorkMotiveText" xml:space="preserve">
         <value>Paid work, business</value>
@@ -572,10 +562,88 @@
         <value>Get or bring goods</value>
     </data>
     <data name="OtherMotiveText" xml:space="preserve">
-        <value>Something else..</value>
+        <value>Other...</value>
+    </data>
+    <data name="SearchMotivesLabel" xml:space="preserve">
+        <value>Search motives</value>
     </data>
     <data name="CreateCustomMotive" xml:space="preserve">
         <value>Use "{0}"</value>
+    </data>
+    <data name="volunteeringMotiveText" xml:space="preserve">
+        <value>Volunteering</value>
+    </data>
+    <data name="informal_careMotiveText" xml:space="preserve">
+        <value>Informal care</value>
+    </data>
+    <data name="personal_careMotiveText" xml:space="preserve">
+        <value>Personal care (hairdresser, beautician)</value>
+    </data>
+    <data name="doctorMotiveText" xml:space="preserve">
+        <value>Visit to doctor, therapist or medical specialist</value>
+    </data>
+    <data name="religionMotiveText" xml:space="preserve">
+        <value>Service or gathering in church, mosque, temple</value>
+    </data>
+    <data name="tourMotiveText" xml:space="preserve">
+        <value>Touring, walking, bike ride</value>
+    </data>
+    <data name="hobbyMotiveText" xml:space="preserve">
+        <value>Hobby</value>
+    </data>
+    <data name="going_outMotiveText" xml:space="preserve">
+        <value>Going out, museum, cinema, concert, festival</value>
+    </data>
+    <data name="cateringMotiveText" xml:space="preserve">
+        <value>Catering (including take-away)</value>
+    </data>
+    <data name="holidaysMotiveText" xml:space="preserve">
+        <value>Holidays</value>
+    </data>
+    <data name="HomeMotiveText" xml:space="preserve">
+        <value>Home (not applicable)</value>
+    </data>
+    <data name="TransportSelectionPageTitle" xml:space="preserve">
+        <value>Select transport modes</value>
+    </data>
+    <data name="StartAppReminderTitle" xml:space="preserve">
+        <value>Movement tracking is not active</value>
+    </data>
+    <data name="StartAppReminderText" xml:space="preserve">
+        <value>The app needs to be open for it to track your movements. Please open the Tabi Verplaatsingen app.</value>
+    </data>
+    <data name="AnalyticsSwitchLabel" xml:space="preserve">
+        <value>Analytics</value>
+    </data>
+    <data name="CrashesSwitchLabel" xml:space="preserve">
+        <value>Send crash reports</value>
+    </data>
+    <data name="DataPrivacySettings" xml:space="preserve">
+        <value>Data and privacy settings</value>
+    </data>
+    <data name="DataPrivacyCrashesSectionLabel" xml:space="preserve">
+        <value>Crashes and errors</value>
+    </data>
+    <data name="DataPrivacyCrashesSectionExplanation" xml:space="preserve">
+        <value>Allow the app to send crashdata so that we can improve the app.</value>
+    </data>
+    <data name="DataPrivacyAnalyticsSectionLabel" xml:space="preserve">
+        <value>Analytics</value>
+    </data>
+    <data name="DataPrivacyAnalyticsSectionExplanation" xml:space="preserve">
+        <value>We use analytics to see which pages are opened, how many people are using the app. This data helps us during crashes so we can see what happened before the crash.</value>
+    </data>
+    <data name="DataPrivacySettingsTitle" xml:space="preserve">
+        <value>Data &amp; Privacy</value>
+    </data>
+    <data name="DataPrivacyDataSyncSectionLabel" xml:space="preserve">
+        <value>Data upload</value>
+    </data>
+    <data name="AutoDataUploadSwitchLabel" xml:space="preserve">
+        <value>Automatically send data</value>
+    </data>
+    <data name="DataUploadWifiOnlySwitchLabel" xml:space="preserve">
+        <value>Use WiFi only</value>
     </data>
     <data name="CBS110001MotiveText" xml:space="preserve">
         <value>Activities in house / house / apartment</value>
@@ -2775,80 +2843,5 @@
     </data>
     <data name="CBS999990MotiveText" xml:space="preserve">
         <value>Something different (another activity)</value>
-    </data>
-    <data name="volunteeringMotiveText" xml:space="preserve">
-        <value>Volunteering</value>
-    </data>
-    <data name="informal_careMotiveText" xml:space="preserve">
-        <value>Informal care</value>
-    </data>
-    <data name="personal_careMotiveText" xml:space="preserve">
-        <value>Personal care (hairdresser, beautician)</value>
-    </data>
-    <data name="doctorMotiveText" xml:space="preserve">
-        <value>Visit to doctor, therapist or medical specialist</value>
-    </data>
-    <data name="religionMotiveText" xml:space="preserve">
-        <value>Service or gathering in church, mosque, temple</value>
-    </data>
-    <data name="tourMotiveText" xml:space="preserve">
-        <value>Touring, walking, bike ride</value>
-    </data>
-    <data name="hobbyMotiveText" xml:space="preserve">
-        <value>Hobby</value>
-    </data>
-    <data name="going_outMotiveText" xml:space="preserve">
-        <value>Going out, museum, cinema, concert, festival</value>
-    </data>
-    <data name="cateringMotiveText" xml:space="preserve">
-        <value> Catering (including take-away)</value>
-    </data>
-    <data name="holidaysMotiveText" xml:space="preserve">
-        <value>Holidays</value>
-    </data>
-    <data name="HomeMotiveText" xml:space="preserve">
-        <value>Home (not applicable)</value>
-    </data>
-    <data name="TransportSelectionPageTitle" xml:space="preserve">
-        <value>Select transport modes</value>
-    </data>
-    <data name="StartAppReminderTitle" xml:space="preserve">
-        <value>Movement tracking is not active</value>
-    </data>
-    <data name="StartAppReminderText" xml:space="preserve">
-        <value>Tabi needs to be open for it to track your movements. Please open the Tabi Verplaatsingen app.</value>
-    </data>
-    <data name="AnalyticsSwitchLabel" xml:space="preserve">
-        <value>Analytics</value>
-    </data>
-    <data name="CrashesSwitchLabel" xml:space="preserve">
-        <value>Send crash reports</value>
-    </data>
-    <data name="DataPrivacySettings" xml:space="preserve">
-        <value>Data and privacy settings</value>
-    </data>
-    <data name="DataPrivacyCrashesSectionLabel" xml:space="preserve">
-        <value>Crashes and errors</value>
-    </data>
-    <data name="DataPrivacyCrashesSectionExplanation" xml:space="preserve">
-        <value>Allow the app to send crashdata so that we can improve the app.</value>
-    </data>
-    <data name="DataPrivacyAnalyticsSectionLabel" xml:space="preserve">
-        <value>Analytics</value>
-    </data>
-    <data name="DataPrivacyAnalyticsSectionExplanation" xml:space="preserve">
-        <value>We use analytics to see which pages are opened, how many people are using the app. This data helps us during crashes so we can see what happened before the crash.</value>
-    </data>
-    <data name="DataPrivacySettingsTitle" xml:space="preserve">
-        <value>Data &amp; Privacy</value>
-    </data>
-    <data name="DataPrivacyDataSyncSectionLabel" xml:space="preserve">
-        <value>Data upload</value>
-    </data>
-    <data name="AutoDataUploadSwitchLabel" xml:space="preserve">
-        <value>Automatically send data</value>
-    </data>
-    <data name="DataUploadWifiOnlySwitchLabel" xml:space="preserve">
-        <value>Use WiFi only</value>
     </data>
 </root>
