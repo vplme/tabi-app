@@ -12,10 +12,6 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-    <data name="NotesLabel" xml:space="preserve">
-        <value>Notitie:</value>
-        <comment>Notitie label</comment>
-    </data>
     <data name="SettingsPageTitle" xml:space="preserve">
         <value>Instellingen</value>
         <comment>Label for the SettingsPage</comment>
@@ -92,7 +88,7 @@
         <value>Tabi</value>
     </data>
     <data name="IntroWelcomeText" xml:space="preserve">
-        <value>Welkom bij de Tabi Verplaatsingen app.</value>
+        <value>Welkom bij de Verplaatsingen app.</value>
     </data>
     <data name="ErrorOccurredTitle" xml:space="preserve">
         <value>Fout</value>
@@ -101,22 +97,22 @@
         <value>Inloggen mislukt</value>
     </data>
     <data name="LoginFailureText" xml:space="preserve">
-        <value>Check uw inloggegevens.</value>
+        <value>Controleer uw inloggegevens.</value>
     </data>
     <data name="LoginIntroTitle" xml:space="preserve">
-        <value>Login met uw gegevens</value>
+        <value>Login met de inlogcodes uit de brief</value>
     </data>
     <data name="LoginIntroText" xml:space="preserve">
-        <value>Om deze app te gebruiken en deel te nemen aan de test moet u inloggen met de inloggegevens die u gekregen heeft.</value>
+        <value>Om deze app te gebruiken moet u inloggen met de inlogcodes uit de brief.</value>
     </data>
     <data name="LocationPermissionButton" xml:space="preserve">
-        <value>Sta locatiegegevens toe</value>
+        <value>Sta het meten van locatie toe</value>
     </data>
     <data name="LocationPermissionTitle" xml:space="preserve">
         <value>Locatiegegevens</value>
     </data>
     <data name="LocationPermissionText" xml:space="preserve">
-        <value>De app heeft uw locatiegegevens nodig om de verplaatsingen te kunnen bepalen.</value>
+        <value>De app heeft uw locatiegegevens nodig om uw verplaatsingen te kunnen bepalen.</value>
     </data>
     <data name="UploadDataLabel" xml:space="preserve">
         <value>Data</value>
@@ -143,7 +139,7 @@
         <value>Geen internetverbinding</value>
     </data>
     <data name="NoInternetConnectionText" xml:space="preserve">
-        <value>Tabi kon geen verbinding maken met het internet</value>
+        <value>De app kon geen verbinding maken met het internet</value>
     </data>
     <data name="CancelText" xml:space="preserve">
         <value>Annuleer</value>
@@ -152,10 +148,10 @@
         <value>Mobiele data</value>
     </data>
     <data name="MobileDataUsageText" xml:space="preserve">
-        <value>Er wordt gebruik gemaakt van mobiele data om de gegevens te versturen. Dit kan resulteren in kosten van uw provider.</value>
+        <value>Er wordt gebruik gemaakt van mobiele data om de gegevens te versturen. Uw provider kan u mogelijk extra kosten in rekening brengen.</value>
     </data>
     <data name="UploadDataErrorText" xml:space="preserve">
-        <value>Kon data niet uploaden. Neem contact op met support wanneer u dit probleem blijft ondervinden.</value>
+        <value>Kon data niet uploaden. Neem contact op met WINhelpdesk@cbs.nl als u dit probleem blijft houden.</value>
     </data>
     <data name="UploadDataInProgress" xml:space="preserve">
         <value>Data uploaden...</value>
@@ -182,7 +178,7 @@
         <value>Kies Vervoermiddelen</value>
     </data>
     <data name="TransportModeSelectionExplanation" xml:space="preserve">
-        <value>Gebruikt u alstublieft het bovenstaande knopje om de vervoermiddelen die u tijdens de verplaatsing heeft benut aan te geven. U kunt meerdere vervoermiddelen tegelijk kiezen. </value>
+        <value>Gebruik de knop ‘kies vervoermiddelen’ om de gebruikte vervoermiddelen te kiezen. U kunt meerdere vervoermiddelen tegelijk kiezen. Let op: de lijst is mogelijk langer dan uw scherm. </value>
     </data>
     <data name="BikeLabel" xml:space="preserve">
         <value>Fiets</value>
@@ -224,7 +220,7 @@
         <value>Trein</value>
     </data>
     <data name="NoDataInOverview" xml:space="preserve">
-        <value>Er is nog geen data beschikbaar. Als het vandaag is, wacht u eventjes nog een paar minuten en swipe naar beneden om de pagina te updaten.</value>
+        <value>Er zijn van vandaag nog geen waarden gemeten. Bent u wel weg geweest? Een ogenblik geduld aub. Swipe naar beneden om de pagina te vernieuwen. </value>
     </data>
     <data name="DaySelectorPageTitle" xml:space="preserve">
         <value>Kies dag</value>
@@ -275,7 +271,7 @@
         <value>Beweging en conditie</value>
     </data>
     <data name="MotionIntroLabel" xml:space="preserve">
-        <value>De app heeft toegang nodig tot de bewegingsdata van de telefoon. De bewegingsdata (stappen, type transport) worden gebruikt om trips en stops te bepalen.</value>
+        <value>De app heeft toegang nodig tot de bewegingsdata van de telefoon. De bewegingsdata (stappen, type transport) worden gebruikt om verplaatsingen en locaties te bepalen.</value>
     </data>
     <data name="MotionPermissionButton" xml:space="preserve">
         <value>Sta bewegingsdata toe</value>
@@ -284,13 +280,19 @@
         <value>Bedankt!</value>
     </data>
     <data name="ThanksText" xml:space="preserve">
-        <value>Als je nog vragen hebt kan je contact opnemen met: winhelpdesk@cbs.nl</value>
+        <value>Als u nog vragen hebt kunt u contact opnemen met: WINhelpdesk@cbs.nl</value>
     </data>
     <data name="Yesterday" xml:space="preserve">
         <value>Gisteren</value>
     </data>
     <data name="Settings" xml:space="preserve">
         <value>Instellingen</value>
+    </data>
+    <data name="SensorMeasurementsSwitchLabel" xml:space="preserve">
+        <value>Sensoren</value>
+    </data>
+    <data name="StopSectionLabel" xml:space="preserve">
+        <value>Locatie</value>
     </data>
     <data name="StopNameLabel" xml:space="preserve">
         <value>Naam</value>
@@ -304,32 +306,35 @@
     <data name="SaveText" xml:space="preserve">
         <value>Opslaan</value>
     </data>
+    <data name="StopNamePageTitle" xml:space="preserve">
+        <value>Locatie naam</value>
+    </data>
     <data name="SetStopNameHint" xml:space="preserve">
-        <value>Vul stopnaam in</value>
+        <value>Naam van de locatie, bv. ‘werk’, ‘thuis’, ‘supermarkt’. Deze naam is slechts beodeld als hulpmiddel voor uzelf.</value>
     </data>
     <data name="SetStopMotiveHint" xml:space="preserve">
-        <value>Vul stopmotief in</value>
+        <value>Wat bent u daar gaan doen?</value>
     </data>
     <data name="StopDetailPageExplanation" xml:space="preserve">
-        <value>Vul de naam van de huidige stop in en vul de reden (motief) van de stop in.</value>
+        <value>Vul de naam van de huidige locatie in en vul de reden (motief) van de locatie in.</value>
     </data>
     <data name="StopMotivePageTitle" xml:space="preserve">
-        <value>Stopmotief</value>
+        <value>Locatiemotief</value>
     </data>
     <data name="LoadingDataLabel" xml:space="preserve">
         <value>Data laden...</value>
     </data>
     <data name="APIUnavailableTitle" xml:space="preserve">
-        <value>API niet beschikbaar</value>
+        <value>Verbindingsfout</value>
     </data>
     <data name="APIUnavailableText" xml:space="preserve">
-        <value>Kon geen verbinding maken met de api. Neem contact op met support als dit zo blijft.</value>
+        <value>Kon geen verbinding maken. Neem contact op met WINhelpdesk@cbs.nl als dit zo blijft.</value>
     </data>
     <data name="ApiUrlLabel" xml:space="preserve">
         <value>API URL</value>
     </data>
     <data name="LastSyncLabel" xml:space="preserve">
-        <value>Laatste sync</value>
+        <value>Laatste upload</value>
     </data>
     <data name="TimeAgoLessThanAMinute" xml:space="preserve">
         <value>minder dan 1 minuut geleden</value>
@@ -353,28 +358,28 @@
         <value>vorige dag</value>
     </data>
     <data name="NextDay" xml:space="preserve">
-        <value>volgende dag</value>
+        <value>volgende day</value>
     </data>
     <data name="TrackMotiveLabel" xml:space="preserve">
         <value>Motief</value>
     </data>
     <data name="SetTrackMotiveHint" xml:space="preserve">
-        <value>Geef een motief op</value>
+        <value>Wat bent u daar gaan doen?</value>
     </data>
     <data name="TrackMotivePageTitle" xml:space="preserve">
-        <value>Tripmotief</value>
+        <value>Motief</value>
     </data>
     <data name="PossibleStopsSectionLabel" xml:space="preserve">
-        <value>Of selecteer eerder gebruikte stop dichtbij</value>
+        <value>Of selecteer eerder gebruikte locatie dichtbij</value>
     </data>
     <data name="ChangeAllStopNamesLabel" xml:space="preserve">
         <value>Verander naam bij andere bezoeken aan deze locatie</value>
     </data>
     <data name="ReplaceWithExistingStopTitle" xml:space="preserve">
-        <value>Stopnaam wijziging</value>
+        <value>Locatienaam wijziging</value>
     </data>
     <data name="ReplaceWithExistingStopText" xml:space="preserve">
-        <value>Naam veranderen naar de eerder bezochte stop {0}?</value>
+        <value>Naam veranderen naar de eerder bezochte locatie {0}?</value>
     </data>
     <data name="ReplaceWithExistingStopOkText" xml:space="preserve">
         <value>Verander naam</value>
@@ -386,7 +391,7 @@
         <value>Eindpunt</value>
     </data>
     <data name="UnsetStopName" xml:space="preserve">
-        <value>Stop</value>
+        <value>Locatie</value>
     </data>
     <data name="SkipTour" xml:space="preserve">
         <value>Overslaan</value>
@@ -395,34 +400,34 @@
         <value>Volgende</value>
     </data>
     <data name="StopTourTitle" xml:space="preserve">
-        <value>Geef namen aan stops</value>
+        <value>Geef namen aan locaties</value>
     </data>
     <data name="StopTourText" xml:space="preserve">
-        <value>Druk op een stop en geef een naam op</value>
+        <value>Druk op een locatie en geef deze een naam, bijvoorbeeld ‘thuis’, ‘werk’, ‘school kinderen’, ‘supermarkt’. Deze naam is slechts bedoeld als hulpmiddel voor uzelf.</value>
     </data>
     <data name="MotiveTourTitle" xml:space="preserve">
-        <value>Vul een motief in</value>
+        <value>Klik aan wat u daar bent gaan doen.</value>
     </data>
     <data name="MotiveTourText" xml:space="preserve">
-        <value>Druk op een stop of een trip en geef een motief aan</value>
+        <value>Druk op een locatie en geef aan wat u daar bent gaan doen.</value>
     </data>
     <data name="TransportModeTourTitle" xml:space="preserve">
-        <value>Geef een vervoersmiddel op</value>
+        <value>Gebruikte vervoermiddelen</value>
     </data>
     <data name="TransportModeTourText" xml:space="preserve">
-        <value>Open een trip en kies welke vervoersmiddelen er zijn gebruikt</value>
+        <value>Klik op de verticale balk en kies welke vervoermiddelen u heeft gebruikt.</value>
     </data>
     <data name="SettingsTourTitle" xml:space="preserve">
         <value>Instellingen</value>
     </data>
     <data name="SettingsTourText" xml:space="preserve">
-        <value>Mogelijkheid om de datacollectie uit te zetten en upload data te starten</value>
+        <value>App pauzeren of hervatten.</value>
     </data>
     <data name="LangCode" xml:space="preserve">
         <value>nl</value>
     </data>
     <data name="ShowTour" xml:space="preserve">
-        <value>Bekijk introtour</value>
+        <value>Bekijk korte handleiding</value>
     </data>
     <data name="PaidWorkMotiveText" xml:space="preserve">
         <value>Betaald werk, zakelijk</value>
@@ -456,6 +461,81 @@
     </data>
     <data name="CreateCustomMotive" xml:space="preserve">
         <value>Gebruik "{0}"</value>
+    </data>
+    <data name="volunteeringMotiveText" xml:space="preserve">
+        <value>Vrijwilligerswerk</value>
+    </data>
+    <data name="informal_careMotiveText" xml:space="preserve">
+        <value>Mantelzorg</value>
+    </data>
+    <data name="personal_careMotiveText" xml:space="preserve">
+        <value>Persoonlijke verzorging (kapper, schoonheidsspecialist)</value>
+    </data>
+    <data name="doctorMotiveText" xml:space="preserve">
+        <value>Bezoek aan arts, therapeut of medisch specialist</value>
+    </data>
+    <data name="religionMotiveText" xml:space="preserve">
+        <value>Dienst of bijeenkomst in kerk, moskee, tempel</value>
+    </data>
+    <data name="tourMotiveText" xml:space="preserve">
+        <value>Touren, wandelen, rondje fietsen</value>
+    </data>
+    <data name="hobbyMotiveText" xml:space="preserve">
+        <value>Hobby</value>
+    </data>
+    <data name="going_outMotiveText" xml:space="preserve">
+        <value>Uitgaan, museum, bioscoop, concert, festival</value>
+    </data>
+    <data name="cateringMotiveText" xml:space="preserve">
+        <value>Horeca (ook afhaal)</value>
+    </data>
+    <data name="holidaysMotiveText" xml:space="preserve">
+        <value>Vakantie</value>
+    </data>
+    <data name="HomeMotiveText" xml:space="preserve">
+        <value>Thuis (niet van toepassing)</value>
+    </data>
+    <data name="TransportSelectionPageTitle" xml:space="preserve">
+        <value>Selecteer vervoersmiddel(en)</value>
+    </data>
+    <data name="StartAppReminderTitle" xml:space="preserve">
+        <value>Verplaatsingen meten is niet actief</value>
+    </data>
+    <data name="StartAppReminderText" xml:space="preserve">
+        <value>De app moet open zijn om verplaatsingen te meten. Open alstublieft de app Tabi Verplaatsingen.</value>
+    </data>
+    <data name="AnalyticsSwitchLabel" xml:space="preserve">
+        <value>Analytics</value>
+    </data>
+    <data name="CrashesSwitchLabel" xml:space="preserve">
+        <value>Stuur crashes</value>
+    </data>
+    <data name="DataPrivacySettings" xml:space="preserve">
+        <value>Data en privacy</value>
+    </data>
+    <data name="DataPrivacyCrashesSectionLabel" xml:space="preserve">
+        <value>Crashes en errors</value>
+    </data>
+    <data name="DataPrivacyCrashesSectionExplanation" xml:space="preserve">
+        <value>Sta toe om crashrapportages te versturen. Hiermee kunnen wij de app verbeteren.</value>
+    </data>
+    <data name="DataPrivacyAnalyticsSectionLabel" xml:space="preserve">
+        <value>Analytics</value>
+    </data>
+    <data name="DataPrivacyAnalyticsSectionExplanation" xml:space="preserve">
+        <value>Analytics wordt gebruikt om te kijken hoe de app gebruikt wordt. Dit helpt ons vooral bij crashes.</value>
+    </data>
+    <data name="DataPrivacySettingsTitle" xml:space="preserve">
+        <value>Data &amp; Privacy</value>
+    </data>
+    <data name="DataPrivacyDataSyncSectionLabel" xml:space="preserve">
+        <value>Data upload</value>
+    </data>
+    <data name="AutoDataUploadSwitchLabel" xml:space="preserve">
+        <value>Automatisch data versturen</value>
+    </data>
+    <data name="DataUploadWifiOnlySwitchLabel" xml:space="preserve">
+        <value>Gebruik alleen WiFi</value>
     </data>
     <data name="CBS110001MotiveText" xml:space="preserve">
         <value>Activiteiten in eigen huis/woning/appartement</value>
@@ -2655,80 +2735,5 @@
     </data>
     <data name="CBS999990MotiveText" xml:space="preserve">
         <value>Iets anders (een andere activiteit)</value>
-    </data>
-    <data name="volunteeringMotiveText" xml:space="preserve">
-        <value>Vrijwilligerswerk</value>
-    </data>
-    <data name="informal_careMotiveText" xml:space="preserve">
-        <value>Mantelzorg</value>
-    </data>
-    <data name="personal_careMotiveText" xml:space="preserve">
-        <value>Persoonlijke verzorging (kapper, schoonheidsspecialist)</value>
-    </data>
-    <data name="doctorMotiveText" xml:space="preserve">
-        <value>Bezoek aan arts, therapeut of medisch specialist</value>
-    </data>
-    <data name="religionMotiveText" xml:space="preserve">
-        <value>Dienst of bijeenkomst in kerk, moskee, tempel</value>
-    </data>
-    <data name="tourMotiveText" xml:space="preserve">
-        <value>Touren, wandelen, rondje fietsen</value>
-    </data>
-    <data name="hobbyMotiveText" xml:space="preserve">
-        <value>Hobby</value>
-    </data>
-    <data name="going_outMotiveText" xml:space="preserve">
-        <value>Uitgaan, museum, bioscoop, concert, festival</value>
-    </data>
-    <data name="cateringMotiveText" xml:space="preserve">
-        <value>Horeca (ook afhaal)</value>
-    </data>
-    <data name="holidaysMotiveText" xml:space="preserve">
-        <value>Vakantie</value>
-    </data>
-    <data name="HomeMotiveText" xml:space="preserve">
-        <value>Thuis (niet van toepassing)</value>
-    </data>
-    <data name="TransportSelectionPageTitle" xml:space="preserve">
-        <value>Selecteer vervoersmiddel(en)</value>
-    </data>
-    <data name="StartAppReminderTitle" xml:space="preserve">
-        <value>Verplaatsingen meten is niet actief</value>
-    </data>
-    <data name="StartAppReminderText" xml:space="preserve">
-        <value>Tabi moet open zijn om verplaatsingen te meten. Open alstublieft de Tabi Verplaatsingen.</value>
-    </data>
-    <data name="AnalyticsSwitchLabel" xml:space="preserve">
-        <value>Analytics</value>
-    </data>
-    <data name="CrashesSwitchLabel" xml:space="preserve">
-        <value>Stuur crashes</value>
-    </data>
-    <data name="DataPrivacySettings" xml:space="preserve">
-        <value>Data en privacy</value>
-    </data>
-    <data name="DataPrivacyCrashesSectionLabel" xml:space="preserve">
-        <value>Crashes en errors</value>
-    </data>
-    <data name="DataPrivacyCrashesSectionExplanation" xml:space="preserve">
-        <value>Sta toe om crashrapportages te versturen. Hiermee kunnen wij de app verbeteren.</value>
-    </data>
-    <data name="DataPrivacyAnalyticsSectionLabel" xml:space="preserve">
-        <value>Analytics</value>
-    </data>
-    <data name="DataPrivacyAnalyticsSectionExplanation" xml:space="preserve">
-        <value>Analytics wordt gebruikt om te kijken hoe de app gebruikt wordt. Dit helpt ons vooral bij crashes.</value>
-    </data>
-    <data name="DataPrivacySettingsTitle" xml:space="preserve">
-        <value>Data &amp; Privacy</value>
-    </data>
-    <data name="DataPrivacyDataSyncSectionLabel" xml:space="preserve">
-        <value>Data upload</value>
-    </data>
-    <data name="AutoDataUploadSwitchLabel" xml:space="preserve">
-        <value>Automatisch data versturen</value>
-    </data>
-    <data name="DataUploadWifiOnlySwitchLabel" xml:space="preserve">
-        <value>Gebruik alleen WiFi</value>
     </data>
 </root>
