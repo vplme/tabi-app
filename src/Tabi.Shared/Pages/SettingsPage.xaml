@@ -84,6 +84,51 @@
                             <control:FooterDivider />
                         </StackLayout>
                     </control:CardView>
+                    <control:CardView IsVisible="{Binding Configuration.Support.Available}">
+                        <StackLayout Spacing="0">
+                            <control:LabelSection Text="{i18n:Translate SupportSectionLabel}" />
+                            <control:HeaderDivider />
+                            <Grid Padding="{DynamicResource LargerPadding}" ColumnSpacing="0" BackgroundColor="White">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SendSupportEmailCommand}" />
+                                </Grid.GestureRecognizers>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Style="{DynamicResource TabiListItemTextStyle}" Text="{i18n:Translate SendSupportEmailLabel}" />
+                                <Label Grid.Column="1" VerticalTextAlignment="Center" Style="{DynamicResource TabiListItemDetailTextStyle}"
+                                     Text="{Binding Configuration.Support.Email}" />
+                            </Grid>
+                            <control:SettingsSectionDivider />
+                            <Grid Padding="{DynamicResource LargerPadding}" ColumnSpacing="0" BackgroundColor="White">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SendSupportCallCommand}" />
+                                </Grid.GestureRecognizers>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Style="{DynamicResource TabiListItemTextStyle}" Text="{i18n:Translate SendSupportCallLabel}" />
+                                <Label Grid.Column="1" VerticalTextAlignment="Center" Style="{DynamicResource TabiListItemDetailTextStyle}"
+                                     Text="{Binding Configuration.Support.DisplayPhoneNumber}" />
+                            </Grid>
+                            <control:SettingsSectionDivider />
+                            <Grid Padding="{DynamicResource LargerPadding}" ColumnSpacing="0" BackgroundColor="White">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding OpenSupportWebsiteCommand}" />
+                                </Grid.GestureRecognizers>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Style="{DynamicResource TabiListItemTextStyle}" Text="{i18n:Translate OpenSupportWebsiteLabel}" />
+                                <Label Grid.Column="1" VerticalTextAlignment="Center" Style="{DynamicResource TabiListItemDetailTextStyle}"
+                                     Text="{Binding Configuration.Support.DisplayUrl}" />
+                            </Grid>
+                            <control:FooterDivider />
+                        </StackLayout>
+                    </control:CardView>
                     <control:CardView>
                         <StackLayout Spacing="0">
                             <control:LabelSection Text="{i18n:Translate AboutSectionLabel}" />
@@ -99,26 +144,16 @@
                                 <Label Grid.Column="0" Style="{DynamicResource TabiListItemTextStyle}" Text="{i18n:Translate VersionLabel}" />
                                 <Label Grid.Column="1" Style="{DynamicResource TabiListItemDetailTextStyle}" VerticalTextAlignment="Center"
                                      Text="{Binding VersionText}" />
-                            </Grid>
+                            </Grid>                           
                             <control:SettingsSectionDivider />
                             <Grid Padding="{DynamicResource LargerPadding}" ColumnSpacing="0" BackgroundColor="White">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding AppAboutCommand}" />
+                                </Grid.GestureRecognizers>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" Style="{DynamicResource TabiListItemTextStyle}" Text="{i18n:Translate DeviceIdLabel}" />
-                                <Label Grid.Column="1" Style="{DynamicResource TabiListItemDetailTextStyle}" VerticalTextAlignment="Center"
-                                     Text="{Binding Settings.Device}" />
-                            </Grid>
-                            <control:SettingsSectionDivider />
-                            <Grid Padding="{DynamicResource LargerPadding}" ColumnSpacing="0" BackgroundColor="White">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" Style="{DynamicResource TabiListItemTextStyle}" Text="{i18n:Translate ApiUrlLabel}" />
-                                <Label Grid.Column="1" VerticalTextAlignment="Center" Style="{DynamicResource TabiListItemDetailTextStyle}"
-                                     Text="{Binding ApiUrl}" />
+                                <Label Grid.Column="0" Style="{DynamicResource TabiListItemTextStyle}" Text="{i18n:Translate AboutSettings}" />
                             </Grid>
                             <control:FooterDivider />
                             <StackLayout>

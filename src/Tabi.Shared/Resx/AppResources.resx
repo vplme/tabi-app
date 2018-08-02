@@ -10,7 +10,7 @@
         various data types are done through the TypeConverter classes 
         associated with the data types.
 
-        Example:
+		Example:
 
         ... ado.net/XML headers & schema ...
         <resheader name="resmimetype">text/microsoft-resx</resheader>
@@ -26,9 +26,6 @@
                 <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
                 <comment>This is a comment</comment>
         </data>
-
-        There are any number of "resheader" rows that contain simple 
-        name/value pairs.
 
         Each data row contains a name, and value. The row also contains a 
         type or mimetype. Type corresponds to a .NET class that support 
@@ -569,81 +566,6 @@
     </data>
     <data name="CreateCustomMotive" xml:space="preserve">
         <value>Use "{0}"</value>
-    </data>
-    <data name="volunteeringMotiveText" xml:space="preserve">
-        <value>Volunteering</value>
-    </data>
-    <data name="informal_careMotiveText" xml:space="preserve">
-        <value>Informal care</value>
-    </data>
-    <data name="personal_careMotiveText" xml:space="preserve">
-        <value>Personal care (hairdresser, beautician)</value>
-    </data>
-    <data name="doctorMotiveText" xml:space="preserve">
-        <value>Visit to doctor, therapist or medical specialist</value>
-    </data>
-    <data name="religionMotiveText" xml:space="preserve">
-        <value>Service or gathering in church, mosque, temple</value>
-    </data>
-    <data name="tourMotiveText" xml:space="preserve">
-        <value>Touring, walking, bike ride</value>
-    </data>
-    <data name="hobbyMotiveText" xml:space="preserve">
-        <value>Hobby</value>
-    </data>
-    <data name="going_outMotiveText" xml:space="preserve">
-        <value>Going out, museum, cinema, concert, festival</value>
-    </data>
-    <data name="cateringMotiveText" xml:space="preserve">
-        <value>Catering (including take-away)</value>
-    </data>
-    <data name="holidaysMotiveText" xml:space="preserve">
-        <value>Holidays</value>
-    </data>
-    <data name="HomeMotiveText" xml:space="preserve">
-        <value>Home (not applicable)</value>
-    </data>
-    <data name="TransportSelectionPageTitle" xml:space="preserve">
-        <value>Select transport modes</value>
-    </data>
-    <data name="StartAppReminderTitle" xml:space="preserve">
-        <value>Movement tracking is not active</value>
-    </data>
-    <data name="StartAppReminderText" xml:space="preserve">
-        <value>The app needs to be open for it to track your movements. Please open the Tabi Verplaatsingen app.</value>
-    </data>
-    <data name="AnalyticsSwitchLabel" xml:space="preserve">
-        <value>Analytics</value>
-    </data>
-    <data name="CrashesSwitchLabel" xml:space="preserve">
-        <value>Send crash reports</value>
-    </data>
-    <data name="DataPrivacySettings" xml:space="preserve">
-        <value>Data and privacy settings</value>
-    </data>
-    <data name="DataPrivacyCrashesSectionLabel" xml:space="preserve">
-        <value>Crashes and errors</value>
-    </data>
-    <data name="DataPrivacyCrashesSectionExplanation" xml:space="preserve">
-        <value>Allow the app to send crashdata so that we can improve the app.</value>
-    </data>
-    <data name="DataPrivacyAnalyticsSectionLabel" xml:space="preserve">
-        <value>Analytics</value>
-    </data>
-    <data name="DataPrivacyAnalyticsSectionExplanation" xml:space="preserve">
-        <value>We use analytics to see which pages are opened, how many people are using the app. This data helps us during crashes so we can see what happened before the crash.</value>
-    </data>
-    <data name="DataPrivacySettingsTitle" xml:space="preserve">
-        <value>Data &amp; Privacy</value>
-    </data>
-    <data name="DataPrivacyDataSyncSectionLabel" xml:space="preserve">
-        <value>Data upload</value>
-    </data>
-    <data name="AutoDataUploadSwitchLabel" xml:space="preserve">
-        <value>Automatically send data</value>
-    </data>
-    <data name="DataUploadWifiOnlySwitchLabel" xml:space="preserve">
-        <value>Use WiFi only</value>
     </data>
     <data name="CBS110001MotiveText" xml:space="preserve">
         <value>Activities in house / house / apartment</value>
@@ -2843,5 +2765,158 @@
     </data>
     <data name="CBS999990MotiveText" xml:space="preserve">
         <value>Something different (another activity)</value>
+    </data>
+    <data name="volunteeringMotiveText" xml:space="preserve">
+        <value>Volunteering</value>
+    </data>
+    <data name="informal_careMotiveText" xml:space="preserve">
+        <value>Informal care</value>
+    </data>
+    <data name="personal_careMotiveText" xml:space="preserve">
+        <value>Personal care (hairdresser, beautician)</value>
+    </data>
+    <data name="doctorMotiveText" xml:space="preserve">
+        <value>Visit to doctor, therapist or medical specialist</value>
+    </data>
+    <data name="religionMotiveText" xml:space="preserve">
+        <value>Service or gathering in church, mosque, temple</value>
+    </data>
+    <data name="tourMotiveText" xml:space="preserve">
+        <value>Touring, walking, bike ride</value>
+    </data>
+    <data name="hobbyMotiveText" xml:space="preserve">
+        <value>Hobby</value>
+    </data>
+    <data name="going_outMotiveText" xml:space="preserve">
+        <value>Going out, museum, cinema, concert, festival</value>
+    </data>
+    <data name="cateringMotiveText" xml:space="preserve">
+        <value> Catering (including take-away)</value>
+    </data>
+    <data name="holidaysMotiveText" xml:space="preserve">
+        <value>Holidays</value>
+    </data>
+    <data name="HomeMotiveText" xml:space="preserve">
+        <value>Home (not applicable)</value>
+    </data>
+    <data name="TransportSelectionPageTitle" xml:space="preserve">
+        <value>Select transport modes</value>
+    </data>
+    <data name="StartAppReminderTitle" xml:space="preserve">
+        <value>Movement tracking is not active</value>
+    </data>
+    <data name="StartAppReminderText" xml:space="preserve">
+        <value>Tabi needs to be open for it to track your movements. Please open the Tabi Verplaatsingen app.</value>
+    </data>
+    <data name="AnalyticsSwitchLabel" xml:space="preserve">
+        <value>Analytics</value>
+    </data>
+    <data name="CrashesSwitchLabel" xml:space="preserve">
+        <value>Send crash reports</value>
+    </data>
+    <data name="DataPrivacySettings" xml:space="preserve">
+        <value>Data and privacy settings</value>
+    </data>
+    <data name="DataPrivacyCrashesSectionLabel" xml:space="preserve">
+        <value>Crashes and errors</value>
+    </data>
+    <data name="DataPrivacyCrashesSectionExplanation" xml:space="preserve">
+        <value>Allow the app to send crashdata so that we can improve the app.</value>
+    </data>
+    <data name="DataPrivacyAnalyticsSectionLabel" xml:space="preserve">
+        <value>Analytics</value>
+    </data>
+    <data name="DataPrivacyAnalyticsSectionExplanation" xml:space="preserve">
+        <value>We use analytics to see which pages are opened, how many people are using the app. This data helps us during crashes so we can see what happened before the crash.</value>
+    </data>
+    <data name="DataPrivacySettingsTitle" xml:space="preserve">
+        <value>Data &amp; Privacy</value>
+    </data>
+    <data name="DataPrivacyDataSyncSectionLabel" xml:space="preserve">
+        <value>Data upload</value>
+    </data>
+    <data name="AutoDataUploadSwitchLabel" xml:space="preserve">
+        <value>Automatically send data</value>
+    </data>
+    <data name="DataUploadWifiOnlySwitchLabel" xml:space="preserve">
+        <value>Use WiFi only</value>
+    </data>
+    <data name="AboutSettings" xml:space="preserve">
+        <value>More information</value>
+    </data>
+    <data name="AboutSettingsTitle" xml:space="preserve">
+        <value>About the app</value>
+    </data>
+    <data name="SendSupportCallLabel" xml:space="preserve">
+        <value>Call support desk</value>
+    </data>
+    <data name="SendSupportEmailLabel" xml:space="preserve">
+        <value>Email support desk</value>
+    </data>
+    <data name="OpenSupportWebsiteLabel" xml:space="preserve">
+        <value>Open support website</value>
+    </data>
+    <data name="DeviceUnsupportedTitle" xml:space="preserve">
+        <value>Not Supported</value>
+    </data>
+    <data name="DeviceUnsupportedText" xml:space="preserve">
+        <value>Your device does not support this feature.</value>
+    </data>
+    <data name="SupportSectionLabel" xml:space="preserve">
+        <value>Support</value>
+    </data>
+    <data name="LicensesLabel" xml:space="preserve">
+        <value>Open Source Licenses</value>
+    </data>
+    <data name="CustomTransportModeText" xml:space="preserve">
+        <value>Something else</value>
+    </data>
+    <data name="SetCustomTransportModeHint" xml:space="preserve">
+        <value>Horse, airplane, boat</value>
+    </data>
+    <data name="SetCustomTransportModeTitle" xml:space="preserve">
+        <value>Add new transport mode</value>
+    </data>
+    <data name="SetCustomTransportModeLabel" xml:space="preserve">
+        <value>Transport mode</value>
+    </data>
+    <data name="CommaRestrictionTitle" xml:space="preserve">
+        <value>Text is restricted</value>
+    </data>
+    <data name="CommaRestrictionText" xml:space="preserve">
+        <value>You can not use a ',' in your transportation mode</value>
+    </data>
+    <data name="WalkTransportText" xml:space="preserve">
+        <value>Walking</value>
+    </data>
+    <data name="BikeNonElectricTransportText" xml:space="preserve">
+        <value>Bike, non electric</value>
+    </data>
+    <data name="BikeElectricTransportText" xml:space="preserve">
+        <value>Bike, electric</value>
+    </data>
+    <data name="PublicBusTransportText" xml:space="preserve">
+        <value>Bus (public transport only)</value>
+    </data>
+    <data name="TramTransportText" xml:space="preserve">
+        <value>Tram</value>
+    </data>
+    <data name="MetroTransportText" xml:space="preserve">
+        <value>Metro</value>
+    </data>
+    <data name="TrainTransportText" xml:space="preserve">
+        <value>Train</value>
+    </data>
+    <data name="CarDriverTransportText" xml:space="preserve">
+        <value>Car as driver</value>
+    </data>
+    <data name="CarPassengerTransportText" xml:space="preserve">
+        <value>Car as passenger</value>
+    </data>
+    <data name="VanTransportText" xml:space="preserve">
+        <value>Van</value>
+    </data>
+    <data name="MotorbikeTransportText" xml:space="preserve">
+        <value>Motorbike</value>
     </data>
 </root>

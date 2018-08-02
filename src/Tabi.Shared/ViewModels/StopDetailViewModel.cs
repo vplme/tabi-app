@@ -16,10 +16,9 @@ namespace Tabi.ViewModels
     public class StopDetailViewModel : ObservableObject
     {
         private readonly IRepoManager _repoManager;
-
         private readonly StopVisit _stopVisit;
-
         private readonly INavigation _navigation;
+        private readonly MotiveConfiguration _motiveConfig;
 
         private ListItem _nameListItem;
 
@@ -27,18 +26,12 @@ namespace Tabi.ViewModels
 
         public ObservableRangeCollection<ListItem> DataItems { get; private set; }
 
-        public StopDetailViewModel(TabiConfiguration configuration, IRepoManager repoManager, INavigation navigation, StopVisit stopVisit)
+        public StopDetailViewModel(MotiveConfiguration motiveConfig, IRepoManager repoManager, INavigation navigation, StopVisit stopVisit)
         {
             _repoManager = repoManager ?? throw new ArgumentNullException(nameof(repoManager));
             _stopVisit = stopVisit ?? throw new ArgumentNullException(nameof(stopVisit));
             _navigation = navigation ?? throw new ArgumentNullException(nameof(navigation));
-
-            // Find an existing Motive for the current stopvisit.
-            Motive stopMotive = _repoManager.MotiveRepository.GetByStopVisitId(_stopVisit.Id);
-            // Initialize a new motive since the ViewModel needs one.
-            stopMotive = stopMotive ?? new Motive() { StopVisitId = _stopVisit.Id };
-
-            Motive = new StopMotiveViewModel(stopMotive, configuration.Motive);
+            _motiveConfig = motiveConfig ?? throw new ArgumentNullException(nameof(motiveConfig));
 
             StopVisit = new StopVisitViewModel(stopVisit);
 
@@ -63,6 +56,26 @@ namespace Tabi.ViewModels
                 Command = OpenStopNameCommand
             };
 
+            DataItems.Add(_nameListItem);
+
+            StopVisit.PropertyChanged += StopVisit_PropertyChanged;
+
+            if (_motiveConfig.Stops)
+            {
+                PrepareForMotive();
+            }
+
+        }
+
+        private void PrepareForMotive()
+        {
+            // Find an existing Motive for the current stopvisit.
+            Motive stopMotive = _repoManager.MotiveRepository.GetByStopVisitId(_stopVisit.Id);
+            // Initialize a new motive since the ViewModel needs one.
+            stopMotive = stopMotive ?? new Motive() { StopVisitId = _stopVisit.Id };
+
+            Motive = new StopMotiveViewModel(stopMotive, _motiveConfig);
+
             _motiveListItem = new ListItem()
             {
                 Name = AppResources.StopMotiveLabel,
@@ -70,12 +83,9 @@ namespace Tabi.ViewModels
                 Command = OpenStopMotiveCommand
             };
 
-            DataItems.Add(_nameListItem);
             DataItems.Add(_motiveListItem);
 
             Motive.PropertyChanged += MotiveViewModel_PropertyChanged;
-            StopVisit.PropertyChanged += StopVisit_PropertyChanged;
-
         }
 
         public StopMotiveViewModel Motive { get; private set; }

@@ -94,7 +94,7 @@ namespace Tabi
             SetupLocationManager();
             SetupSensorManager();
 
-            Developer = TabiConfig.Developer;
+            Developer = TabiConfig.App.Developer;
             DebugMode = Developer;
 #if DEBUG
             DebugMode = true;
@@ -148,8 +148,7 @@ namespace Tabi
                             .WithParameter("apiLocation", TabiConfig.Api.Url)
                             .WithParameter("gzip", TabiConfig.Api.GzipRequests);
 
-            containerBuilder.RegisterInstance(TabiConfig).As<TabiConfiguration>();
-            containerBuilder.RegisterInstance(TabiConfig.UserInterface).As<UserInterfaceConfiguration>();
+            TabiConfig.ConfigureContainer(containerBuilder);
 
             containerBuilder.RegisterType<DateService>().SingleInstance();
             containerBuilder.RegisterType<DataResolver>();
@@ -179,6 +178,7 @@ namespace Tabi
             containerBuilder.RegisterType<TrackDetailViewModel>();
             containerBuilder.RegisterType<TrackDetailMotiveViewModel>();
             containerBuilder.RegisterType<TransportSelectionViewModel>();
+            containerBuilder.RegisterType<CustomTransportSelectionViewModel>();
 
             containerBuilder.RegisterType<StopDetailViewModel>();
             containerBuilder.RegisterType<StopDetailNameViewModel>();
