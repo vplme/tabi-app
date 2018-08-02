@@ -22,8 +22,11 @@ namespace Tabi.ViewModels
                 {
                     await Acr.UserDialogs.UserDialogs.Instance.AlertAsync(AppResources.CommaRestrictionText, AppResources.CommaRestrictionTitle, AppResources.OkText);
                 }
-                activeItems.Add(new Model.TransportModeItem() { Id = Text, Name = Text }, true);
-                await _navigation.PopModalAsync();
+                else
+                {
+                    activeItems.Add(new Model.TransportModeItem() { Id = Text, Name = Text }, true);
+                    await _navigation.PopModalAsync();
+                }
             });
 
             CancelCommand = new Command(async () =>
