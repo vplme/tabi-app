@@ -16,7 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Tabi.DataObjects\Tabi.DataObjects.csproj" />
-    <ProjectReference Include="..\Tabi.Shared\Tabi.Shared.csproj" />
     <ProjectReference Include="..\Tabi.DataStorage\Tabi.DataStorage.csproj" />
+    <ProjectReference Include="..\Tabi\Tabi.csproj" />
   </ItemGroup>
 </Project>
