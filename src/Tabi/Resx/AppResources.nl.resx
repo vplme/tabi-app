@@ -310,7 +310,7 @@
         <value>Locatie naam</value>
     </data>
     <data name="SetStopNameHint" xml:space="preserve">
-        <value>Werk, thuis, supermarkt. </value>
+        <value>Bijv. werk, thuis, supermarkt. </value>
     </data>
     <data name="SetStopMotiveHint" xml:space="preserve">
         <value>Wat bent u daar gaan doen?</value>

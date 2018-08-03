@@ -415,7 +415,7 @@
         <value>Location name</value>
     </data>
     <data name="SetStopNameHint" xml:space="preserve">
-        <value>Work, home, supermarket</value>
+        <value>For example work, home, supermarket</value>
     </data>
     <data name="SetStopMotiveHint" xml:space="preserve">
         <value>What did you do there?</value>
