@@ -234,7 +234,11 @@ namespace Tabi.ViewModels
                 stringBuilder.AppendLine("==========================");
                 stringBuilder.AppendLine("Tabi Verplaatsingen app");
                 stringBuilder.AppendLine($"Version: {VersionTracking.CurrentVersion} ({VersionTracking.CurrentBuild})");
+                stringBuilder.AppendLine($"Platform: {DeviceInfo.Platform} ({DeviceInfo.VersionString})");
+                stringBuilder.AppendLine($"Model: {DeviceInfo.Manufacturer} ({DeviceInfo.Model})");
+                stringBuilder.AppendLine($"API URL: {_config.Api.Url}");
                 stringBuilder.AppendLine($"Device ID: {Settings.Device}");
+                stringBuilder.AppendLine($"Username: {Settings.Username}");
 
                 List<string> to = new List<string>() { _config.Support.Email };
 
