@@ -487,7 +487,7 @@
         <value>Location name change</value>
     </data>
     <data name="ReplaceWithExistingStopText" xml:space="preserve">
-        <value>Would you like to change the name to the previously visited location {0}?</value>
+        <value>Would you like to change the name to the previously visited location "{0}"?</value>
     </data>
     <data name="ReplaceWithExistingStopOkText" xml:space="preserve">
         <value>Change name</value>

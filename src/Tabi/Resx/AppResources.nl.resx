@@ -382,7 +382,7 @@
         <value>Locatienaam wijziging</value>
     </data>
     <data name="ReplaceWithExistingStopText" xml:space="preserve">
-        <value>Naam veranderen naar de eerder bezochte locatie {0}?</value>
+        <value>Naam veranderen naar de eerder bezochte locatie "{0}"?</value>
     </data>
     <data name="ReplaceWithExistingStopOkText" xml:space="preserve">
         <value>Verander naam</value>
