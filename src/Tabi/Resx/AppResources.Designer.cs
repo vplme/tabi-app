@@ -203,6 +203,12 @@ namespace Tabi.Resx {
             }
         }
         
+        public static string LoginIntroSubtitle {
+            get {
+                return ResourceManager.GetString("LoginIntroSubtitle", resourceCulture);
+            }
+        }
+        
         public static string LoginIntroText {
             get {
                 return ResourceManager.GetString("LoginIntroText", resourceCulture);

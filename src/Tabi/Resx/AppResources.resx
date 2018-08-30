@@ -205,7 +205,10 @@
         <value>Please check your username and password.</value>
     </data>
     <data name="LoginIntroTitle" xml:space="preserve">
-        <value>Login with credentials from the letter</value>
+        <value>Login</value>
+    </data>
+    <data name="LoginIntroSubtitle" xml:space="preserve">
+        <value>Use your credentials from the letter</value>
     </data>
     <data name="LoginIntroText" xml:space="preserve">
         <value>You need to login with the username and password provided in the letter to continue.</value>

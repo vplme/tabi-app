@@ -100,7 +100,10 @@
         <value>Controleer uw inloggegevens.</value>
     </data>
     <data name="LoginIntroTitle" xml:space="preserve">
-        <value>Login met de inlogcodes uit de brief</value>
+        <value>Login</value>
+    </data>
+    <data name="LoginIntroSubtitle" xml:space="preserve">
+        <value>Gebruik de inlogcodes uit de brief</value>
     </data>
     <data name="LoginIntroText" xml:space="preserve">
         <value>Om deze app te gebruiken moet u inloggen met de inlogcodes uit de brief.</value>
