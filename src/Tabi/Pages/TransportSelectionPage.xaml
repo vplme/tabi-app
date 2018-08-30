@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-     xmlns:local="clr-namespace:Tabi;assembly=Tabi" xmlns:i18n="clr-namespace:Tabi.Localization;assembly=Tabi"
-     xmlns:control="clr-namespace:Tabi.Controls;assembly=Tabi"
-     xmlns:effects="clr-namespace:Tabi.Effects;assembly=Tabi"
-     xmlns:multiSelectListView="clr-namespace:Tabi.Controls.MultiSelectListView;assembly=Tabi"
-     x:Class="Tabi.Pages.TransportSelectionPage"
-     BackgroundColor="{DynamicResource WindowBackgroundTable}" Title="{i18n:Translate TransportSelectionPageTitle}">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Tabi;assembly=Tabi"
+     xmlns:i18n="clr-namespace:Tabi.Localization;assembly=Tabi" xmlns:control="clr-namespace:Tabi.Controls;assembly=Tabi"
+     xmlns:effects="clr-namespace:Tabi.Effects;assembly=Tabi" xmlns:multiSelectListView="clr-namespace:Tabi.Controls.MultiSelectListView;assembly=Tabi"
+     x:Class="Tabi.Pages.TransportSelectionPage" BackgroundColor="{DynamicResource WindowBackgroundTable}" Title="{i18n:Translate TransportSelectionPageTitle}">
     <ContentPage.Content>
         <ScrollView BackgroundColor="{DynamicResource WindowBackgroundTable}">
             <StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}" Spacing="{DynamicResource CardSpacing}"
@@ -14,7 +11,8 @@
                     <StackLayout Spacing="0">
                         <control:LabelSection Text="{i18n:Translate SearchMotivesLabel}" />
                         <control:HeaderDivider />
-                        <ListView x:Name="TransportModeListView" Margin="0" ItemsSource="{Binding Items}" multiSelectListView:MultiSelectListView.IsMultiSelect="true">
+                        <ListView x:Name="TransportModeListView" Margin="0" ItemsSource="{Binding Items}"
+                             multiSelectListView:MultiSelectListView.IsMultiSelect="true">
                             <ListView.SeparatorColor>
                                 <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}" />
                             </ListView.SeparatorColor>
@@ -49,7 +47,8 @@
                             </ListView.ItemTemplate>
                         </ListView>
                         <control:SettingsSectionDivider />
-                        <StackLayout IsVisible="{Binding TransportModeConfiguration.CustomTransportModes}" Padding="{DynamicResource LargerPadding}" BackgroundColor="White">
+                        <StackLayout IsVisible="{Binding TransportModeConfiguration.CustomTransportModes}" Padding="{DynamicResource LargerPadding}"
+                             BackgroundColor="White">
                             <FlexLayout.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding CustomTransportModeCommand}" />
                             </FlexLayout.GestureRecognizers>
@@ -61,7 +60,8 @@
                                     <On Platform="Android" Value="true" />
                                 </OnPlatform>
                             </FlexLayout.IsVisible>
-                            <Button FlexLayout.Basis="100%" Text="{i18n:Translate SaveText}" Command="{Binding SaveCommand}" />
+                            <Button FlexLayout.Basis="100%" Text="{i18n:Translate SaveText}" Command="{Binding SaveCommand}"
+                                 Style="{StaticResource defaultButtonStyle}" />
                         </FlexLayout>
                         <control:FooterDivider />
                     </StackLayout>
