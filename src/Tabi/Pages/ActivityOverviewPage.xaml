@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
      xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:local="clr-namespace:Tabi;assembly=Tabi"
-     xmlns:i18n="clr-namespace:Tabi.Localization;assembly=Tabi"
-     xmlns:converters="clr-namespace:Tabi.Converters;assembly=Tabi"
-     xmlns:controls="clr-namespace:Tabi.Controls;assembly=Tabi"
-     xmlns:effects="clr-namespace:Tabi.Effects;assembly=Tabi"
-     x:Class="Tabi.Pages.ActivityOverviewPage" Title="{Binding Title}"
-     ios:Page.LargeTitleDisplay="Always" IsBusy="{Binding IsBusy}">
+     xmlns:i18n="clr-namespace:Tabi.Localization;assembly=Tabi" xmlns:converters="clr-namespace:Tabi.Converters;assembly=Tabi"
+     xmlns:controls="clr-namespace:Tabi.Controls;assembly=Tabi" xmlns:effects="clr-namespace:Tabi.Effects;assembly=Tabi"
+     x:Class="Tabi.Pages.ActivityOverviewPage" Title="{Binding Title}" ios:Page.LargeTitleDisplay="Always" IsBusy="{Binding IsBusy}">
     <ContentPage.Resources>
         <ResourceDictionary>
             <converters:NegateBoolConverter x:Key="inverter" />
@@ -37,7 +34,7 @@
                     </OnPlatform>
                 </BoxView.IsVisible>
             </BoxView>
-<!--            <BoxView Color="White" HorizontalOptions="FillAndExpand" IsVisible="{Binding IsBusy, Converter={StaticResource inverter}}"
+            <!--            <BoxView Color="White" HorizontalOptions="FillAndExpand" IsVisible="{Binding IsBusy, Converter={StaticResource inverter}}"
                  HeightRequest="{DynamicResource statusBoxHeight}">
             </BoxView>-->
             <FlexLayout Wrap="Wrap" JustifyContent="Center" Direction="Row" HeightRequest="{DynamicResource statusBoxHeight}" IsVisible="{Binding IsBusy}"
@@ -76,7 +73,30 @@
                 </ListView.Effects>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <controls:ActivityOverviewCell />
+                        <ViewCell>
+                            <StackLayout Padding="0" Spacing="0">
+                                <StackLayout IsVisible="{Binding ShowStop}" Orientation="Horizontal" Padding="0, 10, 0, 10">
+                                    <Image WidthRequest="50" HeightRequest="50" Source="noun_map_pin" />
+                                    <StackLayout Padding="0, 5, 0, 0" Orientation="Vertical">
+                                        <Label x:Name="textLabel" VerticalOptions="Center" TextColor="#000000" FontSize="20" Text="{Binding StopName}" />
+                                        <Label x:Name="detailLabel" VerticalOptions="Center" TextColor="#000000" FontSize="13" Text="{Binding Time}" />
+                                    </StackLayout>
+                                    <Image IsVisible="{Binding Completed}" WidthRequest="40" HeightRequest="40" Source="tabi_check"
+                                         HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Margin="0, 0, 10, 0" />
+                                    <Image IsVisible="{Binding Completed, Converter={StaticResource inverter}}}" WidthRequest="40" HeightRequest="40"
+                                         Source="tabi_edit" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Margin="0, 0, 10, 0" />
+                                </StackLayout>
+                                <StackLayout IsVisible="{Binding ShowTrack}" VerticalOptions="FillAndExpand" Orientation="Horizontal" Spacing="0"
+                                     Padding="16,0,0,0">
+                                    <BoxView Color="{Binding Track.Color}" WidthRequest="15" HorizontalOptions="Center" HeightRequest="{Binding Track.Height}" />
+                                    <Label Margin="20, 0, 0, 0" VerticalOptions="Center" Text="{Binding Track.Text}" />
+                                    <Image IsVisible="{Binding Completed}" WidthRequest="40" HeightRequest="40" Source="tabi_check"
+                                         HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Margin="0, 0, 10, 0" />
+                                    <Image IsVisible="{Binding Completed, Converter={StaticResource inverter}}}" WidthRequest="40" HeightRequest="40"
+                                         Source="tabi_edit" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Margin="0, 0, 10, 0" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </controls:UnanimatedListView>

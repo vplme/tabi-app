@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
@@ -22,6 +22,7 @@ namespace Tabi.ViewModels
     {
         public ObservableCollection<ActivityEntry> ActivityEntries { get; } = new ObservableCollection<ActivityEntry>();
 
+        private readonly MotiveConfiguration _motiveConfiguration;
         private readonly INavigation _navigation;
         private readonly DataResolver _dataResolver;
         private readonly DateService _dateService;
@@ -97,8 +98,9 @@ namespace Tabi.ViewModels
             }
         }
 
-        public ActivityOverviewViewModel(INavigation navigation, DateService dateService, IRepoManager repoManager, DataResolver dataResolver)
+        public ActivityOverviewViewModel(MotiveConfiguration motiveConfiguration, INavigation navigation, DateService dateService, IRepoManager repoManager, DataResolver dataResolver)
         {
+            _motiveConfiguration = motiveConfiguration ?? throw new ArgumentNullException(nameof(motiveConfiguration));
             _navigation = navigation ?? throw new ArgumentNullException(nameof(navigation));
             _dataResolver = dataResolver ?? throw new ArgumentNullException(nameof(dataResolver));
             _dateService = dateService ?? throw new ArgumentNullException(nameof(dateService));
@@ -189,6 +191,8 @@ namespace Tabi.ViewModels
                     stopDictionary.Add(sv.StopId, sv.Stop);
                 }
 
+                ae.Completed = sv.Stop.Name != null && _repoManager.MotiveRepository.GetByStopVisitId(sv.Id) != null;
+
                 DateTimeOffset beginTimestampLocal = sv.BeginTimestamp.ToLocalTime();
                 DateTimeOffset endTimestampLocal = sv.EndTimestamp.ToLocalTime();
                 DateTimeOffset startDateLocal = startDate.ToLocalTime();
@@ -231,6 +235,11 @@ namespace Tabi.ViewModels
                                 Text = $"{Math.Round(te.DistanceTravelled / 1000, 1)} km",
                             },
                         };
+
+                        bool transportsSelected = _repoManager.TransportationModeRepository.GetLastWithTrackEntry(te.Id) != null;
+                        bool motiveFilledIn = !_motiveConfiguration.Tracks || _repoManager.MotiveRepository.GetByTrackId(te.Id) != null;
+                        tAe.Completed = transportsSelected && motiveFilledIn;
+
                         newActivityEntries.Add(tAe);
                     }
                     catch (Exception e)

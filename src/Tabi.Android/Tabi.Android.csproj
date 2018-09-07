@@ -548,6 +548,14 @@
     <AndroidResource Include="Resources\raw\tour_video_stop_name_nl.mp4" />
     <AndroidResource Include="Resources\raw\tour_video_transportmode_en.mp4" />
     <AndroidResource Include="Resources\raw\tour_video_transportmode_nl.mp4" />
+    <AndroidResource Include="Resources\drawable-mdpi\tabi_check.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\tabi_delete.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\tabi_edit.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\tabi_undotrash.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\tabi_check.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\tabi_delete.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\tabi_edit.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\tabi_undotrash.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Tabbar.axml" />

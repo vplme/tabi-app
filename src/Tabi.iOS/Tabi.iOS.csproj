@@ -196,6 +196,14 @@
     <BundleResource Include="Resources\tour_video_settings_en.mp4" />
     <BundleResource Include="Resources\tour_video_stop_motive_en.mp4" />
     <BundleResource Include="Resources\tour_video_stop_motive_nl.mp4" />
+    <BundleResource Include="Resources\tabi_check%402x.png" />
+    <BundleResource Include="Resources\tabi_check.png" />
+    <BundleResource Include="Resources\tabi_edit%402x.png" />
+    <BundleResource Include="Resources\tabi_edit.png" />
+    <BundleResource Include="Resources\tabi_delete%402x.png" />
+    <BundleResource Include="Resources\tabi_delete.png" />
+    <BundleResource Include="Resources\tabi_undotrash%402x.png" />
+    <BundleResource Include="Resources\tabi_undotrash.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SQLiteNetExtensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">

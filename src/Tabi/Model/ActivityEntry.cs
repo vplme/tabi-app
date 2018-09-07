@@ -1,4 +1,4 @@
-﻿using System.Windows.Input;
+using System.Windows.Input;
 using MvvmHelpers;
 using Tabi.Resx;
 
@@ -52,6 +52,8 @@ namespace Tabi.Model
         }
 
         public Track Track { get; set; }
+
+        public bool Completed { get; set; }
 
         public bool ShowTrack => Track != null;
 
