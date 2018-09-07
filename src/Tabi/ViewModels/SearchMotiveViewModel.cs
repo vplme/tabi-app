@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using MvvmHelpers;
@@ -47,6 +47,7 @@ namespace Tabi.ViewModels
                     OnPropertyChanged(nameof(CustomMotiveText));
                     SetupMotive(searchText);
                     CustomMotiveVisible = SearchText.Length > 0;
+                    OtherMotivesVisible = SearchText.Length > 2;
                 }
             };
         }
@@ -71,7 +72,6 @@ namespace Tabi.ViewModels
                 }
             }
 
-            OtherMotivesVisible = PossibleMotives.Count > 0;
         }
 
         public async Task SelectMotive(MotiveOptionViewModel motiveOptionView)

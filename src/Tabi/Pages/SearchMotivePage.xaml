@@ -16,8 +16,12 @@
                 <BoxView Color="Black" HeightRequest="1" HorizontalOptions="FillAndExpand" />
                 <control:CardView>
                     <StackLayout Spacing="0">
-                        <control:LabelSection Text="{i18n:Translate SearchMotivesLabel}" />
-                        <control:HeaderDivider />
+                        <StackLayout IsVisible="{Binding CustomMotiveVisible}" Padding="{DynamicResource LargerPadding}" BackgroundColor="White">
+                            <FlexLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding CustomMotiveCommand}" />
+                            </FlexLayout.GestureRecognizers>
+                            <Label Margin="0" Style="{DynamicResource TabiListItemTextStyle}" Text="{Binding CustomMotiveText}" />
+                        </StackLayout>
                         <ListView IsVisible="{Binding OtherMotivesVisible}" Margin="0" x:Name="PossibleMotivesListView" ItemsSource="{Binding PossibleMotives}"
                              ItemSelected="Handle_ItemSelected">
                             <ListView.SeparatorColor>
@@ -50,12 +54,6 @@
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
-                        <StackLayout IsVisible="{Binding CustomMotiveVisible}" Padding="{DynamicResource LargerPadding}" BackgroundColor="White">
-                            <FlexLayout.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding CustomMotiveCommand}" />
-                            </FlexLayout.GestureRecognizers>
-                            <Label Margin="0" Style="{DynamicResource TabiListItemTextStyle}" Text="{Binding CustomMotiveText}" />
-                        </StackLayout>
                     </StackLayout>
                 </control:CardView>
             </StackLayout>
