@@ -27,6 +27,7 @@ namespace Tabi.iOS.PlatformImplementations
         private CoreLocationProfile _currentCoreLocationProfile;
         private ProfileiOS _currentProfile;
 
+        private PositionEntry previousPositionEntry;
         private DateTime _lastLocation;
 
         private PositionCache _positionCache = new PositionCache();
@@ -89,6 +90,7 @@ namespace Tabi.iOS.PlatformImplementations
             foreach (CLLocation l in e.Locations)
             {
                 PositionEntry p = l.ToPosition();
+
                 p.DesiredAccuracy = _clManager.DesiredAccuracy;
 
                 _positionCache.Distance = _currentProfile.DistanceDeltaLowTracking;
@@ -115,7 +117,14 @@ namespace Tabi.iOS.PlatformImplementations
                     ApplyCoreLocationProfile(_currentCoreLocationProfile);
                 }
 
-                _positionEntryRepo.Add(p);
+
+                // Do not store location twice if it has exact same properties.
+                if (!p.Equals(previousPositionEntry))
+                {
+                    _positionEntryRepo.Add(p);
+                }
+
+                previousPositionEntry = p;
             }
         }
 

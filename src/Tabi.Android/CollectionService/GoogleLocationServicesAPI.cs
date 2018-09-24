@@ -28,6 +28,7 @@ namespace Tabi.Droid
         private readonly ProfileAndroid currentProfile;
         private LocationRequestProfile currentRequestProfile;
         private readonly PositionCache positionCache = new PositionCache();
+        private PositionEntry previousPositionEntry;
 
         public GoogleLocationServicesAPI()
         {
@@ -102,8 +103,10 @@ namespace Tabi.Droid
                 RestartLocationUpdates();
             }
 
-
-            positionEntryRepository.Add(positionEntry);
+            if (!positionEntry.Equals(previousPositionEntry))
+            {
+                positionEntryRepository.Add(positionEntry);
+            }
         }
 
         void GoogleApiClient.IOnConnectionFailedListener.OnConnectionFailed(ConnectionResult result)
