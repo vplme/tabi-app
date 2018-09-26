@@ -11,6 +11,11 @@ namespace Tabi.Droid
 			p.Accuracy = location.Accuracy;
 			p.Latitude = location.Latitude;
 			p.Longitude = location.Longitude;
+
+            p.Course = location.Bearing;
+
+            p.Altitude = location.Altitude;
+            p.VerticalAccuracy = location.VerticalAccuracyMeters;
 			p.Speed = location.Speed;
 	        p.Timestamp = Util.TimeLongToDateTime(location.Time);
             return p;

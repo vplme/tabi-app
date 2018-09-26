@@ -11,9 +11,14 @@ namespace Tabi.iOS.Helpers
             p.Accuracy = location.HorizontalAccuracy;
             p.Latitude = location.Coordinate.Latitude;
             p.Longitude = location.Coordinate.Longitude;
+
             p.Speed = location.Speed;
-            p.Timestamp = location.Timestamp.ToDateTime();
+            p.Course = location.Course;
+
             p.Altitude = location.Altitude;
+            p.VerticalAccuracy = location.VerticalAccuracy;
+
+            p.Timestamp = location.Timestamp.ToDateTime();
 
             return p;
         }

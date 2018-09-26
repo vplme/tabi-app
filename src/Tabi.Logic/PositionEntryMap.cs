@@ -9,7 +9,6 @@ namespace Tabi.Logic
         public PositionEntryMap()
         {
             Map(m => m.Id).Ignore();
-            Map(m => m.DeviceId).Name("device_id");
             Map(m => m.Latitude).Name("latitude");
             Map(m => m.Longitude).Name("longitude");
             Map(m => m.Accuracy).Name("accuracy");
