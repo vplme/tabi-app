@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" Title="{i18n:Translate TrackDetailPageTitle}" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-     xmlns:i18n="clr-namespace:Tabi.Localization;assembly=Tabi" xmlns:local="clr-namespace:Tabi;assembly=Tabi"
-     xmlns:control="clr-namespace:Tabi.Controls;assembly=Tabi"
-     xmlns:effects="clr-namespace:Tabi.Effects;assembly=Tabi"
-     ios:Page.LargeTitleDisplay="Never" x:Class="Tabi.Pages.TrackDetailPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" Title="{i18n:Translate TrackDetailPageTitle}" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:i18n="clr-namespace:Tabi.Localization;assembly=Tabi" xmlns:local="clr-namespace:Tabi;assembly=Tabi" xmlns:control="clr-namespace:Tabi.Controls;assembly=Tabi" xmlns:converters="clr-namespace:Tabi.Converters;assembly=Tabi" xmlns:effects="clr-namespace:Tabi.Effects;assembly=Tabi" ios:Page.LargeTitleDisplay="Never"
+    x:Class="Tabi.Pages.TrackDetailPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:NegateBoolConverter x:Key="inverter" />
+            <OnPlatform x:Key="statusBoxHeight" x:TypeArguments="x:Double">
+                <On Platform="Android" Value="40" />
+                <On Platform="iOS" Value="40" />
+            </OnPlatform>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView BackgroundColor="{DynamicResource WindowBackgroundTable}">
             <StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}" Spacing="0">
                 <control:RouteMap x:Name="routeMap" MapType="Street" WidthRequest="{x:Static local:App.ScreenWidth}" VerticalOptions="FillAndExpand" />
-                <StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}" Spacing="{DynamicResource CardSpacing}"
-                     Padding="{DynamicResource CardPadding}">
+                <StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}" Spacing="{DynamicResource CardSpacing}" Padding="{DynamicResource CardPadding}">
                     <control:CardView>
                         <control:CardView.IsVisible>
                             <OnPlatform x:TypeArguments="x:Boolean" Android="true" iOS="true" WinPhone="true" />
@@ -18,20 +22,23 @@
                         <StackLayout Spacing="0">
                             <control:LabelSection Text="{i18n:Translate TripDataSectionLabel}" />
                             <control:HeaderDivider />
-                            <Grid Padding="{DynamicResource NormalPadding}" ColumnSpacing="0" BackgroundColor="White">
+                            <Grid Padding="{DynamicResource LargerPadding}" ColumnSpacing="0" BackgroundColor="White">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TransportModeSelectionCommand}" />
+                                </Grid.GestureRecognizers>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" Style="{DynamicResource TabiListItemTextStyle}" VerticalOptions="Center"
-                                     Text="{i18n:Translate TransportModeLabel}" />
-                                <Button Grid.Column="1" HorizontalOptions="Center" TextColor="{DynamicResource TintColor}"
-                                     Text="{i18n:Translate SelectTransportModeButton}" Command="{Binding TransportModeSelectionCommand}" />
+                                <Label Grid.Column="0" Style="{DynamicResource TabiListItemTextStyle}" VerticalOptions="Center" Text="{i18n:Translate TransportModeLabel}" />
+                                <Label Grid.Column="1" VerticalTextAlignment="Center" Style="{DynamicResource TabiListItemDetailTextStyle}" Text="{Binding TransportText}" />
+                                <Image Grid.Column="2" IsVisible="{Binding CompletedTransport}" WidthRequest="20" HeightRequest="20" Source="tabi_check" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Margin="10, 0, 10, 0" />
+                                <Image Grid.Column="2" IsVisible="{Binding CompletedTransport, Converter={StaticResource inverter}}}" WidthRequest="20" HeightRequest="20" Source="tabi_edit" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Margin="10, 0, 10, 0" />
                             </Grid>
                             <control:SettingsSectionDivider />
                             <StackLayout BackgroundColor="White" Padding="{DynamicResource NormalPadding}">
-                                <Label Text="{i18n:Translate TransportModeSelectionExplanation}" HorizontalOptions="Center"
-                                     Style="{DynamicResource TabiListItemDetailTextStyle}" />
+                                <Label Text="{i18n:Translate TransportModeSelectionExplanation}" HorizontalOptions="Center" Style="{DynamicResource TabiListItemDetailTextStyle}" />
                             </StackLayout>
                             <control:SettingsSectionDivider />
                             <ListView x:Name="ListViewTrack" Margin="0" ItemsSource="{Binding DataItems}" ItemSelected="Handle_ItemSelected">
@@ -51,10 +58,7 @@
                                     <OnPlatform x:TypeArguments="DataTemplate">
                                         <On Platform="iOS">
                                             <DataTemplate>
-                                                <control:TabiTextCell Text="{Binding Name}" TextColor="{StaticResource CellNormalTextColor}"
-                                                     DetailColor="{StaticResource CellDetailTextColor}" Command="{Binding Command}"
-                                                     CommandParameter="{Binding Parameter}" UITableViewStyle="value1" UITableViewCellAccessory="disclosure"
-                                                     Detail="{Binding Subtitle}">
+                                                <control:TabiTextCell Text="{Binding Name}" TextColor="{StaticResource CellNormalTextColor}" DetailColor="{StaticResource CellDetailTextColor}" Command="{Binding Command}" CommandParameter="{Binding Parameter}" UITableViewStyle="value1" UITableViewCellAccessory="disclosure" Detail="{Binding Subtitle}">
                                                 </control:TabiTextCell>
                                             </DataTemplate>
                                         </On>
@@ -97,8 +101,7 @@
                                 <StackLayout.Padding>
                                     <OnPlatform x:TypeArguments="Thickness" iOS="16,8,16,0" Android="16,8" WinPhone="16,8" />
                                 </StackLayout.Padding>
-                                <Label IsVisible="{Binding Source={x:Static local:App.Developer}}" Text="Developer app version"
-                                     Style="{DynamicResource TabiListItemDetailTextStyle}" />
+                                <Label IsVisible="{Binding Source={x:Static local:App.Developer}}" Text="Developer app version" Style="{DynamicResource TabiListItemDetailTextStyle}" />
                             </StackLayout>
                         </StackLayout>
                     </control:CardView>

@@ -47,15 +47,8 @@ namespace Tabi.ViewModels
             });
 
             DataItems = new ObservableRangeCollection<ListItem>();
-
-            _nameListItem = new ListItem()
-            {
-                Name = AppResources.StopNameLabel,
-                Subtitle = StopNameFromString(StopVisit.Name),
-                Command = OpenStopNameCommand
-            };
-
-            DataItems.Add(_nameListItem);
+            StopName = StopNameFromString(StopVisit.Name);
+            CompletedName = !string.IsNullOrEmpty(StopVisit.Name);
 
             StopVisit.PropertyChanged += StopVisit_PropertyChanged;
 
@@ -75,14 +68,8 @@ namespace Tabi.ViewModels
 
             Motive = new StopMotiveViewModel(stopMotive, _motiveConfig);
 
-            _motiveListItem = new ListItem()
-            {
-                Name = AppResources.StopMotiveLabel,
-                Subtitle = MotiveTextFromString(Motive.ConvertedText),
-                Command = OpenStopMotiveCommand
-            };
-
-            DataItems.Add(_motiveListItem);
+            MotiveText = MotiveTextFromString(Motive.ConvertedText);
+            CompletedMotive = !string.IsNullOrEmpty(Motive.ConvertedText);
 
             Motive.PropertyChanged += MotiveViewModel_PropertyChanged;
         }
@@ -126,17 +113,17 @@ namespace Tabi.ViewModels
 
         void StopVisit_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == "Name")
-            {
-                _nameListItem.Subtitle = StopNameFromString(StopVisit.Name);
-            }
+            StopName = StopNameFromString(StopVisit.Name);
+            CompletedName = !string.IsNullOrEmpty(StopVisit.Name);
+
         }
 
         void MotiveViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             if (e.PropertyName == "Text")
             {
-                _motiveListItem.Subtitle = MotiveTextFromString(Motive.ConvertedText);
+                MotiveText = MotiveTextFromString(Motive.ConvertedText);
+                CompletedMotive = !string.IsNullOrEmpty(Motive.ConvertedText);
             }
         }
 
@@ -149,6 +136,64 @@ namespace Tabi.ViewModels
         {
             return !string.IsNullOrEmpty(motive) ? motive : AppResources.SetStopMotiveHint;
         }
+
+        private string stopName;
+
+        public string StopName
+        {
+            get
+            {
+                return stopName;
+            }
+            set
+            {
+                SetProperty(ref stopName, value);
+            }
+        }
+
+        private string motiveText;
+
+        public string MotiveText
+        {
+            get
+            {
+                return motiveText;
+            }
+            set
+            {
+                SetProperty(ref motiveText, value);
+            }
+        }
+
+        private bool completedName;
+
+        public bool CompletedName
+        {
+            get
+            {
+                return completedName;
+            }
+            set
+            {
+                SetProperty(ref completedName, value);
+            }
+        }
+
+
+        private bool completedMotive;
+
+        public bool CompletedMotive
+        {
+            get
+            {
+                return completedMotive;
+            }
+            set
+            {
+                SetProperty(ref completedMotive, value);
+            }
+        }
+
 
         private string title;
 

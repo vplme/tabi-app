@@ -22,7 +22,6 @@ namespace Tabi.Pages
 
             SetupMap();
             SetMapLocation(ViewModel.Name, ViewModel.Latitude, ViewModel.Longitude, ViewModel.StopVisit.Accuracy);
-            AdjustListViewStopHeight();
         }
 
         void SetupMap()
@@ -34,12 +33,6 @@ namespace Tabi.Pages
         protected override void OnAppearing()
         {
             base.OnAppearing();
-        }
-
-        void AdjustListViewStopHeight()
-        {
-            var adjust = Xamarin.Forms.Device.RuntimePlatform != Xamarin.Forms.Device.Android ? 1 : -ViewModel.DataItems.Count + 1;
-            ListViewStop.HeightRequest = (ViewModel.DataItems.Count * ListViewStop.RowHeight) - adjust;
         }
 
         protected override void OnDisappearing()

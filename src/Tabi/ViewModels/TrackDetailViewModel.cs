@@ -32,6 +32,8 @@ namespace Tabi.ViewModels
             _trackEntry = trackEntry ?? throw new ArgumentNullException(nameof(trackEntry));
             _motiveConfig = motiveConfig ?? throw new ArgumentNullException(nameof(Motive));
 
+            TransportationModeEntry modeEntry = _repoManager.TransportationModeRepository.GetLastWithTrackEntry(_trackEntry.Id);
+
             TransportModeSelectionCommand = new Command(async () =>
             {
                 await _navigation.PushModalAsync(new NavigationPage(new TransportSelectionPage(_trackEntry)));
@@ -49,6 +51,9 @@ namespace Tabi.ViewModels
             {
                 PrepareForMotive();
             }
+
+            CompletedTransport = modeEntry != null;
+
         }
 
         private void PrepareForMotive()
@@ -104,6 +109,13 @@ namespace Tabi.ViewModels
             }
 
             return result;
+        }
+
+        private bool completedTransport;
+
+        public bool CompletedTransport {
+            get => completedTransport;
+            set => SetProperty(ref completedTransport, value);
         }
 
         public (Line, Pin, Pin) GetMapData()
