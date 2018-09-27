@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:local="clr-namespace:Tabi;assembly=Tabi" xmlns:i18n="clr-namespace:Tabi.Localization;assembly=Tabi"
+     xmlns:control="clr-namespace:Tabi.Controls;assembly=Tabi" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Tabi.Pages.DayCommentPage">
+    <ContentPage.Content>
+        <StackLayout Padding="10,10,10,10">
+            <Label Text="Opmerkingen over deze dag?"/>
+            <Entry />
+            <Button Text="{i18n:Translate SaveText}" Command="{Binding SaveCommand}" Margin="10,0,10,0" Style="{StaticResource defaultButtonStyle}">
+                <Button.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean" iOS="false" Android="true" />
+                </Button.IsVisible>
+            </Button>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

@@ -35,16 +35,16 @@ namespace Tabi.ViewModels
             semaphore = new SemaphoreSlim(1);
         }
 
-        private bool listIsRefreshing;
-        public bool ListIsRefreshing
+        private bool isRefreshing;
+        public bool IsRefreshing
         {
             get
             {
-                return listIsRefreshing;
+                return isRefreshing;
             }
             set
             {
-                SetProperty(ref listIsRefreshing, value);
+                SetProperty(ref isRefreshing, value);
             }
         }
 
@@ -67,6 +67,8 @@ namespace Tabi.ViewModels
         public ICommand DaySelectorCommand { protected set; get; }
 
         public ICommand RefreshCommand { protected set; get; }
+
+        public ICommand DayTappedCommand { protected set; get; }
 
         private bool isBusy;
         public bool IsBusy
@@ -98,6 +100,32 @@ namespace Tabi.ViewModels
             }
         }
 
+        private string day;
+        public string Day
+        {
+            get
+            {
+                return day;
+            }
+            set
+            {
+                SetProperty(ref day, value);
+            }
+        }
+
+        private bool completed;
+        public bool Completed
+        {
+            get
+            {
+                return completed;
+            }
+            set
+            {
+                SetProperty(ref completed, value);
+            }
+        }
+
         public ActivityOverviewViewModel(MotiveConfiguration motiveConfiguration, INavigation navigation, DateService dateService, IRepoManager repoManager, DataResolver dataResolver)
         {
             _motiveConfiguration = motiveConfiguration ?? throw new ArgumentNullException(nameof(motiveConfiguration));
@@ -121,18 +149,22 @@ namespace Tabi.ViewModels
 
             RefreshCommand = new Command(async () =>
             {
-                ListIsRefreshing = false;
+                IsRefreshing = true;
                 IsBusy = true;
-                refreshEnabled = false;
                 Task uiTask = Task.Delay(1200);
                 await UpdateStopVisitsAsync();
                 // Show the UI for at least a second..
                 await uiTask;
 
                 IsBusy = false;
-                refreshEnabled = true;
+                IsRefreshing = false;
 
                 Analytics.TrackEvent("Refresh pulled");
+            });
+
+            DayTappedCommand = new Command(async () =>
+            {
+                await _navigation.PushAsync(new DayCommentPage());
             });
 
             SetDataFromDateService();
@@ -148,7 +180,7 @@ namespace Tabi.ViewModels
 
         private void SetDataFromDateService()
         {
-            Title = _dateService.SelectedDay.CurrentDateShort;
+            Day = _dateService.SelectedDay.CurrentDateShort;
         }
 
         public DateTime SelectedDate

@@ -144,6 +144,7 @@
     <Compile Include="PlatformImplementations\iOSHelper.cs" />
     <None Include="Entitlements.production.plist" />
     <Compile Include="Renderers\ExtendedEntryRenderer.cs" />
+    <Compile Include="Renderers\PullToRefreshRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />

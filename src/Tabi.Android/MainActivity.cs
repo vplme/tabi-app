@@ -15,6 +15,7 @@ using Vpl.Xamarin.VideoPlayer;
 using Firebase.Iid;
 using Tabi.Helpers;
 using Tabi.Logging;
+using Refractored.XamForms.PullToRefresh.Droid;
 
 namespace Tabi.Droid
 {
@@ -39,6 +40,7 @@ namespace Tabi.Droid
             Toolkit.Init();
             Xamarin.FormsMaps.Init(this, bundle);
             UserDialogs.Init(() => CrossCurrentActivity.Current.Activity);
+            PullToRefreshLayoutRenderer.Init();
 
             var width = Resources.DisplayMetrics.WidthPixels;
             var height = Resources.DisplayMetrics.HeightPixels;

@@ -456,6 +456,7 @@
     <Compile Include="PlatformImplementations\DataUploadService.cs" />
     <Compile Include="Helpers\SQLiteCreatorHelper.cs" />
     <Compile Include="Services\TabiInstanceIdService.cs" />
+    <Compile Include="Renderers\PullToRefreshLayoutRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

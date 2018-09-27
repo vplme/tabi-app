@@ -4,6 +4,7 @@ using Autofac.Core;
 using FFImageLoading.Svg.Forms;
 using Foundation;
 using Microsoft.AppCenter.Distribute;
+using Refractored.XamForms.PullToRefresh.iOS;
 using Tabi.Helpers;
 using Tabi.iOS.PlatformImplementations;
 using Tabi.Logging;
@@ -32,6 +33,7 @@ namespace Tabi.iOS
             var ignore = typeof(SvgCachedImage);
 
             VideoPlayerKit.Init();
+            PullToRefreshLayoutRenderer.Init();
 
             global::Xamarin.Forms.Forms.Init();
 
