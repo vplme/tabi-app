@@ -279,6 +279,7 @@ namespace Tabi.Droid.Renderers
         /// </summary>
         public void OnRefresh()
         {
+            RefreshView.IsRefreshing = false;
             if (RefreshView?.RefreshCommand?.CanExecute(RefreshView?.RefreshCommandParameter) ?? false)
             {
                 RefreshView.RefreshCommand.Execute(RefreshView?.RefreshCommandParameter);
