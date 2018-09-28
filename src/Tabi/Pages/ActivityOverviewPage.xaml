@@ -22,7 +22,7 @@
         </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Spacing="0">
             <FlexLayout Wrap="Wrap" JustifyContent="Center" Direction="Row" HeightRequest="{DynamicResource statusBoxHeight}" IsVisible="{Binding IsBusy}" BackgroundColor="{DynamicResource StatusTintColor}">
                 <ActivityIndicator Color="White" Margin="0, 1, 0 ,0" IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}">
                     <ActivityIndicator.Scale>
@@ -66,7 +66,7 @@
                             <Image IsVisible="{Binding Completed}" WidthRequest="40" HeightRequest="40" Source="tabi_check" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Margin="0, 0, 10, 0" />
                             <Image IsVisible="{Binding Completed, Converter={StaticResource inverter}}}" WidthRequest="40" HeightRequest="40" Source="tabi_edit" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Margin="0, 0, 10, 0" />
                         </StackLayout>
-                        <BoxView Color="Gray" HorizontalOptions="FillAndExpand" HeightRequest="0.2">
+                        <BoxView Color="Gray" HorizontalOptions="FillAndExpand" HeightRequest="0.5">
                         </BoxView>
                         <Label IsVisible="{Binding NoDataInOverviewVisible}" HorizontalTextAlignment="Center" Margin="20, 15, 20, 0" Text="{i18n:Translate NoDataInOverview}" />
                         <controls:UnanimatedListView x:Name="ListViewOverview" HasUnevenRows="true" SeparatorVisibility="None" ItemsSource="{Binding ActivityEntries}" ItemSelected="ItemSelected">
