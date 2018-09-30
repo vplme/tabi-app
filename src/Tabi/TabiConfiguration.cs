@@ -79,7 +79,7 @@ namespace Tabi
 
         public bool GzipRequests { get; set; }
 
-        public List<string> CertificateKeys { get; set; }
+        public List<string> CertificateKeys { get; set; } = new List<string>();
 
     }
 

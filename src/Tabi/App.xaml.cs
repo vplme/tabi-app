@@ -89,7 +89,8 @@ namespace Tabi
 
             InitializeComponent();
 
-            SetupCertificatePinningCheck();
+            EndpointValidator.Init(TabiConfig.Api.CertificateKeys);
+
             SetupLocationManager();
             SetupSensorManager();
 
@@ -189,14 +190,6 @@ namespace Tabi
             RegisterPlatformSpecificModules(platformSpecificModules, containerBuilder);
 
             _container = containerBuilder.Build();
-        }
-
-        public static void SetupCertificatePinningCheck()
-        {
-            TabiConfig.Api?.CertificateKeys?.ForEach(key => EndpointConfiguration.AddPublicKeyString(key));
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-            ServicePointManager.DefaultConnectionLimit = 8;
-            //ServicePointManager.ServerCertificateValidationCallback = EndpointConfiguration.ValidateServerCertificate;
         }
 
         private void SetupLocalization()
