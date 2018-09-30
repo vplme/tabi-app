@@ -14,7 +14,11 @@ namespace Tabi.Droid
             p.Course = location.Bearing;
 
             p.Altitude = location.HasAltitude ? location.Altitude : 0;
-            p.VerticalAccuracy = location.HasVerticalAccuracy ? location.VerticalAccuracyMeters : 0;
+
+            if (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.O)
+            {
+                p.VerticalAccuracy = location.HasVerticalAccuracy ? location.VerticalAccuracyMeters : 0;
+            }
 
             p.Speed = location.Speed;
 	        p.Timestamp = Util.TimeLongToDateTime(location.Time);
