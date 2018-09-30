@@ -210,6 +210,28 @@ namespace TabiApiClient
             return deviceResponse;
         }
 
+
+        public async Task<bool> SetAttribute(int deviceId, string attributeKey, string value)
+        {
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/attribute/{attributeKey}");
+
+            HttpContent httpContent = CreateHttpContent(value);
+            HttpResponseMessage response = await client.PutAsync(path, httpContent);
+            string content = await response.Content.ReadAsStringAsync();
+
+            return response.IsSuccessStatusCode;
+        }
+
+        public async Task<string> GetAttribute(int deviceId, string attributeKey)
+        {
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/attribute/{attributeKey}");
+            HttpResponseMessage response = await client.GetAsync(path);
+            string content = await response.Content.ReadAsStringAsync();
+            string valueResponse = JsonConvert.DeserializeObject<string>(content);
+
+            return valueResponse;
+        }
+
         public async Task<bool> PutAttribute(int deviceId, string key, string value)
         {
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/attribute");
