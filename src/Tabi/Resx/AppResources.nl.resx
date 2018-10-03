@@ -301,7 +301,7 @@
         <value>Naam</value>
     </data>
     <data name="StopMotiveLabel" xml:space="preserve">
-        <value>Motief</value>
+        <value>Reden</value>
     </data>
     <data name="DeviceIdLabel" xml:space="preserve">
         <value>Device Identifier</value>
@@ -364,13 +364,13 @@
         <value>volgende day</value>
     </data>
     <data name="TrackMotiveLabel" xml:space="preserve">
-        <value>Motief</value>
+        <value>Reden</value>
     </data>
     <data name="SetTrackMotiveHint" xml:space="preserve">
         <value>Wat bent u daar gaan doen?</value>
     </data>
     <data name="TrackMotivePageTitle" xml:space="preserve">
-        <value>Motief</value>
+        <value>Reden</value>
     </data>
     <data name="PossibleStopsSectionLabel" xml:space="preserve">
         <value>Of selecteer eerder gebruikte locatie dichtbij</value>
@@ -2696,6 +2696,12 @@
     </data>
     <data name="HomeMotiveText" xml:space="preserve">
         <value>Thuis (niet van toepassing)</value>
+    </data>
+    <data name="TransferMotiveText" xml:space="preserve">
+        <value>Overstap</value>
+    </data>
+    <data name="LocationIncorrectMotiveText" xml:space="preserve">
+        <value>Locatien onjuist gemeten</value>
     </data>
     <data name="TransportSelectionPageTitle" xml:space="preserve">
         <value>Selecteer vervoersmiddel(en)</value>

@@ -406,7 +406,7 @@
         <value>Name</value>
     </data>
     <data name="StopMotiveLabel" xml:space="preserve">
-        <value>Motive</value>
+        <value>Reason</value>
     </data>
     <data name="DeviceIdLabel" xml:space="preserve">
         <value>Device Identifier</value>
@@ -427,7 +427,7 @@
         <value>Please fill in the name of your location and the reason/motive why you were at the location. The name is meant as an aid for yourself.</value>
     </data>
     <data name="StopMotivePageTitle" xml:space="preserve">
-        <value>Location motive</value>
+        <value>Location reason</value>
     </data>
     <data name="LoadingDataLabel" xml:space="preserve">
         <value>Loading data...</value>
@@ -469,13 +469,13 @@
         <value>next day</value>
     </data>
     <data name="TrackMotiveLabel" xml:space="preserve">
-        <value>Motive</value>
+        <value>Reason</value>
     </data>
     <data name="SetTrackMotiveHint" xml:space="preserve">
         <value>What did you do there?</value>
     </data>
     <data name="TrackMotivePageTitle" xml:space="preserve">
-        <value>Motive</value>
+        <value>Reason</value>
     </data>
     <data name="PossibleStopsSectionLabel" xml:space="preserve">
         <value>Or select a nearby location previously used</value>
@@ -514,7 +514,7 @@
         <value>Select a location and set a name.</value>
     </data>
     <data name="MotiveTourTitle" xml:space="preserve">
-        <value>Motive.</value>
+        <value>Reason.</value>
     </data>
     <data name="MotiveTourText" xml:space="preserve">
         <value>Select a location and specify what you did there.</value>
