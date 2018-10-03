@@ -5644,5 +5644,17 @@ namespace Tabi.Resx {
                 return ResourceManager.GetString("MotorbikeTransportText", resourceCulture);
             }
         }
+        
+        public static string TerminationNotificationTitle {
+            get {
+                return ResourceManager.GetString("TerminationNotificationTitle", resourceCulture);
+            }
+        }
+        
+        public static string TerminationNotificationBody {
+            get {
+                return ResourceManager.GetString("TerminationNotificationBody", resourceCulture);
+            }
+        }
     }
 }

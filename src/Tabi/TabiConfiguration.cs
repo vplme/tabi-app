@@ -150,6 +150,8 @@ namespace Tabi
         public double SuggestPossibleNearbyStopsDistance { get; set; } = 200;
 
         public double SuggestPossibleNearbyStopsCount { get; set; } = 2;
+
+        public bool ShowNotificationOnAppTermination { get; set; } = true;
     }
 
     public class LoggingConfiguration

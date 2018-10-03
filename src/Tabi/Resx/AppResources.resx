@@ -2928,4 +2928,10 @@
     <data name="MotorbikeTransportText" xml:space="preserve">
         <value>Motorbike</value>
     </data>
+    <data name="TerminationNotificationTitle" xml:space="preserve">
+        <value>App can no longer track movements</value>
+    </data>
+    <data name="TerminationNotificationBody" xml:space="preserve">
+        <value>Please open the app again</value>
+    </data>
 </root>

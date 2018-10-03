@@ -2823,4 +2823,10 @@
     <data name="MotorbikeTransportText" xml:space="preserve">
         <value>Motorfiets</value>
     </data>
+    <data name="TerminationNotificationTitle" xml:space="preserve">
+        <value>App kan verplaatsingen niet meten</value>
+    </data>
+    <data name="TerminationNotificationBody" xml:space="preserve">
+        <value>Open alstublieft de app opnieuw</value>
+    </data>
 </root>
