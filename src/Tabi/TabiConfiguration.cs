@@ -77,6 +77,10 @@ namespace Tabi
         /// <value>Sync interval in minutes.</value>
         public int SyncInterval { get; set; } = 30;
 
+        public string ClientIdentifier { get; set; } = "UNCONFIGURED-TABI-APP";
+
+        public string ClientKey { get; set; } = "";
+
         public bool GzipRequests { get; set; }
 
         public List<string> CertificateKeys { get; set; } = new List<string>();

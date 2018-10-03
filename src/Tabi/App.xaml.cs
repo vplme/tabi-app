@@ -145,6 +145,8 @@ namespace Tabi
             containerBuilder.RegisterType<SqliteNetRepoManager>().As<IRepoManager>().SingleInstance();
             containerBuilder.RegisterType<SyncService>().SingleInstance();
             containerBuilder.RegisterType<ApiClient>()
+                            .WithParameter("clientIdentifier", TabiConfig.Api.ClientIdentifier)
+                            .WithParameter("clientKey", TabiConfig.Api.ClientKey)
                             .WithParameter("apiLocation", TabiConfig.Api.Url)
                             .WithParameter("gzip", TabiConfig.Api.GzipRequests);
 

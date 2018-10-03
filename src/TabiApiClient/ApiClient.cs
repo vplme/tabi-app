@@ -28,11 +28,13 @@ namespace TabiApiClient
         private bool gzipEnabled;
         private string userId;
 
-        public ApiClient(string apiLocation = "https://tabi.0x2a.site", bool gzip = false)
+        public ApiClient(string clientIdentifier, string clientKey, string apiLocation = "https://tabi.0x2a.site", bool gzip = false)
         {
             this.apiLocation = apiLocation;
             HttpClientHandler handler = new HttpClientHandler() { AutomaticDecompression = DecompressionMethods.GZip };
             client = new HttpClient(handler);
+            client.DefaultRequestHeaders.Add("X-Tabi-Client-Identifier", clientIdentifier);
+            client.DefaultRequestHeaders.Add("X-Tabi-Client-Key", clientKey);
             client.Timeout = TimeSpan.FromMinutes(5);
             gzipEnabled = gzip;
         }
