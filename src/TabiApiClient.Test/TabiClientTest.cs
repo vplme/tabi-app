@@ -10,7 +10,7 @@ namespace TabiApiClient.Test
         [Fact]
         public async Task TestAuthenticateAsync()
         {
-            ApiClient client = new ApiClient("http://localhost:8000")
+            ApiClient client = new ApiClient("ApiClient-Test", "TEST", "http://localhost:8000")
             {
                 MockHttpClient = SetupMockHttpClient(),
                 Mock = true
