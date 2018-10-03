@@ -5393,6 +5393,18 @@ namespace Tabi.Resx {
             }
         }
         
+        public static string TransferMotiveText {
+            get {
+                return ResourceManager.GetString("TransferMotiveText", resourceCulture);
+            }
+        }
+        
+        public static string LocationIncorrectMotiveText {
+            get {
+                return ResourceManager.GetString("LocationIncorrectMotiveText", resourceCulture);
+            }
+        }
+        
         public static string TransportSelectionPageTitle {
             get {
                 return ResourceManager.GetString("TransportSelectionPageTitle", resourceCulture);
