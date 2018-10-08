@@ -51,6 +51,13 @@ namespace Tabi.Model
             set { SetProperty(ref stopCommand, value); }
         }
 
+        ICommand trackCommand;
+        public ICommand TrackCommand
+        {
+            get { return trackCommand; }
+            set { SetProperty(ref trackCommand, value); }
+        }
+
         public Track Track { get; set; }
 
         public bool Completed { get; set; }

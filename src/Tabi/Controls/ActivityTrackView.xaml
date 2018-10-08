@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:converters="clr-namespace:Tabi.Converters;assembly=Tabi"
+     xmlns:controls="clr-namespace:Tabi.Controls;assembly=Tabi" x:Class="Tabi.Controls.ActivityTrackView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <converters:NegateBoolConverter x:Key="inverter" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <controls:MaterialFrame Margin="10,5,10,5" Padding="0">
+            <StackLayout IsVisible="{Binding ShowTrack}" VerticalOptions="FillAndExpand" Orientation="Horizontal"
+                 Spacing="0" Padding="16,0,0,0">
+                 <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding TrackCommand}" />
+                    <TapGestureRecognizer Tapped="Handle_Tapped" />
+                </StackLayout.GestureRecognizers>
+                <BoxView Color="{Binding Track.Color}" WidthRequest="15" HorizontalOptions="Center"
+                     HeightRequest="{Binding Track.Height}" />
+                <Label Margin="20, 0, 0, 0" VerticalOptions="Center" Text="{Binding Track.Text}" />
+                <Image IsVisible="{Binding Completed}" WidthRequest="40" HeightRequest="40" Source="tabi_check"
+                     HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Margin="0, 0, 10, 0" />
+                <Image IsVisible="{Binding Completed, Converter={StaticResource inverter}}}" WidthRequest="40"
+                     HeightRequest="40" Source="tabi_edit" HorizontalOptions="EndAndExpand"
+                     VerticalOptions="CenterAndExpand" Margin="0, 0, 10, 0" />
+            </StackLayout>
+        </controls:MaterialFrame>
+    </ContentView.Content>
+</ContentView>

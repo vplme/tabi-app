@@ -248,6 +248,13 @@ namespace Tabi.ViewModels
                 }
 
                 ae.StopVisit = sv;
+                ae.StopCommand = new Command(async () => {
+                     Page page = new StopDetailPage(ae.StopVisit);
+                     await _navigation.PushAsync(page);
+                
+                });
+
+
                 newActivityEntries.Add(ae);
 
                 if (sv.NextTrackId != 0 && !stopEndsNextDay)
@@ -258,7 +265,7 @@ namespace Tabi.ViewModels
                         double minutes = te.TimeTravelled.TotalMinutes < 200 ? te.TimeTravelled.TotalMinutes : 200;
 
                         ActivityEntry tAe = new ActivityEntry()
-                        {
+                          {
                             Track = new Track()
                             {
                                 TrackEntry = te,
@@ -272,6 +279,12 @@ namespace Tabi.ViewModels
                         bool motiveFilledIn = !_motiveConfiguration.Tracks || _repoManager.MotiveRepository.GetByTrackId(te.Id) != null;
                         tAe.Completed = transportsSelected && motiveFilledIn;
 
+                        tAe.TrackCommand = new Command(async () => {
+                        Page page = new TrackDetailPage(tAe.Track);
+
+                        await _navigation.PushAsync(page);
+
+                    });
                         newActivityEntries.Add(tAe);
                     }
                     catch (Exception e)
