@@ -28,6 +28,7 @@ namespace Tabi.DataStorage.SqliteNet
         public ITransportationModeRepository TransportationModeRepository { get; private set; }
         public IMotiveRepository MotiveRepository { get; private set; }
         public IUploadEntryRepository UploadEntryRepository { get; private set; }
+        public IQuestionRepository QuestionRepository { get; set; }
 
         //sensor
         public ISensorMeasurementSessionRepository SensorMeasurementSessionRepository { get; private set; }
@@ -56,6 +57,7 @@ namespace Tabi.DataStorage.SqliteNet
             TransportationModeRepository = new SqliteNetTransportationModeRepository(_connection);
             MotiveRepository = new SqliteNetMotiveRepository(_connection);
             UploadEntryRepository = new SqliteNetUploadEntryRepository(_connection);
+            QuestionRepository = new SqliteNetQuestionRepository(_connection);
 
             //sensor
             SensorMeasurementSessionRepository = new SqliteNetSensorMeasurementSessionRepository(_connection);
@@ -84,6 +86,7 @@ namespace Tabi.DataStorage.SqliteNet
             _connection.DropTable<LogEntry>();
             _connection.DropTable<Motive>();
             _connection.DropTable<UploadEntry>();
+            _connection.DropTable<Question>();
 
             _connection.DropTable<SensorMeasurementSession>();
             _connection.DropTable<Accelerometer>();
@@ -112,6 +115,7 @@ namespace Tabi.DataStorage.SqliteNet
             _connection.CreateTable<LogEntry>();
             _connection.CreateTable<Motive>();
             _connection.CreateTable<UploadEntry>();
+            _connection.CreateTable<Question>();
 
             _connection.CreateTable<SensorMeasurementSession>();
             _connection.CreateTable<Accelerometer>();
@@ -122,8 +126,6 @@ namespace Tabi.DataStorage.SqliteNet
             _connection.CreateTable<Quaternion>();
             _connection.CreateTable<Gravity>();
         }
-
-
 
         #region IDisposable Support
         private bool disposedValue = false; // To detect redundant calls
