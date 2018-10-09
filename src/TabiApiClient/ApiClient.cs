@@ -265,6 +265,14 @@ namespace TabiApiClient
             return response.IsSuccessStatusCode;
         }
 
+        public async Task<bool> PostQuestions(int deviceId, IEnumerable<Question> questions)
+        {
+            string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/question");
+            HttpContent httpContent = CreateHttpContent(questions);
+            HttpResponseMessage response = await client.PostAsync(path, httpContent);
+            return response.IsSuccessStatusCode;
+        }
+
         public async Task<bool> PostUserStopMotives(int deviceId, IEnumerable<UserStopMotive> motives)
         {
             string path = PrefixApiPath($"/user/{userId}/device/{deviceId}/stops/motives");

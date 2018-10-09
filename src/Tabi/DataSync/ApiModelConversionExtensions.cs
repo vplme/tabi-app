@@ -51,6 +51,17 @@ namespace Tabi.DataSync
             };
         }
 
+        public static TabiApiClient.Models.Question ToApiModel(this Question question)
+        {
+            return new TabiApiClient.Models.Question()
+            {
+                Identifier = question.QuestionKey,
+                Answer = question.Answer,
+                Timestamp = question.Timestamp
+            };
+        }
+
+
         public static TabiApiClient.Models.BatteryInfo ToApiModel(this BatteryEntry batteryEntry)
         {
             return new TabiApiClient.Models.BatteryInfo()
