@@ -56,9 +56,13 @@ namespace Tabi
 
     public class AppConfiguration
     {
+        public string AppName { get; set; }
+
         public bool Developer { get; set; }
 
         public string LicensesUrl { get; set; }
+
+        public string AgreementUrl { get; set; }
     }
 
     public class ApiConfiguration

@@ -17,11 +17,16 @@ namespace Tabi.ViewModels
     {
         private readonly ApiClient _apiClient;
 
-        public LoginViewModel(ApiClient apiClient)
+        public LoginViewModel(ApiClient apiClient, TabiConfiguration _tabiConfig)
         {
             _apiClient = apiClient ?? throw new ArgumentNullException(nameof(apiClient));
 
             LoginCommand = new Command(async () => await Login());
+
+            OpenAgreementCommand = new Command(async () =>
+            {
+                await Xamarin.Essentials.Browser.OpenAsync(_tabiConfig.App.AgreementUrl);
+            });
 
         }
 
@@ -67,6 +72,8 @@ namespace Tabi.ViewModels
                 SetProperty<string>(ref password, value);
             }
         }
+
+        public ICommand OpenAgreementCommand { get; set; }
 
         public ICommand LoginCommand { get; set; }
 

@@ -31,14 +31,12 @@ using Tabi.Sensors;
 
 namespace Tabi
 {
-    public partial class App : Application
+    public partial class App : Xamarin.Forms.Application
     {
         private static IContainer _container;
 
         public static IContainer Container { get => _container; }
-
-        public const string AppIdentifier = "tabi/tabi-app";
-
+        
         public static bool DebugMode
         {
             get; private set;
@@ -174,6 +172,7 @@ namespace Tabi
             containerBuilder.RegisterType<TourViewModel>();
 
             containerBuilder.RegisterType<ActivityOverviewViewModel>();
+            containerBuilder.RegisterType<DayCommentViewModel>();
             containerBuilder.RegisterType<DaySelectorViewModel>();
             containerBuilder.RegisterType<SettingsViewModel>();
 

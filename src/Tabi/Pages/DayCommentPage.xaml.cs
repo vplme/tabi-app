@@ -1,16 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Input;
+using Autofac;
 using Tabi.Controls;
 using Tabi.Resx;
+using Tabi.ViewModels;
 using Xamarin.Forms;
 
 namespace Tabi.Pages
 {
     public partial class DayCommentPage : ContentPage
     {
+        DayCommentViewModel ViewModel => vm ?? (vm = BindingContext as DayCommentViewModel);
+        DayCommentViewModel vm;
+
         public DayCommentPage()
         {
+            InitializeComponent();
+            BindingContext = App.Container.Resolve<DayCommentViewModel>(new TypedParameter(typeof(INavigation), Navigation));
 
             if (Device.RuntimePlatform == Device.iOS)
             {
@@ -23,25 +30,6 @@ namespace Tabi.Pages
             cancelToolbarItem.SetBinding(ExtendedToolbarItem.CommandProperty, "CancelCommand");
             ToolbarItems.Add(cancelToolbarItem);
 
-
-            InitializeComponent();
-
-            CancelCommand = new Command(async () =>
-            {
-                await Navigation.PopAsync();
-            });
-
-            SaveCommand = new Command(async () =>
-            {
-                await Navigation.PopAsync();
-            });
-
-            BindingContext = this;
         }
-
-        public ICommand CancelCommand { get; set; }
-
-        public ICommand SaveCommand { get; set; }
-
     }
 }

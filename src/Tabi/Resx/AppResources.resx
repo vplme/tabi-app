@@ -2934,4 +2934,16 @@
     <data name="TerminationNotificationBody" xml:space="preserve">
         <value>Please open the app again</value>
     </data>
+    <data name="AgreementPart1" xml:space="preserve">
+        <value>By logging in you agree to</value>
+    </data>
+    <data name="AgreementPart2" xml:space="preserve">
+        <value>the terms and privacy policy</value>
+    </data>
+    <data name="ApiClientIdLabel" xml:space="preserve">
+        <value>Client Id</value>
+    </data>
+    <data name="AgreementLabel" xml:space="preserve">
+        <value>Privacy Policy</value>
+    </data>
 </root>

@@ -5656,5 +5656,17 @@ namespace Tabi.Resx {
                 return ResourceManager.GetString("TerminationNotificationBody", resourceCulture);
             }
         }
+        
+        public static string AgreementPart1 {
+            get {
+                return ResourceManager.GetString("AgreementPart1", resourceCulture);
+            }
+        }
+        
+        public static string AgreementPart2 {
+            get {
+                return ResourceManager.GetString("AgreementPart2", resourceCulture);
+            }
+        }
     }
 }

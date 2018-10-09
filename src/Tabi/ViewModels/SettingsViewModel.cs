@@ -232,11 +232,12 @@ namespace Tabi.ViewModels
                 StringBuilder stringBuilder = new StringBuilder();
                 stringBuilder.AppendLine(" ");
                 stringBuilder.AppendLine("==========================");
-                stringBuilder.AppendLine("Tabi Verplaatsingen app");
+                stringBuilder.AppendLine($"{_config.App.AppName} app");
                 stringBuilder.AppendLine($"Version: {VersionTracking.CurrentVersion} ({VersionTracking.CurrentBuild})");
                 stringBuilder.AppendLine($"Platform: {DeviceInfo.Platform} ({DeviceInfo.VersionString})");
                 stringBuilder.AppendLine($"Model: {DeviceInfo.Manufacturer} ({DeviceInfo.Model})");
                 stringBuilder.AppendLine($"API URL: {_config.Api.Url}");
+                stringBuilder.AppendLine($"Client Id: {_config.Api.ClientIdentifier}");
                 stringBuilder.AppendLine($"Device ID: {Settings.Device}");
                 stringBuilder.AppendLine($"Username: {Settings.Username}");
 
@@ -266,12 +267,17 @@ namespace Tabi.ViewModels
 
             OpenSupportWebsiteCommand = new Command(async () =>
             {
-                await Browser.OpenAsync(_config.Support.Url, BrowserLaunchType.SystemPreferred);
+                await Browser.OpenAsync(_config.Support.Url);
             });
 
             LicensesCommand = new Command(async () =>
             {
-                await Browser.OpenAsync(_config.App.LicensesUrl, BrowserLaunchType.SystemPreferred);
+                await Browser.OpenAsync(_config.App.LicensesUrl);
+            });
+
+            AgreementCommand = new Command(async () =>
+            {
+                await Browser.OpenAsync(_config.App.AgreementUrl);
             });
 
             UploadCommand = new Command(async () =>
@@ -375,6 +381,8 @@ namespace Tabi.ViewModels
 
         public ICommand LicensesCommand { protected set; get; }
 
+        public ICommand AgreementCommand { protected set; get; }
+
         public TabiConfiguration Configuration { get => _config; }
 
         public bool ShowSensorMeasurements { get => _config.SensorMeasurements.UserAdjustable; }
@@ -386,6 +394,8 @@ namespace Tabi.ViewModels
         public int InfoCount { get; set; }
 
         public string ApiUrl { get => _config.Api.Url; }
+
+        public string ApiClientId { get => _config.Api.ClientIdentifier; }
 
         public string LastSynced { get => TimeAgo(new DateTime(Settings.LastUpload)); }
 

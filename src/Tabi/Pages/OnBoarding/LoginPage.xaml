@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Tabi;assembly=Tabi"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:local="clr-namespace:Tabi;assembly=Tabi"
      xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
      xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-     xmlns:control="clr-namespace:Tabi.Controls;assembly=Tabi" xmlns:i18n="clr-namespace:Tabi.Localization;assembly=Tabi"
-     xmlns:converters="clr-namespace:Tabi.Converters;assembly=Tabi" xmlns:effects="clr-namespace:Tabi.Effects;assembly=Tabi" ios:Page.UseSafeArea="true"
+     xmlns:control="clr-namespace:Tabi.Controls;assembly=Tabi"
+     xmlns:i18n="clr-namespace:Tabi.Localization;assembly=Tabi"
+     xmlns:converters="clr-namespace:Tabi.Converters;assembly=Tabi"
+     xmlns:effects="clr-namespace:Tabi.Effects;assembly=Tabi" ios:Page.UseSafeArea="true"
      NavigationPage.HasNavigationBar="False" x:Class="Tabi.Pages.OnBoarding.LoginPage">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -33,7 +36,8 @@
                     <Label Margin="20, 0, 20, 0" Text="{i18n:Translate LoginIntroText}" />
                     <StackLayout Margin="40, 30, 40, 30" VerticalOptions="FillAndExpand" Orientation="Vertical">
                         <Label FontSize="Small" Text="{i18n:Translate UsernameLabel}" />
-                        <control:ExtendedEntry Text="{Binding Username}" FontSize="20" Placeholder="{i18n:Translate UsernameLabel}" Keyboard="Numeric"
+                        <control:ExtendedEntry Text="{Binding Username}" FontSize="20"
+                             Placeholder="{i18n:Translate UsernameLabel}" Keyboard="Numeric"
                              Completed="Handle_UsernameEntryCompleted">
                             <Entry.Effects>
                                 <effects:NoHelperEntryEffect />
@@ -42,7 +46,8 @@
                         </control:ExtendedEntry>
                         <BoxView HeightRequest="0.5" Color="Black" />
                         <Label FontSize="Small" Text="{i18n:Translate PasswordLabel}" />
-                        <control:ExtendedEntry x:Name="passwordEntry" Text="{Binding Password}" FontSize="20" Placeholder="{i18n:Translate PasswordLabel}" Keyboard="Numeric"
+                        <control:ExtendedEntry x:Name="passwordEntry" Text="{Binding Password}" FontSize="20"
+                             Placeholder="{i18n:Translate PasswordLabel}" Keyboard="Numeric"
                              Completed="Handle_PasswordEntryCompletedAsync" IsPassword="false">
                             <Entry.Effects>
                                 <effects:BorderlessEntryEffect />
@@ -50,9 +55,24 @@
                         </control:ExtendedEntry>
                         <BoxView HeightRequest="0.5" Color="Black" />
                         <StackLayout Margin="0, 25, 0, 0">
-                            <control:MaterialButton IsVisible="{Binding IsLoggingIn, Converter={StaticResource inverter}" Margin="30, 0, 30, 30"
-                                 Text="{i18n:Translate ContinueButton}" Style="{StaticResource defaultButtonStyle}" Command="{Binding LoginCommand}" />
-                            <control:MaterialButton IsVisible="{Binding IsLoggingIn}" Margin="30, 0, 30, 30" Text="{i18n:Translate LoggingInWaitMessage}"
+                            <Label Margin="0, 0, 0, 10">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{i18n:Translate AgreementPart1}" />
+                                        <Span Text=" " />
+                                        <Span Text="{i18n:Translate AgreementPart2}" ForegroundColor="Blue">
+                                            <Span.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding OpenAgreementCommand}" />
+                                            </Span.GestureRecognizers>
+                                        </Span>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <control:MaterialButton IsVisible="{Binding IsLoggingIn, Converter={StaticResource inverter}"
+                                 Margin="30, 0, 30, 30" Text="{i18n:Translate ContinueButton}"
+                                 Style="{StaticResource defaultButtonStyle}" Command="{Binding LoginCommand}" />
+                            <control:MaterialButton IsVisible="{Binding IsLoggingIn}" Margin="30, 0, 30, 30"
+                                 Text="{i18n:Translate LoggingInWaitMessage}"
                                  Style="{StaticResource inactiveButtonStyle}" />
                         </StackLayout>
                     </StackLayout>

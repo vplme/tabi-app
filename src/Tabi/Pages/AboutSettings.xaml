@@ -43,6 +43,15 @@
                         </Grid>
                         <control:SettingsSectionDivider />
                         <Grid Padding="{DynamicResource LargerPadding}" ColumnSpacing="0" BackgroundColor="White">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Style="{DynamicResource TabiListItemTextStyle}" Text="{i18n:Translate ApiClientIdLabel}" />
+                            <Label Grid.Column="1" VerticalTextAlignment="Center" Style="{DynamicResource TabiListItemDetailTextStyle}" Text="{Binding ApiClientId}" />
+                        </Grid>
+                        <control:SettingsSectionDivider />
+                        <Grid Padding="{DynamicResource LargerPadding}" ColumnSpacing="0" BackgroundColor="White">
                             <Grid.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding LicensesCommand}" />
                             </Grid.GestureRecognizers>
