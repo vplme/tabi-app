@@ -5680,5 +5680,95 @@ namespace Tabi.Resx {
                 return ResourceManager.GetString("AgreementLabel", resourceCulture);
             }
         }
+        
+        public static string WelcomeNote {
+            get {
+                return ResourceManager.GetString("WelcomeNote", resourceCulture);
+            }
+        }
+        
+        public static string ThanksNote {
+            get {
+                return ResourceManager.GetString("ThanksNote", resourceCulture);
+            }
+        }
+        
+        public static string NoSpecialQuestionAnswerLabel {
+            get {
+                return ResourceManager.GetString("NoSpecialQuestionAnswerLabel", resourceCulture);
+            }
+        }
+        
+        public static string NotApplicableQuestionAnswerLabel {
+            get {
+                return ResourceManager.GetString("NotApplicableQuestionAnswerLabel", resourceCulture);
+            }
+        }
+        
+        public static string DifferentAddressesQuestionAnswerLabel {
+            get {
+                return ResourceManager.GetString("DifferentAddressesQuestionAnswerLabel", resourceCulture);
+            }
+        }
+        
+        public static string DifferentTransportModesQuestionAnswerLabel {
+            get {
+                return ResourceManager.GetString("DifferentTransportModesQuestionAnswerLabel", resourceCulture);
+            }
+        }
+        
+        public static string DifferentTravelTimesQuestionAnswerLabel {
+            get {
+                return ResourceManager.GetString("DifferentTravelTimesQuestionAnswerLabel", resourceCulture);
+            }
+        }
+        
+        public static string DifferentTravelDurationQuestionAnswerLabel {
+            get {
+                return ResourceManager.GetString("DifferentTravelDurationQuestionAnswerLabel", resourceCulture);
+            }
+        }
+        
+        public static string DifferentTravelRoutesQuestionAnswerLabel {
+            get {
+                return ResourceManager.GetString("DifferentTravelRoutesQuestionAnswerLabel", resourceCulture);
+            }
+        }
+        
+        public static string YesQuestionAnswerLabel {
+            get {
+                return ResourceManager.GetString("YesQuestionAnswerLabel", resourceCulture);
+            }
+        }
+        
+        public static string NoQuestionAnswerLabel {
+            get {
+                return ResourceManager.GetString("NoQuestionAnswerLabel", resourceCulture);
+            }
+        }
+        
+        public static string TravelQuestionLabel {
+            get {
+                return ResourceManager.GetString("TravelQuestionLabel", resourceCulture);
+            }
+        }
+        
+        public static string NotesQuestionPlaceholderLabel {
+            get {
+                return ResourceManager.GetString("NotesQuestionPlaceholderLabel", resourceCulture);
+            }
+        }
+        
+        public static string NotesQuestionLabel {
+            get {
+                return ResourceManager.GetString("NotesQuestionLabel", resourceCulture);
+            }
+        }
+        
+        public static string PhoneQuestionLabel {
+            get {
+                return ResourceManager.GetString("PhoneQuestionLabel", resourceCulture);
+            }
+        }
     }
 }

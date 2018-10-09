@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-     xmlns:local="clr-namespace:Tabi;assembly=Tabi" xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+     xmlns:local="clr-namespace:Tabi;assembly=Tabi"
+     xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
      xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-     xmlns:control="clr-namespace:Tabi.Controls;assembly=Tabi" xmlns:i18n="clr-namespace:Tabi.Localization;assembly=Tabi"
-     ios:Page.UseSafeArea="true" NavigationPage.HasNavigationBar="False" x:Class="Tabi.Pages.OnBoarding.ThanksPage">
+     xmlns:control="clr-namespace:Tabi.Controls;assembly=Tabi"
+     xmlns:i18n="clr-namespace:Tabi.Localization;assembly=Tabi" ios:Page.UseSafeArea="true"
+     NavigationPage.HasNavigationBar="False" x:Class="Tabi.Pages.OnBoarding.ThanksPage">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
             <StackLayout.Padding>
@@ -23,10 +25,11 @@
                 </ffimageloadingsvg:SvgCachedImage>
                 <Label FontSize="30" HorizontalOptions="CenterAndExpand" Text="{i18n:Translate ThanksTitleLabel}" />
                 <Label FontSize="Medium" Margin="20, 0, 20, 0" Text="{i18n:Translate ThanksText}" />
+                <Label Margin="20,30,20,0" Text="{i18n:Translate ThanksNote}" />
             </StackLayout>
             <StackLayout VerticalOptions="End">
-                <control:MaterialButton Margin="30, 0, 30, 30" Text="{i18n:Translate ContinueButton}" Style="{StaticResource defaultButtonStyle}"
-                     Command="{Binding NextCommand}" />
+                <control:MaterialButton Margin="30, 0, 30, 30" Text="{i18n:Translate ContinueButton}"
+                     Style="{StaticResource defaultButtonStyle}" Command="{Binding NextCommand}" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

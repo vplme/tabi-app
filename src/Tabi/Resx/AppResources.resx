@@ -2946,4 +2946,49 @@
     <data name="AgreementLabel" xml:space="preserve">
         <value>Privacy Policy</value>
     </data>
+    <data name="WelcomeNote" xml:space="preserve">
+        <value>We willen u graag vragen zeven dagen lang uw verplaatsingen te laten meten en locaties, redenen en vervoermiddelen in te vullen. Data die na 4 december binnenkomen worden niet meer gebruikt voor het maken van statistieken. U kunt na de zeven dagen de app verwijderen.</value>
+    </data>
+    <data name="ThanksNote" xml:space="preserve">
+        <value>We willen u graag vragen zeven dagen lang uw verplaatsingen te laten meten en locaties, redenen en vervoermiddelen in te vullen. Data die na 4 december binnenkomen worden niet meer gebruikt voor het maken van statistieken. U kunt na de zeven dagen de app verwijderen.</value>
+    </data>
+    <data name="NoSpecialQuestionAnswerLabel" xml:space="preserve">
+        <value>Nee, er waren geen bijzonderheden</value>
+    </data>
+    <data name="NotApplicableQuestionAnswerLabel" xml:space="preserve">
+        <value>Niet van toepassing: iedere is voor mij</value>
+    </data>
+    <data name="DifferentAddressesQuestionAnswerLabel" xml:space="preserve">
+        <value>Ja, ik ging naar andere adressen</value>
+    </data>
+    <data name="DifferentTransportModesQuestionAnswerLabel" xml:space="preserve">
+        <value>Ja, ik heb gebruikgemaakt van andere vervoermiddelen</value>
+    </data>
+    <data name="DifferentTravelTimesQuestionAnswerLabel" xml:space="preserve">
+        <value>Ja, ik heb gereisd op andere tijdstippen</value>
+    </data>
+    <data name="DifferentTravelDurationQuestionAnswerLabel" xml:space="preserve">
+        <value>Ja, de reisduur was anders</value>
+    </data>
+    <data name="DifferentTravelRoutesQuestionAnswerLabel" xml:space="preserve">
+        <value>Ja, de route was anders</value>
+    </data>
+    <data name="YesQuestionAnswerLabel" xml:space="preserve">
+        <value>Ja</value>
+    </data>
+    <data name="NoQuestionAnswerLabel" xml:space="preserve">
+        <value>Nee</value>
+    </data>
+    <data name="TravelQuestionLabel" xml:space="preserve">
+        <value>Opmerkingen over deze dag?</value>
+    </data>
+     <data name="NotesQuestionPlaceholderLabel" xml:space="preserve">
+        <value>Vul hier uw opmerkingen in</value>
+    </data>
+    <data name="NotesQuestionLabel" xml:space="preserve">
+        <value>Heeft u op deze dag anders gereisd dan normaal?</value>
+    </data>
+    <data name="PhoneQuestionLabel" xml:space="preserve">
+        <value>Had u bij alle verplaatsingen op uw telefoon bij u?</value>
+    </data>
 </root>

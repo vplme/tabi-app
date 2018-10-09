@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Input;
 using Autofac;
 using Tabi.Controls;
+using Tabi.Controls.MultiSelectListView;
 using Tabi.Resx;
 using Tabi.ViewModels;
 using Xamarin.Forms;
@@ -30,6 +31,27 @@ namespace Tabi.Pages
             cancelToolbarItem.SetBinding(ExtendedToolbarItem.CommandProperty, "CancelCommand");
             ToolbarItems.Add(cancelToolbarItem);
 
+            ViewModel.PhoneItems.CollectionChanged += Items_CollectionChanged;
+            ViewModel.TravelItems.CollectionChanged += Items_CollectionChanged;
+
+        }
+
+        void Items_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            AdjustListViewHeight(SelectListView, ViewModel.TravelItems);
+            AdjustListViewHeight(SelectListView2, ViewModel.PhoneItems);
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            ViewModel.LoadExistingQuestions();
+        }
+
+        void AdjustListViewHeight(ListView listView, SelectableObservableCollection<SelectionKeyItem> list)
+        {
+            var adjust = Xamarin.Forms.Device.RuntimePlatform != Xamarin.Forms.Device.Android ? 1 : -list.Count + 1;
+            listView.HeightRequest = (list.Count * listView.RowHeight) - adjust;
         }
     }
 }

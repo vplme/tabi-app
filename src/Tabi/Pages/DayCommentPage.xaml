@@ -1,16 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:local="clr-namespace:Tabi;assembly=Tabi" xmlns:i18n="clr-namespace:Tabi.Localization;assembly=Tabi"
-     xmlns:control="clr-namespace:Tabi.Controls;assembly=Tabi" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Tabi.Pages.DayCommentPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:local="clr-namespace:Tabi;assembly=Tabi"
+     xmlns:i18n="clr-namespace:Tabi.Localization;assembly=Tabi"
+     xmlns:control="clr-namespace:Tabi.Controls;assembly=Tabi" xmlns:effects="clr-namespace:Tabi.Effects;assembly=Tabi"
+     xmlns:multiSelectListView="clr-namespace:Tabi.Controls.MultiSelectListView;assembly=Tabi"
+     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Tabi.Pages.DayCommentPage">
     <ContentPage.Content>
         <StackLayout Padding="10,10,10,10">
-            <Label Text="Opmerkingen over deze dag?"/>
-            <Entry  />
-            <Button Text="{i18n:Translate SaveText}" Command="{Binding SaveCommand}" Margin="10,0,10,0" Style="{StaticResource defaultButtonStyle}">
+            <Label Text="{i18n:Translate NotesQuestionLabel}" />
+            <Frame x:Name="FrameExtContainer" Padding="0.5,0.5,0.5,0.5" HasShadow="False"
+                 HorizontalOptions="FillAndExpand" CornerRadius="3" OutlineColor="Black" BackgroundColor="Black">
+                <Frame x:Name="FrameIntContainer" Padding="1,1,1,1" HasShadow="False" HorizontalOptions="FillAndExpand"
+                     CornerRadius="3" OutlineColor="Black" BackgroundColor="White">
+                    <Editor Placeholder="{i18n:Translate NotesQuestionPlaceholderLabel}" Text="{Binding Notes}" />
+                </Frame>
+            </Frame>
+            <Label Text="{i18n:Translate TravelQuestionLabel}" />
+            <Frame Padding="0.5,0.5,0.5,0.5" HasShadow="False" HorizontalOptions="FillAndExpand" CornerRadius="3"
+                 OutlineColor="Black" BackgroundColor="Black">
+                <Frame Padding="1,1,1,1" HasShadow="False" HorizontalOptions="FillAndExpand" CornerRadius="3"
+                     OutlineColor="Black" BackgroundColor="White">
+                    <ListView x:Name="SelectListView" Margin="0" ItemsSource="{Binding TravelItems}"
+                         multiSelectListView:MultiSelectListView.IsMultiSelect="true">
+                        <ListView.SeparatorColor>
+                            <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}" />
+                        </ListView.SeparatorColor>
+                        <ListView.Effects>
+                            <effects:NoScrollListViewEffect />
+                        </ListView.Effects>
+                        <ListView.RowHeight>
+                            <OnPlatform x:TypeArguments="x:Int32">
+                                <On Platform="iOS">50</On>
+                                <On Platform="Android">60</On>
+                            </OnPlatform>
+                        </ListView.RowHeight>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <multiSelectListView:SelectableViewCell>
+                                    <!-- set the selected indicator (optional) -->
+                                    <multiSelectListView:SelectableViewCell.CheckView>
+                                        <Image WidthRequest="50" HeightRequest="50">
+                                            <Image.Source>
+                                                <OnPlatform x:TypeArguments="FileImageSource">
+                                                    <OnPlatform.iOS>ic_check_circle</OnPlatform.iOS>
+                                                    <OnPlatform.Android>ic_check_circle_black_24dp</OnPlatform.Android>
+                                                </OnPlatform>
+                                            </Image.Source>
+                                        </Image>
+                                    </multiSelectListView:SelectableViewCell.CheckView>
+                                    <multiSelectListView:SelectableViewCell.DataView>
+                                        <Label Text="{Binding Item}" />
+                                    </multiSelectListView:SelectableViewCell.DataView>
+                                </multiSelectListView:SelectableViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Frame>
+            </Frame>
+            <Label Text="{i18n:Translate PhoneQuestionLabel}" />
+            <Frame Padding="0.5,0.5,0.5,0.5" HasShadow="False" HorizontalOptions="FillAndExpand" CornerRadius="3"
+                 OutlineColor="Black" BackgroundColor="Black">
+                <Frame Padding="1,1,1,1" HasShadow="False" HorizontalOptions="FillAndExpand" CornerRadius="3"
+                     OutlineColor="Black" BackgroundColor="White">
+                    <ListView x:Name="SelectListView2" Margin="0" ItemsSource="{Binding PhoneItems}"
+                         multiSelectListView:MultiSelectListView.IsMultiSelect="true">
+                        <ListView.SeparatorColor>
+                            <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}" />
+                        </ListView.SeparatorColor>
+                        <ListView.Effects>
+                            <effects:NoScrollListViewEffect />
+                        </ListView.Effects>
+                        <ListView.RowHeight>
+                            <OnPlatform x:TypeArguments="x:Int32">
+                                <On Platform="iOS">50</On>
+                                <On Platform="Android">60</On>
+                            </OnPlatform>
+                        </ListView.RowHeight>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <multiSelectListView:SelectableViewCell>
+                                    <!-- set the selected indicator (optional) -->
+                                    <multiSelectListView:SelectableViewCell.CheckView>
+                                        <Image WidthRequest="50" HeightRequest="50">
+                                            <Image.Source>
+                                                <OnPlatform x:TypeArguments="FileImageSource">
+                                                    <OnPlatform.iOS>ic_check_circle</OnPlatform.iOS>
+                                                    <OnPlatform.Android>ic_check_circle_black_24dp</OnPlatform.Android>
+                                                </OnPlatform>
+                                            </Image.Source>
+                                        </Image>
+                                    </multiSelectListView:SelectableViewCell.CheckView>
+                                    <multiSelectListView:SelectableViewCell.DataView>
+                                        <Label Text="{Binding Item}" />
+                                    </multiSelectListView:SelectableViewCell.DataView>
+                                </multiSelectListView:SelectableViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Frame>
+            </Frame>
+            <Button Text="{i18n:Translate SaveText}" Command="{Binding SaveCommand}" Margin="10,0,10,0"
+                 Style="{StaticResource defaultButtonStyle}">
                 <Button.IsVisible>
                     <OnPlatform x:TypeArguments="x:Boolean" iOS="false" Android="true" />
                 </Button.IsVisible>
             </Button>
         </StackLayout>
-        
     </ContentPage.Content>
 </ContentPage>

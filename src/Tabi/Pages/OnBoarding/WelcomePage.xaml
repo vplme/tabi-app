@@ -23,6 +23,7 @@
                 </ffimageloadingsvg:SvgCachedImage>
                 <Label FontSize="30" HorizontalOptions="CenterAndExpand" Text="{i18n:Translate WelcomeTitleLabel}" />
                 <Label FontSize="Medium" Margin="20, 0, 20, 0" Text="{i18n:Translate IntroWelcomeText}" />
+                <Label Margin="20,30,20,0" Text="{i18n:Translate WelcomeNote}" />
             </StackLayout>
             <StackLayout VerticalOptions="End">
                 <control:MaterialButton Margin="30, 0, 30, 30" Text="{i18n:Translate ContinueButton}" Style="{StaticResource defaultButtonStyle}"
