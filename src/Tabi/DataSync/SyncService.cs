@@ -106,6 +106,7 @@ namespace Tabi.DataSync
                     UploadBatteryInfo(GatherBatteryEntries()),
                     UploadStopMotives(GatherStopMotives()),
                     UploadTrackMotives(GatherTrackMotives()),
+                    UploadQuestions(GatherQuestions()),
 
                     UploadAndRemoveGravityData(),
                     UploadAndRemoveGyroscopeData(),
@@ -969,6 +970,53 @@ namespace Tabi.DataSync
                 else
                 {
                     Log.Error($"Tried to send {trackEntries.Count} trackEntries but failed");
+                }
+            }
+            else
+            {
+                success = true;
+            }
+
+            return success;
+
+        }
+
+        public List<Question> GatherQuestions()
+        {
+            DateTimeOffset lastUpload = TimeKeeper.GetPreviousDone(UploadType.Question);
+            List<Question> questions = _repoManager.QuestionRepository.After(lastUpload).ToList();
+
+            return questions;
+        }
+
+
+        public async Task<bool> UploadQuestions(List<Question> questions)
+        {
+            bool success = false;
+
+            if (questions.Any())
+            {
+                //gets tracks that are completed and between lastuploadtime and LastCompletedTrackEntry
+
+                // convert to trackDTO
+                List<TabiApiClient.Models.Question> apiModels = questions.Select(entry => entry.ToApiModel()).ToList();
+                try
+                {
+                    success = await _apiClient.PostQuestions(Settings.Current.Device, apiModels);
+                }
+                catch (Exception e)
+                {
+                    Crashes.TrackError(e, new Dictionary<string, string>() { { "Device ID", Settings.Current.Device.ToString() } });
+                    Log.Error("Could not upload questions " + e);
+                }
+                if (success)
+                {
+                    TimeKeeper.SetDone(UploadType.Question, questions.Last().Timestamp, apiModels.Count);
+
+                }
+                else
+                {
+                    Log.Error($"Tried to send {questions.Count} questions but failed");
                 }
             }
             else

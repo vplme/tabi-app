@@ -37,6 +37,7 @@ namespace Tabi.DataObjects
         MotionSensor,
         Orientation,
         Quaternion,
-        SensorMeasurementSession
+        SensorMeasurementSession,
+        Question
     }
 }
