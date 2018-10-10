@@ -322,7 +322,7 @@
         <value>Vul de naam van de huidige locatie in en vul de reden (motief) van de locatie in. Deze naam is slechts bedoeld als hulpmiddel voor uzelf.</value>
     </data>
     <data name="StopMotivePageTitle" xml:space="preserve">
-        <value>Locatiemotief</value>
+        <value>Locatie reden</value>
     </data>
     <data name="LoadingDataLabel" xml:space="preserve">
         <value>Data laden...</value>
