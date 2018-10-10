@@ -8,7 +8,7 @@
         <ScrollView BackgroundColor="{DynamicResource WindowBackgroundTable}">
             <StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}" Spacing="{DynamicResource CardSpacing}"
                  Padding="{DynamicResource CardPadding}">
-                <Entry Text="{Binding SearchText}" Margin="10,10,10,10" FontSize="Medium" HorizontalTextAlignment="Center" Placeholder="Search here">
+                <Entry Text="{Binding SearchText}" Margin="10,10,10,10" FontSize="Medium" HorizontalTextAlignment="Center" Placeholder="{i18n:Translate SearchMotivePlaceholder}">
                     <Entry.Effects>
                         <effects:BorderlessEntryEffect />
                     </Entry.Effects>

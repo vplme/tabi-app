@@ -923,6 +923,12 @@ namespace Tabi.Resx {
             }
         }
         
+        public static string SearchMotivePlaceholder {
+            get {
+                return ResourceManager.GetString("SearchMotivePlaceholder", resourceCulture);
+            }
+        }
+        
         public static string CreateCustomMotive {
             get {
                 return ResourceManager.GetString("CreateCustomMotive", resourceCulture);

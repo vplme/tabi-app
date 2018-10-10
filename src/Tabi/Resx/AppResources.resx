@@ -565,7 +565,10 @@
         <value>Other...</value>
     </data>
     <data name="SearchMotivesLabel" xml:space="preserve">
-        <value>Search motives</value>
+        <value>Search reasons</value>
+    </data>
+    <data name="SearchMotivePlaceholder" xml:space="preserve">
+        <value>Search reason</value>
     </data>
     <data name="CreateCustomMotive" xml:space="preserve">
         <value>Use "{0}"</value>

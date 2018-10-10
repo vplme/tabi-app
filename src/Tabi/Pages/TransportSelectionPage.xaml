@@ -9,7 +9,7 @@
                  Padding="{DynamicResource CardPadding}">
                 <control:CardView>
                     <StackLayout Spacing="0">
-                        <control:LabelSection Text="{i18n:Translate SearchMotivesLabel}" />
+                        <control:LabelSection Text="{i18n:Translate TransportSelectionPageTitle}" />
                         <control:HeaderDivider />
                         <ListView x:Name="TransportModeListView" Margin="0" ItemsSource="{Binding Items}"
                              multiSelectListView:MultiSelectListView.IsMultiSelect="true">
