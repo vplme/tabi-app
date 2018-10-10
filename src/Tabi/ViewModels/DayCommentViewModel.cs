@@ -16,9 +16,9 @@ namespace Tabi.ViewModels
     {
         private readonly IRepoManager _repoManager;
         private readonly DateService _dateService;
-        private const string NotesQuestion = "DAY-NOTES";
-        private const string TravelQuestion = "DAY-TRAVEL";
-        private const string PhoneQuestion = "DAY-PHONE";
+        public const string NotesQuestion = "DAY-NOTES";
+        public const string TravelQuestion = "DAY-TRAVEL";
+        public const string PhoneQuestion = "DAY-PHONE";
 
 
         public DayCommentViewModel(INavigation navigation, DateService dateService, IRepoManager repoManager)

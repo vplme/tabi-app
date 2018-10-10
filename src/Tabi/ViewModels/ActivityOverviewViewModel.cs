@@ -316,6 +316,14 @@ namespace Tabi.ViewModels
             }
 
             SetDataFromDateService();
+
+            Question previousTravelQuestion = _repoManager.QuestionRepository.GetLastWithDateTime(DayCommentViewModel.TravelQuestion, SelectedDate);
+           
+            Question previousPhoneQuestion = _repoManager.QuestionRepository.GetLastWithDateTime(DayCommentViewModel.PhoneQuestion, SelectedDate);
+            if (previousPhoneQuestion != null && previousTravelQuestion != null)
+            {
+                Completed = true;
+            }
         }
     }
 }
