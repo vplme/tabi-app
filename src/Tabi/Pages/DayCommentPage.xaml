@@ -11,7 +11,16 @@
                  HorizontalOptions="FillAndExpand" CornerRadius="3" OutlineColor="Black" BackgroundColor="Black">
                 <Frame x:Name="FrameIntContainer" Padding="1,1,1,1" HasShadow="False" HorizontalOptions="FillAndExpand"
                      CornerRadius="3" OutlineColor="Black" BackgroundColor="White">
-                    <Editor Placeholder="{i18n:Translate NotesQuestionPlaceholderLabel}" Text="{Binding Notes}" />
+                    <Editor AutoSize="TextChanges" Placeholder="{i18n:Translate NotesQuestionPlaceholderLabel}"
+                         Text="{Binding Notes}">
+                        <Editor.Keyboard>
+                            <Keyboard x:FactoryMethod="Create">
+                                <x:Arguments>
+                                    <KeyboardFlags>CapitalizeSentence</KeyboardFlags>
+                                </x:Arguments>
+                            </Keyboard>
+                        </Editor.Keyboard>
+                    </Editor>
                 </Frame>
             </Frame>
             <Label Text="{i18n:Translate TravelQuestionLabel}" />
