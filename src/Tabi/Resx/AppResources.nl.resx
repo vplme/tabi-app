@@ -2869,13 +2869,13 @@
         <value>Nee</value>
     </data>
     <data name="TravelQuestionLabel" xml:space="preserve">
-        <value>Opmerkingen over deze dag?</value>
+        <value>Heeft u op deze dag anders gereisd dan normaal?</value>
     </data>
-     <data name="NotesQuestionPlaceholderLabel" xml:space="preserve">
+    <data name="NotesQuestionPlaceholderLabel" xml:space="preserve">
         <value>Vul hier uw opmerkingen in</value>
     </data>
     <data name="NotesQuestionLabel" xml:space="preserve">
-        <value>Heeft u op deze dag anders gereisd dan normaal?</value>
+        <value>Opmerkingen over deze dag?</value>
     </data>
     <data name="PhoneQuestionLabel" xml:space="preserve">
         <value>Had u bij alle verplaatsingen op uw telefoon bij u?</value>
