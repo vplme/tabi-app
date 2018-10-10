@@ -13,7 +13,7 @@ namespace Tabi.Controls.MultiSelectListView
         {
             rootGrid = new Grid
             {
-                Padding = 12,
+                Padding = 8,
                 ColumnDefinitions =
                 {
                     new ColumnDefinition { Width = GridLength.Star },

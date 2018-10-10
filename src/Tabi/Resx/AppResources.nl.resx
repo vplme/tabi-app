@@ -283,7 +283,7 @@
         <value>Bedankt!</value>
     </data>
     <data name="ThanksText" xml:space="preserve">
-        <value>Als u nog vragen hebt kunt u contact opnemen met: WINhelpdesk@cbs.nl</value>
+        <value>Bedankt voor het installeren van de verplaatsingen app van het Centraal Bureau voor de Statistiek.</value>
     </data>
     <data name="Yesterday" xml:space="preserve">
         <value>Gisteren</value>
@@ -2838,8 +2838,11 @@
     <data name="WelcomeNote" xml:space="preserve">
         <value>We willen u graag vragen zeven dagen lang uw verplaatsingen te laten meten en locaties, redenen en vervoermiddelen in te vullen. Data die na 4 december binnenkomen worden niet meer gebruikt voor het maken van statistieken. U kunt na de zeven dagen de app verwijderen.</value>
     </data>
-    <data name="ThanksNote" xml:space="preserve">
-        <value>We willen u graag vragen zeven dagen lang uw verplaatsingen te laten meten en locaties, redenen en vervoermiddelen in te vullen. Data die na 4 december binnenkomen worden niet meer gebruikt voor het maken van statistieken. U kunt na de zeven dagen de app verwijderen.</value>
+    <data name="ThanksNote1" xml:space="preserve">
+        <value>Heeft u vragen? Zie cbs.nl/verplaatsingen, mail naar winhelpdesk@cbs.nl of bel 070-3374002.</value>
+    </data>
+    <data name="ThanksNote2" xml:space="preserve">
+        <value>U kunt na de zeven dagen van het onderzoek de app verwijderen. Data die na 4 december binnenkomen gebruiken wij niet meer voor het maken van statistieken.</value>
     </data>
     <data name="NoSpecialQuestionAnswerLabel" xml:space="preserve">
         <value>Nee, er waren geen bijzonderheden</value>
@@ -2872,7 +2875,7 @@
         <value>Heeft u op deze dag anders gereisd dan normaal?</value>
     </data>
     <data name="NotesQuestionPlaceholderLabel" xml:space="preserve">
-        <value>Vul hier uw opmerkingen in</value>
+        <value>Vul hier uw opmerkingen in (bijv. batterij was leeg)</value>
     </data>
     <data name="NotesQuestionLabel" xml:space="preserve">
         <value>Opmerkingen over deze dag?</value>

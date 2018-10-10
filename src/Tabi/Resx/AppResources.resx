@@ -388,7 +388,7 @@
         <value>Thank you!</value>
     </data>
     <data name="ThanksText" xml:space="preserve">
-        <value>If you have any questions you can contact us here: WINhelpdesk@cbs.nl</value>
+        <value>Thanks for installing the travel study app from Statistics Netherlands (Centraal Bureau voor de Statistiek)</value>
     </data>
     <data name="Yesterday" xml:space="preserve">
         <value>Yesterday</value>
@@ -2949,8 +2949,11 @@
     <data name="WelcomeNote" xml:space="preserve">
         <value>We willen u graag vragen zeven dagen lang uw verplaatsingen te laten meten en locaties, redenen en vervoermiddelen in te vullen. Data die na 4 december binnenkomen worden niet meer gebruikt voor het maken van statistieken. U kunt na de zeven dagen de app verwijderen.</value>
     </data>
-    <data name="ThanksNote" xml:space="preserve">
-        <value>We willen u graag vragen zeven dagen lang uw verplaatsingen te laten meten en locaties, redenen en vervoermiddelen in te vullen. Data die na 4 december binnenkomen worden niet meer gebruikt voor het maken van statistieken. U kunt na de zeven dagen de app verwijderen.</value>
+    <data name="ThanksNote1" xml:space="preserve">
+        <value>Questions? Visit cbs.nl/verplaatsingen (Dutch), email winhelpdesk@cbs.nl or call 070-3374002.</value>
+    </data>
+    <data name="ThanksNote2" xml:space="preserve">
+        <value>U kunt na de zeven dagen van het onderzoek de app verwijderen. Data die na 4 december binnenkomen gebruiken wij niet meer voor het maken van statistieken.</value>
     </data>
     <data name="NoSpecialQuestionAnswerLabel" xml:space="preserve">
         <value>Nee, er waren geen bijzonderheden</value>

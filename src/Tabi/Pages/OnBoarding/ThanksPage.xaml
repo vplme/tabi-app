@@ -25,7 +25,8 @@
                 </ffimageloadingsvg:SvgCachedImage>
                 <Label FontSize="30" HorizontalOptions="CenterAndExpand" Text="{i18n:Translate ThanksTitleLabel}" />
                 <Label FontSize="Medium" Margin="20, 0, 20, 0" Text="{i18n:Translate ThanksText}" />
-                <Label Margin="20,30,20,0" Text="{i18n:Translate ThanksNote}" />
+                <Label Margin="20,20,20,0" Text="{i18n:Translate ThanksNote1}" />
+                <Label Margin="20,20,20,0" Text="{i18n:Translate ThanksNote2}" />
             </StackLayout>
             <StackLayout VerticalOptions="End">
                 <control:MaterialButton Margin="30, 0, 30, 30" Text="{i18n:Translate ContinueButton}"

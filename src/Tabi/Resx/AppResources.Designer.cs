@@ -5687,9 +5687,15 @@ namespace Tabi.Resx {
             }
         }
         
-        public static string ThanksNote {
+        public static string ThanksNote1 {
             get {
-                return ResourceManager.GetString("ThanksNote", resourceCulture);
+                return ResourceManager.GetString("ThanksNote1", resourceCulture);
+            }
+        }
+        
+        public static string ThanksNote2 {
+            get {
+                return ResourceManager.GetString("ThanksNote2", resourceCulture);
             }
         }
         

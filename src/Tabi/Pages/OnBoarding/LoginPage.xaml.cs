@@ -24,7 +24,6 @@ namespace Tabi.Pages.OnBoarding
 
         async void Handle_PasswordEntryCompletedAsync(object sender, System.EventArgs e)
         {
-            await ViewModel.Login();
         }
     }
 }
