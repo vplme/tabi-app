@@ -320,10 +320,7 @@ namespace Tabi.ViewModels
             Question previousTravelQuestion = _repoManager.QuestionRepository.GetLastWithDateTime(DayCommentViewModel.TravelQuestion, SelectedDate);
            
             Question previousPhoneQuestion = _repoManager.QuestionRepository.GetLastWithDateTime(DayCommentViewModel.PhoneQuestion, SelectedDate);
-            if (previousPhoneQuestion != null && previousTravelQuestion != null)
-            {
-                Completed = true;
-            }
+            Completed = previousPhoneQuestion != null && previousTravelQuestion != null;
         }
     }
 }
