@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Tabi.DataObjects\Tabi.DataObjects.csproj" />
     <ProjectReference Include="..\Tabi.Logic\Tabi.Logic.csproj" />
+    <ProjectReference Include="..\Tabi.Logic.Test\Tabi.Logic.Test.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.2.4" />

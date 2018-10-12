@@ -26,7 +26,16 @@ namespace Tabi.Logic.Test
         [Fact]
         public void TestDistanceBetweenPoints()
         {
-            StopResolver stopResolver = new StopResolver(TimeSpan.FromMinutes(5), 30, 400, 50, 200);
+            StopResolverConfig conf = new StopResolverConfig()
+            {
+                Time = 5,
+                GroupRadius = 30,
+                MinStopAccuracy = 400,
+                StopMergeRadius = 50,
+                StopMergeMaxTravelRadius = 200,
+            };
+
+            StopResolver stopResolver = new StopResolver(conf);
 
             PositionEntry p1 = new PositionEntry() { Latitude = 52.083333, Longitude = 5.116667 };
             PositionEntry p2 = new PositionEntry() { Latitude = 52.083333, Longitude = 4.316667 };
@@ -41,7 +50,16 @@ namespace Tabi.Logic.Test
         {
             var records = LoadPositionsFromCsv("position_entries_public_sample.csv");
 
-            StopResolver stopResolver = new StopResolver(TimeSpan.FromMinutes(4), 20, 400, 50, 200);
+            StopResolverConfig conf = new StopResolverConfig()
+            {
+                Time = 4,
+                GroupRadius = 20,
+                MinStopAccuracy = 400,
+                StopMergeRadius = 50,
+                StopMergeMaxTravelRadius = 200,
+            };
+
+            StopResolver stopResolver = new StopResolver(conf);
 
             IList<ResolvedStop> stops = stopResolver.ResolveStops(records);
 
@@ -58,7 +76,17 @@ namespace Tabi.Logic.Test
         {
             var records = LoadPositionsFromCsv("position_entries_public_sample.csv");
 
-            StopResolver stopResolver = new StopResolver(TimeSpan.FromHours(4), 20, 400, 50, 200);
+
+            StopResolverConfig conf = new StopResolverConfig()
+            {
+                Time = 4,
+                GroupRadius = 20,
+                MinStopAccuracy = 400,
+                StopMergeRadius = 50,
+                StopMergeMaxTravelRadius = 200,
+            };
+
+            StopResolver stopResolver = new StopResolver(conf);
 
             IList<ResolvedStop> stops = stopResolver.ResolveStops(records);
 
