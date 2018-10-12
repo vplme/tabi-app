@@ -11,7 +11,9 @@ namespace Tabi.DataSync
     {
         public static void Init(IEnumerable<string> publicKeys)
         {
-            keyList.AddRange(publicKeys);
+            if (publicKeys != null){
+                keyList.AddRange(publicKeys);
+            }
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             ServicePointManager.DefaultConnectionLimit = 8;
             ServicePointManager.ServerCertificateValidationCallback = ValidateServerCertificate;

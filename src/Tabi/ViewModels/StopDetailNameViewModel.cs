@@ -16,12 +16,12 @@ namespace Tabi.ViewModels
         private readonly IRepoManager _repoManager;
         private readonly INavigation _navigation;
         private readonly StopVisitViewModel _stopVisitViewModel;
-        private readonly UserInterfaceConfiguration _userInterfaceConfiguration;
+        private readonly IUserInterfaceConfiguration _userInterfaceConfiguration;
         private bool saved;
         private bool nameChanged;
         private Stop useExistingStop;
 
-        public StopDetailNameViewModel(IRepoManager repoManager, INavigation navigation, UserInterfaceConfiguration userInterfaceConfiguration, StopVisitViewModel stopVisitViewModel)
+        public StopDetailNameViewModel(IRepoManager repoManager, INavigation navigation, IUserInterfaceConfiguration userInterfaceConfiguration, StopVisitViewModel stopVisitViewModel)
 
         {
             _repoManager = repoManager ?? throw new ArgumentNullException(nameof(repoManager));

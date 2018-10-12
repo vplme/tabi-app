@@ -146,6 +146,28 @@ namespace TabiApiClient
             return dm;
         }
 
+        public async Task<string> GetDeviceConfig(int id)
+        {
+            string path = PrefixApiPath($"/user/{userId}/device/{id}/config");
+            string data = null;
+
+            try
+            {
+                HttpResponseMessage response = await client.GetAsync(path);
+                if (response.IsSuccessStatusCode)
+                {
+                    data = await response.Content.ReadAsStringAsync();
+                }
+
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+
+            return data;
+        }
+
         public async Task<bool> Ping(int timeout = 10)
         {
             bool result = false;

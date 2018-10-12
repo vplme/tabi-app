@@ -11,7 +11,7 @@ namespace Tabi.ViewModels
 
         public StopDetailMotiveViewModel(IRepoManager repoManager,
                                          INavigation navigation,
-                                         TabiConfiguration configuration,
+                                         ITabiConfiguration configuration,
                                          StopMotiveViewModel motiveViewModel,
                                          MotiveSelectionViewModel motiveSelectionViewModel) : base(repoManager, navigation, configuration, motiveSelectionViewModel)
         {

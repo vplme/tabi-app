@@ -66,6 +66,9 @@
     <Compile Update="Resx\AppResources.nl.Designer.cs">
       <DependentUpon>AppResources.nl.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Config\default.json">
+      <LogicalName>default.json</LogicalName>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Remove="Config\*.json" />
@@ -86,6 +89,7 @@
     <Folder Include="Files\" />
     <Folder Include="Files\ResourceFilesSupport\" />
     <Folder Include="ViewModels\Boarding\" />
+    <Folder Include="Files\LocalFilesSupport\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tabi.DataStorage\Tabi.DataStorage.csproj" />

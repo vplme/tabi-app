@@ -20,12 +20,12 @@ namespace Tabi.ViewModels
         private readonly IRepoManager _repoManager;
         private readonly INavigation _navigation;
         private readonly TrackEntry _trackEntry;
-        private readonly MotiveConfiguration _motiveConfig;
+        private readonly IMotiveConfiguration _motiveConfig;
 
         private ListItem _motiveListItem;
 
 
-        public TrackDetailViewModel(IRepoManager repoManager, INavigation navigation, MotiveConfiguration motiveConfig, TrackEntry trackEntry)
+        public TrackDetailViewModel(IRepoManager repoManager, INavigation navigation, IMotiveConfiguration motiveConfig, TrackEntry trackEntry)
         {
             _repoManager = repoManager ?? throw new ArgumentNullException(nameof(repoManager));
             _navigation = navigation ?? throw new ArgumentNullException(nameof(navigation));

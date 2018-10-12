@@ -10,11 +10,11 @@ namespace Tabi.ViewModels
     public class SearchMotiveViewModel : BaseViewModel
     {
         private readonly INavigation _navigation;
-        private readonly TabiConfiguration _configuration;
+        private readonly ITabiConfiguration _configuration;
         private readonly MotiveSelectionViewModel _motiveSelectionViewModel;
 
 
-        public SearchMotiveViewModel(TabiConfiguration configuration, INavigation navigation, MotiveSelectionViewModel motiveSelectionViewModel)
+        public SearchMotiveViewModel(ITabiConfiguration configuration, INavigation navigation, MotiveSelectionViewModel motiveSelectionViewModel)
         {
 
             _navigation = navigation ?? throw new ArgumentNullException(nameof(navigation));

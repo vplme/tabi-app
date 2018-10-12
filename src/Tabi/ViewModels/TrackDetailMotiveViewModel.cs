@@ -11,7 +11,7 @@ namespace Tabi.ViewModels
 
         public TrackDetailMotiveViewModel(IRepoManager repoManager,
                                           INavigation navigation,
-                                          TabiConfiguration configuration,
+                                          ITabiConfiguration configuration,
                                           TrackMotiveViewModel motiveViewModel,
                                           MotiveSelectionViewModel motiveSelectionViewModel) : base(repoManager, navigation, configuration, motiveSelectionViewModel)
         {

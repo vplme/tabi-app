@@ -8,9 +8,9 @@ namespace Tabi.ViewModels
     public abstract class AbstractMotiveViewModel : ObservableObject
     {
         protected readonly Motive _motive;
-        protected readonly MotiveConfiguration _motiveConfiguration;
+        protected readonly IMotiveConfiguration _motiveConfiguration;
 
-        public AbstractMotiveViewModel(Motive motive, MotiveConfiguration motiveConfiguration)
+        public AbstractMotiveViewModel(Motive motive, IMotiveConfiguration motiveConfiguration)
         {
             _motive = motive ?? throw new ArgumentNullException(nameof(motive));
             _motiveConfiguration = motiveConfiguration ?? throw new ArgumentNullException(nameof(motiveConfiguration));

@@ -19,9 +19,9 @@ namespace Tabi.ViewModels
         private readonly IRepoManager _repoManager;
         private readonly INavigation _navigation;
         private readonly TrackEntry _trackEntry;
-        private readonly TransportationModeConfiguration _transportConfig;
+        private readonly ITransportationModeConfiguration _transportConfig;
 
-        public TransportSelectionViewModel(IRepoManager repoManager, INavigation navigation, TransportationModeConfiguration transportConfiguration, TrackEntry trackEntry)
+        public TransportSelectionViewModel(IRepoManager repoManager, INavigation navigation, ITransportationModeConfiguration transportConfiguration, TrackEntry trackEntry)
         {
             _repoManager = repoManager ?? throw new ArgumentNullException(nameof(repoManager));
             _navigation = navigation ?? throw new ArgumentNullException(nameof(navigation));
@@ -49,7 +49,7 @@ namespace Tabi.ViewModels
             SetActualTransportModes();
         }
 
-        public TransportationModeConfiguration TransportModeConfiguration => _transportConfig;
+        public ITransportationModeConfiguration TransportModeConfiguration => _transportConfig;
 
         public ICommand SaveCommand { get; set; }
 

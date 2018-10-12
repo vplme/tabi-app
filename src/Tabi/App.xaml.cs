@@ -28,6 +28,8 @@ using Tabi.Pages;
 using Tabi.Pages.OnBoarding;
 using Tabi.Resx;
 using Tabi.Sensors;
+using XEFileSystem = Xamarin.Essentials.FileSystem;
+using System.IO;
 
 namespace Tabi
 {
@@ -35,8 +37,10 @@ namespace Tabi
     {
         private static IContainer _container;
 
+        private static LayeredConfiguration _layeredConfig;
+
         public static IContainer Container { get => _container; }
-        
+
         public static bool DebugMode
         {
             get; private set;
@@ -56,20 +60,43 @@ namespace Tabi
 
         static App()
         {
-            IConfiguration configuration = RetrieveConfiguration();
-            TabiConfig = ConvertTabiConfiguration(configuration);
+            TabiConfig = ConvertTabiConfiguration();
         }
 
-        private static IConfiguration RetrieveConfiguration()
+        private static IConfiguration RetrieveConfiguration(string filename)
         {
-            var builder = new ConfigurationBuilder().AddJsonFile(new ResourceFileProvider(), "config.json", false, false);
+            var builder = new ConfigurationBuilder().AddJsonFile(new ResourceFileProvider(), filename, false, false);
             return builder.Build();
+
+
         }
 
-        private static TabiConfiguration ConvertTabiConfiguration(IConfiguration configuration)
+        private static void ReloadStoredRemoteConfig()
         {
-            TabiConfiguration config = configuration.Get<TabiConfiguration>();
-            return config;
+            IConfiguration storedConfig = RemoteConfigService.LoadStoredConfiguration();
+            if (storedConfig != null)
+            {
+                TabiConfiguration deviceConfig = storedConfig.Get<TabiConfiguration>();
+                _layeredConfig.AddConfiguration(1, deviceConfig);
+            }
+
+        }
+
+        private static TabiConfiguration ConvertTabiConfiguration()
+        {
+            TabiConfiguration config = RetrieveConfiguration("config.json").Get<TabiConfiguration>();
+            TabiConfiguration def = RetrieveConfiguration("default.json").Get<TabiConfiguration>();
+
+            _layeredConfig = new LayeredConfiguration();
+
+
+            _layeredConfig.AddConfiguration(10, def);
+            _layeredConfig.AddConfiguration(5, config);
+            ReloadStoredRemoteConfig();
+
+            TabiConfiguration combined = new TabiConfiguration(_layeredConfig);
+
+            return combined;
         }
 
         public App(IModule[] platformSpecificModules)
@@ -149,15 +176,14 @@ namespace Tabi
                             .WithParameter("gzip", TabiConfig.Api.GzipRequests);
 
             TabiConfig.ConfigureContainer(containerBuilder);
+            Action updateAct = App.ReloadStoredRemoteConfig;
+            containerBuilder.RegisterType<RemoteConfigService>()
+                            .WithParameter("hasBeenUpdated", updateAct)
+                            .WithParameter("deviceId", Settings.Current.Device);
 
             containerBuilder.RegisterType<DateService>().SingleInstance();
             containerBuilder.RegisterType<DataResolver>();
             containerBuilder.RegisterType<StopResolver>()
-                            .WithParameter("time", TimeSpan.FromMinutes(3))
-                            .WithParameter("groupRadius", 80)
-                            .WithParameter("minStopAccuracy", "80")
-                            .WithParameter("stopMergeRadius", 100)
-                            .WithParameter("stopMergeMaxTravelRadius", 300)
                             .As<IStopResolver>();
 
             containerBuilder.RegisterType<DbLogWriter>();
@@ -205,7 +231,7 @@ namespace Tabi
             }
         }
 
-        private void SetupAppCenter(MobileCenterConfiguration mobileCenterConfiguration)
+        private void SetupAppCenter(IMobileCenterConfiguration mobileCenterConfiguration)
         {
             if (!string.IsNullOrEmpty(mobileCenterConfiguration.ApiKey))
             {
@@ -395,7 +421,11 @@ namespace Tabi
 
         protected override void OnStart()
         {
+
             Log.Info("App.OnStart");
+
+            var remoteconfig = Container.Resolve<RemoteConfigService>();
+            remoteconfig.UpdateRemoteConfig();
         }
 
         protected override void OnSleep()

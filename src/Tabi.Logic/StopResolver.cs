@@ -7,11 +7,7 @@ namespace Tabi.Logic
 {
     public class StopResolver : IStopResolver
     {
-        readonly TimeSpan _time;
-        readonly double _groupRadius;
-        readonly double _minStopAccuracy;
-        readonly double _stopMergeRadius;
-        readonly double _stopMergeMaxTravelRadius;
+        private readonly IStopResolverConfiguration _configuration;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:Tabi.Logic.StopResolver"/> class.
@@ -20,13 +16,9 @@ namespace Tabi.Logic
         /// <param name="groupRadius">Radius for a stop to be resolved.</param>
         /// <param name="stopMergeRadius">Maximum distance to other stop to allow merging</param>
         /// <param name="stopMergeMaxTravelRadius">Maximum distance previously travelled for stop to be merged</param>
-        public StopResolver(TimeSpan time, double groupRadius, double minStopAccuracy, double stopMergeRadius, double stopMergeMaxTravelRadius)
+        public StopResolver(IStopResolverConfiguration configuration)
         {
-            _time = time;
-            _groupRadius = groupRadius;
-            _stopMergeRadius = stopMergeRadius;
-            _minStopAccuracy = minStopAccuracy;
-            _stopMergeMaxTravelRadius = stopMergeMaxTravelRadius;
+            _configuration = configuration;
         }
 
         public IList<ResolvedStop> ResolveStops(IList<PositionEntry> positions)
@@ -80,7 +72,7 @@ namespace Tabi.Logic
                     foreach (var positionInGroup in lastGroup)
                     {
                         double distance = DistanceWithoutAccuracy(positionInGroup, pe);
-                        if (distance > _groupRadius)
+                        if (distance > _configuration.GroupRadius)
                         {
                             positionBelongsInGroup = false;
                             break;
@@ -199,9 +191,9 @@ namespace Tabi.Logic
 
             foreach (PositionGroup grp in groupedPositionEntries)
             {
-
+                TimeSpan time = TimeSpan.FromMinutes(_configuration.Time);
                 // Create Stop
-                if (grp.TimeSpent >= _time && grp.MinAccuracy <= _minStopAccuracy)
+                if (grp.TimeSpent >= time && grp.MinAccuracy <= _configuration.MinStopAccuracy)
                 {
                     ResolvedStop sv = ResolvedStopFromPositions(grp.Positions);
 
@@ -209,12 +201,12 @@ namespace Tabi.Logic
                     bool mergePreviousStop = previousResolvedStop != null;
 
                     // Distance between the current stop and previous stop are lower than the stopMergeRadius 
-                    mergePreviousStop = mergePreviousStop && CheckSameLocation(sv, previousResolvedStop, _stopMergeRadius);
+                    mergePreviousStop = mergePreviousStop && CheckSameLocation(sv, previousResolvedStop, _configuration.StopMergeRadius);
 
                     // Travelled distance between previous stop and current stop is lower than the _stopMergeMaxTravelRadius
-                    if(previousResolvedTrip != null)
+                    if (previousResolvedTrip != null)
                     {
-                        mergePreviousStop = mergePreviousStop && previousResolvedTrip?.DistanceTravelled < _stopMergeMaxTravelRadius;
+                        mergePreviousStop = mergePreviousStop && previousResolvedTrip?.DistanceTravelled < _configuration.StopMergeMaxTravelRadius;
                     }
 
                     if (mergePreviousStop)

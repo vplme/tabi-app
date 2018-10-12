@@ -5,7 +5,7 @@ namespace Tabi.ViewModels
 {
     public class TrackMotiveViewModel : AbstractMotiveViewModel
     {
-        public TrackMotiveViewModel(Motive motive, MotiveConfiguration motiveConfiguration) : base(motive, motiveConfiguration)
+        public TrackMotiveViewModel(Motive motive, IMotiveConfiguration motiveConfiguration) : base(motive, motiveConfiguration)
         {
         }
 

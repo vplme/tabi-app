@@ -5,7 +5,7 @@ namespace Tabi.ViewModels
 {
     public class StopMotiveViewModel : AbstractMotiveViewModel
     {
-        public StopMotiveViewModel(Motive motive, MotiveConfiguration motiveConfiguration) : base(motive, motiveConfiguration)
+        public StopMotiveViewModel(Motive motive, IMotiveConfiguration motiveConfiguration) : base(motive, motiveConfiguration)
         {
         }
 

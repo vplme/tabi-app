@@ -13,7 +13,7 @@ namespace Tabi.ViewModels
     {
 
         protected readonly IRepoManager _repoManager;
-        protected readonly TabiConfiguration _configuration;
+        protected readonly ITabiConfiguration _configuration;
 
         protected readonly INavigation _navigation;
         protected readonly MotiveSelectionViewModel _motiveSelectionViewModel;
@@ -23,7 +23,7 @@ namespace Tabi.ViewModels
 
         protected DetailMotiveViewModel(IRepoManager repoManager,
                                          INavigation navigation,
-                                         TabiConfiguration configuration,
+                                         ITabiConfiguration configuration,
                                      MotiveSelectionViewModel motiveSelectionViewModel)
         {
             _navigation = navigation ?? throw new ArgumentNullException(nameof(navigation));

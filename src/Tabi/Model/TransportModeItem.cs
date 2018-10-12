@@ -13,7 +13,7 @@ namespace Tabi.Model
 
         }
 
-        public static List<TransportModeItem> GetPossibleTransportModes(TransportationModeConfiguration configuration)
+        public static List<TransportModeItem> GetPossibleTransportModes(ITransportationModeConfiguration configuration)
         {
             List<TransportModeItem> items = new List<TransportModeItem>();
 

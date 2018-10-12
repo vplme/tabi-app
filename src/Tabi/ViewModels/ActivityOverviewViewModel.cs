@@ -22,7 +22,7 @@ namespace Tabi.ViewModels
     {
         public ObservableCollection<ActivityEntry> ActivityEntries { get; } = new ObservableCollection<ActivityEntry>();
 
-        private readonly MotiveConfiguration _motiveConfiguration;
+        private readonly IMotiveConfiguration _motiveConfiguration;
         private readonly INavigation _navigation;
         private readonly DataResolver _dataResolver;
         private readonly DateService _dateService;
@@ -126,7 +126,7 @@ namespace Tabi.ViewModels
             }
         }
 
-        public ActivityOverviewViewModel(MotiveConfiguration motiveConfiguration, INavigation navigation, DateService dateService, IRepoManager repoManager, DataResolver dataResolver)
+        public ActivityOverviewViewModel(IMotiveConfiguration motiveConfiguration, INavigation navigation, DateService dateService, IRepoManager repoManager, DataResolver dataResolver)
         {
             _motiveConfiguration = motiveConfiguration ?? throw new ArgumentNullException(nameof(motiveConfiguration));
             _navigation = navigation ?? throw new ArgumentNullException(nameof(navigation));

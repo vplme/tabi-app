@@ -17,7 +17,7 @@ namespace Tabi.ViewModels
         private readonly IRepoManager _repoManager;
         private readonly StopVisit _stopVisit;
         private readonly INavigation _navigation;
-        private readonly MotiveConfiguration _motiveConfig;
+        private readonly IMotiveConfiguration _motiveConfig;
 
         private ListItem _nameListItem;
 
@@ -25,7 +25,7 @@ namespace Tabi.ViewModels
 
         public ObservableRangeCollection<ListItem> DataItems { get; private set; }
 
-        public StopDetailViewModel(MotiveConfiguration motiveConfig, IRepoManager repoManager, INavigation navigation, StopVisit stopVisit)
+        public StopDetailViewModel(IMotiveConfiguration motiveConfig, IRepoManager repoManager, INavigation navigation, StopVisit stopVisit)
         {
             _repoManager = repoManager ?? throw new ArgumentNullException(nameof(repoManager));
             _stopVisit = stopVisit ?? throw new ArgumentNullException(nameof(stopVisit));
