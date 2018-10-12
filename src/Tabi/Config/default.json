@@ -1,0 +1,195 @@
+{
+    "App": {
+        "AppName": "Tabi",
+        "Developer": false,
+        "LicensesUrl": "https://gitlab.com/tabi/tabi-app/tree/master/third_party_licenses",
+        "AgreementUrl": "https://tabiapp.eu"
+    },
+    "MobileCenter": {
+        "Enabled": true,
+        "Distribute": false,
+        "Analytics": true,
+        "Crashes": true,
+        "ShouldAskConfirmation": false,
+        "DisableAnalyticsOption": true,
+        "DisableCrashesOption": true,
+        "ApiKey": ""
+    },
+    "Api": {
+        "Url": "http://192.168.1.227:8000",
+        "CertificateKeys": [],
+        "ClientIdentifier": "Tabi-App",
+        "ClientKey": "default",
+        "Timeout": 10,
+        "SyncInterval": 15,
+        "GzipRequests": true
+    },
+    "SensorMeasurements": {
+        "Enabled": false,
+        "UserAdjustable": false
+    },
+    "Logging": {
+        "LogLevel": "info"
+    },
+    "UserInterface": {
+        "StopNameReplaceAllEnabled": true,
+        "SuggestPossibleNearbyStopsEnabled": true,
+        "SuggestPossibleNearbyStopsDistance": 200,
+        "SuggestPossibleNearbyStopsCount": 2,
+        "ShowNotificationOnAppTermination": true
+    },
+    "Support": {
+        "Available": false,
+        "PhoneNumber": "000",
+        "DisplayPhoneNumber": "phone#",
+        "Email": "email",
+        "EmailSubject": "Tabi App Feedback",
+        "Url": "https://www.tabiapp.eu",
+        "DisplayUrl": "tabiapp.eu"
+    },
+    "Motive": {
+        "Stops": true,
+        "Tracks": false,
+        "Options": [
+            {
+                "Id": "Home",
+                "Text": "Home (Not applicable)"
+            },
+            {
+                "Id": "Transfer",
+                "Text": "Transfer"
+            },
+            {
+                "Id": "LocationIncorrect",
+                "Text": "Location is incorrect"
+            },
+            {
+                "Id": "PaidWork",
+                "Text": "Paid work, business"
+            },
+            {
+                "id": "UnpaidWork",
+                "Text": "Unpaid work"
+            },
+            {
+                "id": "Eduction",
+                "Text": "Education, courses"
+            },
+            {
+                "id": "Shopping",
+                "Text": "Shopping, getting groceries"
+            },
+            {
+                "id": "Visit",
+                "Text": "Visit"
+            },
+            {
+                "id": "Sport",
+                "Text": "Sport (as player or as viewer)"
+            },
+            {
+                "id": "GetBringPersons",
+                "Text": "Get or bring persons"
+            },
+            {
+                "id": "GetBringGoods",
+                "Text": "Get or bring goods"
+            },
+            {
+                "id": "Other",
+                "Text": "Other"
+            }
+        ],
+        "OtherOptions": [
+            {
+                "id": "volunteering",
+                "Text": "Volunteering"
+            },
+            {
+                "id": "informal_care",
+                "Text": "Informal care"
+            },
+            {
+                "id": "personal_care",
+                "Text": "Personal care (hairdresser, beautician)"
+            },
+            {
+                "id": "doctor",
+                "Text": "Visit to doctor, therapist or medical specialist"
+            },
+            {
+                "id": "religion",
+                "Text": "Service or gathering in church, mosque, temple"
+            },
+            {
+                "id": "tour",
+                "Text": "Touring, walking, bike ride"
+            },
+            {
+                "id": "hobby",
+                "Text": "Hobby"
+            },
+            {
+                "id": "going_out",
+                "Text": "Going out, museum, cinema, concert, festival"
+            },
+            {
+                "id": "catering",
+                "Text": " Catering (including take-away)"
+            },
+            {
+                "id": "holidays",
+                "Text": "Holidays"
+            }
+        ]
+    },
+    "TransportMode": {
+        "CustomTransportModes": true,
+        "Options": [
+            {
+                "Id": "Walk",
+                "Text": "On foot"
+            },
+            {
+                "Id": "BikeNonElectric",
+                "Text": "Bike, non electric"
+            },
+            {
+                "id": "BikeElectric",
+                "Text": "Bike, electric"
+            },
+            {
+                "id": "PublicBus",
+                "Text": "Bus (public transport only)"
+            },
+            {
+                "id": "Tram",
+                "Text": "Tram"
+            },
+            {
+                "id": "Metro",
+                "Text": "Metro"
+            },
+            {
+                "id": "Train",
+                "Text": "Train"
+            },
+            {
+                "id": "CarDriver",
+                "Text": "Car as driver"
+            },
+            {
+                "id": "CarPassenger",
+                "Text": "Car as passenger"
+            },
+            {
+                "id": "Van",
+                "Text": "Van"
+            },
+            {
+                "id": "Motorbike",
+                "Text": "Motorbike"
+            }
+        ]
+    }
+}
