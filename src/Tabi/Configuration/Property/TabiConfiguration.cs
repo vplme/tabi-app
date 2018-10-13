@@ -114,7 +114,7 @@ namespace Tabi
 
         public void ConfigureContainer(ContainerBuilder builder)
         {
-            builder.RegisterInstance(this);
+            builder.RegisterInstance((ITabiConfiguration)this);
             builder.RegisterInstance(MobileCenter);
             builder.RegisterInstance(Notifications);
             builder.RegisterInstance(Support);
