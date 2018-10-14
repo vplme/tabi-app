@@ -28,6 +28,15 @@
         "Enabled": false,
         "UserAdjustable": false
     },
+    "StopResolver":  {
+        "Enabled": true,
+        "UserAdjustable": false,
+        "Time":3,
+        "GroupRadius": 80,
+        "MinStopAccuracy": 80,
+        "StopMergeRadius": 100,
+        "StopMergeMaxTravelRadius": 300
+    },
     "Logging": {
         "LogLevel": "info"
     },
