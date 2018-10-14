@@ -27,7 +27,7 @@ namespace Tabi.ViewModels
         private readonly DataResolver _dataResolver;
         private readonly DateService _dateService;
         private readonly IRepoManager _repoManager;
-
+        private readonly RemoteConfigService _remoteConfigService;
         private readonly static SemaphoreSlim semaphore;
 
         static ActivityOverviewViewModel()
@@ -126,13 +126,14 @@ namespace Tabi.ViewModels
             }
         }
 
-        public ActivityOverviewViewModel(IMotiveConfiguration motiveConfiguration, INavigation navigation, DateService dateService, IRepoManager repoManager, DataResolver dataResolver)
+        public ActivityOverviewViewModel(IMotiveConfiguration motiveConfiguration, RemoteConfigService remoteConfigService, INavigation navigation, DateService dateService, IRepoManager repoManager, DataResolver dataResolver)
         {
             _motiveConfiguration = motiveConfiguration ?? throw new ArgumentNullException(nameof(motiveConfiguration));
             _navigation = navigation ?? throw new ArgumentNullException(nameof(navigation));
             _dataResolver = dataResolver ?? throw new ArgumentNullException(nameof(dataResolver));
             _dateService = dateService ?? throw new ArgumentNullException(nameof(dateService));
             _repoManager = repoManager ?? throw new ArgumentNullException(nameof(repoManager));
+            _remoteConfigService = remoteConfigService ?? throw new ArgumentNullException(nameof(remoteConfigService));
 
             SettingsCommand = new Command(async () =>
             {
@@ -314,6 +315,8 @@ namespace Tabi.ViewModels
                 Page tPage = new TourVideoPage();
                 await _navigation.PushModalAsync(tPage);
             }
+
+            await _remoteConfigService.UpdateRemoteConfig(Settings.Device).ConfigureAwait(false);
 
             SetDataFromDateService();
 

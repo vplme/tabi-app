@@ -425,7 +425,7 @@ namespace Tabi
             Log.Info("App.OnStart");
 
             var remoteconfig = Container.Resolve<RemoteConfigService>();
-            remoteconfig.UpdateRemoteConfig();
+            remoteconfig.UpdateRemoteConfig(Settings.Current.Device);
         }
 
         protected override void OnSleep()

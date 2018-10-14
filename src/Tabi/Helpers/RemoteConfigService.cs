@@ -12,25 +12,23 @@ namespace Tabi.Helpers
     public class RemoteConfigService
     {
         private readonly ApiClient _apiClient;
-        private readonly int _deviceId;
         private readonly Action _updatedAction;
 
-        public RemoteConfigService(ApiClient apiClient, int deviceId, Action hasBeenUpdated = null)
+        public RemoteConfigService(ApiClient apiClient, Action hasBeenUpdated = null)
         {
             _apiClient = apiClient ?? throw new ArgumentNullException(nameof(apiClient));
-            _deviceId = deviceId;
             _updatedAction = hasBeenUpdated;
         }
 
-        public async Task UpdateRemoteConfig()
+        public async Task UpdateRemoteConfig(int deviceId)
         {
             bool available = await _apiClient.Ping();
 
-            if (available && _deviceId != 0)
+            if (available && deviceId != 0)
             {
                 await _apiClient.Authenticate(Settings.Current.Username, Settings.Current.Password);
 
-                string config = await _apiClient.GetDeviceConfig(_deviceId);
+                string config = await _apiClient.GetDeviceConfig(deviceId);
                 WriteConfiguration(config);
                 if (_updatedAction != null)
                 {
