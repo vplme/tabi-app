@@ -549,13 +549,9 @@
     <AndroidResource Include="Resources\drawable-nodpi\splash.png" />
     <AndroidResource Include="Resources\drawable-nodpi\splash_screen.xml" />
     <AndroidResource Include="Resources\drawable-nodpi\tabi.svg" />
-    <AndroidResource Include="Resources\raw\tour_video_settings_en.mp4" />
     <AndroidResource Include="Resources\raw\tour_video_settings_nl.mp4" />
-    <AndroidResource Include="Resources\raw\tour_video_stop_motive_en.mp4" />
     <AndroidResource Include="Resources\raw\tour_video_stop_motive_nl.mp4" />
-    <AndroidResource Include="Resources\raw\tour_video_stop_name_en.mp4" />
     <AndroidResource Include="Resources\raw\tour_video_stop_name_nl.mp4" />
-    <AndroidResource Include="Resources\raw\tour_video_transportmode_en.mp4" />
     <AndroidResource Include="Resources\raw\tour_video_transportmode_nl.mp4" />
     <AndroidResource Include="Resources\drawable-mdpi\tabi_check.png" />
     <AndroidResource Include="Resources\drawable-mdpi\tabi_delete.png" />

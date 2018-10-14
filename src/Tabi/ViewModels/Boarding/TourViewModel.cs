@@ -21,36 +21,38 @@ namespace Tabi.ViewModels
             // P3 (screenshot iPhone) converted to --> Srgb
             BackgroundColor = Color.FromHex("#0296BF");
 
+            string langCode = "nl"; //AppResources.LangCode;
+
             tourItems.Add(new TourItem()
             {
                 Title = AppResources.StopTourTitle,
                 Text = AppResources.StopTourText,
-                Gif = $"stop_50_{AppResources.LangCode}.gif",
-                Video = $"tour_video_stop_name_{AppResources.LangCode}.mp4",
+                Gif = $"stop_50_{langCode}.gif",
+                Video = $"tour_video_stop_name_{langCode}.mp4",
             });
 
             tourItems.Add(new TourItem()
             {
                 Title = AppResources.MotiveTourTitle,
                 Text = AppResources.MotiveTourText,
-                Gif = $"motive_50_{AppResources.LangCode}.gif",
-                Video = $"tour_video_stop_motive_{AppResources.LangCode}.mp4",
+                Gif = $"motive_50_{langCode}.gif",
+                Video = $"tour_video_stop_motive_{langCode}.mp4",
             });
 
             tourItems.Add(new TourItem()
             {
                 Title = AppResources.TransportModeTourTitle,
                 Text = AppResources.TransportModeTourText,
-                Gif = $"transport_50_{AppResources.LangCode}.gif",
-                Video = $"tour_video_transportmode_{AppResources.LangCode}.mp4"
+                Gif = $"transport_50_{langCode}.gif",
+                Video = $"tour_video_transportmode_{langCode}.mp4"
             });
 
             tourItems.Add(new TourItem()
             {
                 Title = AppResources.SettingsTourTitle,
                 Text = AppResources.SettingsTourText,
-                Gif = $"settings_50_{AppResources.LangCode}.gif",
-                Video = $"tour_video_settings_{AppResources.LangCode}.mp4"
+                Gif = $"settings_50_{langCode}.gif",
+                Video = $"tour_video_settings_{langCode}.mp4"
             });
 
             NextCommand = new Command(async () =>
