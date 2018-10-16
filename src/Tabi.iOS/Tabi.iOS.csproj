@@ -201,6 +201,7 @@
     <BundleResource Include="Resources\tabi_delete.png" />
     <BundleResource Include="Resources\tabi_undotrash%402x.png" />
     <BundleResource Include="Resources\tabi_undotrash.png" />
+    <BundleResource Include="Resources\tour_video_day_comment_nl.mp4" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SQLiteNetExtensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
