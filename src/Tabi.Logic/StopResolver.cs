@@ -9,13 +9,6 @@ namespace Tabi.Logic
     {
         private readonly IStopResolverConfiguration _configuration;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="T:Tabi.Logic.StopResolver"/> class.
-        /// </summary>
-        /// <param name="time">Time in an area for it to be a stop.</param>
-        /// <param name="groupRadius">Radius for a stop to be resolved.</param>
-        /// <param name="stopMergeRadius">Maximum distance to other stop to allow merging</param>
-        /// <param name="stopMergeMaxTravelRadius">Maximum distance previously travelled for stop to be merged</param>
         public StopResolver(IStopResolverConfiguration configuration)
         {
             _configuration = configuration;
@@ -56,6 +49,8 @@ namespace Tabi.Logic
         /// <returns>List of grouped positions</returns>
         public IList<PositionGroup> GroupPositions(IList<PositionEntry> positions)
         {
+            int groupRadius = _configuration.GroupRadius;
+
             IEnumerable<PositionEntry> orderedPositions = positions.OrderBy(p => p.Timestamp);
 
             IList<PositionGroup> groupedPositions = new List<PositionGroup>();
@@ -72,7 +67,7 @@ namespace Tabi.Logic
                     foreach (var positionInGroup in lastGroup)
                     {
                         double distance = DistanceWithoutAccuracy(positionInGroup, pe);
-                        if (distance > _configuration.GroupRadius)
+                        if (distance > groupRadius)
                         {
                             positionBelongsInGroup = false;
                             break;
