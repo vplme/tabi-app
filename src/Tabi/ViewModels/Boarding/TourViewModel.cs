@@ -49,11 +49,20 @@ namespace Tabi.ViewModels
 
             tourItems.Add(new TourItem()
             {
+                Title = AppResources.DayCommentTourTitle,
+                Text = AppResources.DayCommentTourText,
+                Gif = $"settings_50_{langCode}.gif",
+                Video = $"tour_video_day_comment_{langCode}.mp4"
+            });
+
+            tourItems.Add(new TourItem()
+            {
                 Title = AppResources.SettingsTourTitle,
                 Text = AppResources.SettingsTourText,
                 Gif = $"settings_50_{langCode}.gif",
                 Video = $"tour_video_settings_{langCode}.mp4"
             });
+            
 
             NextCommand = new Command(async () =>
             {

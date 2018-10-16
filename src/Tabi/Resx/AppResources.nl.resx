@@ -2886,4 +2886,10 @@
     <data name="PhoneQuestionLabel" xml:space="preserve">
         <value>Had u bij alle verplaatsingen op deze dag uw telefoon bij u?</value>
     </data>
+    <data name="DayCommentTourTitle" xml:space="preserve">
+        <value>Beantwoord per dag drie vragen</value>
+    </data>
+    <data name="DayCommentTourText" xml:space="preserve">
+        <value>Opmerkingen, bijzonderheden en smartphone gebruik</value>
+    </data>
 </root>

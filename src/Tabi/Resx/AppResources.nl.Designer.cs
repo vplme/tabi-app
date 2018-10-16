@@ -5770,5 +5770,17 @@ namespace Tabi.Resx {
                 return ResourceManager.GetString("PhoneQuestionLabel", resourceCulture);
             }
         }
+        
+        public static string DayCommentTourTitle {
+            get {
+                return ResourceManager.GetString("DayCommentTourTitle", resourceCulture);
+            }
+        }
+        
+        public static string DayCommentTourText {
+            get {
+                return ResourceManager.GetString("DayCommentTourText", resourceCulture);
+            }
+        }
     }
 }

@@ -2997,4 +2997,10 @@
     <data name="PhoneQuestionLabel" xml:space="preserve">
         <value>Had u bij alle verplaatsingen op uw telefoon bij u?</value>
     </data>
+    <data name="DayCommentTourTitle" xml:space="preserve">
+        <value>Answer three questions per day</value>
+    </data>
+    <data name="DayCommentTourText" xml:space="preserve">
+        <value>Comments, exceptions and smartphone usage</value>
+    </data>
 </root>
