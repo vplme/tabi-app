@@ -562,6 +562,7 @@
     <AndroidResource Include="Resources\drawable-hdpi\tabi_edit.png" />
     <AndroidResource Include="Resources\drawable-hdpi\tabi_undotrash.png" />
     <AndroidResource Include="Resources\raw\tour_video_day_comment_nl.mp4" />
+    <AndroidResource Include="Resources\values\app-values.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Tabbar.axml" />
