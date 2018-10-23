@@ -154,7 +154,7 @@
         <value>Er wordt gebruik gemaakt van mobiele data om de gegevens te versturen. Uw provider kan u mogelijk extra kosten in rekening brengen.</value>
     </data>
     <data name="UploadDataErrorText" xml:space="preserve">
-        <value>Kon data niet uploaden. Neem contact op met WINhelpdesk@cbs.nl als u dit probleem blijft houden.</value>
+        <value>Kon data niet uploaden. Neem contact op met contactcenter@cbs.nl als u dit probleem blijft houden.</value>
     </data>
     <data name="UploadDataInProgress" xml:space="preserve">
         <value>Data uploaden...</value>
@@ -331,7 +331,7 @@
         <value>Verbindingsfout</value>
     </data>
     <data name="APIUnavailableText" xml:space="preserve">
-        <value>Kon geen verbinding maken. Neem contact op met WINhelpdesk@cbs.nl als dit zo blijft.</value>
+        <value>Kon geen verbinding maken. Neem contact op met contactcenter@cbs.nl als dit zo blijft.</value>
     </data>
     <data name="ApiUrlLabel" xml:space="preserve">
         <value>API URL</value>
@@ -2842,7 +2842,7 @@
         <value>We willen u graag vragen zeven dagen lang uw verplaatsingen te laten meten en locaties, redenen en vervoermiddelen in te vullen. Data die na 4 december binnenkomen worden niet meer gebruikt voor het maken van statistieken. U kunt na de zeven dagen de app verwijderen.</value>
     </data>
     <data name="ThanksNote1" xml:space="preserve">
-        <value>Heeft u vragen? Zie cbs.nl/verplaatsingen, mail naar winhelpdesk@cbs.nl of bel 045-57066272.</value>
+        <value>Heeft u vragen? Zie cbs.nl/verplaatsingen, mail naar contactcenter@cbs.nl of bel 045-57066272.</value>
     </data>
     <data name="ThanksNote2" xml:space="preserve">
         <value>U kunt na de zeven dagen van het onderzoek de app verwijderen. Data die na 4 december binnenkomen gebruiken wij niet meer voor het maken van statistieken.</value>
