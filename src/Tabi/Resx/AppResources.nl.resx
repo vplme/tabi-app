@@ -49,7 +49,7 @@
         <comment>Version</comment>
     </data>
     <data name="ServiceTitle" xml:space="preserve">
-        <value>Tabi</value>
+        <value>CBS Verplaatsingen</value>
         <comment>Title used in the notification for the foreground service</comment>
     </data>
     <data name="ServiceText" xml:space="preserve">
@@ -85,10 +85,10 @@
         <value>Verder</value>
     </data>
     <data name="IntroWelcomeTitle" xml:space="preserve">
-        <value>Tabi</value>
+        <value>CBS Verplaatsingen</value>
     </data>
     <data name="IntroWelcomeText" xml:space="preserve">
-        <value>Welkom bij de Verplaatsingen app.</value>
+        <value>Welkom bij de CBS Verplaatsingen app.</value>
     </data>
     <data name="ErrorOccurredTitle" xml:space="preserve">
         <value>Fout</value>
@@ -2713,7 +2713,7 @@
         <value>Verplaatsingen meten is niet actief</value>
     </data>
     <data name="StartAppReminderText" xml:space="preserve">
-        <value>Tabi moet open zijn om verplaatsingen te meten. Open alstublieft de Tabi Verplaatsingen.</value>
+        <value>CBS Verplaatsingen moet open zijn om verplaatsingen te meten. Open alstublieft de CBS Verplaatsingen app.</value>
     </data>
     <data name="AnalyticsSwitchLabel" xml:space="preserve">
         <value>Analytics</value>

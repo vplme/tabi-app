@@ -154,7 +154,7 @@
         <comment>Version</comment>
     </data>
     <data name="ServiceTitle" xml:space="preserve">
-        <value>Tabi</value>
+        <value>CBS Verplaatsingen</value>
         <comment>Title used in the notification for the foreground service</comment>
     </data>
     <data name="ServiceText" xml:space="preserve">
@@ -190,10 +190,10 @@
         <value>Continue</value>
     </data>
     <data name="IntroWelcomeTitle" xml:space="preserve">
-        <value>Tabi</value>
+        <value>CBS Verplaatsingen</value>
     </data>
     <data name="IntroWelcomeText" xml:space="preserve">
-        <value>Welcome to the Tabi Verplaatsingen app.</value>
+        <value>Welcome to the CBS Verplaatsingen app.</value>
     </data>
     <data name="ErrorOccurredTitle" xml:space="preserve">
         <value>Error</value>
@@ -514,7 +514,7 @@
         <value>Select a location and set a name.</value>
     </data>
     <data name="MotiveTourTitle" xml:space="preserve">
-        <value>Reason.</value>
+        <value>Reason</value>
     </data>
     <data name="MotiveTourText" xml:space="preserve">
         <value>Select a location and specify what you did there.</value>
@@ -2818,7 +2818,7 @@
         <value>Movement tracking is not active</value>
     </data>
     <data name="StartAppReminderText" xml:space="preserve">
-        <value>Tabi needs to be open for it to track your movements. Please open the Tabi Verplaatsingen app.</value>
+        <value>CBS Verplaatsingen needs to be open for it to track your movements. Please open the CBS Verplaatsingen app.</value>
     </data>
     <data name="AnalyticsSwitchLabel" xml:space="preserve">
         <value>Analytics</value>
