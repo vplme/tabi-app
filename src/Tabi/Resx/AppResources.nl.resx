@@ -460,10 +460,10 @@
         <value>Iets anders, namelijk..</value>
     </data>
     <data name="SearchMotivesLabel" xml:space="preserve">
-        <value>Zoek reden</value>
+        <value>Vul uw reden in</value>
     </data>
     <data name="SearchMotivePlaceholder" xml:space="preserve">
-        <value>Zoek reden</value>
+        <value>Vul uw reden in</value>
     </data>
     <data name="CreateCustomMotive" xml:space="preserve">
         <value>Gebruik "{0}"</value>
