@@ -57,6 +57,7 @@ namespace Tabi.DataSync
             {
                 Identifier = question.QuestionKey,
                 Answer = question.Answer,
+                QuestionDate = question.QuestionDate,
                 Timestamp = question.Timestamp
             };
         }

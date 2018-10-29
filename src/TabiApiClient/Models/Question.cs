@@ -7,6 +7,8 @@ namespace TabiApiClient.Models
 
         public string Answer { get; set; }
 
+        public DateTimeOffset QuestionDate { get; set; }
+
         public DateTimeOffset Timestamp { get; set; }
     }
 }
